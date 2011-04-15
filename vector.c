@@ -5,6 +5,7 @@
 
 int VEC_I_START_SZ = 50;
 int VEC_D_START_SZ = 50;
+int VEC_START_SZ = 20;
 int VEC_S_START_SZ = 20;
 
 
@@ -529,8 +530,169 @@ void free_vecs(vector_s* vec)
 
 
 
+/*  general vector */
+
+vector* vec(int sz, int elem_sz)
+{
+	vector* vec;
+	if( !(vec = calloc(1, sizeof(vector))) ) {
+
+		STDERR("Error allocating memory\n");
+		return NULL;
+	}
+
+	vec->capacity = ( sz ) ? sz + VEC_START_SZ : VEC_START_SZ;
+
+	vec->elem_size = elem_sz;
+
+	if( !(vec->a = calloc(vec->capacity, elem_sz)) ) {
+		STDERR("Error allocating memory\n");
+
+		return NULL;
+	}
+
+	vec->size = sz;
+	return vec;
+}
 
 
+
+// Initialize vector with contents of val (num elements)
+// or if vals is NULL set capacity to num+VEC_START_SZ
+vector* init_vec(void* vals, int num, int elem_sz)
+{
+	vector* vec;
+	if( !(vec = calloc(1, sizeof(vector))) ) {
+
+		STDERR("Error allocating memory\n");
+
+		return NULL;
+	}
+
+	vec->elem_size = elem_sz;
+
+	if( vals && num>0 ) {
+		vec->capacity = num+50;
+		vec->size = num;
+		if( !(vec->a = calloc(vec->capacity, elem_sz)) ) {
+			STDERR("Error allocating memory\n");
+			return NULL;
+		}
+
+		memcpy(vec->a, vals, elem_sz*num);
+	} else if( !vals && num>0 ) {
+		vec->capacity = num;
+		if( !(vec->a = calloc(vec->capacity, elem_sz)) ) {
+			STDERR("Error allocating memory\n");
+			return NULL;
+		}
+	} else
+		return NULL;
+
+	return vec;
+}
+
+
+
+int push_back(vector* vec, void* a)
+{
+	if( vec->capacity > vec->size ) {
+
+		memcpy(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
+		vec->size++;
+
+	} else {
+		vec->capacity *= 2;
+		if( !(vec->a = realloc(vec->a, vec->elem_size*vec->capacity)) ) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+
+		memcpy(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
+		vec->size++;
+	}
+	return 1;
+}
+
+
+//maybe I should add a return parameter, check for null etc.
+void pop_back(vector* vec)
+{
+	vec->size--;
+	//return &vec->a[(--vec->size)*vec->elem_size];
+}
+
+
+
+int insert(vector* vec, int i, void* a)
+{
+	if( vec->capacity > vec->size ) {
+		memmove(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
+		memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
+
+	} else {
+		vec->capacity *= 2;
+		if( !(vec->a = realloc(vec->a, vec->elem_size*vec->capacity)) ) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+
+		memmove(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
+		memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
+	}
+
+	vec->size++;
+	return 1;
+}
+
+
+
+
+
+void erase(vector* vec, int start, int end)
+{
+	int d = end-start+1;
+	memmove(&vec->a[start*vec->elem_size], &vec->a[(end+1)*vec->elem_size], (vec->size-1-end)*vec->elem_size);
+	vec->size -= d;
+}
+
+int reserve(vector* vec, int size)
+{
+	if( vec->capacity < size ) {
+		if( !(vec->a = realloc(vec->a, vec->elem_size*(size+20))) ) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+		vec->capacity = size+20;
+	}
+	return 1;
+}
+
+
+void set_val_sz(vector* vec, void* val)
+{
+	int i;
+	for(i=0; i<vec->size; i++)
+		memcpy(&vec->a[i*vec->elem_size], val, vec->elem_size);
+}
+
+void set_val_cap(vector* vec, void* val)
+{
+	int i;
+	for(i=0; i<vec->capacity; i++)
+		memcpy(&vec->a[i*vec->elem_size], val, vec->elem_size);
+}
+
+
+
+int capacity(vector* vec) { return vec->capacity; }
+int size(vector* vec) { return vec->size; }
+void clear(vector* vec) { vec->size = 0; }
+void free_vec(vector* vec)
+{
+	free(vec->a);
+	free(vec);
+}
 
 
 

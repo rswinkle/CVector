@@ -28,6 +28,15 @@ typedef struct vector_s_
 } vector_s;
 
 
+typedef struct vector_
+{
+	void* a;
+	int size;
+	int capacity;
+	int elem_size;
+} vector;
+
+
 
 //int VEC_I_START_SZ = 50;
 //int VEC_D_START_SZ = 50;
@@ -101,7 +110,23 @@ void free_vecs(vector_s* vec);
 
 
 
+vector* vec(int sz, int elem_sz);
+vector* init_vec(void* vals, int num, int elem_sz);
+int push_back(vector* vec, void* val);
+void pop_back(vector* vec);
 
+int insert(vector* vec, int i, void* a);
+void erase(vector* vec, int start, int end);
+int reserve(vector* vec, int size);
+void set_val_sz(vector* vec, void* val);
+void set_val_cap(vector* vec, void* val);
+
+//you really don't need these; you could just check
+//them directly
+int capacity(vector* vec);
+int size(vector* vec);
+void clear(vector* vec);
+void free_vec(vector* vec);
 
 
 

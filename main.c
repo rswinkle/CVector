@@ -8,7 +8,58 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <CUnit/Automated.h>
 #include "vector.h"
+#include "vector_tests.h"
+
+
+CU_TestInfo vector_i_tests[] = {
+	{ "push_test",		pushi_test },
+	{ "erase_test",		erasei_test },
+	{ "insert_test",	inserti_test },
+	{ "pop_test",		popi_test },
+	{ "reserve_test",	reservei_test },
+	{ "set_val_test",	set_vali_test }
+};
+
+CU_TestInfo vector_d_tests[] = {
+	{ "push_test",		pushd_test },
+	{ "erase_test",		erased_test },
+	{ "insert_test",	insertd_test },
+	{ "pop_test",		popd_test },
+	{ "reserve_test",	reserved_test },
+	{ "set_val_test",	set_vald_test }
+};
+
+CU_TestInfo vector_s_tests[] = {
+	{ "push_test",		pushs_test },
+	{ "erase_test",		erases_test },
+	{ "insert_test",	inserts_test },
+	{ "pop_test",		pops_test },
+	{ "reserve_test",	reserves_test },
+	{ "set_val_test",	set_vals_test }
+};
+
+
+CU_TestInfo vector_tests[] = {
+	{ "push_test",		push_test },
+	{ "erase_test",		erase_test },
+	{ "insert_test",	insert_test },
+	{ "pop_test",		pop_test },
+	{ "reserve_test",	reserve_test },
+	{ "set_val_test",	set_val_test }
+};
+
+
+
+CU_SuiteInfo vector_suites[] = {
+  { "vector_i", suite1_init-func, suite1_cleanup_func, vector_i_tests },
+  { "vector_d", suite2_init-func, suite2_cleanup_func, vector_d_tests },
+  { "vector_s", suite2_init-func, suite2_cleanup_func, vector_s_tests },
+  { "vector", suite2_init-func, suite2_cleanup_func, vector_tests },
+  CU_SUITE_INFO_NULL,
+};
+
 
 
 int main()
