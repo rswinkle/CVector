@@ -52,7 +52,8 @@ vector_i* init_vec_i(int* vals, int num)
 
 		memcpy(vec->a, vals, sizeof(int)*num);
 	} else if( !vals && num>0 ) {
-		vec->capacity = num;
+		vec->capacity = num+VEC_I_START_SZ;
+		vec->size = 0;
 		if( !(vec->a = calloc(vec->capacity, sizeof(int))) ) {
 			STDERR("Error allocating memory\n");
 			return NULL;
@@ -196,7 +197,7 @@ vector_d* init_vec_d(double* vals, int num)
 
 		memcpy(vec->a, vals, sizeof(double)*num);
 	} else if( !vals && num>0 ) {
-		vec->capacity = num;
+		vec->capacity = num+VEC_D_START_SZ;
 		vec->size = 0;
 		if( !(vec->a = calloc(vec->capacity, sizeof(double))) ) {
 			STDERR("Error allocating memory\n");
@@ -373,7 +374,8 @@ vector_s* init_vec_s(char** vals, int num)
 			vec->a[i] = mystrdup(vals[i]);
 		
 	} else if( !vals && num>0 ) {
-		vec->capacity = num;
+		vec->capacity = num+VEC_S_START_SZ;
+		vec->size = 0;
 		if( !(vec->a = calloc(vec->capacity, sizeof(char*))) ) {
 			STDERR("Error allocating memory\n");
 			return NULL;
@@ -581,7 +583,8 @@ vector* init_vec(void* vals, int num, int elem_sz)
 
 		memcpy(vec->a, vals, elem_sz*num);
 	} else if( !vals && num>0 ) {
-		vec->capacity = num;
+		vec->capacity = num+VEC_START_SZ;
+		vec->size = 0;
 		if( !(vec->a = calloc(vec->capacity, elem_sz)) ) {
 			STDERR("Error allocating memory\n");
 			return NULL;

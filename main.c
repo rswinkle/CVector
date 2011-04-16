@@ -10,8 +10,37 @@
 #include <string.h>
 #include <CUnit/Automated.h>
 #include "vector.h"
-#include "vector_tests.h"
 
+
+extern void pushi_test();
+extern void erasei_test();
+extern void inserti_test();
+extern void popi_test();
+extern void reservei_test();
+extern void set_vali_test();
+
+extern void pushd_test();
+extern void erased_test();
+extern void insertd_test();
+extern void popd_test();
+extern void reserved_test();
+extern void set_vald_test();
+
+
+extern void pushs_test();
+extern void erases_test();
+extern void inserts_test();
+extern void pops_test();
+extern void reserves_test();
+extern void set_vals_test();
+
+
+extern void push_test();
+extern void erase_test();
+extern void insert_test();
+extern void pop_test();
+extern void reserve_test();
+extern void set_val_test();
 
 CU_TestInfo vector_i_tests[] = {
 	{ "push_test",		pushi_test },
@@ -53,10 +82,10 @@ CU_TestInfo vector_tests[] = {
 
 
 CU_SuiteInfo vector_suites[] = {
-  { "vector_i", suite1_init-func, suite1_cleanup_func, vector_i_tests },
-  { "vector_d", suite2_init-func, suite2_cleanup_func, vector_d_tests },
-  { "vector_s", suite2_init-func, suite2_cleanup_func, vector_s_tests },
-  { "vector", suite2_init-func, suite2_cleanup_func, vector_tests },
+  { "vector_i", NULL, NULL, vector_i_tests },
+  { "vector_d", NULL, NULL, vector_d_tests },
+  { "vector_s", NULL, NULL, vector_s_tests },
+  { "vector", NULL, NULL, vector_tests },
   CU_SUITE_INFO_NULL,
 };
 
@@ -65,98 +94,20 @@ CU_SuiteInfo vector_suites[] = {
 int main()
 {
 
-	/* test vector_i and vector_d */
-	vector_i* testi = vec_i(0);
-	vector_d* testd = vec_d(0);
+	if (CUE_SUCCESS != CU_initialize_registry())
+	      return CU_get_error();
 
-	int i=0;
-	for(i=0; i<100; i++) {
-		push_backi(testi, i);
-		push_backd(testd, i+0.5);
-	}
+	CU_ErrorCode error = CU_register_suites(vector_suites);
 
-	for(i=0; i<testi->size; i++) {
-		printf("%d\t%lf\n", testi->a[i], testd->a[i]);
-	}
-
-	erasei(testi, 50, 50);
-	erased(testd, 25, 74);
-
-	for(i=0; i<testi->size; i++)
-		printf("%d\n", testi->a[i]);
-
-	printf("\n\n");
-	for(i=0; i<testd->size; i++)
-		printf("%lf\n", testd->a[i]);
+	if( error != CUE_SUCCESS )
+		fprintf(stderr, "wtf!");
 
 
-	inserti(testi, 50, 50);
-	for(i=0; i<50; i++)
-		insertd(testd, 25, 74-i+0.5);
+	CU_automated_run_tests();
+	fprintf(stdout, "%d", CU_get_error());
 
-	for(i=0; i<testi->size; i++)
-		printf("%d\n", testi->a[i]);
+	CU_cleanup_registry();
 
-	printf("\n\n");
-	for(i=0; i<testd->size; i++)
-		printf("%lf\n", testd->a[i]);
+	return CU_get_error();
 
-	printf("\n\n");
-
-	for(i=0; i<19; i++) {
-		printf("%d\t%lf\n", pop_backi(testi), pop_backd(testd) );
-	}
-
-
-	printf("\n\n");
-	for(i=0; i<testi->size; i++)
-		printf("%d\n", testi->a[i]);
-
-	printf("\n\n");
-	for(i=0; i<testd->size; i++)
-		printf("%lf\n", testd->a[i]);
-
-	printf("\n\n");
-
-
-	/* Test vector_s */
-	char buffer[50];
-	vector_s* test_s = vec_s(0);
-	for(i=0; i<50; i++) {
-		sprintf(buffer, "hello %d", i);
-		push_backs(test_s, buffer);
-	}
-
-	for(i=0; i<test_s->size; i++)
-		printf("%s\n", test_s->a[i]);
-
-	printf("\n\n");
-
-//	for(i=0; i<40-11; i++)
-//		erases(test_s, 11, 11);
-
-	erases(test_s, 11, 39);
-
-	for(i=0; i<test_s->size; i++)
-		printf("%s\n", test_s->a[i]);
-
-	printf("\n\n");
-
-
-	for(i=0; i<40-11; i++) {
-		sprintf(buffer, "hello %d", 39-i);
-		inserts(test_s, 11, buffer);
-	}
-
-	for(i=0; i<test_s->size; i++)
-		printf("%s\n", test_s->a[i]);
-
-	printf("\n\n");
-
-	free_veci(testi);
-	free_vecd(testd);
-	free_vecs(test_s);
-
-
-	return 0;
 }

@@ -36,10 +36,15 @@ typedef struct vector_
 	int elem_size;
 } vector;
 
-
+char* mystrdup(const char* str);
 
 //int VEC_I_START_SZ = 50;
 //int VEC_D_START_SZ = 50;
+
+extern int VEC_I_START_SZ;
+extern int VEC_D_START_SZ;
+extern int VEC_START_SZ;
+extern int VEC_S_START_SZ;
 
 
 vector_i* vec_i(int sz);

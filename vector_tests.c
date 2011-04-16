@@ -34,7 +34,8 @@ void erasei_test()
 
 	int i=0;
 	for(i=0; i<100; i++)
-		push_backi(vec, i);
+		vec->a[i] = i;
+//		push_backi(vec, i);
 
 	CU_ASSERT_EQUAL(100, vec->size);
 
@@ -86,13 +87,14 @@ void popi_test()
 	CU_ASSERT_EQUAL(vec->capacity, 10+VEC_I_START_SZ);
 
 	int i;
-	for(i=0; i<1000; i++)
+	for(i=0; i<1000; i++) {
 		push_backi(vec, i);
 
+	}
 	CU_ASSERT_EQUAL(vec->size, 1000);
 
 	int temp;
-	for(i=999; i>=0; i++) {
+	for(i=999; i>=0; i--) {
 		temp = pop_backi(vec);
 		CU_ASSERT_EQUAL(temp, i);
 	}
@@ -167,7 +169,8 @@ void erased_test()
 
 	int i=0;
 	for(i=0; i<100; i++)
-		push_backd(vec, i+0.5);
+		vec->a[i] = i+0.5;
+//		push_backd(vec, i+0.5);
 
 	CU_ASSERT_EQUAL(100, vec->size);
 
@@ -188,7 +191,7 @@ void erased_test()
 
 void insertd_test()
 {
-	int array[] = { 0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5 };
+	double array[] = { 0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5 };
 
 	vector_d* vec = init_vec_d(array, 10);
 
@@ -225,7 +228,7 @@ void popd_test()
 	CU_ASSERT_EQUAL(vec->size, 1000);
 
 	double temp;
-	for(i=999; i>=0; i++) {
+	for(i=999; i>=0; i--) {
 		temp = pop_backd(vec);
 		CU_ASSERT_EQUAL(temp, i);
 	}
@@ -297,12 +300,12 @@ void pushs_test()
 }
 
 
-void erasei_test()
+void erases_test()
 {
-	vector_s* vec = vec_s(10);
+	vector_s* vec = vec_s(0);
 
 	CU_ASSERT_EQUAL(VEC_S_START_SZ, vec->capacity);
-	CU_ASSERT_EQUAL(10, vec->size);
+	//CU_ASSERT_EQUAL(10, vec->size);
 
 	int i;
 	char buffer[50];
@@ -332,7 +335,7 @@ void erasei_test()
 
 
 
-void inserti_test()
+void inserts_test()
 {
 	char* array[] = { "hello 0", "hello 1", "hello 2", "hello 3", "hello 4",
 			"hello 5", "hello 6", "hello 7", "hello 8", "hello 9" };
@@ -341,12 +344,12 @@ void inserti_test()
 
 	CU_ASSERT_EQUAL(vec->size, 10);
 
-
+	char buffer[50];
 	int i;
 	for(i=0; i<vec->size; i++) {
 		sprintf(buffer, "hello %d", i);
 		CU_ASSERT_STRING_EQUAL(vec->a[i], buffer);
-
+	}
 
 	for(i=0; i<10; i++) {
 		sprintf(buffer, "hello %d", -i);
@@ -382,7 +385,7 @@ void pops_test()
 
 	CU_ASSERT_EQUAL(vec->size, 1000);
 
-	for(i=999; i>=0; i++) {
+	for(i=999; i>=0; i--) {
 		pop_backs(vec);
 	}
 
@@ -432,151 +435,213 @@ typedef struct
 {
 	double d;
 	int i;
-	char word[32];
-} test_struct;
+	char* word;
+} t_struct;
 
 
 
-test_struct mk_test_struct(double d, int i, char* word)
+t_struct mk_t_struct(double d, int i, char* word)
 {
 	//could make this static since I'm just copying the values outside
-	test_struct a;
+	t_struct a;
 	a.d = d;
 	a.i = i;
-	strcpy(a.word, word);
+	a.word = mystrdup(word);
 	return a;
 }
 
+
+#define GET_T(X,Y) ((t_struct*)&X->a[Y*X->elem_size])
 
 
 //I am here
 void push_test()
 {
-	vector_i* vec = vec_i(0);
+	vector* vec1 = vec(0, sizeof(t_struct));
 
-	CU_ASSERT_EQUAL(VEC_I_START_SZ, vec->capacity);
-	CU_ASSERT_EQUAL(0, vec->size);
+	CU_ASSERT_EQUAL(VEC_START_SZ, vec1->capacity);
+	CU_ASSERT_EQUAL(0, vec1->size);
 
-
+	char buffer[50];
+	t_struct temp;
 	int i=0;
-	for(i=0; i<100; i++)
-		push_backi(vec, i);
+	for(i=0; i<100; i++) {
+		sprintf(buffer, "%d", i);
+		temp = mk_t_struct(i, i, buffer);
+		push_back(vec1, &temp);
+	}
 
-	CU_ASSERT_EQUAL(100, vec->size);
+	CU_ASSERT_EQUAL(100, vec1->size);
 
-	for(i=0; i<vec->size; i++)
-		CU_ASSERT_EQUAL(i, vec->a[i]);
+	for(i=0; i<vec1->size; i++) {
 
-	free_veci(vec);
+		sprintf(buffer, "%d", i);
+		CU_ASSERT_EQUAL(i, GET_T(vec1, i)->d);
+		CU_ASSERT_EQUAL(i, GET_T(vec1, i)->i);
+		CU_ASSERT_STRING_EQUAL(buffer, GET_T(vec1, i)->word);
+	}
+
+	free_vec(vec1);
 }
 
 
-void erasei_test()
+void erase_test()
 {
-	vector_i* vec = vec_i(100);
+	vector* vec1 = vec(100, sizeof(t_struct));
 
-	CU_ASSERT_EQUAL(VEC_I_START_SZ+100, vec->capacity);
-	CU_ASSERT_EQUAL(100, vec->size);
+	CU_ASSERT_EQUAL(VEC_START_SZ+100, vec1->capacity);
+	CU_ASSERT_EQUAL(100, vec1->size);
 
-
+	char buffer[50];
 	int i=0;
-	for(i=0; i<100; i++)
-		push_backi(vec, i);
 
-	CU_ASSERT_EQUAL(100, vec->size);
+	for(i=0; i<100; i++) {
+		sprintf(buffer, "%d", i);
+		GET_T(vec1, i)->d = i+0.5;
+		GET_T(vec1, i)->i = i;
+		GET_T(vec1, i)->word = mystrdup(buffer);
 
-	erasei(vec, 25, 74);
+	}
 
-	CU_ASSERT_EQUAL(50, vec->size);
+	CU_ASSERT_EQUAL(100, vec1->size);
+
+	erase(vec1, 25, 74);
+
+	CU_ASSERT_EQUAL(50, vec1->size);
 
 	int j=0;
-	for(i=0; i<vec->size; i++,j++) {
-		CU_ASSERT_EQUAL(j, vec->a[i]);
+	for(i=0; i<vec1->size; i++,j++) {
+		sprintf(buffer, "%d", j);
+		CU_ASSERT_EQUAL(GET_T(vec1, i)->d, j+0.5);
+		CU_ASSERT_EQUAL(GET_T(vec1, i)->i, j);
+		CU_ASSERT_STRING_EQUAL(GET_T(vec1, i)->word, buffer);
+
 		if(i==24) j +=50;
 	}
 
-	free_veci(vec);
+	free_vec(vec1);
 }
 
 
 
-void inserti_test()
+void insert_test()
 {
-	int array[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	t_struct array[10];
+	int i;
+	char buffer[50];
+	for(i=0; i<10; i++) {
+		sprintf(buffer, "hello %d", i);
+		array[i].d = i+0.5;
+		array[i].i = i;
+		array[i].word = mystrdup(buffer);
+	}
 
-	vector_i* vec = init_vec_i(array, 10);
+
+	vector* vec = init_vec(array, 10, sizeof(t_struct));
 
 	CU_ASSERT_EQUAL(vec->size, 10);
 
 
-	int i;
-	for(i=0; i<vec->size; i++)
-		CU_ASSERT_EQUAL(vec->a[i], i);
+	for(i=0; i<vec->size; i++) {
+		sprintf(buffer, "hello %d", i);
+		CU_ASSERT_EQUAL(GET_T(vec, i)->d, i+0.5);
+		CU_ASSERT_EQUAL(GET_T(vec, i)->i, i);
+		CU_ASSERT_STRING_EQUAL(GET_T(vec, i)->word, buffer);
+	}
 
-	for(i=0; i<10; i++)
-		inserti(vec, 0, -i);
+	t_struct temp;
+
+	for(i=0; i<10; i++) {
+		sprintf(buffer, "hello %d", -i);
+		temp = mk_t_struct(-i-0.5, -i, buffer);
+		insert(vec, 0, &temp);
+	}
+
 
 	CU_ASSERT_EQUAL(vec->size, 20);
 
-	for(i=0; i<vec->size; i++)
-		CU_ASSERT_EQUAL(vec->a[i], i-((i<10)? 9 : 10) );
+	for(i=0; i<vec->size; i++) {
+		sprintf(buffer, "hello %d", i-((i<10)? 9 : 10));
 
-	free_veci(vec);
+		CU_ASSERT_EQUAL(GET_T(vec, i)->d, i-0.5-9 );
+		CU_ASSERT_EQUAL(GET_T(vec, i)->i, i-((i<10)? 9 : 10) );
+		CU_ASSERT_STRING_EQUAL(GET_T(vec, i)->word, buffer);
+	}
+
+	free_vec(vec);
 }
 
 
 
-void popi_test()
+void pop_test()
 {
-	vector_i* vec = init_vec_i(NULL, 10);
+	vector* vec = init_vec(NULL, 10, sizeof(t_struct));
 
-	CU_ASSERT_EQUAL(vec->capacity, 10+VEC_I_START_SZ);
+	CU_ASSERT_EQUAL(vec->capacity, 10+VEC_START_SZ);
+
+	t_struct temp;
+
+	char buffer[50];
 
 	int i;
-	for(i=0; i<1000; i++)
-		push_backi(vec, i);
+	for(i=0; i<1000; i++) {
+		sprintf(buffer, "hello %d", i);
+		temp = mk_t_struct(i, i, buffer);
+		push_back(vec, &temp);
+	}
 
 	CU_ASSERT_EQUAL(vec->size, 1000);
 
-	int temp;
-	for(i=999; i>=0; i++) {
-		temp = pop_backi(vec);
-		CU_ASSERT_EQUAL(temp, i);
+
+	for(i=999; i>=0; i--) {
+		pop_back(vec);
 	}
+
+	//should add more testing in loop?
 
 	CU_ASSERT_EQUAL(vec->size, 0);
 
-	free_veci(vec);
+	free_vec(vec);
 }
 
 
-void reservei_test()
+void reserve_test()
 {
-	vector_i* vec = vec_i(0);
+	vector* vect = vec(0, sizeof(t_struct));
 
-	reservei(vec, 20);
-	CU_ASSERT( vec->capacity>=20 );
+	reserve(vect, 20);
+	CU_ASSERT( vect->capacity>=20 );
 
-	free_veci(vec);
+	free_vec(vect);
 }
 
 
-void set_vali_test()
+void set_val_test()
 {
-	vector_i* vec = vec_i(20);
+	vector* vec1 = vec(20, sizeof(t_struct));
 
-	set_val_szi(vec, 42);
+	t_struct temp = mk_t_struct(42.5, 42, "hello");
+
+	set_val_sz(vec1, &temp);
 	int i;
-	for(i=0; i<vec->size; i++)
-		CU_ASSERT_EQUAL(vec->a[i], 42);
+	for(i=0; i<vec1->size; i++) {
+		CU_ASSERT_EQUAL(GET_T(vec1, i)->d, 42.5);
+		CU_ASSERT_EQUAL(GET_T(vec1, i)->i, 42);
+		CU_ASSERT_STRING_EQUAL(GET_T(vec1, i)->word, "hello");
+	}
 
-	set_val_capi(vec, 25);
+	temp = mk_t_struct(25.5, 25, "goodbye");
+	set_val_cap(vec1, &temp);
 
-	for(i=0; i<vec->capacity; i++)
-		CU_ASSERT_EQUAL(vec->a[i], 25);
+	for(i=0; i<vec1->capacity; i++) {
+		CU_ASSERT_EQUAL(GET_T(vec1, i)->d, 25.5);
+		CU_ASSERT_EQUAL(GET_T(vec1, i)->i, 25);
+		CU_ASSERT_STRING_EQUAL(GET_T(vec1, i)->word, "goodbye");
+	}
 
-	free_veci(vec);
+	free_vec(vec1);
 }
+
 
 
 
