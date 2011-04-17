@@ -431,6 +431,8 @@ void set_vals_test()
 
 
 /* vector tests */
+
+/** Structure used to test generic vector. */
 typedef struct
 {
 	double d;

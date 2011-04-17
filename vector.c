@@ -9,6 +9,10 @@ int VEC_START_SZ = 20;
 int VEC_S_START_SZ = 20;
 
 
+/**
+ * Creates a new vector_i.
+ * Vector size is set to sz, capacity to sz+VEC_I_START_SZ.
+ */
 vector_i* vec_i(int sz)
 {
 	vector_i* vec;
@@ -18,7 +22,7 @@ vector_i* vec_i(int sz)
 		return NULL;
 	}
 
-	vec->capacity = ( sz ) ? sz + VEC_I_START_SZ : VEC_I_START_SZ;
+	vec->capacity = ( sz>0 ) ? sz + VEC_I_START_SZ : VEC_I_START_SZ;
 
 	if( !(vec->a = calloc(vec->capacity, sizeof(int))) ) {
 		STDERR("Error allocating memory\n");
@@ -26,12 +30,14 @@ vector_i* vec_i(int sz)
 		return NULL;
 	}
 
-	vec->size = sz;
+	vec->size = ( sz>=0 ) ? sz : 0;
 	return vec;
 }
 
-// Initialize vector with contents of val (num elements)
-// or if vals is NULL set capacity to num+50
+/** Create and initialize vector_i with num elements of vals.
+ *  If vals is NULL, capacity is set to num + VEC_I_START_SZ.
+ *  Size is set to num in the first place, 0 otherwise.
+ */
 vector_i* init_vec_i(int* vals, int num)
 {
 	vector_i* vec;
@@ -43,7 +49,7 @@ vector_i* init_vec_i(int* vals, int num)
 	}
 
 	if( vals && num>0 ) {
-		vec->capacity = num+50;
+		vec->capacity = num+VEC_I_START_SZ;
 		vec->size = num;
 		if( !(vec->a = calloc(vec->capacity, sizeof(int))) ) {
 			STDERR("Error allocating memory\n");
@@ -66,6 +72,10 @@ vector_i* init_vec_i(int* vals, int num)
 
 
 
+/**
+ * Append a to end of vector (size increased 1).
+ * Capacity is increased by doubling when necessary.
+ */
 int push_backi(vector_i* vec, int a)
 {
 	if( vec->capacity > vec->size ) {
@@ -82,12 +92,19 @@ int push_backi(vector_i* vec, int a)
 }
 
 
+
+/** Remove and return the last element (size decreased 1).*/
 int pop_backi(vector_i* vec)
 {
 	return vec->a[--vec->size];
 }
 
 
+/**
+ * Insert a at index i (0 based).
+ * Everything from that index and right is shifted one to the right.
+ *\todo check for i < 0 or > size ?
+ */
 int inserti(vector_i* vec, int i, int a)
 {
 	if( vec->capacity > vec->size ) {
@@ -109,6 +126,11 @@ int inserti(vector_i* vec, int i, int a)
 }
 
 
+/**
+ * Erases elements from start to end inclusive.
+ * Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element
+ * that was at index 4 would now be at 1 etc. \todo check start and end in range?
+ */
 void erasei(vector_i* vec, int start, int end)
 {
 	int d = end-start+1;
@@ -116,6 +138,8 @@ void erasei(vector_i* vec, int start, int end)
 	vec->size -= d;
 }
 
+
+/** Make sure capacity is at least size(parameter not member). */
 int reservei(vector_i* vec, int size)
 {
 	if( vec->capacity < size ) {
@@ -129,6 +153,7 @@ int reservei(vector_i* vec, int size)
 }
 
 
+/** Set all size elements to val. */
 void set_val_szi(vector_i* vec, int val)
 {
 	int i;
@@ -136,6 +161,8 @@ void set_val_szi(vector_i* vec, int val)
 		vec->a[i] = val;
 }
 
+
+/** Fills entire allocated array (capacity) with val. */
 void set_val_capi(vector_i* vec, int val)
 {
 	int i;
@@ -144,10 +171,16 @@ void set_val_capi(vector_i* vec, int val)
 }
 
 
-
+/**If you don't want to access capacity directly for some reason.*/
 int capacityi(vector_i* vec) { return vec->capacity; }
+
+/**If you don't want to access size directly for some reason.*/
 int sizei(vector_i* vec) { return vec->size; }
+
+/** Sets size to 0 (does not clear contents).*/
 void cleari(vector_i* vec) { vec->size = 0; }
+
+/** Frees everything so don't use vec after calling this. */
 void free_veci(vector_i* vec)
 {
 	free(vec->a);
@@ -156,7 +189,10 @@ void free_veci(vector_i* vec)
 
 
 
-
+/**
+ * Creates a new vector_D.
+ * Vector size is set to sz, capacity to sz+VEC_D_START_SZ.
+ */
 vector_d* vec_d(int sz)
 {
 	vector_d* vec;
@@ -166,18 +202,22 @@ vector_d* vec_d(int sz)
 		return NULL;
 	}
 
-	vec->capacity = ( sz ) ? sz + VEC_D_START_SZ : VEC_D_START_SZ;
+	vec->capacity = ( sz>0 ) ? sz + VEC_D_START_SZ : VEC_D_START_SZ;
 
 	if( !(vec->a = calloc(vec->capacity, sizeof(double))) ) {
 		STDERR("Error allocating memory\n");
 		return NULL;
 	}
 
-	vec->size = sz;
+	vec->size = ( sz>0 ) ? sz : 0;
 	return vec;
 }
 
 
+/** Create and initialize vector_d with num elements of vals.
+ *  If vals is NULL, capacity is set to num + VEC_D_START_SZ.
+ *  Size is set to num in the first place, 0 otherwise.
+ */
 vector_d* init_vec_d(double* vals, int num)
 {
 	vector_d* vec;
@@ -210,6 +250,9 @@ vector_d* init_vec_d(double* vals, int num)
 }
 
 
+/** Append a to end of vector (size increased 1).
+ * Capacity is increased by doubling when necessary.
+ */
 int push_backd(vector_d* vec, double a)
 {
 	if( vec->capacity > vec->size ) {
@@ -226,12 +269,18 @@ int push_backd(vector_d* vec, double a)
 }
 
 
-
+/** Remove and return the last element (size decreased 1).*/
 double pop_backd(vector_d* vec)
 {
 	return vec->a[--vec->size];
 }
 
+
+/**
+ * Insert a at index i (0 based).
+ * Everything from that index and right is shifted one to the right.
+ *\todo check for i < 0 or > size ?
+ */
 int insertd(vector_d* vec, int i, double a)
 {
 	if( vec->capacity > vec->size ) {
@@ -253,7 +302,11 @@ int insertd(vector_d* vec, int i, double a)
 	return 1;
 }
 
-
+/**
+ * Erases elements from start to end inclusive.
+ * Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element
+ * that was at index 4 would now be at 1 etc. \todo check start and end in range?
+ */
 void erased(vector_d* vec, int start, int end)
 {
 	int d = end-start+1;
@@ -262,6 +315,7 @@ void erased(vector_d* vec, int start, int end)
 }
 
 
+/** Make sure capacity is at least size(parameter not member). */
 int reserved(vector_d* vec, int size)
 {
 	if( vec->capacity < size ) {
@@ -274,6 +328,8 @@ int reserved(vector_d* vec, int size)
 	return 1;
 }
 
+
+/** Set all size elements to val. */
 void set_val_szd(vector_d* vec, double val)
 {
 	int i;
@@ -281,6 +337,8 @@ void set_val_szd(vector_d* vec, double val)
 		vec->a[i] = val;
 }
 
+
+/** Fills entire allocated array (capacity) with val. */
 void set_val_capd(vector_d* vec, double val)
 {
 	int i;
@@ -290,11 +348,17 @@ void set_val_capd(vector_d* vec, double val)
 
 
 
-
+/**If you don't want to access capacity directly for some reason.*/
 int capacityd(vector_d* vec) { return vec->capacity; }
+
+/**If you don't want to access size directly for some reason.*/
 int sized(vector_d* vec) { return vec->size; }
+
+/** Sets size to 0 (does not clear contents).*/
 void cleard(vector_d* vec) { vec->size = 0; }
 
+
+/** Frees everything so don't use vec after calling this. */
 void free_vecd(vector_d* vec)
 {
 	free(vec->a);
@@ -309,6 +373,7 @@ void free_vecd(vector_d* vec)
 
 /*  String vector */
 
+/** Useful utility function since strdup isn't standard C.*/
 char* mystrdup(const char* str)
 {
 	char *temp = calloc(strlen(str)+1, sizeof(char));
@@ -323,7 +388,11 @@ char* mystrdup(const char* str)
 
 /**
  * Create a new vector_s with size sz.
- * Capacity is set to sz + VEC_S_START_SZ
+ * Capacity is set to sz + VEC_S_START_SZ.
+ * Note: vector_s does not copy pointers passed in but duplicates the strings
+ * they point to (using mystrdup()) so you don't have to worry about freeing
+ * or changing the contents of variables that you've pushed or inserted; it
+ * won't affect the vector.
  */
 vector_s* vec_s(int sz)
 {
@@ -334,7 +403,7 @@ vector_s* vec_s(int sz)
 		return NULL;
 	}
 
-	vec->capacity = ( sz ) ? sz + VEC_S_START_SZ : VEC_S_START_SZ;
+	vec->capacity = ( sz>0 ) ? sz + VEC_S_START_SZ : VEC_S_START_SZ;
 
 	if( !(vec->a = calloc(vec->capacity, sizeof(char*))) ) {
 		STDERR("Error allocating memory\n");
@@ -342,14 +411,14 @@ vector_s* vec_s(int sz)
 		return NULL;
 	}
 
-	vec->size = sz;
+	vec->size = ( sz>0 ) ? sz : 0;
 	return vec;
 }
 
 
-/**
- * Create new vector_s and initialize with contents of vals (num elements).
- * If vals is NULL set capacity to num+50
+/** Create and initialize vector_s with num elements of vals.
+ *  If vals is NULL, capacity is set to num + VEC_D_START_SZ.
+ *  Size is set to num in the first place, 0 otherwise.
  */
 vector_s* init_vec_s(char** vals, int num)
 {
@@ -362,7 +431,7 @@ vector_s* init_vec_s(char** vals, int num)
 	}
 
 	if( vals && num>0 ) {
-		vec->capacity = num+50;
+		vec->capacity = num+VEC_S_START_SZ;
 		vec->size = num;
 		if( !(vec->a = calloc(vec->capacity, sizeof(char*))) ) {
 			STDERR("Error allocating memory\n");
@@ -389,7 +458,8 @@ vector_s* init_vec_s(char** vals, int num)
 
 
 /**
- * Push back a new string.
+ * Append a to end of vector (size increased 1).
+ * Capacity is increased by doubling when necessary.
  */
 int push_backs(vector_s* vec, char* a)
 {
@@ -406,16 +476,17 @@ int push_backs(vector_s* vec, char* a)
 	return 1;
 }
 
-/**
- * Pop back a string.
- */
+/** Remove the last element (size decreased 1).
+ *	String is freed.  \todo return parameter? */
 void pop_backs(vector_s* vec)
 {
 	free(vec->a[--vec->size]);
 }
 
 /**
- * Insert a string at index i.
+ * Insert a at index i (0 based).
+ * Everything from that index and right is shifted one to the right.
+ *\todo check for i < 0 or > size ?
  */
 int inserts(vector_s* vec, int i, char* a)
 {
@@ -457,9 +528,8 @@ void erases(vector_s* vec, int start, int end)
 
 
 
-/**
- * Makes sure the vector size is >= size.
- */
+
+/** Makes sure the vector capacity is >= size (parameter not member). */
 int reserves(vector_s* vec, int size)
 {
 	if( vec->capacity < size ) {
@@ -473,9 +543,8 @@ int reserves(vector_s* vec, int size)
 }
 
 
-/**
- * Sets all size elements to val.
- */
+
+/** Sets all size elements to val. */
 void set_val_szs(vector_s* vec, char* val)
 {
 	int i;
@@ -485,9 +554,8 @@ void set_val_szs(vector_s* vec, char* val)
 	}
 }
 
-/**
- * Sets the entire array (capacity >= size) to val.
- */
+
+/** Fills entire allocated array (capacity) with val. */
 void set_val_caps(vector_s* vec, char* val)
 {
 	int i;
@@ -498,13 +566,14 @@ void set_val_caps(vector_s* vec, char* val)
 }
 
 
-
+/** If you don't want to acccess capacity directly for some reason. */
 int capacitys(vector_s* vec) { return vec->capacity; }
+
+/** If you don't want to access size directly for some reason. */
 int sizes(vector_s* vec) { return vec->size; }
 
-/**
- * Clears the contents of vector.
- */
+
+/** Clears the contents of vector (frees all strings) and sets size to 0. */
 void clears(vector_s* vec)
 {
 	int i;
@@ -514,9 +583,8 @@ void clears(vector_s* vec)
 	vec->size = 0;
 }
 
-/**
- * Clears contents and frees vector
- */
+
+/** Clears (and frees) contents and frees vector so don't use after calling this. */
 void free_vecs(vector_s* vec)
 {
 	int i;
@@ -534,6 +602,11 @@ void free_vecs(vector_s* vec)
 
 /*  general vector */
 
+/**
+ * Creates a new vector.
+ * Vector size is set to sz, capacity to sz+VEC_I_START_SZ.
+ * elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
+ */
 vector* vec(int sz, int elem_sz)
 {
 	vector* vec;
@@ -543,7 +616,7 @@ vector* vec(int sz, int elem_sz)
 		return NULL;
 	}
 
-	vec->capacity = ( sz ) ? sz + VEC_START_SZ : VEC_START_SZ;
+	vec->capacity = ( sz>0 ) ? sz + VEC_START_SZ : VEC_START_SZ;
 
 	vec->elem_size = elem_sz;
 
@@ -553,14 +626,17 @@ vector* vec(int sz, int elem_sz)
 		return NULL;
 	}
 
-	vec->size = sz;
+	vec->size = ( sz>0 ) ? sz : 0;
 	return vec;
 }
 
 
 
-// Initialize vector with contents of val (num elements)
-// or if vals is NULL set capacity to num+VEC_START_SZ
+/** Create and initialize vector with num elements of vals.
+ *  If vals is NULL, capacity is set to num + VEC_I_START_SZ.
+ *  Size is set to num in the first place, 0 otherwise.
+ *  elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
+ */
 vector* init_vec(void* vals, int num, int elem_sz)
 {
 	vector* vec;
@@ -574,7 +650,7 @@ vector* init_vec(void* vals, int num, int elem_sz)
 	vec->elem_size = elem_sz;
 
 	if( vals && num>0 ) {
-		vec->capacity = num+50;
+		vec->capacity = num+VEC_START_SZ;
 		vec->size = num;
 		if( !(vec->a = calloc(vec->capacity, elem_sz)) ) {
 			STDERR("Error allocating memory\n");
@@ -596,7 +672,9 @@ vector* init_vec(void* vals, int num, int elem_sz)
 }
 
 
-
+/** Append a to end of vector (size increased 1).
+ * Capacity is increased by doubling when necessary.
+ */
 int push_back(vector* vec, void* a)
 {
 	if( vec->capacity > vec->size ) {
@@ -618,7 +696,7 @@ int push_back(vector* vec, void* a)
 }
 
 
-//maybe I should add a return parameter, check for null etc.
+/** Remove the last element (size decreased 1). \todo Add return parameter?*/
 void pop_back(vector* vec)
 {
 	vec->size--;
@@ -626,7 +704,11 @@ void pop_back(vector* vec)
 }
 
 
-
+/**
+ * Insert a at index i (0 based).
+ * Everything from that index and right is shifted one to the right.
+ *\todo check for i < 0 or > size-1?
+ */
 int insert(vector* vec, int i, void* a)
 {
 	if( vec->capacity > vec->size ) {
@@ -651,7 +733,11 @@ int insert(vector* vec, int i, void* a)
 
 
 
-
+/**
+ * Erases elements from start to end inclusive.
+ * Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element
+ * that was at index 4 would now be at 1 etc. \todo check start and end in range?
+ */
 void erase(vector* vec, int start, int end)
 {
 	int d = end-start+1;
@@ -659,6 +745,8 @@ void erase(vector* vec, int start, int end)
 	vec->size -= d;
 }
 
+
+/** Makes sure capacity >= size (the parameter not the member). */
 int reserve(vector* vec, int size)
 {
 	if( vec->capacity < size ) {
@@ -672,6 +760,7 @@ int reserve(vector* vec, int size)
 }
 
 
+/** Set all size elements to val. */
 void set_val_sz(vector* vec, void* val)
 {
 	int i;
@@ -679,6 +768,8 @@ void set_val_sz(vector* vec, void* val)
 		memcpy(&vec->a[i*vec->elem_size], val, vec->elem_size);
 }
 
+
+/** Fills entire allocated array (capacity) with val. */
 void set_val_cap(vector* vec, void* val)
 {
 	int i;
@@ -687,10 +778,18 @@ void set_val_cap(vector* vec, void* val)
 }
 
 
-
+/** If you don't want to access capacity directly for some reason. */
 int capacity(vector* vec) { return vec->capacity; }
+
+/** If you don't want to access size directly for some reason. */
 int size(vector* vec) { return vec->size; }
+
+
+/** Sets size to 0 (does not change contents). */
 void clear(vector* vec) { vec->size = 0; }
+
+
+/** Frees everything so don't use vec after calling this. */
 void free_vec(vector* vec)
 {
 	free(vec->a);

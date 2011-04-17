@@ -5,35 +5,40 @@
 #include <string.h>
 #include <stdio.h>
 
+
+/** Data structur for int vector. */
 typedef struct vector_i_
 {
-	int* a;
-	int size;
-	int capacity;
+	int* a;			///< Array.
+	int size;		///< Current size (amount you use when manipulating array directly).
+	int capacity;	///< Allocated size of array; always >= size.
 } vector_i;
 
+
+/** Data structure for double vector. */
 typedef struct vector_d_
 {
-	double* a;
-	int size;
-	int capacity;
+	double* a;		///< Array.
+	int size;		///< Current size (amount you use when manipulating array directly).
+	int capacity;	///< Allocated size of array; always >= size.
 } vector_d;
 
-
+/** Data structure for string vector. */
 typedef struct vector_s_
 {
-	char** a;
-	int size;
-	int capacity;
+	char** a;		///< Array.
+	int size;		///< Current size (amount you use when manipulating array directly).
+	int capacity;	///< Allocated size of array; always >= size.
 } vector_s;
 
 
+/** Data structure for generic type (cast to void) vectors */
 typedef struct vector_
 {
-	void* a;
-	int size;
-	int capacity;
-	int elem_size;
+	void* a;		///< Array.
+	int size;		///< Current size (amount you should use when manipulating array directly).
+	int capacity;	///< Allocated size of array; always >= size.
+	int elem_size;	///< Size in bytes of type stored (sizeof(T) where T is type).
 } vector;
 
 char* mystrdup(const char* str);
