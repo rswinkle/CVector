@@ -27,6 +27,8 @@ http://sourceforge.net/projects/cunit/
 
 
 To actually use the library just copy vector.c and vector.h to your project.
+To get a good idea of how to use the library and see it in action and how it should
+behave, look at vector_tests.c
 
 
 Feel free to change/modify and reuse the code however you like.  It'd be nice
