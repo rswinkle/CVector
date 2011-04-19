@@ -152,6 +152,21 @@ int reservei(vector_i* vec, int size)
 	return 1;
 }
 
+int set_capacityi(vector_i* vec, int size)
+{
+	if( size<vec->size )
+		vec->size = size;
+
+	vec->capacity = size;
+
+	if( !(vec->a = realloc(vec->a, sizeof(int)*size)) ) {
+		STDERR("Error allocating memory\n");
+		return 0;
+	}
+	return 1;
+}
+
+
 
 /** Set all size elements to val. */
 void set_val_szi(vector_i* vec, int val)
@@ -324,6 +339,25 @@ int reserved(vector_d* vec, int size)
 			return 0;
 		}
 		vec->capacity = size+20;
+	}
+	return 1;
+}
+
+
+/** Set capacity to size.
+ * You will lose data if you shrink the capacity below the current size.
+ * If you do, the size will be set to capacity of course.
+*/
+int set_capacityd(vector_d* vec, int size)
+{
+	if( size<vec->size )
+		vec->size = size;
+
+	vec->capacity = size;
+
+	if( !(vec->a = realloc(vec->a, sizeof(double)*size)) ) {
+		STDERR("Error allocating memory\n");
+		return 0;
 	}
 	return 1;
 }
@@ -542,6 +576,28 @@ int reserves(vector_s* vec, int size)
 	return 1;
 }
 
+/** Set capacity to size.
+ * You will lose data if you shrink the capacity below the current size.
+ * If you do, the size will be set to capacity of course.
+*/
+int set_capacitys(vector_s* vec, int size)
+{
+	int i;
+	if( size<vec->size ) {
+		for(i=vec->size-1; i>size-1; i--)
+			free(vec->a[i]);
+
+		vec->size = size;
+	}
+	vec->capacity = size;
+
+	if( !(vec->a = realloc(vec->a, sizeof(char*)*size)) ) {
+		STDERR("Error allocating memory\n");
+		return 0;
+	}
+	return 1;
+}
+
 
 
 /** Sets all size elements to val. */
@@ -555,14 +611,19 @@ void set_val_szs(vector_s* vec, char* val)
 }
 
 
-/** Fills entire allocated array (capacity) with val. */
+/** Fills entire allocated array (capacity) with val.  Size is set
+ * to capacity in this case because strings are individually dynamically allocated.
+ * This is different from vector_i, vector_d and vector where the size stays the same. */
 void set_val_caps(vector_s* vec, char* val)
 {
 	int i;
 	for(i=0; i<vec->capacity; i++) {
-		free(vec->a[i]);
-		vec->a[i] = strdup(val);
+		if( i<vec->size )
+			free(vec->a[i]);
+
+		vec->a[i] = mystrdup(val);
 	}
+	vec->size = vec->capacity;
 }
 
 
@@ -758,6 +819,26 @@ int reserve(vector* vec, int size)
 	}
 	return 1;
 }
+
+
+/** Set capacity to size.
+ * You will lose data if you shrink the capacity below the current size.
+ * If you do, the size will be set to capacity of course.
+*/
+int set_capacity(vector* vec, int size)
+{
+	if( size<vec->size )
+		vec->size = size;
+
+	vec->capacity = size;
+
+	if( !(vec->a = realloc(vec->a, vec->elem_size*size)) ) {
+		STDERR("Error allocating memory\n");
+		return 0;
+	}
+	return 1;
+}
+
 
 
 /** Set all size elements to val. */

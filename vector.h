@@ -60,6 +60,7 @@ int pop_backi(vector_i* vec);
 int inserti(vector_i* vec, int i, int a);
 void erasei(vector_i* vec, int start, int end);
 int reservei(vector_i* vec, int size);
+int set_capacityi(vector_i* vec, int size);
 void set_val_szi(vector_i* vec, int val);
 void set_val_capi(vector_i* vec, int val);
 
@@ -81,6 +82,7 @@ double pop_backd(vector_d* vec);
 int insertd(vector_d* vec, int i, double a);
 void erased(vector_d* vec, int start, int end);
 int reserved(vector_d* vec, int size);
+int set_capacityd(vector_d* vec, int size);
 void set_val_szd(vector_d* vec, double val);
 void set_val_capd(vector_d* vec, double val);
 
@@ -103,6 +105,7 @@ void pop_backs(vector_s* vec);
 int inserts(vector_s* vec, int i, char* a);
 void erases(vector_s* vec, int start, int end);
 int reserves(vector_s* vec, int size);
+int set_capacitys(vector_s* vec, int size);
 void set_val_szs(vector_s* vec, char* val);
 void set_val_caps(vector_s* vec, char* val);
 
@@ -128,6 +131,7 @@ void pop_back(vector* vec);
 int insert(vector* vec, int i, void* a);
 void erase(vector* vec, int start, int end);
 int reserve(vector* vec, int size);
+int set_capacity(vector* vec, int size);
 void set_val_sz(vector* vec, void* val);
 void set_val_cap(vector* vec, void* val);
 

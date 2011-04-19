@@ -93,6 +93,10 @@ void popi_test()
 	}
 	CU_ASSERT_EQUAL(vec->size, 1000);
 
+
+	set_capacityi(vec, vec->size);
+	CU_ASSERT_EQUAL(vec->size, vec->capacity);
+
 	int temp;
 	for(i=999; i>=0; i--) {
 		temp = pop_backi(vec);
@@ -114,6 +118,30 @@ void reservei_test()
 
 	free_veci(vec);
 }
+
+
+void set_capacityi_test()
+{
+	vector_i* vec = vec_i(0);
+	int i;
+	for(i=0; i<1000; i++)
+		push_backi(vec, i);
+
+	CU_ASSERT( vec->capacity>=1000 );
+	CU_ASSERT( vec->size==1000);
+
+	set_capacityi(vec, 500);
+
+	CU_ASSERT( vec->capacity==500 );
+	CU_ASSERT( vec->size==500);
+
+	for(i=0; i<vec->size; i++)
+		CU_ASSERT_EQUAL(vec->a[i], i);
+
+	free_veci(vec);
+}
+
+
 
 
 void set_vali_test()
@@ -227,6 +255,9 @@ void popd_test()
 
 	CU_ASSERT_EQUAL(vec->size, 1000);
 
+	set_capacityd(vec, vec->size);
+	CU_ASSERT_EQUAL(vec->size, vec->capacity);
+
 	double temp;
 	for(i=999; i>=0; i--) {
 		temp = pop_backd(vec);
@@ -248,6 +279,30 @@ void reserved_test()
 
 	free_vecd(vec);
 }
+
+
+
+void set_capacityd_test()
+{
+	vector_d* vec = vec_d(0);
+	int i;
+	for(i=0; i<1000; i++)
+		push_backd(vec, i+0.5);
+
+	CU_ASSERT( vec->capacity>=1000 );
+	CU_ASSERT( vec->size==1000);
+
+	set_capacityd(vec, 500);
+
+	CU_ASSERT( vec->capacity==500 );
+	CU_ASSERT( vec->size==500);
+
+	for(i=0; i<vec->size; i++)
+		CU_ASSERT_EQUAL(vec->a[i], i+0.5);
+
+	free_vecd(vec);
+}
+
 
 
 void set_vald_test()
@@ -385,6 +440,9 @@ void pops_test()
 
 	CU_ASSERT_EQUAL(vec->size, 1000);
 
+	set_capacitys(vec, vec->size);
+	CU_ASSERT_EQUAL(vec->size, vec->capacity);
+
 	for(i=999; i>=0; i--) {
 		pop_backs(vec);
 	}
@@ -404,6 +462,34 @@ void reserves_test()
 
 	reserves(vec, 20);
 	CU_ASSERT( vec->capacity>=20 );
+
+	free_vecs(vec);
+}
+
+
+
+void set_capacitys_test()
+{
+	vector_s* vec = vec_s(0);
+	int i;
+	char buffer[50];
+	for(i=0; i<1000; i++) {
+		sprintf(buffer, "hello %d", i);
+		push_backs(vec, buffer);
+	}
+
+	CU_ASSERT( vec->capacity>=1000 );
+	CU_ASSERT( vec->size==1000);
+
+	set_capacitys(vec, 500);
+
+	CU_ASSERT( vec->capacity==500 );
+	CU_ASSERT( vec->size==500);
+
+	for(i=0; i<vec->size; i++) {
+		sprintf(buffer, "hello %d", i);
+		CU_ASSERT_STRING_EQUAL(vec->a[i], buffer);
+	}
 
 	free_vecs(vec);
 }
@@ -437,7 +523,7 @@ typedef struct
 {
 	double d;
 	int i;
-	char* word;
+	char word[30];
 } t_struct;
 
 
@@ -448,7 +534,7 @@ t_struct mk_t_struct(double d, int i, char* word)
 	t_struct a;
 	a.d = d;
 	a.i = i;
-	a.word = mystrdup(word);
+	strcpy(a.word, word);
 	return a;
 }
 
@@ -501,7 +587,8 @@ void erase_test()
 		sprintf(buffer, "%d", i);
 		GET_T(vec1, i)->d = i+0.5;
 		GET_T(vec1, i)->i = i;
-		GET_T(vec1, i)->word = mystrdup(buffer);
+		strcpy(GET_T(vec1, i)->word, buffer);
+		//GET_T(vec1, i)->word = mystrdup(buffer);
 
 	}
 
@@ -535,7 +622,7 @@ void insert_test()
 		sprintf(buffer, "hello %d", i);
 		array[i].d = i+0.5;
 		array[i].i = i;
-		array[i].word = mystrdup(buffer);
+		strcpy(array[i].word, buffer);
 	}
 
 
@@ -592,6 +679,9 @@ void pop_test()
 		push_back(vec, &temp);
 	}
 
+	set_capacity(vec, vec->size);
+	CU_ASSERT_EQUAL(vec->size, vec->capacity);
+
 	CU_ASSERT_EQUAL(vec->size, 1000);
 
 
@@ -616,6 +706,42 @@ void reserve_test()
 
 	free_vec(vect);
 }
+
+
+void set_capacity_test()
+{
+	vector* vec1 = vec(0, sizeof(t_struct));
+	t_struct temp;
+
+	char buffer[50];
+
+	int i;
+	for(i=0; i<1000; i++) {
+		sprintf(buffer, "hello %d", i);
+		temp = mk_t_struct(i, i, buffer);
+		push_back(vec1, &temp);
+	}
+
+	CU_ASSERT( vec1->capacity>=1000 );
+	CU_ASSERT( vec1->size==1000);
+
+	set_capacity(vec1, 500);
+
+	CU_ASSERT( vec1->capacity==500 );
+	CU_ASSERT( vec1->size==500);
+
+	for(i=0; i<vec1->size; i++) {
+		sprintf(buffer, "hello %d", i);
+
+		CU_ASSERT_EQUAL(GET_T(vec1, i)->d, i );
+		CU_ASSERT_EQUAL(GET_T(vec1, i)->i, i );
+		CU_ASSERT_STRING_EQUAL(GET_T(vec1, i)->word, buffer);
+	}
+
+	free_vec(vec1);
+}
+
+
 
 
 void set_val_test()
