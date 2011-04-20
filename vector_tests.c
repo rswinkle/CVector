@@ -518,13 +518,22 @@ void set_vals_test()
 
 /* vector tests */
 
-/** Structure used to test generic vector. */
+/** Structures used to test generic vector. */
 typedef struct
 {
 	double d;
 	int i;
 	char word[30];
 } t_struct;
+
+
+typedef struct
+{
+	double d;
+	int i;
+	char* word;
+} f_struct;
+
 
 
 
@@ -538,6 +547,18 @@ t_struct mk_t_struct(double d, int i, char* word)
 	return a;
 }
 
+f_struct mk_f_struct(double d, int i, char* word)
+{
+	//could make this static since I'm just copying the values outside
+	t_struct a;
+	a.d = d;
+	a.i = i;
+	a.word = mystrdup(word);
+	return a;
+}
+
+
+
 
 #define GET_T(X,Y) ((t_struct*)&X->a[Y*X->elem_size])
 
@@ -545,7 +566,7 @@ t_struct mk_t_struct(double d, int i, char* word)
 //I am here
 void push_test()
 {
-	vector* vec1 = vec(0, sizeof(t_struct));
+	vector* vec1 = vec(0, sizeof(t_struct), NULL);
 
 	CU_ASSERT_EQUAL(VEC_START_SZ, vec1->capacity);
 	CU_ASSERT_EQUAL(0, vec1->size);
@@ -575,7 +596,7 @@ void push_test()
 
 void erase_test()
 {
-	vector* vec1 = vec(100, sizeof(t_struct));
+	vector* vec1 = vec(100, sizeof(t_struct), NULL);
 
 	CU_ASSERT_EQUAL(VEC_START_SZ+100, vec1->capacity);
 	CU_ASSERT_EQUAL(100, vec1->size);
@@ -626,7 +647,7 @@ void insert_test()
 	}
 
 
-	vector* vec = init_vec(array, 10, sizeof(t_struct));
+	vector* vec = init_vec(array, 10, sizeof(t_struct), NULL);
 
 	CU_ASSERT_EQUAL(vec->size, 10);
 
@@ -664,7 +685,7 @@ void insert_test()
 
 void pop_test()
 {
-	vector* vec = init_vec(NULL, 10, sizeof(t_struct));
+	vector* vec = init_vec(NULL, 10, sizeof(t_struct), NULL);
 
 	CU_ASSERT_EQUAL(vec->capacity, 10+VEC_START_SZ);
 
@@ -706,7 +727,7 @@ void pop_test()
 
 void reserve_test()
 {
-	vector* vect = vec(0, sizeof(t_struct));
+	vector* vect = vec(0, sizeof(t_struct), NULL);
 
 	reserve(vect, 20);
 	CU_ASSERT( vect->capacity>=20 );
@@ -717,7 +738,7 @@ void reserve_test()
 
 void set_capacity_test()
 {
-	vector* vec1 = vec(0, sizeof(t_struct));
+	vector* vec1 = vec(0, sizeof(t_struct), NULL);
 	t_struct temp;
 
 	char buffer[50];
@@ -753,7 +774,7 @@ void set_capacity_test()
 
 void set_val_test()
 {
-	vector* vec1 = vec(20, sizeof(t_struct));
+	vector* vec1 = vec(20, sizeof(t_struct), NULL);
 
 	t_struct temp = mk_t_struct(42.5, 42, "hello");
 

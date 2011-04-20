@@ -621,7 +621,7 @@ void set_val_szs(vector_s* vec, char* val)
 
 /** Fills entire allocated array (capacity) with val.  Size is set
  * to capacity in this case because strings are individually dynamically allocated.
- * This is different from vector_i, vector_d and vector where the size stays the same. */
+ * This is different from vector_i, vector_d and vector (without a free function) where the size stays the same. */
 void set_val_caps(vector_s* vec, char* val)
 {
 	int i;
@@ -653,7 +653,7 @@ void clears(vector_s* vec)
 }
 
 
-/** Clears (and frees) contents and frees vector so don't use after calling this. */
+/** Frees contents (individual strings and array) and frees vector so don't use after calling this. */
 void free_vecs(vector_s* vec)
 {
 	int i;
@@ -676,7 +676,7 @@ void free_vecs(vector_s* vec)
  * Vector size is set to sz, capacity to sz+VEC_I_START_SZ.
  * elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  */
-vector* vec(int sz, int elem_sz)
+vector* vec(int sz, int elem_sz, void(*elem_free)(void*))
 {
 	vector* vec;
 	if( !(vec = calloc(1, sizeof(vector))) ) {
@@ -696,6 +696,8 @@ vector* vec(int sz, int elem_sz)
 	}
 
 	vec->size = ( sz>0 ) ? sz : 0;
+	vec->elem_free = elem_free;
+
 	return vec;
 }
 
@@ -706,7 +708,7 @@ vector* vec(int sz, int elem_sz)
  *  Size is set to num in the first place, 0 otherwise.
  *  elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  */
-vector* init_vec(void* vals, int num, int elem_sz)
+vector* init_vec(void* vals, int num, int elem_sz, void(*elem_free)(void*))
 {
 	vector* vec;
 	if( !(vec = calloc(1, sizeof(vector))) ) {
@@ -736,6 +738,8 @@ vector* init_vec(void* vals, int num, int elem_sz)
 		}
 	} else
 		return NULL;
+
+	vec->elem_free = elem_free;
 
 	return vec;
 }
@@ -774,6 +778,10 @@ void pop_back(vector* vec, void* ret)
 		memcpy(ret, &vec->a[(--vec->size)*vec->elem_size], vec->elem_size);
 	else
 		vec->size--;
+
+	if( vec->elem_free )
+		vec->elem_free(&vec->a[vec->size*vec->elem_size]);
+
 }
 
 
@@ -814,6 +822,11 @@ int insert(vector* vec, int i, void* a)
 void erase(vector* vec, int start, int end)
 {
 	int d = end-start+1;
+	int i;
+	if( vec->elem_free )
+		for(i=start; i<=end; i++)
+			vec->elem_free(&vec->a[i*vec->elem_size]);
+
 	memmove(&vec->a[start*vec->elem_size], &vec->a[(end+1)*vec->elem_size], (vec->size-1-end)*vec->elem_size);
 	vec->size -= d;
 }
@@ -857,15 +870,29 @@ int set_capacity(vector* vec, int size)
 void set_val_sz(vector* vec, void* val)
 {
 	int i;
+
+	if( vec->elem_free )
+		for(i=0; i<vec->size; i++)
+			vec->elem_free(&vec->a[i*vec->elem_size]);
+
 	for(i=0; i<vec->size; i++)
 		memcpy(&vec->a[i*vec->elem_size], val, vec->elem_size);
+
 }
 
 
-/** Fills entire allocated array (capacity) with val. */
+/** Fills entire allocated array (capacity) with val.  If you set a free function
+ * then size is set to capacity like vector_s for the same reason, ie I need to know
+ * that the free function needs to be called on those elements. */
 void set_val_cap(vector* vec, void* val)
 {
 	int i;
+	if( vec->elem_free ) {
+		for(i=0; i<vec->size; i++)
+			vec->elem_free(&vec->a[i*vec->elem_size]);
+
+		vec->size = vec->capacity;
+	}
 	for(i=0; i<vec->capacity; i++)
 		memcpy(&vec->a[i*vec->elem_size], val, vec->elem_size);
 }
@@ -882,9 +909,15 @@ int size(vector* vec) { return vec->size; }
 void clear(vector* vec) { vec->size = 0; }
 
 
-/** Frees everything so don't use vec after calling this. */
+/** Frees everything so don't use vec after calling this. If you set a free function
+ * it will be called on all size elements of course. */
 void free_vec(vector* vec)
 {
+	int i;
+	if( vec->elem_free )
+		for(i=0; i<vec->size; i++)
+			vec->elem_free(&vec->a[i*vec->elem_size]);
+
 	free(vec->a);
 	free(vec);
 }
