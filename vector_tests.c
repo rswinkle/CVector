@@ -432,6 +432,7 @@ void pops_test()
 
 	int i;
 	char buffer[50];
+	char buffer2[50];
 
 	for(i=0; i<1000; i++) {
 		sprintf(buffer, "hello %d", i);
@@ -444,11 +445,10 @@ void pops_test()
 	CU_ASSERT_EQUAL(vec->size, vec->capacity);
 
 	for(i=999; i>=0; i--) {
-		pop_backs(vec);
+		sprintf(buffer, "hello %d", i);
+		pop_backs(vec, buffer2);
+		CU_ASSERT_STRING_EQUAL(buffer, buffer2);
 	}
-
-	//should add some testing here
-	//especially if I change pop_backs to have a return parameter
 
 	CU_ASSERT_EQUAL(vec->size, 0);
 
@@ -686,7 +686,14 @@ void pop_test()
 
 
 	for(i=999; i>=0; i--) {
-		pop_back(vec);
+		sprintf(buffer, "hello %d", i);
+		pop_back(vec, &temp);
+
+		CU_ASSERT_EQUAL(temp.d, i );
+		CU_ASSERT_EQUAL(temp.i, i );
+		CU_ASSERT_STRING_EQUAL(temp.word, buffer);
+
+
 	}
 
 	//should add more testing in loop?

@@ -100,7 +100,7 @@ void free_vecd(vector_d* vec);
 vector_s* vec_s(int sz);
 vector_s* init_vec_s(char** vals, int num);
 int push_backs(vector_s* vec, char* a);
-void pop_backs(vector_s* vec);
+void pop_backs(vector_s* vec, char* ret);
 
 int inserts(vector_s* vec, int i, char* a);
 void erases(vector_s* vec, int start, int end);
@@ -126,7 +126,7 @@ void free_vecs(vector_s* vec);
 vector* vec(int sz, int elem_sz);
 vector* init_vec(void* vals, int num, int elem_sz);
 int push_back(vector* vec, void* val);
-void pop_back(vector* vec);
+void pop_back(vector* vec, void* ret);
 
 int insert(vector* vec, int i, void* a);
 void erase(vector* vec, int start, int end);

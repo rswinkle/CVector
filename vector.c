@@ -152,6 +152,12 @@ int reservei(vector_i* vec, int size)
 	return 1;
 }
 
+
+
+/** Set capacity to size.
+ * You will lose data if you shrink the capacity below the current size.
+ * If you do, the size will be set to capacity of course.
+*/
 int set_capacityi(vector_i* vec, int size)
 {
 	if( size<vec->size )
@@ -511,10 +517,12 @@ int push_backs(vector_s* vec, char* a)
 }
 
 /** Remove the last element (size decreased 1).
- *	String is freed.  \todo return parameter? */
-void pop_backs(vector_s* vec)
+ *	String is freed.  If ret is not NULL, strcpy the last element into ret.
+ *	It is the user's responsibility to make sure ret can receive it without error. */
+void pop_backs(vector_s* vec, char* ret)
 {
-	free(vec->a[--vec->size]);
+	strcpy(ret, vec->a[--vec->size]);
+	free(vec->a[vec->size]);
 }
 
 /**
@@ -757,11 +765,15 @@ int push_back(vector* vec, void* a)
 }
 
 
-/** Remove the last element (size decreased 1). \todo Add return parameter?*/
-void pop_back(vector* vec)
+/** Remove the last element (size decreased 1).
+ * If ret is not NULL, copy the element into it.  This function assumes
+ * that ret is large accept the element and just memcpy's it in. */
+void pop_back(vector* vec, void* ret)
 {
-	vec->size--;
-	//return &vec->a[(--vec->size)*vec->elem_size];
+	if( ret!=NULL )
+		memcpy(ret, &vec->a[(--vec->size)*vec->elem_size], vec->elem_size);
+	else
+		vec->size--;
 }
 
 
