@@ -550,7 +550,7 @@ t_struct mk_t_struct(double d, int i, char* word)
 f_struct mk_f_struct(double d, int i, char* word)
 {
 	//could make this static since I'm just copying the values outside
-	t_struct a;
+	f_struct a;
 	a.d = d;
 	a.i = i;
 	a.word = mystrdup(word);
@@ -561,26 +561,50 @@ f_struct mk_f_struct(double d, int i, char* word)
 
 
 #define GET_T(X,Y) ((t_struct*)&X->a[Y*X->elem_size])
+#define GET_F(X,Y) ((f_struct*)&X->a[Y*X->elem_size])
+
+
+void free_f_struct(void* tmp)
+{
+	f_struct* f = (f_struct*)tmp;
+	if( f->word!=NULL ) {
+		free(f->word);
+		f->word = NULL;
+	}
+}
 
 
 //I am here
 void push_test()
 {
 	vector* vec1 = vec(0, sizeof(t_struct), NULL);
+	vector* vec2 = vec(0, sizeof(f_struct), free_f_struct);
 
 	CU_ASSERT_EQUAL(VEC_START_SZ, vec1->capacity);
 	CU_ASSERT_EQUAL(0, vec1->size);
 
+
+	CU_ASSERT_EQUAL(VEC_START_SZ, vec2->capacity);
+	CU_ASSERT_EQUAL(0, vec2->size);
+
 	char buffer[50];
+
 	t_struct temp;
+	f_struct temp2;
+
 	int i=0;
 	for(i=0; i<100; i++) {
 		sprintf(buffer, "%d", i);
 		temp = mk_t_struct(i, i, buffer);
+		temp2 = mk_f_struct(i, i, buffer);
+
 		push_back(vec1, &temp);
+		push_back(vec2, &temp2);
 	}
 
 	CU_ASSERT_EQUAL(100, vec1->size);
+	CU_ASSERT_EQUAL(100, vec2->size);
+
 
 	for(i=0; i<vec1->size; i++) {
 
@@ -588,36 +612,54 @@ void push_test()
 		CU_ASSERT_EQUAL(i, GET_T(vec1, i)->d);
 		CU_ASSERT_EQUAL(i, GET_T(vec1, i)->i);
 		CU_ASSERT_STRING_EQUAL(buffer, GET_T(vec1, i)->word);
+
+		CU_ASSERT_EQUAL(i, GET_F(vec2, i)->d);
+		CU_ASSERT_EQUAL(i, GET_F(vec2, i)->i);
+		CU_ASSERT_STRING_EQUAL(buffer, GET_F(vec2, i)->word);
 	}
 
 	free_vec(vec1);
+	free_vec(vec2);
 }
 
 
 void erase_test()
 {
 	vector* vec1 = vec(100, sizeof(t_struct), NULL);
+	vector* vec2 = vec(100, sizeof(f_struct), free_f_struct);
+
 
 	CU_ASSERT_EQUAL(VEC_START_SZ+100, vec1->capacity);
 	CU_ASSERT_EQUAL(100, vec1->size);
+
+	CU_ASSERT_EQUAL(VEC_START_SZ+100, vec2->capacity);
+	CU_ASSERT_EQUAL(100, vec2->size);
 
 	char buffer[50];
 	int i=0;
 
 	for(i=0; i<100; i++) {
 		sprintf(buffer, "%d", i);
+
 		GET_T(vec1, i)->d = i+0.5;
 		GET_T(vec1, i)->i = i;
 		strcpy(GET_T(vec1, i)->word, buffer);
-		//GET_T(vec1, i)->word = mystrdup(buffer);
 
+		GET_F(vec2, i)->d = i+0.5;
+		GET_F(vec2, i)->i = i;
+		GET_F(vec2, i)->word = mystrdup(buffer);
 	}
 
 	CU_ASSERT_EQUAL(100, vec1->size);
+	CU_ASSERT_EQUAL(100, vec2->size);
+
+
 
 	erase(vec1, 25, 74);
+	erase(vec2, 25, 74);
 
 	CU_ASSERT_EQUAL(50, vec1->size);
+	CU_ASSERT_EQUAL(50, vec2->size);
 
 	int j=0;
 	for(i=0; i<vec1->size; i++,j++) {
@@ -626,10 +668,15 @@ void erase_test()
 		CU_ASSERT_EQUAL(GET_T(vec1, i)->i, j);
 		CU_ASSERT_STRING_EQUAL(GET_T(vec1, i)->word, buffer);
 
+		CU_ASSERT_EQUAL(GET_F(vec2, i)->d, j+0.5);
+		CU_ASSERT_EQUAL(GET_F(vec2, i)->i, j);
+		CU_ASSERT_STRING_EQUAL(GET_F(vec2, i)->word, buffer);
+
 		if(i==24) j +=50;
 	}
 
 	free_vec(vec1);
+	free_vec(vec2);
 }
 
 
@@ -637,6 +684,7 @@ void erase_test()
 void insert_test()
 {
 	t_struct array[10];
+	f_struct array2[10];
 	int i;
 	char buffer[50];
 	for(i=0; i<10; i++) {
@@ -644,12 +692,19 @@ void insert_test()
 		array[i].d = i+0.5;
 		array[i].i = i;
 		strcpy(array[i].word, buffer);
+
+		array2[i].d = i+0.5;
+		array2[i].i = i;
+		array2[i].word = mystrdup(buffer);
 	}
 
 
 	vector* vec = init_vec(array, 10, sizeof(t_struct), NULL);
+	vector* vec2 = init_vec(array2, 10, sizeof(f_struct), free_f_struct);
+
 
 	CU_ASSERT_EQUAL(vec->size, 10);
+	CU_ASSERT_EQUAL(vec2->size, 10);
 
 
 	for(i=0; i<vec->size; i++) {
@@ -657,18 +712,27 @@ void insert_test()
 		CU_ASSERT_EQUAL(GET_T(vec, i)->d, i+0.5);
 		CU_ASSERT_EQUAL(GET_T(vec, i)->i, i);
 		CU_ASSERT_STRING_EQUAL(GET_T(vec, i)->word, buffer);
+
+		CU_ASSERT_EQUAL(GET_F(vec2, i)->d, i+0.5);
+		CU_ASSERT_EQUAL(GET_F(vec2, i)->i, i);
+		CU_ASSERT_STRING_EQUAL(GET_F(vec2, i)->word, buffer);
 	}
 
 	t_struct temp;
+	f_struct temp2;
 
 	for(i=0; i<10; i++) {
 		sprintf(buffer, "hello %d", -i);
 		temp = mk_t_struct(-i-0.5, -i, buffer);
+		temp2 = mk_f_struct(-i-0.5, -i, buffer);
+
 		insert(vec, 0, &temp);
+		insert(vec2, 0, &temp2);
 	}
 
-
 	CU_ASSERT_EQUAL(vec->size, 20);
+	CU_ASSERT_EQUAL(vec2->size, 20);
+
 
 	for(i=0; i<vec->size; i++) {
 		sprintf(buffer, "hello %d", i-((i<10)? 9 : 10));
@@ -676,9 +740,15 @@ void insert_test()
 		CU_ASSERT_EQUAL(GET_T(vec, i)->d, i-0.5-9 );
 		CU_ASSERT_EQUAL(GET_T(vec, i)->i, i-((i<10)? 9 : 10) );
 		CU_ASSERT_STRING_EQUAL(GET_T(vec, i)->word, buffer);
+
+		CU_ASSERT_EQUAL(GET_F(vec2, i)->d, i-0.5-9 );
+		CU_ASSERT_EQUAL(GET_F(vec2, i)->i, i-((i<10)? 9 : 10) );
+		CU_ASSERT_STRING_EQUAL(GET_F(vec2, i)->word, buffer);
+
 	}
 
 	free_vec(vec);
+	free_vec(vec2);
 }
 
 
@@ -686,10 +756,13 @@ void insert_test()
 void pop_test()
 {
 	vector* vec = init_vec(NULL, 10, sizeof(t_struct), NULL);
+	vector* vec2 = init_vec(NULL, 10, sizeof(f_struct), free_f_struct);
 
 	CU_ASSERT_EQUAL(vec->capacity, 10+VEC_START_SZ);
+	CU_ASSERT_EQUAL(vec2->capacity, 10+VEC_START_SZ);
 
 	t_struct temp;
+	f_struct temp2;
 
 	char buffer[50];
 
@@ -697,49 +770,68 @@ void pop_test()
 	for(i=0; i<1000; i++) {
 		sprintf(buffer, "hello %d", i);
 		temp = mk_t_struct(i, i, buffer);
+		temp2 = mk_f_struct(i, i, buffer);
+
 		push_back(vec, &temp);
+		push_back(vec2, &temp2);
 	}
 
 	set_capacity(vec, vec->size);
 	CU_ASSERT_EQUAL(vec->size, vec->capacity);
-
 	CU_ASSERT_EQUAL(vec->size, 1000);
+
+	set_capacity(vec2, vec2->size);
+	CU_ASSERT_EQUAL(vec2->size, vec2->capacity);
+	CU_ASSERT_EQUAL(vec2->size, 1000);
+
 
 
 	for(i=999; i>=0; i--) {
 		sprintf(buffer, "hello %d", i);
 		pop_back(vec, &temp);
+		pop_back(vec2, &temp2);
 
 		CU_ASSERT_EQUAL(temp.d, i );
 		CU_ASSERT_EQUAL(temp.i, i );
 		CU_ASSERT_STRING_EQUAL(temp.word, buffer);
 
+		CU_ASSERT_EQUAL(temp2.d, i );
+		CU_ASSERT_EQUAL(temp2.i, i );
+		CU_ASSERT_STRING_EQUAL(temp2.word, buffer);
 
 	}
 
-	//should add more testing in loop?
-
 	CU_ASSERT_EQUAL(vec->size, 0);
+	CU_ASSERT_EQUAL(vec2->size, 0);
 
 	free_vec(vec);
+	free_vec(vec2);
 }
 
 
 void reserve_test()
 {
 	vector* vect = vec(0, sizeof(t_struct), NULL);
+	vector* vec2 = vec(0, sizeof(f_struct), NULL);
 
 	reserve(vect, 20);
+	reserve(vec2, 20);
+
 	CU_ASSERT( vect->capacity>=20 );
+	CU_ASSERT( vec2->capacity>=20 );
 
 	free_vec(vect);
+	free_vec(vec2);
 }
 
 
 void set_capacity_test()
 {
 	vector* vec1 = vec(0, sizeof(t_struct), NULL);
+	vector* vec2 = vec(0, sizeof(f_struct), free_f_struct);
+
 	t_struct temp;
+	f_struct temp2;
 
 	char buffer[50];
 
@@ -747,16 +839,27 @@ void set_capacity_test()
 	for(i=0; i<1000; i++) {
 		sprintf(buffer, "hello %d", i);
 		temp = mk_t_struct(i, i, buffer);
+		temp2 = mk_f_struct(i, i, buffer);
+
 		push_back(vec1, &temp);
+		push_back(vec2, &temp2);
 	}
 
 	CU_ASSERT( vec1->capacity>=1000 );
 	CU_ASSERT( vec1->size==1000);
 
+	CU_ASSERT( vec2->capacity>=1000 );
+	CU_ASSERT( vec2->size==1000);
+
 	set_capacity(vec1, 500);
+	set_capacity(vec2, 500);
+
 
 	CU_ASSERT( vec1->capacity==500 );
-	CU_ASSERT( vec1->size==500);
+	CU_ASSERT( vec1->size==500 );
+
+	CU_ASSERT( vec2->capacity==500 );
+	CU_ASSERT( vec2->size==500 );
 
 	for(i=0; i<vec1->size; i++) {
 		sprintf(buffer, "hello %d", i);
@@ -764,9 +867,14 @@ void set_capacity_test()
 		CU_ASSERT_EQUAL(GET_T(vec1, i)->d, i );
 		CU_ASSERT_EQUAL(GET_T(vec1, i)->i, i );
 		CU_ASSERT_STRING_EQUAL(GET_T(vec1, i)->word, buffer);
+
+		CU_ASSERT_EQUAL(GET_F(vec2, i)->d, i );
+		CU_ASSERT_EQUAL(GET_F(vec2, i)->i, i );
+		CU_ASSERT_STRING_EQUAL(GET_F(vec2, i)->word, buffer);
 	}
 
 	free_vec(vec1);
+	free_vec(vec2);
 }
 
 
@@ -774,28 +882,74 @@ void set_capacity_test()
 
 void set_val_test()
 {
+	int i;
 	vector* vec1 = vec(20, sizeof(t_struct), NULL);
+	vector* vec2 = vec(20, sizeof(f_struct), free_f_struct);
+
+	CU_ASSERT_EQUAL(vec1->size, 20);
+	CU_ASSERT_EQUAL(vec2->size, 20);
+
+	CU_ASSERT_EQUAL(vec1->capacity, 20+VEC_START_SZ);
+	CU_ASSERT_EQUAL(vec2->capacity, 20+VEC_START_SZ);
 
 	t_struct temp = mk_t_struct(42.5, 42, "hello");
+	f_struct temp2;
+
+	/* have to do this so set_val_sz has something to free
+	 * otherwise it's trying to call vec->elem_free (or free_f_struct) on unallocated memory
+	 * I suppose I could always add a parameter for an initializer function so the user could
+	 * make sure to set any things that usually need to be freed to NULL so it wouldn't error in
+	 * situations like this but I think that's getting ahead of myself and probably overkill.
+	 * The user (programmer) should know what's going on from the documentation and functions.
+	 */
+	for(i=0; i<vec2->size; i++) {
+		temp2 = mk_f_struct(42.5, 42, "hello");
+		memcpy(&vec2->a[i*vec2->elem_size], &temp2, sizeof(f_struct));
+	}
+
+	temp2 = mk_f_struct(42.5, 42, "hello");
 
 	set_val_sz(vec1, &temp);
-	int i;
+	set_val_sz(vec2, &temp2);
+
 	for(i=0; i<vec1->size; i++) {
 		CU_ASSERT_EQUAL(GET_T(vec1, i)->d, 42.5);
 		CU_ASSERT_EQUAL(GET_T(vec1, i)->i, 42);
 		CU_ASSERT_STRING_EQUAL(GET_T(vec1, i)->word, "hello");
+
+		CU_ASSERT_EQUAL(GET_F(vec2, i)->d, 42.5);
+		CU_ASSERT_EQUAL(GET_F(vec2, i)->i, 42);
+		CU_ASSERT_STRING_EQUAL(GET_F(vec2, i)->word, "hello");
 	}
 
 	temp = mk_t_struct(25.5, 25, "goodbye");
+	temp2 = mk_f_struct(25.5, 25, "goodbye");
+
 	set_val_cap(vec1, &temp);
+	set_val_cap(vec2, &temp2);
+
+	//difference here between having a free function and not
+	//if yes then size is set to capacity by set_val_cap.
+	CU_ASSERT_EQUAL(vec1->size, 20);
+	CU_ASSERT_EQUAL(vec1->capacity, 20+VEC_START_SZ);
+
+	CU_ASSERT_EQUAL(vec2->size, vec2->capacity);
+	CU_ASSERT_EQUAL(vec2->capacity, 20+VEC_START_SZ);
+
+
 
 	for(i=0; i<vec1->capacity; i++) {
 		CU_ASSERT_EQUAL(GET_T(vec1, i)->d, 25.5);
 		CU_ASSERT_EQUAL(GET_T(vec1, i)->i, 25);
 		CU_ASSERT_STRING_EQUAL(GET_T(vec1, i)->word, "goodbye");
+
+		CU_ASSERT_EQUAL(GET_F(vec2, i)->d, 25.5);
+		CU_ASSERT_EQUAL(GET_F(vec2, i)->i, 25);
+		CU_ASSERT_STRING_EQUAL(GET_F(vec2, i)->word, "goodbye");
 	}
 
 	free_vec(vec1);
+	free_vec(vec2);
 }
 
 

@@ -675,8 +675,13 @@ void free_vecs(vector_s* vec)
  * Creates a new vector.
  * Vector size is set to sz, capacity to sz+VEC_I_START_SZ.
  * elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
+ * You can pass in a function, elem_free, to be called on every element before it is removed
+ * from the vector to free any dynamically allocated memory.  For example if you passed
+ * in sizeof(char*) for elem_sz and the standard free(void*) function for elem_free you could
+ * make vector work exactly like vector_s.  Pass in NULL, to not use it.
+ * See the other functions and the tests for more behavioral details.
  */
-vector* vec(int sz, int elem_sz, void(*elem_free)(void*))
+vector* vec(int sz, int elem_sz, void(*elem_free)(void*), void(*elem_init)(void*))
 {
 	vector* vec;
 	if( !(vec = calloc(1, sizeof(vector))) ) {
@@ -697,6 +702,7 @@ vector* vec(int sz, int elem_sz, void(*elem_free)(void*))
 
 	vec->size = ( sz>0 ) ? sz : 0;
 	vec->elem_free = elem_free;
+	vec->elem_init = elem_init;
 
 	return vec;
 }
@@ -707,8 +713,9 @@ vector* vec(int sz, int elem_sz, void(*elem_free)(void*))
  *  If vals is NULL, capacity is set to num + VEC_I_START_SZ.
  *  Size is set to num in the first place, 0 otherwise.
  *  elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
+ *  See vec() for more information about the elem_free and elem_init parameters.
  */
-vector* init_vec(void* vals, int num, int elem_sz, void(*elem_free)(void*))
+vector* init_vec(void* vals, int num, int elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	vector* vec;
 	if( !(vec = calloc(1, sizeof(vector))) ) {
@@ -740,6 +747,7 @@ vector* init_vec(void* vals, int num, int elem_sz, void(*elem_free)(void*))
 		return NULL;
 
 	vec->elem_free = elem_free;
+	vec->elem_init = elem_init;
 
 	return vec;
 }
@@ -852,8 +860,15 @@ int reserve(vector* vec, int size)
 */
 int set_capacity(vector* vec, int size)
 {
-	if( size<vec->size )
+	int i;
+	if( size<vec->size ) {
+
+		if( vec->elem_free )
+			for(i=vec->size-1; i>=size; i--)
+				vec->elem_free(&vec->a[i*vec->elem_size]);
+
 		vec->size = size;
+	}
 
 	vec->capacity = size;
 
@@ -875,9 +890,13 @@ void set_val_sz(vector* vec, void* val)
 		for(i=0; i<vec->size; i++)
 			vec->elem_free(&vec->a[i*vec->elem_size]);
 
-	for(i=0; i<vec->size; i++)
-		memcpy(&vec->a[i*vec->elem_size], val, vec->elem_size);
-
+	if( vec->elem_init ) {
+		for(i=0; i<vec->size; i++)
+			vec->elem_init(&vec->a[i*vec->elem_size], val);
+	} else {
+		for(i=0; i<vec->size; i++)
+			memcpy(&vec->a[i*vec->elem_size], val, vec->elem_size);
+	}
 }
 
 
@@ -893,8 +912,14 @@ void set_val_cap(vector* vec, void* val)
 
 		vec->size = vec->capacity;
 	}
-	for(i=0; i<vec->capacity; i++)
-		memcpy(&vec->a[i*vec->elem_size], val, vec->elem_size);
+
+	if( vec->elem_init ) {
+		for(i=0; i<vec->capacity; i++)
+			vec->elem_init(&vec->a[i*vec->elem_size], val);
+	} else {
+		for(i=0; i<vec->capacity; i++)
+			memcpy(&vec->a[i*vec->elem_size], val, vec->elem_size);
+	}
 }
 
 
