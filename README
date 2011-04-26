@@ -6,11 +6,20 @@ CVECTOR
 
 This is a relatively simple C vector library with specific structures and
 functions for int's, double's and string's and support for all other types
-using a structure for void*.  It has been relatively exhaustively tested
-using Cunit tests which all pass, and thought I can't guarantee correctness
-I'm about 99.9% confident that it functions perfectly.  I plan to continue
-to improve/modify it but probably only in minor ways (see todo list in Doxygen
-documentation).
+using a structure for void*.  The void* vector is very flexible and allows
+you to provide free and init functions if you like that it will call at
+appropriate times similar to the way C++ containers will call destructors.
+
+It has been relatively exhaustively tested
+using Cunit tests which all pass, and though I can't guarantee correctness
+I'm about 99.9% confident that it functions perfectly.  I've also run it
+under valgrind and there are no memory leaks.
+
+
+I plan to continue to improve/modify it but probably only in minor ways and
+only if I think something should be changed.  This library is mostly
+for my own use but I thought I would share it and use it as a platform
+to learn TDD, CUnit and Doxygen.
 
 
 I've included the zipped version of CUnit that I used so you can install
