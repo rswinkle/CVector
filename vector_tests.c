@@ -574,11 +574,21 @@ void free_f_struct(void* tmp)
 }
 
 
+void init_f_struct(void* dest, void* src)
+{
+	f_struct* d = (f_struct*)dest;
+	f_struct* s = (f_struct*)src;
+	d->i = s->i;
+	d->d = s->d;
+	d->word = mystrdup(s->word);
+}
+
+
 //I am here
 void push_test()
 {
-	vector* vec1 = vec(0, sizeof(t_struct), NULL);
-	vector* vec2 = vec(0, sizeof(f_struct), free_f_struct);
+	vector* vec1 = vec(0, sizeof(t_struct), NULL, NULL);
+	vector* vec2 = vec(0, sizeof(f_struct), free_f_struct, NULL);
 
 	CU_ASSERT_EQUAL(VEC_START_SZ, vec1->capacity);
 	CU_ASSERT_EQUAL(0, vec1->size);
@@ -625,8 +635,8 @@ void push_test()
 
 void erase_test()
 {
-	vector* vec1 = vec(100, sizeof(t_struct), NULL);
-	vector* vec2 = vec(100, sizeof(f_struct), free_f_struct);
+	vector* vec1 = vec(100, sizeof(t_struct), NULL, NULL);
+	vector* vec2 = vec(100, sizeof(f_struct), free_f_struct, NULL);
 
 
 	CU_ASSERT_EQUAL(VEC_START_SZ+100, vec1->capacity);
@@ -699,8 +709,8 @@ void insert_test()
 	}
 
 
-	vector* vec = init_vec(array, 10, sizeof(t_struct), NULL);
-	vector* vec2 = init_vec(array2, 10, sizeof(f_struct), free_f_struct);
+	vector* vec = init_vec(array, 10, sizeof(t_struct), NULL, NULL);
+	vector* vec2 = init_vec(array2, 10, sizeof(f_struct), free_f_struct, NULL);
 
 
 	CU_ASSERT_EQUAL(vec->size, 10);
@@ -755,8 +765,8 @@ void insert_test()
 
 void pop_test()
 {
-	vector* vec = init_vec(NULL, 10, sizeof(t_struct), NULL);
-	vector* vec2 = init_vec(NULL, 10, sizeof(f_struct), free_f_struct);
+	vector* vec = init_vec(NULL, 10, sizeof(t_struct), NULL, NULL);
+	vector* vec2 = init_vec(NULL, 10, sizeof(f_struct), free_f_struct, NULL);
 
 	CU_ASSERT_EQUAL(vec->capacity, 10+VEC_START_SZ);
 	CU_ASSERT_EQUAL(vec2->capacity, 10+VEC_START_SZ);
@@ -797,8 +807,8 @@ void pop_test()
 
 		CU_ASSERT_EQUAL(temp2.d, i );
 		CU_ASSERT_EQUAL(temp2.i, i );
-		CU_ASSERT_STRING_EQUAL(temp2.word, buffer);
-
+		//No CU_ASSERT_STRING_EQUAL here because the string
+		//was freed when it was popped
 	}
 
 	CU_ASSERT_EQUAL(vec->size, 0);
@@ -811,8 +821,8 @@ void pop_test()
 
 void reserve_test()
 {
-	vector* vect = vec(0, sizeof(t_struct), NULL);
-	vector* vec2 = vec(0, sizeof(f_struct), NULL);
+	vector* vect = vec(0, sizeof(t_struct), NULL, NULL);
+	vector* vec2 = vec(0, sizeof(f_struct), NULL, NULL);
 
 	reserve(vect, 20);
 	reserve(vec2, 20);
@@ -827,8 +837,8 @@ void reserve_test()
 
 void set_capacity_test()
 {
-	vector* vec1 = vec(0, sizeof(t_struct), NULL);
-	vector* vec2 = vec(0, sizeof(f_struct), free_f_struct);
+	vector* vec1 = vec(0, sizeof(t_struct), NULL, NULL);
+	vector* vec2 = vec(0, sizeof(f_struct), free_f_struct, NULL);
 
 	t_struct temp;
 	f_struct temp2;
@@ -883,8 +893,8 @@ void set_capacity_test()
 void set_val_test()
 {
 	int i;
-	vector* vec1 = vec(20, sizeof(t_struct), NULL);
-	vector* vec2 = vec(20, sizeof(f_struct), free_f_struct);
+	vector* vec1 = vec(20, sizeof(t_struct), NULL, NULL);
+	vector* vec2 = vec(20, sizeof(f_struct), free_f_struct, init_f_struct);
 
 	CU_ASSERT_EQUAL(vec1->size, 20);
 	CU_ASSERT_EQUAL(vec2->size, 20);
@@ -893,24 +903,12 @@ void set_val_test()
 	CU_ASSERT_EQUAL(vec2->capacity, 20+VEC_START_SZ);
 
 	t_struct temp = mk_t_struct(42.5, 42, "hello");
-	f_struct temp2;
-
-	/* have to do this so set_val_sz has something to free
-	 * otherwise it's trying to call vec->elem_free (or free_f_struct) on unallocated memory
-	 * I suppose I could always add a parameter for an initializer function so the user could
-	 * make sure to set any things that usually need to be freed to NULL so it wouldn't error in
-	 * situations like this but I think that's getting ahead of myself and probably overkill.
-	 * The user (programmer) should know what's going on from the documentation and functions.
-	 */
-	for(i=0; i<vec2->size; i++) {
-		temp2 = mk_f_struct(42.5, 42, "hello");
-		memcpy(&vec2->a[i*vec2->elem_size], &temp2, sizeof(f_struct));
-	}
-
-	temp2 = mk_f_struct(42.5, 42, "hello");
+	f_struct temp2 = mk_f_struct(42.5, 42, "hello");;
 
 	set_val_sz(vec1, &temp);
 	set_val_sz(vec2, &temp2);
+
+	free_f_struct(&temp2);
 
 	for(i=0; i<vec1->size; i++) {
 		CU_ASSERT_EQUAL(GET_T(vec1, i)->d, 42.5);
@@ -928,6 +926,8 @@ void set_val_test()
 	set_val_cap(vec1, &temp);
 	set_val_cap(vec2, &temp2);
 
+	free_f_struct(&temp2);
+
 	//difference here between having a free function and not
 	//if yes then size is set to capacity by set_val_cap.
 	CU_ASSERT_EQUAL(vec1->size, 20);
@@ -935,7 +935,6 @@ void set_val_test()
 
 	CU_ASSERT_EQUAL(vec2->size, vec2->capacity);
 	CU_ASSERT_EQUAL(vec2->capacity, 20+VEC_START_SZ);
-
 
 
 	for(i=0; i<vec1->capacity; i++) {

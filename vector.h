@@ -39,8 +39,8 @@ typedef struct vector_
 	int size;		///< Current size (amount you should use when manipulating array directly).
 	int capacity;	///< Allocated size of array; always >= size.
 	int elem_size;	///< Size in bytes of type stored (sizeof(T) where T is type).
-	void (*elem_init)(void*);
-	void (*elem_free)(void*, void*);
+	void (*elem_init)(void*, void*);
+	void (*elem_free)(void*);
 } vector;
 
 char* mystrdup(const char* str);
@@ -125,8 +125,8 @@ void free_vecs(vector_s* vec);
 
 
 
-vector* vec(int sz, int elem_sz, void (*elem_free)(void*));
-vector* init_vec(void* vals, int num, int elem_sz, void (*elem_free)(void*));
+vector* vec(int sz, int elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
+vector* init_vec(void* vals, int num, int elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
 int push_back(vector* vec, void* val);
 void pop_back(vector* vec, void* ret);
 

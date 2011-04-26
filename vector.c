@@ -677,11 +677,23 @@ void free_vecs(vector_s* vec)
  * elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  * You can pass in a function, elem_free, to be called on every element before it is removed
  * from the vector to free any dynamically allocated memory.  For example if you passed
- * in sizeof(char*) for elem_sz and the standard free(void*) function for elem_free you could
- * make vector work exactly like vector_s.  Pass in NULL, to not use it.
- * See the other functions and the tests for more behavioral details.
+ * in sizeof(char*) for elem_sz, the standard free(void*) function for elem_free
+ * and strdup (or mystrdup in this project) for elem_init you could
+ * make vector work exactly like vector_s.  Pass in NULL, to not use the function parameters.
+ *
+ * All functions call elem_free before overwriting/popping/erasing elements if elem_free is provided.
+ *
+ * elem_init is only used in set_val_sz and set_val_cap because in those cases you are setting many elements
+ * to a single "value" and using the elem_init functionality you can provide what amounts to a copy constructor
+ * which duplicates dynamically allocated memory instead of just copying the pointer ie just like strdup
+ * or mystrdup does with a string.  This allows the free function to work correctly when called on all those
+ * elements.  If you didn't provide an elem_init function but did provide a free function, then
+ * after calling one of the set_val functions, eventually the free function would be called on all those
+ * elements and you'd get a double free or corruption error.
+ *
+ * See the other functions and the tests for more behavioral/usage details.
  */
-vector* vec(int sz, int elem_sz, void(*elem_free)(void*), void(*elem_init)(void*))
+vector* vec(int sz, int elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	vector* vec;
 	if( !(vec = calloc(1, sizeof(vector))) ) {
