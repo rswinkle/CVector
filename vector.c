@@ -13,7 +13,7 @@ int VEC_S_START_SZ = 20;
  * Creates a new vector_i.
  * Vector size is set to sz, capacity to sz+VEC_I_START_SZ.
  */
-vector_i* vec_i(int sz)
+vector_i* vec_i(size_t sz)
 {
 	vector_i* vec;
 	if( !(vec = calloc(1, sizeof(vector_i))) ) {
@@ -38,7 +38,7 @@ vector_i* vec_i(int sz)
  *  If vals is NULL, capacity is set to num + VEC_I_START_SZ.
  *  Size is set to num in the first place, 0 otherwise.
  */
-vector_i* init_vec_i(int* vals, int num)
+vector_i* init_vec_i(int* vals, size_t num)
 {
 	vector_i* vec;
 	if( !(vec = calloc(1, sizeof(vector_i))) ) {
@@ -105,7 +105,7 @@ int pop_backi(vector_i* vec)
  * Everything from that index and right is shifted one to the right.
  *\todo check for i < 0 or > size ?
  */
-int inserti(vector_i* vec, int i, int a)
+int inserti(vector_i* vec, size_t i, int a)
 {
 	if( vec->capacity > vec->size ) {
 		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(int));
@@ -131,7 +131,7 @@ int inserti(vector_i* vec, int i, int a)
  * Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element
  * that was at index 4 would now be at 1 etc. \todo check start and end in range?
  */
-void erasei(vector_i* vec, int start, int end)
+void erasei(vector_i* vec, size_t start, size_t end)
 {
 	int d = end-start+1;
 	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(int));
@@ -140,7 +140,7 @@ void erasei(vector_i* vec, int start, int end)
 
 
 /** Make sure capacity is at least size(parameter not member). */
-int reservei(vector_i* vec, int size)
+int reservei(vector_i* vec, size_t size)
 {
 	if( vec->capacity < size ) {
 		if( !(vec->a = realloc(vec->a, sizeof(int)*(size+20))) ) {
@@ -158,7 +158,7 @@ int reservei(vector_i* vec, int size)
  * You will lose data if you shrink the capacity below the current size.
  * If you do, the size will be set to capacity of course.
 */
-int set_capacityi(vector_i* vec, int size)
+int set_capacityi(vector_i* vec, size_t size)
 {
 	if( size<vec->size )
 		vec->size = size;
@@ -214,7 +214,7 @@ void free_veci(vector_i* vec)
  * Creates a new vector_D.
  * Vector size is set to sz, capacity to sz+VEC_D_START_SZ.
  */
-vector_d* vec_d(int sz)
+vector_d* vec_d(size_t sz)
 {
 	vector_d* vec;
 	if( !(vec = calloc(1, sizeof(vector_d))) ) {
@@ -239,7 +239,7 @@ vector_d* vec_d(int sz)
  *  If vals is NULL, capacity is set to num + VEC_D_START_SZ.
  *  Size is set to num in the first place, 0 otherwise.
  */
-vector_d* init_vec_d(double* vals, int num)
+vector_d* init_vec_d(double* vals, size_t num)
 {
 	vector_d* vec;
 	if( !(vec = calloc(1, sizeof(vector_d))) ) {
@@ -302,7 +302,7 @@ double pop_backd(vector_d* vec)
  * Everything from that index and right is shifted one to the right.
  *\todo check for i < 0 or > size ?
  */
-int insertd(vector_d* vec, int i, double a)
+int insertd(vector_d* vec, size_t i, double a)
 {
 	if( vec->capacity > vec->size ) {
 		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(double));
@@ -328,7 +328,7 @@ int insertd(vector_d* vec, int i, double a)
  * Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element
  * that was at index 4 would now be at 1 etc. \todo check start and end in range?
  */
-void erased(vector_d* vec, int start, int end)
+void erased(vector_d* vec, size_t start, size_t end)
 {
 	int d = end-start+1;
 	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(double));
@@ -337,7 +337,7 @@ void erased(vector_d* vec, int start, int end)
 
 
 /** Make sure capacity is at least size(parameter not member). */
-int reserved(vector_d* vec, int size)
+int reserved(vector_d* vec, size_t size)
 {
 	if( vec->capacity < size ) {
 		if( !(vec->a = realloc(vec->a, sizeof(double)*(size+20))) ) {
@@ -354,7 +354,7 @@ int reserved(vector_d* vec, int size)
  * You will lose data if you shrink the capacity below the current size.
  * If you do, the size will be set to capacity of course.
 */
-int set_capacityd(vector_d* vec, int size)
+int set_capacityd(vector_d* vec, size_t size)
 {
 	if( size<vec->size )
 		vec->size = size;
@@ -434,7 +434,7 @@ char* mystrdup(const char* str)
  * or changing the contents of variables that you've pushed or inserted; it
  * won't affect the vector.
  */
-vector_s* vec_s(int sz)
+vector_s* vec_s(size_t sz)
 {
 	vector_s* vec;
 	if( !(vec = calloc(1, sizeof(vector_s))) ) {
@@ -460,7 +460,7 @@ vector_s* vec_s(int sz)
  *  If vals is NULL, capacity is set to num + VEC_D_START_SZ.
  *  Size is set to num in the first place, 0 otherwise.
  */
-vector_s* init_vec_s(char** vals, int num)
+vector_s* init_vec_s(char** vals, size_t num)
 {
 	vector_s* vec;
 	if( !(vec = calloc(1, sizeof(vector_s))) ) {
@@ -530,7 +530,7 @@ void pop_backs(vector_s* vec, char* ret)
  * Everything from that index and right is shifted one to the right.
  *\todo check for i < 0 or > size ?
  */
-int inserts(vector_s* vec, int i, char* a)
+int inserts(vector_s* vec, size_t i, char* a)
 {
 	if( vec->capacity > vec->size ) {
 		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(char*));
@@ -556,7 +556,7 @@ int inserts(vector_s* vec, int i, char* a)
  * Example erases(myvec, 1, 3) would free and remove strings at 1, 2, and 3 and the string
  * that was at index 4 would now be at 1 etc.
  */
-void erases(vector_s* vec, int start, int end)
+void erases(vector_s* vec, size_t start, size_t end)
 {
 	int d = end-start+1;
 	int i;
@@ -572,7 +572,7 @@ void erases(vector_s* vec, int start, int end)
 
 
 /** Makes sure the vector capacity is >= size (parameter not member). */
-int reserves(vector_s* vec, int size)
+int reserves(vector_s* vec, size_t size)
 {
 	if( vec->capacity < size ) {
 		if( !(vec->a = realloc(vec->a, sizeof(char*)*(size+20))) ) {
@@ -588,7 +588,7 @@ int reserves(vector_s* vec, int size)
  * You will lose data if you shrink the capacity below the current size.
  * If you do, the size will be set to capacity of course.
 */
-int set_capacitys(vector_s* vec, int size)
+int set_capacitys(vector_s* vec, size_t size)
 {
 	int i;
 	if( size<vec->size ) {
@@ -693,7 +693,7 @@ void free_vecs(vector_s* vec)
  *
  * See the other functions and the tests for more behavioral/usage details.
  */
-vector* vec(int sz, int elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+vector* vec(size_t sz, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	vector* vec;
 	if( !(vec = calloc(1, sizeof(vector))) ) {
@@ -727,7 +727,7 @@ vector* vec(int sz, int elem_sz, void(*elem_free)(void*), void(*elem_init)(void*
  *  elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  *  See vec() for more information about the elem_free and elem_init parameters.
  */
-vector* init_vec(void* vals, int num, int elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+vector* init_vec(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	vector* vec;
 	if( !(vec = calloc(1, sizeof(vector))) ) {
@@ -810,7 +810,7 @@ void pop_back(vector* vec, void* ret)
  * Everything from that index and right is shifted one to the right.
  *\todo check for i < 0 or > size-1?
  */
-int insert(vector* vec, int i, void* a)
+int insert(vector* vec, size_t i, void* a)
 {
 	if( vec->capacity > vec->size ) {
 		memmove(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
@@ -839,7 +839,7 @@ int insert(vector* vec, int i, void* a)
  * Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element
  * that was at index 4 would now be at 1 etc. \todo check start and end in range?
  */
-void erase(vector* vec, int start, int end)
+void erase(vector* vec, size_t start, size_t end)
 {
 	int d = end-start+1;
 	int i;
@@ -853,7 +853,7 @@ void erase(vector* vec, int start, int end)
 
 
 /** Makes sure capacity >= size (the parameter not the member). */
-int reserve(vector* vec, int size)
+int reserve(vector* vec, size_t size)
 {
 	if( vec->capacity < size ) {
 		if( !(vec->a = realloc(vec->a, vec->elem_size*(size+20))) ) {
@@ -870,7 +870,7 @@ int reserve(vector* vec, int size)
  * You will lose data if you shrink the capacity below the current size.
  * If you do, the size will be set to capacity of course.
 */
-int set_capacity(vector* vec, int size)
+int set_capacity(vector* vec, size_t size)
 {
 	int i;
 	if( size<vec->size ) {

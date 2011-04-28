@@ -54,15 +54,15 @@ extern int VEC_START_SZ;
 extern int VEC_S_START_SZ;
 
 
-vector_i* vec_i(int sz);
-vector_i* init_vec_i(int* vals, int num);
+vector_i* vec_i(size_t sz);
+vector_i* init_vec_i(int* vals, size_t num);
 int push_backi(vector_i* vec, int a);
 int pop_backi(vector_i* vec);
 
-int inserti(vector_i* vec, int i, int a);
-void erasei(vector_i* vec, int start, int end);
-int reservei(vector_i* vec, int size);
-int set_capacityi(vector_i* vec, int size);
+int inserti(vector_i* vec, size_t i, int a);
+void erasei(vector_i* vec, size_t start, size_t end);
+int reservei(vector_i* vec, size_t size);
+int set_capacityi(vector_i* vec, size_t size);
 void set_val_szi(vector_i* vec, int val);
 void set_val_capi(vector_i* vec, int val);
 
@@ -76,15 +76,15 @@ void free_veci(vector_i* vec);
 
 
 
-vector_d* vec_d(int sz);
-vector_d* init_vec_d(double* vals, int num);
+vector_d* vec_d(size_t sz);
+vector_d* init_vec_d(double* vals, size_t num);
 int push_backd(vector_d* vec, double a);
 double pop_backd(vector_d* vec);
 
-int insertd(vector_d* vec, int i, double a);
-void erased(vector_d* vec, int start, int end);
-int reserved(vector_d* vec, int size);
-int set_capacityd(vector_d* vec, int size);
+int insertd(vector_d* vec, size_t i, double a);
+void erased(vector_d* vec, size_t start, size_t end);
+int reserved(vector_d* vec, size_t size);
+int set_capacityd(vector_d* vec, size_t size);
 void set_val_szd(vector_d* vec, double val);
 void set_val_capd(vector_d* vec, double val);
 
@@ -99,15 +99,15 @@ void free_vecd(vector_d* vec);
 
 
 
-vector_s* vec_s(int sz);
-vector_s* init_vec_s(char** vals, int num);
+vector_s* vec_s(size_t sz);
+vector_s* init_vec_s(char** vals, size_t num);
 int push_backs(vector_s* vec, char* a);
 void pop_backs(vector_s* vec, char* ret);
 
-int inserts(vector_s* vec, int i, char* a);
-void erases(vector_s* vec, int start, int end);
-int reserves(vector_s* vec, int size);
-int set_capacitys(vector_s* vec, int size);
+int inserts(vector_s* vec, size_t i, char* a);
+void erases(vector_s* vec, size_t start, size_t end);
+int reserves(vector_s* vec, size_t size);
+int set_capacitys(vector_s* vec, size_t size);
 void set_val_szs(vector_s* vec, char* val);
 void set_val_caps(vector_s* vec, char* val);
 
@@ -125,15 +125,15 @@ void free_vecs(vector_s* vec);
 
 
 
-vector* vec(int sz, int elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
-vector* init_vec(void* vals, int num, int elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
+vector* vec(size_t sz, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
+vector* init_vec(void* vals, size_t num, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
 int push_back(vector* vec, void* val);
 void pop_back(vector* vec, void* ret);
 
-int insert(vector* vec, int i, void* a);
-void erase(vector* vec, int start, int end);
-int reserve(vector* vec, int size);
-int set_capacity(vector* vec, int size);
+int insert(vector* vec, size_t i, void* a);
+void erase(vector* vec, size_t start, size_t end);
+int reserve(vector* vec, size_t size);
+int set_capacity(vector* vec, size_t size);
 void set_val_sz(vector* vec, void* val);
 void set_val_cap(vector* vec, void* val);
 
