@@ -772,7 +772,11 @@ int push_back(vector* vec, void* a)
 {
 	if( vec->capacity > vec->size ) {
 
-		memcpy(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
+		if( vec->elem_init )
+			vec->elem_init(&vec->a[vec->size*vec->elem_size], a);
+		else
+			memcpy(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
+
 		vec->size++;
 
 	} else {
@@ -782,7 +786,10 @@ int push_back(vector* vec, void* a)
 			return 0;
 		}
 
-		memcpy(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
+		if( vec->elem_init )
+			vec->elem_init(&vec->a[vec->size*vec->elem_size], a);
+		else
+			memcpy(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
 		vec->size++;
 	}
 	return 1;
@@ -814,7 +821,11 @@ int insert(vector* vec, size_t i, void* a)
 {
 	if( vec->capacity > vec->size ) {
 		memmove(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
-		memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
+
+		if( vec->elem_init )
+			vec->elem_init(&vec->a[i*vec->elem_size], a);
+		else
+			memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
 
 	} else {
 		vec->capacity *= 2;
@@ -824,7 +835,10 @@ int insert(vector* vec, size_t i, void* a)
 		}
 
 		memmove(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
-		memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
+		if( vec->elem_init )
+			vec->elem_init(&vec->a[i*vec->elem_size], a);
+		else
+			memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
 	}
 
 	vec->size++;
