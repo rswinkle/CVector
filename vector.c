@@ -563,7 +563,7 @@ void erases(vector_s* vec, size_t start, size_t end)
 	for(i=start; i<=end; i++)
 		free(vec->a[i]);
 	
-	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(int));
+	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(char*));
 	vec->size -= d;
 }
 
