@@ -101,11 +101,11 @@ CU_SuiteInfo vector_suites[] = {
 
 int main()
 {
-
+	CU_ErrorCode error;
 	if (CUE_SUCCESS != CU_initialize_registry())
 	      return CU_get_error();
 
-	CU_ErrorCode error = CU_register_suites(vector_suites);
+	error = CU_register_suites(vector_suites);
 
 	if( error != CUE_SUCCESS )
 		fprintf(stderr, "wtf!");

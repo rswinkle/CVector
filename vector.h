@@ -6,47 +6,47 @@
 #include <stdio.h>
 
 
+typedef unsigned char byte;
+
 /** Data structur for int vector. */
 typedef struct vector_i_
 {
-	int* a;			///< Array.
-	int size;		///< Current size (amount you use when manipulating array directly).
-	int capacity;	///< Allocated size of array; always >= size.
+	int* a;			/**< Array. */
+	int size;		/**< Current size (amount you use when manipulating array directly). */
+	int capacity;	/**< Allocated size of array; always >= size. */
 } vector_i;
 
 
 /** Data structure for double vector. */
 typedef struct vector_d_
 {
-	double* a;		///< Array.
-	int size;		///< Current size (amount you use when manipulating array directly).
-	int capacity;	///< Allocated size of array; always >= size.
+	double* a;		/**< Array. */
+	int size;		/**< Current size (amount you use when manipulating array directly). */
+	int capacity;	/**< Allocated size of array; always >= size. */
 } vector_d;
 
 /** Data structure for string vector. */
 typedef struct vector_s_
 {
-	char** a;		///< Array.
-	int size;		///< Current size (amount you use when manipulating array directly).
-	int capacity;	///< Allocated size of array; always >= size.
+	char** a;		/**< Array. */
+	int size;		/**< Current size (amount you use when manipulating array directly). */
+	int capacity;	/**< Allocated size of array; always >= size. */
 } vector_s;
 
 
 /** Data structure for generic type (cast to void) vectors */
 typedef struct vector_
 {
-	void* a;		///< Array.
-	int size;		///< Current size (amount you should use when manipulating array directly).
-	int capacity;	///< Allocated size of array; always >= size.
-	int elem_size;	///< Size in bytes of type stored (sizeof(T) where T is type).
+	byte* a;		/**< Array. */
+	int size;		/**< Current size (amount you should use when manipulating array directly). */
+	int capacity;	/**< Allocated size of array; always >= size. */
+	int elem_size;	/**< Size in bytes of type stored (sizeof(T) where T is type). */
 	void (*elem_init)(void*, void*);
 	void (*elem_free)(void*);
 } vector;
 
 char* mystrdup(const char* str);
 
-//int VEC_I_START_SZ = 50;
-//int VEC_D_START_SZ = 50;
 
 extern int VEC_I_START_SZ;
 extern int VEC_D_START_SZ;
@@ -66,8 +66,8 @@ int set_capacityi(vector_i* vec, size_t size);
 void set_val_szi(vector_i* vec, int val);
 void set_val_capi(vector_i* vec, int val);
 
-//you really don't need these; you could just check
-//them directly
+/*you really don't need these; you could just check
+them directly */
 int capacityi(vector_i* vec);
 int sizei(vector_i* vec);
 void cleari(vector_i* vec);
@@ -88,8 +88,8 @@ int set_capacityd(vector_d* vec, size_t size);
 void set_val_szd(vector_d* vec, double val);
 void set_val_capd(vector_d* vec, double val);
 
-//you really don't need these; you could just check
-//them directly
+/*you really don't need these; you could just check
+them directly */
 int capacityd(vector_d* vec);
 int sized(vector_d* vec);
 void cleard(vector_d* vec);
@@ -111,8 +111,8 @@ int set_capacitys(vector_s* vec, size_t size);
 void set_val_szs(vector_s* vec, char* val);
 void set_val_caps(vector_s* vec, char* val);
 
-//you really don't need these; you could just check
-//them directly
+/*you really don't need these; you could just check
+them directly */
 int capacitys(vector_s* vec);
 int sizes(vector_s* vec);
 void clears(vector_s* vec);
@@ -137,8 +137,8 @@ int set_capacity(vector* vec, size_t size);
 void set_val_sz(vector* vec, void* val);
 void set_val_cap(vector* vec, void* val);
 
-//you really don't need these; you could just check
-//them directly
+/*you really don't need these; you could just check
+them directly */
 int capacity(vector* vec);
 int size(vector* vec);
 void clear(vector* vec);

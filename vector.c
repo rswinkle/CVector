@@ -463,6 +463,7 @@ vector_s* vec_s(size_t sz)
 vector_s* init_vec_s(char** vals, size_t num)
 {
 	vector_s* vec;
+	int i;
 	if( !(vec = calloc(1, sizeof(vector_s))) ) {
 
 		STDERR("Error allocating memory\n");
@@ -478,7 +479,6 @@ vector_s* init_vec_s(char** vals, size_t num)
 			return NULL;
 		}
 
-		int i;
 		for(i=0; i<num; i++)
 			vec->a[i] = mystrdup(vals[i]);
 		
@@ -613,7 +613,9 @@ void set_val_szs(vector_s* vec, char* val)
 {
 	int i;
 	for(i=0; i<vec->size; i++) {
-		free(vec->a[i]);		//not worth checking/reallocing to me
+		free(vec->a[i]);
+
+		/* not worth checking/reallocing to me */
 		vec->a[i] = mystrdup(val);
 	}
 }
