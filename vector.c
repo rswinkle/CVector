@@ -211,7 +211,7 @@ void free_veci(vector_i* vec)
 
 
 /**
- * Creates a new vector_D.
+ * Creates a new vector_d.
  * Vector size is set to sz, capacity to sz+VEC_D_START_SZ.
  */
 vector_d* vec_d(size_t sz)

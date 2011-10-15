@@ -11,21 +11,21 @@
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{structvector__i}{vector\_\-i} $\ast$ \hyperlink{vector_8c_aa44ad3a5dd56a233ee0b8f14496ff44f}{vec\_\-i} (int sz)
+\hyperlink{structvector__i}{vector\_\-i} $\ast$ \hyperlink{vector_8c_a8798e8097e52a34a898a842bb9b7f4f0}{vec\_\-i} (size\_\-t sz)
 \begin{DoxyCompactList}\small\item\em Creates a new \hyperlink{structvector__i}{vector\_\-i}. \item\end{DoxyCompactList}\item 
-\hyperlink{structvector__i}{vector\_\-i} $\ast$ \hyperlink{vector_8c_ab9c54188d54ef13670992db64651e6c2}{init\_\-vec\_\-i} (int $\ast$vals, int num)
+\hyperlink{structvector__i}{vector\_\-i} $\ast$ \hyperlink{vector_8c_a88741ffdcb8aff0d59afb44aab372a20}{init\_\-vec\_\-i} (int $\ast$vals, size\_\-t num)
 \begin{DoxyCompactList}\small\item\em Create and initialize \hyperlink{structvector__i}{vector\_\-i} with num elements of vals. \item\end{DoxyCompactList}\item 
 int \hyperlink{vector_8c_ac9ee8d01a2e12c23014b3bb5a1a3605b}{push\_\-backi} (\hyperlink{structvector__i}{vector\_\-i} $\ast$vec, int a)
 \begin{DoxyCompactList}\small\item\em Append a to end of vector (size increased 1). \item\end{DoxyCompactList}\item 
 int \hyperlink{vector_8c_a8fea65bfdef42ddd75d601e32590d552}{pop\_\-backi} (\hyperlink{structvector__i}{vector\_\-i} $\ast$vec)
 \begin{DoxyCompactList}\small\item\em Remove and return the last element (size decreased 1). \item\end{DoxyCompactList}\item 
-int \hyperlink{vector_8c_a7c331c204d0e0b92ee3de2b8078a1317}{inserti} (\hyperlink{structvector__i}{vector\_\-i} $\ast$vec, int i, int a)
+int \hyperlink{vector_8c_a84e557f52c83e9f7003a98c332b571d5}{inserti} (\hyperlink{structvector__i}{vector\_\-i} $\ast$vec, size\_\-t i, int a)
 \begin{DoxyCompactList}\small\item\em Insert a at index i (0 based). \item\end{DoxyCompactList}\item 
-void \hyperlink{vector_8c_a345fb47a0db82a1a2db3094d14ccdb03}{erasei} (\hyperlink{structvector__i}{vector\_\-i} $\ast$vec, int start, int end)
+void \hyperlink{vector_8c_a429dec8af8f89b6311c6dad0f180c625}{erasei} (\hyperlink{structvector__i}{vector\_\-i} $\ast$vec, size\_\-t start, size\_\-t end)
 \begin{DoxyCompactList}\small\item\em Erases elements from start to end inclusive. \item\end{DoxyCompactList}\item 
-int \hyperlink{vector_8c_adb15d4a4e7ade2017e2e47315489bea4}{reservei} (\hyperlink{structvector__i}{vector\_\-i} $\ast$vec, int size)
+int \hyperlink{vector_8c_a8e092364e24c40d44b2c7864b7123207}{reservei} (\hyperlink{structvector__i}{vector\_\-i} $\ast$vec, size\_\-t size)
 \begin{DoxyCompactList}\small\item\em Make sure capacity is at least size(parameter not member). \item\end{DoxyCompactList}\item 
-int \hyperlink{vector_8c_ac6d7cb569fbba2e4c8ff1f9a510a00ca}{set\_\-capacityi} (\hyperlink{structvector__i}{vector\_\-i} $\ast$vec, int size)
+int \hyperlink{vector_8c_ae6a6b79c99c999ba62d11485dff9baab}{set\_\-capacityi} (\hyperlink{structvector__i}{vector\_\-i} $\ast$vec, size\_\-t size)
 \begin{DoxyCompactList}\small\item\em Set capacity to size. \item\end{DoxyCompactList}\item 
 void \hyperlink{vector_8c_ae345cec01d9c396aab73dbccc6f97ff5}{set\_\-val\_\-szi} (\hyperlink{structvector__i}{vector\_\-i} $\ast$vec, int val)
 \begin{DoxyCompactList}\small\item\em Set all size elements to val. \item\end{DoxyCompactList}\item 
@@ -39,21 +39,21 @@ void \hyperlink{vector_8c_a81a0f18214d814fc58e7fc59ec032304}{cleari} (\hyperlink
 \begin{DoxyCompactList}\small\item\em Sets size to 0 (does not clear contents). \item\end{DoxyCompactList}\item 
 void \hyperlink{vector_8c_a7b28b97a1e05eaba88cb4708804d71fa}{free\_\-veci} (\hyperlink{structvector__i}{vector\_\-i} $\ast$vec)
 \begin{DoxyCompactList}\small\item\em Frees everything so don't use vec after calling this. \item\end{DoxyCompactList}\item 
-\hyperlink{structvector__d}{vector\_\-d} $\ast$ \hyperlink{vector_8c_ac016c9fbfea76af811c8b14c4db96cc3}{vec\_\-d} (int sz)
-\begin{DoxyCompactList}\small\item\em Creates a new vector\_\-D. \item\end{DoxyCompactList}\item 
-\hyperlink{structvector__d}{vector\_\-d} $\ast$ \hyperlink{vector_8c_a3dbba90ba9daff94407eb51c7b517ad7}{init\_\-vec\_\-d} (double $\ast$vals, int num)
+\hyperlink{structvector__d}{vector\_\-d} $\ast$ \hyperlink{vector_8c_aa41e6b01a707647bd66b35b6a88612d4}{vec\_\-d} (size\_\-t sz)
+\begin{DoxyCompactList}\small\item\em Creates a new \hyperlink{structvector__d}{vector\_\-d}. \item\end{DoxyCompactList}\item 
+\hyperlink{structvector__d}{vector\_\-d} $\ast$ \hyperlink{vector_8c_aa0a2179ce6d677fec9ff95c08b575eec}{init\_\-vec\_\-d} (double $\ast$vals, size\_\-t num)
 \begin{DoxyCompactList}\small\item\em Create and initialize \hyperlink{structvector__d}{vector\_\-d} with num elements of vals. \item\end{DoxyCompactList}\item 
 int \hyperlink{vector_8c_aec22afdb202bb430481b1ba919d46128}{push\_\-backd} (\hyperlink{structvector__d}{vector\_\-d} $\ast$vec, double a)
 \begin{DoxyCompactList}\small\item\em Append a to end of vector (size increased 1). \item\end{DoxyCompactList}\item 
 double \hyperlink{vector_8c_ad63b53355a5ec0829c19fece78497149}{pop\_\-backd} (\hyperlink{structvector__d}{vector\_\-d} $\ast$vec)
 \begin{DoxyCompactList}\small\item\em Remove and return the last element (size decreased 1). \item\end{DoxyCompactList}\item 
-int \hyperlink{vector_8c_aef9ed372592bd1190aa26d84ee7344fd}{insertd} (\hyperlink{structvector__d}{vector\_\-d} $\ast$vec, int i, double a)
+int \hyperlink{vector_8c_a27cda61f4446cb298f30c78ea250ffe0}{insertd} (\hyperlink{structvector__d}{vector\_\-d} $\ast$vec, size\_\-t i, double a)
 \begin{DoxyCompactList}\small\item\em Insert a at index i (0 based). \item\end{DoxyCompactList}\item 
-void \hyperlink{vector_8c_a554a8befd0b8d3f1167c0498f054cf03}{erased} (\hyperlink{structvector__d}{vector\_\-d} $\ast$vec, int start, int end)
+void \hyperlink{vector_8c_a5024e0dad2d80c8c58c840aa0fda85aa}{erased} (\hyperlink{structvector__d}{vector\_\-d} $\ast$vec, size\_\-t start, size\_\-t end)
 \begin{DoxyCompactList}\small\item\em Erases elements from start to end inclusive. \item\end{DoxyCompactList}\item 
-int \hyperlink{vector_8c_af863bbffa25c7a54d19f149b9e7411cb}{reserved} (\hyperlink{structvector__d}{vector\_\-d} $\ast$vec, int size)
+int \hyperlink{vector_8c_ae17d88125d50322bb65975e2db402144}{reserved} (\hyperlink{structvector__d}{vector\_\-d} $\ast$vec, size\_\-t size)
 \begin{DoxyCompactList}\small\item\em Make sure capacity is at least size(parameter not member). \item\end{DoxyCompactList}\item 
-int \hyperlink{vector_8c_a79ec100154c311fd17fcc54c1a54007c}{set\_\-capacityd} (\hyperlink{structvector__d}{vector\_\-d} $\ast$vec, int size)
+int \hyperlink{vector_8c_ac3ac1d2e488610aa6ebf615299b41895}{set\_\-capacityd} (\hyperlink{structvector__d}{vector\_\-d} $\ast$vec, size\_\-t size)
 \begin{DoxyCompactList}\small\item\em Set capacity to size. \item\end{DoxyCompactList}\item 
 void \hyperlink{vector_8c_a8cf2604b6dfe8c10939e0ca4e4ef5868}{set\_\-val\_\-szd} (\hyperlink{structvector__d}{vector\_\-d} $\ast$vec, double val)
 \begin{DoxyCompactList}\small\item\em Set all size elements to val. \item\end{DoxyCompactList}\item 
@@ -69,21 +69,21 @@ void \hyperlink{vector_8c_a45ceb45ec34fa0e5f70ce6b99c0e2737}{free\_\-vecd} (\hyp
 \begin{DoxyCompactList}\small\item\em Frees everything so don't use vec after calling this. \item\end{DoxyCompactList}\item 
 char $\ast$ \hyperlink{vector_8c_a141b8e057d63a3ba14590139945e20a9}{mystrdup} (const char $\ast$str)
 \begin{DoxyCompactList}\small\item\em Useful utility function since strdup isn't standard C. \item\end{DoxyCompactList}\item 
-\hyperlink{structvector__s}{vector\_\-s} $\ast$ \hyperlink{vector_8c_a95172f01d47c2f51ef17c414da861cf7}{vec\_\-s} (int sz)
+\hyperlink{structvector__s}{vector\_\-s} $\ast$ \hyperlink{vector_8c_aebb05877a4cdf5b2c242885f23f52eac}{vec\_\-s} (size\_\-t sz)
 \begin{DoxyCompactList}\small\item\em Create a new \hyperlink{structvector__s}{vector\_\-s} with size sz. \item\end{DoxyCompactList}\item 
-\hyperlink{structvector__s}{vector\_\-s} $\ast$ \hyperlink{vector_8c_abe3ee6925185633db7f1e1ba73cfa2fd}{init\_\-vec\_\-s} (char $\ast$$\ast$vals, int num)
+\hyperlink{structvector__s}{vector\_\-s} $\ast$ \hyperlink{vector_8c_abc4e4cc2141775d6e9994d8379c3cd6f}{init\_\-vec\_\-s} (char $\ast$$\ast$vals, size\_\-t num)
 \begin{DoxyCompactList}\small\item\em Create and initialize \hyperlink{structvector__s}{vector\_\-s} with num elements of vals. \item\end{DoxyCompactList}\item 
 int \hyperlink{vector_8c_ac150af7158211651585db98ea24f480b}{push\_\-backs} (\hyperlink{structvector__s}{vector\_\-s} $\ast$vec, char $\ast$a)
 \begin{DoxyCompactList}\small\item\em Append a to end of vector (size increased 1). \item\end{DoxyCompactList}\item 
 void \hyperlink{vector_8c_a7b17af16d628d983e29caab7b9f41d18}{pop\_\-backs} (\hyperlink{structvector__s}{vector\_\-s} $\ast$vec, char $\ast$ret)
 \begin{DoxyCompactList}\small\item\em Remove the last element (size decreased 1). \item\end{DoxyCompactList}\item 
-int \hyperlink{vector_8c_a411bab7125d42247512cf7e9b8782785}{inserts} (\hyperlink{structvector__s}{vector\_\-s} $\ast$vec, int i, char $\ast$a)
+int \hyperlink{vector_8c_a51c617708ae543ff9de78c9fec30b5f5}{inserts} (\hyperlink{structvector__s}{vector\_\-s} $\ast$vec, size\_\-t i, char $\ast$a)
 \begin{DoxyCompactList}\small\item\em Insert a at index i (0 based). \item\end{DoxyCompactList}\item 
-void \hyperlink{vector_8c_acf671880fe73dbacec412fb19f49eec8}{erases} (\hyperlink{structvector__s}{vector\_\-s} $\ast$vec, int start, int end)
+void \hyperlink{vector_8c_abab89ce87821bca28b7641676d3c562c}{erases} (\hyperlink{structvector__s}{vector\_\-s} $\ast$vec, size\_\-t start, size\_\-t end)
 \begin{DoxyCompactList}\small\item\em Erases strings from start to end inclusive. \item\end{DoxyCompactList}\item 
-int \hyperlink{vector_8c_a56e86e6f83355f9ae437d36dc6c00047}{reserves} (\hyperlink{structvector__s}{vector\_\-s} $\ast$vec, int size)
+int \hyperlink{vector_8c_aa0f9a5cb0911ac0030574b0a4f7ca8d4}{reserves} (\hyperlink{structvector__s}{vector\_\-s} $\ast$vec, size\_\-t size)
 \begin{DoxyCompactList}\small\item\em Makes sure the vector capacity is $>$= size (parameter not member). \item\end{DoxyCompactList}\item 
-int \hyperlink{vector_8c_a2c4c69c92b69ac841fb8f4a677e96064}{set\_\-capacitys} (\hyperlink{structvector__s}{vector\_\-s} $\ast$vec, int size)
+int \hyperlink{vector_8c_a0a95f51036c470e26ebd78081a1d9611}{set\_\-capacitys} (\hyperlink{structvector__s}{vector\_\-s} $\ast$vec, size\_\-t size)
 \begin{DoxyCompactList}\small\item\em Set capacity to size. \item\end{DoxyCompactList}\item 
 void \hyperlink{vector_8c_a4422ebcd9d921efe075a1f93b9b50dd2}{set\_\-val\_\-szs} (\hyperlink{structvector__s}{vector\_\-s} $\ast$vec, char $\ast$val)
 \begin{DoxyCompactList}\small\item\em Sets all size elements to val. \item\end{DoxyCompactList}\item 
@@ -97,21 +97,21 @@ void \hyperlink{vector_8c_a92933e6a6ce4990401dd32a03e9245a0}{clears} (\hyperlink
 \begin{DoxyCompactList}\small\item\em Clears the contents of vector (frees all strings) and sets size to 0. \item\end{DoxyCompactList}\item 
 void \hyperlink{vector_8c_a7f733f9ec9e36ae25ee969c0b4f345fa}{free\_\-vecs} (\hyperlink{structvector__s}{vector\_\-s} $\ast$vec)
 \begin{DoxyCompactList}\small\item\em Frees contents (individual strings and array) and frees vector so don't use after calling this. \item\end{DoxyCompactList}\item 
-\hyperlink{structvector}{vector} $\ast$ \hyperlink{vector_8c_a0f1090a513a3c70815507ae0a94c5958}{vec} (int sz, int elem\_\-sz, void($\ast$elem\_\-free)(void $\ast$), void($\ast$elem\_\-init)(void $\ast$, void $\ast$))
+\hyperlink{structvector}{vector} $\ast$ \hyperlink{vector_8c_ab5d30a27b9fbe49e7e62f2e41a6647a5}{vec} (size\_\-t sz, size\_\-t elem\_\-sz, void($\ast$elem\_\-free)(void $\ast$), void($\ast$elem\_\-init)(void $\ast$, void $\ast$))
 \begin{DoxyCompactList}\small\item\em Creates a new vector. \item\end{DoxyCompactList}\item 
-\hyperlink{structvector}{vector} $\ast$ \hyperlink{vector_8c_a0462bcfe6cdaf8030830761279caba0f}{init\_\-vec} (void $\ast$vals, int num, int elem\_\-sz, void($\ast$elem\_\-free)(void $\ast$), void($\ast$elem\_\-init)(void $\ast$, void $\ast$))
+\hyperlink{structvector}{vector} $\ast$ \hyperlink{vector_8c_a368ba8d1bd2ed240a7b0527ac752cc3c}{init\_\-vec} (void $\ast$vals, size\_\-t num, size\_\-t elem\_\-sz, void($\ast$elem\_\-free)(void $\ast$), void($\ast$elem\_\-init)(void $\ast$, void $\ast$))
 \begin{DoxyCompactList}\small\item\em Create and initialize vector with num elements of vals. \item\end{DoxyCompactList}\item 
 int \hyperlink{vector_8c_a85bc92d9a0581f02cf2f5bd6cec8b377}{push\_\-back} (\hyperlink{structvector}{vector} $\ast$vec, void $\ast$a)
 \begin{DoxyCompactList}\small\item\em Append a to end of vector (size increased 1). \item\end{DoxyCompactList}\item 
 void \hyperlink{vector_8c_a5c74d211538266d623337c6bd63bf307}{pop\_\-back} (\hyperlink{structvector}{vector} $\ast$vec, void $\ast$ret)
 \begin{DoxyCompactList}\small\item\em Remove the last element (size decreased 1). \item\end{DoxyCompactList}\item 
-int \hyperlink{vector_8c_a601220207b20045df8c1f7ddbe7fc192}{insert} (\hyperlink{structvector}{vector} $\ast$vec, int i, void $\ast$a)
+int \hyperlink{vector_8c_ad7021cbfcd3b26cf5a4d68270e01532f}{insert} (\hyperlink{structvector}{vector} $\ast$vec, size\_\-t i, void $\ast$a)
 \begin{DoxyCompactList}\small\item\em Insert a at index i (0 based). \item\end{DoxyCompactList}\item 
-void \hyperlink{vector_8c_adbdb3b114019e1bb97f3574afdad67d5}{erase} (\hyperlink{structvector}{vector} $\ast$vec, int start, int end)
+void \hyperlink{vector_8c_a0c6bcaa8891ef981b036e37eff922cf8}{erase} (\hyperlink{structvector}{vector} $\ast$vec, size\_\-t start, size\_\-t end)
 \begin{DoxyCompactList}\small\item\em Erases elements from start to end inclusive. \item\end{DoxyCompactList}\item 
-int \hyperlink{vector_8c_a6abe7375034fcdf75a10735671b4494a}{reserve} (\hyperlink{structvector}{vector} $\ast$vec, int size)
+int \hyperlink{vector_8c_a7f6498e7460dafb6c94b7734776f9a9f}{reserve} (\hyperlink{structvector}{vector} $\ast$vec, size\_\-t size)
 \begin{DoxyCompactList}\small\item\em Makes sure capacity $>$= size (the parameter not the member). \item\end{DoxyCompactList}\item 
-int \hyperlink{vector_8c_a5db0eb9ee7aa8c4913d6da5e0304c417}{set\_\-capacity} (\hyperlink{structvector}{vector} $\ast$vec, int size)
+int \hyperlink{vector_8c_ab666e9f05742911262401567e4604a32}{set\_\-capacity} (\hyperlink{structvector}{vector} $\ast$vec, size\_\-t size)
 \begin{DoxyCompactList}\small\item\em Set capacity to size. \item\end{DoxyCompactList}\item 
 void \hyperlink{vector_8c_a8bdff9301773943a8d9214f3a6db6c0a}{set\_\-val\_\-sz} (\hyperlink{structvector}{vector} $\ast$vec, void $\ast$val)
 \begin{DoxyCompactList}\small\item\em Set all size elements to val. \item\end{DoxyCompactList}\item 
@@ -160,7 +160,7 @@ Definition at line 3 of file vector.c.
 \index{capacity@{capacity}!vector.c@{vector.c}}
 \subsubsection[{capacity}]{\setlength{\rightskip}{0pt plus 5cm}int capacity (
 \begin{DoxyParamCaption}
-\item[{{\bf vector} $\ast$}]{ vec}
+\item[{{\bf vector} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a0d923f8f1af01448ee524f56b5037ef6}
@@ -170,14 +170,14 @@ If you don't want to access capacity directly for some reason.
 
 
 
-Definition at line 939 of file vector.c.
+Definition at line 955 of file vector.c.
 
 \hypertarget{vector_8c_ac569174c53ee3732e4b32fd022a224bd}{
 \index{vector.c@{vector.c}!capacityd@{capacityd}}
 \index{capacityd@{capacityd}!vector.c@{vector.c}}
 \subsubsection[{capacityd}]{\setlength{\rightskip}{0pt plus 5cm}int capacityd (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-d} $\ast$}]{ vec}
+\item[{{\bf vector\_\-d} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_ac569174c53ee3732e4b32fd022a224bd}
@@ -194,7 +194,7 @@ Definition at line 392 of file vector.c.
 \index{capacityi@{capacityi}!vector.c@{vector.c}}
 \subsubsection[{capacityi}]{\setlength{\rightskip}{0pt plus 5cm}int capacityi (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-i} $\ast$}]{ vec}
+\item[{{\bf vector\_\-i} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a4afceb531fdc29acfdaf334779114f9b}
@@ -211,7 +211,7 @@ Definition at line 196 of file vector.c.
 \index{capacitys@{capacitys}!vector.c@{vector.c}}
 \subsubsection[{capacitys}]{\setlength{\rightskip}{0pt plus 5cm}int capacitys (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-s} $\ast$}]{ vec}
+\item[{{\bf vector\_\-s} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a46fe990f027d92da5ef4e38ab5cb5bb1}
@@ -221,14 +221,14 @@ If you don't want to acccess capacity directly for some reason.
 
 
 
-Definition at line 639 of file vector.c.
+Definition at line 641 of file vector.c.
 
 \hypertarget{vector_8c_ae6e399ccd20b64c6214f13bf44aa174c}{
 \index{vector.c@{vector.c}!clear@{clear}}
 \index{clear@{clear}!vector.c@{vector.c}}
 \subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void clear (
 \begin{DoxyParamCaption}
-\item[{{\bf vector} $\ast$}]{ vec}
+\item[{{\bf vector} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_ae6e399ccd20b64c6214f13bf44aa174c}
@@ -238,14 +238,14 @@ Sets size to 0 (does not change contents).
 
 
 
-Definition at line 946 of file vector.c.
+Definition at line 962 of file vector.c.
 
 \hypertarget{vector_8c_ade629b65714afdd14647c4e0585120d5}{
 \index{vector.c@{vector.c}!cleard@{cleard}}
 \index{cleard@{cleard}!vector.c@{vector.c}}
 \subsubsection[{cleard}]{\setlength{\rightskip}{0pt plus 5cm}void cleard (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-d} $\ast$}]{ vec}
+\item[{{\bf vector\_\-d} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_ade629b65714afdd14647c4e0585120d5}
@@ -262,7 +262,7 @@ Definition at line 398 of file vector.c.
 \index{cleari@{cleari}!vector.c@{vector.c}}
 \subsubsection[{cleari}]{\setlength{\rightskip}{0pt plus 5cm}void cleari (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-i} $\ast$}]{ vec}
+\item[{{\bf vector\_\-i} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a81a0f18214d814fc58e7fc59ec032304}
@@ -279,7 +279,7 @@ Definition at line 202 of file vector.c.
 \index{clears@{clears}!vector.c@{vector.c}}
 \subsubsection[{clears}]{\setlength{\rightskip}{0pt plus 5cm}void clears (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-s} $\ast$}]{ vec}
+\item[{{\bf vector\_\-s} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a92933e6a6ce4990401dd32a03e9245a0}
@@ -289,19 +289,19 @@ Clears the contents of vector (frees all strings) and sets size to 0.
 
 
 
-Definition at line 646 of file vector.c.
+Definition at line 648 of file vector.c.
 
-\hypertarget{vector_8c_adbdb3b114019e1bb97f3574afdad67d5}{
+\hypertarget{vector_8c_a0c6bcaa8891ef981b036e37eff922cf8}{
 \index{vector.c@{vector.c}!erase@{erase}}
 \index{erase@{erase}!vector.c@{vector.c}}
 \subsubsection[{erase}]{\setlength{\rightskip}{0pt plus 5cm}void erase (
 \begin{DoxyParamCaption}
-\item[{{\bf vector} $\ast$}]{ vec, }
-\item[{int}]{ start, }
-\item[{int}]{ end}
+\item[{{\bf vector} $\ast$}]{vec, }
+\item[{size\_\-t}]{start, }
+\item[{size\_\-t}]{end}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_adbdb3b114019e1bb97f3574afdad67d5}
+\label{vector_8c_a0c6bcaa8891ef981b036e37eff922cf8}
 
 
 Erases elements from start to end inclusive. 
@@ -310,19 +310,19 @@ Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and th
 \item[\hyperlink{todo__todo000007}{Todo}]check start and end in range? \end{Desc}
 
 
-Definition at line 842 of file vector.c.
+Definition at line 858 of file vector.c.
 
-\hypertarget{vector_8c_a554a8befd0b8d3f1167c0498f054cf03}{
+\hypertarget{vector_8c_a5024e0dad2d80c8c58c840aa0fda85aa}{
 \index{vector.c@{vector.c}!erased@{erased}}
 \index{erased@{erased}!vector.c@{vector.c}}
 \subsubsection[{erased}]{\setlength{\rightskip}{0pt plus 5cm}void erased (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-d} $\ast$}]{ vec, }
-\item[{int}]{ start, }
-\item[{int}]{ end}
+\item[{{\bf vector\_\-d} $\ast$}]{vec, }
+\item[{size\_\-t}]{start, }
+\item[{size\_\-t}]{end}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a554a8befd0b8d3f1167c0498f054cf03}
+\label{vector_8c_a5024e0dad2d80c8c58c840aa0fda85aa}
 
 
 Erases elements from start to end inclusive. 
@@ -333,17 +333,17 @@ Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and th
 
 Definition at line 331 of file vector.c.
 
-\hypertarget{vector_8c_a345fb47a0db82a1a2db3094d14ccdb03}{
+\hypertarget{vector_8c_a429dec8af8f89b6311c6dad0f180c625}{
 \index{vector.c@{vector.c}!erasei@{erasei}}
 \index{erasei@{erasei}!vector.c@{vector.c}}
 \subsubsection[{erasei}]{\setlength{\rightskip}{0pt plus 5cm}void erasei (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-i} $\ast$}]{ vec, }
-\item[{int}]{ start, }
-\item[{int}]{ end}
+\item[{{\bf vector\_\-i} $\ast$}]{vec, }
+\item[{size\_\-t}]{start, }
+\item[{size\_\-t}]{end}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a345fb47a0db82a1a2db3094d14ccdb03}
+\label{vector_8c_a429dec8af8f89b6311c6dad0f180c625}
 
 
 Erases elements from start to end inclusive. 
@@ -354,17 +354,17 @@ Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and th
 
 Definition at line 134 of file vector.c.
 
-\hypertarget{vector_8c_acf671880fe73dbacec412fb19f49eec8}{
+\hypertarget{vector_8c_abab89ce87821bca28b7641676d3c562c}{
 \index{vector.c@{vector.c}!erases@{erases}}
 \index{erases@{erases}!vector.c@{vector.c}}
 \subsubsection[{erases}]{\setlength{\rightskip}{0pt plus 5cm}void erases (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-s} $\ast$}]{ vec, }
-\item[{int}]{ start, }
-\item[{int}]{ end}
+\item[{{\bf vector\_\-s} $\ast$}]{vec, }
+\item[{size\_\-t}]{start, }
+\item[{size\_\-t}]{end}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_acf671880fe73dbacec412fb19f49eec8}
+\label{vector_8c_abab89ce87821bca28b7641676d3c562c}
 
 
 Erases strings from start to end inclusive. 
@@ -378,7 +378,7 @@ Definition at line 559 of file vector.c.
 \index{free\_\-vec@{free\_\-vec}!vector.c@{vector.c}}
 \subsubsection[{free\_\-vec}]{\setlength{\rightskip}{0pt plus 5cm}void free\_\-vec (
 \begin{DoxyParamCaption}
-\item[{{\bf vector} $\ast$}]{ vec}
+\item[{{\bf vector} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a937e89c535506be8f3c7a0775df1b218}
@@ -388,14 +388,14 @@ Frees everything so don't use vec after calling this.
 
 If you set a free function it will be called on all size elements of course. 
 
-Definition at line 951 of file vector.c.
+Definition at line 967 of file vector.c.
 
 \hypertarget{vector_8c_a45ceb45ec34fa0e5f70ce6b99c0e2737}{
 \index{vector.c@{vector.c}!free\_\-vecd@{free\_\-vecd}}
 \index{free\_\-vecd@{free\_\-vecd}!vector.c@{vector.c}}
 \subsubsection[{free\_\-vecd}]{\setlength{\rightskip}{0pt plus 5cm}void free\_\-vecd (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-d} $\ast$}]{ vec}
+\item[{{\bf vector\_\-d} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a45ceb45ec34fa0e5f70ce6b99c0e2737}
@@ -412,7 +412,7 @@ Definition at line 402 of file vector.c.
 \index{free\_\-veci@{free\_\-veci}!vector.c@{vector.c}}
 \subsubsection[{free\_\-veci}]{\setlength{\rightskip}{0pt plus 5cm}void free\_\-veci (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-i} $\ast$}]{ vec}
+\item[{{\bf vector\_\-i} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a7b28b97a1e05eaba88cb4708804d71fa}
@@ -429,7 +429,7 @@ Definition at line 205 of file vector.c.
 \index{free\_\-vecs@{free\_\-vecs}!vector.c@{vector.c}}
 \subsubsection[{free\_\-vecs}]{\setlength{\rightskip}{0pt plus 5cm}void free\_\-vecs (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-s} $\ast$}]{ vec}
+\item[{{\bf vector\_\-s} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a7f733f9ec9e36ae25ee969c0b4f345fa}
@@ -439,39 +439,39 @@ Frees contents (individual strings and array) and frees vector so don't use afte
 
 
 
-Definition at line 657 of file vector.c.
+Definition at line 659 of file vector.c.
 
-\hypertarget{vector_8c_a0462bcfe6cdaf8030830761279caba0f}{
+\hypertarget{vector_8c_a368ba8d1bd2ed240a7b0527ac752cc3c}{
 \index{vector.c@{vector.c}!init\_\-vec@{init\_\-vec}}
 \index{init\_\-vec@{init\_\-vec}!vector.c@{vector.c}}
 \subsubsection[{init\_\-vec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector}$\ast$ init\_\-vec (
 \begin{DoxyParamCaption}
-\item[{void $\ast$}]{ vals, }
-\item[{int}]{ num, }
-\item[{int}]{ elem\_\-sz, }
-\item[{void($\ast$)(void $\ast$)}]{ elem\_\-free, }
-\item[{void($\ast$)(void $\ast$, void $\ast$)}]{ elem\_\-init}
+\item[{void $\ast$}]{vals, }
+\item[{size\_\-t}]{num, }
+\item[{size\_\-t}]{elem\_\-sz, }
+\item[{void($\ast$)(void $\ast$)}]{elem\_\-free, }
+\item[{void($\ast$)(void $\ast$, void $\ast$)}]{elem\_\-init}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a0462bcfe6cdaf8030830761279caba0f}
+\label{vector_8c_a368ba8d1bd2ed240a7b0527ac752cc3c}
 
 
 Create and initialize vector with num elements of vals. 
 
-If vals is NULL, capacity is set to num + VEC\_\-I\_\-START\_\-SZ. Size is set to num in the first place, 0 otherwise. elem\_\-sz is the size of the type you want to store ( ie sizeof(T) where T is your type ). See \hyperlink{vector_8c_a0f1090a513a3c70815507ae0a94c5958}{vec()} for more information about the elem\_\-free and elem\_\-init parameters. 
+If vals is NULL, capacity is set to num + VEC\_\-I\_\-START\_\-SZ. Size is set to num in the first place, 0 otherwise. elem\_\-sz is the size of the type you want to store ( ie sizeof(T) where T is your type ). See \hyperlink{vector_8c_ab5d30a27b9fbe49e7e62f2e41a6647a5}{vec()} for more information about the elem\_\-free and elem\_\-init parameters. 
 
-Definition at line 730 of file vector.c.
+Definition at line 732 of file vector.c.
 
-\hypertarget{vector_8c_a3dbba90ba9daff94407eb51c7b517ad7}{
+\hypertarget{vector_8c_aa0a2179ce6d677fec9ff95c08b575eec}{
 \index{vector.c@{vector.c}!init\_\-vec\_\-d@{init\_\-vec\_\-d}}
 \index{init\_\-vec\_\-d@{init\_\-vec\_\-d}!vector.c@{vector.c}}
 \subsubsection[{init\_\-vec\_\-d}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\_\-d}$\ast$ init\_\-vec\_\-d (
 \begin{DoxyParamCaption}
-\item[{double $\ast$}]{ vals, }
-\item[{int}]{ num}
+\item[{double $\ast$}]{vals, }
+\item[{size\_\-t}]{num}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a3dbba90ba9daff94407eb51c7b517ad7}
+\label{vector_8c_aa0a2179ce6d677fec9ff95c08b575eec}
 
 
 Create and initialize \hyperlink{structvector__d}{vector\_\-d} with num elements of vals. 
@@ -480,16 +480,16 @@ If vals is NULL, capacity is set to num + VEC\_\-D\_\-START\_\-SZ. Size is set t
 
 Definition at line 242 of file vector.c.
 
-\hypertarget{vector_8c_ab9c54188d54ef13670992db64651e6c2}{
+\hypertarget{vector_8c_a88741ffdcb8aff0d59afb44aab372a20}{
 \index{vector.c@{vector.c}!init\_\-vec\_\-i@{init\_\-vec\_\-i}}
 \index{init\_\-vec\_\-i@{init\_\-vec\_\-i}!vector.c@{vector.c}}
 \subsubsection[{init\_\-vec\_\-i}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\_\-i}$\ast$ init\_\-vec\_\-i (
 \begin{DoxyParamCaption}
-\item[{int $\ast$}]{ vals, }
-\item[{int}]{ num}
+\item[{int $\ast$}]{vals, }
+\item[{size\_\-t}]{num}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_ab9c54188d54ef13670992db64651e6c2}
+\label{vector_8c_a88741ffdcb8aff0d59afb44aab372a20}
 
 
 Create and initialize \hyperlink{structvector__i}{vector\_\-i} with num elements of vals. 
@@ -498,16 +498,16 @@ If vals is NULL, capacity is set to num + VEC\_\-I\_\-START\_\-SZ. Size is set t
 
 Definition at line 41 of file vector.c.
 
-\hypertarget{vector_8c_abe3ee6925185633db7f1e1ba73cfa2fd}{
+\hypertarget{vector_8c_abc4e4cc2141775d6e9994d8379c3cd6f}{
 \index{vector.c@{vector.c}!init\_\-vec\_\-s@{init\_\-vec\_\-s}}
 \index{init\_\-vec\_\-s@{init\_\-vec\_\-s}!vector.c@{vector.c}}
 \subsubsection[{init\_\-vec\_\-s}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\_\-s}$\ast$ init\_\-vec\_\-s (
 \begin{DoxyParamCaption}
-\item[{char $\ast$$\ast$}]{ vals, }
-\item[{int}]{ num}
+\item[{char $\ast$$\ast$}]{vals, }
+\item[{size\_\-t}]{num}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_abe3ee6925185633db7f1e1ba73cfa2fd}
+\label{vector_8c_abc4e4cc2141775d6e9994d8379c3cd6f}
 
 
 Create and initialize \hyperlink{structvector__s}{vector\_\-s} with num elements of vals. 
@@ -516,17 +516,17 @@ If vals is NULL, capacity is set to num + VEC\_\-D\_\-START\_\-SZ. Size is set t
 
 Definition at line 463 of file vector.c.
 
-\hypertarget{vector_8c_a601220207b20045df8c1f7ddbe7fc192}{
+\hypertarget{vector_8c_ad7021cbfcd3b26cf5a4d68270e01532f}{
 \index{vector.c@{vector.c}!insert@{insert}}
 \index{insert@{insert}!vector.c@{vector.c}}
 \subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}int insert (
 \begin{DoxyParamCaption}
-\item[{{\bf vector} $\ast$}]{ vec, }
-\item[{int}]{ i, }
-\item[{void $\ast$}]{ a}
+\item[{{\bf vector} $\ast$}]{vec, }
+\item[{size\_\-t}]{i, }
+\item[{void $\ast$}]{a}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a601220207b20045df8c1f7ddbe7fc192}
+\label{vector_8c_ad7021cbfcd3b26cf5a4d68270e01532f}
 
 
 Insert a at index i (0 based). 
@@ -535,19 +535,19 @@ Everything from that index and right is shifted one to the right. \begin{Desc}
 \item[\hyperlink{todo__todo000006}{Todo}]check for i $<$ 0 or $>$ size-\/1? \end{Desc}
 
 
-Definition at line 813 of file vector.c.
+Definition at line 822 of file vector.c.
 
-\hypertarget{vector_8c_aef9ed372592bd1190aa26d84ee7344fd}{
+\hypertarget{vector_8c_a27cda61f4446cb298f30c78ea250ffe0}{
 \index{vector.c@{vector.c}!insertd@{insertd}}
 \index{insertd@{insertd}!vector.c@{vector.c}}
 \subsubsection[{insertd}]{\setlength{\rightskip}{0pt plus 5cm}int insertd (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-d} $\ast$}]{ vec, }
-\item[{int}]{ i, }
-\item[{double}]{ a}
+\item[{{\bf vector\_\-d} $\ast$}]{vec, }
+\item[{size\_\-t}]{i, }
+\item[{double}]{a}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_aef9ed372592bd1190aa26d84ee7344fd}
+\label{vector_8c_a27cda61f4446cb298f30c78ea250ffe0}
 
 
 Insert a at index i (0 based). 
@@ -558,17 +558,17 @@ Everything from that index and right is shifted one to the right. \begin{Desc}
 
 Definition at line 305 of file vector.c.
 
-\hypertarget{vector_8c_a7c331c204d0e0b92ee3de2b8078a1317}{
+\hypertarget{vector_8c_a84e557f52c83e9f7003a98c332b571d5}{
 \index{vector.c@{vector.c}!inserti@{inserti}}
 \index{inserti@{inserti}!vector.c@{vector.c}}
 \subsubsection[{inserti}]{\setlength{\rightskip}{0pt plus 5cm}int inserti (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-i} $\ast$}]{ vec, }
-\item[{int}]{ i, }
-\item[{int}]{ a}
+\item[{{\bf vector\_\-i} $\ast$}]{vec, }
+\item[{size\_\-t}]{i, }
+\item[{int}]{a}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a7c331c204d0e0b92ee3de2b8078a1317}
+\label{vector_8c_a84e557f52c83e9f7003a98c332b571d5}
 
 
 Insert a at index i (0 based). 
@@ -579,17 +579,17 @@ Everything from that index and right is shifted one to the right. \begin{Desc}
 
 Definition at line 108 of file vector.c.
 
-\hypertarget{vector_8c_a411bab7125d42247512cf7e9b8782785}{
+\hypertarget{vector_8c_a51c617708ae543ff9de78c9fec30b5f5}{
 \index{vector.c@{vector.c}!inserts@{inserts}}
 \index{inserts@{inserts}!vector.c@{vector.c}}
 \subsubsection[{inserts}]{\setlength{\rightskip}{0pt plus 5cm}int inserts (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-s} $\ast$}]{ vec, }
-\item[{int}]{ i, }
-\item[{char $\ast$}]{ a}
+\item[{{\bf vector\_\-s} $\ast$}]{vec, }
+\item[{size\_\-t}]{i, }
+\item[{char $\ast$}]{a}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a411bab7125d42247512cf7e9b8782785}
+\label{vector_8c_a51c617708ae543ff9de78c9fec30b5f5}
 
 
 Insert a at index i (0 based). 
@@ -605,7 +605,7 @@ Definition at line 533 of file vector.c.
 \index{mystrdup@{mystrdup}!vector.c@{vector.c}}
 \subsubsection[{mystrdup}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ mystrdup (
 \begin{DoxyParamCaption}
-\item[{const char $\ast$}]{ str}
+\item[{const char $\ast$}]{str}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a141b8e057d63a3ba14590139945e20a9}
@@ -622,8 +622,8 @@ Definition at line 417 of file vector.c.
 \index{pop\_\-back@{pop\_\-back}!vector.c@{vector.c}}
 \subsubsection[{pop\_\-back}]{\setlength{\rightskip}{0pt plus 5cm}void pop\_\-back (
 \begin{DoxyParamCaption}
-\item[{{\bf vector} $\ast$}]{ vec, }
-\item[{void $\ast$}]{ ret}
+\item[{{\bf vector} $\ast$}]{vec, }
+\item[{void $\ast$}]{ret}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a5c74d211538266d623337c6bd63bf307}
@@ -633,14 +633,14 @@ Remove the last element (size decreased 1).
 
 If ret is not NULL, copy the element into it. This function assumes that ret is large accept the element and just memcpy's it in. 
 
-Definition at line 795 of file vector.c.
+Definition at line 804 of file vector.c.
 
 \hypertarget{vector_8c_ad63b53355a5ec0829c19fece78497149}{
 \index{vector.c@{vector.c}!pop\_\-backd@{pop\_\-backd}}
 \index{pop\_\-backd@{pop\_\-backd}!vector.c@{vector.c}}
 \subsubsection[{pop\_\-backd}]{\setlength{\rightskip}{0pt plus 5cm}double pop\_\-backd (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-d} $\ast$}]{ vec}
+\item[{{\bf vector\_\-d} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_ad63b53355a5ec0829c19fece78497149}
@@ -657,7 +657,7 @@ Definition at line 294 of file vector.c.
 \index{pop\_\-backi@{pop\_\-backi}!vector.c@{vector.c}}
 \subsubsection[{pop\_\-backi}]{\setlength{\rightskip}{0pt plus 5cm}int pop\_\-backi (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-i} $\ast$}]{ vec}
+\item[{{\bf vector\_\-i} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a8fea65bfdef42ddd75d601e32590d552}
@@ -674,8 +674,8 @@ Definition at line 97 of file vector.c.
 \index{pop\_\-backs@{pop\_\-backs}!vector.c@{vector.c}}
 \subsubsection[{pop\_\-backs}]{\setlength{\rightskip}{0pt plus 5cm}void pop\_\-backs (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-s} $\ast$}]{ vec, }
-\item[{char $\ast$}]{ ret}
+\item[{{\bf vector\_\-s} $\ast$}]{vec, }
+\item[{char $\ast$}]{ret}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a7b17af16d628d983e29caab7b9f41d18}
@@ -692,8 +692,8 @@ Definition at line 522 of file vector.c.
 \index{push\_\-back@{push\_\-back}!vector.c@{vector.c}}
 \subsubsection[{push\_\-back}]{\setlength{\rightskip}{0pt plus 5cm}int push\_\-back (
 \begin{DoxyParamCaption}
-\item[{{\bf vector} $\ast$}]{ vec, }
-\item[{void $\ast$}]{ a}
+\item[{{\bf vector} $\ast$}]{vec, }
+\item[{void $\ast$}]{a}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a85bc92d9a0581f02cf2f5bd6cec8b377}
@@ -703,15 +703,15 @@ Append a to end of vector (size increased 1).
 
 Capacity is increased by doubling when necessary. 
 
-Definition at line 771 of file vector.c.
+Definition at line 773 of file vector.c.
 
 \hypertarget{vector_8c_aec22afdb202bb430481b1ba919d46128}{
 \index{vector.c@{vector.c}!push\_\-backd@{push\_\-backd}}
 \index{push\_\-backd@{push\_\-backd}!vector.c@{vector.c}}
 \subsubsection[{push\_\-backd}]{\setlength{\rightskip}{0pt plus 5cm}int push\_\-backd (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-d} $\ast$}]{ vec, }
-\item[{double}]{ a}
+\item[{{\bf vector\_\-d} $\ast$}]{vec, }
+\item[{double}]{a}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_aec22afdb202bb430481b1ba919d46128}
@@ -728,8 +728,8 @@ Definition at line 277 of file vector.c.
 \index{push\_\-backi@{push\_\-backi}!vector.c@{vector.c}}
 \subsubsection[{push\_\-backi}]{\setlength{\rightskip}{0pt plus 5cm}int push\_\-backi (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-i} $\ast$}]{ vec, }
-\item[{int}]{ a}
+\item[{{\bf vector\_\-i} $\ast$}]{vec, }
+\item[{int}]{a}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_ac9ee8d01a2e12c23014b3bb5a1a3605b}
@@ -746,8 +746,8 @@ Definition at line 79 of file vector.c.
 \index{push\_\-backs@{push\_\-backs}!vector.c@{vector.c}}
 \subsubsection[{push\_\-backs}]{\setlength{\rightskip}{0pt plus 5cm}int push\_\-backs (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-s} $\ast$}]{ vec, }
-\item[{char $\ast$}]{ a}
+\item[{{\bf vector\_\-s} $\ast$}]{vec, }
+\item[{char $\ast$}]{a}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_ac150af7158211651585db98ea24f480b}
@@ -759,34 +759,34 @@ Capacity is increased by doubling when necessary.
 
 Definition at line 504 of file vector.c.
 
-\hypertarget{vector_8c_a6abe7375034fcdf75a10735671b4494a}{
+\hypertarget{vector_8c_a7f6498e7460dafb6c94b7734776f9a9f}{
 \index{vector.c@{vector.c}!reserve@{reserve}}
 \index{reserve@{reserve}!vector.c@{vector.c}}
 \subsubsection[{reserve}]{\setlength{\rightskip}{0pt plus 5cm}int reserve (
 \begin{DoxyParamCaption}
-\item[{{\bf vector} $\ast$}]{ vec, }
-\item[{int}]{ size}
+\item[{{\bf vector} $\ast$}]{vec, }
+\item[{size\_\-t}]{size}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a6abe7375034fcdf75a10735671b4494a}
+\label{vector_8c_a7f6498e7460dafb6c94b7734776f9a9f}
 
 
 Makes sure capacity $>$= size (the parameter not the member). 
 
 
 
-Definition at line 856 of file vector.c.
+Definition at line 872 of file vector.c.
 
-\hypertarget{vector_8c_af863bbffa25c7a54d19f149b9e7411cb}{
+\hypertarget{vector_8c_ae17d88125d50322bb65975e2db402144}{
 \index{vector.c@{vector.c}!reserved@{reserved}}
 \index{reserved@{reserved}!vector.c@{vector.c}}
 \subsubsection[{reserved}]{\setlength{\rightskip}{0pt plus 5cm}int reserved (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-d} $\ast$}]{ vec, }
-\item[{int}]{ size}
+\item[{{\bf vector\_\-d} $\ast$}]{vec, }
+\item[{size\_\-t}]{size}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_af863bbffa25c7a54d19f149b9e7411cb}
+\label{vector_8c_ae17d88125d50322bb65975e2db402144}
 
 
 Make sure capacity is at least size(parameter not member). 
@@ -795,16 +795,16 @@ Make sure capacity is at least size(parameter not member).
 
 Definition at line 340 of file vector.c.
 
-\hypertarget{vector_8c_adb15d4a4e7ade2017e2e47315489bea4}{
+\hypertarget{vector_8c_a8e092364e24c40d44b2c7864b7123207}{
 \index{vector.c@{vector.c}!reservei@{reservei}}
 \index{reservei@{reservei}!vector.c@{vector.c}}
 \subsubsection[{reservei}]{\setlength{\rightskip}{0pt plus 5cm}int reservei (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-i} $\ast$}]{ vec, }
-\item[{int}]{ size}
+\item[{{\bf vector\_\-i} $\ast$}]{vec, }
+\item[{size\_\-t}]{size}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_adb15d4a4e7ade2017e2e47315489bea4}
+\label{vector_8c_a8e092364e24c40d44b2c7864b7123207}
 
 
 Make sure capacity is at least size(parameter not member). 
@@ -813,16 +813,16 @@ Make sure capacity is at least size(parameter not member).
 
 Definition at line 143 of file vector.c.
 
-\hypertarget{vector_8c_a56e86e6f83355f9ae437d36dc6c00047}{
+\hypertarget{vector_8c_aa0f9a5cb0911ac0030574b0a4f7ca8d4}{
 \index{vector.c@{vector.c}!reserves@{reserves}}
 \index{reserves@{reserves}!vector.c@{vector.c}}
 \subsubsection[{reserves}]{\setlength{\rightskip}{0pt plus 5cm}int reserves (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-s} $\ast$}]{ vec, }
-\item[{int}]{ size}
+\item[{{\bf vector\_\-s} $\ast$}]{vec, }
+\item[{size\_\-t}]{size}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a56e86e6f83355f9ae437d36dc6c00047}
+\label{vector_8c_aa0f9a5cb0911ac0030574b0a4f7ca8d4}
 
 
 Makes sure the vector capacity is $>$= size (parameter not member). 
@@ -831,34 +831,34 @@ Makes sure the vector capacity is $>$= size (parameter not member).
 
 Definition at line 575 of file vector.c.
 
-\hypertarget{vector_8c_a5db0eb9ee7aa8c4913d6da5e0304c417}{
+\hypertarget{vector_8c_ab666e9f05742911262401567e4604a32}{
 \index{vector.c@{vector.c}!set\_\-capacity@{set\_\-capacity}}
 \index{set\_\-capacity@{set\_\-capacity}!vector.c@{vector.c}}
 \subsubsection[{set\_\-capacity}]{\setlength{\rightskip}{0pt plus 5cm}int set\_\-capacity (
 \begin{DoxyParamCaption}
-\item[{{\bf vector} $\ast$}]{ vec, }
-\item[{int}]{ size}
+\item[{{\bf vector} $\ast$}]{vec, }
+\item[{size\_\-t}]{size}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a5db0eb9ee7aa8c4913d6da5e0304c417}
+\label{vector_8c_ab666e9f05742911262401567e4604a32}
 
 
 Set capacity to size. 
 
 You will lose data if you shrink the capacity below the current size. If you do, the size will be set to capacity of course. 
 
-Definition at line 873 of file vector.c.
+Definition at line 889 of file vector.c.
 
-\hypertarget{vector_8c_a79ec100154c311fd17fcc54c1a54007c}{
+\hypertarget{vector_8c_ac3ac1d2e488610aa6ebf615299b41895}{
 \index{vector.c@{vector.c}!set\_\-capacityd@{set\_\-capacityd}}
 \index{set\_\-capacityd@{set\_\-capacityd}!vector.c@{vector.c}}
 \subsubsection[{set\_\-capacityd}]{\setlength{\rightskip}{0pt plus 5cm}int set\_\-capacityd (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-d} $\ast$}]{ vec, }
-\item[{int}]{ size}
+\item[{{\bf vector\_\-d} $\ast$}]{vec, }
+\item[{size\_\-t}]{size}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a79ec100154c311fd17fcc54c1a54007c}
+\label{vector_8c_ac3ac1d2e488610aa6ebf615299b41895}
 
 
 Set capacity to size. 
@@ -867,16 +867,16 @@ You will lose data if you shrink the capacity below the current size. If you do,
 
 Definition at line 357 of file vector.c.
 
-\hypertarget{vector_8c_ac6d7cb569fbba2e4c8ff1f9a510a00ca}{
+\hypertarget{vector_8c_ae6a6b79c99c999ba62d11485dff9baab}{
 \index{vector.c@{vector.c}!set\_\-capacityi@{set\_\-capacityi}}
 \index{set\_\-capacityi@{set\_\-capacityi}!vector.c@{vector.c}}
 \subsubsection[{set\_\-capacityi}]{\setlength{\rightskip}{0pt plus 5cm}int set\_\-capacityi (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-i} $\ast$}]{ vec, }
-\item[{int}]{ size}
+\item[{{\bf vector\_\-i} $\ast$}]{vec, }
+\item[{size\_\-t}]{size}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_ac6d7cb569fbba2e4c8ff1f9a510a00ca}
+\label{vector_8c_ae6a6b79c99c999ba62d11485dff9baab}
 
 
 Set capacity to size. 
@@ -885,16 +885,16 @@ You will lose data if you shrink the capacity below the current size. If you do,
 
 Definition at line 161 of file vector.c.
 
-\hypertarget{vector_8c_a2c4c69c92b69ac841fb8f4a677e96064}{
+\hypertarget{vector_8c_a0a95f51036c470e26ebd78081a1d9611}{
 \index{vector.c@{vector.c}!set\_\-capacitys@{set\_\-capacitys}}
 \index{set\_\-capacitys@{set\_\-capacitys}!vector.c@{vector.c}}
 \subsubsection[{set\_\-capacitys}]{\setlength{\rightskip}{0pt plus 5cm}int set\_\-capacitys (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-s} $\ast$}]{ vec, }
-\item[{int}]{ size}
+\item[{{\bf vector\_\-s} $\ast$}]{vec, }
+\item[{size\_\-t}]{size}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a2c4c69c92b69ac841fb8f4a677e96064}
+\label{vector_8c_a0a95f51036c470e26ebd78081a1d9611}
 
 
 Set capacity to size. 
@@ -908,8 +908,8 @@ Definition at line 591 of file vector.c.
 \index{set\_\-val\_\-cap@{set\_\-val\_\-cap}!vector.c@{vector.c}}
 \subsubsection[{set\_\-val\_\-cap}]{\setlength{\rightskip}{0pt plus 5cm}void set\_\-val\_\-cap (
 \begin{DoxyParamCaption}
-\item[{{\bf vector} $\ast$}]{ vec, }
-\item[{void $\ast$}]{ val}
+\item[{{\bf vector} $\ast$}]{vec, }
+\item[{void $\ast$}]{val}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a4dbaf5b0808db2a7995f1bfff760e719}
@@ -919,15 +919,15 @@ Fills entire allocated array (capacity) with val.
 
 If you set a free function then size is set to capacity like \hyperlink{structvector__s}{vector\_\-s} for the same reason, ie I need to know that the free function needs to be called on those elements. 
 
-Definition at line 918 of file vector.c.
+Definition at line 934 of file vector.c.
 
 \hypertarget{vector_8c_a91942dfa8445dc68a39458dec459ddd7}{
 \index{vector.c@{vector.c}!set\_\-val\_\-capd@{set\_\-val\_\-capd}}
 \index{set\_\-val\_\-capd@{set\_\-val\_\-capd}!vector.c@{vector.c}}
 \subsubsection[{set\_\-val\_\-capd}]{\setlength{\rightskip}{0pt plus 5cm}void set\_\-val\_\-capd (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-d} $\ast$}]{ vec, }
-\item[{double}]{ val}
+\item[{{\bf vector\_\-d} $\ast$}]{vec, }
+\item[{double}]{val}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a91942dfa8445dc68a39458dec459ddd7}
@@ -944,8 +944,8 @@ Definition at line 382 of file vector.c.
 \index{set\_\-val\_\-capi@{set\_\-val\_\-capi}!vector.c@{vector.c}}
 \subsubsection[{set\_\-val\_\-capi}]{\setlength{\rightskip}{0pt plus 5cm}void set\_\-val\_\-capi (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-i} $\ast$}]{ vec, }
-\item[{int}]{ val}
+\item[{{\bf vector\_\-i} $\ast$}]{vec, }
+\item[{int}]{val}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a5a9fc4f9d82c885055dc3ab420d02c4d}
@@ -962,8 +962,8 @@ Definition at line 187 of file vector.c.
 \index{set\_\-val\_\-caps@{set\_\-val\_\-caps}!vector.c@{vector.c}}
 \subsubsection[{set\_\-val\_\-caps}]{\setlength{\rightskip}{0pt plus 5cm}void set\_\-val\_\-caps (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-s} $\ast$}]{ vec, }
-\item[{char $\ast$}]{ val}
+\item[{{\bf vector\_\-s} $\ast$}]{vec, }
+\item[{char $\ast$}]{val}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a543e3898569734fc213f377838d48191}
@@ -973,15 +973,15 @@ Fills entire allocated array (capacity) with val.
 
 Size is set to capacity in this case because strings are individually dynamically allocated. This is different from \hyperlink{structvector__i}{vector\_\-i}, \hyperlink{structvector__d}{vector\_\-d} and vector (without a free function) where the size stays the same. 
 
-Definition at line 625 of file vector.c.
+Definition at line 627 of file vector.c.
 
 \hypertarget{vector_8c_a8bdff9301773943a8d9214f3a6db6c0a}{
 \index{vector.c@{vector.c}!set\_\-val\_\-sz@{set\_\-val\_\-sz}}
 \index{set\_\-val\_\-sz@{set\_\-val\_\-sz}!vector.c@{vector.c}}
 \subsubsection[{set\_\-val\_\-sz}]{\setlength{\rightskip}{0pt plus 5cm}void set\_\-val\_\-sz (
 \begin{DoxyParamCaption}
-\item[{{\bf vector} $\ast$}]{ vec, }
-\item[{void $\ast$}]{ val}
+\item[{{\bf vector} $\ast$}]{vec, }
+\item[{void $\ast$}]{val}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a8bdff9301773943a8d9214f3a6db6c0a}
@@ -991,15 +991,15 @@ Set all size elements to val.
 
 
 
-Definition at line 897 of file vector.c.
+Definition at line 913 of file vector.c.
 
 \hypertarget{vector_8c_a8cf2604b6dfe8c10939e0ca4e4ef5868}{
 \index{vector.c@{vector.c}!set\_\-val\_\-szd@{set\_\-val\_\-szd}}
 \index{set\_\-val\_\-szd@{set\_\-val\_\-szd}!vector.c@{vector.c}}
 \subsubsection[{set\_\-val\_\-szd}]{\setlength{\rightskip}{0pt plus 5cm}void set\_\-val\_\-szd (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-d} $\ast$}]{ vec, }
-\item[{double}]{ val}
+\item[{{\bf vector\_\-d} $\ast$}]{vec, }
+\item[{double}]{val}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a8cf2604b6dfe8c10939e0ca4e4ef5868}
@@ -1016,8 +1016,8 @@ Definition at line 373 of file vector.c.
 \index{set\_\-val\_\-szi@{set\_\-val\_\-szi}!vector.c@{vector.c}}
 \subsubsection[{set\_\-val\_\-szi}]{\setlength{\rightskip}{0pt plus 5cm}void set\_\-val\_\-szi (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-i} $\ast$}]{ vec, }
-\item[{int}]{ val}
+\item[{{\bf vector\_\-i} $\ast$}]{vec, }
+\item[{int}]{val}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_ae345cec01d9c396aab73dbccc6f97ff5}
@@ -1034,8 +1034,8 @@ Definition at line 178 of file vector.c.
 \index{set\_\-val\_\-szs@{set\_\-val\_\-szs}!vector.c@{vector.c}}
 \subsubsection[{set\_\-val\_\-szs}]{\setlength{\rightskip}{0pt plus 5cm}void set\_\-val\_\-szs (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-s} $\ast$}]{ vec, }
-\item[{char $\ast$}]{ val}
+\item[{{\bf vector\_\-s} $\ast$}]{vec, }
+\item[{char $\ast$}]{val}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a4422ebcd9d921efe075a1f93b9b50dd2}
@@ -1052,7 +1052,7 @@ Definition at line 612 of file vector.c.
 \index{size@{size}!vector.c@{vector.c}}
 \subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}int size (
 \begin{DoxyParamCaption}
-\item[{{\bf vector} $\ast$}]{ vec}
+\item[{{\bf vector} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_abd720fea3d089681411a1fe991dd037a}
@@ -1062,14 +1062,14 @@ If you don't want to access size directly for some reason.
 
 
 
-Definition at line 942 of file vector.c.
+Definition at line 958 of file vector.c.
 
 \hypertarget{vector_8c_a1937fc036c8ae6407bc92566964769fc}{
 \index{vector.c@{vector.c}!sized@{sized}}
 \index{sized@{sized}!vector.c@{vector.c}}
 \subsubsection[{sized}]{\setlength{\rightskip}{0pt plus 5cm}int sized (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-d} $\ast$}]{ vec}
+\item[{{\bf vector\_\-d} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a1937fc036c8ae6407bc92566964769fc}
@@ -1086,7 +1086,7 @@ Definition at line 395 of file vector.c.
 \index{sizei@{sizei}!vector.c@{vector.c}}
 \subsubsection[{sizei}]{\setlength{\rightskip}{0pt plus 5cm}int sizei (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-i} $\ast$}]{ vec}
+\item[{{\bf vector\_\-i} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_a8360d4f426ce5dea3f4da1117974dfb2}
@@ -1103,7 +1103,7 @@ Definition at line 199 of file vector.c.
 \index{sizes@{sizes}!vector.c@{vector.c}}
 \subsubsection[{sizes}]{\setlength{\rightskip}{0pt plus 5cm}int sizes (
 \begin{DoxyParamCaption}
-\item[{{\bf vector\_\-s} $\ast$}]{ vec}
+\item[{{\bf vector\_\-s} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}
 \label{vector_8c_aa1f4900f69347746b50a12300535ef15}
@@ -1113,20 +1113,20 @@ If you don't want to access size directly for some reason.
 
 
 
-Definition at line 642 of file vector.c.
+Definition at line 644 of file vector.c.
 
-\hypertarget{vector_8c_a0f1090a513a3c70815507ae0a94c5958}{
+\hypertarget{vector_8c_ab5d30a27b9fbe49e7e62f2e41a6647a5}{
 \index{vector.c@{vector.c}!vec@{vec}}
 \index{vec@{vec}!vector.c@{vector.c}}
 \subsubsection[{vec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector}$\ast$ vec (
 \begin{DoxyParamCaption}
-\item[{int}]{ sz, }
-\item[{int}]{ elem\_\-sz, }
-\item[{void($\ast$)(void $\ast$)}]{ elem\_\-free, }
-\item[{void($\ast$)(void $\ast$, void $\ast$)}]{ elem\_\-init}
+\item[{size\_\-t}]{sz, }
+\item[{size\_\-t}]{elem\_\-sz, }
+\item[{void($\ast$)(void $\ast$)}]{elem\_\-free, }
+\item[{void($\ast$)(void $\ast$, void $\ast$)}]{elem\_\-init}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a0f1090a513a3c70815507ae0a94c5958}
+\label{vector_8c_ab5d30a27b9fbe49e7e62f2e41a6647a5}
 
 
 Creates a new vector. 
@@ -1139,34 +1139,34 @@ elem\_\-init is only used in set\_\-val\_\-sz and set\_\-val\_\-cap because in t
 
 See the other functions and the tests for more behavioral/usage details. 
 
-Definition at line 696 of file vector.c.
+Definition at line 698 of file vector.c.
 
-\hypertarget{vector_8c_ac016c9fbfea76af811c8b14c4db96cc3}{
+\hypertarget{vector_8c_aa41e6b01a707647bd66b35b6a88612d4}{
 \index{vector.c@{vector.c}!vec\_\-d@{vec\_\-d}}
 \index{vec\_\-d@{vec\_\-d}!vector.c@{vector.c}}
 \subsubsection[{vec\_\-d}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\_\-d}$\ast$ vec\_\-d (
 \begin{DoxyParamCaption}
-\item[{int}]{ sz}
+\item[{size\_\-t}]{sz}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_ac016c9fbfea76af811c8b14c4db96cc3}
+\label{vector_8c_aa41e6b01a707647bd66b35b6a88612d4}
 
 
-Creates a new vector\_\-D. 
+Creates a new \hyperlink{structvector__d}{vector\_\-d}. 
 
 Vector size is set to sz, capacity to sz+VEC\_\-D\_\-START\_\-SZ. 
 
 Definition at line 217 of file vector.c.
 
-\hypertarget{vector_8c_aa44ad3a5dd56a233ee0b8f14496ff44f}{
+\hypertarget{vector_8c_a8798e8097e52a34a898a842bb9b7f4f0}{
 \index{vector.c@{vector.c}!vec\_\-i@{vec\_\-i}}
 \index{vec\_\-i@{vec\_\-i}!vector.c@{vector.c}}
 \subsubsection[{vec\_\-i}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\_\-i}$\ast$ vec\_\-i (
 \begin{DoxyParamCaption}
-\item[{int}]{ sz}
+\item[{size\_\-t}]{sz}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_aa44ad3a5dd56a233ee0b8f14496ff44f}
+\label{vector_8c_a8798e8097e52a34a898a842bb9b7f4f0}
 
 
 Creates a new \hyperlink{structvector__i}{vector\_\-i}. 
@@ -1175,15 +1175,15 @@ Vector size is set to sz, capacity to sz+VEC\_\-I\_\-START\_\-SZ.
 
 Definition at line 16 of file vector.c.
 
-\hypertarget{vector_8c_a95172f01d47c2f51ef17c414da861cf7}{
+\hypertarget{vector_8c_aebb05877a4cdf5b2c242885f23f52eac}{
 \index{vector.c@{vector.c}!vec\_\-s@{vec\_\-s}}
 \index{vec\_\-s@{vec\_\-s}!vector.c@{vector.c}}
 \subsubsection[{vec\_\-s}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\_\-s}$\ast$ vec\_\-s (
 \begin{DoxyParamCaption}
-\item[{int}]{ sz}
+\item[{size\_\-t}]{sz}
 \end{DoxyParamCaption}
 )}}
-\label{vector_8c_a95172f01d47c2f51ef17c414da861cf7}
+\label{vector_8c_aebb05877a4cdf5b2c242885f23f52eac}
 
 
 Create a new \hyperlink{structvector__s}{vector\_\-s} with size sz. 

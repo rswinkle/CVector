@@ -513,7 +513,7 @@ void set_vals_test()
 
 /* vector tests */
 
-/** Structures used to test generic vector. */
+/** Structure used to test generic vector. */
 typedef struct
 {
 	double d;
@@ -521,7 +521,7 @@ typedef struct
 	char word[30];
 } t_struct;
 
-
+/** Structure used to test generic vector. */
 typedef struct
 {
 	double d;
