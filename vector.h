@@ -54,7 +54,7 @@ extern int VEC_START_SZ;
 extern int VEC_S_START_SZ;
 
 
-vector_i* vec_i(size_t sz);
+vector_i* vec_i(size_t size, size_t capacity);
 vector_i* init_vec_i(int* vals, size_t num);
 int push_backi(vector_i* vec, int a);
 int pop_backi(vector_i* vec);
@@ -76,7 +76,7 @@ void free_veci(vector_i* vec);
 
 
 
-vector_d* vec_d(size_t sz);
+vector_d* vec_d(size_t size, size_t capacity);
 vector_d* init_vec_d(double* vals, size_t num);
 int push_backd(vector_d* vec, double a);
 double pop_backd(vector_d* vec);
@@ -99,7 +99,7 @@ void free_vecd(vector_d* vec);
 
 
 
-vector_s* vec_s(size_t sz);
+vector_s* vec_s(size_t size, size_t capacity);
 vector_s* init_vec_s(char** vals, size_t num);
 int push_backs(vector_s* vec, char* a);
 void pop_backs(vector_s* vec, char* ret);
@@ -125,7 +125,7 @@ void free_vecs(vector_s* vec);
 
 
 
-vector* vec(size_t sz, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
+vector* vec(size_t size, size_t capacity, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
 vector* init_vec(void* vals, size_t num, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
 int push_back(vector* vec, void* val);
 void pop_back(vector* vec, void* ret);
