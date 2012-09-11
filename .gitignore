@@ -1,0 +1,10 @@
+#ignore ~ files
+*~
+*.gif
+*.kate-swp
+vector
+#need to try premake
+CMakeFiles/*
+CMakeCache.txt
+Makefile
+cmake_install.cmake
