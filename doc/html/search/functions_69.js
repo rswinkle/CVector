@@ -1,0 +1,16 @@
+var searchData=
+[
+  ['init_5ff_5fstruct',['init_f_struct',['../vector__tests_8c.html#ad50e3c1accbf74884432d3c0b4e952a4',1,'vector_tests.c']]],
+  ['init_5fvec',['init_vec',['../vector_8c.html#a368ba8d1bd2ed240a7b0527ac752cc3c',1,'init_vec(void *vals, size_t num, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *)):&#160;vector.c'],['../vector_8h.html#a368ba8d1bd2ed240a7b0527ac752cc3c',1,'init_vec(void *vals, size_t num, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *)):&#160;vector.c']]],
+  ['init_5fvec_5fd',['init_vec_d',['../vector_8c.html#aa0a2179ce6d677fec9ff95c08b575eec',1,'init_vec_d(double *vals, size_t num):&#160;vector.c'],['../vector_8h.html#aa0a2179ce6d677fec9ff95c08b575eec',1,'init_vec_d(double *vals, size_t num):&#160;vector.c']]],
+  ['init_5fvec_5fi',['init_vec_i',['../vector_8c.html#a88741ffdcb8aff0d59afb44aab372a20',1,'init_vec_i(int *vals, size_t num):&#160;vector.c'],['../vector_8h.html#a88741ffdcb8aff0d59afb44aab372a20',1,'init_vec_i(int *vals, size_t num):&#160;vector.c']]],
+  ['init_5fvec_5fs',['init_vec_s',['../vector_8c.html#abc4e4cc2141775d6e9994d8379c3cd6f',1,'init_vec_s(char **vals, size_t num):&#160;vector.c'],['../vector_8h.html#abc4e4cc2141775d6e9994d8379c3cd6f',1,'init_vec_s(char **vals, size_t num):&#160;vector.c']]],
+  ['insert',['insert',['../vector_8c.html#ad7021cbfcd3b26cf5a4d68270e01532f',1,'insert(vector *vec, size_t i, void *a):&#160;vector.c'],['../vector_8h.html#ad7021cbfcd3b26cf5a4d68270e01532f',1,'insert(vector *vec, size_t i, void *a):&#160;vector.c']]],
+  ['insert_5ftest',['insert_test',['../main_8c.html#a065d902cd4a3aaafd61d506d75811114',1,'insert_test():&#160;vector_tests.c'],['../vector__tests_8c.html#a065d902cd4a3aaafd61d506d75811114',1,'insert_test():&#160;vector_tests.c']]],
+  ['insertd',['insertd',['../vector_8c.html#a27cda61f4446cb298f30c78ea250ffe0',1,'insertd(vector_d *vec, size_t i, double a):&#160;vector.c'],['../vector_8h.html#a27cda61f4446cb298f30c78ea250ffe0',1,'insertd(vector_d *vec, size_t i, double a):&#160;vector.c']]],
+  ['insertd_5ftest',['insertd_test',['../main_8c.html#a6a9943a9fb0d8afe42c779068af4a659',1,'insertd_test():&#160;vector_tests.c'],['../vector__tests_8c.html#a6a9943a9fb0d8afe42c779068af4a659',1,'insertd_test():&#160;vector_tests.c']]],
+  ['inserti',['inserti',['../vector_8c.html#a84e557f52c83e9f7003a98c332b571d5',1,'inserti(vector_i *vec, size_t i, int a):&#160;vector.c'],['../vector_8h.html#a84e557f52c83e9f7003a98c332b571d5',1,'inserti(vector_i *vec, size_t i, int a):&#160;vector.c']]],
+  ['inserti_5ftest',['inserti_test',['../main_8c.html#a1bd9e442f90a5ba6caa0d34c8fe21368',1,'inserti_test():&#160;vector_tests.c'],['../vector__tests_8c.html#a1bd9e442f90a5ba6caa0d34c8fe21368',1,'inserti_test():&#160;vector_tests.c']]],
+  ['inserts',['inserts',['../vector_8c.html#a51c617708ae543ff9de78c9fec30b5f5',1,'inserts(vector_s *vec, size_t i, char *a):&#160;vector.c'],['../vector_8h.html#a51c617708ae543ff9de78c9fec30b5f5',1,'inserts(vector_s *vec, size_t i, char *a):&#160;vector.c']]],
+  ['inserts_5ftest',['inserts_test',['../main_8c.html#abb345b0528168e624d3dc92b53c864cd',1,'inserts_test():&#160;vector_tests.c'],['../vector__tests_8c.html#abb345b0528168e624d3dc92b53c864cd',1,'inserts_test():&#160;vector_tests.c']]]
+];
