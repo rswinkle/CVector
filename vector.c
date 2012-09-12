@@ -62,6 +62,42 @@ vector_i* init_vec_i(int* vals, size_t num)
 	return vec;
 }
 
+int vec_i_stack(vector_i* vec, size_t size, size_t capacity)
+{
+	vec->size = (size > 0) ? size : 0;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ;
+
+	if (!(vec->a = malloc(vec->capacity*sizeof(int)))) {
+		STDERR("Error allocating memory\n");
+		return 0;
+	}
+
+	return 1;
+}
+
+
+int init_vec_i_stack(vector_i* vec, int* vals, size_t num)
+{
+	if (!vals || num < 1)
+		return 0;
+
+	vec->capacity = num + VEC_I_START_SZ;
+	vec->size = num;
+	if (!(vec->a = malloc(vec->capacity*sizeof(int)))) {
+		STDERR("Error allocating memory\n");
+		return 0;
+	}
+
+	memcpy(vec->a, vals, sizeof(int)*num);
+
+	return 1;
+}
+
+
+
+
+
+
 
 
 /**
@@ -255,6 +291,40 @@ vector_d* init_vec_d(double* vals, size_t num)
 
 	return vec;
 }
+
+
+int vec_d_stack(vector_d* vec, size_t size, size_t capacity)
+{
+	vec->size = (size > 0) ? size : 0;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ;
+
+	if (!(vec->a = malloc(vec->capacity*sizeof(double)))) {
+		STDERR("Error allocating memory\n");
+		return 0;
+	}
+
+	return 1;
+}
+
+
+int init_vec_d_stack(vector_d* vec, double* vals, size_t num)
+{
+	if (!vals || num < 1)
+		return 0;
+
+	vec->capacity = num + VEC_D_START_SZ;
+	vec->size = num;
+	if (!(vec->a = malloc(vec->capacity*sizeof(double)))) {
+		STDERR("Error allocating memory\n");
+		return 0;
+	}
+
+	memcpy(vec->a, vals, sizeof(double)*num);
+
+	return 1;
+}
+
+
 
 
 /** Append a to end of vector (size increased 1).
@@ -478,6 +548,46 @@ vector_s* init_vec_s(char** vals, size_t num)
 }
 
 
+int vec_s_stack(vector_s* vec, size_t size, size_t capacity)
+{
+	vec->size = (size > 0) ? size : 0;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_S_START_SZ;
+
+	/* calloc here because it we free before poppirg/erasing and since nothing is
+	 * allocated these need to be NULL to not cause problems */
+	if (!(vec->a = calloc(vec->capacity, sizeof(char*)))) {
+		STDERR("Error allocating memory\n");
+		return 0;
+	}
+
+	return 1;
+}
+
+
+int init_vec_s_stack(vector_s* vec, char** vals, size_t num)
+{
+	int i;
+	
+	if (!vals || num < 1)
+		return 0;
+	
+	vec->capacity = num + VEC_S_START_SZ;
+	vec->size = num;
+	if (!(vec->a = malloc(vec->capacity*sizeof(char*)))) {
+		STDERR("Error allocating memory\n");
+		return 0;
+	}
+
+	for(i=0; i<num; i++)
+		vec->a[i] = mystrdup(vals[i]);
+
+	return 1;
+}
+
+
+
+
+
 
 /**
  * Append a to end of vector (size increased 1).
@@ -666,7 +776,7 @@ void free_vecs(vector_s* vec)
  * elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  * You can pass in a function, elem_free, to be called on every element before it is removed
  * from the vector to free any dynamically allocated memory.  For example if you passed
- * in sizeof(char*) for elem_sz, the standard free(void*) function for elem_free
+ * in sizeof(char*) for elem_sz, and wrappers around the standard free(void*) function for elem_free
  * and strdup (or mystrdup in this project) for elem_init you could
  * make vector work exactly like vector_s.  Pass in NULL, to not use the function parameters.
  *
@@ -695,9 +805,8 @@ vector* vec(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*
 
 	vec->elem_size = elem_sz;
 	
-	/* calloc here because it we might be calling elem_free on it (which might be free) before 
-	 * poppirg/erasing and since nothing is allocated these need to be NULL to not cause problems */
-	if (!(vec->a = calloc(vec->capacity, elem_sz))) {
+	/*not calloc here and init_vec as in vector_s because elem_free cannot be calling free directly*/
+	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
 		STDERR("Error allocating memory\n");
 		return NULL;
 	}
@@ -744,6 +853,50 @@ vector* init_vec(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*)
 
 	return vec;
 }
+
+
+int vec_stack(vector* vec, size_t size, size_t capacity)
+{
+	vec->size = (size > 0) ? size : 0;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_START_SZ;
+
+	vec->elem_size = elem_sz;
+	
+	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
+		STDERR("Error allocating memory\n");
+		return 0;
+	}
+
+	vec->elem_free = elem_free;
+	vec->elem_init = elem_init;
+
+	return 1;
+}
+
+
+int init_vec_stack(vector* vec, void* vals, size_t num)
+{
+	if (!vals || num < 1)
+		return 0;
+	
+	vec->elem_size = elem_sz;
+
+	vec->capacity = num+VEC_START_SZ;
+	vec->size = num;
+	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
+		STDERR("Error allocating memory\n");
+		return 0;
+	}
+
+	memcpy(vec->a, vals, elem_sz*num);
+
+	vec->elem_free = elem_free;
+	vec->elem_init = elem_init;
+
+	return 1;
+}
+
+
 
 
 /** Append a to end of vector (size increased 1).
