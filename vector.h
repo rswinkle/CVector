@@ -75,6 +75,7 @@ int capacityi(vector_i* vec);
 int sizei(vector_i* vec);
 void cleari(vector_i* vec);
 void free_veci(vector_i* vec);
+void free_veci_stack(vector_i* vec);
 
 
 
@@ -99,6 +100,7 @@ int capacityd(vector_d* vec);
 int sized(vector_d* vec);
 void cleard(vector_d* vec);
 void free_vecd(vector_d* vec);
+void free_vecd_stack(vector_d* vec);
 
 
 
@@ -123,14 +125,14 @@ int capacitys(vector_s* vec);
 int sizes(vector_s* vec);
 void clears(vector_s* vec);
 void free_vecs(vector_s* vec);
+void free_vecs_stack(vector_s* vec);
 
 
 
 
 
-
-int vec_stack(vector* vec, size_t size, size_t capacity);
-int init_vec_stack(vector* vec, void* vals, size_t num);
+int vec_stack(vector* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
+int init_vec_stack(vector* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
 
 vector* vec(size_t size, size_t capacity, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
 vector* init_vec(void* vals, size_t num, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
@@ -150,6 +152,7 @@ int capacity(vector* vec);
 int size(vector* vec);
 void clear(vector* vec);
 void free_vec(vector* vec);
+void free_vec_stack(vector* vec);
 
 
 

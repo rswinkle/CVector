@@ -1,5 +1,14 @@
 #include "vector.h"
+
+#define DO_TEMPLATE_TEST 1
+#ifdef DO_TEMPLATE_TEST
+/*replace with your own generated file and edit the template test*/
+#include "vector_short.h"
+#endif
+
 #include <CUnit/Automated.h>
+
+#define STDERR(X) fprintf(stderr, X)
 
 
 /* vector_i tests */
@@ -593,7 +602,7 @@ f_struct mk_f_struct(double d, int i, char* word)
 void free_f_struct(void* tmp)
 {
 	f_struct* f = (f_struct*)tmp;
-	if (f->word != NULL) {
+	if (f->word) {
 		free(f->word);
 		f->word = NULL;
 	}
@@ -798,6 +807,9 @@ void pop_test()
 
 	CU_ASSERT_EQUAL(vec1->capacity, 10+VEC_START_SZ);
 	CU_ASSERT_EQUAL(vec2->capacity, 10+VEC_START_SZ);
+	
+	for (i=0; i<vec2->size; ++i)
+		GET_F(vec2, i)->word = mystrdup("hello");
 
 	for (i=0; i<1000; i++) {
 		sprintf(buffer, "hello %d", i);
@@ -933,6 +945,10 @@ void set_val_test()
 	CU_ASSERT_EQUAL(vec1->capacity, 25);
 	CU_ASSERT_EQUAL(vec2->capacity, 20+VEC_START_SZ);
 
+	for (i=0; i<vec2->size; ++i)
+		GET_F(vec2, i)->word = mystrdup("hello");
+	
+	
 	temp = mk_t_struct(42.5, 42, "hello");
 	temp2 = mk_f_struct(42.5, 42, "hello");
 
@@ -985,30 +1001,84 @@ void set_val_test()
 }
 
 
-void veci_constructor(void* src, 
-
-
-void vector_of_vectors_test()
+void veci_constructor(void* dest, void* src)
 {
-	int i;
-	vector vec1, vec2;
-	vec_stack(&vec1, 0, 0, sizeof(vector_i*), free_veci, NULL);
-
-	vec_stack(&vec2, 20, 0, sizeof(f_struct), free_f_struct, init_f_struct);
+	vector_i* vec1 = dest;
+	vector_i* vec2 = src;
 	
+	vec1->size = vec2->size;
+	vec1->capacity = vec2->capacity;
+	/*not much else we can do here*/
+	if (!(vec1->a = malloc(vec1->capacity*sizeof(int))))
+		STDERR("Error allocating memory\n");
+}
+
+void veci_destructor(void* vec)
+{
+	free_veci_stack(vec);
 }
 
 
 
 
+#define GET_ELEMENT(X,Y,TYPE) ((TYPE*)&X.a[Y*X.elem_size])
+
+void vector_of_vectors_test()
+{
+	int i, j, tmp_int;
+	vector vec1, vec2;
+	vector_i tmp_veci;
+
+	vec_stack(&vec1, 0, 0, sizeof(vector_i), veci_destructor, veci_constructor);
+	/*vec_stack(&vec2, 20, 0, sizeof(f_struct), free_f_struct, init_f_struct);
+	*/
+	CU_ASSERT_EQUAL(vec1.size, 0);
+	CU_ASSERT_EQUAL(vec1.capacity, VEC_START_SZ);
+	
+	vec_i_stack(&tmp_veci, 0, 0);
+	
+	for (i=0; i<20; ++i) {
+		push_back(&vec1, &tmp_veci);
+		for (j=0; j<500; ++j) {
+			push_backi((vector_i*)(&vec1.a[i*vec1.elem_size]), j);
+		}
+	}
+	
+	for (i=0; i<20; ++i) {
+		for (j=0; j<500; ++j) {
+			tmp_int = pop_backi(GET_ELEMENT(vec1, (vec1.size-1), vector_i)); /*&vec1.a[(vec1.size-1)*vec1.elem_size]);    GET_ELEMENT(vec1, i, vector_i));*/
+			CU_ASSERT_EQUAL(tmp_int, 499-j);
+		}
+		pop_back(&vec1, NULL);
+	}
+	
+	
+	free_vec_stack(&vec1);
+	/*free_vec_stack(&vec2); */
+	free_veci_stack(&tmp_veci);
+}
+
+
 
 void template_test()
 {
-	
-	
-	
-	
-	
+#ifdef DO_TEMPLATE_TEST
+	int i;
+	vector_short* vec = vec_short(0, 0);
+
+	CU_ASSERT_EQUAL(VECTOR_short_SZ, vec->capacity);
+	CU_ASSERT_EQUAL(0, vec->size);
+
+	for (i=0; i<100; i++)
+		push_back_short(vec, i);
+
+	CU_ASSERT_EQUAL(100, vec->size);
+
+	for (i=0; i<vec->size; i++)
+		CU_ASSERT_EQUAL(i, vec->a[i]);
+
+	free_vec_short(vec);
+#endif
 }
 
 

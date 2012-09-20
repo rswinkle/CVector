@@ -236,6 +236,17 @@ void free_veci(vector_i* vec)
 	free(vec);
 }
 
+/** Frees the internal array and sets size and capacity to 0 */
+void free_veci_stack(vector_i* vec)
+{
+	free(vec->a);
+	vec->size = 0;
+	vec->capacity = 0;
+}
+
+
+
+
 
 
 /**
@@ -460,7 +471,13 @@ void free_vecd(vector_d* vec)
 	free(vec);
 }
 
-
+/** Frees the internal array and sets size and capacity to 0 */
+void free_vecd_stack(vector_d* vec)
+{
+	free(vec->a);
+	vec->size = 0;
+	vec->capacity = 0;
+}
 
 
 
@@ -762,6 +779,17 @@ void free_vecs(vector_s* vec)
 }
 
 
+/** Frees the internal array and sets size and capacity to 0 */
+void free_vecs_stack(vector_s* vec)
+{
+	int i;
+	for (i=0; i<vec->size; i++)
+		free(vec->a[i]);
+	
+	free(vec->a);
+	vec->size = 0;
+	vec->capacity = 0;
+}
 
 
 
@@ -855,7 +883,7 @@ vector* init_vec(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*)
 }
 
 
-int vec_stack(vector* vec, size_t size, size_t capacity)
+int vec_stack(vector* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_START_SZ;
@@ -874,7 +902,7 @@ int vec_stack(vector* vec, size_t size, size_t capacity)
 }
 
 
-int init_vec_stack(vector* vec, void* vals, size_t num)
+int init_vec_stack(vector* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	if (!vals || num < 1)
 		return 0;
@@ -1110,7 +1138,19 @@ void free_vec(vector* vec)
 }
 
 
+/** Frees the internal array and sets size and capacity to 0 */
+void free_vec_stack(vector* vec)
+{
+	int i;
+	if (vec->elem_free)
+		for (i=0; i<vec->size; i++)
+			vec->elem_free(&vec->a[i*vec->elem_size]);
 
+	free(vec->a);
+
+	vec->size = 0;
+	vec->capacity = 0;
+}
 
 
 

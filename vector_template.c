@@ -1,22 +1,22 @@
-#include "vector_template.h"
+#include "vector_TYPE.h"
 
 #define STDERR(X) fprintf(stderr, X)
 
 
-int VECTOR_START_SZ = 50;
+int VECTOR_TYPE_SZ = 50;
 
 
 
-VECTOR_STRUCT* vec_i(size_t size, size_t capacity)
+vector_TYPE* vec_TYPE(size_t size, size_t capacity)
 {
-	VECTOR_STRUCT* vec;
-	if (!(vec = malloc(sizeof(VECTOR_STRUCT)))) {
+	vector_TYPE* vec;
+	if (!(vec = malloc(sizeof(vector_TYPE)))) {
 		STDERR("Error allocating memory\n");
 		return NULL;
 	}
 
 	vec->size = (size > 0) ? size : 0;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VECTOR_TYPE_SZ;
 
 	if (!(vec->a = malloc(vec->capacity*sizeof(TYPE)))) {
 		STDERR("Error allocating memory\n");
@@ -27,19 +27,19 @@ VECTOR_STRUCT* vec_i(size_t size, size_t capacity)
 }
 
 
-VECTOR_STRUCT* init_vec_i(TYPE* vals, size_t num)
+vector_TYPE* init_vec_TYPE(TYPE* vals, size_t num)
 {
-	VECTOR_STRUCT* vec;
+	vector_TYPE* vec;
 	
 	if (!vals || num < 1)
 		return NULL;
 	
-	if (!(vec = malloc(sizeof(VECTOR_STRUCT)))) {
+	if (!(vec = malloc(sizeof(vector_TYPE)))) {
 		STDERR("Error allocating memory\n");
 		return NULL;
 	}
 
-	vec->capacity = num + VEC_I_START_SZ;
+	vec->capacity = num + VECTOR_TYPE_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(TYPE)))) {
 		STDERR("Error allocating memory\n");
@@ -54,7 +54,7 @@ VECTOR_STRUCT* init_vec_i(TYPE* vals, size_t num)
 
 
 
-int push_backi(VECTOR_STRUCT* vec, TYPE a)
+int push_back_TYPE(vector_TYPE* vec, TYPE a)
 {
 	if (vec->capacity > vec->size) {
 		vec->a[vec->size++] = a;
@@ -71,14 +71,14 @@ int push_backi(VECTOR_STRUCT* vec, TYPE a)
 
 
 
-TYPE pop_backi(VECTOR_STRUCT* vec)
+TYPE pop_back_TYPE(vector_TYPE* vec)
 {
 	return vec->a[--vec->size];
 }
 
 
 
-int inserti(VECTOR_STRUCT* vec, size_t i, TYPE a)
+int insert_TYPE(vector_TYPE* vec, size_t i, TYPE a)
 {
 	if (vec->capacity > vec->size) {
 		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(TYPE));
@@ -100,7 +100,7 @@ int inserti(VECTOR_STRUCT* vec, size_t i, TYPE a)
 
 
 
-void erasei(VECTOR_STRUCT* vec, size_t start, size_t end)
+void erase_TYPE(vector_TYPE* vec, size_t start, size_t end)
 {
 	int d = end-start+1;
 	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(TYPE));
@@ -108,7 +108,7 @@ void erasei(VECTOR_STRUCT* vec, size_t start, size_t end)
 }
 
 
-int reservei(VECTOR_STRUCT* vec, size_t size)
+int reserve_TYPE(vector_TYPE* vec, size_t size)
 {
 	if (vec->capacity < size) {
 		if (!(vec->a = realloc(vec->a, sizeof(TYPE)*(size+20)))) {
@@ -123,7 +123,7 @@ int reservei(VECTOR_STRUCT* vec, size_t size)
 
 
 
-int set_capacityi(VECTOR_STRUCT* vec, size_t size)
+int set_capacity_TYPE(vector_TYPE* vec, size_t size)
 {
 	if (size < vec->size)
 		vec->size = size;
@@ -139,7 +139,7 @@ int set_capacityi(VECTOR_STRUCT* vec, size_t size)
 
 
 
-void set_val_szi(VECTOR_STRUCT* vec, TYPE val)
+void set_val_sz_TYPE(vector_TYPE* vec, TYPE val)
 {
 	int i;
 	for (i=0; i<vec->size; i++)
@@ -147,7 +147,7 @@ void set_val_szi(VECTOR_STRUCT* vec, TYPE val)
 }
 
 
-void set_val_capi(VECTOR_STRUCT* vec, TYPE val)
+void set_val_cap_TYPE(vector_TYPE* vec, TYPE val)
 {
 	int i;
 	for (i=0; i<vec->capacity; i++)
@@ -155,13 +155,13 @@ void set_val_capi(VECTOR_STRUCT* vec, TYPE val)
 }
 
 
-int capacityi(VECTOR_STRUCT* vec) { return vec->capacity; }
+int capacity_TYPE(vector_TYPE* vec) { return vec->capacity; }
 
-int sizei(VECTOR_STRUCT* vec) { return vec->size; }
+int size_TYPE(vector_TYPE* vec) { return vec->size; }
 
-void cleari(VECTOR_STRUCT* vec) { vec->size = 0; }
+void clear_TYPE(vector_TYPE* vec) { vec->size = 0; }
 
-void free_veci(VECTOR_STRUCT* vec)
+void free_vec_TYPE(vector_TYPE* vec)
 {
 	free(vec->a);
 	free(vec);

@@ -105,7 +105,7 @@ CU_SuiteInfo vector_suites[] = {
 	{ "vector_d", NULL, NULL, vector_d_tests },
 	{ "vector_s", NULL, NULL, vector_s_tests },
 	{ "vector",   NULL, NULL, vector_tests   },
-	{ "tepmlate", NULL, NULL, template_tests },
+	{ "template", NULL, NULL, template_tests },
 	CU_SUITE_INFO_NULL
 };
 
