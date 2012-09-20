@@ -21,6 +21,8 @@ typedef struct vector_TYPE_
 
 extern int VECTOR_TYPE_SZ;
 
+int vec_TYPE_stack(vector_TYPE* vec, size_t size, size_t capacity);
+int init_vec_TYPE_stack(vector_TYPE* vec, TYPE* vals, size_t num);
 
 vector_TYPE* vec_TYPE(size_t size, size_t capacity);
 vector_TYPE* init_vec_TYPE(TYPE* vals, size_t num);
@@ -40,6 +42,8 @@ int capacity_TYPE(vector_TYPE* vec);
 int size_TYPE(vector_TYPE* vec);
 void clear_TYPE(vector_TYPE* vec);
 void free_vec_TYPE(vector_TYPE* vec);
+void free_vec_TYPE_stack(vector_TYPE* vec);
+
 
 
 #endif
