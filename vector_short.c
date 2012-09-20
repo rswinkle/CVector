@@ -52,6 +52,43 @@ vector_short* init_vec_short(short* vals, size_t num)
 }
 
 
+int vec_short_stack(vector_short* vec, size_t size, size_t capacity)
+{
+	vec->size = (size > 0) ? size : 0;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VECTOR_short_SZ;
+
+	if (!(vec->a = malloc(vec->capacity*sizeof(short)))) {
+		STDERR("Error allocating memory\n");
+		return 0;
+	}
+
+	return 1;
+}
+
+
+int init_vec_short_stack(vector_short* vec, short* vals, size_t num)
+{
+	if (!vals || num < 1)
+		return 0;
+
+	vec->capacity = num + VECTOR_short_SZ;
+	vec->size = num;
+	if (!(vec->a = malloc(vec->capacity*sizeof(short)))) {
+		STDERR("Error allocating memory\n");
+		return 0;
+	}
+
+	memcpy(vec->a, vals, sizeof(short)*num);
+
+	return 1;
+}
+
+
+
+
+
+
+
 
 
 int push_back_short(vector_short* vec, short a)
@@ -167,3 +204,9 @@ void free_vec_short(vector_short* vec)
 	free(vec);
 }
 
+void free_vec_short_stack(vector_short* vec)
+{
+	free(vec->a);
+	vec->size = 0;
+	vec->capacity = 0;
+}

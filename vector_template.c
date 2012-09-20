@@ -55,7 +55,7 @@ vector_TYPE* init_vec_TYPE(TYPE* vals, size_t num)
 int vec_TYPE_stack(vector_TYPE* vec, size_t size, size_t capacity)
 {
 	vec->size = (size > 0) ? size : 0;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VECTOR_TYPE_SZ;
 
 	if (!(vec->a = malloc(vec->capacity*sizeof(TYPE)))) {
 		STDERR("Error allocating memory\n");
@@ -71,7 +71,7 @@ int init_vec_TYPE_stack(vector_TYPE* vec, TYPE* vals, size_t num)
 	if (!vals || num < 1)
 		return 0;
 
-	vec->capacity = num + VEC_I_START_SZ;
+	vec->capacity = num + VECTOR_TYPE_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(TYPE)))) {
 		STDERR("Error allocating memory\n");

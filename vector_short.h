@@ -5,8 +5,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#define short short
-#define vector_short vector_short
 
 
 /** Data structur for int vector. */
@@ -21,6 +19,8 @@ typedef struct vector_short_
 
 extern int VECTOR_short_SZ;
 
+int vec_short_stack(vector_short* vec, size_t size, size_t capacity);
+int init_vec_short_stack(vector_short* vec, short* vals, size_t num);
 
 vector_short* vec_short(size_t size, size_t capacity);
 vector_short* init_vec_short(short* vals, size_t num);
@@ -40,6 +40,8 @@ int capacity_short(vector_short* vec);
 int size_short(vector_short* vec);
 void clear_short(vector_short* vec);
 void free_vec_short(vector_short* vec);
+void free_vec_short_stack(vector_short* vec);
+
 
 
 #endif

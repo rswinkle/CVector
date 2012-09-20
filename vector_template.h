@@ -5,8 +5,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#define TYPE short
-#define vector_TYPE vector_short
 
 
 /** Data structur for int vector. */
