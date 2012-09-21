@@ -20,6 +20,7 @@ vector_short* vec_short(size_t size, size_t capacity)
 
 	if (!(vec->a = malloc(vec->capacity*sizeof(short)))) {
 		STDERR("Error allocating memory\n");
+		free(vec);
 		return NULL;
 	}
 
@@ -43,6 +44,7 @@ vector_short* init_vec_short(short* vals, size_t num)
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(short)))) {
 		STDERR("Error allocating memory\n");
+		free(vec);
 		return NULL;
 	}
 
@@ -59,6 +61,7 @@ int vec_short_stack(vector_short* vec, size_t size, size_t capacity)
 
 	if (!(vec->a = malloc(vec->capacity*sizeof(short)))) {
 		STDERR("Error allocating memory\n");
+		vec->size = vec->capacity = 0;
 		return 0;
 	}
 
@@ -75,6 +78,7 @@ int init_vec_short_stack(vector_short* vec, short* vals, size_t num)
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(short)))) {
 		STDERR("Error allocating memory\n");
+		vec->size = vec->capacity = 0;
 		return 0;
 	}
 
@@ -83,9 +87,25 @@ int init_vec_short_stack(vector_short* vec, short* vals, size_t num)
 	return 1;
 }
 
-
-
-
+void vec_short_copy(void* dest, void* src)
+{
+	int i;
+	vector_short* vec1 = dest;
+	vector_short* vec2 = src;
+	
+	vec1->size = 0;
+	vec1->capacity = 0
+	
+	/*not much else we can do here*/
+	if (!(vec1->a = malloc(vec2->capacity*sizeof(int)))) {
+		STDERR("Error allocating memory\n");
+		return;
+	}
+	
+	memcpy(vec1->a, vec2->a, vec2->size*sizeof(short));
+	vec1->size = vec2->size;
+	vec1->capacity = vec2->capacity;
+}
 
 
 
@@ -96,12 +116,12 @@ int push_back_short(vector_short* vec, short a)
 	if (vec->capacity > vec->size) {
 		vec->a[vec->size++] = a;
 	} else {
-		vec->capacity *= 2;
-		if (!(vec->a = realloc(vec->a, sizeof(short)*vec->capacity))) {
+		if (!(vec->a = realloc(vec->a, sizeof(short)*vec->capacity*2))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a[vec->size++] = a;
+		vec->capacity *= 2;
 	}
 	return 1;
 }
@@ -121,14 +141,14 @@ int insert_short(vector_short* vec, size_t i, short a)
 		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(short));
 		vec->a[i] = a;
 	} else {
-		vec->capacity *= 2;
-		if (!(vec->a = realloc(vec->a, sizeof(short)*vec->capacity))) {
+		if (!(vec->a = realloc(vec->a, sizeof(short)*vec->capacity*2))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 
 		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(short));
 		vec->a[i] = a;
+		vec->capacity *= 2;
 	}
 
 	vec->size++;
@@ -165,12 +185,11 @@ int set_capacity_short(vector_short* vec, size_t size)
 	if (size < vec->size)
 		vec->size = size;
 
-	vec->capacity = size;
-
 	if (!(vec->a = realloc(vec->a, sizeof(short)*size))) {
 		STDERR("Error allocating memory\n");
 		return 0;
 	}
+	vec->capacity = size;
 	return 1;
 }
 

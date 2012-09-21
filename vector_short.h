@@ -24,6 +24,9 @@ int init_vec_short_stack(vector_short* vec, short* vals, size_t num);
 
 vector_short* vec_short(size_t size, size_t capacity);
 vector_short* init_vec_short(short* vals, size_t num);
+
+void vec_short_copy(void* dest, void* src);
+
 int push_back_short(vector_short* vec, short a);
 short pop_back_short(vector_short* vec);
 

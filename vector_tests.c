@@ -1001,21 +1001,16 @@ void set_val_test()
 }
 
 
-void veci_constructor(void* dest, void* src)
-{
-	vector_i* vec1 = dest;
-	vector_i* vec2 = src;
-	
-	vec1->size = vec2->size;
-	vec1->capacity = vec2->capacity;
-	/*not much else we can do here*/
-	if (!(vec1->a = malloc(vec1->capacity*sizeof(int))))
-		STDERR("Error allocating memory\n");
-}
 
 void veci_destructor(void* vec)
 {
 	free_veci_stack(vec);
+}
+
+
+void vecs_destructor(void* vec)
+{
+	free_vecs_stack(vec);
 }
 
 
@@ -1028,21 +1023,40 @@ void vector_of_vectors_test()
 	int i, j, tmp_int;
 	vector vec1, vec2;
 	vector_i tmp_veci;
+	vector_s tmp_vecs;
+	char buffer[50];
+	
+	
+	vec_stack(&vec1, 0, 0, sizeof(vector_i), veci_destructor, veci_copy);
+	vec_stack(&vec2, 0, 0, sizeof(vector_s), );
 
-	vec_stack(&vec1, 0, 0, sizeof(vector_i), veci_destructor, veci_constructor);
-	/*vec_stack(&vec2, 20, 0, sizeof(f_struct), free_f_struct, init_f_struct);
-	*/
+	vec_s_stack(tmy_vecs, 0, 0);
+
+	CU_ASSERT_EQUAL(VEC_S_START_SZ, vec->capacity);
+	CU_ASSERT_EQUAL(0, vec->size);
+
+	for (i=0; i<50; i++) {
+		sprintf(buffer, "hello %d", i);
+		push_backs(vec, buffer);
+	}
+	
 	CU_ASSERT_EQUAL(vec1.size, 0);
 	CU_ASSERT_EQUAL(vec1.capacity, VEC_START_SZ);
 	
 	vec_i_stack(&tmp_veci, 0, 0);
+	
+	for (i=0; i<20; ++i)
+		push_backi(&tmp_veci, rand());
 	
 	for (i=0; i<20; ++i) {
 		push_back(&vec1, &tmp_veci);
 		for (j=0; j<500; ++j) {
 			push_backi((vector_i*)(&vec1.a[i*vec1.elem_size]), j);
 		}
+		CU_ASSERT_EQUAL(
 	}
+	
+	CU_ASSERT_EQUAL(vec1->size, 20);
 	
 	for (i=0; i<20; ++i) {
 		for (j=0; j<500; ++j) {
@@ -1064,7 +1078,9 @@ void template_test()
 {
 #ifdef DO_TEMPLATE_TEST
 	int i;
-	vector_short* vec = vec_short(0, 0);
+	vector_short vec;
+	
+	vec_short_stack(&vec, 0, 0); /* haha */
 
 	CU_ASSERT_EQUAL(VECTOR_short_SZ, vec->capacity);
 	CU_ASSERT_EQUAL(0, vec->size);
@@ -1077,7 +1093,7 @@ void template_test()
 	for (i=0; i<vec->size; i++)
 		CU_ASSERT_EQUAL(i, vec->a[i]);
 
-	free_vec_short(vec);
+	free_vec_short_stack(vec);
 #endif
 }
 

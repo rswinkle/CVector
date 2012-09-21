@@ -24,6 +24,9 @@ int init_vec_TYPE_stack(vector_TYPE* vec, TYPE* vals, size_t num);
 
 vector_TYPE* vec_TYPE(size_t size, size_t capacity);
 vector_TYPE* init_vec_TYPE(TYPE* vals, size_t num);
+
+void vec_TYPE_copy(void* dest, void* src);
+
 int push_back_TYPE(vector_TYPE* vec, TYPE a);
 TYPE pop_back_TYPE(vector_TYPE* vec);
 

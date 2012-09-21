@@ -11,36 +11,36 @@ typedef unsigned char byte;
 /** Data structur for int vector. */
 typedef struct vector_i_
 {
-	int* a;			/**< Array. */
-	int size;		/**< Current size (amount you use when manipulating array directly). */
-	int capacity;	/**< Allocated size of array; always >= size. */
+	int* a;            /**< Array. */
+	size_t size;       /**< Current size (amount you use when manipulating array directly). */
+	size_t capacity;   /**< Allocated size of array; always >= size. */
 } vector_i;
 
 
 /** Data structure for double vector. */
 typedef struct vector_d_
 {
-	double* a;		/**< Array. */
-	int size;		/**< Current size (amount you use when manipulating array directly). */
-	int capacity;	/**< Allocated size of array; always >= size. */
+	double* a;         /**< Array. */
+	size_t size;       /**< Current size (amount you use when manipulating array directly). */
+	size_t capacity;   /**< Allocated size of array; always >= size. */
 } vector_d;
 
 /** Data structure for string vector. */
 typedef struct vector_s_
 {
-	char** a;		/**< Array. */
-	int size;		/**< Current size (amount you use when manipulating array directly). */
-	int capacity;	/**< Allocated size of array; always >= size. */
+	char** a;          /**< Array. */
+	size_t size;       /**< Current size (amount you use when manipulating array directly). */
+	size_t capacity;   /**< Allocated size of array; always >= size. */
 } vector_s;
 
 
 /** Data structure for generic type (cast to void) vectors */
 typedef struct vector_
 {
-	byte* a;		/**< Array. */
-	int size;		/**< Current size (amount you should use when manipulating array directly). */
-	int capacity;	/**< Allocated size of array; always >= size. */
-	int elem_size;	/**< Size in bytes of type stored (sizeof(T) where T is type). */
+	byte* a;                 /**< Array. */
+	size_t size;             /**< Current size (amount you should use when manipulating array directly). */
+	size_t capacity;         /**< Allocated size of array; always >= size. */
+	size_t elem_size;        /**< Size in bytes of type stored (sizeof(T) where T is type). */
 	void (*elem_init)(void*, void*);
 	void (*elem_free)(void*);
 } vector;
@@ -59,6 +59,8 @@ int init_vec_i_stack(vector_i* vec, int* vals, size_t num);
 
 vector_i* vec_i(size_t size, size_t capacity);
 vector_i* init_vec_i(int* vals, size_t num);
+void veci_copy(void* dest, void* src);
+
 int push_backi(vector_i* vec, int a);
 int pop_backi(vector_i* vec);
 
@@ -84,6 +86,10 @@ int init_vec_d_stack(vector_d* vec, double* vals, size_t num);
 
 vector_d* vec_d(size_t size, size_t capacity);
 vector_d* init_vec_d(double* vals, size_t num);
+
+void vecd_copy(void* dest, void* src);
+
+
 int push_backd(vector_d* vec, double a);
 double pop_backd(vector_d* vec);
 
@@ -109,6 +115,9 @@ int init_vec_s_stack(vector_s* vec, char** vals, size_t num);
 
 vector_s* vec_s(size_t size, size_t capacity);
 vector_s* init_vec_s(char** vals, size_t num);
+
+void vecs_copy(void* dest, void* src);
+
 int push_backs(vector_s* vec, char* a);
 void pop_backs(vector_s* vec, char* ret);
 
@@ -136,8 +145,12 @@ int init_vec_stack(vector* vec, void* vals, size_t num, size_t elem_sz, void(*el
 
 vector* vec(size_t size, size_t capacity, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
 vector* init_vec(void* vals, size_t num, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
+
+void vec_copy(void* dest, void* src);
+
 int push_back(vector* vec, void* val);
 void pop_back(vector* vec, void* ret);
+void* vec_get(vector* vec, size_t i);
 
 int insert(vector* vec, size_t i, void* a);
 void erase(vector* vec, size_t start, size_t end);
