@@ -1022,22 +1022,21 @@ void vector_of_vectors_test()
 {
 	int i, j, tmp_int;
 	vector vec1, vec2;
-	vector_i tmp_veci;
+	vector_i tmp_veci, *tmp_veci2;
 	vector_s tmp_vecs;
 	char buffer[50];
 	
-	
 	vec_stack(&vec1, 0, 0, sizeof(vector_i), veci_destructor, veci_copy);
-	vec_stack(&vec2, 0, 0, sizeof(vector_s), );
+	vec_stack(&vec2, 0, 0, sizeof(vector_s), vecs_destructor, vecs_copy);
 
-	vec_s_stack(tmy_vecs, 0, 0);
+	vec_s_stack(&tmp_vecs, 0, 0);
 
-	CU_ASSERT_EQUAL(VEC_S_START_SZ, vec->capacity);
-	CU_ASSERT_EQUAL(0, vec->size);
+	CU_ASSERT_EQUAL(VEC_S_START_SZ, tmp_vecs.capacity);
+	CU_ASSERT_EQUAL(0, tmp_vecs.size);
 
 	for (i=0; i<50; i++) {
 		sprintf(buffer, "hello %d", i);
-		push_backs(vec, buffer);
+		push_backs(&tmp_vecs, buffer);
 	}
 	
 	CU_ASSERT_EQUAL(vec1.size, 0);
@@ -1053,22 +1052,30 @@ void vector_of_vectors_test()
 		for (j=0; j<500; ++j) {
 			push_backi((vector_i*)(&vec1.a[i*vec1.elem_size]), j);
 		}
-		CU_ASSERT_EQUAL(
+		tmp_veci2 = vec_get(&vec1, i);
+		CU_ASSERT_EQUAL(tmp_veci2->size, 520);
 	}
 	
-	CU_ASSERT_EQUAL(vec1->size, 20);
+	CU_ASSERT_EQUAL(vec1.size, 20);
 	
 	for (i=0; i<20; ++i) {
 		for (j=0; j<500; ++j) {
 			tmp_int = pop_backi(GET_ELEMENT(vec1, (vec1.size-1), vector_i)); /*&vec1.a[(vec1.size-1)*vec1.elem_size]);    GET_ELEMENT(vec1, i, vector_i));*/
 			CU_ASSERT_EQUAL(tmp_int, 499-j);
 		}
+		tmp_veci2 = vec_get(&vec1, vec1.size-1);
+		CU_ASSERT_EQUAL(tmp_veci2->size, 20);
+		fprintf(stderr, "%d\n", tmp_veci2->size);
+		for (j=0; j<20; j++) {
+			CU_ASSERT_EQUAL(tmp_veci.a[i], tmp_veci2->a[i]);
+		}
+		
 		pop_back(&vec1, NULL);
 	}
 	
 	
 	free_vec_stack(&vec1);
-	/*free_vec_stack(&vec2); */
+	free_vec_stack(&vec2);
 	free_veci_stack(&tmp_veci);
 }
 
@@ -1082,18 +1089,18 @@ void template_test()
 	
 	vec_short_stack(&vec, 0, 0); /* haha */
 
-	CU_ASSERT_EQUAL(VECTOR_short_SZ, vec->capacity);
-	CU_ASSERT_EQUAL(0, vec->size);
+	CU_ASSERT_EQUAL(VECTOR_short_SZ, vec.capacity);
+	CU_ASSERT_EQUAL(0, vec.size);
 
 	for (i=0; i<100; i++)
-		push_back_short(vec, i);
+		push_back_short(&vec, i);
 
-	CU_ASSERT_EQUAL(100, vec->size);
+	CU_ASSERT_EQUAL(100, vec.size);
 
-	for (i=0; i<vec->size; i++)
-		CU_ASSERT_EQUAL(i, vec->a[i]);
+	for (i=0; i<vec.size; i++)
+		CU_ASSERT_EQUAL(i, vec.a[i]);
 
-	free_vec_short_stack(vec);
+	free_vec_short_stack(&vec);
 #endif
 }
 

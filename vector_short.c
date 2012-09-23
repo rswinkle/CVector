@@ -94,7 +94,7 @@ void vec_short_copy(void* dest, void* src)
 	vector_short* vec2 = src;
 	
 	vec1->size = 0;
-	vec1->capacity = 0
+	vec1->capacity = 0;
 	
 	/*not much else we can do here*/
 	if (!(vec1->a = malloc(vec2->capacity*sizeof(int)))) {

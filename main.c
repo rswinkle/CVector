@@ -124,7 +124,7 @@ int main()
 
 
 	CU_automated_run_tests();
-	fprintf(stdout, "%d", CU_get_error());
+	fprintf(stdout, "CU_get_error() returned %d\n", CU_get_error());
 
 	CU_cleanup_registry();
 

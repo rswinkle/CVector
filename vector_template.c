@@ -94,7 +94,7 @@ void vec_TYPE_copy(void* dest, void* src)
 	vector_TYPE* vec2 = src;
 	
 	vec1->size = 0;
-	vec1->capacity = 0
+	vec1->capacity = 0;
 	
 	/*not much else we can do here*/
 	if (!(vec1->a = malloc(vec2->capacity*sizeof(int)))) {

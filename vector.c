@@ -104,6 +104,11 @@ int init_vec_i_stack(vector_i* vec, int* vals, size_t num)
 }
 
 
+/** Makes dest an identical copy of src.  The parameters
+ *  are void so it can be used as the constructor when making
+ *  a vector of vector_i's.  Assumes dest (the structure)
+ *  is already allocated (probably on the stack).
+ */
 void veci_copy(void* dest, void* src)
 {
 	int i;
@@ -111,7 +116,7 @@ void veci_copy(void* dest, void* src)
 	vector_i* vec2 = src;
 	
 	vec1->size = 0;
-	vec1->capacity = 0
+	vec1->capacity = 0;
 	
 	/*not much else we can do here*/
 	if (!(vec1->a = malloc(vec2->capacity*sizeof(int)))) {
@@ -372,6 +377,11 @@ int init_vec_d_stack(vector_d* vec, double* vals, size_t num)
 	return 1;
 }
 
+/** Makes dest an identical copy of src.  The parameters
+ *  are void so it can be used as the constructor when making
+ *  a vector of vector_d's.  Assumes dest (the structure)
+ *  is already allocated (probably on the stack).
+ */
 void vecd_copy(void* dest, void* src)
 {
 	int i;
@@ -379,7 +389,7 @@ void vecd_copy(void* dest, void* src)
 	vector_d* vec2 = src;
 	
 	vec1->size = 0;
-	vec1->capacity = 0
+	vec1->capacity = 0;
 	
 	/*not much else we can do here*/
 	if (!(vec1->a = malloc(vec2->capacity*sizeof(double)))) {
@@ -668,7 +678,11 @@ int init_vec_s_stack(vector_s* vec, char** vals, size_t num)
 }
 
 
-
+/** Makes dest an identical copy of src.  The parameters
+ *  are void so it can be used as the constructor when making
+ *  a vector of vector_s's.  Assumes dest (the structure)
+ *  is already allocated (probably on the stack).
+ */
 void vecs_copy(void* dest, void* src)
 {
 	int i;
@@ -676,7 +690,7 @@ void vecs_copy(void* dest, void* src)
 	vector_s* vec2 = src;
 	
 	vec1->size = 0;
-	vec1->capacity = 0
+	vec1->capacity = 0;
 	
 	/*not much else we can do here*/
 	if (!(vec1->a = malloc(vec2->capacity*sizeof(char*)))) {
@@ -970,8 +984,9 @@ vector* init_vec(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*)
 	}
 
 	if (elem_init) {
-		for (i=0; i<vec
-		
+		for (i=0; i<num; ++i) {
+			elem_init(&vec->a[i*elem_sz], &((byte*)vals)[i*elem_sz]);
+		}
 	} else {
 		memcpy(vec->a, vals, elem_sz*num);
 	}
@@ -1008,6 +1023,7 @@ int vec_stack(vector* vec, size_t size, size_t capacity, size_t elem_sz, void(*e
  */
 int init_vec_stack(vector* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
+	int i;
 	if (!vals || num < 1)
 		return 0;
 	
@@ -1020,7 +1036,13 @@ int init_vec_stack(vector* vec, void* vals, size_t num, size_t elem_sz, void(*el
 		return 0;
 	}
 
-	memcpy(vec->a, vals, elem_sz*num);
+	if (elem_init) {
+		for (i=0; i<num; ++i) {
+			elem_init(&vec->a[i*elem_sz], &((byte*)vals)[i*elem_sz]);
+		}
+	} else {
+		memcpy(vec->a, vals, elem_sz*num);
+	}
 
 	vec->elem_free = elem_free;
 	vec->elem_init = elem_init;
@@ -1029,6 +1051,12 @@ int init_vec_stack(vector* vec, void* vals, size_t num, size_t elem_sz, void(*el
 }
 
 
+/** Makes dest an identical copy of src.  The parameters
+ *  are void so it can be used as the constructor when making
+ *  a vector of vector's. (I would reccomend against doing that, and using 
+ *  generate_code.py to make your own type instead).   Assumes dest (the structure)
+ *  is already allocated (probably on the stack).
+ */
 void vec_copy(void* dest, void* src)
 {
 	int i;
@@ -1036,7 +1064,7 @@ void vec_copy(void* dest, void* src)
 	vector* vec2 = src;
 	
 	vec1->size = 0;
-	vec1->capacity = 0
+	vec1->capacity = 0;
 	
 	/*not much else we can do here*/
 	if (!(vec1->a = malloc(vec2->capacity*vec2->elem_size))) {
@@ -1084,7 +1112,7 @@ int push_back(vector* vec, void* a)
 		vec->capacity *= 2;
 	}
 	
-	vec->size++
+	vec->size++;
 	return 1;
 }
 
