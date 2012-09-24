@@ -76,8 +76,8 @@ them directly */
 int capacityi(vector_i* vec);
 int sizei(vector_i* vec);
 void cleari(vector_i* vec);
-void free_veci(vector_i* vec);
-void free_veci_stack(vector_i* vec);
+void free_veci(void* vec);
+void free_veci_stack(void* vec);
 
 
 
@@ -105,8 +105,8 @@ them directly */
 int capacityd(vector_d* vec);
 int sized(vector_d* vec);
 void cleard(vector_d* vec);
-void free_vecd(vector_d* vec);
-void free_vecd_stack(vector_d* vec);
+void free_vecd(void* vec);
+void free_vecd_stack(void* vec);
 
 
 
@@ -133,8 +133,8 @@ them directly */
 int capacitys(vector_s* vec);
 int sizes(vector_s* vec);
 void clears(vector_s* vec);
-void free_vecs(vector_s* vec);
-void free_vecs_stack(vector_s* vec);
+void free_vecs(void* vec);
+void free_vecs_stack(void* vec);
 
 
 
@@ -164,8 +164,8 @@ them directly */
 int capacity(vector* vec);
 int size(vector* vec);
 void clear(vector* vec);
-void free_vec(vector* vec);
-void free_vec_stack(vector* vec);
+void free_vec(void* vec);
+void free_vec_stack(void* vec);
 
 
 

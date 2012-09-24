@@ -8,6 +8,12 @@ int VEC_D_START_SZ = 50;
 int VEC_START_SZ = 20;
 int VEC_S_START_SZ = 20;
 
+#define VECI_ALLOCATOR(x) (x*2)
+#define VECD_ALLOCATOR(x) (x*2)
+#define VECS_ALLOCATOR(x) (x*2)
+#define VEC_ALLOCATOR(x) (x*2)
+
+
 
 /**
  * Creates a new vector_i.
@@ -139,15 +145,19 @@ void veci_copy(void* dest, void* src)
  */
 int push_backi(vector_i* vec, int a)
 {
+	void* tmp;
+	size_t tmp_sz;
 	if (vec->capacity > vec->size) {
 		vec->a[vec->size++] = a;
 	} else {
-		if (!(vec->a = realloc(vec->a, sizeof(int)*vec->capacity*2))) {
+		tmp_sz = VECI_ALLOCATOR(vec->capacity);
+		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
+		vec->a = tmp;
 		vec->a[vec->size++] = a;
-		vec->capacity *= 2;
+		vec->capacity = tmp_sz;
 	}
 	return 1;
 }
@@ -168,18 +178,21 @@ int pop_backi(vector_i* vec)
  */
 int inserti(vector_i* vec, size_t i, int a)
 {
+	void* tmp;
+	size_t tmp_sz;
 	if (vec->capacity > vec->size) {
 		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(int));
 		vec->a[i] = a;
 	} else {
-		if (!(vec->a = realloc(vec->a, sizeof(int)*vec->capacity*2))) {
+		tmp_sz = VECI_ALLOCATOR(vec->capacity);
+		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
-
+		vec->a = tmp;
 		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(int));
 		vec->a[i] = a;
-		vec->capacity *= 2;
+		vec->capacity = tmp_sz;
 	}
 
 	vec->size++;
@@ -203,11 +216,13 @@ void erasei(vector_i* vec, size_t start, size_t end)
 /** Make sure capacity is at least size(parameter not member). */
 int reservei(vector_i* vec, size_t size)
 {
+	void* tmp;
 	if (vec->capacity < size) {
-		if (!(vec->a = realloc(vec->a, sizeof(int)*(size+20)))) {
+		if (!(tmp = realloc(vec->a, sizeof(int)*(size+20)))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
+		vec->a = tmp;
 		vec->capacity = size+20;
 	}
 	return 1;
@@ -221,14 +236,15 @@ int reservei(vector_i* vec, size_t size)
 */
 int set_capacityi(vector_i* vec, size_t size)
 {
+	void* tmp;
 	if (size < vec->size)
 		vec->size = size;
 
-	if (!(vec->a = realloc(vec->a, sizeof(int)*size))) {
+	if (!(tmp = realloc(vec->a, sizeof(int)*size))) {
 		STDERR("Error allocating memory\n");
 		return 0;
 	}
-	
+	vec->a = tmp;
 	vec->capacity = size;
 	return 1;
 }
@@ -263,18 +279,20 @@ int sizei(vector_i* vec) { return vec->size; }
 void cleari(vector_i* vec) { vec->size = 0; }
 
 /** Frees everything so don't use vec after calling this. */
-void free_veci(vector_i* vec)
+void free_veci(void* vec)
 {
-	free(vec->a);
-	free(vec);
+	vector_i* tmp = vec;
+	free(tmp->a);
+	free(tmp);
 }
 
 /** Frees the internal array and sets size and capacity to 0 */
-void free_veci_stack(vector_i* vec)
+void free_veci_stack(void* vec)
 {
-	free(vec->a);
-	vec->size = 0;
-	vec->capacity = 0;
+	vector_i* tmp = vec;
+	free(tmp->a);
+	tmp->size = 0;
+	tmp->capacity = 0;
 }
 
 
@@ -291,6 +309,8 @@ void free_veci_stack(vector_i* vec)
 vector_d* vec_d(size_t size, size_t capacity)
 {
 	vector_d* vec;
+	void* tmp;
+	
 	if (!(vec = malloc(sizeof(vector_d)))) {
 		STDERR("Error allocating memory\n");
 		return NULL;
@@ -299,11 +319,12 @@ vector_d* vec_d(size_t size, size_t capacity)
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ;
 
-	if (!(vec->a = malloc(vec->capacity*sizeof(double)))) {
+	if (!(tmp = malloc(vec->capacity*sizeof(double)))) {
 		STDERR("Error allocating memory\n");
 		free(vec);
 		return NULL;
 	}
+	vec->a = tmp;
 
 	return vec;
 }
@@ -413,15 +434,19 @@ void vecd_copy(void* dest, void* src)
  */
 int push_backd(vector_d* vec, double a)
 {
+	void* tmp;
+	size_t tmp_sz;
 	if (vec->capacity > vec->size) {
 		vec->a[vec->size++] = a;
 	} else {
-		if (!(vec->a = realloc(vec->a, sizeof(double)*vec->capacity*2))) {
+		tmp_sz = VECD_ALLOCATOR(vec->capacity);
+		if (!(tmp = realloc(vec->a, sizeof(double)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
+		vec->a = tmp;
 		vec->a[vec->size++] = a;
-		vec->capacity *= 2;
+		vec->capacity = tmp_sz;
 	}
 	return 1;
 }
@@ -441,18 +466,21 @@ double pop_backd(vector_d* vec)
  */
 int insertd(vector_d* vec, size_t i, double a)
 {
+	void* tmp;
+	size_t tmp_sz;
 	if (vec->capacity > vec->size) {
 		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(double));
 		vec->a[i] = a;
 	} else {
-		if (!(vec->a = realloc(vec->a, sizeof(double)*vec->capacity*2))) {
+		tmp_sz = VECD_ALLOCATOR(vec->capacity);
+		if (!(tmp = realloc(vec->a, sizeof(double)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
-
+		vec->a = tmp;
 		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(double));
 		vec->a[i] = a;
-		vec->capacity *= 2;
+		vec->capacity = tmp_sz;
 	}
 
 	vec->size++;
@@ -476,11 +504,13 @@ void erased(vector_d* vec, size_t start, size_t end)
 /** Make sure capacity is at least size(parameter not member). */
 int reserved(vector_d* vec, size_t size)
 {
+	void* tmp;
 	if (vec->capacity < size) {
-		if (!(vec->a = realloc(vec->a, sizeof(double)*(size+20)))) {
+		if (!(tmp = realloc(vec->a, sizeof(double)*(size+20)))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
+		vec->a = tmp;
 		vec->capacity = size + 20;
 	}
 	return 1;
@@ -493,14 +523,15 @@ int reserved(vector_d* vec, size_t size)
 */
 int set_capacityd(vector_d* vec, size_t size)
 {
-	if( size<vec->size )
+	void* tmp;
+	if (size < vec->size)
 		vec->size = size;
 
-	if( !(vec->a = realloc(vec->a, sizeof(double)*size)) ) {
+	if (!(tmp = realloc(vec->a, sizeof(double)*size))) {
 		STDERR("Error allocating memory\n");
 		return 0;
 	}
-	
+	vec->a = tmp;
 	vec->capacity = size;
 	return 1;
 }
@@ -536,18 +567,20 @@ void cleard(vector_d* vec) { vec->size = 0; }
 
 
 /** Frees everything so don't use vec after calling this. */
-void free_vecd(vector_d* vec)
+void free_vecd(void* vec)
 {
-	free(vec->a);
-	free(vec);
+	vector_d* tmp = vec;
+	free(tmp->a);
+	free(tmp);
 }
 
 /** Frees the internal array and sets size and capacity to 0 */
-void free_vecd_stack(vector_d* vec)
+void free_vecd_stack(void* vec)
 {
-	free(vec->a);
-	vec->size = 0;
-	vec->capacity = 0;
+	vector_d* tmp;
+	free(tmp->a);
+	tmp->size = 0;
+	tmp->capacity = 0;
 }
 
 
@@ -626,6 +659,7 @@ vector_s* init_vec_s(char** vals, size_t num)
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(char*)))) {
 		STDERR("Error allocating memory\n");
+		free(vec);
 		return NULL;
 	}
 
@@ -648,6 +682,7 @@ int vec_s_stack(vector_s* vec, size_t size, size_t capacity)
 	 * allocated these need to be NULL to not cause problems */
 	if (!(vec->a = calloc(vec->capacity, sizeof(char*)))) {
 		STDERR("Error allocating memory\n");
+		vec->size = vec->capacity = 0;
 		return 0;
 	}
 
@@ -668,6 +703,7 @@ int init_vec_s_stack(vector_s* vec, char** vals, size_t num)
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(char*)))) {
 		STDERR("Error allocating memory\n");
+		vec->size = vec->capacity = 0;
 		return 0;
 	}
 
@@ -719,15 +755,19 @@ void vecs_copy(void* dest, void* src)
  */
 int push_backs(vector_s* vec, char* a)
 {
+	void* tmp;
+	size_t tmp_sz;
 	if (vec->capacity > vec->size) {
 		vec->a[vec->size++] = mystrdup(a);
 	} else {
-		vec->capacity *= 2;
-		if (!(vec->a = realloc(vec->a, sizeof(char*)*vec->capacity))) {
+		tmp_sz = VECS_ALLOCATOR(vec->capacity);
+		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
+		vec->a = tmp;
 		vec->a[vec->size++] = mystrdup(a);
+		vec->capacity = tmp_sz;
 	}
 	return 1;
 }
@@ -750,18 +790,21 @@ void pop_backs(vector_s* vec, char* ret)
  */
 int inserts(vector_s* vec, size_t i, char* a)
 {
+	void* tmp;
+	size_t tmp_sz;
 	if (vec->capacity > vec->size) {
 		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(char*));
 		vec->a[i] = mystrdup(a);
 	} else {
-		vec->capacity *= 2;
-		if (!(vec->a = realloc(vec->a, sizeof(char*)*vec->capacity))) {
+		tmp_sz = VECS_ALLOCATOR(vec->capacity);
+		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
-
+		vec->a = tmp;
 		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(char*));
 		vec->a[i] = mystrdup(a);
+		vec->capacity = tmp_sz;
 	}
 
 	vec->size++;
@@ -792,11 +835,13 @@ void erases(vector_s* vec, size_t start, size_t end)
 /** Makes sure the vector capacity is >= size (parameter not member). */
 int reserves(vector_s* vec, size_t size)
 {
+	void* tmp;
 	if (vec->capacity < size) {
-		if (!(vec->a = realloc(vec->a, sizeof(char*)*(size+20)))) {
+		if (!(tmp = realloc(vec->a, sizeof(char*)*(size+20)))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
+		vec->a = tmp;
 		vec->capacity = size+20;
 	}
 	return 1;
@@ -809,18 +854,20 @@ int reserves(vector_s* vec, size_t size)
 int set_capacitys(vector_s* vec, size_t size)
 {
 	int i;
+	void* tmp;
 	if (size < vec->size) {
 		for(i=vec->size-1; i>size-1; i--)
 			free(vec->a[i]);
 
 		vec->size = size;
 	}
-	vec->capacity = size;
 
-	if (!(vec->a = realloc(vec->a, sizeof(char*)*size))) {
+	if (!(tmp = realloc(vec->a, sizeof(char*)*size))) {
 		STDERR("Error allocating memory\n");
 		return 0;
 	}
+	vec->a = tmp;
+	vec->capacity = size;
 	return 1;
 }
 
@@ -875,27 +922,29 @@ void clears(vector_s* vec)
 
 
 /** Frees contents (individual strings and array) and frees vector so don't use after calling this. */
-void free_vecs(vector_s* vec)
+void free_vecs(void* vec)
 {
 	int i;
-	for (i=0; i<vec->size; i++)
-		free(vec->a[i]);
+	vector_s* tmp = vec;
+	for (i=0; i<tmp->size; i++)
+		free(tmp->a[i]);
 	
-	free(vec->a);
-	free(vec);
+	free(tmp->a);
+	free(tmp);
 }
 
 
 /** Frees the internal array and sets size and capacity to 0 */
-void free_vecs_stack(vector_s* vec)
+void free_vecs_stack(void* vec)
 {
 	int i;
-	for (i=0; i<vec->size; i++)
-		free(vec->a[i]);
+	vector_s* tmp = vec;
+	for (i=0; i<tmp->size; i++)
+		free(tmp->a[i]);
 	
-	free(vec->a);
-	vec->size = 0;
-	vec->capacity = 0;
+	free(tmp->a);
+	tmp->size = 0;
+	tmp->capacity = 0;
 }
 
 
@@ -943,6 +992,7 @@ vector* vec(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*
 	/*not calloc here and init_vec as in vector_s because elem_free cannot be calling free directly*/
 	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
 		STDERR("Error allocating memory\n");
+		free(vec);
 		return NULL;
 	}
 
@@ -1009,6 +1059,7 @@ int vec_stack(vector* vec, size_t size, size_t capacity, size_t elem_sz, void(*e
 	
 	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
 		STDERR("Error allocating memory\n");
+		vec->size = vec->capacity = 0;
 		return 0;
 	}
 
@@ -1033,6 +1084,7 @@ int init_vec_stack(vector* vec, void* vals, size_t num, size_t elem_sz, void(*el
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
 		STDERR("Error allocating memory\n");
+		vec->size = vec->capacity = 0;
 		return 0;
 	}
 
@@ -1092,6 +1144,8 @@ void vec_copy(void* dest, void* src)
  */
 int push_back(vector* vec, void* a)
 {
+	void* tmp;
+	size_t tmp_sz;
 	if (vec->capacity > vec->size) {
 		if (vec->elem_init)
 			vec->elem_init(&vec->a[vec->size*vec->elem_size], a);
@@ -1099,17 +1153,19 @@ int push_back(vector* vec, void* a)
 			memcpy(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
 
 	} else {
-		if (!(vec->a = realloc(vec->a, vec->elem_size*vec->capacity*2))) {
+		tmp_sz = VEC_ALLOCATOR(vec->capacity);
+		if (!(tmp = realloc(vec->a, vec->elem_size*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
-
+		vec->a = tmp;
+		
 		if (vec->elem_init)
 			vec->elem_init(&vec->a[vec->size*vec->elem_size], a);
 		else
 			memcpy(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
 		
-		vec->capacity *= 2;
+		vec->capacity = tmp_sz;
 	}
 	
 	vec->size++;
@@ -1148,6 +1204,8 @@ void* vec_get(vector* vec, size_t i)
  */
 int insert(vector* vec, size_t i, void* a)
 {
+	void* tmp;
+	size_t tmp_sz;
 	if (vec->capacity > vec->size) {
 		memmove(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
 
@@ -1157,18 +1215,20 @@ int insert(vector* vec, size_t i, void* a)
 			memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
 
 	} else {
-		if (!(vec->a = realloc(vec->a, vec->elem_size*vec->capacity*2))) {
+		tmp_sz = VEC_ALLOCATOR(vec->capacity);
+		if (!(tmp = realloc(vec->a, vec->elem_size*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
-
+		vec->a = tmp;
+		
 		memmove(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
 		if (vec->elem_init)
 			vec->elem_init(&vec->a[i*vec->elem_size], a);
 		else
 			memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
 		
-		vec->capacity *= 2;
+		vec->capacity = tmp_sz;
 	}
 
 	vec->size++;
@@ -1188,7 +1248,7 @@ void erase(vector* vec, size_t start, size_t end)
 	int d = end - start + 1;
 	int i;
 	if (vec->elem_free)
-		for(i=start; i<=end; i++)
+		for (i=start; i<=end; i++)
 			vec->elem_free(&vec->a[i*vec->elem_size]);
 
 	memmove(&vec->a[start*vec->elem_size], &vec->a[(end+1)*vec->elem_size], (vec->size-1-end)*vec->elem_size);
@@ -1199,11 +1259,13 @@ void erase(vector* vec, size_t start, size_t end)
 /** Makes sure capacity >= size (the parameter not the member). */
 int reserve(vector* vec, size_t size)
 {
-	if( vec->capacity < size ) {
-		if( !(vec->a = realloc(vec->a, vec->elem_size*(size+20))) ) {
+	void* tmp;
+	if (vec->capacity < size) {
+		if( !(tmp = realloc(vec->a, vec->elem_size*(size+20))) ) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
+		vec->a = tmp;
 		vec->capacity = size+20;
 	}
 	return 1;
@@ -1217,6 +1279,7 @@ int reserve(vector* vec, size_t size)
 int set_capacity(vector* vec, size_t size)
 {
 	int i;
+	void* tmp;
 	if (size < vec->size) {
 		if (vec->elem_free)
 			for (i=vec->size-1; i>=size; i--)
@@ -1227,10 +1290,11 @@ int set_capacity(vector* vec, size_t size)
 
 	vec->capacity = size;
 
-	if (!(vec->a = realloc(vec->a, vec->elem_size*size))) {
+	if (!(tmp = realloc(vec->a, vec->elem_size*size))) {
 		STDERR("Error allocating memory\n");
 		return 0;
 	}
+	vec-> a = tmp;
 	return 1;
 }
 
@@ -1293,30 +1357,32 @@ void clear(vector* vec) { vec->size = 0; }
 
 /** Frees everything so don't use vec after calling this. If you set a free function
  * it will be called on all size elements of course. */
-void free_vec(vector* vec)
+void free_vec(void* vec)
 {
 	int i;
-	if (vec->elem_free)
-		for (i=0; i<vec->size; i++)
-			vec->elem_free(&vec->a[i*vec->elem_size]);
+	vector* tmp = vec;
+	if (tmp->elem_free)
+		for (i=0; i<tmp->size; i++)
+			tmp->elem_free(&tmp->a[i*tmp->elem_size]);
 
-	free(vec->a);
-	free(vec);
+	free(tmp->a);
+	free(tmp);
 }
 
 
 /** Frees the internal array and sets size and capacity to 0 */
-void free_vec_stack(vector* vec)
+void free_vec_stack(void* vec)
 {
 	int i;
-	if (vec->elem_free)
-		for (i=0; i<vec->size; i++)
-			vec->elem_free(&vec->a[i*vec->elem_size]);
+	vector* tmp = vec;
+	if (tmp->elem_free)
+		for (i=0; i<tmp->size; i++)
+			tmp->elem_free(&tmp->a[i*tmp->elem_size]);
 
-	free(vec->a);
+	free(tmp->a);
 
-	vec->size = 0;
-	vec->capacity = 0;
+	tmp->size = 0;
+	tmp->capacity = 0;
 }
 
 

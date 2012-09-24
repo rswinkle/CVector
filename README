@@ -23,11 +23,15 @@ under valgrind and there are no memory leaks.
 
 valgrind --leak-check=yes ./vector
  
-==22889== HEAP SUMMARY:
-==22889==     in use at exit: 0 bytes in 0 blocks
-==22889==   total heap usage: 4,734 allocs, 4,734 frees, 822,635 bytes allocated
-==22889== 
-==22889== All heap blocks were freed -- no leaks are possible
+==18460== HEAP SUMMARY:
+==18460==     in use at exit: 0 bytes in 0 blocks
+==18460==   total heap usage: 4,950 allocs, 4,950 frees, 794,751 bytes allocated
+==18460== 
+==18460== All heap blocks were freed -- no leaks are possible
+==18460== 
+==18460== For counts of detected and suppressed errors, rerun with: -v
+==18460== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
 
 
 

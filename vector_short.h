@@ -42,8 +42,8 @@ them directly */
 int capacity_short(vector_short* vec);
 int size_short(vector_short* vec);
 void clear_short(vector_short* vec);
-void free_vec_short(vector_short* vec);
-void free_vec_short_stack(vector_short* vec);
+void free_vec_short(void* vec);
+void free_vec_short_stack(void* vec);
 
 
 

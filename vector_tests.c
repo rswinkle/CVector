@@ -1002,20 +1002,6 @@ void set_val_test()
 
 
 
-void veci_destructor(void* vec)
-{
-	free_veci_stack(vec);
-}
-
-
-void vecs_destructor(void* vec)
-{
-	free_vecs_stack(vec);
-}
-
-
-
-
 #define GET_ELEMENT(X,Y,TYPE) ((TYPE*)&X.a[Y*X.elem_size])
 
 void vector_of_vectors_test()
@@ -1026,8 +1012,8 @@ void vector_of_vectors_test()
 	vector_s tmp_vecs;
 	char buffer[50];
 	
-	vec_stack(&vec1, 0, 0, sizeof(vector_i), veci_destructor, veci_copy);
-	vec_stack(&vec2, 0, 0, sizeof(vector_s), vecs_destructor, vecs_copy);
+	vec_stack(&vec1, 0, 0, sizeof(vector_i), free_veci_stack, veci_copy);
+	vec_stack(&vec2, 0, 0, sizeof(vector_s), free_vecs_stack, vecs_copy);
 
 	vec_s_stack(&tmp_vecs, 0, 0);
 
@@ -1065,7 +1051,7 @@ void vector_of_vectors_test()
 		}
 		tmp_veci2 = vec_get(&vec1, vec1.size-1);
 		CU_ASSERT_EQUAL(tmp_veci2->size, 20);
-		fprintf(stderr, "%d\n", tmp_veci2->size);
+		
 		for (j=0; j<20; j++) {
 			CU_ASSERT_EQUAL(tmp_veci.a[i], tmp_veci2->a[i]);
 		}
@@ -1077,6 +1063,7 @@ void vector_of_vectors_test()
 	free_vec_stack(&vec1);
 	free_vec_stack(&vec2);
 	free_veci_stack(&tmp_veci);
+	free_vecs_stack(&tmp_vecs);
 }
 
 

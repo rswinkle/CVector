@@ -42,8 +42,8 @@ them directly */
 int capacity_TYPE(vector_TYPE* vec);
 int size_TYPE(vector_TYPE* vec);
 void clear_TYPE(vector_TYPE* vec);
-void free_vec_TYPE(vector_TYPE* vec);
-void free_vec_TYPE_stack(vector_TYPE* vec);
+void free_vec_TYPE(void* vec);
+void free_vec_TYPE_stack(void* vec);
 
 
 
