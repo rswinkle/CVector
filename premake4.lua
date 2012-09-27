@@ -23,4 +23,4 @@ solution "CVector"
          flags { "Optimize" }
  
       configuration { "linux", "gmake" }
-         buildoptions { "-ansi", "-pedantic" }
+         buildoptions { "-ansi", "-pedantic-errors" }

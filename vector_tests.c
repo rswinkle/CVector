@@ -2,7 +2,7 @@
 
 #define DO_TEMPLATE_TEST 1
 #ifdef DO_TEMPLATE_TEST
-/*replace with your own generated file and edit the template test*/
+/*replace with or add your own generated file and edit the template test*/
 #include "vector_short.h"
 #endif
 

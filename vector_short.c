@@ -5,7 +5,7 @@
 #define VEC_short_ALLOCATOR(x) (x*2)
 
 
-int VECTOR_short_SZ = 50;
+size_t VECTOR_short_SZ = 50;
 
 
 
@@ -91,7 +91,7 @@ int init_vec_short_stack(vector_short* vec, short* vals, size_t num)
 
 void vec_short_copy(void* dest, void* src)
 {
-	int i;
+	size_t i;
 	vector_short* vec1 = dest;
 	vector_short* vec2 = src;
 	
@@ -165,10 +165,30 @@ int insert_short(vector_short* vec, size_t i, short a)
 }
 
 
+int insert_array_short(vector_short* vec, size_t i, short* a, size_t num)
+{
+	void* tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + VECTOR_short_SZ;
+		if (!(tmp = realloc(vec->a, sizeof(short)*tmp_sz))) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(short));
+	memcpy(&vec->a[i], a, num*sizeof(short));
+	vec->size += num;
+	return 1;
+}
+
 
 void erase_short(vector_short* vec, size_t start, size_t end)
 {
-	int d = end-start+1;
+	size_t d = end - start + 1;
 	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(short));
 	vec->size -= d;
 }
@@ -178,12 +198,12 @@ int reserve_short(vector_short* vec, size_t size)
 {
 	void* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = realloc(vec->a, sizeof(short)*(size+20)))) {
+		if (!(tmp = realloc(vec->a, sizeof(short)*(size+VECTOR_short_SZ)))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a = tmp;
-		vec->capacity = size+20;
+		vec->capacity = size + VECTOR_short_SZ;
 	}
 	return 1;
 }
@@ -210,7 +230,7 @@ int set_capacity_short(vector_short* vec, size_t size)
 
 void set_val_sz_short(vector_short* vec, short val)
 {
-	int i;
+	size_t i;
 	for (i=0; i<vec->size; i++)
 		vec->a[i] = val;
 }
@@ -218,7 +238,7 @@ void set_val_sz_short(vector_short* vec, short val)
 
 void set_val_cap_short(vector_short* vec, short val)
 {
-	int i;
+	size_t i;
 	for (i=0; i<vec->capacity; i++)
 		vec->a[i] = val;
 }

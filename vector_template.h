@@ -31,6 +31,7 @@ int push_back_TYPE(vector_TYPE* vec, TYPE a);
 TYPE pop_back_TYPE(vector_TYPE* vec);
 
 int insert_TYPE(vector_TYPE* vec, size_t i, TYPE a);
+int insert_arrayi(vector_i* vec, size_t i, int* a, size_t num);
 void erase_TYPE(vector_TYPE* vec, size_t start, size_t end);
 int reserve_TYPE(vector_TYPE* vec, size_t size);
 int set_capacity_TYPE(vector_TYPE* vec, size_t size);

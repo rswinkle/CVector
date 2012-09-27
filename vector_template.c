@@ -5,7 +5,7 @@
 #define VEC_TYPE_ALLOCATOR(x) (x*2)
 
 
-int VECTOR_TYPE_SZ = 50;
+size_t VECTOR_TYPE_SZ = 50;
 
 
 
@@ -91,7 +91,7 @@ int init_vec_TYPE_stack(vector_TYPE* vec, TYPE* vals, size_t num)
 
 void vec_TYPE_copy(void* dest, void* src)
 {
-	int i;
+	size_t i;
 	vector_TYPE* vec1 = dest;
 	vector_TYPE* vec2 = src;
 	
@@ -165,10 +165,30 @@ int insert_TYPE(vector_TYPE* vec, size_t i, TYPE a)
 }
 
 
+int insert_array_TYPE(vector_TYPE* vec, size_t i, TYPE* a, size_t num)
+{
+	void* tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + VECTOR_TYPE_SZ;
+		if (!(tmp = realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(TYPE));
+	memcpy(&vec->a[i], a, num*sizeof(TYPE));
+	vec->size += num;
+	return 1;
+}
+
 
 void erase_TYPE(vector_TYPE* vec, size_t start, size_t end)
 {
-	int d = end-start+1;
+	size_t d = end - start + 1;
 	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(TYPE));
 	vec->size -= d;
 }
@@ -178,12 +198,12 @@ int reserve_TYPE(vector_TYPE* vec, size_t size)
 {
 	void* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = realloc(vec->a, sizeof(TYPE)*(size+20)))) {
+		if (!(tmp = realloc(vec->a, sizeof(TYPE)*(size+VECTOR_TYPE_SZ)))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a = tmp;
-		vec->capacity = size+20;
+		vec->capacity = size + VECTOR_TYPE_SZ;
 	}
 	return 1;
 }
@@ -210,7 +230,7 @@ int set_capacity_TYPE(vector_TYPE* vec, size_t size)
 
 void set_val_sz_TYPE(vector_TYPE* vec, TYPE val)
 {
-	int i;
+	size_t i;
 	for (i=0; i<vec->size; i++)
 		vec->a[i] = val;
 }
@@ -218,7 +238,7 @@ void set_val_sz_TYPE(vector_TYPE* vec, TYPE val)
 
 void set_val_cap_TYPE(vector_TYPE* vec, TYPE val)
 {
-	int i;
+	size_t i;
 	for (i=0; i<vec->capacity; i++)
 		vec->a[i] = val;
 }

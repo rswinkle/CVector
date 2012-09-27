@@ -48,10 +48,10 @@ typedef struct vector_
 char* mystrdup(const char* str);
 
 
-extern int VEC_I_START_SZ;
-extern int VEC_D_START_SZ;
-extern int VEC_START_SZ;
-extern int VEC_S_START_SZ;
+extern size_t VEC_I_START_SZ;
+extern size_t VEC_D_START_SZ;
+extern size_t VEC_START_SZ;
+extern size_t VEC_S_START_SZ;
 
 
 int vec_i_stack(vector_i* vec, size_t size, size_t capacity);
@@ -65,6 +65,7 @@ int push_backi(vector_i* vec, int a);
 int pop_backi(vector_i* vec);
 
 int inserti(vector_i* vec, size_t i, int a);
+int insert_arrayi(vector_i* vec, size_t i, int* a, size_t num);
 void erasei(vector_i* vec, size_t start, size_t end);
 int reservei(vector_i* vec, size_t size);
 int set_capacityi(vector_i* vec, size_t size);
@@ -94,6 +95,7 @@ int push_backd(vector_d* vec, double a);
 double pop_backd(vector_d* vec);
 
 int insertd(vector_d* vec, size_t i, double a);
+int insert_arrayd(vector_d* vec, size_t i, double* a, size_t num);
 void erased(vector_d* vec, size_t start, size_t end);
 int reserved(vector_d* vec, size_t size);
 int set_capacityd(vector_d* vec, size_t size);
@@ -122,6 +124,7 @@ int push_backs(vector_s* vec, char* a);
 void pop_backs(vector_s* vec, char* ret);
 
 int inserts(vector_s* vec, size_t i, char* a);
+int insert_arrays(vector_s* vec, size_t i, char** , size_t num);
 void erases(vector_s* vec, size_t start, size_t end);
 int reserves(vector_s* vec, size_t size);
 int set_capacitys(vector_s* vec, size_t size);
@@ -153,6 +156,7 @@ void pop_back(vector* vec, void* ret);
 void* vec_get(vector* vec, size_t i);
 
 int insert(vector* vec, size_t i, void* a);
+int insert_array(vector* vec, size_t i, void* a, size_t num);
 void erase(vector* vec, size_t start, size_t end);
 int reserve(vector* vec, size_t size);
 int set_capacity(vector* vec, size_t size);

@@ -3,10 +3,10 @@
 #define STDERR(X) fprintf(stderr, X)
 
 
-int VEC_I_START_SZ = 50;
-int VEC_D_START_SZ = 50;
-int VEC_START_SZ = 20;
-int VEC_S_START_SZ = 20;
+size_t VEC_I_START_SZ = 50;
+size_t VEC_D_START_SZ = 50;
+size_t VEC_START_SZ = 20;
+size_t VEC_S_START_SZ = 20;
 
 #define VECI_ALLOCATOR(x) (x*2)
 #define VECD_ALLOCATOR(x) (x*2)
@@ -117,7 +117,6 @@ int init_vec_i_stack(vector_i* vec, int* vals, size_t num)
  */
 void veci_copy(void* dest, void* src)
 {
-	int i;
 	vector_i* vec1 = dest;
 	vector_i* vec2 = src;
 	
@@ -147,18 +146,17 @@ int push_backi(vector_i* vec, int a)
 {
 	void* tmp;
 	size_t tmp_sz;
-	if (vec->capacity > vec->size) {
-		vec->a[vec->size++] = a;
-	} else {
+	if (vec->capacity == vec->size) {
 		tmp_sz = VECI_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a = tmp;
-		vec->a[vec->size++] = a;
 		vec->capacity = tmp_sz;
 	}
+	
+	vec->a[vec->size++] = a;
 	return 1;
 }
 
@@ -180,24 +178,51 @@ int inserti(vector_i* vec, size_t i, int a)
 {
 	void* tmp;
 	size_t tmp_sz;
-	if (vec->capacity > vec->size) {
-		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(int));
-		vec->a[i] = a;
-	} else {
+	if (vec->capacity == vec->size) {
 		tmp_sz = VECI_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a = tmp;
-		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(int));
-		vec->a[i] = a;
 		vec->capacity = tmp_sz;
 	}
 
+	memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(int));
+	vec->a[i] = a;
 	vec->size++;
 	return 1;
 }
+
+
+/**
+ * Insert the first num elements of array a at index i.
+ * Note that it is the user's responsibility to pass in valid
+ * arguments.  Also memcpy is used so don't try to insert
+ * part of the vector array into itself (that would require memmove)
+ */
+int insert_arrayi(vector_i* vec, size_t i, int* a, size_t num)
+{
+	void* tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + VEC_I_START_SZ;
+		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(int));
+	memcpy(&vec->a[i], a, num*sizeof(int));
+	vec->size += num;
+	return 1;
+}
+
+
+
 
 
 /**
@@ -207,7 +232,7 @@ int inserti(vector_i* vec, size_t i, int a)
  */
 void erasei(vector_i* vec, size_t start, size_t end)
 {
-	int d = end-start+1;
+	size_t d = end - start + 1;
 	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(int));
 	vec->size -= d;
 }
@@ -218,12 +243,12 @@ int reservei(vector_i* vec, size_t size)
 {
 	void* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = realloc(vec->a, sizeof(int)*(size+20)))) {
+		if (!(tmp = realloc(vec->a, sizeof(int)*(size+VEC_I_START_SZ)))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a = tmp;
-		vec->capacity = size+20;
+		vec->capacity = size + VEC_I_START_SZ;
 	}
 	return 1;
 }
@@ -254,7 +279,7 @@ int set_capacityi(vector_i* vec, size_t size)
 /** Set all size elements to val. */
 void set_val_szi(vector_i* vec, int val)
 {
-	int i;
+	size_t i;
 	for (i=0; i<vec->size; i++)
 		vec->a[i] = val;
 }
@@ -263,7 +288,7 @@ void set_val_szi(vector_i* vec, int val)
 /** Fills entire allocated array (capacity) with val. */
 void set_val_capi(vector_i* vec, int val)
 {
-	int i;
+	size_t i;
 	for (i=0; i<vec->capacity; i++)
 		vec->a[i] = val;
 }
@@ -405,7 +430,6 @@ int init_vec_d_stack(vector_d* vec, double* vals, size_t num)
  */
 void vecd_copy(void* dest, void* src)
 {
-	int i;
 	vector_d* vec1 = dest;
 	vector_d* vec2 = src;
 	
@@ -436,18 +460,16 @@ int push_backd(vector_d* vec, double a)
 {
 	void* tmp;
 	size_t tmp_sz;
-	if (vec->capacity > vec->size) {
-		vec->a[vec->size++] = a;
-	} else {
+	if (vec->capacity == vec->size) {
 		tmp_sz = VECD_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(double)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a = tmp;
-		vec->a[vec->size++] = a;
 		vec->capacity = tmp_sz;
 	}
+	vec->a[vec->size++] = a;
 	return 1;
 }
 
@@ -468,24 +490,48 @@ int insertd(vector_d* vec, size_t i, double a)
 {
 	void* tmp;
 	size_t tmp_sz;
-	if (vec->capacity > vec->size) {
-		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(double));
-		vec->a[i] = a;
-	} else {
+	if (vec->capacity == vec->size) {
 		tmp_sz = VECD_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(double)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a = tmp;
-		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(double));
-		vec->a[i] = a;
 		vec->capacity = tmp_sz;
 	}
-
+	
+	memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(double));
+	vec->a[i] = a;
 	vec->size++;
 	return 1;
 }
+
+/**
+ * Insert the first num elements of array a at index i.
+ * Note that it is the user's responsibility to pass in valid
+ * arguments.  Also memcpy is used so don't try to insert
+ * part of the vector array into itself (that would require memmove)
+ */
+int insert_arrayd(vector_d* vec, size_t i, double* a, size_t num)
+{
+	void* tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + VEC_I_START_SZ;
+		if (!(tmp = realloc(vec->a, sizeof(double)*tmp_sz))) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(double));
+	memcpy(&vec->a[i], a, num*sizeof(double));
+	vec->size += num;
+	return 1;
+}
+
 
 
 /**
@@ -495,7 +541,7 @@ int insertd(vector_d* vec, size_t i, double a)
  */
 void erased(vector_d* vec, size_t start, size_t end)
 {
-	int d = end-start + 1;
+	size_t d = end - start + 1;
 	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(double));
 	vec->size -= d;
 }
@@ -506,12 +552,12 @@ int reserved(vector_d* vec, size_t size)
 {
 	void* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = realloc(vec->a, sizeof(double)*(size+20)))) {
+		if (!(tmp = realloc(vec->a, sizeof(double)*(size+VEC_D_START_SZ)))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a = tmp;
-		vec->capacity = size + 20;
+		vec->capacity = size + VEC_D_START_SZ;
 	}
 	return 1;
 }
@@ -540,7 +586,7 @@ int set_capacityd(vector_d* vec, size_t size)
 /** Set all size elements to val. */
 void set_val_szd(vector_d* vec, double val)
 {
-	int i;
+	size_t i;
 	for(i=0; i<vec->size; i++)
 		vec->a[i] = val;
 }
@@ -549,7 +595,7 @@ void set_val_szd(vector_d* vec, double val)
 /** Fills entire allocated array (capacity) with val. */
 void set_val_capd(vector_d* vec, double val)
 {
-	int i;
+	size_t i;
 	for(i=0; i<vec->capacity; i++)
 		vec->a[i] = val;
 }
@@ -645,7 +691,7 @@ vector_s* vec_s(size_t size, size_t capacity)
 vector_s* init_vec_s(char** vals, size_t num)
 {
 	vector_s* vec;
-	int i;
+	size_t i;
 	
 	if (!vals || num < 1)
 		return NULL;
@@ -694,7 +740,7 @@ int vec_s_stack(vector_s* vec, size_t size, size_t capacity)
  */
 int init_vec_s_stack(vector_s* vec, char** vals, size_t num)
 {
-	int i;
+	size_t i;
 	
 	if (!vals || num < 1)
 		return 0;
@@ -721,7 +767,7 @@ int init_vec_s_stack(vector_s* vec, char** vals, size_t num)
  */
 void vecs_copy(void* dest, void* src)
 {
-	int i;
+	size_t i;
 	vector_s* vec1 = dest;
 	vector_s* vec2 = src;
 	
@@ -743,12 +789,6 @@ void vecs_copy(void* dest, void* src)
 
 
 
-
-
-
-
-
-
 /**
  * Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
@@ -757,18 +797,17 @@ int push_backs(vector_s* vec, char* a)
 {
 	void* tmp;
 	size_t tmp_sz;
-	if (vec->capacity > vec->size) {
-		vec->a[vec->size++] = mystrdup(a);
-	} else {
+	if (vec->capacity == vec->size) {
 		tmp_sz = VECS_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a = tmp;
-		vec->a[vec->size++] = mystrdup(a);
 		vec->capacity = tmp_sz;
 	}
+	
+	vec->a[vec->size++] = mystrdup(a);
 	return 1;
 }
 
@@ -792,24 +831,50 @@ int inserts(vector_s* vec, size_t i, char* a)
 {
 	void* tmp;
 	size_t tmp_sz;
-	if (vec->capacity > vec->size) {
-		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(char*));
-		vec->a[i] = mystrdup(a);
-	} else {
+	if (vec->capacity == vec->size) {
 		tmp_sz = VECS_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a = tmp;
-		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(char*));
-		vec->a[i] = mystrdup(a);
 		vec->capacity = tmp_sz;
 	}
 
+	memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(char*));
+	vec->a[i] = mystrdup(a);
 	vec->size++;
 	return 1;
 }
+
+
+/**
+ * Insert the first num elements of array a at index i.
+ * Note that it is the user's responsibility to pass in valid
+ * arguments.
+ */
+int insert_arrays(vector_s* vec, size_t i, char** a, size_t num)
+{
+	void* tmp;
+	size_t tmp_sz, j;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + VEC_I_START_SZ;
+		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(char*));
+	for (j=0; j<num; ++j)
+		vec->a[j+i] = mystrdup(a[j]);
+	vec->size += num;
+	return 1;
+}
+
+
 
 
 /**
@@ -819,8 +884,8 @@ int inserts(vector_s* vec, size_t i, char* a)
  */
 void erases(vector_s* vec, size_t start, size_t end)
 {
-	int d = end-start+1;
-	int i;
+	size_t i;
+	size_t d = end - start + 1;
 	for (i=start; i<=end; i++)
 		free(vec->a[i]);
 	
@@ -837,12 +902,12 @@ int reserves(vector_s* vec, size_t size)
 {
 	void* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = realloc(vec->a, sizeof(char*)*(size+20)))) {
+		if (!(tmp = realloc(vec->a, sizeof(char*)*(size+VEC_S_START_SZ)))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a = tmp;
-		vec->capacity = size+20;
+		vec->capacity = size + VEC_S_START_SZ;
 	}
 	return 1;
 }
@@ -853,7 +918,7 @@ int reserves(vector_s* vec, size_t size)
 */
 int set_capacitys(vector_s* vec, size_t size)
 {
-	int i;
+	size_t i;
 	void* tmp;
 	if (size < vec->size) {
 		for(i=vec->size-1; i>size-1; i--)
@@ -876,7 +941,7 @@ int set_capacitys(vector_s* vec, size_t size)
 /** Sets all size elements to val. */
 void set_val_szs(vector_s* vec, char* val)
 {
-	int i;
+	size_t i;
 	for(i=0; i<vec->size; i++) {
 		free(vec->a[i]);
 
@@ -892,7 +957,7 @@ void set_val_szs(vector_s* vec, char* val)
    TODO  Remove this function?  even more unnecessary than for vector_i and vector_d and different behavior*/
 void set_val_caps(vector_s* vec, char* val)
 {
-	int i;
+	size_t i;
 	for (i=0; i<vec->capacity; i++) {
 		if (i<vec->size)
 			free(vec->a[i]);
@@ -924,7 +989,7 @@ void clears(vector_s* vec)
 /** Frees contents (individual strings and array) and frees vector so don't use after calling this. */
 void free_vecs(void* vec)
 {
-	int i;
+	size_t i;
 	vector_s* tmp = vec;
 	for (i=0; i<tmp->size; i++)
 		free(tmp->a[i]);
@@ -937,7 +1002,7 @@ void free_vecs(void* vec)
 /** Frees the internal array and sets size and capacity to 0 */
 void free_vecs_stack(void* vec)
 {
-	int i;
+	size_t i;
 	vector_s* tmp = vec;
 	for (i=0; i<tmp->size; i++)
 		free(tmp->a[i]);
@@ -1013,7 +1078,7 @@ vector* vec(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*
 vector* init_vec(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	vector* vec;
-	int i;
+	size_t i;
 	
 	if (!vals || num < 1)
 		return NULL;
@@ -1074,7 +1139,7 @@ int vec_stack(vector* vec, size_t size, size_t capacity, size_t elem_sz, void(*e
  */
 int init_vec_stack(vector* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
-	int i;
+	size_t i;
 	if (!vals || num < 1)
 		return 0;
 	
@@ -1111,7 +1176,7 @@ int init_vec_stack(vector* vec, void* vals, size_t num, size_t elem_sz, void(*el
  */
 void vec_copy(void* dest, void* src)
 {
-	int i;
+	size_t i;
 	vector* vec1 = dest;
 	vector* vec2 = src;
 	
@@ -1235,7 +1300,37 @@ int insert(vector* vec, size_t i, void* a)
 	return 1;
 }
 
+/**
+ * Insert the first num elements of array a at index i.
+ * Note that it is the user's responsibility to pass in valid
+ * arguments.  Also memcpy is used (when there is no elem_init function) 
+ * so don't try to insert part of the vector array into itself 
+ * (that would require memmove)
+ */
+int insert_array(vector* vec, size_t i, void* a, size_t num)
+{
+	void* tmp;
+	size_t tmp_sz, j;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + VEC_START_SZ;
+		if (!(tmp = realloc(vec->a, vec->elem_size*tmp_sz))) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
 
+	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(int));
+	if (vec->elem_init) {
+		for (j=0; j<num; ++j)
+			vec->elem_init(&vec->a[(j+i)*vec->elem_size], &((byte*)a)[j*vec->elem_size]);
+	} else {
+		memcpy(&vec->a[i], a, num*vec->elem_size);
+	}
+	vec->size += num;
+	return 1;
+}
 
 
 /**
@@ -1245,8 +1340,8 @@ int insert(vector* vec, size_t i, void* a)
  */
 void erase(vector* vec, size_t start, size_t end)
 {
-	int d = end - start + 1;
-	int i;
+	size_t i;
+	size_t d = end - start + 1;
 	if (vec->elem_free)
 		for (i=start; i<=end; i++)
 			vec->elem_free(&vec->a[i*vec->elem_size]);
@@ -1261,12 +1356,12 @@ int reserve(vector* vec, size_t size)
 {
 	void* tmp;
 	if (vec->capacity < size) {
-		if( !(tmp = realloc(vec->a, vec->elem_size*(size+20))) ) {
+		if( !(tmp = realloc(vec->a, vec->elem_size*(size+VEC_START_SZ))) ) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a = tmp;
-		vec->capacity = size+20;
+		vec->capacity = size + VEC_START_SZ;
 	}
 	return 1;
 }
@@ -1278,7 +1373,7 @@ int reserve(vector* vec, size_t size)
 */
 int set_capacity(vector* vec, size_t size)
 {
-	int i;
+	size_t i;
 	void* tmp;
 	if (size < vec->size) {
 		if (vec->elem_free)
@@ -1303,7 +1398,7 @@ int set_capacity(vector* vec, size_t size)
 /** Set all size elements to val. */
 void set_val_sz(vector* vec, void* val)
 {
-	int i;
+	size_t i;
 
 	if (vec->elem_free)
 		for(i=0; i<vec->size; i++)
@@ -1326,7 +1421,7 @@ void set_val_sz(vector* vec, void* val)
  */
 void set_val_cap(vector* vec, void* val)
 {
-	int i;
+	size_t i;
 	if (vec->elem_free) {
 		for (i=0; i<vec->size; i++)
 			vec->elem_free(&vec->a[i*vec->elem_size]);
@@ -1359,7 +1454,7 @@ void clear(vector* vec) { vec->size = 0; }
  * it will be called on all size elements of course. */
 void free_vec(void* vec)
 {
-	int i;
+	size_t i;
 	vector* tmp = vec;
 	if (tmp->elem_free)
 		for (i=0; i<tmp->size; i++)
@@ -1373,7 +1468,7 @@ void free_vec(void* vec)
 /** Frees the internal array and sets size and capacity to 0 */
 void free_vec_stack(void* vec)
 {
-	int i;
+	size_t i;
 	vector* tmp = vec;
 	if (tmp->elem_free)
 		for (i=0; i<tmp->size; i++)

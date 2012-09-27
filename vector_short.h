@@ -31,6 +31,7 @@ int push_back_short(vector_short* vec, short a);
 short pop_back_short(vector_short* vec);
 
 int insert_short(vector_short* vec, size_t i, short a);
+int insert_arrayi(vector_i* vec, size_t i, int* a, size_t num);
 void erase_short(vector_short* vec, size_t start, size_t end);
 int reserve_short(vector_short* vec, size_t size);
 int set_capacity_short(vector_short* vec, size_t size);
