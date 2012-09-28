@@ -10,14 +10,14 @@
 /** Data structur for int vector. */
 typedef struct vector_TYPE_
 {
-	TYPE* a;        /**< Array. */
-	int size;       /**< Current size (amount you use when manipulating array directly). */
-	int capacity;   /**< Allocated size of array; always >= size. */
+	TYPE* a;           /**< Array. */
+	size_t size;       /**< Current size (amount you use when manipulating array directly). */
+	size_t capacity;   /**< Allocated size of array; always >= size. */
 } vector_TYPE;
 
 
 
-extern int VECTOR_TYPE_SZ;
+extern size_t VECTOR_TYPE_SZ;
 
 int vec_TYPE_stack(vector_TYPE* vec, size_t size, size_t capacity);
 int init_vec_TYPE_stack(vector_TYPE* vec, TYPE* vals, size_t num);
@@ -31,7 +31,7 @@ int push_back_TYPE(vector_TYPE* vec, TYPE a);
 TYPE pop_back_TYPE(vector_TYPE* vec);
 
 int insert_TYPE(vector_TYPE* vec, size_t i, TYPE a);
-int insert_arrayi(vector_i* vec, size_t i, int* a, size_t num);
+int insert_array_TYPE(vector_TYPE* vec, size_t i, TYPE* a, size_t num);
 void erase_TYPE(vector_TYPE* vec, size_t start, size_t end);
 int reserve_TYPE(vector_TYPE* vec, size_t size);
 int set_capacity_TYPE(vector_TYPE* vec, size_t size);

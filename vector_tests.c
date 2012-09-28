@@ -83,6 +83,37 @@ void inserti_test()
 	free_veci(vec);
 }
 
+void insert_arrayi_test()
+{
+	int i;
+	int array[] = { 0, 1, 0, 1, 0, 1 };
+	vector_i vec;
+	vec_i_stack(&vec, 0, 0);
+	
+	for (i=0; i<VEC_I_START_SZ*2-5; ++i)
+		push_backi(&vec, i);
+	
+	CU_ASSERT_EQUAL(vec.size, VEC_I_START_SZ*2-5);
+	CU_ASSERT_EQUAL(vec.capacity, VEC_I_START_SZ*2);
+	
+	insert_arrayi(&vec, 30, array, 6);
+	
+	CU_ASSERT_EQUAL(vec.size, VEC_I_START_SZ*2+1);
+	CU_ASSERT_EQUAL(vec.capacity, 3*VEC_I_START_SZ+6);
+	
+	for (i=0; i<vec.size; ++i) {
+		if (i < 30) {
+			CU_ASSERT_EQUAL(vec.a[i], i);
+		} else if (i < 36) {
+			CU_ASSERT_EQUAL(vec.a[i], (i%2));
+		} else {
+			CU_ASSERT_EQUAL(vec.a[i], i-6);
+		}
+	}
+	
+	free_veci_stack(&vec);
+}
+
 
 
 void popi_test()
@@ -258,6 +289,37 @@ void insertd_test()
 	free_vecd(vec);
 }
 
+
+void insert_arrayd_test()
+{
+	int i;
+	double array[] = { 0, 1, 0, 1, 0, 1 };
+	vector_d vec;
+	vec_d_stack(&vec, 0, 0);
+	
+	for (i=0; i<VEC_D_START_SZ*2-5; ++i)
+		push_backd(&vec, i);
+	
+	CU_ASSERT_EQUAL(vec.size, VEC_D_START_SZ*2-5);
+	CU_ASSERT_EQUAL(vec.capacity, VEC_D_START_SZ*2);
+	
+	insert_arrayd(&vec, 30, array, 6);
+	
+	CU_ASSERT_EQUAL(vec.size, VEC_D_START_SZ*2+1);
+	CU_ASSERT_EQUAL(vec.capacity, 3*VEC_D_START_SZ+6);
+	
+	for (i=0; i<vec.size; ++i) {
+		if (i < 30) {
+			CU_ASSERT_EQUAL(vec.a[i], i);
+		} else if (i < 36) {
+			CU_ASSERT_EQUAL(vec.a[i], (i%2));
+		} else {
+			CU_ASSERT_EQUAL(vec.a[i], i-6);
+		}
+	}
+	
+	free_vecd_stack(&vec);
+}
 
 
 void popd_test()
@@ -441,6 +503,42 @@ void inserts_test()
 
 	free_vecs(vec);
 }
+
+
+void insert_arrays_test()
+{
+	int i;
+	char buffer[50];
+	char* array[] = { "hello 0", "hello 1", "hello 2", "hello 3", "hello 4",
+			"hello 5", "hello 6", "hello 7", "hello 8", "hello 9", "hello 10" };
+	vector_s vec;
+	init_vec_s_stack(&vec, array, 10);
+
+	CU_ASSERT_EQUAL(vec.size, 10);
+	CU_ASSERT_EQUAL(vec.capacity, 10+VEC_S_START_SZ);
+	
+	insert_arrays(&vec, 0, array, 11);
+	
+	CU_ASSERT_EQUAL(vec.size, 21);
+	CU_ASSERT_EQUAL(vec.capacity, 10+VEC_S_START_SZ);
+	
+	for (i=0; i<vec.size; ++i) {
+		if (i < 11) {
+			sprintf(buffer, "hello %d", i);
+			CU_ASSERT_STRING_EQUAL(vec.a[i], buffer);
+		}
+		else {
+			sprintf(buffer, "hello %d", i-11);
+			CU_ASSERT_STRING_EQUAL(vec.a[i], buffer);
+		}
+	}
+	
+	free_vecs_stack(&vec);
+}
+
+
+
+
 
 
 
@@ -792,6 +890,28 @@ void insert_test()
 	free_vec(vec);
 	free_vec(vec2);
 }
+
+
+void insert_array_test()
+{
+	int i;
+	float array[] = { 0.5f, 1.5f, 2.5f, 3.5f, 4.5f };
+	vector vec;
+	vec_stack(&vec, 0, 0, sizeof(float), NULL, NULL);
+	
+	insert_array(&vec, 0, array, 5);
+	
+	CU_ASSERT_EQUAL(vec.size, 5);
+	
+	for (i=0; i<vec.size; ++i)
+		CU_ASSERT_EQUAL(((float*)vec.a)[i], i+0.5f);
+	
+	free_vec_stack(&vec);
+}
+
+
+
+
 
 
 

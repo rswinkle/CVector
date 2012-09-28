@@ -9,27 +9,32 @@
         <SUITE_NAME> vector_i </SUITE_NAME> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> push_test </TEST_NAME> 
+            <TEST_NAME> pushi_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> erase_test </TEST_NAME> 
+            <TEST_NAME> erasei_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> insert_test </TEST_NAME> 
+            <TEST_NAME> inserti_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> pop_test </TEST_NAME> 
+            <TEST_NAME> insert_arrayi_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> reserve_test </TEST_NAME> 
+            <TEST_NAME> popi_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> reservei_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
@@ -39,7 +44,7 @@
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> set_val_test </TEST_NAME> 
+            <TEST_NAME> set_vali_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
       </CUNIT_RUN_SUITE_SUCCESS> 
@@ -49,27 +54,32 @@
         <SUITE_NAME> vector_d </SUITE_NAME> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> push_test </TEST_NAME> 
+            <TEST_NAME> pushd_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> erase_test </TEST_NAME> 
+            <TEST_NAME> erased_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> insert_test </TEST_NAME> 
+            <TEST_NAME> insertd_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> pop_test </TEST_NAME> 
+            <TEST_NAME> insert_arrayd_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> reserve_test </TEST_NAME> 
+            <TEST_NAME> popd_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> reserved_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
@@ -79,7 +89,7 @@
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> set_val_test </TEST_NAME> 
+            <TEST_NAME> set_vald_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
       </CUNIT_RUN_SUITE_SUCCESS> 
@@ -89,27 +99,32 @@
         <SUITE_NAME> vector_s </SUITE_NAME> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> push_test </TEST_NAME> 
+            <TEST_NAME> pushs_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> erase_test </TEST_NAME> 
+            <TEST_NAME> erases_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> insert_test </TEST_NAME> 
+            <TEST_NAME> inserts_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> pop_test </TEST_NAME> 
+            <TEST_NAME> insert_arrays_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> reserve_test </TEST_NAME> 
+            <TEST_NAME> pops_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> reserves_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
@@ -119,7 +134,7 @@
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> set_val_test </TEST_NAME> 
+            <TEST_NAME> set_vals_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
       </CUNIT_RUN_SUITE_SUCCESS> 
@@ -140,6 +155,11 @@
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
             <TEST_NAME> insert_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> insert_array_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
@@ -167,11 +187,6 @@
             <TEST_NAME> vector_of_vectors_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_SUCCESS> 
-            <TEST_NAME> template_test </TEST_NAME> 
-          </CUNIT_RUN_TEST_SUCCESS> 
-        </CUNIT_RUN_TEST_RECORD> 
       </CUNIT_RUN_SUITE_SUCCESS> 
     </CUNIT_RUN_SUITE> 
     <CUNIT_RUN_SUITE> 
@@ -196,21 +211,21 @@
     </CUNIT_RUN_SUMMARY_RECORD> 
     <CUNIT_RUN_SUMMARY_RECORD> 
       <TYPE> Test Cases </TYPE> 
-      <TOTAL> 31 </TOTAL> 
-      <RUN> 31 </RUN> 
-      <SUCCEEDED> 31 </SUCCEEDED> 
+      <TOTAL> 34 </TOTAL> 
+      <RUN> 34 </RUN> 
+      <SUCCEEDED> 34 </SUCCEEDED> 
       <FAILED> 0 </FAILED> 
       <INACTIVE> 0 </INACTIVE> 
     </CUNIT_RUN_SUMMARY_RECORD> 
     <CUNIT_RUN_SUMMARY_RECORD> 
       <TYPE> Assertions </TYPE> 
-      <TOTAL> 25294 </TOTAL> 
-      <RUN> 25294 </RUN> 
-      <SUCCEEDED> 25294 </SUCCEEDED> 
+      <TOTAL> 25432 </TOTAL> 
+      <RUN> 25432 </RUN> 
+      <SUCCEEDED> 25432 </SUCCEEDED> 
       <FAILED> 0 </FAILED> 
       <INACTIVE> n/a </INACTIVE> 
     </CUNIT_RUN_SUMMARY_RECORD> 
   </CUNIT_RUN_SUMMARY> 
-  <CUNIT_FOOTER> File Generated By CUnit v2.1-2 - Wed Sep 26 23:11:35 2012
+  <CUNIT_FOOTER> File Generated By CUnit v2.1-2 - Thu Sep 27 22:15:34 2012
  </CUNIT_FOOTER> 
 </CUNIT_TEST_RUN_REPORT>

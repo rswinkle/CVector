@@ -15,6 +15,7 @@
 extern void pushi_test();
 extern void erasei_test();
 extern void inserti_test();
+extern void insert_arrayi_test();
 extern void popi_test();
 extern void reservei_test();
 extern void set_capacityi_test();
@@ -23,6 +24,7 @@ extern void set_vali_test();
 extern void pushd_test();
 extern void erased_test();
 extern void insertd_test();
+extern void insert_arrayd_test();
 extern void popd_test();
 extern void reserved_test();
 extern void set_capacityd_test();
@@ -32,6 +34,7 @@ extern void set_vald_test();
 extern void pushs_test();
 extern void erases_test();
 extern void inserts_test();
+extern void insert_arrays_test();
 extern void pops_test();
 extern void reserves_test();
 extern void set_capacitys_test();
@@ -41,6 +44,7 @@ extern void set_vals_test();
 extern void push_test();
 extern void erase_test();
 extern void insert_test();
+extern void insert_array_test();
 extern void pop_test();
 extern void reserve_test();
 extern void set_capacity_test();
@@ -53,33 +57,39 @@ extern void template_test();
 
 
 CU_TestInfo vector_i_tests[] = {
-	{ "push_test",           pushi_test },
-	{ "erase_test",          erasei_test },
-	{ "insert_test",         inserti_test },
-	{ "pop_test",            popi_test },
-	{ "reserve_test",        reservei_test },
-	{ "set_capacityi_test",  set_capacityi_test },
-	{ "set_val_test",        set_vali_test }
+	{ "pushi_test",           pushi_test },
+	{ "erasei_test",          erasei_test },
+	{ "inserti_test",         inserti_test },
+	{ "insert_arrayi_test",   insert_arrayi_test },
+	{ "popi_test",            popi_test },
+	{ "reservei_test",        reservei_test },
+	{ "set_capacityi_test",   set_capacityi_test },
+	{ "set_vali_test",        set_vali_test },
+	CU_TEST_INFO_NULL
 };
 
 CU_TestInfo vector_d_tests[] = {
-	{ "push_test",           pushd_test },
-	{ "erase_test",          erased_test },
-	{ "insert_test",         insertd_test },
-	{ "pop_test",            popd_test },
-	{ "reserve_test",        reserved_test },
-	{ "set_capacityd_test",  set_capacityd_test },
-	{ "set_val_test",        set_vald_test }
+	{ "pushd_test",           pushd_test },
+	{ "erased_test",          erased_test },
+	{ "insertd_test",         insertd_test },
+	{ "insert_arrayd_test",   insert_arrayd_test },
+	{ "popd_test",            popd_test },
+	{ "reserved_test",        reserved_test },
+	{ "set_capacityd_test",   set_capacityd_test },
+	{ "set_vald_test",        set_vald_test },
+	CU_TEST_INFO_NULL
 };
 
 CU_TestInfo vector_s_tests[] = {
-	{ "push_test",           pushs_test },
-	{ "erase_test",          erases_test },
-	{ "insert_test",         inserts_test },
-	{ "pop_test",            pops_test },
-	{ "reserve_test",        reserves_test },
-	{ "set_capacitys_test",  set_capacitys_test },
-	{ "set_val_test",        set_vals_test }
+	{ "pushs_test",           pushs_test },
+	{ "erases_test",          erases_test },
+	{ "inserts_test",         inserts_test },
+	{ "insert_arrays_test",   insert_arrays_test },
+	{ "pops_test",            pops_test },
+	{ "reserves_test",        reserves_test },
+	{ "set_capacitys_test",   set_capacitys_test },
+	{ "set_vals_test",        set_vals_test },
+	CU_TEST_INFO_NULL
 };
 
 
@@ -87,15 +97,18 @@ CU_TestInfo vector_tests[] = {
 	{ "push_test",                 push_test },
 	{ "erase_test",                erase_test },
 	{ "insert_test",               insert_test },
+	{ "insert_array_test",         insert_array_test },
 	{ "pop_test",                  pop_test },
 	{ "reserve_test",              reserve_test },
 	{ "set_capacity_test",         set_capacity_test },
 	{ "set_val_test",              set_val_test },
-	{ "vector_of_vectors_test",    vector_of_vectors_test }
+	{ "vector_of_vectors_test",    vector_of_vectors_test },
+	CU_TEST_INFO_NULL
 };
 
 CU_TestInfo template_tests[] = {
-	{ "template_test",       template_test }
+	{ "template_test",       template_test },
+	CU_TEST_INFO_NULL
 };
 
 

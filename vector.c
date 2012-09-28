@@ -623,7 +623,7 @@ void free_vecd(void* vec)
 /** Frees the internal array and sets size and capacity to 0 */
 void free_vecd_stack(void* vec)
 {
-	vector_d* tmp;
+	vector_d* tmp = vec;
 	free(tmp->a);
 	tmp->size = 0;
 	tmp->capacity = 0;

@@ -10,14 +10,14 @@
 /** Data structur for int vector. */
 typedef struct vector_short_
 {
-	short* a;        /**< Array. */
-	int size;       /**< Current size (amount you use when manipulating array directly). */
-	int capacity;   /**< Allocated size of array; always >= size. */
+	short* a;           /**< Array. */
+	size_t size;       /**< Current size (amount you use when manipulating array directly). */
+	size_t capacity;   /**< Allocated size of array; always >= size. */
 } vector_short;
 
 
 
-extern int VECTOR_short_SZ;
+extern size_t VECTOR_short_SZ;
 
 int vec_short_stack(vector_short* vec, size_t size, size_t capacity);
 int init_vec_short_stack(vector_short* vec, short* vals, size_t num);
@@ -31,7 +31,7 @@ int push_back_short(vector_short* vec, short a);
 short pop_back_short(vector_short* vec);
 
 int insert_short(vector_short* vec, size_t i, short a);
-int insert_arrayi(vector_i* vec, size_t i, int* a, size_t num);
+int insert_array_short(vector_short* vec, size_t i, short* a, size_t num);
 void erase_short(vector_short* vec, size_t start, size_t end);
 int reserve_short(vector_short* vec, size_t size);
 int set_capacity_short(vector_short* vec, size_t size);
