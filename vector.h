@@ -72,10 +72,6 @@ int set_capacityi(vector_i* vec, size_t size);
 void set_val_szi(vector_i* vec, int val);
 void set_val_capi(vector_i* vec, int val);
 
-/*you really don't need these; you could just check
-them directly */
-int capacityi(vector_i* vec);
-int sizei(vector_i* vec);
 void cleari(vector_i* vec);
 void free_veci(void* vec);
 void free_veci_stack(void* vec);
@@ -102,10 +98,6 @@ int set_capacityd(vector_d* vec, size_t size);
 void set_val_szd(vector_d* vec, double val);
 void set_val_capd(vector_d* vec, double val);
 
-/*you really don't need these; you could just check
-them directly */
-int capacityd(vector_d* vec);
-int sized(vector_d* vec);
 void cleard(vector_d* vec);
 void free_vecd(void* vec);
 void free_vecd_stack(void* vec);
@@ -131,10 +123,6 @@ int set_capacitys(vector_s* vec, size_t size);
 void set_val_szs(vector_s* vec, char* val);
 void set_val_caps(vector_s* vec, char* val);
 
-/*you really don't need these; you could just check
-them directly */
-int capacitys(vector_s* vec);
-int sizes(vector_s* vec);
 void clears(vector_s* vec);
 void free_vecs(void* vec);
 void free_vecs_stack(void* vec);
@@ -163,10 +151,6 @@ int set_capacity(vector* vec, size_t size);
 void set_val_sz(vector* vec, void* val);
 void set_val_cap(vector* vec, void* val);
 
-/*you really don't need these; you could just check
-them directly */
-int capacity(vector* vec);
-int size(vector* vec);
 void clear(vector* vec);
 void free_vec(void* vec);
 void free_vec_stack(void* vec);

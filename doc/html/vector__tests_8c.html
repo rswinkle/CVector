@@ -28,9 +28,9 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cvector
-   &#160;<span id="projectnumber">1.1</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
-   <div id="projectbrief">A C++ style vector library in strict ANSI C (C90)</div>
+   <div id="projectbrief">A C++ style vector library in strict ANSI C (C89)</div>
   </td>
   
   
@@ -86,6 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="vector_8h_source.html">vector.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="vector__short_8h_source.html">vector_short.h</a>&quot;</code><br/>
 <code>#include &lt;CUnit/Automated.h&gt;</code><br/>
 </div>
 <p><a href="vector__tests_8c_source.html">Go to the source code of this file.</a></p>
@@ -98,13 +99,17 @@ Data Structures</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure used to test generic vector.  <a href="structf__struct.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="define-members"></a>
 Defines</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#ab93074f53b2018bb05aa2e735ea64579">DO_TEMPLATE_TEST</a>&#160;&#160;&#160;1</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a675cc8ee6a54f986507a8612bc538c1a">STDERR</a>(X)&#160;&#160;&#160;fprintf(stderr, X)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a8ce1f58eab2da6e4042120bf922e0c2a">GET_T</a>(X, Y)&#160;&#160;&#160;((<a class="el" href="structt__struct.html">t_struct</a>*)&amp;X-&gt;a[Y*X-&gt;elem_size])</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#adf53320bed6f35020884d1167a0e8f01">GET_F</a>(X, Y)&#160;&#160;&#160;((<a class="el" href="structf__struct.html">f_struct</a>*)&amp;X-&gt;a[Y*X-&gt;elem_size])</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a097522f36be915c26e5fccbb262a40fd">GET_ELEMENT</a>(X, Y, TYPE)&#160;&#160;&#160;((TYPE*)&amp;X.a[Y*X.elem_size])</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a3cd2c102f57933067b2f6ad48de98cfc">pushi_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a1ce3eee7848108080af27e9ee0b5f1c6">erasei_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a1bd9e442f90a5ba6caa0d34c8fe21368">inserti_test</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#adbf94bf2f07a8c8fcf8a6472552321bf">insert_arrayi_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a5c1ac449d2c8f108a2ba9186f3cbbf23">popi_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a8d865adc59db427dd46d58fbe4756ac6">reservei_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#aa8dcd8e2291448296341cd2fb35c5212">set_capacityi_test</a> ()</td></tr>
@@ -112,6 +117,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#ac759edc20dba5f5a6c5a203f4d7d1588">pushd_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a9a00a1e10358cff8c9d89d2b8a85fea2">erased_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a6a9943a9fb0d8afe42c779068af4a659">insertd_test</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#ac8a5c5e0b03a614d3e3be8dc18eed182">insert_arrayd_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#aa6b91c1fb29fc1af418a55a779aaf1b9">popd_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a8f142292e35933516cc13dee7b98881e">reserved_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a236d5468e06dd18857c3ff38bdbe5733">set_capacityd_test</a> ()</td></tr>
@@ -119,6 +125,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a98fc8940cbd132a6d641f905ddcfda49">pushs_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#acc640e400ada16a58d2e526b0bc02bc6">erases_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#abb345b0528168e624d3dc92b53c864cd">inserts_test</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a5ee85b89d21849baf0a2a9e692e5a1be">insert_arrays_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a77d86ab96a628ec68076b30628a39500">pops_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#ae9171127d48bb03b7f43a35d94f3e8aa">reserves_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#aa3b4f5aa73e4edbedac9d3ab20761d7d">set_capacitys_test</a> ()</td></tr>
@@ -130,12 +137,65 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a0b0ed8134020c97c26490d6881b15641">push_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#ae0ed31d6578853149e7651f31c64f865">erase_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a065d902cd4a3aaafd61d506d75811114">insert_test</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a35ec77499ffbfd8f5e68e8d3ae37e1c5">insert_array_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a541afdf27b6f93df539f3aca4efddcc6">pop_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a104ee4b1de8ab65e7ce282ab28b427ff">reserve_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#ac36d4b42e9e75f10d1955ab8c6a9c05a">set_capacity_test</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a1cf5e5d54ef257d3453a432e980f2aba">set_val_test</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a45ca56fe4533262e4275075fc9615c63">vector_of_vectors_test</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__tests_8c.html#a53b765d3e172badc70fec0cd5bf41565">template_test</a> ()</td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
+<a class="anchor" id="ab93074f53b2018bb05aa2e735ea64579"></a><!-- doxytag: member="vector_tests.c::DO_TEMPLATE_TEST" ref="ab93074f53b2018bb05aa2e735ea64579" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="vector__tests_8c.html#ab93074f53b2018bb05aa2e735ea64579">DO_TEMPLATE_TEST</a>&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00003">3</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a097522f36be915c26e5fccbb262a40fd"></a><!-- doxytag: member="vector_tests.c::GET_ELEMENT" ref="a097522f36be915c26e5fccbb262a40fd" args="(X, Y, TYPE)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="vector__tests_8c.html#a097522f36be915c26e5fccbb262a40fd">GET_ELEMENT</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TYPE&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((TYPE*)&amp;X.a[Y*X.elem_size])</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l01125">1125</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="adf53320bed6f35020884d1167a0e8f01"></a><!-- doxytag: member="vector_tests.c::GET_F" ref="adf53320bed6f35020884d1167a0e8f01" args="(X, Y)" -->
 <div class="memitem">
 <div class="memproto">
@@ -161,7 +221,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00591">591</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00697">697</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -190,7 +250,26 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00590">590</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00696">696</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a675cc8ee6a54f986507a8612bc538c1a"></a><!-- doxytag: member="vector_tests.c::STDERR" ref="a675cc8ee6a54f986507a8612bc538c1a" args="(X)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="vector__tests_8c.html#a675cc8ee6a54f986507a8612bc538c1a">STDERR</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X</td><td>)</td>
+          <td>&#160;&#160;&#160;fprintf(stderr, X)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00011">11</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -209,7 +288,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00661">661</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00767">767</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -227,7 +306,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00202">202</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00241">241</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -245,7 +324,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00026">26</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00035">35</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -263,7 +342,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00372">372</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00442">442</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -282,7 +361,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00594">594</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00700">700</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -311,7 +390,79 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00604">604</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00710">710</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a35ec77499ffbfd8f5e68e8d3ae37e1c5"></a><!-- doxytag: member="vector_tests.c::insert_array_test" ref="a35ec77499ffbfd8f5e68e8d3ae37e1c5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="vector__tests_8c.html#a35ec77499ffbfd8f5e68e8d3ae37e1c5">insert_array_test</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00895">895</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac8a5c5e0b03a614d3e3be8dc18eed182"></a><!-- doxytag: member="vector_tests.c::insert_arrayd_test" ref="ac8a5c5e0b03a614d3e3be8dc18eed182" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="vector__tests_8c.html#ac8a5c5e0b03a614d3e3be8dc18eed182">insert_arrayd_test</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00293">293</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adbf94bf2f07a8c8fcf8a6472552321bf"></a><!-- doxytag: member="vector_tests.c::insert_arrayi_test" ref="adbf94bf2f07a8c8fcf8a6472552321bf" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="vector__tests_8c.html#adbf94bf2f07a8c8fcf8a6472552321bf">insert_arrayi_test</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00086">86</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ee85b89d21849baf0a2a9e692e5a1be"></a><!-- doxytag: member="vector_tests.c::insert_arrays_test" ref="a5ee85b89d21849baf0a2a9e692e5a1be" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="vector__tests_8c.html#a5ee85b89d21849baf0a2a9e692e5a1be">insert_arrays_test</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00508">508</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -329,7 +480,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00715">715</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00821">821</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -347,7 +498,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00229">229</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00268">268</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -365,7 +516,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00054">54</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00063">63</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -383,7 +534,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00404">404</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00474">474</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -418,7 +569,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00577">577</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00683">683</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -453,7 +604,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00567">567</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00673">673</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -471,7 +622,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00790">790</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00918">918</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -489,7 +640,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00255">255</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00325">325</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -507,7 +658,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00079">79</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00119">119</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -525,7 +676,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00439">439</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00545">545</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -543,7 +694,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00615">615</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00721">721</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -561,7 +712,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00181">181</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00220">220</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -579,7 +730,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00006">6</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00015">15</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -597,7 +748,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00346">346</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00416">416</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -615,7 +766,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00845">845</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00976">976</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -633,7 +784,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00283">283</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00353">353</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -651,7 +802,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00108">108</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00147">147</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -669,7 +820,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00471">471</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00577">577</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -687,7 +838,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00864">864</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00995">995</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -705,7 +856,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00295">295</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00365">365</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -723,7 +874,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00122">122</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00161">161</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -741,7 +892,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00483">483</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00589">589</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -759,7 +910,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00922">922</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l01053">1053</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -777,7 +928,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00321">321</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00391">391</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -795,7 +946,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00150">150</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00189">189</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -813,7 +964,43 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00521">521</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l00627">627</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a53b765d3e172badc70fec0cd5bf41565"></a><!-- doxytag: member="vector_tests.c::template_test" ref="a53b765d3e172badc70fec0cd5bf41565" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="vector__tests_8c.html#a53b765d3e172badc70fec0cd5bf41565">template_test</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l01191">1191</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a45ca56fe4533262e4275075fc9615c63"></a><!-- doxytag: member="vector_tests.c::vector_of_vectors_test" ref="a45ca56fe4533262e4275075fc9615c63" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="vector__tests_8c.html#a45ca56fe4533262e4275075fc9615c63">vector_of_vectors_test</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="vector__tests_8c_source.html#l01127">1127</a> of file <a class="el" href="vector__tests_8c_source.html">vector_tests.c</a>.</p>
 
 </div>
 </div>
@@ -835,7 +1022,7 @@ Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 10 2012 01:04:57 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Sep 30 2012 13:36:47 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

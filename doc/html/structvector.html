@@ -28,9 +28,9 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cvector
-   &#160;<span id="projectnumber">1.1</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
-   <div id="projectbrief">A C++ style vector library in strict ANSI C (C90)</div>
+   <div id="projectbrief">A C++ style vector library in strict ANSI C (C89)</div>
   </td>
   
   
@@ -94,12 +94,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Data Fields</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="vector_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector.html#ae086a0bd5a910803add11ed953819018">a</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Array.  <a href="#ae086a0bd5a910803add11ed953819018"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector.html#a211c6f9096b87e1ff8b09ad5ad373e61">size</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Current size (amount you should use when manipulating array directly).  <a href="#a211c6f9096b87e1ff8b09ad5ad373e61"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector.html#a95bc684a8044cfc0e509861448908bf2">capacity</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocated size of array; always &gt;= size.  <a href="#a95bc684a8044cfc0e509861448908bf2"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector.html#a1e2d06aaea690d5420fc153fa9b8c2b8">elem_size</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Size in bytes of type stored (sizeof(T) where T is type).  <a href="#a1e2d06aaea690d5420fc153fa9b8c2b8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector.html#a4200005b6949608d6a533db1a0d299c8">size</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Current size (amount you should use when manipulating array directly).  <a href="#a4200005b6949608d6a533db1a0d299c8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a">capacity</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocated size of array; always &gt;= size.  <a href="#a59f95fbd95d6f3e84e98a722a66e629a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector.html#a5c32d3768ff522662c71cb74634bb717">elem_size</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Size in bytes of type stored (sizeof(T) where T is type).  <a href="#a5c32d3768ff522662c71cb74634bb717"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector.html#a9aa1b736be034d1734173299ba7874e2">elem_init</a> )(void *, void *)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector.html#aa707fd886c386fe365b6d6dbadb49733">elem_free</a> )(void *)</td></tr>
 </table>
@@ -125,12 +125,12 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a95bc684a8044cfc0e509861448908bf2"></a><!-- doxytag: member="vector::capacity" ref="a95bc684a8044cfc0e509861448908bf2" args="" -->
+<a class="anchor" id="a59f95fbd95d6f3e84e98a722a66e629a"></a><!-- doxytag: member="vector::capacity" ref="a59f95fbd95d6f3e84e98a722a66e629a" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="structvector.html#a95bc684a8044cfc0e509861448908bf2">vector::capacity</a></td>
+          <td class="memname">size_t <a class="el" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a">vector::capacity</a></td>
         </tr>
       </table>
 </div>
@@ -172,12 +172,12 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1e2d06aaea690d5420fc153fa9b8c2b8"></a><!-- doxytag: member="vector::elem_size" ref="a1e2d06aaea690d5420fc153fa9b8c2b8" args="" -->
+<a class="anchor" id="a5c32d3768ff522662c71cb74634bb717"></a><!-- doxytag: member="vector::elem_size" ref="a5c32d3768ff522662c71cb74634bb717" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="structvector.html#a1e2d06aaea690d5420fc153fa9b8c2b8">vector::elem_size</a></td>
+          <td class="memname">size_t <a class="el" href="structvector.html#a5c32d3768ff522662c71cb74634bb717">vector::elem_size</a></td>
         </tr>
       </table>
 </div>
@@ -189,12 +189,12 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a211c6f9096b87e1ff8b09ad5ad373e61"></a><!-- doxytag: member="vector::size" ref="a211c6f9096b87e1ff8b09ad5ad373e61" args="" -->
+<a class="anchor" id="a4200005b6949608d6a533db1a0d299c8"></a><!-- doxytag: member="vector::size" ref="a4200005b6949608d6a533db1a0d299c8" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="structvector.html#a211c6f9096b87e1ff8b09ad5ad373e61">vector::size</a></td>
+          <td class="memname">size_t <a class="el" href="structvector.html#a4200005b6949608d6a533db1a0d299c8">vector::size</a></td>
         </tr>
       </table>
 </div>
@@ -227,7 +227,7 @@ Data Fields</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 10 2012 01:04:57 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Sep 30 2012 13:36:47 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

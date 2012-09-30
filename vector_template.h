@@ -7,7 +7,7 @@
 
 
 
-/** Data structur for int vector. */
+/** Data structure for TYPE vector. */
 typedef struct vector_TYPE_
 {
 	TYPE* a;           /**< Array. */

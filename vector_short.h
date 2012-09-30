@@ -7,7 +7,7 @@
 
 
 
-/** Data structur for int vector. */
+/** Data structure for short vector. */
 typedef struct vector_short_
 {
 	short* a;           /**< Array. */

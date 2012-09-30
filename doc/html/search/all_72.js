@@ -1,7 +1,9 @@
 var searchData=
 [
   ['reserve',['reserve',['../vector_8c.html#a7f6498e7460dafb6c94b7734776f9a9f',1,'reserve(vector *vec, size_t size):&#160;vector.c'],['../vector_8h.html#a7f6498e7460dafb6c94b7734776f9a9f',1,'reserve(vector *vec, size_t size):&#160;vector.c']]],
+  ['reserve_5fshort',['reserve_short',['../vector__short_8c.html#a383aae0dbc23be3cdb94741446c4bfb3',1,'reserve_short(vector_short *vec, size_t size):&#160;vector_short.c'],['../vector__short_8h.html#a383aae0dbc23be3cdb94741446c4bfb3',1,'reserve_short(vector_short *vec, size_t size):&#160;vector_short.c']]],
   ['reserve_5ftest',['reserve_test',['../main_8c.html#a104ee4b1de8ab65e7ce282ab28b427ff',1,'reserve_test():&#160;vector_tests.c'],['../vector__tests_8c.html#a104ee4b1de8ab65e7ce282ab28b427ff',1,'reserve_test():&#160;vector_tests.c']]],
+  ['reserve_5ftype',['reserve_TYPE',['../vector__template_8c.html#aeb1ac37a323ac7d9092dc53ef561a229',1,'reserve_TYPE(vector_TYPE *vec, size_t size):&#160;vector_template.c'],['../vector__template_8h.html#aeb1ac37a323ac7d9092dc53ef561a229',1,'reserve_TYPE(vector_TYPE *vec, size_t size):&#160;vector_template.c']]],
   ['reserved',['reserved',['../vector_8c.html#ae17d88125d50322bb65975e2db402144',1,'reserved(vector_d *vec, size_t size):&#160;vector.c'],['../vector_8h.html#ae17d88125d50322bb65975e2db402144',1,'reserved(vector_d *vec, size_t size):&#160;vector.c']]],
   ['reserved_5ftest',['reserved_test',['../main_8c.html#a8f142292e35933516cc13dee7b98881e',1,'reserved_test():&#160;vector_tests.c'],['../vector__tests_8c.html#a8f142292e35933516cc13dee7b98881e',1,'reserved_test():&#160;vector_tests.c']]],
   ['reservei',['reservei',['../vector_8c.html#a8e092364e24c40d44b2c7864b7123207',1,'reservei(vector_i *vec, size_t size):&#160;vector.c'],['../vector_8h.html#a8e092364e24c40d44b2c7864b7123207',1,'reservei(vector_i *vec, size_t size):&#160;vector.c']]],
