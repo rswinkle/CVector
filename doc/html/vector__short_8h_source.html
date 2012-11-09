@@ -28,7 +28,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cvector
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.01</span>
    </div>
    <div id="projectbrief">A C++ style vector library in strict ANSI C (C89)</div>
   </td>
@@ -112,25 +112,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00030"></a>00030 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#af928dfde7a11eed26dea807a96b9b372">push_back_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">short</span> a);
 <a name="l00031"></a>00031 <span class="keywordtype">short</span> <a class="code" href="vector__short_8c.html#a0f832ff26d2629b817dce5ccb99bccef">pop_back_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>);
 <a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#a91c7eb173c1b826abaa97f609a5550b3">insert_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">size_t</span> i, <span class="keywordtype">short</span> a);
-<a name="l00034"></a>00034 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#a56b32bd1983e8e93fc64969921fbc872">insert_array_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">size_t</span> i, <span class="keywordtype">short</span>* a, <span class="keywordtype">size_t</span> num);
-<a name="l00035"></a>00035 <span class="keywordtype">void</span> <a class="code" href="vector__short_8c.html#a133af4955b75c7806ca187934fe6962e">erase_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">size_t</span> start, <span class="keywordtype">size_t</span> end);
-<a name="l00036"></a>00036 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#a383aae0dbc23be3cdb94741446c4bfb3">reserve_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">size_t</span> size);
-<a name="l00037"></a>00037 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#a56a5aab3e56603053ab7274f7933bdb9">set_capacity_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">size_t</span> size);
-<a name="l00038"></a>00038 <span class="keywordtype">void</span> <a class="code" href="vector__short_8c.html#a239d76c322dfc74e755048421292745b">set_val_sz_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">short</span> val);
-<a name="l00039"></a>00039 <span class="keywordtype">void</span> <a class="code" href="vector__short_8c.html#a230aa8cd3221076a37967bc953ab49b4">set_val_cap_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">short</span> val);
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041 <span class="comment">/*you really don&#39;t need these; you could just check</span>
-<a name="l00042"></a>00042 <span class="comment">them directly */</span>
-<a name="l00043"></a>00043 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#a84cf93aa1f6e333c66b06038df18452c">capacity_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>);
-<a name="l00044"></a>00044 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#a5268c9e6480e4faa3d959843c021db36">size_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>);
-<a name="l00045"></a>00045 <span class="keywordtype">void</span> <a class="code" href="vector__short_8c.html#af803537791afde7d4fdc3344fcebca64">clear_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>);
-<a name="l00046"></a>00046 <span class="keywordtype">void</span> <a class="code" href="vector__short_8c.html#a17dafd2c29845a45bb960dea73058dde">free_vec_short</a>(<span class="keywordtype">void</span>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>);
-<a name="l00047"></a>00047 <span class="keywordtype">void</span> <a class="code" href="vector__short_8c.html#a3f05d850f010be05525547b40ba272ba">free_vec_short_stack</a>(<span class="keywordtype">void</span>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>);
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 <span class="preprocessor">#endif</span>
+<a name="l00033"></a>00033 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#a6f413458da2818c6476ca045796e113e">extend_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">size_t</span> num);
+<a name="l00034"></a>00034 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#a91c7eb173c1b826abaa97f609a5550b3">insert_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">size_t</span> i, <span class="keywordtype">short</span> a);
+<a name="l00035"></a>00035 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#a56b32bd1983e8e93fc64969921fbc872">insert_array_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">size_t</span> i, <span class="keywordtype">short</span>* a, <span class="keywordtype">size_t</span> num);
+<a name="l00036"></a>00036 <span class="keywordtype">void</span> <a class="code" href="vector__short_8c.html#a133af4955b75c7806ca187934fe6962e">erase_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">size_t</span> start, <span class="keywordtype">size_t</span> end);
+<a name="l00037"></a>00037 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#a383aae0dbc23be3cdb94741446c4bfb3">reserve_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">size_t</span> size);
+<a name="l00038"></a>00038 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#a56a5aab3e56603053ab7274f7933bdb9">set_capacity_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">size_t</span> size);
+<a name="l00039"></a>00039 <span class="keywordtype">void</span> <a class="code" href="vector__short_8c.html#a239d76c322dfc74e755048421292745b">set_val_sz_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">short</span> val);
+<a name="l00040"></a>00040 <span class="keywordtype">void</span> <a class="code" href="vector__short_8c.html#a230aa8cd3221076a37967bc953ab49b4">set_val_cap_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>, <span class="keywordtype">short</span> val);
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 <span class="keywordtype">short</span>* <a class="code" href="vector__short_8c.html#a4a7032ff983b4f3e0a0a132775727fe2">back_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>);
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 <span class="comment">/*you really don&#39;t need these; you could just check</span>
+<a name="l00046"></a>00046 <span class="comment">them directly */</span>
+<a name="l00047"></a>00047 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#a84cf93aa1f6e333c66b06038df18452c">capacity_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>);
+<a name="l00048"></a>00048 <span class="keywordtype">int</span> <a class="code" href="vector__short_8c.html#a5268c9e6480e4faa3d959843c021db36">size_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>);
+<a name="l00049"></a>00049 <span class="keywordtype">void</span> <a class="code" href="vector__short_8c.html#af803537791afde7d4fdc3344fcebca64">clear_short</a>(<a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>);
+<a name="l00050"></a>00050 <span class="keywordtype">void</span> <a class="code" href="vector__short_8c.html#a17dafd2c29845a45bb960dea73058dde">free_vec_short</a>(<span class="keywordtype">void</span>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>);
+<a name="l00051"></a>00051 <span class="keywordtype">void</span> <a class="code" href="vector__short_8c.html#a3f05d850f010be05525547b40ba272ba">free_vec_short_stack</a>(<span class="keywordtype">void</span>* <a class="code" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec</a>);
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -149,7 +153,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 30 2012 13:36:47 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 8 2012 22:25:06 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

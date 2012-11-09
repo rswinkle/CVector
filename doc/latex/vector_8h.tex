@@ -39,6 +39,8 @@ int \hyperlink{vector_8h_ac9ee8d01a2e12c23014b3bb5a1a3605b}{push\-\_\-backi} (\h
 \begin{DoxyCompactList}\small\item\em \-Append a to end of vector (size increased 1). \end{DoxyCompactList}\item 
 int \hyperlink{vector_8h_a8fea65bfdef42ddd75d601e32590d552}{pop\-\_\-backi} (\hyperlink{structvector__i}{vector\-\_\-i} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
 \begin{DoxyCompactList}\small\item\em \-Remove and return the last element (size decreased 1). \end{DoxyCompactList}\item 
+int \hyperlink{vector_8h_abd200937f5662a34cb071eb7ffc8ae20}{extendi} (\hyperlink{structvector__i}{vector\-\_\-i} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, size\-\_\-t num)
+\begin{DoxyCompactList}\small\item\em \-Increase the size of the array num items. \end{DoxyCompactList}\item 
 int \hyperlink{vector_8h_a84e557f52c83e9f7003a98c332b571d5}{inserti} (\hyperlink{structvector__i}{vector\-\_\-i} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, size\-\_\-t i, int a)
 \begin{DoxyCompactList}\small\item\em \-Insert a at index i (0 based). \end{DoxyCompactList}\item 
 int \hyperlink{vector_8h_a086249a206e69f2d98d50624a17b75f1}{insert\-\_\-arrayi} (\hyperlink{structvector__i}{vector\-\_\-i} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, size\-\_\-t i, int $\ast$a, size\-\_\-t num)
@@ -53,6 +55,8 @@ void \hyperlink{vector_8h_ae345cec01d9c396aab73dbccc6f97ff5}{set\-\_\-val\-\_\-s
 \begin{DoxyCompactList}\small\item\em \-Set all size elements to val. \end{DoxyCompactList}\item 
 void \hyperlink{vector_8h_a5a9fc4f9d82c885055dc3ab420d02c4d}{set\-\_\-val\-\_\-capi} (\hyperlink{structvector__i}{vector\-\_\-i} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, int val)
 \begin{DoxyCompactList}\small\item\em \-Fills entire allocated array (capacity) with val. \end{DoxyCompactList}\item 
+int $\ast$ \hyperlink{vector_8h_a0f6b6c1b3b012bbd8e74ed5172e3e473}{backi} (\hyperlink{structvector__i}{vector\-\_\-i} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
+\begin{DoxyCompactList}\small\item\em \-Return pointer to last element. \end{DoxyCompactList}\item 
 void \hyperlink{vector_8h_a81a0f18214d814fc58e7fc59ec032304}{cleari} (\hyperlink{structvector__i}{vector\-\_\-i} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
 \begin{DoxyCompactList}\small\item\em \-Sets size to 0 (does not clear contents). \end{DoxyCompactList}\item 
 void \hyperlink{vector_8h_a1d2da12e88f5b63ebbf755c6c71ddd42}{free\-\_\-veci} (void $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
@@ -73,6 +77,8 @@ int \hyperlink{vector_8h_aec22afdb202bb430481b1ba919d46128}{push\-\_\-backd} (\h
 \begin{DoxyCompactList}\small\item\em \-Append a to end of vector (size increased 1). \end{DoxyCompactList}\item 
 double \hyperlink{vector_8h_ad63b53355a5ec0829c19fece78497149}{pop\-\_\-backd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
 \begin{DoxyCompactList}\small\item\em \-Remove and return the last element (size decreased 1). \end{DoxyCompactList}\item 
+int \hyperlink{vector_8h_ac2b32eef4befa3c059ddcd273f249c53}{extendd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, size\-\_\-t num)
+\begin{DoxyCompactList}\small\item\em \-Increase the size of the array num items. \end{DoxyCompactList}\item 
 int \hyperlink{vector_8h_a27cda61f4446cb298f30c78ea250ffe0}{insertd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, size\-\_\-t i, double a)
 \begin{DoxyCompactList}\small\item\em \-Insert a at index i (0 based). \end{DoxyCompactList}\item 
 int \hyperlink{vector_8h_a3ce694f26d7f8b299c4757b167fffd11}{insert\-\_\-arrayd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, size\-\_\-t i, double $\ast$a, size\-\_\-t num)
@@ -87,6 +93,8 @@ void \hyperlink{vector_8h_a8cf2604b6dfe8c10939e0ca4e4ef5868}{set\-\_\-val\-\_\-s
 \begin{DoxyCompactList}\small\item\em \-Set all size elements to val. \end{DoxyCompactList}\item 
 void \hyperlink{vector_8h_a91942dfa8445dc68a39458dec459ddd7}{set\-\_\-val\-\_\-capd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, double val)
 \begin{DoxyCompactList}\small\item\em \-Fills entire allocated array (capacity) with val. \end{DoxyCompactList}\item 
+double $\ast$ \hyperlink{vector_8h_afd5b64838b373d3afdedc7376deb825d}{backd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
+\begin{DoxyCompactList}\small\item\em \-Return pointer to last element. \end{DoxyCompactList}\item 
 void \hyperlink{vector_8h_ade629b65714afdd14647c4e0585120d5}{cleard} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
 \begin{DoxyCompactList}\small\item\em \-Sets size to 0 (does not clear contents). \end{DoxyCompactList}\item 
 void \hyperlink{vector_8h_a7ad609e9b25c808ffe64002fdc71dbaf}{free\-\_\-vecd} (void $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
@@ -107,6 +115,8 @@ int \hyperlink{vector_8h_ac150af7158211651585db98ea24f480b}{push\-\_\-backs} (\h
 \begin{DoxyCompactList}\small\item\em \-Append a to end of vector (size increased 1). \end{DoxyCompactList}\item 
 void \hyperlink{vector_8h_a7b17af16d628d983e29caab7b9f41d18}{pop\-\_\-backs} (\hyperlink{structvector__s}{vector\-\_\-s} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, char $\ast$ret)
 \begin{DoxyCompactList}\small\item\em \-Remove the last element (size decreased 1). \end{DoxyCompactList}\item 
+int \hyperlink{vector_8h_ac09d782c20df1053d668ae262da40007}{extends} (\hyperlink{structvector__s}{vector\-\_\-s} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, size\-\_\-t num)
+\begin{DoxyCompactList}\small\item\em \-Increase the size of the array num items. \end{DoxyCompactList}\item 
 int \hyperlink{vector_8h_a51c617708ae543ff9de78c9fec30b5f5}{inserts} (\hyperlink{structvector__s}{vector\-\_\-s} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, size\-\_\-t i, char $\ast$a)
 \begin{DoxyCompactList}\small\item\em \-Insert a at index i (0 based). \end{DoxyCompactList}\item 
 int \hyperlink{vector_8h_a071ef29099b47f6a380c09300a9f57c4}{insert\-\_\-arrays} (\hyperlink{structvector__s}{vector\-\_\-s} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, size\-\_\-t i, char $\ast$$\ast$, size\-\_\-t num)
@@ -121,6 +131,8 @@ void \hyperlink{vector_8h_a4422ebcd9d921efe075a1f93b9b50dd2}{set\-\_\-val\-\_\-s
 \begin{DoxyCompactList}\small\item\em \-Sets all size elements to val. \end{DoxyCompactList}\item 
 void \hyperlink{vector_8h_a543e3898569734fc213f377838d48191}{set\-\_\-val\-\_\-caps} (\hyperlink{structvector__s}{vector\-\_\-s} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, char $\ast$val)
 \begin{DoxyCompactList}\small\item\em \-Fills entire allocated array (capacity) with val. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \hyperlink{vector_8h_a1644b145740f2ee5ac81798560362ec6}{backs} (\hyperlink{structvector__s}{vector\-\_\-s} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
+\begin{DoxyCompactList}\small\item\em \-Return pointer to last element. \end{DoxyCompactList}\item 
 void \hyperlink{vector_8h_a92933e6a6ce4990401dd32a03e9245a0}{clears} (\hyperlink{structvector__s}{vector\-\_\-s} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
 \begin{DoxyCompactList}\small\item\em \-Clears the contents of vector (frees all strings) and sets size to 0. \end{DoxyCompactList}\item 
 void \hyperlink{vector_8h_a75512e06058c084bd4af68adad6ed46d}{free\-\_\-vecs} (void $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
@@ -143,6 +155,8 @@ void \hyperlink{vector_8h_a5c74d211538266d623337c6bd63bf307}{pop\-\_\-back} (\hy
 \begin{DoxyCompactList}\small\item\em \-Remove the last element (size decreased 1). \end{DoxyCompactList}\item 
 void $\ast$ \hyperlink{vector_8h_aa46156fb4f34b672a0ad7db2a8511b7b}{vec\-\_\-get} (\hyperlink{structvector}{vector} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, size\-\_\-t i)
 \begin{DoxyCompactList}\small\item\em \-Return a void pointer to the ith element. \end{DoxyCompactList}\item 
+int \hyperlink{vector_8h_a9b4cb0d7e7184caf8612d54ac5391086}{extend} (\hyperlink{structvector}{vector} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, size\-\_\-t num)
+\begin{DoxyCompactList}\small\item\em \-Increase the size of the array num items. \end{DoxyCompactList}\item 
 int \hyperlink{vector_8h_ad7021cbfcd3b26cf5a4d68270e01532f}{insert} (\hyperlink{structvector}{vector} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, size\-\_\-t i, void $\ast$a)
 \begin{DoxyCompactList}\small\item\em \-Insert a at index i (0 based). \end{DoxyCompactList}\item 
 int \hyperlink{vector_8h_ac21302d0c9da709ba66d7b3f68b5d5b6}{insert\-\_\-array} (\hyperlink{structvector}{vector} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, size\-\_\-t i, void $\ast$a, size\-\_\-t num)
@@ -157,6 +171,8 @@ void \hyperlink{vector_8h_a8bdff9301773943a8d9214f3a6db6c0a}{set\-\_\-val\-\_\-s
 \begin{DoxyCompactList}\small\item\em \-Set all size elements to val. \end{DoxyCompactList}\item 
 void \hyperlink{vector_8h_a4dbaf5b0808db2a7995f1bfff760e719}{set\-\_\-val\-\_\-cap} (\hyperlink{structvector}{vector} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec}, void $\ast$val)
 \begin{DoxyCompactList}\small\item\em \-Fills entire allocated array (capacity) with val. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{vector_8h_af0f33ee9be2400de2bb2fc2024c6ddea}{back} (\hyperlink{structvector}{vector} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
+\begin{DoxyCompactList}\small\item\em \-Return pointer to last element. \end{DoxyCompactList}\item 
 void \hyperlink{vector_8h_ae6e399ccd20b64c6214f13bf44aa174c}{clear} (\hyperlink{structvector}{vector} $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
 \begin{DoxyCompactList}\small\item\em \-Sets size to 0 (does not change contents unless elem\-\_\-free is set then it will free all size elements as in \hyperlink{structvector__s}{vector\-\_\-s}). \end{DoxyCompactList}\item 
 void \hyperlink{vector_8h_a942a5a50dc54eff02d67d91e16e9575b}{free\-\_\-vec} (void $\ast$\hyperlink{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{vec})
@@ -187,6 +203,66 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 \subsection{\-Function \-Documentation}
+\hypertarget{vector_8h_af0f33ee9be2400de2bb2fc2024c6ddea}{\index{vector.\-h@{vector.\-h}!back@{back}}
+\index{back@{back}!vector.h@{vector.\-h}}
+\subsubsection[{back}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ {\bf back} (
+\begin{DoxyParamCaption}
+\item[{{\bf vector} $\ast$}]{vec}
+\end{DoxyParamCaption}
+)}}\label{vector_8h_af0f33ee9be2400de2bb2fc2024c6ddea}
+
+
+\-Return pointer to last element. 
+
+
+
+\-Definition at line 1349 of file vector.\-c.
+
+\hypertarget{vector_8h_afd5b64838b373d3afdedc7376deb825d}{\index{vector.\-h@{vector.\-h}!backd@{backd}}
+\index{backd@{backd}!vector.h@{vector.\-h}}
+\subsubsection[{backd}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf backd} (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-d} $\ast$}]{vec}
+\end{DoxyParamCaption}
+)}}\label{vector_8h_afd5b64838b373d3afdedc7376deb825d}
+
+
+\-Return pointer to last element. 
+
+
+
+\-Definition at line 512 of file vector.\-c.
+
+\hypertarget{vector_8h_a0f6b6c1b3b012bbd8e74ed5172e3e473}{\index{vector.\-h@{vector.\-h}!backi@{backi}}
+\index{backi@{backi}!vector.h@{vector.\-h}}
+\subsubsection[{backi}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ {\bf backi} (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-i} $\ast$}]{vec}
+\end{DoxyParamCaption}
+)}}\label{vector_8h_a0f6b6c1b3b012bbd8e74ed5172e3e473}
+
+
+\-Return pointer to last element. 
+
+
+
+\-Definition at line 174 of file vector.\-c.
+
+\hypertarget{vector_8h_a1644b145740f2ee5ac81798560362ec6}{\index{vector.\-h@{vector.\-h}!backs@{backs}}
+\index{backs@{backs}!vector.h@{vector.\-h}}
+\subsubsection[{backs}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ {\bf backs} (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-s} $\ast$}]{vec}
+\end{DoxyParamCaption}
+)}}\label{vector_8h_a1644b145740f2ee5ac81798560362ec6}
+
+
+\-Return pointer to last element. 
+
+
+
+\-Definition at line 886 of file vector.\-c.
+
 \hypertarget{vector_8h_ae6e399ccd20b64c6214f13bf44aa174c}{\index{vector.\-h@{vector.\-h}!clear@{clear}}
 \index{clear@{clear}!vector.h@{vector.\-h}}
 \subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf clear} (
@@ -200,7 +276,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 1442 of file vector.\-c.
+\-Definition at line 1569 of file vector.\-c.
 
 \hypertarget{vector_8h_ade629b65714afdd14647c4e0585120d5}{\index{vector.\-h@{vector.\-h}!cleard@{cleard}}
 \index{cleard@{cleard}!vector.h@{vector.\-h}}
@@ -215,7 +291,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 609 of file vector.\-c.
+\-Definition at line 671 of file vector.\-c.
 
 \hypertarget{vector_8h_a81a0f18214d814fc58e7fc59ec032304}{\index{vector.\-h@{vector.\-h}!cleari@{cleari}}
 \index{cleari@{cleari}!vector.h@{vector.\-h}}
@@ -230,7 +306,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 300 of file vector.\-c.
+\-Definition at line 330 of file vector.\-c.
 
 \hypertarget{vector_8h_a92933e6a6ce4990401dd32a03e9245a0}{\index{vector.\-h@{vector.\-h}!clears@{clears}}
 \index{clears@{clears}!vector.h@{vector.\-h}}
@@ -245,7 +321,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 970 of file vector.\-c.
+\-Definition at line 1068 of file vector.\-c.
 
 \hypertarget{vector_8h_a0c6bcaa8891ef981b036e37eff922cf8}{\index{vector.\-h@{vector.\-h}!erase@{erase}}
 \index{erase@{erase}!vector.h@{vector.\-h}}
@@ -264,7 +340,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 \item[\hyperlink{todo__todo000007}{\-Todo}]check start and end in range? \end{DoxyRefDesc}
 
 
-\-Definition at line 1339 of file vector.\-c.
+\-Definition at line 1466 of file vector.\-c.
 
 \hypertarget{vector_8h_a5024e0dad2d80c8c58c840aa0fda85aa}{\index{vector.\-h@{vector.\-h}!erased@{erased}}
 \index{erased@{erased}!vector.h@{vector.\-h}}
@@ -283,7 +359,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 \item[\hyperlink{todo__todo000004}{\-Todo}]check start and end in range? \end{DoxyRefDesc}
 
 
-\-Definition at line 539 of file vector.\-c.
+\-Definition at line 601 of file vector.\-c.
 
 \hypertarget{vector_8h_a429dec8af8f89b6311c6dad0f180c625}{\index{vector.\-h@{vector.\-h}!erasei@{erasei}}
 \index{erasei@{erasei}!vector.h@{vector.\-h}}
@@ -302,7 +378,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 \item[\hyperlink{todo__todo000002}{\-Todo}]check start and end in range? \end{DoxyRefDesc}
 
 
-\-Definition at line 235 of file vector.\-c.
+\-Definition at line 265 of file vector.\-c.
 
 \hypertarget{vector_8h_abab89ce87821bca28b7641676d3c562c}{\index{vector.\-h@{vector.\-h}!erases@{erases}}
 \index{erases@{erases}!vector.h@{vector.\-h}}
@@ -319,7 +395,71 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Example erases(myvec, 1, 3) would free and remove strings at 1, 2, and 3 and the string that was at index 4 would now be at 1 etc. 
 
-\-Definition at line 883 of file vector.\-c.
+\-Definition at line 981 of file vector.\-c.
+
+\hypertarget{vector_8h_a9b4cb0d7e7184caf8612d54ac5391086}{\index{vector.\-h@{vector.\-h}!extend@{extend}}
+\index{extend@{extend}!vector.h@{vector.\-h}}
+\subsubsection[{extend}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf extend} (
+\begin{DoxyParamCaption}
+\item[{{\bf vector} $\ast$}]{vec, }
+\item[{size\-\_\-t}]{num}
+\end{DoxyParamCaption}
+)}}\label{vector_8h_a9b4cb0d7e7184caf8612d54ac5391086}
+
+
+\-Increase the size of the array num items. 
+
+\-Items are not initialized to anything! 
+
+\-Definition at line 1359 of file vector.\-c.
+
+\hypertarget{vector_8h_ac2b32eef4befa3c059ddcd273f249c53}{\index{vector.\-h@{vector.\-h}!extendd@{extendd}}
+\index{extendd@{extendd}!vector.h@{vector.\-h}}
+\subsubsection[{extendd}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf extendd} (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-d} $\ast$}]{vec, }
+\item[{size\-\_\-t}]{num}
+\end{DoxyParamCaption}
+)}}\label{vector_8h_ac2b32eef4befa3c059ddcd273f249c53}
+
+
+\-Increase the size of the array num items. 
+
+\-Items are not initialized to anything 
+
+\-Definition at line 522 of file vector.\-c.
+
+\hypertarget{vector_8h_abd200937f5662a34cb071eb7ffc8ae20}{\index{vector.\-h@{vector.\-h}!extendi@{extendi}}
+\index{extendi@{extendi}!vector.h@{vector.\-h}}
+\subsubsection[{extendi}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf extendi} (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-i} $\ast$}]{vec, }
+\item[{size\-\_\-t}]{num}
+\end{DoxyParamCaption}
+)}}\label{vector_8h_abd200937f5662a34cb071eb7ffc8ae20}
+
+
+\-Increase the size of the array num items. 
+
+\-Items are not initialized to anything 
+
+\-Definition at line 183 of file vector.\-c.
+
+\hypertarget{vector_8h_ac09d782c20df1053d668ae262da40007}{\index{vector.\-h@{vector.\-h}!extends@{extends}}
+\index{extends@{extends}!vector.h@{vector.\-h}}
+\subsubsection[{extends}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf extends} (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-s} $\ast$}]{vec, }
+\item[{size\-\_\-t}]{num}
+\end{DoxyParamCaption}
+)}}\label{vector_8h_ac09d782c20df1053d668ae262da40007}
+
+
+\-Increase the size of the array num items. 
+
+\-Items are memset to \-N\-U\-L\-L since they will be freed when popped or the vector is freed. 
+
+\-Definition at line 899 of file vector.\-c.
 
 \hypertarget{vector_8h_a942a5a50dc54eff02d67d91e16e9575b}{\index{vector.\-h@{vector.\-h}!free\-\_\-vec@{free\-\_\-vec}}
 \index{free\-\_\-vec@{free\-\_\-vec}!vector.h@{vector.\-h}}
@@ -334,7 +474,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-If you set a free function it will be called on all size elements of course. 
 
-\-Definition at line 1456 of file vector.\-c.
+\-Definition at line 1583 of file vector.\-c.
 
 \hypertarget{vector_8h_a18c191a092a08499edf85fb06ec9bdeb}{\index{vector.\-h@{vector.\-h}!free\-\_\-vec\-\_\-stack@{free\-\_\-vec\-\_\-stack}}
 \index{free\-\_\-vec\-\_\-stack@{free\-\_\-vec\-\_\-stack}!vector.h@{vector.\-h}}
@@ -349,7 +489,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 1470 of file vector.\-c.
+\-Definition at line 1597 of file vector.\-c.
 
 \hypertarget{vector_8h_a7ad609e9b25c808ffe64002fdc71dbaf}{\index{vector.\-h@{vector.\-h}!free\-\_\-vecd@{free\-\_\-vecd}}
 \index{free\-\_\-vecd@{free\-\_\-vecd}!vector.h@{vector.\-h}}
@@ -364,7 +504,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 613 of file vector.\-c.
+\-Definition at line 675 of file vector.\-c.
 
 \hypertarget{vector_8h_a4dbd097e70a7b457587f995e043a0dfb}{\index{vector.\-h@{vector.\-h}!free\-\_\-vecd\-\_\-stack@{free\-\_\-vecd\-\_\-stack}}
 \index{free\-\_\-vecd\-\_\-stack@{free\-\_\-vecd\-\_\-stack}!vector.h@{vector.\-h}}
@@ -379,7 +519,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 621 of file vector.\-c.
+\-Definition at line 683 of file vector.\-c.
 
 \hypertarget{vector_8h_a1d2da12e88f5b63ebbf755c6c71ddd42}{\index{vector.\-h@{vector.\-h}!free\-\_\-veci@{free\-\_\-veci}}
 \index{free\-\_\-veci@{free\-\_\-veci}!vector.h@{vector.\-h}}
@@ -394,7 +534,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 303 of file vector.\-c.
+\-Definition at line 333 of file vector.\-c.
 
 \hypertarget{vector_8h_ac0888237a36d9be1bc79c9957b517b0e}{\index{vector.\-h@{vector.\-h}!free\-\_\-veci\-\_\-stack@{free\-\_\-veci\-\_\-stack}}
 \index{free\-\_\-veci\-\_\-stack@{free\-\_\-veci\-\_\-stack}!vector.h@{vector.\-h}}
@@ -409,7 +549,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 311 of file vector.\-c.
+\-Definition at line 341 of file vector.\-c.
 
 \hypertarget{vector_8h_a75512e06058c084bd4af68adad6ed46d}{\index{vector.\-h@{vector.\-h}!free\-\_\-vecs@{free\-\_\-vecs}}
 \index{free\-\_\-vecs@{free\-\_\-vecs}!vector.h@{vector.\-h}}
@@ -424,7 +564,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 981 of file vector.\-c.
+\-Definition at line 1079 of file vector.\-c.
 
 \hypertarget{vector_8h_a29c0b7bbe59dda9dddbdef21035e4b54}{\index{vector.\-h@{vector.\-h}!free\-\_\-vecs\-\_\-stack@{free\-\_\-vecs\-\_\-stack}}
 \index{free\-\_\-vecs\-\_\-stack@{free\-\_\-vecs\-\_\-stack}!vector.h@{vector.\-h}}
@@ -439,7 +579,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 994 of file vector.\-c.
+\-Definition at line 1092 of file vector.\-c.
 
 \hypertarget{vector_8h_a368ba8d1bd2ed240a7b0527ac752cc3c}{\index{vector.\-h@{vector.\-h}!init\-\_\-vec@{init\-\_\-vec}}
 \index{init\-\_\-vec@{init\-\_\-vec}!vector.h@{vector.\-h}}
@@ -458,7 +598,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-If vals is \-N\-U\-L\-L, capacity is set to num + \-V\-E\-C\-\_\-\-I\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z. \-Size is set to num in the first place, 0 otherwise. elem\-\_\-sz is the size of the type you want to store ( ie sizeof(\-T) where \-T is your type ). \-See \hyperlink{vector_8c_aaf8dbad914b3146c53fa02399be67f48}{vec()} for more information about the elem\-\_\-free and elem\-\_\-init parameters. 
 
-\-Definition at line 1069 of file vector.\-c.
+\-Definition at line 1167 of file vector.\-c.
 
 \hypertarget{vector_8h_aa0a2179ce6d677fec9ff95c08b575eec}{\index{vector.\-h@{vector.\-h}!init\-\_\-vec\-\_\-d@{init\-\_\-vec\-\_\-d}}
 \index{init\-\_\-vec\-\_\-d@{init\-\_\-vec\-\_\-d}!vector.h@{vector.\-h}}
@@ -474,7 +614,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Capacity is set to num + \-V\-E\-C\-\_\-\-D\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z. \-If vals == \-N\-U\-L\-L or num $<$ 1 return \-N\-U\-L\-L (you should just be using \hyperlink{vector_8h_a9ad53be632b2948cb650cec4ae63d506}{vec\-\_\-d(size\-\_\-t, size\-\_\-t)}) 
 
-\-Definition at line 358 of file vector.\-c.
+\-Definition at line 388 of file vector.\-c.
 
 \hypertarget{vector_8h_aa04e610db2f8e3214838852eebd520f8}{\index{vector.\-h@{vector.\-h}!init\-\_\-vec\-\_\-d\-\_\-stack@{init\-\_\-vec\-\_\-d\-\_\-stack}}
 \index{init\-\_\-vec\-\_\-d\-\_\-stack@{init\-\_\-vec\-\_\-d\-\_\-stack}!vector.h@{vector.\-h}}
@@ -491,7 +631,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Use the free\-\_\-vecd\-\_\-stack in that case. 
 
-\-Definition at line 404 of file vector.\-c.
+\-Definition at line 434 of file vector.\-c.
 
 \hypertarget{vector_8h_a88741ffdcb8aff0d59afb44aab372a20}{\index{vector.\-h@{vector.\-h}!init\-\_\-vec\-\_\-i@{init\-\_\-vec\-\_\-i}}
 \index{init\-\_\-vec\-\_\-i@{init\-\_\-vec\-\_\-i}!vector.h@{vector.\-h}}
@@ -540,7 +680,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-If vals is \-N\-U\-L\-L, or num $<$ 1, it returns \-N\-U\-L\-L. \-You should use vec\-\_\-s(size\-\_\-t) instead in those cases. 
 
-\-Definition at line 688 of file vector.\-c.
+\-Definition at line 750 of file vector.\-c.
 
 \hypertarget{vector_8h_aa23628f27e1fa512b079c718448b0112}{\index{vector.\-h@{vector.\-h}!init\-\_\-vec\-\_\-s\-\_\-stack@{init\-\_\-vec\-\_\-s\-\_\-stack}}
 \index{init\-\_\-vec\-\_\-s\-\_\-stack@{init\-\_\-vec\-\_\-s\-\_\-stack}!vector.h@{vector.\-h}}
@@ -557,7 +697,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Use the free\-\_\-vecs\-\_\-stack in that case 
 
-\-Definition at line 738 of file vector.\-c.
+\-Definition at line 800 of file vector.\-c.
 
 \hypertarget{vector_8h_ac2cfd4e75f9ead9879cda8f443106b4a}{\index{vector.\-h@{vector.\-h}!init\-\_\-vec\-\_\-stack@{init\-\_\-vec\-\_\-stack}}
 \index{init\-\_\-vec\-\_\-stack@{init\-\_\-vec\-\_\-stack}!vector.h@{vector.\-h}}
@@ -577,7 +717,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Use the free\-\_\-vec\-\_\-stack in that case 
 
-\-Definition at line 1131 of file vector.\-c.
+\-Definition at line 1229 of file vector.\-c.
 
 \hypertarget{vector_8h_ad7021cbfcd3b26cf5a4d68270e01532f}{\index{vector.\-h@{vector.\-h}!insert@{insert}}
 \index{insert@{insert}!vector.h@{vector.\-h}}
@@ -596,7 +736,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 \item[\hyperlink{todo__todo000006}{\-Todo}]check for i $<$ 0 or $>$ size-\/1? \end{DoxyRefDesc}
 
 
-\-Definition at line 1268 of file vector.\-c.
+\-Definition at line 1395 of file vector.\-c.
 
 \hypertarget{vector_8h_ac21302d0c9da709ba66d7b3f68b5d5b6}{\index{vector.\-h@{vector.\-h}!insert\-\_\-array@{insert\-\_\-array}}
 \index{insert\-\_\-array@{insert\-\_\-array}!vector.h@{vector.\-h}}
@@ -614,7 +754,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Note that it is the user's responsibility to pass in valid arguments. \-Also memcpy is used (when there is no elem\-\_\-init function) so don't try to insert part of the vector array into itself (that would require memmove) 
 
-\-Definition at line 1308 of file vector.\-c.
+\-Definition at line 1435 of file vector.\-c.
 
 \hypertarget{vector_8h_a3ce694f26d7f8b299c4757b167fffd11}{\index{vector.\-h@{vector.\-h}!insert\-\_\-arrayd@{insert\-\_\-arrayd}}
 \index{insert\-\_\-arrayd@{insert\-\_\-arrayd}!vector.h@{vector.\-h}}
@@ -632,7 +772,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Note that it is the user's responsibility to pass in valid arguments. \-Also memcpy is used so don't try to insert part of the vector array into itself (that would require memmove) 
 
-\-Definition at line 512 of file vector.\-c.
+\-Definition at line 574 of file vector.\-c.
 
 \hypertarget{vector_8h_a086249a206e69f2d98d50624a17b75f1}{\index{vector.\-h@{vector.\-h}!insert\-\_\-arrayi@{insert\-\_\-arrayi}}
 \index{insert\-\_\-arrayi@{insert\-\_\-arrayi}!vector.h@{vector.\-h}}
@@ -650,7 +790,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Note that it is the user's responsibility to pass in valid arguments. \-Also memcpy is used so don't try to insert part of the vector array into itself (that would require memmove) 
 
-\-Definition at line 206 of file vector.\-c.
+\-Definition at line 236 of file vector.\-c.
 
 \hypertarget{vector_8h_a071ef29099b47f6a380c09300a9f57c4}{\index{vector.\-h@{vector.\-h}!insert\-\_\-arrays@{insert\-\_\-arrays}}
 \index{insert\-\_\-arrays@{insert\-\_\-arrays}!vector.h@{vector.\-h}}
@@ -668,7 +808,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Note that it is the user's responsibility to pass in valid arguments. 
 
-\-Definition at line 854 of file vector.\-c.
+\-Definition at line 952 of file vector.\-c.
 
 \hypertarget{vector_8h_a27cda61f4446cb298f30c78ea250ffe0}{\index{vector.\-h@{vector.\-h}!insertd@{insertd}}
 \index{insertd@{insertd}!vector.h@{vector.\-h}}
@@ -687,7 +827,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 \item[\hyperlink{todo__todo000003}{\-Todo}]check for i $<$ 0 or $>$ size ? \end{DoxyRefDesc}
 
 
-\-Definition at line 486 of file vector.\-c.
+\-Definition at line 548 of file vector.\-c.
 
 \hypertarget{vector_8h_a84e557f52c83e9f7003a98c332b571d5}{\index{vector.\-h@{vector.\-h}!inserti@{inserti}}
 \index{inserti@{inserti}!vector.h@{vector.\-h}}
@@ -706,7 +846,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 \item[\hyperlink{todo__todo000001}{\-Todo}]check for i $<$ 0 or $>$ size ? \end{DoxyRefDesc}
 
 
-\-Definition at line 179 of file vector.\-c.
+\-Definition at line 209 of file vector.\-c.
 
 \hypertarget{vector_8h_a51c617708ae543ff9de78c9fec30b5f5}{\index{vector.\-h@{vector.\-h}!inserts@{inserts}}
 \index{inserts@{inserts}!vector.h@{vector.\-h}}
@@ -725,7 +865,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 \item[\hyperlink{todo__todo000005}{\-Todo}]check for i $<$ 0 or $>$ size ? \end{DoxyRefDesc}
 
 
-\-Definition at line 828 of file vector.\-c.
+\-Definition at line 926 of file vector.\-c.
 
 \hypertarget{vector_8h_a141b8e057d63a3ba14590139945e20a9}{\index{vector.\-h@{vector.\-h}!mystrdup@{mystrdup}}
 \index{mystrdup@{mystrdup}!vector.h@{vector.\-h}}
@@ -740,7 +880,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 636 of file vector.\-c.
+\-Definition at line 698 of file vector.\-c.
 
 \hypertarget{vector_8h_a5c74d211538266d623337c6bd63bf307}{\index{vector.\-h@{vector.\-h}!pop\-\_\-back@{pop\-\_\-back}}
 \index{pop\-\_\-back@{pop\-\_\-back}!vector.h@{vector.\-h}}
@@ -756,7 +896,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Copy the element into ret. \-This function assumes that ret is not \-N\-U\-L\-L and is large accept the element and just memcpy's it in. \-Similar to pop\-\_\-backs it is users responsibility. 
 
-\-Definition at line 1239 of file vector.\-c.
+\-Definition at line 1337 of file vector.\-c.
 
 \hypertarget{vector_8h_ad63b53355a5ec0829c19fece78497149}{\index{vector.\-h@{vector.\-h}!pop\-\_\-backd@{pop\-\_\-backd}}
 \index{pop\-\_\-backd@{pop\-\_\-backd}!vector.h@{vector.\-h}}
@@ -771,7 +911,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 475 of file vector.\-c.
+\-Definition at line 505 of file vector.\-c.
 
 \hypertarget{vector_8h_a8fea65bfdef42ddd75d601e32590d552}{\index{vector.\-h@{vector.\-h}!pop\-\_\-backi@{pop\-\_\-backi}}
 \index{pop\-\_\-backi@{pop\-\_\-backi}!vector.h@{vector.\-h}}
@@ -802,7 +942,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-String is freed. \-If ret != \-N\-U\-L\-L strcpy the last element into ret. \-It is the user's responsibility to make sure ret can receive it without error (ie ret has adequate space.) 
 
-\-Definition at line 816 of file vector.\-c.
+\-Definition at line 878 of file vector.\-c.
 
 \hypertarget{vector_8h_ac5862d0f414b0a4a485173615c1c0511}{\index{vector.\-h@{vector.\-h}!push\-\_\-back@{push\-\_\-back}}
 \index{push\-\_\-back@{push\-\_\-back}!vector.h@{vector.\-h}}
@@ -818,7 +958,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Capacity is increased by doubling when necessary. 
 
-\-Definition at line 1203 of file vector.\-c.
+\-Definition at line 1301 of file vector.\-c.
 
 \hypertarget{vector_8h_aec22afdb202bb430481b1ba919d46128}{\index{vector.\-h@{vector.\-h}!push\-\_\-backd@{push\-\_\-backd}}
 \index{push\-\_\-backd@{push\-\_\-backd}!vector.h@{vector.\-h}}
@@ -834,7 +974,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Capacity is increased by doubling when necessary. 
 
-\-Definition at line 456 of file vector.\-c.
+\-Definition at line 486 of file vector.\-c.
 
 \hypertarget{vector_8h_ac9ee8d01a2e12c23014b3bb5a1a3605b}{\index{vector.\-h@{vector.\-h}!push\-\_\-backi@{push\-\_\-backi}}
 \index{push\-\_\-backi@{push\-\_\-backi}!vector.h@{vector.\-h}}
@@ -866,7 +1006,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Capacity is increased by doubling when necessary. 
 
-\-Definition at line 794 of file vector.\-c.
+\-Definition at line 856 of file vector.\-c.
 
 \hypertarget{vector_8h_a7f6498e7460dafb6c94b7734776f9a9f}{\index{vector.\-h@{vector.\-h}!reserve@{reserve}}
 \index{reserve@{reserve}!vector.h@{vector.\-h}}
@@ -882,7 +1022,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 1353 of file vector.\-c.
+\-Definition at line 1480 of file vector.\-c.
 
 \hypertarget{vector_8h_ae17d88125d50322bb65975e2db402144}{\index{vector.\-h@{vector.\-h}!reserved@{reserved}}
 \index{reserved@{reserved}!vector.h@{vector.\-h}}
@@ -898,7 +1038,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 548 of file vector.\-c.
+\-Definition at line 610 of file vector.\-c.
 
 \hypertarget{vector_8h_a8e092364e24c40d44b2c7864b7123207}{\index{vector.\-h@{vector.\-h}!reservei@{reservei}}
 \index{reservei@{reservei}!vector.h@{vector.\-h}}
@@ -914,7 +1054,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 244 of file vector.\-c.
+\-Definition at line 274 of file vector.\-c.
 
 \hypertarget{vector_8h_aa0f9a5cb0911ac0030574b0a4f7ca8d4}{\index{vector.\-h@{vector.\-h}!reserves@{reserves}}
 \index{reserves@{reserves}!vector.h@{vector.\-h}}
@@ -930,7 +1070,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 899 of file vector.\-c.
+\-Definition at line 997 of file vector.\-c.
 
 \hypertarget{vector_8h_ab666e9f05742911262401567e4604a32}{\index{vector.\-h@{vector.\-h}!set\-\_\-capacity@{set\-\_\-capacity}}
 \index{set\-\_\-capacity@{set\-\_\-capacity}!vector.h@{vector.\-h}}
@@ -946,7 +1086,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-You will lose data if you shrink the capacity below the current size. \-If you do, the size will be set to capacity of course. 
 
-\-Definition at line 1372 of file vector.\-c.
+\-Definition at line 1499 of file vector.\-c.
 
 \hypertarget{vector_8h_ac3ac1d2e488610aa6ebf615299b41895}{\index{vector.\-h@{vector.\-h}!set\-\_\-capacityd@{set\-\_\-capacityd}}
 \index{set\-\_\-capacityd@{set\-\_\-capacityd}!vector.h@{vector.\-h}}
@@ -962,7 +1102,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-You will lose data if you shrink the capacity below the current size. \-If you do, the size will be set to capacity of course. 
 
-\-Definition at line 567 of file vector.\-c.
+\-Definition at line 629 of file vector.\-c.
 
 \hypertarget{vector_8h_ae6a6b79c99c999ba62d11485dff9baab}{\index{vector.\-h@{vector.\-h}!set\-\_\-capacityi@{set\-\_\-capacityi}}
 \index{set\-\_\-capacityi@{set\-\_\-capacityi}!vector.h@{vector.\-h}}
@@ -978,7 +1118,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-You will lose data if you shrink the capacity below the current size. \-If you do, the size will be set to capacity of course. 
 
-\-Definition at line 264 of file vector.\-c.
+\-Definition at line 294 of file vector.\-c.
 
 \hypertarget{vector_8h_a0a95f51036c470e26ebd78081a1d9611}{\index{vector.\-h@{vector.\-h}!set\-\_\-capacitys@{set\-\_\-capacitys}}
 \index{set\-\_\-capacitys@{set\-\_\-capacitys}!vector.h@{vector.\-h}}
@@ -994,7 +1134,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-You will lose data if you shrink the capacity below the current size. \-If you do, the size will be set to capacity of course. 
 
-\-Definition at line 917 of file vector.\-c.
+\-Definition at line 1015 of file vector.\-c.
 
 \hypertarget{vector_8h_a4dbaf5b0808db2a7995f1bfff760e719}{\index{vector.\-h@{vector.\-h}!set\-\_\-val\-\_\-cap@{set\-\_\-val\-\_\-cap}}
 \index{set\-\_\-val\-\_\-cap@{set\-\_\-val\-\_\-cap}!vector.h@{vector.\-h}}
@@ -1010,7 +1150,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-If you set a free function then size is set to capacity like \hyperlink{structvector__s}{vector\-\_\-s} for the same reason, ie \-I need to know that the free function needs to be called on those elements. \-T\-O\-D\-O \-Remove this function? \-Same reason as set\-\_\-val\-\_\-caps. 
 
-\-Definition at line 1420 of file vector.\-c.
+\-Definition at line 1547 of file vector.\-c.
 
 \hypertarget{vector_8h_a91942dfa8445dc68a39458dec459ddd7}{\index{vector.\-h@{vector.\-h}!set\-\_\-val\-\_\-capd@{set\-\_\-val\-\_\-capd}}
 \index{set\-\_\-val\-\_\-capd@{set\-\_\-val\-\_\-capd}!vector.h@{vector.\-h}}
@@ -1026,7 +1166,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 593 of file vector.\-c.
+\-Definition at line 655 of file vector.\-c.
 
 \hypertarget{vector_8h_a5a9fc4f9d82c885055dc3ab420d02c4d}{\index{vector.\-h@{vector.\-h}!set\-\_\-val\-\_\-capi@{set\-\_\-val\-\_\-capi}}
 \index{set\-\_\-val\-\_\-capi@{set\-\_\-val\-\_\-capi}!vector.h@{vector.\-h}}
@@ -1042,7 +1182,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 291 of file vector.\-c.
+\-Definition at line 321 of file vector.\-c.
 
 \hypertarget{vector_8h_a543e3898569734fc213f377838d48191}{\index{vector.\-h@{vector.\-h}!set\-\_\-val\-\_\-caps@{set\-\_\-val\-\_\-caps}}
 \index{set\-\_\-val\-\_\-caps@{set\-\_\-val\-\_\-caps}!vector.h@{vector.\-h}}
@@ -1058,7 +1198,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 \-Size is set to capacity in this case because strings are individually dynamically allocated. \-This is different from \hyperlink{structvector__i}{vector\-\_\-i}, \hyperlink{structvector__d}{vector\-\_\-d} and vector (without a free function) where the size stays the same. \-T\-O\-D\-O \-Remove this function? even more unnecessary than for \hyperlink{structvector__i}{vector\-\_\-i} and \hyperlink{structvector__d}{vector\-\_\-d} and different behavior 
 
-\-Definition at line 956 of file vector.\-c.
+\-Definition at line 1054 of file vector.\-c.
 
 \hypertarget{vector_8h_a8bdff9301773943a8d9214f3a6db6c0a}{\index{vector.\-h@{vector.\-h}!set\-\_\-val\-\_\-sz@{set\-\_\-val\-\_\-sz}}
 \index{set\-\_\-val\-\_\-sz@{set\-\_\-val\-\_\-sz}!vector.h@{vector.\-h}}
@@ -1074,7 +1214,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 1397 of file vector.\-c.
+\-Definition at line 1524 of file vector.\-c.
 
 \hypertarget{vector_8h_a8cf2604b6dfe8c10939e0ca4e4ef5868}{\index{vector.\-h@{vector.\-h}!set\-\_\-val\-\_\-szd@{set\-\_\-val\-\_\-szd}}
 \index{set\-\_\-val\-\_\-szd@{set\-\_\-val\-\_\-szd}!vector.h@{vector.\-h}}
@@ -1090,7 +1230,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 584 of file vector.\-c.
+\-Definition at line 646 of file vector.\-c.
 
 \hypertarget{vector_8h_ae345cec01d9c396aab73dbccc6f97ff5}{\index{vector.\-h@{vector.\-h}!set\-\_\-val\-\_\-szi@{set\-\_\-val\-\_\-szi}}
 \index{set\-\_\-val\-\_\-szi@{set\-\_\-val\-\_\-szi}!vector.h@{vector.\-h}}
@@ -1106,7 +1246,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 282 of file vector.\-c.
+\-Definition at line 312 of file vector.\-c.
 
 \hypertarget{vector_8h_a4422ebcd9d921efe075a1f93b9b50dd2}{\index{vector.\-h@{vector.\-h}!set\-\_\-val\-\_\-szs@{set\-\_\-val\-\_\-szs}}
 \index{set\-\_\-val\-\_\-szs@{set\-\_\-val\-\_\-szs}!vector.h@{vector.\-h}}
@@ -1122,7 +1262,7 @@ size\-\_\-t \hyperlink{vector_8h_a06c1ac920eb0f6d440d17cc1ab282df4}{\-V\-E\-C\-\
 
 
 
-\-Definition at line 940 of file vector.\-c.
+\-Definition at line 1038 of file vector.\-c.
 
 \hypertarget{vector_8h_aaf8dbad914b3146c53fa02399be67f48}{\index{vector.\-h@{vector.\-h}!vec@{vec}}
 \index{vec@{vec}!vector.h@{vector.\-h}}
@@ -1147,7 +1287,7 @@ elem\-\_\-init is only used in set\-\_\-val\-\_\-sz and set\-\_\-val\-\_\-cap be
 
 \-See the other functions and the tests for more behavioral/usage details. 
 
-\-Definition at line 1035 of file vector.\-c.
+\-Definition at line 1133 of file vector.\-c.
 
 \hypertarget{vector_8h_ac6cae8373e9423d3979d9a3706c683ef}{\index{vector.\-h@{vector.\-h}!vec\-\_\-copy@{vec\-\_\-copy}}
 \index{vec\-\_\-copy@{vec\-\_\-copy}!vector.h@{vector.\-h}}
@@ -1163,7 +1303,7 @@ elem\-\_\-init is only used in set\-\_\-val\-\_\-sz and set\-\_\-val\-\_\-cap be
 
 \-The parameters are void so it can be used as the constructor when making a vector of generic vector's. (\-I would recommend against doing that, and using generate\-\_\-code.\-py to make your own vector type and do a vector of those instead). \-Assumes dest (the structure) is already allocated (probably on the stack) and that capacity is 0 (ie the array doesn't need to be freed). 
 
-\-Definition at line 1170 of file vector.\-c.
+\-Definition at line 1268 of file vector.\-c.
 
 \hypertarget{vector_8h_a9ad53be632b2948cb650cec4ae63d506}{\index{vector.\-h@{vector.\-h}!vec\-\_\-d@{vec\-\_\-d}}
 \index{vec\-\_\-d@{vec\-\_\-d}!vector.h@{vector.\-h}}
@@ -1179,7 +1319,7 @@ elem\-\_\-init is only used in set\-\_\-val\-\_\-sz and set\-\_\-val\-\_\-cap be
 
 \-Vector size set to (size $>$ 0) ? size \-: 0; \-Capacity to (capacity $>$ vec-\/$>$size $|$$|$ (vec-\/$>$size \&\& capacity == vec-\/$>$size)) ? capacity \-: vec-\/$>$size + \-V\-E\-C\-\_\-\-D\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z in other words capacity has to be at least 1 and $>$= to vec-\/$>$size of course. 
 
-\-Definition at line 330 of file vector.\-c.
+\-Definition at line 360 of file vector.\-c.
 
 \hypertarget{vector_8h_a041f2354eeae85a76c853a6391d8c870}{\index{vector.\-h@{vector.\-h}!vec\-\_\-d\-\_\-stack@{vec\-\_\-d\-\_\-stack}}
 \index{vec\-\_\-d\-\_\-stack@{vec\-\_\-d\-\_\-stack}!vector.h@{vector.\-h}}
@@ -1196,7 +1336,7 @@ elem\-\_\-init is only used in set\-\_\-val\-\_\-sz and set\-\_\-val\-\_\-cap be
 
 \-Use the free\-\_\-vecd\-\_\-stack in that case. 
 
-\-Definition at line 387 of file vector.\-c.
+\-Definition at line 417 of file vector.\-c.
 
 \hypertarget{vector_8h_aa46156fb4f34b672a0ad7db2a8511b7b}{\index{vector.\-h@{vector.\-h}!vec\-\_\-get@{vec\-\_\-get}}
 \index{vec\-\_\-get@{vec\-\_\-get}!vector.h@{vector.\-h}}
@@ -1212,7 +1352,7 @@ elem\-\_\-init is only used in set\-\_\-val\-\_\-sz and set\-\_\-val\-\_\-cap be
 
 \-Another way to get elements from vector that is used in \hyperlink{vector__tests_8c}{vector\-\_\-tests.\-c} is a macro like this one \#define \hyperlink{vector__tests_8c_a097522f36be915c26e5fccbb262a40fd}{\-G\-E\-T\-\_\-\-E\-L\-E\-M\-E\-N\-T(\-X,\-Y,\-T\-Y\-P\-E)} ((\-T\-Y\-P\-E$\ast$)\&\-X.\-a\mbox{[}\-Y$\ast$\-X.elem\-\_\-size\mbox{]}) 
 
-\-Definition at line 1256 of file vector.\-c.
+\-Definition at line 1383 of file vector.\-c.
 
 \hypertarget{vector_8h_aec1735a3a634f7fb090f3836cdcb9d75}{\index{vector.\-h@{vector.\-h}!vec\-\_\-i@{vec\-\_\-i}}
 \index{vec\-\_\-i@{vec\-\_\-i}!vector.h@{vector.\-h}}
@@ -1261,7 +1401,7 @@ elem\-\_\-init is only used in set\-\_\-val\-\_\-sz and set\-\_\-val\-\_\-cap be
 
 \-Vector size set to (size $>$ 0) ? size \-: 0; \-Capacity to (capacity $>$ vec-\/$>$size $|$$|$ (vec-\/$>$size \&\& capacity == vec-\/$>$size)) ? capacity \-: vec-\/$>$size + \-V\-E\-C\-\_\-\-S\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z in other words capacity has to be at least 1 and $>$= to vec-\/$>$size of course. \-Note\-: \hyperlink{structvector__s}{vector\-\_\-s} does not copy pointers passed in but duplicates the strings they point to (using \hyperlink{vector_8c_a141b8e057d63a3ba14590139945e20a9}{mystrdup()}) so you don't have to worry about freeing or changing the contents of variables that you've pushed or inserted; it won't affect the values vector. 
 
-\-Definition at line 661 of file vector.\-c.
+\-Definition at line 723 of file vector.\-c.
 
 \hypertarget{vector_8h_a653f2a9b57e76d3c291626e5d57a2ba7}{\index{vector.\-h@{vector.\-h}!vec\-\_\-s\-\_\-stack@{vec\-\_\-s\-\_\-stack}}
 \index{vec\-\_\-s\-\_\-stack@{vec\-\_\-s\-\_\-stack}!vector.h@{vector.\-h}}
@@ -1278,7 +1418,7 @@ elem\-\_\-init is only used in set\-\_\-val\-\_\-sz and set\-\_\-val\-\_\-cap be
 
 \-Use the free\-\_\-vecs\-\_\-stack in that case 
 
-\-Definition at line 719 of file vector.\-c.
+\-Definition at line 781 of file vector.\-c.
 
 \hypertarget{vector_8h_a7b52853291d294b4477603669329cf19}{\index{vector.\-h@{vector.\-h}!vec\-\_\-stack@{vec\-\_\-stack}}
 \index{vec\-\_\-stack@{vec\-\_\-stack}!vector.h@{vector.\-h}}
@@ -1298,7 +1438,7 @@ elem\-\_\-init is only used in set\-\_\-val\-\_\-sz and set\-\_\-val\-\_\-cap be
 
 \-Use the free\-\_\-vec\-\_\-stack in that case 
 
-\-Definition at line 1109 of file vector.\-c.
+\-Definition at line 1207 of file vector.\-c.
 
 \hypertarget{vector_8h_af94d78c744f4167ac78ee9c22c725433}{\index{vector.\-h@{vector.\-h}!vecd\-\_\-copy@{vecd\-\_\-copy}}
 \index{vecd\-\_\-copy@{vecd\-\_\-copy}!vector.h@{vector.\-h}}
@@ -1314,7 +1454,7 @@ elem\-\_\-init is only used in set\-\_\-val\-\_\-sz and set\-\_\-val\-\_\-cap be
 
 \-The parameters are void so it can be used as the constructor when making a vector of \hyperlink{structvector__d}{vector\-\_\-d}'s. \-Assumes dest (the structure) is already allocated (probably on the stack) and that capacity is 0 (ie the array doesn't need to be freed). 
 
-\-Definition at line 428 of file vector.\-c.
+\-Definition at line 458 of file vector.\-c.
 
 \hypertarget{vector_8h_a7d8106e39b80ad7a82fc10a7cc500817}{\index{vector.\-h@{vector.\-h}!veci\-\_\-copy@{veci\-\_\-copy}}
 \index{veci\-\_\-copy@{veci\-\_\-copy}!vector.h@{vector.\-h}}
@@ -1346,7 +1486,7 @@ elem\-\_\-init is only used in set\-\_\-val\-\_\-sz and set\-\_\-val\-\_\-cap be
 
 \-The parameters are void so it can be used as the constructor when making a vector of \hyperlink{structvector__s}{vector\-\_\-s}'s. \-Assumes dest (the structure) is already allocated (probably on the stack) and that capacity is 0 (ie the array doesn't need to be freed). 
 
-\-Definition at line 766 of file vector.\-c.
+\-Definition at line 828 of file vector.\-c.
 
 
 

@@ -139,6 +139,29 @@ short pop_back_short(vector_short* vec)
 	return vec->a[--vec->size];
 }
 
+short* back_short(vector_short* vec)
+{
+	return &vec->a[vec->size-1];
+}
+
+
+int extend_short(vector_short* vec, size_t num)
+{
+	void* tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + VECTOR_short_SZ;
+		if (!(tmp = realloc(vec->a, sizeof(short)*tmp_sz))) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	vec->size += num;
+	return 1;
+}
 
 
 int insert_short(vector_short* vec, size_t i, short a)

@@ -64,6 +64,7 @@ void veci_copy(void* dest, void* src);
 int push_backi(vector_i* vec, int a);
 int pop_backi(vector_i* vec);
 
+int extendi(vector_i* vec, size_t num);
 int inserti(vector_i* vec, size_t i, int a);
 int insert_arrayi(vector_i* vec, size_t i, int* a, size_t num);
 void erasei(vector_i* vec, size_t start, size_t end);
@@ -71,6 +72,8 @@ int reservei(vector_i* vec, size_t size);
 int set_capacityi(vector_i* vec, size_t size);
 void set_val_szi(vector_i* vec, int val);
 void set_val_capi(vector_i* vec, int val);
+
+int* backi(vector_i* vec);
 
 void cleari(vector_i* vec);
 void free_veci(void* vec);
@@ -90,6 +93,7 @@ void vecd_copy(void* dest, void* src);
 int push_backd(vector_d* vec, double a);
 double pop_backd(vector_d* vec);
 
+int extendd(vector_d* vec, size_t num);
 int insertd(vector_d* vec, size_t i, double a);
 int insert_arrayd(vector_d* vec, size_t i, double* a, size_t num);
 void erased(vector_d* vec, size_t start, size_t end);
@@ -97,6 +101,8 @@ int reserved(vector_d* vec, size_t size);
 int set_capacityd(vector_d* vec, size_t size);
 void set_val_szd(vector_d* vec, double val);
 void set_val_capd(vector_d* vec, double val);
+
+double* backd(vector_d* vec);
 
 void cleard(vector_d* vec);
 void free_vecd(void* vec);
@@ -115,6 +121,7 @@ void vecs_copy(void* dest, void* src);
 int push_backs(vector_s* vec, char* a);
 void pop_backs(vector_s* vec, char* ret);
 
+int extends(vector_s* vec, size_t num);
 int inserts(vector_s* vec, size_t i, char* a);
 int insert_arrays(vector_s* vec, size_t i, char** , size_t num);
 void erases(vector_s* vec, size_t start, size_t end);
@@ -122,6 +129,8 @@ int reserves(vector_s* vec, size_t size);
 int set_capacitys(vector_s* vec, size_t size);
 void set_val_szs(vector_s* vec, char* val);
 void set_val_caps(vector_s* vec, char* val);
+
+char** backs(vector_s* vec);
 
 void clears(vector_s* vec);
 void free_vecs(void* vec);
@@ -143,6 +152,7 @@ int push_back(vector* vec, void* val);
 void pop_back(vector* vec, void* ret);
 void* vec_get(vector* vec, size_t i);
 
+int extend(vector* vec, size_t num);
 int insert(vector* vec, size_t i, void* a);
 int insert_array(vector* vec, size_t i, void* a, size_t num);
 void erase(vector* vec, size_t start, size_t end);
@@ -150,6 +160,8 @@ int reserve(vector* vec, size_t size);
 int set_capacity(vector* vec, size_t size);
 void set_val_sz(vector* vec, void* val);
 void set_val_cap(vector* vec, void* val);
+
+void* back(vector* vec);
 
 void clear(vector* vec);
 void free_vec(void* vec);

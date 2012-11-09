@@ -139,6 +139,29 @@ TYPE pop_back_TYPE(vector_TYPE* vec)
 	return vec->a[--vec->size];
 }
 
+TYPE* back_TYPE(vector_TYPE* vec)
+{
+	return &vec->a[vec->size-1];
+}
+
+
+int extend_TYPE(vector_TYPE* vec, size_t num)
+{
+	void* tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + VECTOR_TYPE_SZ;
+		if (!(tmp = realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	vec->size += num;
+	return 1;
+}
 
 
 int insert_TYPE(vector_TYPE* vec, size_t i, TYPE a)

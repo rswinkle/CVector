@@ -30,6 +30,7 @@ void vec_short_copy(void* dest, void* src);
 int push_back_short(vector_short* vec, short a);
 short pop_back_short(vector_short* vec);
 
+int extend_short(vector_short* vec, size_t num);
 int insert_short(vector_short* vec, size_t i, short a);
 int insert_array_short(vector_short* vec, size_t i, short* a, size_t num);
 void erase_short(vector_short* vec, size_t start, size_t end);
@@ -37,6 +38,9 @@ int reserve_short(vector_short* vec, size_t size);
 int set_capacity_short(vector_short* vec, size_t size);
 void set_val_sz_short(vector_short* vec, short val);
 void set_val_cap_short(vector_short* vec, short val);
+
+short* back_short(vector_short* vec);
+
 
 /*you really don't need these; you could just check
 them directly */

@@ -170,6 +170,36 @@ int pop_backi(vector_i* vec)
 	return vec->a[--vec->size];
 }
 
+/** Return pointer to last element */
+int* backi(vector_i* vec)
+{
+	return &vec->a[vec->size-1];
+}
+
+
+
+/** Increase the size of the array num items.  Items
+ *  are not initialized to anything */
+int extendi(vector_i* vec, size_t num)
+{
+	void* tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + VEC_I_START_SZ;
+		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	vec->size += num;
+	return 1;
+}
+
+
+
 
 /**
  * Insert a at index i (0 based).
@@ -476,6 +506,38 @@ double pop_backd(vector_d* vec)
 {
 	return vec->a[--vec->size];
 }
+
+
+/** Return pointer to last element */
+double* backd(vector_d* vec)
+{
+	return &vec->a[vec->size-1];
+}
+
+
+
+
+/** Increase the size of the array num items.  Items
+ *  are not initialized to anything */
+int extendd(vector_d* vec, size_t num)
+{
+	void* tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + VEC_I_START_SZ;
+		if (!(tmp = realloc(vec->a, sizeof(double)*tmp_sz))) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	vec->size += num;
+	return 1;
+}
+
+
 
 
 /**
@@ -819,6 +881,42 @@ void pop_backs(vector_s* vec, char* ret)
 		strcpy(ret, vec->a[--vec->size]);
 	free(vec->a[vec->size]);
 }
+
+/** Return pointer to last element */
+char** backs(vector_s* vec)
+{
+	return &vec->a[vec->size-1];
+}
+
+
+
+
+
+
+/** Increase the size of the array num items.  Items
+ *  are memset to NULL since they will be freed when
+    popped or the vector is freed.*/
+int extends(vector_s* vec, size_t num)
+{
+	void* tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + VEC_I_START_SZ;
+		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	memset(&vec->a[vec->size], 0, num*sizeof(char*));
+	vec->size += num;
+	return 1;
+}
+
+
+
 
 /**
  * Insert a at index i (0 based).
@@ -1245,8 +1343,37 @@ void pop_back(vector* vec, void* ret)
 
 	if (vec->elem_free)
 		vec->elem_free(&vec->a[vec->size*vec->elem_size]);
-
 }
+
+/** Return pointer to last element */
+void* back(vector* vec)
+{
+	return &vec->a[(vec->size-1)*vec->elem_size];
+}
+
+
+
+
+/** Increase the size of the array num items.  Items
+ *  are not initialized to anything! */
+int extend(vector* vec, size_t num)
+{
+	void* tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + VEC_I_START_SZ;
+		if (!(tmp = realloc(vec->a, vec->elem_size*tmp_sz))) {
+			STDERR("Error allocating memory\n");
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	vec->size += num;
+	return 1;
+}
+
 
 /** Return a void pointer to the ith element.
   * Another way to get elements from vector that is used in vector_tests.c
@@ -1543,14 +1670,14 @@ I've also run it under valgrind and there are no memory leaks.
 valgrind --leak-check=yes ./vector
 
 <pre>
-==3335== HEAP SUMMARY:
-==3335==     in use at exit: 0 bytes in 0 blocks
-==3335==   total heap usage: 4,983 allocs, 4,983 frees, 798,643 bytes allocated
-==3335== 
-==3335== All heap blocks were freed -- no leaks are possible
-==3335== 
-==3335== For counts of detected and suppressed errors, rerun with: -v
-==3335== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==6290== HEAP SUMMARY:
+==6290==     in use at exit: 0 bytes in 0 blocks
+==6290==   total heap usage: 4,982 allocs, 4,982 frees, 798,387 bytes allocated
+==6290== 
+==6290== All heap blocks were freed -- no leaks are possible
+==6290== 
+==6290== For counts of detected and suppressed errors, rerun with: -v
+==6290== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 </pre>
 
 You can probably get Cunit from your package manager but

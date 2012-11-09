@@ -28,7 +28,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cvector
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.01</span>
    </div>
    <div id="projectbrief">A C++ style vector library in strict ANSI C (C89)</div>
   </td>
@@ -112,6 +112,10 @@ Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a to end of vector (size increased 1).  <a href="#ac9ee8d01a2e12c23014b3bb5a1a3605b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a8fea65bfdef42ddd75d601e32590d552">pop_backi</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove and return the last element (size decreased 1).  <a href="#a8fea65bfdef42ddd75d601e32590d552"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a0f6b6c1b3b012bbd8e74ed5172e3e473">backi</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pointer to last element.  <a href="#a0f6b6c1b3b012bbd8e74ed5172e3e473"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#abd200937f5662a34cb071eb7ffc8ae20">extendi</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t num)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Increase the size of the array num items.  <a href="#abd200937f5662a34cb071eb7ffc8ae20"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a84e557f52c83e9f7003a98c332b571d5">inserti</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, int a)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a at index i (0 based).  <a href="#a84e557f52c83e9f7003a98c332b571d5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a086249a206e69f2d98d50624a17b75f1">insert_arrayi</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, int *a, size_t num)</td></tr>
@@ -146,6 +150,10 @@ Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a to end of vector (size increased 1).  <a href="#aec22afdb202bb430481b1ba919d46128"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#ad63b53355a5ec0829c19fece78497149">pop_backd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove and return the last element (size decreased 1).  <a href="#ad63b53355a5ec0829c19fece78497149"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#afd5b64838b373d3afdedc7376deb825d">backd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pointer to last element.  <a href="#afd5b64838b373d3afdedc7376deb825d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#ac2b32eef4befa3c059ddcd273f249c53">extendd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t num)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Increase the size of the array num items.  <a href="#ac2b32eef4befa3c059ddcd273f249c53"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a27cda61f4446cb298f30c78ea250ffe0">insertd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, double a)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a at index i (0 based).  <a href="#a27cda61f4446cb298f30c78ea250ffe0"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a3ce694f26d7f8b299c4757b167fffd11">insert_arrayd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, double *a, size_t num)</td></tr>
@@ -186,6 +194,10 @@ Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a to end of vector (size increased 1).  <a href="#ac150af7158211651585db98ea24f480b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a7b17af16d628d983e29caab7b9f41d18">pop_backs</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, char *ret)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the last element (size decreased 1).  <a href="#a7b17af16d628d983e29caab7b9f41d18"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a1644b145740f2ee5ac81798560362ec6">backs</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pointer to last element.  <a href="#a1644b145740f2ee5ac81798560362ec6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#ac09d782c20df1053d668ae262da40007">extends</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t num)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Increase the size of the array num items.  <a href="#ac09d782c20df1053d668ae262da40007"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a51c617708ae543ff9de78c9fec30b5f5">inserts</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, char *a)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a at index i (0 based).  <a href="#a51c617708ae543ff9de78c9fec30b5f5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a4e308bd791aea2bd6edda24aa76da098">insert_arrays</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, char **a, size_t num)</td></tr>
@@ -220,6 +232,10 @@ Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a to end of vector (size increased 1).  <a href="#a85bc92d9a0581f02cf2f5bd6cec8b377"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a5c74d211538266d623337c6bd63bf307">pop_back</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, void *ret)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the last element (size decreased 1).  <a href="#a5c74d211538266d623337c6bd63bf307"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#af0f33ee9be2400de2bb2fc2024c6ddea">back</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pointer to last element.  <a href="#af0f33ee9be2400de2bb2fc2024c6ddea"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#a9b4cb0d7e7184caf8612d54ac5391086">extend</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t num)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Increase the size of the array num items.  <a href="#a9b4cb0d7e7184caf8612d54ac5391086"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#aa46156fb4f34b672a0ad7db2a8511b7b">vec_get</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a void pointer to the ith element.  <a href="#aa46156fb4f34b672a0ad7db2a8511b7b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8c.html#ad7021cbfcd3b26cf5a4d68270e01532f">insert</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, void *a)</td></tr>
@@ -346,6 +362,90 @@ Variables</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
+<a class="anchor" id="af0f33ee9be2400de2bb2fc2024c6ddea"></a><!-- doxytag: member="vector.c::back" ref="af0f33ee9be2400de2bb2fc2024c6ddea" args="(vector *vec)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* <a class="el" href="vector_8h.html#af0f33ee9be2400de2bb2fc2024c6ddea">back</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvector.html">vector</a> *&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Return pointer to last element. </p>
+
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01349">1349</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afd5b64838b373d3afdedc7376deb825d"></a><!-- doxytag: member="vector.c::backd" ref="afd5b64838b373d3afdedc7376deb825d" args="(vector_d *vec)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* <a class="el" href="vector_8h.html#afd5b64838b373d3afdedc7376deb825d">backd</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Return pointer to last element. </p>
+
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00512">512</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0f6b6c1b3b012bbd8e74ed5172e3e473"></a><!-- doxytag: member="vector.c::backi" ref="a0f6b6c1b3b012bbd8e74ed5172e3e473" args="(vector_i *vec)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int* <a class="el" href="vector_8h.html#a0f6b6c1b3b012bbd8e74ed5172e3e473">backi</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Return pointer to last element. </p>
+
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00174">174</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1644b145740f2ee5ac81798560362ec6"></a><!-- doxytag: member="vector.c::backs" ref="a1644b145740f2ee5ac81798560362ec6" args="(vector_s *vec)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char** <a class="el" href="vector_8h.html#a1644b145740f2ee5ac81798560362ec6">backs</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Return pointer to last element. </p>
+
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00886">886</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ac569174c53ee3732e4b32fd022a224bd"></a><!-- doxytag: member="vector.c::capacityd" ref="ac569174c53ee3732e4b32fd022a224bd" args="(vector_d *vec)" -->
 <div class="memitem">
 <div class="memproto">
@@ -363,7 +463,7 @@ Variables</h2></td></tr>
 
 <p>If you don't want to access capacity directly for some reason. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00603">603</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00665">665</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -384,7 +484,7 @@ Variables</h2></td></tr>
 
 <p>Sets size to 0 (does not change contents unless elem_free is set then it will free all size elements as in <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a>). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01442">1442</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01569">1569</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -405,7 +505,7 @@ Variables</h2></td></tr>
 
 <p>Sets size to 0 (does not clear contents). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00609">609</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00671">671</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -426,7 +526,7 @@ Variables</h2></td></tr>
 
 <p>Sets size to 0 (does not clear contents). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00300">300</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00330">330</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -447,7 +547,7 @@ Variables</h2></td></tr>
 
 <p>Clears the contents of vector (frees all strings) and sets size to 0. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00970">970</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01068">1068</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -486,7 +586,7 @@ Variables</h2></td></tr>
 <p>Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element that was at index 4 would now be at 1 etc.</p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>check start and end in range? </dd></dl>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01339">1339</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01466">1466</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -525,7 +625,7 @@ Variables</h2></td></tr>
 <p>Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element that was at index 4 would now be at 1 etc.</p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>check start and end in range? </dd></dl>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00539">539</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00601">601</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -564,7 +664,7 @@ Variables</h2></td></tr>
 <p>Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element that was at index 4 would now be at 1 etc.</p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>check start and end in range? </dd></dl>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00235">235</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00265">265</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -602,7 +702,135 @@ Variables</h2></td></tr>
 <p>Erases strings from start to end inclusive. </p>
 <p>Example erases(myvec, 1, 3) would free and remove strings at 1, 2, and 3 and the string that was at index 4 would now be at 1 etc. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00883">883</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00981">981</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9b4cb0d7e7184caf8612d54ac5391086"></a><!-- doxytag: member="vector.c::extend" ref="a9b4cb0d7e7184caf8612d54ac5391086" args="(vector *vec, size_t num)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="vector_8h.html#a9b4cb0d7e7184caf8612d54ac5391086">extend</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvector.html">vector</a> *&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Increase the size of the array num items. </p>
+<p>Items are not initialized to anything! </p>
+
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01359">1359</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac2b32eef4befa3c059ddcd273f249c53"></a><!-- doxytag: member="vector.c::extendd" ref="ac2b32eef4befa3c059ddcd273f249c53" args="(vector_d *vec, size_t num)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="vector_8h.html#ac2b32eef4befa3c059ddcd273f249c53">extendd</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Increase the size of the array num items. </p>
+<p>Items are not initialized to anything </p>
+
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00522">522</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd200937f5662a34cb071eb7ffc8ae20"></a><!-- doxytag: member="vector.c::extendi" ref="abd200937f5662a34cb071eb7ffc8ae20" args="(vector_i *vec, size_t num)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="vector_8h.html#abd200937f5662a34cb071eb7ffc8ae20">extendi</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Increase the size of the array num items. </p>
+<p>Items are not initialized to anything </p>
+
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00183">183</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac09d782c20df1053d668ae262da40007"></a><!-- doxytag: member="vector.c::extends" ref="ac09d782c20df1053d668ae262da40007" args="(vector_s *vec, size_t num)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="vector_8h.html#ac09d782c20df1053d668ae262da40007">extends</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Increase the size of the array num items. </p>
+<p>Items are memset to NULL since they will be freed when popped or the vector is freed. </p>
+
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00899">899</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -624,7 +852,7 @@ Variables</h2></td></tr>
 <p>Frees everything so don't use vec after calling this. </p>
 <p>If you set a free function it will be called on all size elements of course. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01456">1456</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01583">1583</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -645,7 +873,7 @@ Variables</h2></td></tr>
 
 <p>Frees the internal array and sets size and capacity to 0. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01470">1470</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01597">1597</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -666,7 +894,7 @@ Variables</h2></td></tr>
 
 <p>Frees everything so don't use vec after calling this. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00613">613</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00675">675</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -687,7 +915,7 @@ Variables</h2></td></tr>
 
 <p>Frees the internal array and sets size and capacity to 0. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00621">621</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00683">683</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -708,7 +936,7 @@ Variables</h2></td></tr>
 
 <p>Frees everything so don't use vec after calling this. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00303">303</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00333">333</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -729,7 +957,7 @@ Variables</h2></td></tr>
 
 <p>Frees the internal array and sets size and capacity to 0. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00311">311</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00341">341</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -750,7 +978,7 @@ Variables</h2></td></tr>
 
 <p>Frees contents (individual strings and array) and frees vector so don't use after calling this. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00981">981</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01079">1079</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -771,7 +999,7 @@ Variables</h2></td></tr>
 
 <p>Frees the internal array and sets size and capacity to 0. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00994">994</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01092">1092</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -821,7 +1049,7 @@ Variables</h2></td></tr>
 <p>Create and initialize vector with num elements of vals. </p>
 <p>If vals is NULL, capacity is set to num + VEC_I_START_SZ. Size is set to num in the first place, 0 otherwise. elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ). See <a class="el" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec()</a> for more information about the elem_free and elem_init parameters. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01069">1069</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01167">1167</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -853,7 +1081,7 @@ Variables</h2></td></tr>
 <p>Create and initialize <a class="el" href="structvector__d.html" title="Data structure for double vector.">vector_d</a> with num elements of vals. </p>
 <p>Capacity is set to num + VEC_D_START_SZ. If vals == NULL or num &lt; 1 return NULL (you should just be using <a class="el" href="vector_8h.html#a9ad53be632b2948cb650cec4ae63d506" title="Creates a new vector_d.">vec_d(size_t, size_t)</a>) </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00358">358</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00388">388</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -891,7 +1119,7 @@ Variables</h2></td></tr>
 <p>Same as <a class="el" href="vector_8c.html#aa0a2179ce6d677fec9ff95c08b575eec" title="Create and initialize vector_d with num elements of vals.">init_vec_d()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
 <p>Use the free_vecd_stack in that case. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00404">404</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00434">434</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -993,7 +1221,7 @@ Variables</h2></td></tr>
 <p>Create and initialize <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a> with num elements of vals. </p>
 <p>If vals is NULL, or num &lt; 1, it returns NULL. You should use vec_s(size_t) instead in those cases. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00688">688</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00750">750</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1031,7 +1259,7 @@ Variables</h2></td></tr>
 <p>Same as <a class="el" href="vector_8c.html#abc4e4cc2141775d6e9994d8379c3cd6f" title="Create and initialize vector_s with num elements of vals.">init_vec_s()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
 <p>Use the free_vecs_stack in that case </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00738">738</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00800">800</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1087,7 +1315,7 @@ Variables</h2></td></tr>
 <p>Same as <a class="el" href="vector_8c.html#a368ba8d1bd2ed240a7b0527ac752cc3c" title="Create and initialize vector with num elements of vals.">init_vec()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
 <p>Use the free_vec_stack in that case </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01131">1131</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01229">1229</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1126,7 +1354,7 @@ Variables</h2></td></tr>
 <p>Everything from that index and right is shifted one to the right. </p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>check for i &lt; 0 or &gt; size-1? </dd></dl>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01268">1268</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01395">1395</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1170,7 +1398,7 @@ Variables</h2></td></tr>
 <p>Insert the first num elements of array a at index i. </p>
 <p>Note that it is the user's responsibility to pass in valid arguments. Also memcpy is used (when there is no elem_init function) so don't try to insert part of the vector array into itself (that would require memmove) </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01308">1308</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01435">1435</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1214,7 +1442,7 @@ Variables</h2></td></tr>
 <p>Insert the first num elements of array a at index i. </p>
 <p>Note that it is the user's responsibility to pass in valid arguments. Also memcpy is used so don't try to insert part of the vector array into itself (that would require memmove) </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00512">512</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00574">574</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1258,7 +1486,7 @@ Variables</h2></td></tr>
 <p>Insert the first num elements of array a at index i. </p>
 <p>Note that it is the user's responsibility to pass in valid arguments. Also memcpy is used so don't try to insert part of the vector array into itself (that would require memmove) </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00206">206</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00236">236</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1302,7 +1530,7 @@ Variables</h2></td></tr>
 <p>Insert the first num elements of array a at index i. </p>
 <p>Note that it is the user's responsibility to pass in valid arguments. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00854">854</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00952">952</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1341,7 +1569,7 @@ Variables</h2></td></tr>
 <p>Everything from that index and right is shifted one to the right. </p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>check for i &lt; 0 or &gt; size ? </dd></dl>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00486">486</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00548">548</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1380,7 +1608,7 @@ Variables</h2></td></tr>
 <p>Everything from that index and right is shifted one to the right. </p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>check for i &lt; 0 or &gt; size ? </dd></dl>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00179">179</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00209">209</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1419,7 +1647,7 @@ Variables</h2></td></tr>
 <p>Everything from that index and right is shifted one to the right. </p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>check for i &lt; 0 or &gt; size ? </dd></dl>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00828">828</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00926">926</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1440,7 +1668,7 @@ Variables</h2></td></tr>
 
 <p>Useful utility function since strdup isn't in standard C. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00636">636</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00698">698</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1472,7 +1700,7 @@ Variables</h2></td></tr>
 <p>Remove the last element (size decreased 1). </p>
 <p>Copy the element into ret. This function assumes that ret is not NULL and is large accept the element and just memcpy's it in. Similar to pop_backs it is users responsibility. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01239">1239</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01337">1337</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1493,7 +1721,7 @@ Variables</h2></td></tr>
 
 <p>Remove and return the last element (size decreased 1). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00475">475</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00505">505</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1546,7 +1774,7 @@ Variables</h2></td></tr>
 <p>Remove the last element (size decreased 1). </p>
 <p>String is freed. If ret != NULL strcpy the last element into ret. It is the user's responsibility to make sure ret can receive it without error (ie ret has adequate space.) </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00816">816</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00878">878</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1578,7 +1806,7 @@ Variables</h2></td></tr>
 <p>Append a to end of vector (size increased 1). </p>
 <p>Capacity is increased by doubling when necessary. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01203">1203</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01301">1301</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1610,7 +1838,7 @@ Variables</h2></td></tr>
 <p>Append a to end of vector (size increased 1). </p>
 <p>Capacity is increased by doubling when necessary. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00456">456</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00486">486</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1674,7 +1902,7 @@ Variables</h2></td></tr>
 <p>Append a to end of vector (size increased 1). </p>
 <p>Capacity is increased by doubling when necessary. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00794">794</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00856">856</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1705,7 +1933,7 @@ Variables</h2></td></tr>
 
 <p>Makes sure capacity &gt;= size (the parameter not the member). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01353">1353</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01480">1480</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1736,7 +1964,7 @@ Variables</h2></td></tr>
 
 <p>Make sure capacity is at least size(parameter not member). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00548">548</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00610">610</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1767,7 +1995,7 @@ Variables</h2></td></tr>
 
 <p>Make sure capacity is at least size(parameter not member). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00244">244</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00274">274</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1798,7 +2026,7 @@ Variables</h2></td></tr>
 
 <p>Makes sure the vector capacity is &gt;= size (parameter not member). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00899">899</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00997">997</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1830,7 +2058,7 @@ Variables</h2></td></tr>
 <p>Set capacity to size. </p>
 <p>You will lose data if you shrink the capacity below the current size. If you do, the size will be set to capacity of course. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01372">1372</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01499">1499</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1862,7 +2090,7 @@ Variables</h2></td></tr>
 <p>Set capacity to size. </p>
 <p>You will lose data if you shrink the capacity below the current size. If you do, the size will be set to capacity of course. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00567">567</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00629">629</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1894,7 +2122,7 @@ Variables</h2></td></tr>
 <p>Set capacity to size. </p>
 <p>You will lose data if you shrink the capacity below the current size. If you do, the size will be set to capacity of course. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00264">264</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00294">294</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1926,7 +2154,7 @@ Variables</h2></td></tr>
 <p>Set capacity to size. </p>
 <p>You will lose data if you shrink the capacity below the current size. If you do, the size will be set to capacity of course. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00917">917</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01015">1015</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1958,7 +2186,7 @@ Variables</h2></td></tr>
 <p>Fills entire allocated array (capacity) with val. </p>
 <p>If you set a free function then size is set to capacity like <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a> for the same reason, ie I need to know that the free function needs to be called on those elements. TODO Remove this function? Same reason as set_val_caps. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01420">1420</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01547">1547</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1989,7 +2217,7 @@ Variables</h2></td></tr>
 
 <p>Fills entire allocated array (capacity) with val. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00593">593</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00655">655</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2020,7 +2248,7 @@ Variables</h2></td></tr>
 
 <p>Fills entire allocated array (capacity) with val. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00291">291</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00321">321</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2052,7 +2280,7 @@ Variables</h2></td></tr>
 <p>Fills entire allocated array (capacity) with val. </p>
 <p>Size is set to capacity in this case because strings are individually dynamically allocated. This is different from <a class="el" href="structvector__i.html" title="Data structur for int vector.">vector_i</a>, <a class="el" href="structvector__d.html" title="Data structure for double vector.">vector_d</a> and vector (without a free function) where the size stays the same. TODO Remove this function? even more unnecessary than for <a class="el" href="structvector__i.html" title="Data structur for int vector.">vector_i</a> and <a class="el" href="structvector__d.html" title="Data structure for double vector.">vector_d</a> and different behavior </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00956">956</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01054">1054</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2083,7 +2311,7 @@ Variables</h2></td></tr>
 
 <p>Set all size elements to val. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01397">1397</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01524">1524</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2114,7 +2342,7 @@ Variables</h2></td></tr>
 
 <p>Set all size elements to val. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00584">584</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00646">646</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2145,7 +2373,7 @@ Variables</h2></td></tr>
 
 <p>Set all size elements to val. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00282">282</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00312">312</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2176,7 +2404,7 @@ Variables</h2></td></tr>
 
 <p>Sets all size elements to val. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00940">940</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01038">1038</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2197,7 +2425,7 @@ Variables</h2></td></tr>
 
 <p>If you don't want to access size directly for some reason. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00606">606</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00668">668</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2250,7 +2478,7 @@ Variables</h2></td></tr>
 <p>elem_init is only used in set_val_sz and set_val_cap because in those cases you are setting many elements to a single "value" and using the elem_init functionality you can provide what amounts to a copy constructor which duplicates dynamically allocated memory instead of just copying the pointer ie just like strdup or mystrdup does with a string. This allows the free function to work correctly when called on all those elements. If you didn't provide an elem_init function but did provide a free function, then after calling one of the set_val functions, eventually the free function would be called on all those elements and you'd get a double free or corruption error.</p>
 <p>See the other functions and the tests for more behavioral/usage details. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01035">1035</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01133">1133</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2282,7 +2510,7 @@ Variables</h2></td></tr>
 <p>Makes dest an identical copy of src. </p>
 <p>The parameters are void so it can be used as the constructor when making a vector of generic vector's. (I would recommend against doing that, and using generate_code.py to make your own vector type and do a vector of those instead). Assumes dest (the structure) is already allocated (probably on the stack) and that capacity is 0 (ie the array doesn't need to be freed). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01170">1170</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01268">1268</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2314,7 +2542,7 @@ Variables</h2></td></tr>
 <p>Creates a new <a class="el" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>. </p>
 <p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + VEC_D_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00330">330</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00360">360</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2352,7 +2580,7 @@ Variables</h2></td></tr>
 <p>Same as <a class="el" href="vector_8c.html#a9ad53be632b2948cb650cec4ae63d506" title="Creates a new vector_d.">vec_d()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
 <p>Use the free_vecd_stack in that case. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00387">387</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00417">417</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2384,7 +2612,7 @@ Variables</h2></td></tr>
 <p>Return a void pointer to the ith element. </p>
 <p>Another way to get elements from vector that is used in <a class="el" href="vector__tests_8c.html">vector_tests.c</a> is a macro like this one #define <a class="el" href="vector__tests_8c.html#a097522f36be915c26e5fccbb262a40fd">GET_ELEMENT(X,Y,TYPE)</a> ((TYPE*)&amp;X.a[Y*X.elem_size]) </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01256">1256</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01383">1383</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2486,7 +2714,7 @@ Variables</h2></td></tr>
 <p>Create a new <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a>. </p>
 <p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + VEC_S_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. Note: <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a> does not copy pointers passed in but duplicates the strings they point to (using <a class="el" href="vector_8c.html#a141b8e057d63a3ba14590139945e20a9" title="Useful utility function since strdup isn&#39;t in standard C.">mystrdup()</a>) so you don't have to worry about freeing or changing the contents of variables that you've pushed or inserted; it won't affect the values vector. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00661">661</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00723">723</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2524,7 +2752,7 @@ Variables</h2></td></tr>
 <p>Same as <a class="el" href="vector_8c.html#af87364881c95d92a59e4471f200f7f7a" title="Create a new vector_s.">vec_s()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
 <p>Use the free_vecs_stack in that case </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00719">719</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00781">781</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2580,7 +2808,7 @@ Variables</h2></td></tr>
 <p>Same as <a class="el" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
 <p>Use the free_vec_stack in that case </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01109">1109</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l01207">1207</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2612,7 +2840,7 @@ Variables</h2></td></tr>
 <p>Makes dest an identical copy of src. </p>
 <p>The parameters are void so it can be used as the constructor when making a vector of <a class="el" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>'s. Assumes dest (the structure) is already allocated (probably on the stack) and that capacity is 0 (ie the array doesn't need to be freed). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00428">428</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00458">458</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2676,7 +2904,7 @@ Variables</h2></td></tr>
 <p>Makes dest an identical copy of src. </p>
 <p>The parameters are void so it can be used as the constructor when making a vector of <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a>'s. Assumes dest (the structure) is already allocated (probably on the stack) and that capacity is 0 (ie the array doesn't need to be freed). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00766">766</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00828">828</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2759,7 +2987,7 @@ Variables</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 30 2012 13:36:47 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 8 2012 22:25:06 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

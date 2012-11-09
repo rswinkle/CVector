@@ -30,6 +30,7 @@ void vec_TYPE_copy(void* dest, void* src);
 int push_back_TYPE(vector_TYPE* vec, TYPE a);
 TYPE pop_back_TYPE(vector_TYPE* vec);
 
+int extend_TYPE(vector_TYPE* vec, size_t num);
 int insert_TYPE(vector_TYPE* vec, size_t i, TYPE a);
 int insert_array_TYPE(vector_TYPE* vec, size_t i, TYPE* a, size_t num);
 void erase_TYPE(vector_TYPE* vec, size_t start, size_t end);
@@ -37,6 +38,9 @@ int reserve_TYPE(vector_TYPE* vec, size_t size);
 int set_capacity_TYPE(vector_TYPE* vec, size_t size);
 void set_val_sz_TYPE(vector_TYPE* vec, TYPE val);
 void set_val_cap_TYPE(vector_TYPE* vec, TYPE val);
+
+TYPE* back_TYPE(vector_TYPE* vec);
+
 
 /*you really don't need these; you could just check
 them directly */

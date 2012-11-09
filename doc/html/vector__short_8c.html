@@ -28,7 +28,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cvector
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.01</span>
    </div>
    <div id="projectbrief">A C++ style vector library in strict ANSI C (C89)</div>
   </td>
@@ -102,6 +102,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__short_8c.html#ab8dcf633e9484048042c7d7f5893fdf1">vec_short_copy</a> (void *dest, void *src)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__short_8c.html#af928dfde7a11eed26dea807a96b9b372">push_back_short</a> (<a class="el" href="structvector__short.html">vector_short</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, short a)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__short_8c.html#a0f832ff26d2629b817dce5ccb99bccef">pop_back_short</a> (<a class="el" href="structvector__short.html">vector_short</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">short *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__short_8c.html#a4a7032ff983b4f3e0a0a132775727fe2">back_short</a> (<a class="el" href="structvector__short.html">vector_short</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__short_8c.html#a6f413458da2818c6476ca045796e113e">extend_short</a> (<a class="el" href="structvector__short.html">vector_short</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t num)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__short_8c.html#a91c7eb173c1b826abaa97f609a5550b3">insert_short</a> (<a class="el" href="structvector__short.html">vector_short</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, short a)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__short_8c.html#a56b32bd1983e8e93fc64969921fbc872">insert_array_short</a> (<a class="el" href="structvector__short.html">vector_short</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, short *a, size_t num)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__short_8c.html#a133af4955b75c7806ca187934fe6962e">erase_short</a> (<a class="el" href="structvector__short.html">vector_short</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t start, size_t end)</td></tr>
@@ -158,6 +160,25 @@ Variables</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
+<a class="anchor" id="a4a7032ff983b4f3e0a0a132775727fe2"></a><!-- doxytag: member="vector_short.c::back_short" ref="a4a7032ff983b4f3e0a0a132775727fe2" args="(vector_short *vec)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">short* <a class="el" href="vector__short_8h.html#a4a7032ff983b4f3e0a0a132775727fe2">back_short</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvector__short.html">vector_short</a> *&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00142">142</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a84cf93aa1f6e333c66b06038df18452c"></a><!-- doxytag: member="vector_short.c::capacity_short" ref="a84cf93aa1f6e333c66b06038df18452c" args="(vector_short *vec)" -->
 <div class="memitem">
 <div class="memproto">
@@ -173,7 +194,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00247">247</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00270">270</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
 
 </div>
 </div>
@@ -192,7 +213,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00251">251</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00274">274</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
 
 </div>
 </div>
@@ -227,7 +248,36 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00189">189</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00212">212</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f413458da2818c6476ca045796e113e"></a><!-- doxytag: member="vector_short.c::extend_short" ref="a6f413458da2818c6476ca045796e113e" args="(vector_short *vec, size_t num)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="vector__short_8h.html#a6f413458da2818c6476ca045796e113e">extend_short</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvector__short.html">vector_short</a> *&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00148">148</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
 
 </div>
 </div>
@@ -246,7 +296,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00253">253</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00276">276</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
 
 </div>
 </div>
@@ -265,7 +315,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00260">260</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00283">283</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
 
 </div>
 </div>
@@ -370,7 +420,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00168">168</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00191">191</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
 
 </div>
 </div>
@@ -405,7 +455,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00144">144</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00167">167</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
 
 </div>
 </div>
@@ -482,7 +532,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00197">197</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00220">220</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
 
 </div>
 </div>
@@ -511,7 +561,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00214">214</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00237">237</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
 
 </div>
 </div>
@@ -540,7 +590,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00239">239</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00262">262</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
 
 </div>
 </div>
@@ -569,7 +619,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00231">231</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00254">254</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
 
 </div>
 </div>
@@ -588,7 +638,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00249">249</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
+<p>Definition at line <a class="el" href="vector__short_8c_source.html#l00272">272</a> of file <a class="el" href="vector__short_8c_source.html">vector_short.c</a>.</p>
 
 </div>
 </div>
@@ -719,7 +769,7 @@ Variables</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 30 2012 13:36:47 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 8 2012 22:25:06 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
