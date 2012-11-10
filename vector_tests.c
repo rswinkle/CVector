@@ -1,4 +1,4 @@
-#include "vector.h"
+#include "vector_all.h"
 
 #define DO_TEMPLATE_TEST 1
 #ifdef DO_TEMPLATE_TEST

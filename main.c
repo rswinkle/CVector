@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <CUnit/Automated.h>
-#include "vector.h"
+#include "vector_all.h"
 
 
 extern void pushi_test();
