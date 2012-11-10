@@ -4,7 +4,7 @@
 
 
 
-size_t VEC_S_START_SZ = 20;
+size_t VEC_STR_START_SZ = 20;
 
 #define VECS_ALLOCATOR(x) (x*2)
 
@@ -25,25 +25,25 @@ char* mystrdup(const char* str)
 
 
 /**
- * Create a new vector_s.
+ * Create a new vector_str.
  * Vector size set to (size > 0) ? size : 0;
- * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_S_START_SZ
+ * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
- * Note: vector_s does not copy pointers passed in but duplicates the strings
+ * Note: vector_str does not copy pointers passed in but duplicates the strings
  * they point to (using mystrdup()) so you don't have to worry about freeing
  * or changing the contents of variables that you've pushed or inserted; it
  * won't affect the values vector.
  */
-vector_s* vec_s(size_t size, size_t capacity)
+vector_str* vec_str(size_t size, size_t capacity)
 {
-	vector_s* vec;
-	if (!(vec = malloc(sizeof(vector_s)))) {
+	vector_str* vec;
+	if (!(vec = malloc(sizeof(vector_str)))) {
 		STDERR("Error allocating memory\n");
 		return NULL;
 	}
 
 	vec->size = (size > 0) ? size : 0;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_S_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ;
 
 	/* calloc here because it we free before poppirg/erasing and since nothing is
 	 * allocated these need to be NULL to not cause problems */
@@ -57,24 +57,24 @@ vector_s* vec_s(size_t size, size_t capacity)
 }
 
 
-/** Create and initialize vector_s with num elements of vals.
+/** Create and initialize vector_str with num elements of vals.
  *  If vals is NULL, or num < 1, it returns NULL.  You should
- *  use vec_s(size_t) instead in those cases.
+ *  use vec_str(size_t) instead in those cases.
  */
-vector_s* init_vec_s(char** vals, size_t num)
+vector_str* init_vec_str(char** vals, size_t num)
 {
-	vector_s* vec;
+	vector_str* vec;
 	size_t i;
 	
 	if (!vals || num < 1)
 		return NULL;
 	
-	if (!(vec = malloc(sizeof(vector_s)))) {
+	if (!(vec = malloc(sizeof(vector_str)))) {
 		STDERR("Error allocating memory\n");
 		return NULL;
 	}
 
-	vec->capacity = num + VEC_S_START_SZ;
+	vec->capacity = num + VEC_STR_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(char*)))) {
 		STDERR("Error allocating memory\n");
@@ -89,13 +89,13 @@ vector_s* init_vec_s(char** vals, size_t num)
 }
 
 
-/** Same as vec_s() except the vector passed in was declared on the stack so
- *  it isn't allocated in this function.  Use the free_vecs_stack in that case
+/** Same as vec_str() except the vector passed in was declared on the stack so
+ *  it isn't allocated in this function.  Use the free_vec_str_stack in that case
  */
-int vec_s_stack(vector_s* vec, size_t size, size_t capacity)
+int vec_str_stack(vector_str* vec, size_t size, size_t capacity)
 {
 	vec->size = (size > 0) ? size : 0;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_S_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ;
 
 	/* calloc here because it we free before poppirg/erasing and since nothing is
 	 * allocated these need to be NULL to not cause problems */
@@ -108,17 +108,17 @@ int vec_s_stack(vector_s* vec, size_t size, size_t capacity)
 	return 1;
 }
 
-/** Same as init_vec_s() except the vector passed in was declared on the stack so
- *  it isn't allocated in this function.  Use the free_vecs_stack in that case
+/** Same as init_vec_str() except the vector passed in was declared on the stack so
+ *  it isn't allocated in this function.  Use the free_vec_str_stack in that case
  */
-int init_vec_s_stack(vector_s* vec, char** vals, size_t num)
+int init_vec_str_stack(vector_str* vec, char** vals, size_t num)
 {
 	size_t i;
 	
 	if (!vals || num < 1)
 		return 0;
 	
-	vec->capacity = num + VEC_S_START_SZ;
+	vec->capacity = num + VEC_STR_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(char*)))) {
 		STDERR("Error allocating memory\n");
@@ -135,15 +135,15 @@ int init_vec_s_stack(vector_s* vec, char** vals, size_t num)
 
 /** Makes dest an identical copy of src.  The parameters
  *  are void so it can be used as the constructor when making
- *  a vector of vector_s's.  Assumes dest (the structure)
+ *  a vector of vector_str's.  Assumes dest (the structure)
  *  is already allocated (probably on the stack) and that
  *  capacity is 0 (ie the array doesn't need to be freed).
  */
-void vecs_copy(void* dest, void* src)
+void vec_str_copy(void* dest, void* src)
 {
 	size_t i;
-	vector_s* vec1 = dest;
-	vector_s* vec2 = src;
+	vector_str* vec1 = dest;
+	vector_str* vec2 = src;
 	
 	vec1->size = 0;
 	vec1->capacity = 0;
@@ -167,7 +167,7 @@ void vecs_copy(void* dest, void* src)
  * Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
  */
-int push_backs(vector_s* vec, char* a)
+int push_back_str(vector_str* vec, char* a)
 {
 	void* tmp;
 	size_t tmp_sz;
@@ -189,7 +189,7 @@ int push_backs(vector_s* vec, char* a)
  *  String is freed.  If ret != NULL strcpy the last element into ret.
  *  It is the user's responsibility to make sure ret can receive it without error
  *  (ie ret has adequate space.) */
-void pop_backs(vector_s* vec, char* ret)
+void pop_back_str(vector_str* vec, char* ret)
 {
 	if (ret)
 		strcpy(ret, vec->a[--vec->size]);
@@ -197,7 +197,7 @@ void pop_backs(vector_s* vec, char* ret)
 }
 
 /** Return pointer to last element */
-char** backs(vector_s* vec)
+char** back_str(vector_str* vec)
 {
 	return &vec->a[vec->size-1];
 }
@@ -210,12 +210,12 @@ char** backs(vector_s* vec)
 /** Increase the size of the array num items.  Items
  *  are memset to NULL since they will be freed when
     popped or the vector is freed.*/
-int extends(vector_s* vec, size_t num)
+int extend_str(vector_str* vec, size_t num)
 {
 	void* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VEC_S_START_SZ;
+		tmp_sz = vec->capacity + num + VEC_STR_START_SZ;
 		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
@@ -237,7 +237,7 @@ int extends(vector_s* vec, size_t num)
  * Everything from that index and right is shifted one to the right.
  *\todo check for i < 0 or > size ?
  */
-int inserts(vector_s* vec, size_t i, char* a)
+int insert_str(vector_str* vec, size_t i, char* a)
 {
 	void* tmp;
 	size_t tmp_sz;
@@ -263,12 +263,12 @@ int inserts(vector_s* vec, size_t i, char* a)
  * Note that it is the user's responsibility to pass in valid
  * arguments.
  */
-int insert_arrays(vector_s* vec, size_t i, char** a, size_t num)
+int insert_array_str(vector_str* vec, size_t i, char** a, size_t num)
 {
 	void* tmp;
 	size_t tmp_sz, j;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VEC_S_START_SZ;
+		tmp_sz = vec->capacity + num + VEC_STR_START_SZ;
 		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
@@ -292,7 +292,7 @@ int insert_arrays(vector_s* vec, size_t i, char** a, size_t num)
  * Example erases(myvec, 1, 3) would free and remove strings at 1, 2, and 3 and the string
  * that was at index 4 would now be at 1 etc.
  */
-void erases(vector_s* vec, size_t start, size_t end)
+void erase_str(vector_str* vec, size_t start, size_t end)
 {
 	size_t i;
 	size_t d = end - start + 1;
@@ -308,16 +308,16 @@ void erases(vector_s* vec, size_t start, size_t end)
 
 
 /** Makes sure the vector capacity is >= size (parameter not member). */
-int reserves(vector_s* vec, size_t size)
+int reserve_str(vector_str* vec, size_t size)
 {
 	void* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = realloc(vec->a, sizeof(char*)*(size+VEC_S_START_SZ)))) {
+		if (!(tmp = realloc(vec->a, sizeof(char*)*(size+VEC_STR_START_SZ)))) {
 			STDERR("Error allocating memory\n");
 			return 0;
 		}
 		vec->a = tmp;
-		vec->capacity = size + VEC_S_START_SZ;
+		vec->capacity = size + VEC_STR_START_SZ;
 	}
 	return 1;
 }
@@ -326,7 +326,7 @@ int reserves(vector_s* vec, size_t size)
  * You will lose data if you shrink the capacity below the current size.
  * If you do, the size will be set to capacity of course.
 */
-int set_capacitys(vector_s* vec, size_t size)
+int set_capacity_str(vector_str* vec, size_t size)
 {
 	size_t i;
 	void* tmp;
@@ -349,7 +349,7 @@ int set_capacitys(vector_s* vec, size_t size)
 
 
 /** Sets all size elements to val. */
-void set_val_szs(vector_s* vec, char* val)
+void set_val_sz_str(vector_str* vec, char* val)
 {
 	size_t i;
 	for(i=0; i<vec->size; i++) {
@@ -365,7 +365,7 @@ void set_val_szs(vector_s* vec, char* val)
  * to capacity in this case because strings are individually dynamically allocated.
  * This is different from vector_i, vector_d and vector (without a free function) where the size stays the same. 
    TODO  Remove this function?  even more unnecessary than for vector_i and vector_d and different behavior*/
-void set_val_caps(vector_s* vec, char* val)
+void set_val_cap_str(vector_str* vec, char* val)
 {
 	size_t i;
 	for (i=0; i<vec->capacity; i++) {
@@ -379,7 +379,7 @@ void set_val_caps(vector_s* vec, char* val)
 
 
 /** Clears the contents of vector (frees all strings) and sets size to 0. */
-void clears(vector_s* vec)
+void clear_str(vector_str* vec)
 {
 	int i;
 	for (i=0; i<vec->size; i++)
@@ -390,10 +390,10 @@ void clears(vector_s* vec)
 
 
 /** Frees contents (individual strings and array) and frees vector so don't use after calling this. */
-void free_vecs(void* vec)
+void free_vec_str(void* vec)
 {
 	size_t i;
-	vector_s* tmp = vec;
+	vector_str* tmp = vec;
 	for (i=0; i<tmp->size; i++)
 		free(tmp->a[i]);
 	
@@ -403,10 +403,10 @@ void free_vecs(void* vec)
 
 
 /** Frees the internal array and sets size and capacity to 0 */
-void free_vecs_stack(void* vec)
+void free_vec_str_stack(void* vec)
 {
 	size_t i;
-	vector_s* tmp = vec;
+	vector_str* tmp = vec;
 	for (i=0; i<tmp->size; i++)
 		free(tmp->a[i]);
 	

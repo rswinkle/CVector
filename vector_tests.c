@@ -412,19 +412,19 @@ void set_vald_test()
 
 
 
-/* vector_s tests */
-void pushs_test()
+/* vector_str tests */
+void push_str_test()
 {
 	int i;
 	char buffer[50];
-	vector_s* vec = vec_s(0, 0);
+	vector_str* vec = vec_str(0, 0);
 
-	CU_ASSERT_EQUAL(VEC_S_START_SZ, vec->capacity);
+	CU_ASSERT_EQUAL(VEC_STR_START_SZ, vec->capacity);
 	CU_ASSERT_EQUAL(0, vec->size);
 
 	for (i=0; i<50; i++) {
 		sprintf(buffer, "hello %d", i);
-		push_backs(vec, buffer);
+		push_back_str(vec, buffer);
 	}
 
 	CU_ASSERT_EQUAL(50, vec->size);
@@ -435,26 +435,26 @@ void pushs_test()
 	}
 
 
-	free_vecs(vec);
+	free_vec_str(vec);
 }
 
 
-void erases_test()
+void erase_str_test()
 {
 	int i,j;
 	char buffer[50];
-	vector_s* vec = vec_s(0, 0);
+	vector_str* vec = vec_str(0, 0);
 
-	CU_ASSERT_EQUAL(VEC_S_START_SZ, vec->capacity);
+	CU_ASSERT_EQUAL(VEC_STR_START_SZ, vec->capacity);
 
 	for (i=0; i<100; i++) {
 		sprintf(buffer, "hello %d", i);
-		push_backs(vec, buffer);
+		push_back_str(vec, buffer);
 	}
 
 	CU_ASSERT_EQUAL(100, vec->size);
 
-	erases(vec, 25, 74);
+	erase_str(vec, 25, 74);
 
 	CU_ASSERT_EQUAL(50, vec->size);
 
@@ -465,13 +465,13 @@ void erases_test()
 		if(i==24) j +=50;
 	}
 
-	free_vecs(vec);
+	free_vec_str(vec);
 
 }
 
 
 
-void inserts_test()
+void insert_str_test()
 {
 	char* array[] = { "hello 0", "hello 1", "hello 2", "hello 3", "hello 4",
 			"hello 5", "hello 6", "hello 7", "hello 8", "hello 9" };
@@ -479,7 +479,7 @@ void inserts_test()
 	char buffer[50];
 	int i;
 
-	vector_s* vec = init_vec_s(array, 10);
+	vector_str* vec = init_vec_str(array, 10);
 
 	CU_ASSERT_EQUAL(vec->size, 10);
 
@@ -490,7 +490,7 @@ void inserts_test()
 
 	for (i=0; i<10; i++) {
 		sprintf(buffer, "hello %d", -i);
-		inserts(vec, 0, buffer);
+		insert_str(vec, 0, buffer);
 	}
 
 
@@ -501,26 +501,26 @@ void inserts_test()
 		CU_ASSERT_STRING_EQUAL(vec->a[i], buffer);
 	}
 
-	free_vecs(vec);
+	free_vec_str(vec);
 }
 
 
-void insert_arrays_test()
+void insert_array_str_test()
 {
 	int i;
 	char buffer[50];
 	char* array[] = { "hello 0", "hello 1", "hello 2", "hello 3", "hello 4",
 			"hello 5", "hello 6", "hello 7", "hello 8", "hello 9", "hello 10" };
-	vector_s vec;
-	init_vec_s_stack(&vec, array, 10);
+	vector_str vec;
+	init_vec_str_stack(&vec, array, 10);
 
 	CU_ASSERT_EQUAL(vec.size, 10);
-	CU_ASSERT_EQUAL(vec.capacity, 10+VEC_S_START_SZ);
+	CU_ASSERT_EQUAL(vec.capacity, 10+VEC_STR_START_SZ);
 	
-	insert_arrays(&vec, 0, array, 11);
+	insert_array_str(&vec, 0, array, 11);
 	
 	CU_ASSERT_EQUAL(vec.size, 21);
-	CU_ASSERT_EQUAL(vec.capacity, 10+VEC_S_START_SZ);
+	CU_ASSERT_EQUAL(vec.capacity, 10+VEC_STR_START_SZ);
 	
 	for (i=0; i<vec.size; ++i) {
 		if (i < 11) {
@@ -533,7 +533,7 @@ void insert_arrays_test()
 		}
 	}
 	
-	free_vecs_stack(&vec);
+	free_vec_str_stack(&vec);
 }
 
 
@@ -542,56 +542,56 @@ void insert_arrays_test()
 
 
 
-void pops_test()
+void pop_str_test()
 {
 	int i;
 	char buffer[50];
 	char buffer2[50];
 
-	vector_s* vec = vec_s(0, 10);
+	vector_str* vec = vec_str(0, 10);
 
 	CU_ASSERT_EQUAL(vec->capacity, 10);
 
 	for (i=0; i<1000; i++) {
 		sprintf(buffer, "hello %d", i);
-		push_backs(vec, buffer);
+		push_back_str(vec, buffer);
 	}
 
 	CU_ASSERT_EQUAL(vec->size, 1000);
 
-	set_capacitys(vec, vec->size);
+	set_capacity_str(vec, vec->size);
 	CU_ASSERT_EQUAL(vec->size, vec->capacity);
 
 	for (i=999; i>=0; i--) {
 		sprintf(buffer, "hello %d", i);
-		pop_backs(vec, buffer2);
+		pop_back_str(vec, buffer2);
 		CU_ASSERT_STRING_EQUAL(buffer, buffer2);
 	}
 
 	CU_ASSERT_EQUAL(vec->size, 0);
 
-	free_vecs(vec);
+	free_vec_str(vec);
 }
 
 
-void reserves_test()
+void reserve_str_test()
 {
-	vector_s* vec = vec_s(0, 100);
+	vector_str* vec = vec_str(0, 100);
 
-	reserves(vec, 20);
+	reserve_str(vec, 20);
 	CU_ASSERT(vec->capacity >= 20);
 
-	free_vecs(vec);
+	free_vec_str(vec);
 }
 
 
 
-void set_capacitys_test()
+void set_capacity_str_test()
 {
 	int i;
 	char buffer[50];
 
-	vector_s* vec = vec_s(1, 1);
+	vector_str* vec = vec_str(1, 1);
 
 	CU_ASSERT_EQUAL(vec->size, 1);
 	CU_ASSERT_EQUAL(vec->capacity, 1);
@@ -600,13 +600,13 @@ void set_capacitys_test()
 	
 	for (i=0; i<1000; i++) {
 		sprintf(buffer, "hello %d", i);
-		push_backs(vec, buffer);
+		push_back_str(vec, buffer);
 	}
 
 	CU_ASSERT(vec->capacity >= 1001);
 	CU_ASSERT(vec->size == 1001);
 
-	set_capacitys(vec, 500);
+	set_capacity_str(vec, 500);
 
 	CU_ASSERT(vec->capacity == 500);
 	CU_ASSERT(vec->size == 500);
@@ -620,29 +620,29 @@ void set_capacitys_test()
 		}
 	}
 
-	free_vecs(vec);
+	free_vec_str(vec);
 }
 
 
-void set_vals_test()
+void set_val_str_test()
 {
 	int i;
-	vector_s* vec = vec_s(20, 0);
+	vector_str* vec = vec_str(20, 0);
 	
 	CU_ASSERT_EQUAL(vec->size, 20)
-	CU_ASSERT_EQUAL(vec->capacity, 20+VEC_S_START_SZ);
+	CU_ASSERT_EQUAL(vec->capacity, 20+VEC_STR_START_SZ);
 
-	set_val_szs(vec, "42");
+	set_val_sz_str(vec, "42");
 
 	for (i=0; i<vec->size; i++)
 		CU_ASSERT_STRING_EQUAL(vec->a[i], "42");
 
-	set_val_caps(vec, "25");
+	set_val_cap_str(vec, "25");
 
 	for (i=0; i<vec->capacity; i++)
 		CU_ASSERT_STRING_EQUAL(vec->a[i], "25");
 
-	free_vecs(vec);
+	free_vec_str(vec);
 }
 
 
@@ -1129,20 +1129,20 @@ void vector_of_vectors_test()
 	int i, j, tmp_int;
 	vector vec1, vec2;
 	vector_i tmp_veci, *tmp_veci2;
-	vector_s tmp_vecs;
+	vector_str tmp_vecs;
 	char buffer[50];
 	
 	vec_stack(&vec1, 0, 0, sizeof(vector_i), free_veci_stack, veci_copy);
-	vec_stack(&vec2, 0, 0, sizeof(vector_s), free_vecs_stack, vecs_copy);
+	vec_stack(&vec2, 0, 0, sizeof(vector_str), free_vec_str_stack, vec_str_copy);
 
-	vec_s_stack(&tmp_vecs, 0, 0);
+	vec_str_stack(&tmp_vecs, 0, 0);
 
-	CU_ASSERT_EQUAL(VEC_S_START_SZ, tmp_vecs.capacity);
+	CU_ASSERT_EQUAL(VEC_STR_START_SZ, tmp_vecs.capacity);
 	CU_ASSERT_EQUAL(0, tmp_vecs.size);
 
 	for (i=0; i<50; i++) {
 		sprintf(buffer, "hello %d", i);
-		push_backs(&tmp_vecs, buffer);
+		push_back_str(&tmp_vecs, buffer);
 	}
 	
 	CU_ASSERT_EQUAL(vec1.size, 0);
@@ -1183,7 +1183,7 @@ void vector_of_vectors_test()
 	free_vec_stack(&vec1);
 	free_vec_stack(&vec2);
 	free_veci_stack(&tmp_veci);
-	free_vecs_stack(&tmp_vecs);
+	free_vec_str_stack(&tmp_vecs);
 }
 
 

@@ -31,14 +31,14 @@ extern void set_capacityd_test();
 extern void set_vald_test();
 
 
-extern void pushs_test();
-extern void erases_test();
-extern void inserts_test();
-extern void insert_arrays_test();
-extern void pops_test();
-extern void reserves_test();
-extern void set_capacitys_test();
-extern void set_vals_test();
+extern void push_str_test();
+extern void erase_str_test();
+extern void insert_str_test();
+extern void insert_array_str_test();
+extern void pop_str_test();
+extern void reserve_str_test();
+extern void set_capacity_str_test();
+extern void set_val_str_test();
 
 
 extern void push_test();
@@ -81,14 +81,14 @@ CU_TestInfo vector_d_tests[] = {
 };
 
 CU_TestInfo vector_s_tests[] = {
-	{ "pushs_test",           pushs_test },
-	{ "erases_test",          erases_test },
-	{ "inserts_test",         inserts_test },
-	{ "insert_arrays_test",   insert_arrays_test },
-	{ "pops_test",            pops_test },
-	{ "reserves_test",        reserves_test },
-	{ "set_capacitys_test",   set_capacitys_test },
-	{ "set_vals_test",        set_vals_test },
+	{ "push_str_test",           push_str_test },
+	{ "erase_str_test",          erase_str_test },
+	{ "insert_str_test",         insert_str_test },
+	{ "insert_array_str_test",   insert_array_str_test },
+	{ "pop_str_test",            pop_str_test },
+	{ "reserve_str_test",        reserve_str_test },
+	{ "set_capacity_str_test",   set_capacity_str_test },
+	{ "set_val_str_test",        set_val_str_test },
 	CU_TEST_INFO_NULL
 };
 
@@ -116,7 +116,7 @@ CU_TestInfo template_tests[] = {
 CU_SuiteInfo vector_suites[] = {
 	{ "vector_i", NULL, NULL, vector_i_tests },
 	{ "vector_d", NULL, NULL, vector_d_tests },
-	{ "vector_s", NULL, NULL, vector_s_tests },
+	{ "vector_str", NULL, NULL, vector_s_tests },
 	{ "vector",   NULL, NULL, vector_tests   },
 	{ "template", NULL, NULL, template_tests },
 	CU_SUITE_INFO_NULL

@@ -6,43 +6,43 @@
 #include <stdio.h>
 
 /** Data structure for string vector. */
-typedef struct vector_s_
+typedef struct vector_str_
 {
 	char** a;          /**< Array. */
 	size_t size;       /**< Current size (amount you use when manipulating array directly). */
 	size_t capacity;   /**< Allocated size of array; always >= size. */
-} vector_s;
+} vector_str;
 
 
-extern size_t VEC_S_START_SZ;
+extern size_t VEC_STR_START_SZ;
 
 char* mystrdup(const char* str);
 
-int vec_s_stack(vector_s* vec, size_t size, size_t capacity);
-int init_vec_s_stack(vector_s* vec, char** vals, size_t num);
+int vec_str_stack(vector_str* vec, size_t size, size_t capacity);
+int init_vec_str_stack(vector_str* vec, char** vals, size_t num);
 
-vector_s* vec_s(size_t size, size_t capacity);
-vector_s* init_vec_s(char** vals, size_t num);
+vector_str* vec_str(size_t size, size_t capacity);
+vector_str* init_vec_str(char** vals, size_t num);
 
-void vecs_copy(void* dest, void* src);
+void vec_str_copy(void* dest, void* src);
 
-int push_backs(vector_s* vec, char* a);
-void pop_backs(vector_s* vec, char* ret);
+int push_back_str(vector_str* vec, char* a);
+void pop_back_str(vector_str* vec, char* ret);
 
-int extends(vector_s* vec, size_t num);
-int inserts(vector_s* vec, size_t i, char* a);
-int insert_arrays(vector_s* vec, size_t i, char** , size_t num);
-void erases(vector_s* vec, size_t start, size_t end);
-int reserves(vector_s* vec, size_t size);
-int set_capacitys(vector_s* vec, size_t size);
-void set_val_szs(vector_s* vec, char* val);
-void set_val_caps(vector_s* vec, char* val);
+int extend_str(vector_str* vec, size_t num);
+int insert_str(vector_str* vec, size_t i, char* a);
+int insert_array_str(vector_str* vec, size_t i, char** , size_t num);
+void erase_str(vector_str* vec, size_t start, size_t end);
+int reserve_str(vector_str* vec, size_t size);
+int set_capacity_str(vector_str* vec, size_t size);
+void set_val_sz_str(vector_str* vec, char* val);
+void set_val_cap_str(vector_str* vec, char* val);
 
-char** backs(vector_s* vec);
+char** back_str(vector_str* vec);
 
-void clears(vector_s* vec);
-void free_vecs(void* vec);
-void free_vecs_stack(void* vec);
+void clear_str(vector_str* vec);
+void free_vec_str(void* vec);
+void free_vec_str_stack(void* vec);
 
 
 
