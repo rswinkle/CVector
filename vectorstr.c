@@ -34,7 +34,7 @@ char* mystrdup(const char* str)
  * or changing the contents of variables that you've pushed or inserted; it
  * won't affect the values vector.
  */
-vector_str* vec_str(size_t size, size_t capacity)
+vector_str* vec_str_heap(size_t size, size_t capacity)
 {
 	vector_str* vec;
 	if (!(vec = malloc(sizeof(vector_str)))) {
@@ -61,7 +61,7 @@ vector_str* vec_str(size_t size, size_t capacity)
  *  If vals is NULL, or num < 1, it returns NULL.  You should
  *  use vec_str(size_t) instead in those cases.
  */
-vector_str* init_vec_str(char** vals, size_t num)
+vector_str* init_vec_str_heap(char** vals, size_t num)
 {
 	vector_str* vec;
 	size_t i;
@@ -92,7 +92,7 @@ vector_str* init_vec_str(char** vals, size_t num)
 /** Same as vec_str() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the free_vec_str_stack in that case
  */
-int vec_str_stack(vector_str* vec, size_t size, size_t capacity)
+int vec_str(vector_str* vec, size_t size, size_t capacity)
 {
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ;
@@ -111,7 +111,7 @@ int vec_str_stack(vector_str* vec, size_t size, size_t capacity)
 /** Same as init_vec_str() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the free_vec_str_stack in that case
  */
-int init_vec_str_stack(vector_str* vec, char** vals, size_t num)
+int init_vec_str(vector_str* vec, char** vals, size_t num)
 {
 	size_t i;
 	
@@ -167,7 +167,7 @@ void vec_str_copy(void* dest, void* src)
  * Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
  */
-int push_back_str(vector_str* vec, char* a)
+int push_str(vector_str* vec, char* a)
 {
 	void* tmp;
 	size_t tmp_sz;
@@ -189,7 +189,7 @@ int push_back_str(vector_str* vec, char* a)
  *  String is freed.  If ret != NULL strcpy the last element into ret.
  *  It is the user's responsibility to make sure ret can receive it without error
  *  (ie ret has adequate space.) */
-void pop_back_str(vector_str* vec, char* ret)
+void pop_str(vector_str* vec, char* ret)
 {
 	if (ret)
 		strcpy(ret, vec->a[--vec->size]);
@@ -390,7 +390,7 @@ void clear_str(vector_str* vec)
 
 
 /** Frees contents (individual strings and array) and frees vector so don't use after calling this. */
-void free_vec_str(void* vec)
+void free_vec_str_heap(void* vec)
 {
 	size_t i;
 	vector_str* tmp = vec;
@@ -403,7 +403,7 @@ void free_vec_str(void* vec)
 
 
 /** Frees the internal array and sets size and capacity to 0 */
-void free_vec_str_stack(void* vec)
+void free_vec_str(void* vec)
 {
 	size_t i;
 	vector_str* tmp = vec;

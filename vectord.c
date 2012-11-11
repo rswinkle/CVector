@@ -18,7 +18,7 @@ size_t VEC_D_START_SZ = 50;
  * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
  */
-vector_d* vec_d(size_t size, size_t capacity)
+vector_d* vec_d_heap(size_t size, size_t capacity)
 {
 	vector_d* vec;
 	void* tmp;
@@ -46,7 +46,7 @@ vector_d* vec_d(size_t size, size_t capacity)
  *  Capacity is set to num + VEC_D_START_SZ.
  *  If vals == NULL or num < 1 return NULL (you should just be using vec_d(size_t, size_t))
  */
-vector_d* init_vec_d(double* vals, size_t num)
+vector_d* init_vec_d_heap(double* vals, size_t num)
 {
 	vector_d* vec;
 	
@@ -75,7 +75,7 @@ vector_d* init_vec_d(double* vals, size_t num)
 /** Same as vec_d() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the free_vecd_stack in that case.
  */
-int vec_d_stack(vector_d* vec, size_t size, size_t capacity)
+int vec_d(vector_d* vec, size_t size, size_t capacity)
 {
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ;
@@ -92,7 +92,7 @@ int vec_d_stack(vector_d* vec, size_t size, size_t capacity)
 /** Same as init_vec_d() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the free_vecd_stack in that case.
  */
-int init_vec_d_stack(vector_d* vec, double* vals, size_t num)
+int init_vec_d(vector_d* vec, double* vals, size_t num)
 {
 	if (!vals || num < 1)
 		return 0;
@@ -144,7 +144,7 @@ void vecd_copy(void* dest, void* src)
 /** Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
  */
-int push_backd(vector_d* vec, double a)
+int push_d(vector_d* vec, double a)
 {
 	void* tmp;
 	size_t tmp_sz;
@@ -163,7 +163,7 @@ int push_backd(vector_d* vec, double a)
 
 
 /** Remove and return the last element (size decreased 1).*/
-double pop_backd(vector_d* vec)
+double pop_d(vector_d* vec)
 {
 	return vec->a[--vec->size];
 }
@@ -333,7 +333,7 @@ void cleard(vector_d* vec) { vec->size = 0; }
 
 
 /** Frees everything so don't use vec after calling this. */
-void free_vecd(void* vec)
+void free_vecd_heap(void* vec)
 {
 	vector_d* tmp = vec;
 	free(tmp->a);
@@ -341,7 +341,7 @@ void free_vecd(void* vec)
 }
 
 /** Frees the internal array and sets size and capacity to 0 */
-void free_vecd_stack(void* vec)
+void free_vecd(void* vec)
 {
 	vector_d* tmp = vec;
 	free(tmp->a);

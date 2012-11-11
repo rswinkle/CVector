@@ -39,7 +39,7 @@ size_t VEC_START_SZ = 20;
  *
  * See the other functions and the tests for more behavioral/usage details.
  */
-vector* vec(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+vector* vec_heap(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	vector* vec;
 	if (!(vec = malloc(sizeof(vector)))) {
@@ -73,7 +73,7 @@ vector* vec(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*
  *  elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  *  See vec() for more information about the elem_free and elem_init parameters.
  */
-vector* init_vec(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+vector* init_vec_heap(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	vector* vec;
 	size_t i;
@@ -113,7 +113,7 @@ vector* init_vec(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*)
 /** Same as vec() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the free_vec_stack in that case
  */
-int vec_stack(vector* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+int vec(vector* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_START_SZ;
@@ -135,7 +135,7 @@ int vec_stack(vector* vec, size_t size, size_t capacity, size_t elem_sz, void(*e
 /** Same as init_vec() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the free_vec_stack in that case
  */
-int init_vec_stack(vector* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+int init_vec(vector* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	size_t i;
 	if (!vals || num < 1)
@@ -207,7 +207,7 @@ void vec_copy(void* dest, void* src)
 /** Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
  */
-int push_back(vector* vec, void* a)
+int push(vector* vec, void* a)
 {
 	void* tmp;
 	size_t tmp_sz;
@@ -243,7 +243,7 @@ int push_back(vector* vec, void* a)
  * that ret is not NULL and is large accept the element and just memcpy's it in.
  * Similar to pop_backs it is users responsibility.
  */
-void pop_back(vector* vec, void* ret)
+void pop(vector* vec, void* ret)
 {
 	if (ret)
 		memcpy(ret, &vec->a[(--vec->size)*vec->elem_size], vec->elem_size);
@@ -489,7 +489,7 @@ void clear(vector* vec)
 
 /** Frees everything so don't use vec after calling this. If you set a free function
  * it will be called on all size elements of course. */
-void free_vec(void* vec)
+void free_vec_heap(void* vec)
 {
 	size_t i;
 	vector* tmp = vec;
@@ -503,7 +503,7 @@ void free_vec(void* vec)
 
 
 /** Frees the internal array and sets size and capacity to 0 */
-void free_vec_stack(void* vec)
+void free_vec(void* vec)
 {
 	size_t i;
 	vector* tmp = vec;
@@ -579,14 +579,14 @@ I've also run it under valgrind and there are no memory leaks.
 valgrind --leak-check=yes ./vector
 
 <pre>
-==6290== HEAP SUMMARY:
-==6290==     in use at exit: 0 bytes in 0 blocks
-==6290==   total heap usage: 4,982 allocs, 4,982 frees, 798,387 bytes allocated
-==6290== 
-==6290== All heap blocks were freed -- no leaks are possible
-==6290== 
-==6290== For counts of detected and suppressed errors, rerun with: -v
-==6290== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==10040== HEAP SUMMARY:
+==10040==     in use at exit: 0 bytes in 0 blocks
+==10040==   total heap usage: 4,957 allocs, 4,957 frees, 797,993 bytes allocated
+==10040== 
+==10040== All heap blocks were freed -- no leaks are possible
+==10040== 
+==10040== For counts of detected and suppressed errors, rerun with: -v
+==10040== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 </pre>
 
 You can probably get Cunit from your package manager but

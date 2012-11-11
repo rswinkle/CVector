@@ -17,7 +17,7 @@ size_t VEC_I_START_SZ = 50;
  * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course. 
  */
-vector_i* vec_i(size_t size, size_t capacity)
+vector_i* vec_i_heap(size_t size, size_t capacity)
 {
 	vector_i* vec;
 	if (!(vec = malloc(sizeof(vector_i)))) {
@@ -41,7 +41,7 @@ vector_i* vec_i(size_t size, size_t capacity)
  *  Capacity is set to num + VEC_I_START_SZ.
  *  If vals == NULL or num < 1 return NULL (you should just be using vec_i(size_t, size_t))
  */
-vector_i* init_vec_i(int* vals, size_t num)
+vector_i* init_vec_i_heap(int* vals, size_t num)
 {
 	vector_i* vec;
 	
@@ -69,7 +69,7 @@ vector_i* init_vec_i(int* vals, size_t num)
 /** Same as vec_i() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the free_veci_stack in that case.
  */
-int vec_i_stack(vector_i* vec, size_t size, size_t capacity)
+int vec_i(vector_i* vec, size_t size, size_t capacity)
 {
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ;
@@ -87,7 +87,7 @@ int vec_i_stack(vector_i* vec, size_t size, size_t capacity)
 /** Same as init_vec_i() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the free_veci_stack in that case.
  */
-int init_vec_i_stack(vector_i* vec, int* vals, size_t num)
+int init_vec_i(vector_i* vec, int* vals, size_t num)
 {
 	if (!vals || num < 1)
 		return 0;
@@ -139,7 +139,7 @@ void veci_copy(void* dest, void* src)
  * Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
  */
-int push_backi(vector_i* vec, int a)
+int push_i(vector_i* vec, int a)
 {
 	void* tmp;
 	size_t tmp_sz;
@@ -160,7 +160,7 @@ int push_backi(vector_i* vec, int a)
 
 
 /** Remove and return the last element (size decreased 1).*/
-int pop_backi(vector_i* vec)
+int pop_i(vector_i* vec)
 {
 	return vec->a[--vec->size];
 }
@@ -325,7 +325,7 @@ void set_val_capi(vector_i* vec, int val)
 void cleari(vector_i* vec) { vec->size = 0; }
 
 /** Frees everything so don't use vec after calling this. */
-void free_veci(void* vec)
+void free_veci_heap(void* vec)
 {
 	vector_i* tmp = vec;
 	free(tmp->a);
@@ -333,7 +333,7 @@ void free_veci(void* vec)
 }
 
 /** Frees the internal array and sets size and capacity to 0 */
-void free_veci_stack(void* vec)
+void free_veci(void* vec)
 {
 	vector_i* tmp = vec;
 	free(tmp->a);

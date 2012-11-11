@@ -1,7 +1,7 @@
 \hypertarget{vector__tests_8c}{\section{vector\-\_\-tests.\-c \-File \-Reference}
 \label{vector__tests_8c}\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}}
 }
-{\ttfamily \#include \char`\"{}vector.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}vector\-\_\-all.\-h\char`\"{}}\*
 {\ttfamily \#include \char`\"{}vector\-\_\-short.\-h\char`\"{}}\*
 {\ttfamily \#include $<$\-C\-Unit/\-Automated.\-h$>$}\*
 \subsection*{\-Data \-Structures}
@@ -18,9 +18,13 @@ struct \hyperlink{structf__struct}{f\-\_\-struct}
 \item 
 \#define \hyperlink{vector__tests_8c_a675cc8ee6a54f986507a8612bc538c1a}{\-S\-T\-D\-E\-R\-R}(\-X)~fprintf(stderr, \-X)
 \item 
-\#define \hyperlink{vector__tests_8c_a8ce1f58eab2da6e4042120bf922e0c2a}{\-G\-E\-T\-\_\-\-T}(\-X, \-Y)~((\hyperlink{structt__struct}{t\-\_\-struct}$\ast$)\&\-X-\/$>$a\mbox{[}\-Y$\ast$\-X-\/$>$elem\-\_\-size\mbox{]})
+\#define \hyperlink{vector__tests_8c_a8ce1f58eab2da6e4042120bf922e0c2a}{\-G\-E\-T\-\_\-\-T}(\-X, \-Y)~((\hyperlink{structt__struct}{t\-\_\-struct}$\ast$)\&\-X.\-a\mbox{[}\-Y$\ast$\-X.\-elem\-\_\-size\mbox{]})
 \item 
-\#define \hyperlink{vector__tests_8c_adf53320bed6f35020884d1167a0e8f01}{\-G\-E\-T\-\_\-\-F}(\-X, \-Y)~((\hyperlink{structf__struct}{f\-\_\-struct}$\ast$)\&\-X-\/$>$a\mbox{[}\-Y$\ast$\-X-\/$>$elem\-\_\-size\mbox{]})
+\#define \hyperlink{vector__tests_8c_adf53320bed6f35020884d1167a0e8f01}{\-G\-E\-T\-\_\-\-F}(\-X, \-Y)~((\hyperlink{structf__struct}{f\-\_\-struct}$\ast$)\&\-X.\-a\mbox{[}\-Y$\ast$\-X.\-elem\-\_\-size\mbox{]})
+\item 
+\#define \hyperlink{vector__tests_8c_abef18b26d1cdc4d82f5d9a1ecb065914}{\-G\-E\-T\-\_\-\-T\-P}(\-X, \-Y)~((\hyperlink{structt__struct}{t\-\_\-struct}$\ast$)\&\-X-\/$>$a\mbox{[}\-Y$\ast$\-X-\/$>$elem\-\_\-size\mbox{]})
+\item 
+\#define \hyperlink{vector__tests_8c_abc4da79b670b68dde04137876e4a681f}{\-G\-E\-T\-\_\-\-F\-P}(\-X, \-Y)~((\hyperlink{structf__struct}{f\-\_\-struct}$\ast$)\&\-X-\/$>$a\mbox{[}\-Y$\ast$\-X-\/$>$elem\-\_\-size\mbox{]})
 \item 
 \#define \hyperlink{vector__tests_8c_a097522f36be915c26e5fccbb262a40fd}{\-G\-E\-T\-\_\-\-E\-L\-E\-M\-E\-N\-T}(\-X, \-Y, \-T\-Y\-P\-E)~((\-T\-Y\-P\-E$\ast$)\&\-X.\-a\mbox{[}\-Y$\ast$\-X.\-elem\-\_\-size\mbox{]})
 \end{DoxyCompactItemize}
@@ -59,21 +63,21 @@ void \hyperlink{vector__tests_8c_a236d5468e06dd18857c3ff38bdbe5733}{set\-\_\-cap
 \item 
 void \hyperlink{vector__tests_8c_aab8a75266ecb6206a3128a3185080169}{set\-\_\-vald\-\_\-test} ()
 \item 
-void \hyperlink{vector__tests_8c_a98fc8940cbd132a6d641f905ddcfda49}{pushs\-\_\-test} ()
+void \hyperlink{vector__tests_8c_a1e363f911a8d4c45d8eff8794dd64c1c}{push\-\_\-str\-\_\-test} ()
 \item 
-void \hyperlink{vector__tests_8c_acc640e400ada16a58d2e526b0bc02bc6}{erases\-\_\-test} ()
+void \hyperlink{vector__tests_8c_a523f56fc4a8f4b7a3b274207732cc0e8}{erase\-\_\-str\-\_\-test} ()
 \item 
-void \hyperlink{vector__tests_8c_abb345b0528168e624d3dc92b53c864cd}{inserts\-\_\-test} ()
+void \hyperlink{vector__tests_8c_afbd491c44ecf205297e984d83c0e42e4}{insert\-\_\-str\-\_\-test} ()
 \item 
-void \hyperlink{vector__tests_8c_a5ee85b89d21849baf0a2a9e692e5a1be}{insert\-\_\-arrays\-\_\-test} ()
+void \hyperlink{vector__tests_8c_a66645b0208b7e997e9a40b596f91ea4d}{insert\-\_\-array\-\_\-str\-\_\-test} ()
 \item 
-void \hyperlink{vector__tests_8c_a77d86ab96a628ec68076b30628a39500}{pops\-\_\-test} ()
+void \hyperlink{vector__tests_8c_aaab93d32875fde0215d1829285256561}{pop\-\_\-str\-\_\-test} ()
 \item 
-void \hyperlink{vector__tests_8c_ae9171127d48bb03b7f43a35d94f3e8aa}{reserves\-\_\-test} ()
+void \hyperlink{vector__tests_8c_aa54c4a1dc18ff0398a0a80b83bab8866}{reserve\-\_\-str\-\_\-test} ()
 \item 
-void \hyperlink{vector__tests_8c_aa3b4f5aa73e4edbedac9d3ab20761d7d}{set\-\_\-capacitys\-\_\-test} ()
+void \hyperlink{vector__tests_8c_a2d90bea15728ffcf52f879b07090536d}{set\-\_\-capacity\-\_\-str\-\_\-test} ()
 \item 
-void \hyperlink{vector__tests_8c_ad26c4fca4ba8d38380e36431007a9f08}{set\-\_\-vals\-\_\-test} ()
+void \hyperlink{vector__tests_8c_aae4e22cb748b4eb3fa963efd2abbc211}{set\-\_\-val\-\_\-str\-\_\-test} ()
 \item 
 \hyperlink{structt__struct}{t\-\_\-struct} \hyperlink{vector__tests_8c_a4a6b836f82b0841b28a94a24016a0332}{mk\-\_\-t\-\_\-struct} (double d, int i, char $\ast$word)
 \item 
@@ -124,7 +128,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )~((\-T\-Y\-P\-E$\ast$)\&\-X.\-a\mbox{[}\-Y$\ast$\-X.\-elem\-\_\-size\mbox{]})}}\label{vector__tests_8c_a097522f36be915c26e5fccbb262a40fd}
 
 
-\-Definition at line 1125 of file vector\-\_\-tests.\-c.
+\-Definition at line 1151 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_adf53320bed6f35020884d1167a0e8f01}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!\-G\-E\-T\-\_\-\-F@{\-G\-E\-T\-\_\-\-F}}
 \index{\-G\-E\-T\-\_\-\-F@{\-G\-E\-T\-\_\-\-F}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -133,10 +137,22 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 \item[{}]{\-X, }
 \item[{}]{\-Y}
 \end{DoxyParamCaption}
-)~(({\bf f\-\_\-struct}$\ast$)\&\-X-\/$>$a\mbox{[}\-Y$\ast$\-X-\/$>$elem\-\_\-size\mbox{]})}}\label{vector__tests_8c_adf53320bed6f35020884d1167a0e8f01}
+)~(({\bf f\-\_\-struct}$\ast$)\&\-X.\-a\mbox{[}\-Y$\ast$\-X.\-elem\-\_\-size\mbox{]})}}\label{vector__tests_8c_adf53320bed6f35020884d1167a0e8f01}
 
 
-\-Definition at line 697 of file vector\-\_\-tests.\-c.
+\-Definition at line 712 of file vector\-\_\-tests.\-c.
+
+\hypertarget{vector__tests_8c_abc4da79b670b68dde04137876e4a681f}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!\-G\-E\-T\-\_\-\-F\-P@{\-G\-E\-T\-\_\-\-F\-P}}
+\index{\-G\-E\-T\-\_\-\-F\-P@{\-G\-E\-T\-\_\-\-F\-P}!vector_tests.c@{vector\-\_\-tests.\-c}}
+\subsubsection[{\-G\-E\-T\-\_\-\-F\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-G\-E\-T\-\_\-\-F\-P}(
+\begin{DoxyParamCaption}
+\item[{}]{\-X, }
+\item[{}]{\-Y}
+\end{DoxyParamCaption}
+)~(({\bf f\-\_\-struct}$\ast$)\&\-X-\/$>$a\mbox{[}\-Y$\ast$\-X-\/$>$elem\-\_\-size\mbox{]})}}\label{vector__tests_8c_abc4da79b670b68dde04137876e4a681f}
+
+
+\-Definition at line 715 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a8ce1f58eab2da6e4042120bf922e0c2a}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!\-G\-E\-T\-\_\-\-T@{\-G\-E\-T\-\_\-\-T}}
 \index{\-G\-E\-T\-\_\-\-T@{\-G\-E\-T\-\_\-\-T}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -145,10 +161,22 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 \item[{}]{\-X, }
 \item[{}]{\-Y}
 \end{DoxyParamCaption}
-)~(({\bf t\-\_\-struct}$\ast$)\&\-X-\/$>$a\mbox{[}\-Y$\ast$\-X-\/$>$elem\-\_\-size\mbox{]})}}\label{vector__tests_8c_a8ce1f58eab2da6e4042120bf922e0c2a}
+)~(({\bf t\-\_\-struct}$\ast$)\&\-X.\-a\mbox{[}\-Y$\ast$\-X.\-elem\-\_\-size\mbox{]})}}\label{vector__tests_8c_a8ce1f58eab2da6e4042120bf922e0c2a}
 
 
-\-Definition at line 696 of file vector\-\_\-tests.\-c.
+\-Definition at line 711 of file vector\-\_\-tests.\-c.
+
+\hypertarget{vector__tests_8c_abef18b26d1cdc4d82f5d9a1ecb065914}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!\-G\-E\-T\-\_\-\-T\-P@{\-G\-E\-T\-\_\-\-T\-P}}
+\index{\-G\-E\-T\-\_\-\-T\-P@{\-G\-E\-T\-\_\-\-T\-P}!vector_tests.c@{vector\-\_\-tests.\-c}}
+\subsubsection[{\-G\-E\-T\-\_\-\-T\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-G\-E\-T\-\_\-\-T\-P}(
+\begin{DoxyParamCaption}
+\item[{}]{\-X, }
+\item[{}]{\-Y}
+\end{DoxyParamCaption}
+)~(({\bf t\-\_\-struct}$\ast$)\&\-X-\/$>$a\mbox{[}\-Y$\ast$\-X-\/$>$elem\-\_\-size\mbox{]})}}\label{vector__tests_8c_abef18b26d1cdc4d82f5d9a1ecb065914}
+
+
+\-Definition at line 714 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a675cc8ee6a54f986507a8612bc538c1a}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!\-S\-T\-D\-E\-R\-R@{\-S\-T\-D\-E\-R\-R}}
 \index{\-S\-T\-D\-E\-R\-R@{\-S\-T\-D\-E\-R\-R}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -164,6 +192,17 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 
 
 \subsection{\-Function \-Documentation}
+\hypertarget{vector__tests_8c_a523f56fc4a8f4b7a3b274207732cc0e8}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!erase\-\_\-str\-\_\-test@{erase\-\_\-str\-\_\-test}}
+\index{erase\-\_\-str\-\_\-test@{erase\-\_\-str\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
+\subsubsection[{erase\-\_\-str\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf erase\-\_\-str\-\_\-test} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{vector__tests_8c_a523f56fc4a8f4b7a3b274207732cc0e8}
+
+
+\-Definition at line 452 of file vector\-\_\-tests.\-c.
+
 \hypertarget{vector__tests_8c_ae0ed31d6578853149e7651f31c64f865}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!erase\-\_\-test@{erase\-\_\-test}}
 \index{erase\-\_\-test@{erase\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
 \subsubsection[{erase\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf erase\-\_\-test} (
@@ -173,7 +212,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_ae0ed31d6578853149e7651f31c64f865}
 
 
-\-Definition at line 767 of file vector\-\_\-tests.\-c.
+\-Definition at line 787 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a9a00a1e10358cff8c9d89d2b8a85fea2}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!erased\-\_\-test@{erased\-\_\-test}}
 \index{erased\-\_\-test@{erased\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -184,7 +223,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a9a00a1e10358cff8c9d89d2b8a85fea2}
 
 
-\-Definition at line 241 of file vector\-\_\-tests.\-c.
+\-Definition at line 247 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a1ce3eee7848108080af27e9ee0b5f1c6}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!erasei\-\_\-test@{erasei\-\_\-test}}
 \index{erasei\-\_\-test@{erasei\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -195,18 +234,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a1ce3eee7848108080af27e9ee0b5f1c6}
 
 
-\-Definition at line 35 of file vector\-\_\-tests.\-c.
-
-\hypertarget{vector__tests_8c_acc640e400ada16a58d2e526b0bc02bc6}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!erases\-\_\-test@{erases\-\_\-test}}
-\index{erases\-\_\-test@{erases\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
-\subsubsection[{erases\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf erases\-\_\-test} (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{vector__tests_8c_acc640e400ada16a58d2e526b0bc02bc6}
-
-
-\-Definition at line 442 of file vector\-\_\-tests.\-c.
+\-Definition at line 36 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_aa4acd5ea5810b80fbe0a8aa212b62568}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!free\-\_\-f\-\_\-struct@{free\-\_\-f\-\_\-struct}}
 \index{free\-\_\-f\-\_\-struct@{free\-\_\-f\-\_\-struct}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -217,7 +245,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_aa4acd5ea5810b80fbe0a8aa212b62568}
 
 
-\-Definition at line 700 of file vector\-\_\-tests.\-c.
+\-Definition at line 717 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_ad50e3c1accbf74884432d3c0b4e952a4}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!init\-\_\-f\-\_\-struct@{init\-\_\-f\-\_\-struct}}
 \index{init\-\_\-f\-\_\-struct@{init\-\_\-f\-\_\-struct}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -229,7 +257,18 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_ad50e3c1accbf74884432d3c0b4e952a4}
 
 
-\-Definition at line 710 of file vector\-\_\-tests.\-c.
+\-Definition at line 727 of file vector\-\_\-tests.\-c.
+
+\hypertarget{vector__tests_8c_a66645b0208b7e997e9a40b596f91ea4d}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!insert\-\_\-array\-\_\-str\-\_\-test@{insert\-\_\-array\-\_\-str\-\_\-test}}
+\index{insert\-\_\-array\-\_\-str\-\_\-test@{insert\-\_\-array\-\_\-str\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
+\subsubsection[{insert\-\_\-array\-\_\-str\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf insert\-\_\-array\-\_\-str\-\_\-test} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{vector__tests_8c_a66645b0208b7e997e9a40b596f91ea4d}
+
+
+\-Definition at line 519 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a35ec77499ffbfd8f5e68e8d3ae37e1c5}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!insert\-\_\-array\-\_\-test@{insert\-\_\-array\-\_\-test}}
 \index{insert\-\_\-array\-\_\-test@{insert\-\_\-array\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -240,7 +279,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a35ec77499ffbfd8f5e68e8d3ae37e1c5}
 
 
-\-Definition at line 895 of file vector\-\_\-tests.\-c.
+\-Definition at line 915 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_ac8a5c5e0b03a614d3e3be8dc18eed182}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!insert\-\_\-arrayd\-\_\-test@{insert\-\_\-arrayd\-\_\-test}}
 \index{insert\-\_\-arrayd\-\_\-test@{insert\-\_\-arrayd\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -251,7 +290,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_ac8a5c5e0b03a614d3e3be8dc18eed182}
 
 
-\-Definition at line 293 of file vector\-\_\-tests.\-c.
+\-Definition at line 301 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_adbf94bf2f07a8c8fcf8a6472552321bf}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!insert\-\_\-arrayi\-\_\-test@{insert\-\_\-arrayi\-\_\-test}}
 \index{insert\-\_\-arrayi\-\_\-test@{insert\-\_\-arrayi\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -262,18 +301,18 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_adbf94bf2f07a8c8fcf8a6472552321bf}
 
 
-\-Definition at line 86 of file vector\-\_\-tests.\-c.
+\-Definition at line 89 of file vector\-\_\-tests.\-c.
 
-\hypertarget{vector__tests_8c_a5ee85b89d21849baf0a2a9e692e5a1be}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!insert\-\_\-arrays\-\_\-test@{insert\-\_\-arrays\-\_\-test}}
-\index{insert\-\_\-arrays\-\_\-test@{insert\-\_\-arrays\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
-\subsubsection[{insert\-\_\-arrays\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf insert\-\_\-arrays\-\_\-test} (
+\hypertarget{vector__tests_8c_afbd491c44ecf205297e984d83c0e42e4}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!insert\-\_\-str\-\_\-test@{insert\-\_\-str\-\_\-test}}
+\index{insert\-\_\-str\-\_\-test@{insert\-\_\-str\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
+\subsubsection[{insert\-\_\-str\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf insert\-\_\-str\-\_\-test} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{vector__tests_8c_a5ee85b89d21849baf0a2a9e692e5a1be}
+)}}\label{vector__tests_8c_afbd491c44ecf205297e984d83c0e42e4}
 
 
-\-Definition at line 508 of file vector\-\_\-tests.\-c.
+\-Definition at line 485 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a065d902cd4a3aaafd61d506d75811114}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!insert\-\_\-test@{insert\-\_\-test}}
 \index{insert\-\_\-test@{insert\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -284,7 +323,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a065d902cd4a3aaafd61d506d75811114}
 
 
-\-Definition at line 821 of file vector\-\_\-tests.\-c.
+\-Definition at line 841 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a6a9943a9fb0d8afe42c779068af4a659}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!insertd\-\_\-test@{insertd\-\_\-test}}
 \index{insertd\-\_\-test@{insertd\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -295,7 +334,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a6a9943a9fb0d8afe42c779068af4a659}
 
 
-\-Definition at line 268 of file vector\-\_\-tests.\-c.
+\-Definition at line 275 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a1bd9e442f90a5ba6caa0d34c8fe21368}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!inserti\-\_\-test@{inserti\-\_\-test}}
 \index{inserti\-\_\-test@{inserti\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -306,18 +345,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a1bd9e442f90a5ba6caa0d34c8fe21368}
 
 
-\-Definition at line 63 of file vector\-\_\-tests.\-c.
-
-\hypertarget{vector__tests_8c_abb345b0528168e624d3dc92b53c864cd}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!inserts\-\_\-test@{inserts\-\_\-test}}
-\index{inserts\-\_\-test@{inserts\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
-\subsubsection[{inserts\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf inserts\-\_\-test} (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{vector__tests_8c_abb345b0528168e624d3dc92b53c864cd}
-
-
-\-Definition at line 474 of file vector\-\_\-tests.\-c.
+\-Definition at line 65 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a6b20ff6161d5e27631cc8fcee4935fea}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!mk\-\_\-f\-\_\-struct@{mk\-\_\-f\-\_\-struct}}
 \index{mk\-\_\-f\-\_\-struct@{mk\-\_\-f\-\_\-struct}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -330,7 +358,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a6b20ff6161d5e27631cc8fcee4935fea}
 
 
-\-Definition at line 683 of file vector\-\_\-tests.\-c.
+\-Definition at line 698 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a4a6b836f82b0841b28a94a24016a0332}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!mk\-\_\-t\-\_\-struct@{mk\-\_\-t\-\_\-struct}}
 \index{mk\-\_\-t\-\_\-struct@{mk\-\_\-t\-\_\-struct}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -343,7 +371,18 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a4a6b836f82b0841b28a94a24016a0332}
 
 
-\-Definition at line 673 of file vector\-\_\-tests.\-c.
+\-Definition at line 688 of file vector\-\_\-tests.\-c.
+
+\hypertarget{vector__tests_8c_aaab93d32875fde0215d1829285256561}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!pop\-\_\-str\-\_\-test@{pop\-\_\-str\-\_\-test}}
+\index{pop\-\_\-str\-\_\-test@{pop\-\_\-str\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
+\subsubsection[{pop\-\_\-str\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf pop\-\_\-str\-\_\-test} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{vector__tests_8c_aaab93d32875fde0215d1829285256561}
+
+
+\-Definition at line 556 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a541afdf27b6f93df539f3aca4efddcc6}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!pop\-\_\-test@{pop\-\_\-test}}
 \index{pop\-\_\-test@{pop\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -354,7 +393,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a541afdf27b6f93df539f3aca4efddcc6}
 
 
-\-Definition at line 918 of file vector\-\_\-tests.\-c.
+\-Definition at line 938 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_aa6b91c1fb29fc1af418a55a779aaf1b9}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!popd\-\_\-test@{popd\-\_\-test}}
 \index{popd\-\_\-test@{popd\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -365,7 +404,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_aa6b91c1fb29fc1af418a55a779aaf1b9}
 
 
-\-Definition at line 325 of file vector\-\_\-tests.\-c.
+\-Definition at line 333 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a5c1ac449d2c8f108a2ba9186f3cbbf23}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!popi\-\_\-test@{popi\-\_\-test}}
 \index{popi\-\_\-test@{popi\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -376,18 +415,18 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a5c1ac449d2c8f108a2ba9186f3cbbf23}
 
 
-\-Definition at line 119 of file vector\-\_\-tests.\-c.
+\-Definition at line 122 of file vector\-\_\-tests.\-c.
 
-\hypertarget{vector__tests_8c_a77d86ab96a628ec68076b30628a39500}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!pops\-\_\-test@{pops\-\_\-test}}
-\index{pops\-\_\-test@{pops\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
-\subsubsection[{pops\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf pops\-\_\-test} (
+\hypertarget{vector__tests_8c_a1e363f911a8d4c45d8eff8794dd64c1c}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!push\-\_\-str\-\_\-test@{push\-\_\-str\-\_\-test}}
+\index{push\-\_\-str\-\_\-test@{push\-\_\-str\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
+\subsubsection[{push\-\_\-str\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf push\-\_\-str\-\_\-test} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{vector__tests_8c_a77d86ab96a628ec68076b30628a39500}
+)}}\label{vector__tests_8c_a1e363f911a8d4c45d8eff8794dd64c1c}
 
 
-\-Definition at line 545 of file vector\-\_\-tests.\-c.
+\-Definition at line 426 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a0b0ed8134020c97c26490d6881b15641}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!push\-\_\-test@{push\-\_\-test}}
 \index{push\-\_\-test@{push\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -398,7 +437,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a0b0ed8134020c97c26490d6881b15641}
 
 
-\-Definition at line 721 of file vector\-\_\-tests.\-c.
+\-Definition at line 738 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_ac759edc20dba5f5a6c5a203f4d7d1588}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!pushd\-\_\-test@{pushd\-\_\-test}}
 \index{pushd\-\_\-test@{pushd\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -409,7 +448,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_ac759edc20dba5f5a6c5a203f4d7d1588}
 
 
-\-Definition at line 220 of file vector\-\_\-tests.\-c.
+\-Definition at line 225 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a3cd2c102f57933067b2f6ad48de98cfc}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!pushi\-\_\-test@{pushi\-\_\-test}}
 \index{pushi\-\_\-test@{pushi\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -422,16 +461,16 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 
 \-Definition at line 15 of file vector\-\_\-tests.\-c.
 
-\hypertarget{vector__tests_8c_a98fc8940cbd132a6d641f905ddcfda49}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!pushs\-\_\-test@{pushs\-\_\-test}}
-\index{pushs\-\_\-test@{pushs\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
-\subsubsection[{pushs\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf pushs\-\_\-test} (
+\hypertarget{vector__tests_8c_aa54c4a1dc18ff0398a0a80b83bab8866}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!reserve\-\_\-str\-\_\-test@{reserve\-\_\-str\-\_\-test}}
+\index{reserve\-\_\-str\-\_\-test@{reserve\-\_\-str\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
+\subsubsection[{reserve\-\_\-str\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf reserve\-\_\-str\-\_\-test} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{vector__tests_8c_a98fc8940cbd132a6d641f905ddcfda49}
+)}}\label{vector__tests_8c_aa54c4a1dc18ff0398a0a80b83bab8866}
 
 
-\-Definition at line 416 of file vector\-\_\-tests.\-c.
+\-Definition at line 589 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a104ee4b1de8ab65e7ce282ab28b427ff}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!reserve\-\_\-test@{reserve\-\_\-test}}
 \index{reserve\-\_\-test@{reserve\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -442,7 +481,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a104ee4b1de8ab65e7ce282ab28b427ff}
 
 
-\-Definition at line 976 of file vector\-\_\-tests.\-c.
+\-Definition at line 998 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a8f142292e35933516cc13dee7b98881e}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!reserved\-\_\-test@{reserved\-\_\-test}}
 \index{reserved\-\_\-test@{reserved\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -453,7 +492,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a8f142292e35933516cc13dee7b98881e}
 
 
-\-Definition at line 353 of file vector\-\_\-tests.\-c.
+\-Definition at line 362 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a8d865adc59db427dd46d58fbe4756ac6}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!reservei\-\_\-test@{reservei\-\_\-test}}
 \index{reservei\-\_\-test@{reservei\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -464,18 +503,18 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a8d865adc59db427dd46d58fbe4756ac6}
 
 
-\-Definition at line 147 of file vector\-\_\-tests.\-c.
+\-Definition at line 151 of file vector\-\_\-tests.\-c.
 
-\hypertarget{vector__tests_8c_ae9171127d48bb03b7f43a35d94f3e8aa}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!reserves\-\_\-test@{reserves\-\_\-test}}
-\index{reserves\-\_\-test@{reserves\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
-\subsubsection[{reserves\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf reserves\-\_\-test} (
+\hypertarget{vector__tests_8c_a2d90bea15728ffcf52f879b07090536d}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!set\-\_\-capacity\-\_\-str\-\_\-test@{set\-\_\-capacity\-\_\-str\-\_\-test}}
+\index{set\-\_\-capacity\-\_\-str\-\_\-test@{set\-\_\-capacity\-\_\-str\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
+\subsubsection[{set\-\_\-capacity\-\_\-str\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf set\-\_\-capacity\-\_\-str\-\_\-test} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{vector__tests_8c_ae9171127d48bb03b7f43a35d94f3e8aa}
+)}}\label{vector__tests_8c_a2d90bea15728ffcf52f879b07090536d}
 
 
-\-Definition at line 577 of file vector\-\_\-tests.\-c.
+\-Definition at line 602 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_ac36d4b42e9e75f10d1955ab8c6a9c05a}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!set\-\_\-capacity\-\_\-test@{set\-\_\-capacity\-\_\-test}}
 \index{set\-\_\-capacity\-\_\-test@{set\-\_\-capacity\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -486,7 +525,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_ac36d4b42e9e75f10d1955ab8c6a9c05a}
 
 
-\-Definition at line 995 of file vector\-\_\-tests.\-c.
+\-Definition at line 1017 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a236d5468e06dd18857c3ff38bdbe5733}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!set\-\_\-capacityd\-\_\-test@{set\-\_\-capacityd\-\_\-test}}
 \index{set\-\_\-capacityd\-\_\-test@{set\-\_\-capacityd\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -497,7 +536,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a236d5468e06dd18857c3ff38bdbe5733}
 
 
-\-Definition at line 365 of file vector\-\_\-tests.\-c.
+\-Definition at line 374 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_aa8dcd8e2291448296341cd2fb35c5212}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!set\-\_\-capacityi\-\_\-test@{set\-\_\-capacityi\-\_\-test}}
 \index{set\-\_\-capacityi\-\_\-test@{set\-\_\-capacityi\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -508,18 +547,18 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_aa8dcd8e2291448296341cd2fb35c5212}
 
 
-\-Definition at line 161 of file vector\-\_\-tests.\-c.
+\-Definition at line 165 of file vector\-\_\-tests.\-c.
 
-\hypertarget{vector__tests_8c_aa3b4f5aa73e4edbedac9d3ab20761d7d}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!set\-\_\-capacitys\-\_\-test@{set\-\_\-capacitys\-\_\-test}}
-\index{set\-\_\-capacitys\-\_\-test@{set\-\_\-capacitys\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
-\subsubsection[{set\-\_\-capacitys\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf set\-\_\-capacitys\-\_\-test} (
+\hypertarget{vector__tests_8c_aae4e22cb748b4eb3fa963efd2abbc211}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!set\-\_\-val\-\_\-str\-\_\-test@{set\-\_\-val\-\_\-str\-\_\-test}}
+\index{set\-\_\-val\-\_\-str\-\_\-test@{set\-\_\-val\-\_\-str\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
+\subsubsection[{set\-\_\-val\-\_\-str\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf set\-\_\-val\-\_\-str\-\_\-test} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{vector__tests_8c_aa3b4f5aa73e4edbedac9d3ab20761d7d}
+)}}\label{vector__tests_8c_aae4e22cb748b4eb3fa963efd2abbc211}
 
 
-\-Definition at line 589 of file vector\-\_\-tests.\-c.
+\-Definition at line 641 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a1cf5e5d54ef257d3453a432e980f2aba}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!set\-\_\-val\-\_\-test@{set\-\_\-val\-\_\-test}}
 \index{set\-\_\-val\-\_\-test@{set\-\_\-val\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -530,7 +569,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a1cf5e5d54ef257d3453a432e980f2aba}
 
 
-\-Definition at line 1053 of file vector\-\_\-tests.\-c.
+\-Definition at line 1077 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_aab8a75266ecb6206a3128a3185080169}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!set\-\_\-vald\-\_\-test@{set\-\_\-vald\-\_\-test}}
 \index{set\-\_\-vald\-\_\-test@{set\-\_\-vald\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -541,7 +580,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_aab8a75266ecb6206a3128a3185080169}
 
 
-\-Definition at line 391 of file vector\-\_\-tests.\-c.
+\-Definition at line 401 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a4b4fb16af913da0534dad8ac78817191}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!set\-\_\-vali\-\_\-test@{set\-\_\-vali\-\_\-test}}
 \index{set\-\_\-vali\-\_\-test@{set\-\_\-vali\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -552,18 +591,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a4b4fb16af913da0534dad8ac78817191}
 
 
-\-Definition at line 189 of file vector\-\_\-tests.\-c.
-
-\hypertarget{vector__tests_8c_ad26c4fca4ba8d38380e36431007a9f08}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!set\-\_\-vals\-\_\-test@{set\-\_\-vals\-\_\-test}}
-\index{set\-\_\-vals\-\_\-test@{set\-\_\-vals\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
-\subsubsection[{set\-\_\-vals\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf set\-\_\-vals\-\_\-test} (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{vector__tests_8c_ad26c4fca4ba8d38380e36431007a9f08}
-
-
-\-Definition at line 627 of file vector\-\_\-tests.\-c.
+\-Definition at line 193 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!template\-\_\-test@{template\-\_\-test}}
 \index{template\-\_\-test@{template\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -574,7 +602,7 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}
 
 
-\-Definition at line 1191 of file vector\-\_\-tests.\-c.
+\-Definition at line 1217 of file vector\-\_\-tests.\-c.
 
 \hypertarget{vector__tests_8c_a45ca56fe4533262e4275075fc9615c63}{\index{vector\-\_\-tests.\-c@{vector\-\_\-tests.\-c}!vector\-\_\-of\-\_\-vectors\-\_\-test@{vector\-\_\-of\-\_\-vectors\-\_\-test}}
 \index{vector\-\_\-of\-\_\-vectors\-\_\-test@{vector\-\_\-of\-\_\-vectors\-\_\-test}!vector_tests.c@{vector\-\_\-tests.\-c}}
@@ -585,5 +613,5 @@ void \hyperlink{vector__tests_8c_a53b765d3e172badc70fec0cd5bf41565}{template\-\_
 )}}\label{vector__tests_8c_a45ca56fe4533262e4275075fc9615c63}
 
 
-\-Definition at line 1127 of file vector\-\_\-tests.\-c.
+\-Definition at line 1153 of file vector\-\_\-tests.\-c.
 

@@ -10,14 +10,14 @@ size\_t VEC\_S\_START\_SZ = 20;\end{DoxyPre}
 
 
 
-\begin{DoxyPre}#define \hyperlink{vector_8c_a88db9d722845b6a23eb29d044a0a3c98}{VECI\_ALLOCATOR(x)} (x*2)
-#define \hyperlink{vector_8c_af2c425102d9020ae35b894de0c7eadea}{VECD\_ALLOCATOR(x)} (x*2)
-#define \hyperlink{vector_8c_ac87bafa72aa9c4a4b255163bede52add}{VECS\_ALLOCATOR(x)} (x*2)
+\begin{DoxyPre}#define \hyperlink{vectori_8c_a88db9d722845b6a23eb29d044a0a3c98}{VECI\_ALLOCATOR(x)} (x*2)
+#define \hyperlink{vectord_8c_af2c425102d9020ae35b894de0c7eadea}{VECD\_ALLOCATOR(x)} (x*2)
+#define \hyperlink{vectorstr_8c_ac87bafa72aa9c4a4b255163bede52add}{VECS\_ALLOCATOR(x)} (x*2)
 #define \hyperlink{vector_8c_acc6ff7ec59b6544f657758f724fb7a8b}{VEC\_ALLOCATOR(x)} (x*2)
 \end{DoxyPre}
  \-The allocator macros are used in all functions that increase the size by 1. \-In others (constructors, insert\-\_\-array, reserve) \-V\-E\-C\-\_\-\-X\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z is the amount extra allocated.
 
-\-With version 2.\-0 \-I've added \hyperlink{vector__template_8c}{vector\-\_\-template.\-c} and \hyperlink{vector__template_8h}{vector\-\_\-template.\-h} which are used to generate code for any type (that doesn't require individual allocation/freeing like \hyperlink{structvector__s}{vector\-\_\-s}). \-It behaves exactly like \hyperlink{structvector__i}{vector\-\_\-i} (or d). \-This is preferable to using the generic vector for simple types and basic structures etc. since it's faster and clearer.
+\-With version 2.\-0 \-I've added \hyperlink{vector__template_8c}{vector\-\_\-template.\-c} and \hyperlink{vector__template_8h}{vector\-\_\-template.\-h} which are used to generate code for any type (that doesn't require individual allocation/freeing like vector\-\_\-s). \-It behaves exactly like \hyperlink{structvector__i}{vector\-\_\-i} (or d). \-This is preferable to using the generic vector for simple types and basic structures etc. since it's faster and clearer.
 
 \-To use generate your own c and h file for a type just run\-: 
 \begin{DoxyPre}
@@ -38,14 +38,14 @@ valgrind -\/-\/leak-\/check=yes ./vector
 
 
 \begin{DoxyPre}
-==3335== HEAP SUMMARY:
-==3335==     in use at exit: 0 bytes in 0 blocks
-==3335==   total heap usage: 4,983 allocs, 4,983 frees, 798,643 bytes allocated
-==3335== 
-==3335== All heap blocks were freed -- no leaks are possible
-==3335== 
-==3335== For counts of detected and suppressed errors, rerun with: -v
-==3335== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==10040== HEAP SUMMARY:
+==10040==     in use at exit: 0 bytes in 0 blocks
+==10040==   total heap usage: 4,957 allocs, 4,957 frees, 797,993 bytes allocated
+==10040== 
+==10040== All heap blocks were freed -- no leaks are possible
+==10040== 
+==10040== For counts of detected and suppressed errors, rerun with: -v
+==10040== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 \end{DoxyPre}
 
 

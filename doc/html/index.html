@@ -28,7 +28,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cvector
-   &#160;<span id="projectnumber">2.01</span>
+   &#160;<span id="projectnumber">2.1</span>
    </div>
    <div id="projectbrief">A C++ style vector library in strict ANSI C (C89)</div>
   </td>
@@ -83,12 +83,12 @@ Intro</h2>
 size_t VEC_I_START_SZ = 50;
 size_t VEC_D_START_SZ = 50;
 size_t VEC_START_SZ = 20;
-size_t VEC_S_START_SZ = 20;</pre><pre>#define <a class="el" href="vector_8c.html#a88db9d722845b6a23eb29d044a0a3c98">VECI_ALLOCATOR(x)</a> (x*2)
-#define <a class="el" href="vector_8c.html#af2c425102d9020ae35b894de0c7eadea">VECD_ALLOCATOR(x)</a> (x*2)
-#define <a class="el" href="vector_8c.html#ac87bafa72aa9c4a4b255163bede52add">VECS_ALLOCATOR(x)</a> (x*2)
+size_t VEC_S_START_SZ = 20;</pre><pre>#define <a class="el" href="vectori_8c.html#a88db9d722845b6a23eb29d044a0a3c98">VECI_ALLOCATOR(x)</a> (x*2)
+#define <a class="el" href="vectord_8c.html#af2c425102d9020ae35b894de0c7eadea">VECD_ALLOCATOR(x)</a> (x*2)
+#define <a class="el" href="vectorstr_8c.html#ac87bafa72aa9c4a4b255163bede52add">VECS_ALLOCATOR(x)</a> (x*2)
 #define <a class="el" href="vector_8c.html#acc6ff7ec59b6544f657758f724fb7a8b">VEC_ALLOCATOR(x)</a> (x*2)
 </pre><p> The allocator macros are used in all functions that increase the size by 1. In others (constructors, insert_array, reserve) VEC_X_START_SZ is the amount extra allocated.</p>
-<p>With version 2.0 I've added <a class="el" href="vector__template_8c.html">vector_template.c</a> and <a class="el" href="vector__template_8h.html">vector_template.h</a> which are used to generate code for any type (that doesn't require individual allocation/freeing like <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a>). It behaves exactly like <a class="el" href="structvector__i.html" title="Data structur for int vector.">vector_i</a> (or d). This is preferable to using the generic vector for simple types and basic structures etc. since it's faster and clearer.</p>
+<p>With version 2.0 I've added <a class="el" href="vector__template_8c.html">vector_template.c</a> and <a class="el" href="vector__template_8h.html">vector_template.h</a> which are used to generate code for any type (that doesn't require individual allocation/freeing like vector_s). It behaves exactly like <a class="el" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> (or d). This is preferable to using the generic vector for simple types and basic structures etc. since it's faster and clearer.</p>
 <p>To use generate your own c and h file for a type just run: </p>
 <pre>
 python3 generate_code.py yourtype
@@ -101,14 +101,14 @@ Building</h2>
 <p>It has been relatively well tested using Cunit tests which all pass. I've also run it under valgrind and there are no memory leaks.</p>
 <p>valgrind --leak-check=yes ./vector</p>
 <pre>
-==3335== HEAP SUMMARY:
-==3335==     in use at exit: 0 bytes in 0 blocks
-==3335==   total heap usage: 4,983 allocs, 4,983 frees, 798,643 bytes allocated
-==3335== 
-==3335== All heap blocks were freed -- no leaks are possible
-==3335== 
-==3335== For counts of detected and suppressed errors, rerun with: -v
-==3335== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==10040== HEAP SUMMARY:
+==10040==     in use at exit: 0 bytes in 0 blocks
+==10040==   total heap usage: 4,957 allocs, 4,957 frees, 797,993 bytes allocated
+==10040== 
+==10040== All heap blocks were freed -- no leaks are possible
+==10040== 
+==10040== For counts of detected and suppressed errors, rerun with: -v
+==10040== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 </pre><p>You can probably get Cunit from your package manager but if you want to get the most up to date version of CUnit go here:</p>
 <p><a href="http://cunit.sourceforge.net/index.html">http://cunit.sourceforge.net/index.html</a> <a href="http://sourceforge.net/projects/cunit/">http://sourceforge.net/projects/cunit/</a></p>
 <p>I used version 2.1-2.</p>
@@ -139,7 +139,7 @@ LICENSE</h2>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 8 2012 22:25:06 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 10 2012 22:11:51 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

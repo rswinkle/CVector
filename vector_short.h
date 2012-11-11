@@ -19,16 +19,16 @@ typedef struct vector_short_
 
 extern size_t VECTOR_short_SZ;
 
-int vec_short_stack(vector_short* vec, size_t size, size_t capacity);
-int init_vec_short_stack(vector_short* vec, short* vals, size_t num);
+int vec_short(vector_short* vec, size_t size, size_t capacity);
+int init_vec_short(vector_short* vec, short* vals, size_t num);
 
-vector_short* vec_short(size_t size, size_t capacity);
-vector_short* init_vec_short(short* vals, size_t num);
+vector_short* vec_short_heap(size_t size, size_t capacity);
+vector_short* init_vec_short_heap(short* vals, size_t num);
 
 void vec_short_copy(void* dest, void* src);
 
-int push_back_short(vector_short* vec, short a);
-short pop_back_short(vector_short* vec);
+int push_short(vector_short* vec, short a);
+short pop_short(vector_short* vec);
 
 int extend_short(vector_short* vec, size_t num);
 int insert_short(vector_short* vec, size_t i, short a);
@@ -41,14 +41,9 @@ void set_val_cap_short(vector_short* vec, short val);
 
 short* back_short(vector_short* vec);
 
-
-/*you really don't need these; you could just check
-them directly */
-int capacity_short(vector_short* vec);
-int size_short(vector_short* vec);
 void clear_short(vector_short* vec);
+void free_vec_short_heap(void* vec);
 void free_vec_short(void* vec);
-void free_vec_short_stack(void* vec);
 
 
 

@@ -28,7 +28,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cvector
-   &#160;<span id="projectnumber">2.01</span>
+   &#160;<span id="projectnumber">2.1</span>
    </div>
    <div id="projectbrief">A C++ style vector library in strict ANSI C (C89)</div>
   </td>
@@ -94,12 +94,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__i.html">vector_i</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structur for int vector.  <a href="structvector__i.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__d.html">vector_d</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure for double vector.  <a href="structvector__d.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector__s.html">vector_s</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure for string vector.  <a href="structvector__s.html#details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvector.html">vector</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure for generic type (cast to void) vectors.  <a href="structvector.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="typedef-members"></a>
@@ -107,168 +101,49 @@ Typedefs</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a141b8e057d63a3ba14590139945e20a9">mystrdup</a> (const char *str)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Useful utility function since strdup isn't in standard C.  <a href="#a141b8e057d63a3ba14590139945e20a9"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aa42540aadd3ef3045867d46828313b83">vec_i_stack</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t size, size_t capacity)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="vector_8c.html#aec1735a3a634f7fb090f3836cdcb9d75" title="Creates a new vector_i.">vec_i()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#aa42540aadd3ef3045867d46828313b83"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a04913071a71785ff0ca8787174d007bb">init_vec_i_stack</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, int *vals, size_t num)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="vector_8c.html#a88741ffdcb8aff0d59afb44aab372a20" title="Create and initialize vector_i with num elements of vals.">init_vec_i()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#a04913071a71785ff0ca8787174d007bb"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aec1735a3a634f7fb090f3836cdcb9d75">vec_i</a> (size_t size, size_t capacity)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="structvector__i.html" title="Data structur for int vector.">vector_i</a>.  <a href="#aec1735a3a634f7fb090f3836cdcb9d75"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a88741ffdcb8aff0d59afb44aab372a20">init_vec_i</a> (int *vals, size_t num)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialize <a class="el" href="structvector__i.html" title="Data structur for int vector.">vector_i</a> with num elements of vals.  <a href="#a88741ffdcb8aff0d59afb44aab372a20"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a7d8106e39b80ad7a82fc10a7cc500817">veci_copy</a> (void *dest, void *src)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes dest an identical copy of src.  <a href="#a7d8106e39b80ad7a82fc10a7cc500817"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ac9ee8d01a2e12c23014b3bb5a1a3605b">push_backi</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, int a)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a to end of vector (size increased 1).  <a href="#ac9ee8d01a2e12c23014b3bb5a1a3605b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a8fea65bfdef42ddd75d601e32590d552">pop_backi</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove and return the last element (size decreased 1).  <a href="#a8fea65bfdef42ddd75d601e32590d552"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#abd200937f5662a34cb071eb7ffc8ae20">extendi</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t num)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Increase the size of the array num items.  <a href="#abd200937f5662a34cb071eb7ffc8ae20"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a84e557f52c83e9f7003a98c332b571d5">inserti</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, int a)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a at index i (0 based).  <a href="#a84e557f52c83e9f7003a98c332b571d5"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a086249a206e69f2d98d50624a17b75f1">insert_arrayi</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, int *a, size_t num)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert the first num elements of array a at index i.  <a href="#a086249a206e69f2d98d50624a17b75f1"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a429dec8af8f89b6311c6dad0f180c625">erasei</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t start, size_t end)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases elements from start to end inclusive.  <a href="#a429dec8af8f89b6311c6dad0f180c625"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a8e092364e24c40d44b2c7864b7123207">reservei</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t size)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure capacity is at least size(parameter not member).  <a href="#a8e092364e24c40d44b2c7864b7123207"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ae6a6b79c99c999ba62d11485dff9baab">set_capacityi</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t size)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set capacity to size.  <a href="#ae6a6b79c99c999ba62d11485dff9baab"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ae345cec01d9c396aab73dbccc6f97ff5">set_val_szi</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, int val)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all size elements to val.  <a href="#ae345cec01d9c396aab73dbccc6f97ff5"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a5a9fc4f9d82c885055dc3ab420d02c4d">set_val_capi</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, int val)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills entire allocated array (capacity) with val.  <a href="#a5a9fc4f9d82c885055dc3ab420d02c4d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a0f6b6c1b3b012bbd8e74ed5172e3e473">backi</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pointer to last element.  <a href="#a0f6b6c1b3b012bbd8e74ed5172e3e473"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a81a0f18214d814fc58e7fc59ec032304">cleari</a> (<a class="el" href="structvector__i.html">vector_i</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets size to 0 (does not clear contents).  <a href="#a81a0f18214d814fc58e7fc59ec032304"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a1d2da12e88f5b63ebbf755c6c71ddd42">free_veci</a> (void *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees everything so don't use vec after calling this.  <a href="#a1d2da12e88f5b63ebbf755c6c71ddd42"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ac0888237a36d9be1bc79c9957b517b0e">free_veci_stack</a> (void *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the internal array and sets size and capacity to 0.  <a href="#ac0888237a36d9be1bc79c9957b517b0e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a041f2354eeae85a76c853a6391d8c870">vec_d_stack</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t size, size_t capacity)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="vector_8c.html#a9ad53be632b2948cb650cec4ae63d506" title="Creates a new vector_d.">vec_d()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#a041f2354eeae85a76c853a6391d8c870"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aa04e610db2f8e3214838852eebd520f8">init_vec_d_stack</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, double *vals, size_t num)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="vector_8c.html#aa0a2179ce6d677fec9ff95c08b575eec" title="Create and initialize vector_d with num elements of vals.">init_vec_d()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#aa04e610db2f8e3214838852eebd520f8"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a9ad53be632b2948cb650cec4ae63d506">vec_d</a> (size_t size, size_t capacity)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>.  <a href="#a9ad53be632b2948cb650cec4ae63d506"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aa0a2179ce6d677fec9ff95c08b575eec">init_vec_d</a> (double *vals, size_t num)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialize <a class="el" href="structvector__d.html" title="Data structure for double vector.">vector_d</a> with num elements of vals.  <a href="#aa0a2179ce6d677fec9ff95c08b575eec"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#af94d78c744f4167ac78ee9c22c725433">vecd_copy</a> (void *dest, void *src)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes dest an identical copy of src.  <a href="#af94d78c744f4167ac78ee9c22c725433"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aec22afdb202bb430481b1ba919d46128">push_backd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, double a)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a to end of vector (size increased 1).  <a href="#aec22afdb202bb430481b1ba919d46128"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ad63b53355a5ec0829c19fece78497149">pop_backd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove and return the last element (size decreased 1).  <a href="#ad63b53355a5ec0829c19fece78497149"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ac2b32eef4befa3c059ddcd273f249c53">extendd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t num)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Increase the size of the array num items.  <a href="#ac2b32eef4befa3c059ddcd273f249c53"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a27cda61f4446cb298f30c78ea250ffe0">insertd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, double a)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a at index i (0 based).  <a href="#a27cda61f4446cb298f30c78ea250ffe0"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a3ce694f26d7f8b299c4757b167fffd11">insert_arrayd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, double *a, size_t num)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert the first num elements of array a at index i.  <a href="#a3ce694f26d7f8b299c4757b167fffd11"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a5024e0dad2d80c8c58c840aa0fda85aa">erased</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t start, size_t end)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases elements from start to end inclusive.  <a href="#a5024e0dad2d80c8c58c840aa0fda85aa"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ae17d88125d50322bb65975e2db402144">reserved</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t size)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure capacity is at least size(parameter not member).  <a href="#ae17d88125d50322bb65975e2db402144"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ac3ac1d2e488610aa6ebf615299b41895">set_capacityd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t size)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set capacity to size.  <a href="#ac3ac1d2e488610aa6ebf615299b41895"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a8cf2604b6dfe8c10939e0ca4e4ef5868">set_val_szd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, double val)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all size elements to val.  <a href="#a8cf2604b6dfe8c10939e0ca4e4ef5868"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a91942dfa8445dc68a39458dec459ddd7">set_val_capd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, double val)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills entire allocated array (capacity) with val.  <a href="#a91942dfa8445dc68a39458dec459ddd7"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#afd5b64838b373d3afdedc7376deb825d">backd</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pointer to last element.  <a href="#afd5b64838b373d3afdedc7376deb825d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ade629b65714afdd14647c4e0585120d5">cleard</a> (<a class="el" href="structvector__d.html">vector_d</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets size to 0 (does not clear contents).  <a href="#ade629b65714afdd14647c4e0585120d5"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a7ad609e9b25c808ffe64002fdc71dbaf">free_vecd</a> (void *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees everything so don't use vec after calling this.  <a href="#a7ad609e9b25c808ffe64002fdc71dbaf"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a4dbd097e70a7b457587f995e043a0dfb">free_vecd_stack</a> (void *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the internal array and sets size and capacity to 0.  <a href="#a4dbd097e70a7b457587f995e043a0dfb"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a653f2a9b57e76d3c291626e5d57a2ba7">vec_s_stack</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t size, size_t capacity)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="vector_8c.html#af87364881c95d92a59e4471f200f7f7a" title="Create a new vector_s.">vec_s()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#a653f2a9b57e76d3c291626e5d57a2ba7"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aa23628f27e1fa512b079c718448b0112">init_vec_s_stack</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, char **vals, size_t num)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="vector_8c.html#abc4e4cc2141775d6e9994d8379c3cd6f" title="Create and initialize vector_s with num elements of vals.">init_vec_s()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#aa23628f27e1fa512b079c718448b0112"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#af87364881c95d92a59e4471f200f7f7a">vec_s</a> (size_t size, size_t capacity)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a>.  <a href="#af87364881c95d92a59e4471f200f7f7a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#abc4e4cc2141775d6e9994d8379c3cd6f">init_vec_s</a> (char **vals, size_t num)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialize <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a> with num elements of vals.  <a href="#abc4e4cc2141775d6e9994d8379c3cd6f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a4429cec99faa505e75cbdc1752509fbb">vecs_copy</a> (void *dest, void *src)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes dest an identical copy of src.  <a href="#a4429cec99faa505e75cbdc1752509fbb"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ac150af7158211651585db98ea24f480b">push_backs</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, char *a)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a to end of vector (size increased 1).  <a href="#ac150af7158211651585db98ea24f480b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a7b17af16d628d983e29caab7b9f41d18">pop_backs</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, char *ret)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the last element (size decreased 1).  <a href="#a7b17af16d628d983e29caab7b9f41d18"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ac09d782c20df1053d668ae262da40007">extends</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t num)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Increase the size of the array num items.  <a href="#ac09d782c20df1053d668ae262da40007"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a51c617708ae543ff9de78c9fec30b5f5">inserts</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, char *a)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a at index i (0 based).  <a href="#a51c617708ae543ff9de78c9fec30b5f5"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a071ef29099b47f6a380c09300a9f57c4">insert_arrays</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, char **, size_t num)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert the first num elements of array a at index i.  <a href="#a071ef29099b47f6a380c09300a9f57c4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#abab89ce87821bca28b7641676d3c562c">erases</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t start, size_t end)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases strings from start to end inclusive.  <a href="#abab89ce87821bca28b7641676d3c562c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aa0f9a5cb0911ac0030574b0a4f7ca8d4">reserves</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t size)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes sure the vector capacity is &gt;= size (parameter not member).  <a href="#aa0f9a5cb0911ac0030574b0a4f7ca8d4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a0a95f51036c470e26ebd78081a1d9611">set_capacitys</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t size)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set capacity to size.  <a href="#a0a95f51036c470e26ebd78081a1d9611"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a4422ebcd9d921efe075a1f93b9b50dd2">set_val_szs</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, char *val)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all size elements to val.  <a href="#a4422ebcd9d921efe075a1f93b9b50dd2"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a543e3898569734fc213f377838d48191">set_val_caps</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, char *val)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills entire allocated array (capacity) with val.  <a href="#a543e3898569734fc213f377838d48191"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a1644b145740f2ee5ac81798560362ec6">backs</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pointer to last element.  <a href="#a1644b145740f2ee5ac81798560362ec6"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a92933e6a6ce4990401dd32a03e9245a0">clears</a> (<a class="el" href="structvector__s.html">vector_s</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the contents of vector (frees all strings) and sets size to 0.  <a href="#a92933e6a6ce4990401dd32a03e9245a0"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a75512e06058c084bd4af68adad6ed46d">free_vecs</a> (void *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees contents (individual strings and array) and frees vector so don't use after calling this.  <a href="#a75512e06058c084bd4af68adad6ed46d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a29c0b7bbe59dda9dddbdef21035e4b54">free_vecs_stack</a> (void *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the internal array and sets size and capacity to 0.  <a href="#a29c0b7bbe59dda9dddbdef21035e4b54"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a7b52853291d294b4477603669329cf19">vec_stack</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#a7b52853291d294b4477603669329cf19"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ac2cfd4e75f9ead9879cda8f443106b4a">init_vec_stack</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, void *vals, size_t num, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="vector_8c.html#a368ba8d1bd2ed240a7b0527ac752cc3c" title="Create and initialize vector with num elements of vals.">init_vec()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#ac2cfd4e75f9ead9879cda8f443106b4a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvector.html">vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a> (size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new vector.  <a href="#aaf8dbad914b3146c53fa02399be67f48"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvector.html">vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a368ba8d1bd2ed240a7b0527ac752cc3c">init_vec</a> (void *vals, size_t num, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialize vector with num elements of vals.  <a href="#a368ba8d1bd2ed240a7b0527ac752cc3c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#a36f53ce4a2fc2a25a1f7f5a913eb3b7a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#af367cb962d4346b9d313a9d8797bdf4a">init_vec</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>, void *vals, size_t num, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="vector_8c.html#af367cb962d4346b9d313a9d8797bdf4a" title="Same as init_vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in thi...">init_vec()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#af367cb962d4346b9d313a9d8797bdf4a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvector.html">vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a57ef0792f1717ece6ce779a8714aca96">vec_heap</a> (size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new vector.  <a href="#a57ef0792f1717ece6ce779a8714aca96"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvector.html">vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a2c11d043ab66adcdaddd4b04200705fc">init_vec_heap</a> (void *vals, size_t num, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialize vector with num elements of vals.  <a href="#a2c11d043ab66adcdaddd4b04200705fc"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ac6cae8373e9423d3979d9a3706c683ef">vec_copy</a> (void *dest, void *src)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes dest an identical copy of src.  <a href="#ac6cae8373e9423d3979d9a3706c683ef"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ac5862d0f414b0a4a485173615c1c0511">push_back</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, void *val)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a to end of vector (size increased 1).  <a href="#ac5862d0f414b0a4a485173615c1c0511"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a5c74d211538266d623337c6bd63bf307">pop_back</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, void *ret)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the last element (size decreased 1).  <a href="#a5c74d211538266d623337c6bd63bf307"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aa46156fb4f34b672a0ad7db2a8511b7b">vec_get</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a521de0958cfee7dc0854f96f38bcc814">push</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>, void *val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a to end of vector (size increased 1).  <a href="#a521de0958cfee7dc0854f96f38bcc814"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aa7c4f5c92867ef1d6e3db0aba5126d39">pop</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>, void *ret)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the last element (size decreased 1).  <a href="#aa7c4f5c92867ef1d6e3db0aba5126d39"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aa46156fb4f34b672a0ad7db2a8511b7b">vec_get</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>, size_t i)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a void pointer to the ith element.  <a href="#aa46156fb4f34b672a0ad7db2a8511b7b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a9b4cb0d7e7184caf8612d54ac5391086">extend</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t num)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a9b4cb0d7e7184caf8612d54ac5391086">extend</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>, size_t num)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Increase the size of the array num items.  <a href="#a9b4cb0d7e7184caf8612d54ac5391086"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ad7021cbfcd3b26cf5a4d68270e01532f">insert</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, void *a)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ad7021cbfcd3b26cf5a4d68270e01532f">insert</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>, size_t i, void *a)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a at index i (0 based).  <a href="#ad7021cbfcd3b26cf5a4d68270e01532f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ac21302d0c9da709ba66d7b3f68b5d5b6">insert_array</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t i, void *a, size_t num)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ac21302d0c9da709ba66d7b3f68b5d5b6">insert_array</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>, size_t i, void *a, size_t num)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert the first num elements of array a at index i.  <a href="#ac21302d0c9da709ba66d7b3f68b5d5b6"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a0c6bcaa8891ef981b036e37eff922cf8">erase</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t start, size_t end)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a0c6bcaa8891ef981b036e37eff922cf8">erase</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>, size_t start, size_t end)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases elements from start to end inclusive.  <a href="#a0c6bcaa8891ef981b036e37eff922cf8"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a7f6498e7460dafb6c94b7734776f9a9f">reserve</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t size)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a7f6498e7460dafb6c94b7734776f9a9f">reserve</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>, size_t size)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes sure capacity &gt;= size (the parameter not the member).  <a href="#a7f6498e7460dafb6c94b7734776f9a9f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ab666e9f05742911262401567e4604a32">set_capacity</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, size_t size)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ab666e9f05742911262401567e4604a32">set_capacity</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>, size_t size)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set capacity to size.  <a href="#ab666e9f05742911262401567e4604a32"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a8bdff9301773943a8d9214f3a6db6c0a">set_val_sz</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, void *val)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a8bdff9301773943a8d9214f3a6db6c0a">set_val_sz</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>, void *val)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all size elements to val.  <a href="#a8bdff9301773943a8d9214f3a6db6c0a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a4dbaf5b0808db2a7995f1bfff760e719">set_val_cap</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>, void *val)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a4dbaf5b0808db2a7995f1bfff760e719">set_val_cap</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>, void *val)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills entire allocated array (capacity) with val.  <a href="#a4dbaf5b0808db2a7995f1bfff760e719"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#af0f33ee9be2400de2bb2fc2024c6ddea">back</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#af0f33ee9be2400de2bb2fc2024c6ddea">back</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pointer to last element.  <a href="#af0f33ee9be2400de2bb2fc2024c6ddea"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ae6e399ccd20b64c6214f13bf44aa174c">clear</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets size to 0 (does not change contents unless elem_free is set then it will free all size elements as in <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a>).  <a href="#ae6e399ccd20b64c6214f13bf44aa174c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a942a5a50dc54eff02d67d91e16e9575b">free_vec</a> (void *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees everything so don't use vec after calling this.  <a href="#a942a5a50dc54eff02d67d91e16e9575b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a18c191a092a08499edf85fb06ec9bdeb">free_vec_stack</a> (void *<a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the internal array and sets size and capacity to 0.  <a href="#a18c191a092a08499edf85fb06ec9bdeb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ae6e399ccd20b64c6214f13bf44aa174c">clear</a> (<a class="el" href="structvector.html">vector</a> *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets size to 0 (does not change contents unless elem_free is set then it will free all size elements as in vector_s).  <a href="#ae6e399ccd20b64c6214f13bf44aa174c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a5866a7a7eed43fb09589cab61cff460b">free_vec_heap</a> (void *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees everything so don't use vec after calling this.  <a href="#a5866a7a7eed43fb09589cab61cff460b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a942a5a50dc54eff02d67d91e16e9575b">free_vec</a> (void *<a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the internal array and sets size and capacity to 0.  <a href="#a942a5a50dc54eff02d67d91e16e9575b"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a9dfda901bb45b8c35164ec186c1c844e">VEC_I_START_SZ</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a57df2435a35a69bca888700984b749d6">VEC_D_START_SZ</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a06c1ac920eb0f6d440d17cc1ab282df4">VEC_S_START_SZ</a></td></tr>
 </table>
 <hr/><h2>Typedef Documentation</h2>
 <a class="anchor" id="a0c8186d9b9b7880309c27230bbb5e69d"></a><!-- doxytag: member="vector.h::byte" ref="a0c8186d9b9b7880309c27230bbb5e69d" args="" -->
@@ -282,7 +157,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector_8h_source.html#l00009">9</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+<p>Definition at line <a class="el" href="vector_8h_source.html#l00008">8</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
 
 </div>
 </div>
@@ -304,70 +179,7 @@ Variables</h2></td></tr>
 
 <p>Return pointer to last element. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01349">1349</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afd5b64838b373d3afdedc7376deb825d"></a><!-- doxytag: member="vector.h::backd" ref="afd5b64838b373d3afdedc7376deb825d" args="(vector_d *vec)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double* <a class="el" href="vector_8h.html#afd5b64838b373d3afdedc7376deb825d">backd</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Return pointer to last element. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00512">512</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0f6b6c1b3b012bbd8e74ed5172e3e473"></a><!-- doxytag: member="vector.h::backi" ref="a0f6b6c1b3b012bbd8e74ed5172e3e473" args="(vector_i *vec)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int* <a class="el" href="vector_8h.html#a0f6b6c1b3b012bbd8e74ed5172e3e473">backi</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Return pointer to last element. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00174">174</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1644b145740f2ee5ac81798560362ec6"></a><!-- doxytag: member="vector.h::backs" ref="a1644b145740f2ee5ac81798560362ec6" args="(vector_s *vec)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char** <a class="el" href="vector_8h.html#a1644b145740f2ee5ac81798560362ec6">backs</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Return pointer to last element. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00886">886</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00258">258</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -386,72 +198,9 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Sets size to 0 (does not change contents unless elem_free is set then it will free all size elements as in <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a>). </p>
+<p>Sets size to 0 (does not change contents unless elem_free is set then it will free all size elements as in vector_s). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01569">1569</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ade629b65714afdd14647c4e0585120d5"></a><!-- doxytag: member="vector.h::cleard" ref="ade629b65714afdd14647c4e0585120d5" args="(vector_d *vec)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#ade629b65714afdd14647c4e0585120d5">cleard</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Sets size to 0 (does not clear contents). </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00671">671</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a81a0f18214d814fc58e7fc59ec032304"></a><!-- doxytag: member="vector.h::cleari" ref="a81a0f18214d814fc58e7fc59ec032304" args="(vector_i *vec)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a81a0f18214d814fc58e7fc59ec032304">cleari</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Sets size to 0 (does not clear contents). </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00330">330</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a92933e6a6ce4990401dd32a03e9245a0"></a><!-- doxytag: member="vector.h::clears" ref="a92933e6a6ce4990401dd32a03e9245a0" args="(vector_s *vec)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a92933e6a6ce4990401dd32a03e9245a0">clears</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Clears the contents of vector (frees all strings) and sets size to 0. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01068">1068</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00478">478</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -488,125 +237,9 @@ Variables</h2></td></tr>
 
 <p>Erases elements from start to end inclusive. </p>
 <p>Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element that was at index 4 would now be at 1 etc.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>check start and end in range? </dd></dl>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01466">1466</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5024e0dad2d80c8c58c840aa0fda85aa"></a><!-- doxytag: member="vector.h::erased" ref="a5024e0dad2d80c8c58c840aa0fda85aa" args="(vector_d *vec, size_t start, size_t end)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a5024e0dad2d80c8c58c840aa0fda85aa">erased</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>start</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>end</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Erases elements from start to end inclusive. </p>
-<p>Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element that was at index 4 would now be at 1 etc.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>check start and end in range? </dd></dl>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00601">601</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a429dec8af8f89b6311c6dad0f180c625"></a><!-- doxytag: member="vector.h::erasei" ref="a429dec8af8f89b6311c6dad0f180c625" args="(vector_i *vec, size_t start, size_t end)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a429dec8af8f89b6311c6dad0f180c625">erasei</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>start</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>end</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Erases elements from start to end inclusive. </p>
-<p>Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element that was at index 4 would now be at 1 etc.</p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>check start and end in range? </dd></dl>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00265">265</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abab89ce87821bca28b7641676d3c562c"></a><!-- doxytag: member="vector.h::erases" ref="abab89ce87821bca28b7641676d3c562c" args="(vector_s *vec, size_t start, size_t end)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#abab89ce87821bca28b7641676d3c562c">erases</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>start</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>end</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Erases strings from start to end inclusive. </p>
-<p>Example erases(myvec, 1, 3) would free and remove strings at 1, 2, and 3 and the string that was at index 4 would now be at 1 etc. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00981">981</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00375">375</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -638,103 +271,7 @@ Variables</h2></td></tr>
 <p>Increase the size of the array num items. </p>
 <p>Items are not initialized to anything! </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01359">1359</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac2b32eef4befa3c059ddcd273f249c53"></a><!-- doxytag: member="vector.h::extendd" ref="ac2b32eef4befa3c059ddcd273f249c53" args="(vector_d *vec, size_t num)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#ac2b32eef4befa3c059ddcd273f249c53">extendd</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Increase the size of the array num items. </p>
-<p>Items are not initialized to anything </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00522">522</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abd200937f5662a34cb071eb7ffc8ae20"></a><!-- doxytag: member="vector.h::extendi" ref="abd200937f5662a34cb071eb7ffc8ae20" args="(vector_i *vec, size_t num)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#abd200937f5662a34cb071eb7ffc8ae20">extendi</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Increase the size of the array num items. </p>
-<p>Items are not initialized to anything </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00183">183</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac09d782c20df1053d668ae262da40007"></a><!-- doxytag: member="vector.h::extends" ref="ac09d782c20df1053d668ae262da40007" args="(vector_s *vec, size_t num)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#ac09d782c20df1053d668ae262da40007">extends</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Increase the size of the array num items. </p>
-<p>Items are memset to NULL since they will be freed when popped or the vector is freed. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00899">899</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00268">268</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -753,40 +290,18 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Frees everything so don't use vec after calling this. </p>
-<p>If you set a free function it will be called on all size elements of course. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01583">1583</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a18c191a092a08499edf85fb06ec9bdeb"></a><!-- doxytag: member="vector.h::free_vec_stack" ref="a18c191a092a08499edf85fb06ec9bdeb" args="(void *vec)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a18c191a092a08499edf85fb06ec9bdeb">free_vec_stack</a> </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
 <p>Frees the internal array and sets size and capacity to 0. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01597">1597</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00506">506</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7ad609e9b25c808ffe64002fdc71dbaf"></a><!-- doxytag: member="vector.h::free_vecd" ref="a7ad609e9b25c808ffe64002fdc71dbaf" args="(void *vec)" -->
+<a class="anchor" id="a5866a7a7eed43fb09589cab61cff460b"></a><!-- doxytag: member="vector.h::free_vec_heap" ref="a5866a7a7eed43fb09589cab61cff460b" args="(void *vec)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a7ad609e9b25c808ffe64002fdc71dbaf">free_vecd</a> </td>
+          <td class="memname">void <a class="el" href="vector_8h.html#a5866a7a7eed43fb09589cab61cff460b">free_vec_heap</a> </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>vec</em></td><td>)</td>
@@ -797,122 +312,74 @@ Variables</h2></td></tr>
 <div class="memdoc">
 
 <p>Frees everything so don't use vec after calling this. </p>
+<p>If you set a free function it will be called on all size elements of course. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00675">675</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00492">492</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4dbd097e70a7b457587f995e043a0dfb"></a><!-- doxytag: member="vector.h::free_vecd_stack" ref="a4dbd097e70a7b457587f995e043a0dfb" args="(void *vec)" -->
+<a class="anchor" id="af367cb962d4346b9d313a9d8797bdf4a"></a><!-- doxytag: member="vector.h::init_vec" ref="af367cb962d4346b9d313a9d8797bdf4a" args="(vector *vec, void *vals, size_t num, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a4dbd097e70a7b457587f995e043a0dfb">free_vecd_stack</a> </td>
+          <td class="memname">int <a class="el" href="vector_8h.html#af367cb962d4346b9d313a9d8797bdf4a">init_vec</a> </td>
           <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structvector.html">vector</a> *&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>vals</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>elem_sz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>elem_free</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *, void *)&#160;</td>
+          <td class="paramname"><em>elem_init</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Frees the internal array and sets size and capacity to 0. </p>
+<p>Same as <a class="el" href="vector_8c.html#af367cb962d4346b9d313a9d8797bdf4a" title="Same as init_vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in thi...">init_vec()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
+<p>Use the free_vec_stack in that case </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00683">683</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00138">138</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1d2da12e88f5b63ebbf755c6c71ddd42"></a><!-- doxytag: member="vector.h::free_veci" ref="a1d2da12e88f5b63ebbf755c6c71ddd42" args="(void *vec)" -->
+<a class="anchor" id="a2c11d043ab66adcdaddd4b04200705fc"></a><!-- doxytag: member="vector.h::init_vec_heap" ref="a2c11d043ab66adcdaddd4b04200705fc" args="(void *vals, size_t num, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a1d2da12e88f5b63ebbf755c6c71ddd42">free_veci</a> </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Frees everything so don't use vec after calling this. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00333">333</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac0888237a36d9be1bc79c9957b517b0e"></a><!-- doxytag: member="vector.h::free_veci_stack" ref="ac0888237a36d9be1bc79c9957b517b0e" args="(void *vec)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#ac0888237a36d9be1bc79c9957b517b0e">free_veci_stack</a> </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Frees the internal array and sets size and capacity to 0. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00341">341</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a75512e06058c084bd4af68adad6ed46d"></a><!-- doxytag: member="vector.h::free_vecs" ref="a75512e06058c084bd4af68adad6ed46d" args="(void *vec)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a75512e06058c084bd4af68adad6ed46d">free_vecs</a> </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Frees contents (individual strings and array) and frees vector so don't use after calling this. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01079">1079</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a29c0b7bbe59dda9dddbdef21035e4b54"></a><!-- doxytag: member="vector.h::free_vecs_stack" ref="a29c0b7bbe59dda9dddbdef21035e4b54" args="(void *vec)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a29c0b7bbe59dda9dddbdef21035e4b54">free_vecs_stack</a> </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Frees the internal array and sets size and capacity to 0. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01092">1092</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a368ba8d1bd2ed240a7b0527ac752cc3c"></a><!-- doxytag: member="vector.h::init_vec" ref="a368ba8d1bd2ed240a7b0527ac752cc3c" args="(void *vals, size_t num, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structvector.html">vector</a>* <a class="el" href="vector_8h.html#a368ba8d1bd2ed240a7b0527ac752cc3c">init_vec</a> </td>
+          <td class="memname"><a class="el" href="structvector.html">vector</a>* <a class="el" href="vector_8h.html#a2c11d043ab66adcdaddd4b04200705fc">init_vec_heap</a> </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>vals</em>, </td>
@@ -951,275 +418,9 @@ Variables</h2></td></tr>
 <div class="memdoc">
 
 <p>Create and initialize vector with num elements of vals. </p>
-<p>If vals is NULL, capacity is set to num + VEC_I_START_SZ. Size is set to num in the first place, 0 otherwise. elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ). See <a class="el" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec()</a> for more information about the elem_free and elem_init parameters. </p>
+<p>If vals is NULL, capacity is set to num + VEC_I_START_SZ. Size is set to num in the first place, 0 otherwise. elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ). See <a class="el" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec()</a> for more information about the elem_free and elem_init parameters. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01167">1167</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa0a2179ce6d677fec9ff95c08b575eec"></a><!-- doxytag: member="vector.h::init_vec_d" ref="aa0a2179ce6d677fec9ff95c08b575eec" args="(double *vals, size_t num)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structvector__d.html">vector_d</a>* <a class="el" href="vector_8h.html#aa0a2179ce6d677fec9ff95c08b575eec">init_vec_d</a> </td>
-          <td>(</td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>vals</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Create and initialize <a class="el" href="structvector__d.html" title="Data structure for double vector.">vector_d</a> with num elements of vals. </p>
-<p>Capacity is set to num + VEC_D_START_SZ. If vals == NULL or num &lt; 1 return NULL (you should just be using <a class="el" href="vector_8h.html#a9ad53be632b2948cb650cec4ae63d506" title="Creates a new vector_d.">vec_d(size_t, size_t)</a>) </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00388">388</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa04e610db2f8e3214838852eebd520f8"></a><!-- doxytag: member="vector.h::init_vec_d_stack" ref="aa04e610db2f8e3214838852eebd520f8" args="(vector_d *vec, double *vals, size_t num)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#aa04e610db2f8e3214838852eebd520f8">init_vec_d_stack</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>vals</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Same as <a class="el" href="vector_8c.html#aa0a2179ce6d677fec9ff95c08b575eec" title="Create and initialize vector_d with num elements of vals.">init_vec_d()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
-<p>Use the free_vecd_stack in that case. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00434">434</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a88741ffdcb8aff0d59afb44aab372a20"></a><!-- doxytag: member="vector.h::init_vec_i" ref="a88741ffdcb8aff0d59afb44aab372a20" args="(int *vals, size_t num)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structvector__i.html">vector_i</a>* <a class="el" href="vector_8h.html#a88741ffdcb8aff0d59afb44aab372a20">init_vec_i</a> </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>vals</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Create and initialize <a class="el" href="structvector__i.html" title="Data structur for int vector.">vector_i</a> with num elements of vals. </p>
-<p>Capacity is set to num + VEC_I_START_SZ. If vals == NULL or num &lt; 1 return NULL (you should just be using <a class="el" href="vector_8h.html#aec1735a3a634f7fb090f3836cdcb9d75" title="Creates a new vector_i.">vec_i(size_t, size_t)</a>) </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00049">49</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a04913071a71785ff0ca8787174d007bb"></a><!-- doxytag: member="vector.h::init_vec_i_stack" ref="a04913071a71785ff0ca8787174d007bb" args="(vector_i *vec, int *vals, size_t num)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#a04913071a71785ff0ca8787174d007bb">init_vec_i_stack</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>vals</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Same as <a class="el" href="vector_8c.html#a88741ffdcb8aff0d59afb44aab372a20" title="Create and initialize vector_i with num elements of vals.">init_vec_i()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
-<p>Use the free_veci_stack in that case. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00095">95</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abc4e4cc2141775d6e9994d8379c3cd6f"></a><!-- doxytag: member="vector.h::init_vec_s" ref="abc4e4cc2141775d6e9994d8379c3cd6f" args="(char **vals, size_t num)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structvector__s.html">vector_s</a>* <a class="el" href="vector_8h.html#abc4e4cc2141775d6e9994d8379c3cd6f">init_vec_s</a> </td>
-          <td>(</td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>vals</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Create and initialize <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a> with num elements of vals. </p>
-<p>If vals is NULL, or num &lt; 1, it returns NULL. You should use vec_s(size_t) instead in those cases. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00750">750</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa23628f27e1fa512b079c718448b0112"></a><!-- doxytag: member="vector.h::init_vec_s_stack" ref="aa23628f27e1fa512b079c718448b0112" args="(vector_s *vec, char **vals, size_t num)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#aa23628f27e1fa512b079c718448b0112">init_vec_s_stack</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>vals</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Same as <a class="el" href="vector_8c.html#abc4e4cc2141775d6e9994d8379c3cd6f" title="Create and initialize vector_s with num elements of vals.">init_vec_s()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
-<p>Use the free_vecs_stack in that case </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00800">800</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac2cfd4e75f9ead9879cda8f443106b4a"></a><!-- doxytag: member="vector.h::init_vec_stack" ref="ac2cfd4e75f9ead9879cda8f443106b4a" args="(vector *vec, void *vals, size_t num, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#ac2cfd4e75f9ead9879cda8f443106b4a">init_vec_stack</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector.html">vector</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>vals</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>elem_sz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void(*)(void *)&#160;</td>
-          <td class="paramname"><em>elem_free</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void(*)(void *, void *)&#160;</td>
-          <td class="paramname"><em>elem_init</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Same as <a class="el" href="vector_8c.html#a368ba8d1bd2ed240a7b0527ac752cc3c" title="Create and initialize vector with num elements of vals.">init_vec()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
-<p>Use the free_vec_stack in that case </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01229">1229</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00076">76</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1256,9 +457,9 @@ Variables</h2></td></tr>
 
 <p>Insert a at index i (0 based). </p>
 <p>Everything from that index and right is shifted one to the right. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>check for i &lt; 0 or &gt; size-1? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>check for i &lt; 0 or &gt; size-1? </dd></dl>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01395">1395</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00304">304</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1302,286 +503,16 @@ Variables</h2></td></tr>
 <p>Insert the first num elements of array a at index i. </p>
 <p>Note that it is the user's responsibility to pass in valid arguments. Also memcpy is used (when there is no elem_init function) so don't try to insert part of the vector array into itself (that would require memmove) </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01435">1435</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00344">344</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3ce694f26d7f8b299c4757b167fffd11"></a><!-- doxytag: member="vector.h::insert_arrayd" ref="a3ce694f26d7f8b299c4757b167fffd11" args="(vector_d *vec, size_t i, double *a, size_t num)" -->
+<a class="anchor" id="aa7c4f5c92867ef1d6e3db0aba5126d39"></a><!-- doxytag: member="vector.h::pop" ref="aa7c4f5c92867ef1d6e3db0aba5126d39" args="(vector *vec, void *ret)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#a3ce694f26d7f8b299c4757b167fffd11">insert_arrayd</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Insert the first num elements of array a at index i. </p>
-<p>Note that it is the user's responsibility to pass in valid arguments. Also memcpy is used so don't try to insert part of the vector array into itself (that would require memmove) </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00574">574</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a086249a206e69f2d98d50624a17b75f1"></a><!-- doxytag: member="vector.h::insert_arrayi" ref="a086249a206e69f2d98d50624a17b75f1" args="(vector_i *vec, size_t i, int *a, size_t num)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#a086249a206e69f2d98d50624a17b75f1">insert_arrayi</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Insert the first num elements of array a at index i. </p>
-<p>Note that it is the user's responsibility to pass in valid arguments. Also memcpy is used so don't try to insert part of the vector array into itself (that would require memmove) </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00236">236</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a071ef29099b47f6a380c09300a9f57c4"></a><!-- doxytag: member="vector.h::insert_arrays" ref="a071ef29099b47f6a380c09300a9f57c4" args="(vector_s *vec, size_t i, char **, size_t num)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#a071ef29099b47f6a380c09300a9f57c4">insert_arrays</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Insert the first num elements of array a at index i. </p>
-<p>Note that it is the user's responsibility to pass in valid arguments. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00952">952</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a27cda61f4446cb298f30c78ea250ffe0"></a><!-- doxytag: member="vector.h::insertd" ref="a27cda61f4446cb298f30c78ea250ffe0" args="(vector_d *vec, size_t i, double a)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#a27cda61f4446cb298f30c78ea250ffe0">insertd</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Insert a at index i (0 based). </p>
-<p>Everything from that index and right is shifted one to the right. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>check for i &lt; 0 or &gt; size ? </dd></dl>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00548">548</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a84e557f52c83e9f7003a98c332b571d5"></a><!-- doxytag: member="vector.h::inserti" ref="a84e557f52c83e9f7003a98c332b571d5" args="(vector_i *vec, size_t i, int a)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#a84e557f52c83e9f7003a98c332b571d5">inserti</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Insert a at index i (0 based). </p>
-<p>Everything from that index and right is shifted one to the right. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>check for i &lt; 0 or &gt; size ? </dd></dl>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00209">209</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a51c617708ae543ff9de78c9fec30b5f5"></a><!-- doxytag: member="vector.h::inserts" ref="a51c617708ae543ff9de78c9fec30b5f5" args="(vector_s *vec, size_t i, char *a)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#a51c617708ae543ff9de78c9fec30b5f5">inserts</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Insert a at index i (0 based). </p>
-<p>Everything from that index and right is shifted one to the right. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>check for i &lt; 0 or &gt; size ? </dd></dl>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00926">926</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a141b8e057d63a3ba14590139945e20a9"></a><!-- doxytag: member="vector.h::mystrdup" ref="a141b8e057d63a3ba14590139945e20a9" args="(const char *str)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* <a class="el" href="vector_8h.html#a141b8e057d63a3ba14590139945e20a9">mystrdup</a> </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Useful utility function since strdup isn't in standard C. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00698">698</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5c74d211538266d623337c6bd63bf307"></a><!-- doxytag: member="vector.h::pop_back" ref="a5c74d211538266d623337c6bd63bf307" args="(vector *vec, void *ret)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a5c74d211538266d623337c6bd63bf307">pop_back</a> </td>
+          <td class="memname">void <a class="el" href="vector_8h.html#aa7c4f5c92867ef1d6e3db0aba5126d39">pop</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structvector.html">vector</a> *&#160;</td>
           <td class="paramname"><em>vec</em>, </td>
@@ -1604,90 +535,16 @@ Variables</h2></td></tr>
 <p>Remove the last element (size decreased 1). </p>
 <p>Copy the element into ret. This function assumes that ret is not NULL and is large accept the element and just memcpy's it in. Similar to pop_backs it is users responsibility. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01337">1337</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00246">246</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad63b53355a5ec0829c19fece78497149"></a><!-- doxytag: member="vector.h::pop_backd" ref="ad63b53355a5ec0829c19fece78497149" args="(vector_d *vec)" -->
+<a class="anchor" id="a521de0958cfee7dc0854f96f38bcc814"></a><!-- doxytag: member="vector.h::push" ref="a521de0958cfee7dc0854f96f38bcc814" args="(vector *vec, void *val)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="vector_8h.html#ad63b53355a5ec0829c19fece78497149">pop_backd</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Remove and return the last element (size decreased 1). </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00505">505</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8fea65bfdef42ddd75d601e32590d552"></a><!-- doxytag: member="vector.h::pop_backi" ref="a8fea65bfdef42ddd75d601e32590d552" args="(vector_i *vec)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#a8fea65bfdef42ddd75d601e32590d552">pop_backi</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Remove and return the last element (size decreased 1). </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00168">168</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7b17af16d628d983e29caab7b9f41d18"></a><!-- doxytag: member="vector.h::pop_backs" ref="a7b17af16d628d983e29caab7b9f41d18" args="(vector_s *vec, char *ret)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a7b17af16d628d983e29caab7b9f41d18">pop_backs</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>ret</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Remove the last element (size decreased 1). </p>
-<p>String is freed. If ret != NULL strcpy the last element into ret. It is the user's responsibility to make sure ret can receive it without error (ie ret has adequate space.) </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00878">878</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac5862d0f414b0a4a485173615c1c0511"></a><!-- doxytag: member="vector.h::push_back" ref="ac5862d0f414b0a4a485173615c1c0511" args="(vector *vec, void *val)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#ac5862d0f414b0a4a485173615c1c0511">push_back</a> </td>
+          <td class="memname">int <a class="el" href="vector_8h.html#a521de0958cfee7dc0854f96f38bcc814">push</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structvector.html">vector</a> *&#160;</td>
           <td class="paramname"><em>vec</em>, </td>
@@ -1710,103 +567,7 @@ Variables</h2></td></tr>
 <p>Append a to end of vector (size increased 1). </p>
 <p>Capacity is increased by doubling when necessary. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01301">1301</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aec22afdb202bb430481b1ba919d46128"></a><!-- doxytag: member="vector.h::push_backd" ref="aec22afdb202bb430481b1ba919d46128" args="(vector_d *vec, double a)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#aec22afdb202bb430481b1ba919d46128">push_backd</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Append a to end of vector (size increased 1). </p>
-<p>Capacity is increased by doubling when necessary. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00486">486</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac9ee8d01a2e12c23014b3bb5a1a3605b"></a><!-- doxytag: member="vector.h::push_backi" ref="ac9ee8d01a2e12c23014b3bb5a1a3605b" args="(vector_i *vec, int a)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#ac9ee8d01a2e12c23014b3bb5a1a3605b">push_backi</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Append a to end of vector (size increased 1). </p>
-<p>Capacity is increased by doubling when necessary. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00147">147</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac150af7158211651585db98ea24f480b"></a><!-- doxytag: member="vector.h::push_backs" ref="ac150af7158211651585db98ea24f480b" args="(vector_s *vec, char *a)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#ac150af7158211651585db98ea24f480b">push_backs</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Append a to end of vector (size increased 1). </p>
-<p>Capacity is increased by doubling when necessary. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00856">856</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00210">210</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1837,100 +598,7 @@ Variables</h2></td></tr>
 
 <p>Makes sure capacity &gt;= size (the parameter not the member). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01480">1480</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae17d88125d50322bb65975e2db402144"></a><!-- doxytag: member="vector.h::reserved" ref="ae17d88125d50322bb65975e2db402144" args="(vector_d *vec, size_t size)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#ae17d88125d50322bb65975e2db402144">reserved</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Make sure capacity is at least size(parameter not member). </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00610">610</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8e092364e24c40d44b2c7864b7123207"></a><!-- doxytag: member="vector.h::reservei" ref="a8e092364e24c40d44b2c7864b7123207" args="(vector_i *vec, size_t size)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#a8e092364e24c40d44b2c7864b7123207">reservei</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Make sure capacity is at least size(parameter not member). </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00274">274</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa0f9a5cb0911ac0030574b0a4f7ca8d4"></a><!-- doxytag: member="vector.h::reserves" ref="aa0f9a5cb0911ac0030574b0a4f7ca8d4" args="(vector_s *vec, size_t size)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#aa0f9a5cb0911ac0030574b0a4f7ca8d4">reserves</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Makes sure the vector capacity is &gt;= size (parameter not member). </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00997">997</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00389">389</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -1962,103 +630,7 @@ Variables</h2></td></tr>
 <p>Set capacity to size. </p>
 <p>You will lose data if you shrink the capacity below the current size. If you do, the size will be set to capacity of course. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01499">1499</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac3ac1d2e488610aa6ebf615299b41895"></a><!-- doxytag: member="vector.h::set_capacityd" ref="ac3ac1d2e488610aa6ebf615299b41895" args="(vector_d *vec, size_t size)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#ac3ac1d2e488610aa6ebf615299b41895">set_capacityd</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Set capacity to size. </p>
-<p>You will lose data if you shrink the capacity below the current size. If you do, the size will be set to capacity of course. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00629">629</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae6a6b79c99c999ba62d11485dff9baab"></a><!-- doxytag: member="vector.h::set_capacityi" ref="ae6a6b79c99c999ba62d11485dff9baab" args="(vector_i *vec, size_t size)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#ae6a6b79c99c999ba62d11485dff9baab">set_capacityi</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Set capacity to size. </p>
-<p>You will lose data if you shrink the capacity below the current size. If you do, the size will be set to capacity of course. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00294">294</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0a95f51036c470e26ebd78081a1d9611"></a><!-- doxytag: member="vector.h::set_capacitys" ref="a0a95f51036c470e26ebd78081a1d9611" args="(vector_s *vec, size_t size)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#a0a95f51036c470e26ebd78081a1d9611">set_capacitys</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Set capacity to size. </p>
-<p>You will lose data if you shrink the capacity below the current size. If you do, the size will be set to capacity of course. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01015">1015</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00408">408</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2088,103 +660,9 @@ Variables</h2></td></tr>
 <div class="memdoc">
 
 <p>Fills entire allocated array (capacity) with val. </p>
-<p>If you set a free function then size is set to capacity like <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a> for the same reason, ie I need to know that the free function needs to be called on those elements. TODO Remove this function? Same reason as set_val_caps. </p>
+<p>If you set a free function then size is set to capacity like vector_s for the same reason, ie I need to know that the free function needs to be called on those elements. TODO Remove this function? Same reason as set_val_caps. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01547">1547</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a91942dfa8445dc68a39458dec459ddd7"></a><!-- doxytag: member="vector.h::set_val_capd" ref="a91942dfa8445dc68a39458dec459ddd7" args="(vector_d *vec, double val)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a91942dfa8445dc68a39458dec459ddd7">set_val_capd</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Fills entire allocated array (capacity) with val. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00655">655</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5a9fc4f9d82c885055dc3ab420d02c4d"></a><!-- doxytag: member="vector.h::set_val_capi" ref="a5a9fc4f9d82c885055dc3ab420d02c4d" args="(vector_i *vec, int val)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a5a9fc4f9d82c885055dc3ab420d02c4d">set_val_capi</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Fills entire allocated array (capacity) with val. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00321">321</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a543e3898569734fc213f377838d48191"></a><!-- doxytag: member="vector.h::set_val_caps" ref="a543e3898569734fc213f377838d48191" args="(vector_s *vec, char *val)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a543e3898569734fc213f377838d48191">set_val_caps</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Fills entire allocated array (capacity) with val. </p>
-<p>Size is set to capacity in this case because strings are individually dynamically allocated. This is different from <a class="el" href="structvector__i.html" title="Data structur for int vector.">vector_i</a>, <a class="el" href="structvector__d.html" title="Data structure for double vector.">vector_d</a> and vector (without a free function) where the size stays the same. TODO Remove this function? even more unnecessary than for <a class="el" href="structvector__i.html" title="Data structur for int vector.">vector_i</a> and <a class="el" href="structvector__d.html" title="Data structure for double vector.">vector_d</a> and different behavior </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01054">1054</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00456">456</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2215,25 +693,49 @@ Variables</h2></td></tr>
 
 <p>Set all size elements to val. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01524">1524</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00433">433</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a8cf2604b6dfe8c10939e0ca4e4ef5868"></a><!-- doxytag: member="vector.h::set_val_szd" ref="a8cf2604b6dfe8c10939e0ca4e4ef5868" args="(vector_d *vec, double val)" -->
+<a class="anchor" id="a36f53ce4a2fc2a25a1f7f5a913eb3b7a"></a><!-- doxytag: member="vector.h::vec" ref="a36f53ce4a2fc2a25a1f7f5a913eb3b7a" args="(vector *vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a8cf2604b6dfe8c10939e0ca4e4ef5868">set_val_szd</a> </td>
+          <td class="memname">int <a class="el" href="vector_8h.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a">vec</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structvector.html">vector</a> *&#160;</td>
           <td class="paramname"><em>vec</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>capacity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>elem_sz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>elem_free</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *, void *)&#160;</td>
+          <td class="paramname"><em>elem_init</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2244,27 +746,28 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Set all size elements to val. </p>
+<p>Same as <a class="el" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
+<p>Use the free_vec_stack in that case </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00646">646</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00116">116</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae345cec01d9c396aab73dbccc6f97ff5"></a><!-- doxytag: member="vector.h::set_val_szi" ref="ae345cec01d9c396aab73dbccc6f97ff5" args="(vector_i *vec, int val)" -->
+<a class="anchor" id="ac6cae8373e9423d3979d9a3706c683ef"></a><!-- doxytag: member="vector.h::vec_copy" ref="ac6cae8373e9423d3979d9a3706c683ef" args="(void *dest, void *src)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#ae345cec01d9c396aab73dbccc6f97ff5">set_val_szi</a> </td>
+          <td class="memname">void <a class="el" href="vector_8h.html#ac6cae8373e9423d3979d9a3706c683ef">vec_copy</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>src</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2275,27 +778,28 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Set all size elements to val. </p>
+<p>Makes dest an identical copy of src. </p>
+<p>The parameters are void so it can be used as the constructor when making a vector of generic vector's. (I would recommend against doing that, and using generate_code.py to make your own vector type and do a vector of those instead). Assumes dest (the structure) is already allocated (probably on the stack) and that capacity is 0 (ie the array doesn't need to be freed). </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00312">312</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00177">177</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4422ebcd9d921efe075a1f93b9b50dd2"></a><!-- doxytag: member="vector.h::set_val_szs" ref="a4422ebcd9d921efe075a1f93b9b50dd2" args="(vector_s *vec, char *val)" -->
+<a class="anchor" id="aa46156fb4f34b672a0ad7db2a8511b7b"></a><!-- doxytag: member="vector.h::vec_get" ref="aa46156fb4f34b672a0ad7db2a8511b7b" args="(vector *vec, size_t i)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a4422ebcd9d921efe075a1f93b9b50dd2">set_val_szs</a> </td>
+          <td class="memname">void* <a class="el" href="vector_8h.html#aa46156fb4f34b672a0ad7db2a8511b7b">vec_get</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structvector.html">vector</a> *&#160;</td>
           <td class="paramname"><em>vec</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2306,18 +810,19 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Sets all size elements to val. </p>
+<p>Return a void pointer to the ith element. </p>
+<p>Another way to get elements from vector that is used in <a class="el" href="vector__tests_8c.html">vector_tests.c</a> is a macro like this one #define <a class="el" href="vector__tests_8c.html#a097522f36be915c26e5fccbb262a40fd">GET_ELEMENT(X,Y,TYPE)</a> ((TYPE*)&amp;X.a[Y*X.elem_size]) </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01038">1038</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00292">292</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aaf8dbad914b3146c53fa02399be67f48"></a><!-- doxytag: member="vector.h::vec" ref="aaf8dbad914b3146c53fa02399be67f48" args="(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))" -->
+<a class="anchor" id="a57ef0792f1717ece6ce779a8714aca96"></a><!-- doxytag: member="vector.h::vec_heap" ref="a57ef0792f1717ece6ce779a8714aca96" args="(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structvector.html">vector</a>* <a class="el" href="vector_8h.html#aaf8dbad914b3146c53fa02399be67f48">vec</a> </td>
+          <td class="memname"><a class="el" href="structvector.html">vector</a>* <a class="el" href="vector_8h.html#a57ef0792f1717ece6ce779a8714aca96">vec_heap</a> </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>size</em>, </td>
@@ -2356,487 +861,16 @@ Variables</h2></td></tr>
 <div class="memdoc">
 
 <p>Creates a new vector. </p>
-<p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + VEC_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ). You can pass in a function, elem_free, to be called on every element before it is removed from the vector to free any dynamically allocated memory. For example if you passed in sizeof(char*) for elem_sz, and wrappers around the standard free(void*) function for elem_free and strdup (or mystrdup in this project) for elem_init you could make vector work exactly like <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a>. Pass in NULL, to not use the function parameters.</p>
+<p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + VEC_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ). You can pass in a function, elem_free, to be called on every element before it is removed from the vector to free any dynamically allocated memory. For example if you passed in sizeof(char*) for elem_sz, and wrappers around the standard free(void*) function for elem_free and strdup (or mystrdup in this project) for elem_init you could make vector work exactly like vector_s. Pass in NULL, to not use the function parameters.</p>
 <p>All functions call elem_free before overwriting/popping/erasing elements if elem_free is provided.</p>
 <p>elem_init is only used in set_val_sz and set_val_cap because in those cases you are setting many elements to a single "value" and using the elem_init functionality you can provide what amounts to a copy constructor which duplicates dynamically allocated memory instead of just copying the pointer ie just like strdup or mystrdup does with a string. This allows the free function to work correctly when called on all those elements. If you didn't provide an elem_init function but did provide a free function, then after calling one of the set_val functions, eventually the free function would be called on all those elements and you'd get a double free or corruption error.</p>
 <p>See the other functions and the tests for more behavioral/usage details. </p>
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01133">1133</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac6cae8373e9423d3979d9a3706c683ef"></a><!-- doxytag: member="vector.h::vec_copy" ref="ac6cae8373e9423d3979d9a3706c683ef" args="(void *dest, void *src)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#ac6cae8373e9423d3979d9a3706c683ef">vec_copy</a> </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>dest</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>src</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Makes dest an identical copy of src. </p>
-<p>The parameters are void so it can be used as the constructor when making a vector of generic vector's. (I would recommend against doing that, and using generate_code.py to make your own vector type and do a vector of those instead). Assumes dest (the structure) is already allocated (probably on the stack) and that capacity is 0 (ie the array doesn't need to be freed). </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01268">1268</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9ad53be632b2948cb650cec4ae63d506"></a><!-- doxytag: member="vector.h::vec_d" ref="a9ad53be632b2948cb650cec4ae63d506" args="(size_t size, size_t capacity)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structvector__d.html">vector_d</a>* <a class="el" href="vector_8h.html#a9ad53be632b2948cb650cec4ae63d506">vec_d</a> </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>capacity</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Creates a new <a class="el" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>. </p>
-<p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + VEC_D_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00360">360</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a041f2354eeae85a76c853a6391d8c870"></a><!-- doxytag: member="vector.h::vec_d_stack" ref="a041f2354eeae85a76c853a6391d8c870" args="(vector_d *vec, size_t size, size_t capacity)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#a041f2354eeae85a76c853a6391d8c870">vec_d_stack</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__d.html">vector_d</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>capacity</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Same as <a class="el" href="vector_8c.html#a9ad53be632b2948cb650cec4ae63d506" title="Creates a new vector_d.">vec_d()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
-<p>Use the free_vecd_stack in that case. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00417">417</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa46156fb4f34b672a0ad7db2a8511b7b"></a><!-- doxytag: member="vector.h::vec_get" ref="aa46156fb4f34b672a0ad7db2a8511b7b" args="(vector *vec, size_t i)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void* <a class="el" href="vector_8h.html#aa46156fb4f34b672a0ad7db2a8511b7b">vec_get</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector.html">vector</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>i</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Return a void pointer to the ith element. </p>
-<p>Another way to get elements from vector that is used in <a class="el" href="vector__tests_8c.html">vector_tests.c</a> is a macro like this one #define <a class="el" href="vector__tests_8c.html#a097522f36be915c26e5fccbb262a40fd">GET_ELEMENT(X,Y,TYPE)</a> ((TYPE*)&amp;X.a[Y*X.elem_size]) </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01383">1383</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aec1735a3a634f7fb090f3836cdcb9d75"></a><!-- doxytag: member="vector.h::vec_i" ref="aec1735a3a634f7fb090f3836cdcb9d75" args="(size_t size, size_t capacity)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structvector__i.html">vector_i</a>* <a class="el" href="vector_8h.html#aec1735a3a634f7fb090f3836cdcb9d75">vec_i</a> </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>capacity</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Creates a new <a class="el" href="structvector__i.html" title="Data structur for int vector.">vector_i</a>. </p>
-<p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + VEC_I_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00025">25</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa42540aadd3ef3045867d46828313b83"></a><!-- doxytag: member="vector.h::vec_i_stack" ref="aa42540aadd3ef3045867d46828313b83" args="(vector_i *vec, size_t size, size_t capacity)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#aa42540aadd3ef3045867d46828313b83">vec_i_stack</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__i.html">vector_i</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>capacity</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Same as <a class="el" href="vector_8c.html#aec1735a3a634f7fb090f3836cdcb9d75" title="Creates a new vector_i.">vec_i()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
-<p>Use the free_veci_stack in that case. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00077">77</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af87364881c95d92a59e4471f200f7f7a"></a><!-- doxytag: member="vector.h::vec_s" ref="af87364881c95d92a59e4471f200f7f7a" args="(size_t size, size_t capacity)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structvector__s.html">vector_s</a>* <a class="el" href="vector_8h.html#af87364881c95d92a59e4471f200f7f7a">vec_s</a> </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>capacity</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Create a new <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a>. </p>
-<p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + VEC_S_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. Note: <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a> does not copy pointers passed in but duplicates the strings they point to (using <a class="el" href="vector_8c.html#a141b8e057d63a3ba14590139945e20a9" title="Useful utility function since strdup isn&#39;t in standard C.">mystrdup()</a>) so you don't have to worry about freeing or changing the contents of variables that you've pushed or inserted; it won't affect the values vector. </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00723">723</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a653f2a9b57e76d3c291626e5d57a2ba7"></a><!-- doxytag: member="vector.h::vec_s_stack" ref="a653f2a9b57e76d3c291626e5d57a2ba7" args="(vector_s *vec, size_t size, size_t capacity)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#a653f2a9b57e76d3c291626e5d57a2ba7">vec_s_stack</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector__s.html">vector_s</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>capacity</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Same as <a class="el" href="vector_8c.html#af87364881c95d92a59e4471f200f7f7a" title="Create a new vector_s.">vec_s()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
-<p>Use the free_vecs_stack in that case </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00781">781</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7b52853291d294b4477603669329cf19"></a><!-- doxytag: member="vector.h::vec_stack" ref="a7b52853291d294b4477603669329cf19" args="(vector *vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="vector_8h.html#a7b52853291d294b4477603669329cf19">vec_stack</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structvector.html">vector</a> *&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>capacity</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>elem_sz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void(*)(void *)&#160;</td>
-          <td class="paramname"><em>elem_free</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void(*)(void *, void *)&#160;</td>
-          <td class="paramname"><em>elem_init</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Same as <a class="el" href="vector_8c.html#aaf8dbad914b3146c53fa02399be67f48" title="Creates a new vector.">vec()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
-<p>Use the free_vec_stack in that case </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l01207">1207</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af94d78c744f4167ac78ee9c22c725433"></a><!-- doxytag: member="vector.h::vecd_copy" ref="af94d78c744f4167ac78ee9c22c725433" args="(void *dest, void *src)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#af94d78c744f4167ac78ee9c22c725433">vecd_copy</a> </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>dest</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>src</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Makes dest an identical copy of src. </p>
-<p>The parameters are void so it can be used as the constructor when making a vector of <a class="el" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>'s. Assumes dest (the structure) is already allocated (probably on the stack) and that capacity is 0 (ie the array doesn't need to be freed). </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00458">458</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7d8106e39b80ad7a82fc10a7cc500817"></a><!-- doxytag: member="vector.h::veci_copy" ref="a7d8106e39b80ad7a82fc10a7cc500817" args="(void *dest, void *src)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a7d8106e39b80ad7a82fc10a7cc500817">veci_copy</a> </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>dest</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>src</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Makes dest an identical copy of src. </p>
-<p>The parameters are void so it can be used as the constructor when making a vector of <a class="el" href="structvector__i.html" title="Data structur for int vector.">vector_i</a>'s. Assumes dest (the structure) is already allocated (probably on the stack) and that capacity is 0 (ie the array doesn't need to be freed). </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00120">120</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4429cec99faa505e75cbdc1752509fbb"></a><!-- doxytag: member="vector.h::vecs_copy" ref="a4429cec99faa505e75cbdc1752509fbb" args="(void *dest, void *src)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="vector_8h.html#a4429cec99faa505e75cbdc1752509fbb">vecs_copy</a> </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>dest</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>src</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Makes dest an identical copy of src. </p>
-<p>The parameters are void so it can be used as the constructor when making a vector of <a class="el" href="structvector__s.html" title="Data structure for string vector.">vector_s</a>'s. Assumes dest (the structure) is already allocated (probably on the stack) and that capacity is 0 (ie the array doesn't need to be freed). </p>
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00828">828</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00042">42</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Variable Documentation</h2>
-<a class="anchor" id="a57df2435a35a69bca888700984b749d6"></a><!-- doxytag: member="vector.h::VEC_D_START_SZ" ref="a57df2435a35a69bca888700984b749d6" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="vector_8h.html#a57df2435a35a69bca888700984b749d6">VEC_D_START_SZ</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00008">8</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9dfda901bb45b8c35164ec186c1c844e"></a><!-- doxytag: member="vector.h::VEC_I_START_SZ" ref="a9dfda901bb45b8c35164ec186c1c844e" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="vector_8h.html#a9dfda901bb45b8c35164ec186c1c844e">VEC_I_START_SZ</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00007">7</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a06c1ac920eb0f6d440d17cc1ab282df4"></a><!-- doxytag: member="vector.h::VEC_S_START_SZ" ref="a06c1ac920eb0f6d440d17cc1ab282df4" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="vector_8h.html#a06c1ac920eb0f6d440d17cc1ab282df4">VEC_S_START_SZ</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00010">10</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a09059d3291da8975ea105fefdab70c47"></a><!-- doxytag: member="vector.h::VEC_START_SZ" ref="a09059d3291da8975ea105fefdab70c47" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -2848,7 +882,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="vector_8c_source.html#l00009">9</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
+<p>Definition at line <a class="el" href="vector_8c_source.html#l00006">6</a> of file <a class="el" href="vector_8c_source.html">vector.c</a>.</p>
 
 </div>
 </div>
@@ -2870,7 +904,7 @@ Variables</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 8 2012 22:25:06 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 10 2012 22:11:51 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

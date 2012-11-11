@@ -9,7 +9,7 @@ size_t VECTOR_TYPE_SZ = 50;
 
 
 
-vector_TYPE* vec_TYPE(size_t size, size_t capacity)
+vector_TYPE* vec_TYPE_heap(size_t size, size_t capacity)
 {
 	vector_TYPE* vec;
 	if (!(vec = malloc(sizeof(vector_TYPE)))) {
@@ -30,7 +30,7 @@ vector_TYPE* vec_TYPE(size_t size, size_t capacity)
 }
 
 
-vector_TYPE* init_vec_TYPE(TYPE* vals, size_t num)
+vector_TYPE* init_vec_TYPE_heap(TYPE* vals, size_t num)
 {
 	vector_TYPE* vec;
 	
@@ -56,7 +56,7 @@ vector_TYPE* init_vec_TYPE(TYPE* vals, size_t num)
 }
 
 
-int vec_TYPE_stack(vector_TYPE* vec, size_t size, size_t capacity)
+int vec_TYPE(vector_TYPE* vec, size_t size, size_t capacity)
 {
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VECTOR_TYPE_SZ;
@@ -71,7 +71,7 @@ int vec_TYPE_stack(vector_TYPE* vec, size_t size, size_t capacity)
 }
 
 
-int init_vec_TYPE_stack(vector_TYPE* vec, TYPE* vals, size_t num)
+int init_vec_TYPE(vector_TYPE* vec, TYPE* vals, size_t num)
 {
 	if (!vals || num < 1)
 		return 0;
@@ -113,7 +113,7 @@ void vec_TYPE_copy(void* dest, void* src)
 
 
 
-int push_back_TYPE(vector_TYPE* vec, TYPE a)
+int push_TYPE(vector_TYPE* vec, TYPE a)
 {
 	void* tmp;
 	size_t tmp_sz;
@@ -134,7 +134,7 @@ int push_back_TYPE(vector_TYPE* vec, TYPE a)
 
 
 
-TYPE pop_back_TYPE(vector_TYPE* vec)
+TYPE pop_TYPE(vector_TYPE* vec)
 {
 	return vec->a[--vec->size];
 }
@@ -267,20 +267,16 @@ void set_val_cap_TYPE(vector_TYPE* vec, TYPE val)
 }
 
 
-int capacity_TYPE(vector_TYPE* vec) { return vec->capacity; }
-
-int size_TYPE(vector_TYPE* vec) { return vec->size; }
-
 void clear_TYPE(vector_TYPE* vec) { vec->size = 0; }
 
-void free_vec_TYPE(void* vec)
+void free_vec_TYPE_heap(void* vec)
 {
 	vector_TYPE* tmp = vec;
 	free(tmp->a);
 	free(tmp);
 }
 
-void free_vec_TYPE_stack(void* vec)
+void free_vec_TYPE(void* vec)
 {
 	vector_TYPE* tmp = vec;
 	free(tmp->a);

@@ -22,16 +22,16 @@ extern size_t VEC_START_SZ;
 
 
 
-int vec_stack(vector* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
-int init_vec_stack(vector* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
+int vec(vector* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
+int init_vec(vector* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
 
-vector* vec(size_t size, size_t capacity, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
-vector* init_vec(void* vals, size_t num, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
+vector* vec_heap(size_t size, size_t capacity, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
+vector* init_vec_heap(void* vals, size_t num, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
 
 void vec_copy(void* dest, void* src);
 
-int push_back(vector* vec, void* val);
-void pop_back(vector* vec, void* ret);
+int push(vector* vec, void* val);
+void pop(vector* vec, void* ret);
 void* vec_get(vector* vec, size_t i);
 
 int extend(vector* vec, size_t num);
@@ -46,8 +46,8 @@ void set_val_cap(vector* vec, void* val);
 void* back(vector* vec);
 
 void clear(vector* vec);
+void free_vec_heap(void* vec);
 void free_vec(void* vec);
-void free_vec_stack(void* vec);
 
 
 

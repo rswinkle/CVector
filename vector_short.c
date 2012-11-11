@@ -9,7 +9,7 @@ size_t VECTOR_short_SZ = 50;
 
 
 
-vector_short* vec_short(size_t size, size_t capacity)
+vector_short* vec_short_heap(size_t size, size_t capacity)
 {
 	vector_short* vec;
 	if (!(vec = malloc(sizeof(vector_short)))) {
@@ -30,7 +30,7 @@ vector_short* vec_short(size_t size, size_t capacity)
 }
 
 
-vector_short* init_vec_short(short* vals, size_t num)
+vector_short* init_vec_short_heap(short* vals, size_t num)
 {
 	vector_short* vec;
 	
@@ -56,7 +56,7 @@ vector_short* init_vec_short(short* vals, size_t num)
 }
 
 
-int vec_short_stack(vector_short* vec, size_t size, size_t capacity)
+int vec_short(vector_short* vec, size_t size, size_t capacity)
 {
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VECTOR_short_SZ;
@@ -71,7 +71,7 @@ int vec_short_stack(vector_short* vec, size_t size, size_t capacity)
 }
 
 
-int init_vec_short_stack(vector_short* vec, short* vals, size_t num)
+int init_vec_short(vector_short* vec, short* vals, size_t num)
 {
 	if (!vals || num < 1)
 		return 0;
@@ -113,7 +113,7 @@ void vec_short_copy(void* dest, void* src)
 
 
 
-int push_back_short(vector_short* vec, short a)
+int push_short(vector_short* vec, short a)
 {
 	void* tmp;
 	size_t tmp_sz;
@@ -134,7 +134,7 @@ int push_back_short(vector_short* vec, short a)
 
 
 
-short pop_back_short(vector_short* vec)
+short pop_short(vector_short* vec)
 {
 	return vec->a[--vec->size];
 }
@@ -267,20 +267,16 @@ void set_val_cap_short(vector_short* vec, short val)
 }
 
 
-int capacity_short(vector_short* vec) { return vec->capacity; }
-
-int size_short(vector_short* vec) { return vec->size; }
-
 void clear_short(vector_short* vec) { vec->size = 0; }
 
-void free_vec_short(void* vec)
+void free_vec_short_heap(void* vec)
 {
 	vector_short* tmp = vec;
 	free(tmp->a);
 	free(tmp);
 }
 
-void free_vec_short_stack(void* vec)
+void free_vec_short(void* vec)
 {
 	vector_short* tmp = vec;
 	free(tmp->a);

@@ -16,17 +16,17 @@ typedef struct vector_d_
 extern size_t VEC_D_START_SZ;
 
 
-int vec_d_stack(vector_d* vec, size_t size, size_t capacity);
-int init_vec_d_stack(vector_d* vec, double* vals, size_t num);
+int vec_d(vector_d* vec, size_t size, size_t capacity);
+int init_vec_d(vector_d* vec, double* vals, size_t num);
 
-vector_d* vec_d(size_t size, size_t capacity);
-vector_d* init_vec_d(double* vals, size_t num);
+vector_d* vec_d_heap(size_t size, size_t capacity);
+vector_d* init_vec_d_heap(double* vals, size_t num);
 
 void vecd_copy(void* dest, void* src);
 
 
-int push_backd(vector_d* vec, double a);
-double pop_backd(vector_d* vec);
+int push_d(vector_d* vec, double a);
+double pop_d(vector_d* vec);
 
 int extendd(vector_d* vec, size_t num);
 int insertd(vector_d* vec, size_t i, double a);
@@ -40,7 +40,7 @@ void set_val_capd(vector_d* vec, double val);
 double* backd(vector_d* vec);
 
 void cleard(vector_d* vec);
+void free_vecd_heap(void* vec);
 void free_vecd(void* vec);
-void free_vecd_stack(void* vec);
 
 #endif
