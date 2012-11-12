@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['elem_5ffree',['elem_free',['../structvector.html#aa707fd886c386fe365b6d6dbadb49733',1,'vector']]],
-  ['elem_5finit',['elem_init',['../structvector.html#a9aa1b736be034d1734173299ba7874e2',1,'vector']]],
-  ['elem_5fsize',['elem_size',['../structvector.html#a5c32d3768ff522662c71cb74634bb717',1,'vector']]]
+  ['elem_5ffree',['elem_free',['../structvector__void.html#abed2ac06e76256419b825b31e879b204',1,'vector_void']]],
+  ['elem_5finit',['elem_init',['../structvector__void.html#af5d27d7e1af89d5dfbcf49f1810cc0c2',1,'vector_void']]],
+  ['elem_5fsize',['elem_size',['../structvector__void.html#afedda26ce85492462b79dae9090c49f6',1,'vector_void']]]
 ];

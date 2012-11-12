@@ -12,9 +12,9 @@ struct \hyperlink{structvector__d}{vector\-\_\-d}
 \subsection*{\-Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{vectord_8h_ae1227c5a6c00b34190f19e4956c3140c}{vec\-\_\-d} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec}, size\-\_\-t size, size\-\_\-t capacity)
+int \hyperlink{vectord_8h_ae1227c5a6c00b34190f19e4956c3140c}{vec\-\_\-d} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec, size\-\_\-t size, size\-\_\-t capacity)
 \begin{DoxyCompactList}\small\item\em \-Same as \hyperlink{vectord_8c_ae1227c5a6c00b34190f19e4956c3140c}{vec\-\_\-d()} except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
-int \hyperlink{vectord_8h_a4b08d7257fca87f969a43fb2a9aa32b6}{init\-\_\-vec\-\_\-d} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec}, double $\ast$vals, size\-\_\-t num)
+int \hyperlink{vectord_8h_a4b08d7257fca87f969a43fb2a9aa32b6}{init\-\_\-vec\-\_\-d} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec, double $\ast$vals, size\-\_\-t num)
 \begin{DoxyCompactList}\small\item\em \-Same as \hyperlink{vectord_8c_a4b08d7257fca87f969a43fb2a9aa32b6}{init\-\_\-vec\-\_\-d()} except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
 \hyperlink{structvector__d}{vector\-\_\-d} $\ast$ \hyperlink{vectord_8h_a692a036b67c0a76ce0d0a397f176e8ab}{vec\-\_\-d\-\_\-heap} (size\-\_\-t size, size\-\_\-t capacity)
 \begin{DoxyCompactList}\small\item\em \-Creates a new \hyperlink{structvector__d}{vector\-\_\-d}. \end{DoxyCompactList}\item 
@@ -22,33 +22,33 @@ int \hyperlink{vectord_8h_a4b08d7257fca87f969a43fb2a9aa32b6}{init\-\_\-vec\-\_\-
 \begin{DoxyCompactList}\small\item\em \-Create and initialize \hyperlink{structvector__d}{vector\-\_\-d} with num elements of vals. \end{DoxyCompactList}\item 
 void \hyperlink{vectord_8h_af94d78c744f4167ac78ee9c22c725433}{vecd\-\_\-copy} (void $\ast$dest, void $\ast$src)
 \begin{DoxyCompactList}\small\item\em \-Makes dest an identical copy of src. \end{DoxyCompactList}\item 
-int \hyperlink{vectord_8h_a5ca4f5584923cb81d5b2afaeb8f14bfc}{push\-\_\-d} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec}, double a)
+int \hyperlink{vectord_8h_a5ca4f5584923cb81d5b2afaeb8f14bfc}{push\-\_\-d} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec, double a)
 \begin{DoxyCompactList}\small\item\em \-Append a to end of vector (size increased 1). \end{DoxyCompactList}\item 
-double \hyperlink{vectord_8h_abd2e26b24fc34f795654e2fe86a508fa}{pop\-\_\-d} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec})
+double \hyperlink{vectord_8h_abd2e26b24fc34f795654e2fe86a508fa}{pop\-\_\-d} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec)
 \begin{DoxyCompactList}\small\item\em \-Remove and return the last element (size decreased 1). \end{DoxyCompactList}\item 
-int \hyperlink{vectord_8h_ac2b32eef4befa3c059ddcd273f249c53}{extendd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec}, size\-\_\-t num)
+int \hyperlink{vectord_8h_ac2b32eef4befa3c059ddcd273f249c53}{extendd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec, size\-\_\-t num)
 \begin{DoxyCompactList}\small\item\em \-Increase the size of the array num items. \end{DoxyCompactList}\item 
-int \hyperlink{vectord_8h_a27cda61f4446cb298f30c78ea250ffe0}{insertd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec}, size\-\_\-t i, double a)
+int \hyperlink{vectord_8h_a27cda61f4446cb298f30c78ea250ffe0}{insertd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec, size\-\_\-t i, double a)
 \begin{DoxyCompactList}\small\item\em \-Insert a at index i (0 based). \end{DoxyCompactList}\item 
-int \hyperlink{vectord_8h_a3ce694f26d7f8b299c4757b167fffd11}{insert\-\_\-arrayd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec}, size\-\_\-t i, double $\ast$a, size\-\_\-t num)
+int \hyperlink{vectord_8h_a3ce694f26d7f8b299c4757b167fffd11}{insert\-\_\-arrayd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec, size\-\_\-t i, double $\ast$a, size\-\_\-t num)
 \begin{DoxyCompactList}\small\item\em \-Insert the first num elements of array a at index i. \end{DoxyCompactList}\item 
-void \hyperlink{vectord_8h_a5024e0dad2d80c8c58c840aa0fda85aa}{erased} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec}, size\-\_\-t start, size\-\_\-t end)
+void \hyperlink{vectord_8h_a5024e0dad2d80c8c58c840aa0fda85aa}{erased} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec, size\-\_\-t start, size\-\_\-t end)
 \begin{DoxyCompactList}\small\item\em \-Erases elements from start to end inclusive. \end{DoxyCompactList}\item 
-int \hyperlink{vectord_8h_ae17d88125d50322bb65975e2db402144}{reserved} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec}, size\-\_\-t size)
+int \hyperlink{vectord_8h_ae17d88125d50322bb65975e2db402144}{reserved} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec, size\-\_\-t size)
 \begin{DoxyCompactList}\small\item\em \-Make sure capacity is at least size(parameter not member). \end{DoxyCompactList}\item 
-int \hyperlink{vectord_8h_ac3ac1d2e488610aa6ebf615299b41895}{set\-\_\-capacityd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec}, size\-\_\-t size)
+int \hyperlink{vectord_8h_ac3ac1d2e488610aa6ebf615299b41895}{set\-\_\-capacityd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec, size\-\_\-t size)
 \begin{DoxyCompactList}\small\item\em \-Set capacity to size. \end{DoxyCompactList}\item 
-void \hyperlink{vectord_8h_a8cf2604b6dfe8c10939e0ca4e4ef5868}{set\-\_\-val\-\_\-szd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec}, double val)
+void \hyperlink{vectord_8h_a8cf2604b6dfe8c10939e0ca4e4ef5868}{set\-\_\-val\-\_\-szd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec, double val)
 \begin{DoxyCompactList}\small\item\em \-Set all size elements to val. \end{DoxyCompactList}\item 
-void \hyperlink{vectord_8h_a91942dfa8445dc68a39458dec459ddd7}{set\-\_\-val\-\_\-capd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec}, double val)
+void \hyperlink{vectord_8h_a91942dfa8445dc68a39458dec459ddd7}{set\-\_\-val\-\_\-capd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec, double val)
 \begin{DoxyCompactList}\small\item\em \-Fills entire allocated array (capacity) with val. \end{DoxyCompactList}\item 
-double $\ast$ \hyperlink{vectord_8h_afd5b64838b373d3afdedc7376deb825d}{backd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec})
+double $\ast$ \hyperlink{vectord_8h_afd5b64838b373d3afdedc7376deb825d}{backd} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec)
 \begin{DoxyCompactList}\small\item\em \-Return pointer to last element. \end{DoxyCompactList}\item 
-void \hyperlink{vectord_8h_ade629b65714afdd14647c4e0585120d5}{cleard} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec})
+void \hyperlink{vectord_8h_ade629b65714afdd14647c4e0585120d5}{cleard} (\hyperlink{structvector__d}{vector\-\_\-d} $\ast$vec)
 \begin{DoxyCompactList}\small\item\em \-Sets size to 0 (does not clear contents). \end{DoxyCompactList}\item 
-void \hyperlink{vectord_8h_abef064de5dad3d035e576b318aaade2f}{free\-\_\-vecd\-\_\-heap} (void $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec})
+void \hyperlink{vectord_8h_abef064de5dad3d035e576b318aaade2f}{free\-\_\-vecd\-\_\-heap} (void $\ast$vec)
 \begin{DoxyCompactList}\small\item\em \-Frees everything so don't use vec after calling this. \end{DoxyCompactList}\item 
-void \hyperlink{vectord_8h_a7ad609e9b25c808ffe64002fdc71dbaf}{free\-\_\-vecd} (void $\ast$\hyperlink{vector_8h_a36f53ce4a2fc2a25a1f7f5a913eb3b7a}{vec})
+void \hyperlink{vectord_8h_a7ad609e9b25c808ffe64002fdc71dbaf}{free\-\_\-vecd} (void $\ast$vec)
 \begin{DoxyCompactList}\small\item\em \-Frees the internal array and sets size and capacity to 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Variables}
 \begin{DoxyCompactItemize}

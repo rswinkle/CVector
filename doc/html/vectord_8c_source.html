@@ -97,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00014"></a>00014 
 <a name="l00021"></a><a class="code" href="vectord_8h.html#a692a036b67c0a76ce0d0a397f176e8ab">00021</a> <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vectord_8c.html#a692a036b67c0a76ce0d0a397f176e8ab" title="Creates a new vector_d.">vec_d_heap</a>(<span class="keywordtype">size_t</span> size, <span class="keywordtype">size_t</span> capacity)
 <a name="l00022"></a>00022 {
-<a name="l00023"></a>00023     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00023"></a>00023     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec;
 <a name="l00024"></a>00024     <span class="keywordtype">void</span>* tmp;
 <a name="l00025"></a>00025     
 <a name="l00026"></a>00026     <span class="keywordflow">if</span> (!(vec = malloc(<span class="keyword">sizeof</span>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>)))) {
@@ -115,13 +115,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00038"></a>00038     }
 <a name="l00039"></a>00039     vec-&gt;<a class="code" href="structvector__d.html#a925832a4ece20022fbe241e7e38ec329" title="Array.">a</a> = tmp;
 <a name="l00040"></a>00040 
-<a name="l00041"></a>00041     <span class="keywordflow">return</span> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00041"></a>00041     <span class="keywordflow">return</span> vec;
 <a name="l00042"></a>00042 }
 <a name="l00043"></a>00043 
 <a name="l00044"></a>00044 
 <a name="l00049"></a><a class="code" href="vectord_8h.html#af8608539863ebd716c64d36268282f07">00049</a> <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vectord_8c.html#af8608539863ebd716c64d36268282f07" title="Create and initialize vector_d with num elements of vals.">init_vec_d_heap</a>(<span class="keywordtype">double</span>* vals, <span class="keywordtype">size_t</span> num)
 <a name="l00050"></a>00050 {
-<a name="l00051"></a>00051     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00051"></a>00051     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec;
 <a name="l00052"></a>00052     
 <a name="l00053"></a>00053     <span class="keywordflow">if</span> (!vals || num &lt; 1)
 <a name="l00054"></a>00054         <span class="keywordflow">return</span> NULL;
@@ -141,11 +141,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00068"></a>00068 
 <a name="l00069"></a>00069     memcpy(vec-&gt;<a class="code" href="structvector__d.html#a925832a4ece20022fbe241e7e38ec329" title="Array.">a</a>, vals, <span class="keyword">sizeof</span>(<span class="keywordtype">double</span>)*num);
 <a name="l00070"></a>00070 
-<a name="l00071"></a>00071     <span class="keywordflow">return</span> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00071"></a>00071     <span class="keywordflow">return</span> vec;
 <a name="l00072"></a>00072 }
 <a name="l00073"></a>00073 
 <a name="l00074"></a>00074 
-<a name="l00078"></a><a class="code" href="vectord_8h.html#ae1227c5a6c00b34190f19e4956c3140c">00078</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#ae1227c5a6c00b34190f19e4956c3140c" title="Same as vec_d() except the vector passed in was declared on the stack so it isn&#39;t allocated in this f...">vec_d</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>, <span class="keywordtype">size_t</span> size, <span class="keywordtype">size_t</span> capacity)
+<a name="l00078"></a><a class="code" href="vectord_8h.html#ae1227c5a6c00b34190f19e4956c3140c">00078</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#ae1227c5a6c00b34190f19e4956c3140c" title="Same as vec_d() except the vector passed in was declared on the stack so it isn&#39;t allocated in this f...">vec_d</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec, <span class="keywordtype">size_t</span> size, <span class="keywordtype">size_t</span> capacity)
 <a name="l00079"></a>00079 {
 <a name="l00080"></a>00080     vec-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a> = (size &gt; 0) ? size : 0;
 <a name="l00081"></a>00081     vec-&gt;<a class="code" href="structvector__d.html#a83fb5c9689de179f0dfe1413d720cdc3" title="Allocated size of array; always &gt;= size.">capacity</a> = (capacity &gt; vec-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a> || (vec-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a> &amp;&amp; capacity == vec-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a>)) ? capacity : vec-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a> + <a class="code" href="vectord_8c.html#a57df2435a35a69bca888700984b749d6">VEC_D_START_SZ</a>;
@@ -159,7 +159,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00089"></a>00089     <span class="keywordflow">return</span> 1;
 <a name="l00090"></a>00090 }
 <a name="l00091"></a>00091 
-<a name="l00095"></a><a class="code" href="vectord_8h.html#a4b08d7257fca87f969a43fb2a9aa32b6">00095</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#a4b08d7257fca87f969a43fb2a9aa32b6" title="Same as init_vec_d() except the vector passed in was declared on the stack so it isn&#39;t allocated in t...">init_vec_d</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>, <span class="keywordtype">double</span>* vals, <span class="keywordtype">size_t</span> num)
+<a name="l00095"></a><a class="code" href="vectord_8h.html#a4b08d7257fca87f969a43fb2a9aa32b6">00095</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#a4b08d7257fca87f969a43fb2a9aa32b6" title="Same as init_vec_d() except the vector passed in was declared on the stack so it isn&#39;t allocated in t...">init_vec_d</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec, <span class="keywordtype">double</span>* vals, <span class="keywordtype">size_t</span> num)
 <a name="l00096"></a>00096 {
 <a name="l00097"></a>00097     <span class="keywordflow">if</span> (!vals || num &lt; 1)
 <a name="l00098"></a>00098         <span class="keywordflow">return</span> 0;
@@ -202,7 +202,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00141"></a>00141 
 <a name="l00142"></a>00142 
 <a name="l00143"></a>00143 
-<a name="l00147"></a><a class="code" href="vectord_8h.html#a5ca4f5584923cb81d5b2afaeb8f14bfc">00147</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#a5ca4f5584923cb81d5b2afaeb8f14bfc" title="Append a to end of vector (size increased 1).">push_d</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>, <span class="keywordtype">double</span> a)
+<a name="l00147"></a><a class="code" href="vectord_8h.html#a5ca4f5584923cb81d5b2afaeb8f14bfc">00147</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#a5ca4f5584923cb81d5b2afaeb8f14bfc" title="Append a to end of vector (size increased 1).">push_d</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec, <span class="keywordtype">double</span> a)
 <a name="l00148"></a>00148 {
 <a name="l00149"></a>00149     <span class="keywordtype">void</span>* tmp;
 <a name="l00150"></a>00150     <span class="keywordtype">size_t</span> tmp_sz;
@@ -220,13 +220,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00162"></a>00162 }
 <a name="l00163"></a>00163 
 <a name="l00164"></a>00164 
-<a name="l00166"></a><a class="code" href="vectord_8h.html#abd2e26b24fc34f795654e2fe86a508fa">00166</a> <span class="keywordtype">double</span> <a class="code" href="vectord_8c.html#abd2e26b24fc34f795654e2fe86a508fa" title="Remove and return the last element (size decreased 1).">pop_d</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>)
+<a name="l00166"></a><a class="code" href="vectord_8h.html#abd2e26b24fc34f795654e2fe86a508fa">00166</a> <span class="keywordtype">double</span> <a class="code" href="vectord_8c.html#abd2e26b24fc34f795654e2fe86a508fa" title="Remove and return the last element (size decreased 1).">pop_d</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec)
 <a name="l00167"></a>00167 {
 <a name="l00168"></a>00168     <span class="keywordflow">return</span> vec-&gt;<a class="code" href="structvector__d.html#a925832a4ece20022fbe241e7e38ec329" title="Array.">a</a>[--vec-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a>];
 <a name="l00169"></a>00169 }
 <a name="l00170"></a>00170 
 <a name="l00171"></a>00171 
-<a name="l00173"></a><a class="code" href="vectord_8h.html#afd5b64838b373d3afdedc7376deb825d">00173</a> <span class="keywordtype">double</span>* <a class="code" href="vectord_8c.html#afd5b64838b373d3afdedc7376deb825d" title="Return pointer to last element.">backd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>)
+<a name="l00173"></a><a class="code" href="vectord_8h.html#afd5b64838b373d3afdedc7376deb825d">00173</a> <span class="keywordtype">double</span>* <a class="code" href="vectord_8c.html#afd5b64838b373d3afdedc7376deb825d" title="Return pointer to last element.">backd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec)
 <a name="l00174"></a>00174 {
 <a name="l00175"></a>00175     <span class="keywordflow">return</span> &amp;vec-&gt;<a class="code" href="structvector__d.html#a925832a4ece20022fbe241e7e38ec329" title="Array.">a</a>[vec-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a>-1];
 <a name="l00176"></a>00176 }
@@ -234,7 +234,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00178"></a>00178 
 <a name="l00179"></a>00179 
 <a name="l00180"></a>00180 
-<a name="l00183"></a><a class="code" href="vectord_8h.html#ac2b32eef4befa3c059ddcd273f249c53">00183</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#ac2b32eef4befa3c059ddcd273f249c53" title="Increase the size of the array num items.">extendd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>, <span class="keywordtype">size_t</span> num)
+<a name="l00183"></a><a class="code" href="vectord_8h.html#ac2b32eef4befa3c059ddcd273f249c53">00183</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#ac2b32eef4befa3c059ddcd273f249c53" title="Increase the size of the array num items.">extendd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec, <span class="keywordtype">size_t</span> num)
 <a name="l00184"></a>00184 {
 <a name="l00185"></a>00185     <span class="keywordtype">void</span>* tmp;
 <a name="l00186"></a>00186     <span class="keywordtype">size_t</span> tmp_sz;
@@ -255,7 +255,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00201"></a>00201 
 <a name="l00202"></a>00202 
 <a name="l00203"></a>00203 
-<a name="l00209"></a><a class="code" href="vectord_8h.html#a27cda61f4446cb298f30c78ea250ffe0">00209</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#a27cda61f4446cb298f30c78ea250ffe0" title="Insert a at index i (0 based).">insertd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>, <span class="keywordtype">size_t</span> i, <span class="keywordtype">double</span> a)
+<a name="l00209"></a><a class="code" href="vectord_8h.html#a27cda61f4446cb298f30c78ea250ffe0">00209</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#a27cda61f4446cb298f30c78ea250ffe0" title="Insert a at index i (0 based).">insertd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec, <span class="keywordtype">size_t</span> i, <span class="keywordtype">double</span> a)
 <a name="l00210"></a>00210 {
 <a name="l00211"></a>00211     <span class="keywordtype">void</span>* tmp;
 <a name="l00212"></a>00212     <span class="keywordtype">size_t</span> tmp_sz;
@@ -275,7 +275,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00226"></a>00226     <span class="keywordflow">return</span> 1;
 <a name="l00227"></a>00227 }
 <a name="l00228"></a>00228 
-<a name="l00235"></a><a class="code" href="vectord_8h.html#a3ce694f26d7f8b299c4757b167fffd11">00235</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#a3ce694f26d7f8b299c4757b167fffd11" title="Insert the first num elements of array a at index i.">insert_arrayd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>, <span class="keywordtype">size_t</span> i, <span class="keywordtype">double</span>* a, <span class="keywordtype">size_t</span> num)
+<a name="l00235"></a><a class="code" href="vectord_8h.html#a3ce694f26d7f8b299c4757b167fffd11">00235</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#a3ce694f26d7f8b299c4757b167fffd11" title="Insert the first num elements of array a at index i.">insert_arrayd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec, <span class="keywordtype">size_t</span> i, <span class="keywordtype">double</span>* a, <span class="keywordtype">size_t</span> num)
 <a name="l00236"></a>00236 {
 <a name="l00237"></a>00237     <span class="keywordtype">void</span>* tmp;
 <a name="l00238"></a>00238     <span class="keywordtype">size_t</span> tmp_sz;
@@ -297,7 +297,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00254"></a>00254 
 <a name="l00255"></a>00255 
 <a name="l00256"></a>00256 
-<a name="l00262"></a><a class="code" href="vectord_8h.html#a5024e0dad2d80c8c58c840aa0fda85aa">00262</a> <span class="keywordtype">void</span> <a class="code" href="vectord_8c.html#a5024e0dad2d80c8c58c840aa0fda85aa" title="Erases elements from start to end inclusive.">erased</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>, <span class="keywordtype">size_t</span> start, <span class="keywordtype">size_t</span> end)
+<a name="l00262"></a><a class="code" href="vectord_8h.html#a5024e0dad2d80c8c58c840aa0fda85aa">00262</a> <span class="keywordtype">void</span> <a class="code" href="vectord_8c.html#a5024e0dad2d80c8c58c840aa0fda85aa" title="Erases elements from start to end inclusive.">erased</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec, <span class="keywordtype">size_t</span> start, <span class="keywordtype">size_t</span> end)
 <a name="l00263"></a>00263 {
 <a name="l00264"></a>00264     <span class="keywordtype">size_t</span> d = end - start + 1;
 <a name="l00265"></a>00265     memmove(&amp;vec-&gt;<a class="code" href="structvector__d.html#a925832a4ece20022fbe241e7e38ec329" title="Array.">a</a>[start], &amp;vec-&gt;<a class="code" href="structvector__d.html#a925832a4ece20022fbe241e7e38ec329" title="Array.">a</a>[end+1], (vec-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a>-1-end)*<span class="keyword">sizeof</span>(<span class="keywordtype">double</span>));
@@ -305,7 +305,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00267"></a>00267 }
 <a name="l00268"></a>00268 
 <a name="l00269"></a>00269 
-<a name="l00271"></a><a class="code" href="vectord_8h.html#ae17d88125d50322bb65975e2db402144">00271</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#ae17d88125d50322bb65975e2db402144" title="Make sure capacity is at least size(parameter not member).">reserved</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>, <span class="keywordtype">size_t</span> size)
+<a name="l00271"></a><a class="code" href="vectord_8h.html#ae17d88125d50322bb65975e2db402144">00271</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#ae17d88125d50322bb65975e2db402144" title="Make sure capacity is at least size(parameter not member).">reserved</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec, <span class="keywordtype">size_t</span> size)
 <a name="l00272"></a>00272 {
 <a name="l00273"></a>00273     <span class="keywordtype">void</span>* tmp;
 <a name="l00274"></a>00274     <span class="keywordflow">if</span> (vec-&gt;<a class="code" href="structvector__d.html#a83fb5c9689de179f0dfe1413d720cdc3" title="Allocated size of array; always &gt;= size.">capacity</a> &lt; size) {
@@ -320,7 +320,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00283"></a>00283 }
 <a name="l00284"></a>00284 
 <a name="l00285"></a>00285 
-<a name="l00290"></a><a class="code" href="vectord_8h.html#ac3ac1d2e488610aa6ebf615299b41895">00290</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#ac3ac1d2e488610aa6ebf615299b41895" title="Set capacity to size.">set_capacityd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>, <span class="keywordtype">size_t</span> size)
+<a name="l00290"></a><a class="code" href="vectord_8h.html#ac3ac1d2e488610aa6ebf615299b41895">00290</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#ac3ac1d2e488610aa6ebf615299b41895" title="Set capacity to size.">set_capacityd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec, <span class="keywordtype">size_t</span> size)
 <a name="l00291"></a>00291 {
 <a name="l00292"></a>00292     <span class="keywordtype">void</span>* tmp;
 <a name="l00293"></a>00293     <span class="keywordflow">if</span> (size &lt; vec-&gt;size)
@@ -336,7 +336,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00303"></a>00303 }
 <a name="l00304"></a>00304 
 <a name="l00305"></a>00305 
-<a name="l00307"></a><a class="code" href="vectord_8h.html#a8cf2604b6dfe8c10939e0ca4e4ef5868">00307</a> <span class="keywordtype">void</span> <a class="code" href="vectord_8c.html#a8cf2604b6dfe8c10939e0ca4e4ef5868" title="Set all size elements to val.">set_val_szd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>, <span class="keywordtype">double</span> val)
+<a name="l00307"></a><a class="code" href="vectord_8h.html#a8cf2604b6dfe8c10939e0ca4e4ef5868">00307</a> <span class="keywordtype">void</span> <a class="code" href="vectord_8c.html#a8cf2604b6dfe8c10939e0ca4e4ef5868" title="Set all size elements to val.">set_val_szd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec, <span class="keywordtype">double</span> val)
 <a name="l00308"></a>00308 {
 <a name="l00309"></a>00309     <span class="keywordtype">size_t</span> i;
 <a name="l00310"></a>00310     <span class="keywordflow">for</span>(i=0; i&lt;vec-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a>; i++)
@@ -344,7 +344,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00312"></a>00312 }
 <a name="l00313"></a>00313 
 <a name="l00314"></a>00314 
-<a name="l00316"></a><a class="code" href="vectord_8h.html#a91942dfa8445dc68a39458dec459ddd7">00316</a> <span class="keywordtype">void</span> <a class="code" href="vectord_8c.html#a91942dfa8445dc68a39458dec459ddd7" title="Fills entire allocated array (capacity) with val.">set_val_capd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>, <span class="keywordtype">double</span> val)
+<a name="l00316"></a><a class="code" href="vectord_8h.html#a91942dfa8445dc68a39458dec459ddd7">00316</a> <span class="keywordtype">void</span> <a class="code" href="vectord_8c.html#a91942dfa8445dc68a39458dec459ddd7" title="Fills entire allocated array (capacity) with val.">set_val_capd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec, <span class="keywordtype">double</span> val)
 <a name="l00317"></a>00317 {
 <a name="l00318"></a>00318     <span class="keywordtype">size_t</span> i;
 <a name="l00319"></a>00319     <span class="keywordflow">for</span>(i=0; i&lt;vec-&gt;<a class="code" href="structvector__d.html#a83fb5c9689de179f0dfe1413d720cdc3" title="Allocated size of array; always &gt;= size.">capacity</a>; i++)
@@ -353,23 +353,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00322"></a>00322 
 <a name="l00323"></a>00323 
 <a name="l00324"></a>00324 
-<a name="l00326"></a><a class="code" href="vectord_8c.html#ac569174c53ee3732e4b32fd022a224bd">00326</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#ac569174c53ee3732e4b32fd022a224bd" title="If you don&#39;t want to access capacity directly for some reason.">capacityd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>) { <span class="keywordflow">return</span> vec-&gt;<a class="code" href="structvector__d.html#a83fb5c9689de179f0dfe1413d720cdc3" title="Allocated size of array; always &gt;= size.">capacity</a>; }
+<a name="l00326"></a><a class="code" href="vectord_8c.html#ac569174c53ee3732e4b32fd022a224bd">00326</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#ac569174c53ee3732e4b32fd022a224bd" title="If you don&#39;t want to access capacity directly for some reason.">capacityd</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec) { <span class="keywordflow">return</span> vec-&gt;<a class="code" href="structvector__d.html#a83fb5c9689de179f0dfe1413d720cdc3" title="Allocated size of array; always &gt;= size.">capacity</a>; }
 <a name="l00327"></a>00327 
-<a name="l00329"></a><a class="code" href="vectord_8c.html#a1937fc036c8ae6407bc92566964769fc">00329</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#a1937fc036c8ae6407bc92566964769fc" title="If you don&#39;t want to access size directly for some reason.">sized</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>) { <span class="keywordflow">return</span> vec-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a>; }
+<a name="l00329"></a><a class="code" href="vectord_8c.html#a1937fc036c8ae6407bc92566964769fc">00329</a> <span class="keywordtype">int</span> <a class="code" href="vectord_8c.html#a1937fc036c8ae6407bc92566964769fc" title="If you don&#39;t want to access size directly for some reason.">sized</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec) { <span class="keywordflow">return</span> vec-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a>; }
 <a name="l00330"></a>00330 
-<a name="l00332"></a><a class="code" href="vectord_8h.html#ade629b65714afdd14647c4e0585120d5">00332</a> <span class="keywordtype">void</span> <a class="code" href="vectord_8c.html#ade629b65714afdd14647c4e0585120d5" title="Sets size to 0 (does not clear contents).">cleard</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>) { vec-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a> = 0; }
+<a name="l00332"></a><a class="code" href="vectord_8h.html#ade629b65714afdd14647c4e0585120d5">00332</a> <span class="keywordtype">void</span> <a class="code" href="vectord_8c.html#ade629b65714afdd14647c4e0585120d5" title="Sets size to 0 (does not clear contents).">cleard</a>(<a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec) { vec-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a> = 0; }
 <a name="l00333"></a>00333 
 <a name="l00334"></a>00334 
-<a name="l00336"></a><a class="code" href="vectord_8h.html#abef064de5dad3d035e576b318aaade2f">00336</a> <span class="keywordtype">void</span> <a class="code" href="vectord_8c.html#abef064de5dad3d035e576b318aaade2f" title="Frees everything so don&#39;t use vec after calling this.">free_vecd_heap</a>(<span class="keywordtype">void</span>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>)
+<a name="l00336"></a><a class="code" href="vectord_8h.html#abef064de5dad3d035e576b318aaade2f">00336</a> <span class="keywordtype">void</span> <a class="code" href="vectord_8c.html#abef064de5dad3d035e576b318aaade2f" title="Frees everything so don&#39;t use vec after calling this.">free_vecd_heap</a>(<span class="keywordtype">void</span>* vec)
 <a name="l00337"></a>00337 {
-<a name="l00338"></a>00338     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* tmp = <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00338"></a>00338     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* tmp = vec;
 <a name="l00339"></a>00339     free(tmp-&gt;<a class="code" href="structvector__d.html#a925832a4ece20022fbe241e7e38ec329" title="Array.">a</a>);
 <a name="l00340"></a>00340     free(tmp);
 <a name="l00341"></a>00341 }
 <a name="l00342"></a>00342 
-<a name="l00344"></a><a class="code" href="vectord_8h.html#a7ad609e9b25c808ffe64002fdc71dbaf">00344</a> <span class="keywordtype">void</span> <a class="code" href="vectord_8c.html#a7ad609e9b25c808ffe64002fdc71dbaf" title="Frees the internal array and sets size and capacity to 0.">free_vecd</a>(<span class="keywordtype">void</span>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>)
+<a name="l00344"></a><a class="code" href="vectord_8h.html#a7ad609e9b25c808ffe64002fdc71dbaf">00344</a> <span class="keywordtype">void</span> <a class="code" href="vectord_8c.html#a7ad609e9b25c808ffe64002fdc71dbaf" title="Frees the internal array and sets size and capacity to 0.">free_vecd</a>(<span class="keywordtype">void</span>* vec)
 <a name="l00345"></a>00345 {
-<a name="l00346"></a>00346     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* tmp = <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00346"></a>00346     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* tmp = vec;
 <a name="l00347"></a>00347     free(tmp-&gt;<a class="code" href="structvector__d.html#a925832a4ece20022fbe241e7e38ec329" title="Array.">a</a>);
 <a name="l00348"></a>00348     tmp-&gt;<a class="code" href="structvector__d.html#a1a8bccf26d9cef41fd453f6feb2f15b1" title="Current size (amount you use when manipulating array directly).">size</a> = 0;
 <a name="l00349"></a>00349     tmp-&gt;<a class="code" href="structvector__d.html#a83fb5c9689de179f0dfe1413d720cdc3" title="Allocated size of array; always &gt;= size.">capacity</a> = 0;
@@ -392,7 +392,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 10 2012 22:11:51 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 11 2012 18:57:04 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -41,14 +41,14 @@ extern void set_capacity_str_test();
 extern void set_val_str_test();
 
 
-extern void push_test();
-extern void erase_test();
-extern void insert_test();
-extern void insert_array_test();
-extern void pop_test();
-extern void reserve_test();
-extern void set_capacity_test();
-extern void set_val_test();
+extern void push_void_test();
+extern void erase_void_test();
+extern void insert_void_test();
+extern void insert_array_void_test();
+extern void pop_void_test();
+extern void reserve_void_test();
+extern void set_capacity_void_test();
+extern void set_val_void_test();
 extern void vector_of_vectors_test();
 
 extern void template_test();
@@ -94,14 +94,14 @@ CU_TestInfo vector_s_tests[] = {
 
 
 CU_TestInfo vector_tests[] = {
-	{ "push_test",                 push_test },
-	{ "erase_test",                erase_test },
-	{ "insert_test",               insert_test },
-	{ "insert_array_test",         insert_array_test },
-	{ "pop_test",                  pop_test },
-	{ "reserve_test",              reserve_test },
-	{ "set_capacity_test",         set_capacity_test },
-	{ "set_val_test",              set_val_test },
+	{ "push_test",                 push_void_test },
+	{ "erase_test",                erase_void_test },
+	{ "insert_test",               insert_void_test },
+	{ "insert_array_test",         insert_array_void_test },
+	{ "pop_test",                  pop_void_test },
+	{ "reserve_test",              reserve_void_test },
+	{ "set_capacity_test",         set_capacity_void_test },
+	{ "set_val_test",              set_val_void_test },
 	{ "vector_of_vectors_test",    vector_of_vectors_test },
 	CU_TEST_INFO_NULL
 };

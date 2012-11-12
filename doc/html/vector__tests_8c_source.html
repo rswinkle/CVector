@@ -98,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00015"></a><a class="code" href="vector__tests_8c.html#a3cd2c102f57933067b2f6ad48de98cfc">00015</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a3cd2c102f57933067b2f6ad48de98cfc">pushi_test</a>()
 <a name="l00016"></a>00016 {
 <a name="l00017"></a>00017     <span class="keywordtype">int</span> i;
-<a name="l00018"></a>00018     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00018"></a>00018     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> vec;
 <a name="l00019"></a>00019     <a class="code" href="vectori_8c.html#a7688f263b2099e8362bc5eac66d6671b" title="Same as vec_i() except the vector passed in was declared on the stack so it isn&#39;t allocated in this f...">vec_i</a>(&amp;vec, 0, 0);
 <a name="l00020"></a>00020 
 <a name="l00021"></a>00021     CU_ASSERT_EQUAL(<a class="code" href="vectori_8c.html#a9dfda901bb45b8c35164ec186c1c844e">VEC_I_START_SZ</a>, vec.<a class="code" href="structvector__i.html#a8e7421832635519ee2ccebd19298b705" title="Allocated size of array; always &gt;= size.">capacity</a>);
@@ -119,7 +119,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00036"></a><a class="code" href="vector__tests_8c.html#a1ce3eee7848108080af27e9ee0b5f1c6">00036</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a1ce3eee7848108080af27e9ee0b5f1c6">erasei_test</a>()
 <a name="l00037"></a>00037 {
 <a name="l00038"></a>00038     <span class="keywordtype">int</span> i,j;
-<a name="l00039"></a>00039     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00039"></a>00039     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> vec;
 <a name="l00040"></a>00040     <a class="code" href="vectori_8c.html#a7688f263b2099e8362bc5eac66d6671b" title="Same as vec_i() except the vector passed in was declared on the stack so it isn&#39;t allocated in this f...">vec_i</a>(&amp;vec, 100, 0);
 <a name="l00041"></a>00041 
 <a name="l00042"></a>00042     CU_ASSERT_EQUAL(<a class="code" href="vectori_8c.html#a9dfda901bb45b8c35164ec186c1c844e">VEC_I_START_SZ</a>+100, vec.<a class="code" href="structvector__i.html#a8e7421832635519ee2ccebd19298b705" title="Allocated size of array; always &gt;= size.">capacity</a>);
@@ -150,7 +150,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00067"></a>00067     <span class="keywordtype">int</span> array[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 <a name="l00068"></a>00068     <span class="keywordtype">int</span> i;
 <a name="l00069"></a>00069 
-<a name="l00070"></a>00070     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00070"></a>00070     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> vec;
 <a name="l00071"></a>00071     <a class="code" href="vectori_8c.html#a5e111a1723ee47769957d148b3201b5d" title="Same as init_vec_i() except the vector passed in was declared on the stack so it isn&#39;t allocated in t...">init_vec_i</a>(&amp;vec, array, 10);
 <a name="l00072"></a>00072 
 <a name="l00073"></a>00073     CU_ASSERT_EQUAL(vec.<a class="code" href="structvector__i.html#a8df52068982f4b7dcaa024b37f243282" title="Current size (amount you use when manipulating array directly).">size</a>, 10);
@@ -173,7 +173,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00090"></a>00090 {
 <a name="l00091"></a>00091     <span class="keywordtype">int</span> i;
 <a name="l00092"></a>00092     <span class="keywordtype">int</span> array[] = { 0, 1, 0, 1, 0, 1 };
-<a name="l00093"></a>00093     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00093"></a>00093     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> vec;
 <a name="l00094"></a>00094     <a class="code" href="vectori_8c.html#a7688f263b2099e8362bc5eac66d6671b" title="Same as vec_i() except the vector passed in was declared on the stack so it isn&#39;t allocated in this f...">vec_i</a>(&amp;vec, 0, 0);
 <a name="l00095"></a>00095     
 <a name="l00096"></a>00096     <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="vectori_8c.html#a9dfda901bb45b8c35164ec186c1c844e">VEC_I_START_SZ</a>*2-5; ++i)
@@ -205,7 +205,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00122"></a><a class="code" href="vector__tests_8c.html#a5c1ac449d2c8f108a2ba9186f3cbbf23">00122</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a5c1ac449d2c8f108a2ba9186f3cbbf23">popi_test</a>()
 <a name="l00123"></a>00123 {
 <a name="l00124"></a>00124     <span class="keywordtype">int</span> i, temp;
-<a name="l00125"></a>00125     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00125"></a>00125     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> vec;
 <a name="l00126"></a>00126     <a class="code" href="vectori_8c.html#a7688f263b2099e8362bc5eac66d6671b" title="Same as vec_i() except the vector passed in was declared on the stack so it isn&#39;t allocated in this f...">vec_i</a>(&amp;vec, 10, 100);
 <a name="l00127"></a>00127 
 <a name="l00128"></a>00128     CU_ASSERT_EQUAL(vec.<a class="code" href="structvector__i.html#a8e7421832635519ee2ccebd19298b705" title="Allocated size of array; always &gt;= size.">capacity</a>, 100);
@@ -233,7 +233,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00150"></a>00150 
 <a name="l00151"></a><a class="code" href="vector__tests_8c.html#a8d865adc59db427dd46d58fbe4756ac6">00151</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a8d865adc59db427dd46d58fbe4756ac6">reservei_test</a>()
 <a name="l00152"></a>00152 {
-<a name="l00153"></a>00153     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a> = <a class="code" href="vectori_8c.html#aacd351d61db8f2190d3867db3d3da604" title="Creates a new vector_i.">vec_i_heap</a>(0, 0);
+<a name="l00153"></a>00153     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a>* vec = <a class="code" href="vectori_8c.html#aacd351d61db8f2190d3867db3d3da604" title="Creates a new vector_i.">vec_i_heap</a>(0, 0);
 <a name="l00154"></a>00154     
 <a name="l00155"></a>00155     CU_ASSERT_EQUAL(vec-&gt;<a class="code" href="structvector__i.html#a8df52068982f4b7dcaa024b37f243282" title="Current size (amount you use when manipulating array directly).">size</a>, 0);
 <a name="l00156"></a>00156     CU_ASSERT_EQUAL(vec-&gt;<a class="code" href="structvector__i.html#a8e7421832635519ee2ccebd19298b705" title="Allocated size of array; always &gt;= size.">capacity</a>, <a class="code" href="vectori_8c.html#a9dfda901bb45b8c35164ec186c1c844e">VEC_I_START_SZ</a>);
@@ -248,7 +248,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00165"></a><a class="code" href="vector__tests_8c.html#aa8dcd8e2291448296341cd2fb35c5212">00165</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#aa8dcd8e2291448296341cd2fb35c5212">set_capacityi_test</a>()
 <a name="l00166"></a>00166 {
 <a name="l00167"></a>00167     <span class="keywordtype">int</span> i;
-<a name="l00168"></a>00168     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a> = <a class="code" href="vectori_8c.html#aacd351d61db8f2190d3867db3d3da604" title="Creates a new vector_i.">vec_i_heap</a>(0, 0);
+<a name="l00168"></a>00168     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a>* vec = <a class="code" href="vectori_8c.html#aacd351d61db8f2190d3867db3d3da604" title="Creates a new vector_i.">vec_i_heap</a>(0, 0);
 <a name="l00169"></a>00169     
 <a name="l00170"></a>00170     CU_ASSERT_EQUAL(vec-&gt;<a class="code" href="structvector__i.html#a8df52068982f4b7dcaa024b37f243282" title="Current size (amount you use when manipulating array directly).">size</a>, 0);
 <a name="l00171"></a>00171     CU_ASSERT_EQUAL(vec-&gt;<a class="code" href="structvector__i.html#a8e7421832635519ee2ccebd19298b705" title="Allocated size of array; always &gt;= size.">capacity</a>, <a class="code" href="vectori_8c.html#a9dfda901bb45b8c35164ec186c1c844e">VEC_I_START_SZ</a>);
@@ -276,7 +276,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00193"></a><a class="code" href="vector__tests_8c.html#a4b4fb16af913da0534dad8ac78817191">00193</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a4b4fb16af913da0534dad8ac78817191">set_vali_test</a>()
 <a name="l00194"></a>00194 {
 <a name="l00195"></a>00195     <span class="keywordtype">int</span> i;
-<a name="l00196"></a>00196     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00196"></a>00196     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> vec;
 <a name="l00197"></a>00197     <a class="code" href="vectori_8c.html#a7688f263b2099e8362bc5eac66d6671b" title="Same as vec_i() except the vector passed in was declared on the stack so it isn&#39;t allocated in this f...">vec_i</a>(&amp;vec, 20, 20);
 <a name="l00198"></a>00198     
 <a name="l00199"></a>00199     CU_ASSERT_EQUAL(vec.<a class="code" href="structvector__i.html#a8df52068982f4b7dcaa024b37f243282" title="Current size (amount you use when manipulating array directly).">size</a>, 20);
@@ -308,7 +308,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00225"></a><a class="code" href="vector__tests_8c.html#ac759edc20dba5f5a6c5a203f4d7d1588">00225</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#ac759edc20dba5f5a6c5a203f4d7d1588">pushd_test</a>()
 <a name="l00226"></a>00226 {
 <a name="l00227"></a>00227     <span class="keywordtype">int</span> i;
-<a name="l00228"></a>00228     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00228"></a>00228     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a> vec;
 <a name="l00229"></a>00229     <a class="code" href="vectord_8c.html#ae1227c5a6c00b34190f19e4956c3140c" title="Same as vec_d() except the vector passed in was declared on the stack so it isn&#39;t allocated in this f...">vec_d</a>(&amp;vec, 0, 1);
 <a name="l00230"></a>00230 
 <a name="l00231"></a>00231     CU_ASSERT_EQUAL(1, vec.<a class="code" href="structvector__d.html#a83fb5c9689de179f0dfe1413d720cdc3" title="Allocated size of array; always &gt;= size.">capacity</a>);
@@ -330,7 +330,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00247"></a><a class="code" href="vector__tests_8c.html#a9a00a1e10358cff8c9d89d2b8a85fea2">00247</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a9a00a1e10358cff8c9d89d2b8a85fea2">erased_test</a>()
 <a name="l00248"></a>00248 {
 <a name="l00249"></a>00249     <span class="keywordtype">int</span> i,j;
-<a name="l00250"></a>00250     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00250"></a>00250     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a> vec;
 <a name="l00251"></a>00251     <a class="code" href="vectord_8c.html#ae1227c5a6c00b34190f19e4956c3140c" title="Same as vec_d() except the vector passed in was declared on the stack so it isn&#39;t allocated in this f...">vec_d</a>(&amp;vec, 100, 101);
 <a name="l00252"></a>00252 
 <a name="l00253"></a>00253     CU_ASSERT_EQUAL(101, vec.<a class="code" href="structvector__d.html#a83fb5c9689de179f0dfe1413d720cdc3" title="Allocated size of array; always &gt;= size.">capacity</a>);
@@ -385,7 +385,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00302"></a>00302 {
 <a name="l00303"></a>00303     <span class="keywordtype">int</span> i;
 <a name="l00304"></a>00304     <span class="keywordtype">double</span> array[] = { 0, 1, 0, 1, 0, 1 };
-<a name="l00305"></a>00305     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00305"></a>00305     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a> vec;
 <a name="l00306"></a>00306     <a class="code" href="vectord_8c.html#ae1227c5a6c00b34190f19e4956c3140c" title="Same as vec_d() except the vector passed in was declared on the stack so it isn&#39;t allocated in this f...">vec_d</a>(&amp;vec, 0, 0);
 <a name="l00307"></a>00307     
 <a name="l00308"></a>00308     <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="vectord_8c.html#a57df2435a35a69bca888700984b749d6">VEC_D_START_SZ</a>*2-5; ++i)
@@ -444,7 +444,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00361"></a>00361 
 <a name="l00362"></a><a class="code" href="vector__tests_8c.html#a8f142292e35933516cc13dee7b98881e">00362</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a8f142292e35933516cc13dee7b98881e">reserved_test</a>()
 <a name="l00363"></a>00363 {
-<a name="l00364"></a>00364     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a> = <a class="code" href="vectord_8c.html#a692a036b67c0a76ce0d0a397f176e8ab" title="Creates a new vector_d.">vec_d_heap</a>(0, 0);
+<a name="l00364"></a>00364     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec = <a class="code" href="vectord_8c.html#a692a036b67c0a76ce0d0a397f176e8ab" title="Creates a new vector_d.">vec_d_heap</a>(0, 0);
 <a name="l00365"></a>00365 
 <a name="l00366"></a>00366     <a class="code" href="vectord_8c.html#ae17d88125d50322bb65975e2db402144" title="Make sure capacity is at least size(parameter not member).">reserved</a>(vec, 20);
 <a name="l00367"></a>00367     CU_ASSERT(vec-&gt;<a class="code" href="structvector__d.html#a83fb5c9689de179f0dfe1413d720cdc3" title="Allocated size of array; always &gt;= size.">capacity</a> &gt;= 20);
@@ -484,7 +484,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00401"></a><a class="code" href="vector__tests_8c.html#aab8a75266ecb6206a3128a3185080169">00401</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#aab8a75266ecb6206a3128a3185080169">set_vald_test</a>()
 <a name="l00402"></a>00402 {
 <a name="l00403"></a>00403     <span class="keywordtype">int</span> i;
-<a name="l00404"></a>00404     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a> = <a class="code" href="vectord_8c.html#a692a036b67c0a76ce0d0a397f176e8ab" title="Creates a new vector_d.">vec_d_heap</a>(20, 20);
+<a name="l00404"></a>00404     <a class="code" href="structvector__d.html" title="Data structure for double vector.">vector_d</a>* vec = <a class="code" href="vectord_8c.html#a692a036b67c0a76ce0d0a397f176e8ab" title="Creates a new vector_d.">vec_d_heap</a>(20, 20);
 <a name="l00405"></a>00405     
 <a name="l00406"></a>00406     CU_ASSERT_EQUAL(vec-&gt;<a class="code" href="structvector__d.html#a83fb5c9689de179f0dfe1413d720cdc3" title="Allocated size of array; always &gt;= size.">capacity</a>, 20);
 <a name="l00407"></a>00407 
@@ -510,7 +510,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00427"></a>00427 {
 <a name="l00428"></a>00428     <span class="keywordtype">int</span> i;
 <a name="l00429"></a>00429     <span class="keywordtype">char</span> buffer[50];
-<a name="l00430"></a>00430     <a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a> = <a class="code" href="vectorstr_8c.html#af0312674facca46fa1a4d5853d067478" title="Create a new vector_str.">vec_str_heap</a>(0, 0);
+<a name="l00430"></a>00430     <a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a>* vec = <a class="code" href="vectorstr_8c.html#af0312674facca46fa1a4d5853d067478" title="Create a new vector_str.">vec_str_heap</a>(0, 0);
 <a name="l00431"></a>00431 
 <a name="l00432"></a>00432     CU_ASSERT_EQUAL(<a class="code" href="vectorstr_8c.html#aa42e1cec745f7340ed3237ff0ac18c42">VEC_STR_START_SZ</a>, vec-&gt;<a class="code" href="structvector__str.html#a8a52905a505acbcb9176be3eb6cf37f8" title="Allocated size of array; always &gt;= size.">capacity</a>);
 <a name="l00433"></a>00433     CU_ASSERT_EQUAL(0, vec-&gt;<a class="code" href="structvector__str.html#a63d4c1a5373481aa4ba9d4ee8252c748" title="Current size (amount you use when manipulating array directly).">size</a>);
@@ -573,7 +573,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00490"></a>00490     <span class="keywordtype">char</span> buffer[50];
 <a name="l00491"></a>00491     <span class="keywordtype">int</span> i;
 <a name="l00492"></a>00492 
-<a name="l00493"></a>00493     <a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a>* <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a> = <a class="code" href="vectorstr_8c.html#a4ec7e603dd0eb5ad39b3769fed8e58ef" title="Create and initialize vector_str with num elements of vals.">init_vec_str_heap</a>(array, 10);
+<a name="l00493"></a>00493     <a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a>* vec = <a class="code" href="vectorstr_8c.html#a4ec7e603dd0eb5ad39b3769fed8e58ef" title="Create and initialize vector_str with num elements of vals.">init_vec_str_heap</a>(array, 10);
 <a name="l00494"></a>00494 
 <a name="l00495"></a>00495     CU_ASSERT_EQUAL(vec-&gt;<a class="code" href="structvector__str.html#a63d4c1a5373481aa4ba9d4ee8252c748" title="Current size (amount you use when manipulating array directly).">size</a>, 10);
 <a name="l00496"></a>00496 
@@ -605,7 +605,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00522"></a>00522     <span class="keywordtype">char</span> buffer[50];
 <a name="l00523"></a>00523     <span class="keywordtype">char</span>* array[] = { <span class="stringliteral">&quot;hello 0&quot;</span>, <span class="stringliteral">&quot;hello 1&quot;</span>, <span class="stringliteral">&quot;hello 2&quot;</span>, <span class="stringliteral">&quot;hello 3&quot;</span>, <span class="stringliteral">&quot;hello 4&quot;</span>,
 <a name="l00524"></a>00524             <span class="stringliteral">&quot;hello 5&quot;</span>, <span class="stringliteral">&quot;hello 6&quot;</span>, <span class="stringliteral">&quot;hello 7&quot;</span>, <span class="stringliteral">&quot;hello 8&quot;</span>, <span class="stringliteral">&quot;hello 9&quot;</span>, <span class="stringliteral">&quot;hello 10&quot;</span> };
-<a name="l00525"></a>00525     <a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00525"></a>00525     <a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a> vec;
 <a name="l00526"></a>00526     <a class="code" href="vectorstr_8c.html#a5e782880d6fbdb6e578d26586f6e4559" title="Same as init_vec_str() except the vector passed in was declared on the stack so it isn&#39;t allocated in...">init_vec_str</a>(&amp;vec, array, 10);
 <a name="l00527"></a>00527 
 <a name="l00528"></a>00528     CU_ASSERT_EQUAL(vec.<a class="code" href="structvector__str.html#a63d4c1a5373481aa4ba9d4ee8252c748" title="Current size (amount you use when manipulating array directly).">size</a>, 10);
@@ -671,7 +671,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00588"></a>00588 
 <a name="l00589"></a><a class="code" href="vector__tests_8c.html#aa54c4a1dc18ff0398a0a80b83bab8866">00589</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#aa54c4a1dc18ff0398a0a80b83bab8866">reserve_str_test</a>()
 <a name="l00590"></a>00590 {
-<a name="l00591"></a>00591     <a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00591"></a>00591     <a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a> vec;
 <a name="l00592"></a>00592     <a class="code" href="vectorstr_8c.html#a4cafadcad8de78fee1c7b27a32c4737a" title="Same as vec_str() except the vector passed in was declared on the stack so it isn&#39;t allocated in this...">vec_str</a>(&amp;vec, 0, 100);
 <a name="l00593"></a>00593 
 <a name="l00594"></a>00594     <a class="code" href="vectorstr_8c.html#a0725071ec0f2facea3325e9daacb6ca4" title="Makes sure the vector capacity is &gt;= size (parameter not member).">reserve_str</a>(&amp;vec, 20);
@@ -687,7 +687,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00604"></a>00604     <span class="keywordtype">int</span> i;
 <a name="l00605"></a>00605     <span class="keywordtype">char</span> buffer[50];
 <a name="l00606"></a>00606 
-<a name="l00607"></a>00607     <a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00607"></a>00607     <a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a> vec;
 <a name="l00608"></a>00608     <a class="code" href="vectorstr_8c.html#a4cafadcad8de78fee1c7b27a32c4737a" title="Same as vec_str() except the vector passed in was declared on the stack so it isn&#39;t allocated in this...">vec_str</a>(&amp;vec, 1, 1);
 <a name="l00609"></a>00609 
 <a name="l00610"></a>00610     CU_ASSERT_EQUAL(vec.<a class="code" href="structvector__str.html#a63d4c1a5373481aa4ba9d4ee8252c748" title="Current size (amount you use when manipulating array directly).">size</a>, 1);
@@ -724,7 +724,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00641"></a><a class="code" href="vector__tests_8c.html#aae4e22cb748b4eb3fa963efd2abbc211">00641</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#aae4e22cb748b4eb3fa963efd2abbc211">set_val_str_test</a>()
 <a name="l00642"></a>00642 {
 <a name="l00643"></a>00643     <span class="keywordtype">int</span> i;
-<a name="l00644"></a>00644     <a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l00644"></a>00644     <a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a> vec;
 <a name="l00645"></a>00645     <a class="code" href="vectorstr_8c.html#a4cafadcad8de78fee1c7b27a32c4737a" title="Same as vec_str() except the vector passed in was declared on the stack so it isn&#39;t allocated in this...">vec_str</a>(&amp;vec, 20, 0);
 <a name="l00646"></a>00646     
 <a name="l00647"></a>00647     CU_ASSERT_EQUAL(vec.<a class="code" href="structvector__str.html#a63d4c1a5373481aa4ba9d4ee8252c748" title="Current size (amount you use when manipulating array directly).">size</a>, 20)
@@ -816,39 +816,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00735"></a>00735 
 <a name="l00736"></a>00736 
 <a name="l00737"></a>00737 
-<a name="l00738"></a><a class="code" href="vector__tests_8c.html#a0b0ed8134020c97c26490d6881b15641">00738</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a0b0ed8134020c97c26490d6881b15641">push_test</a>()
+<a name="l00738"></a><a class="code" href="vector__tests_8c.html#a73f9169e36d31a70f7b188dfed4d019f">00738</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a73f9169e36d31a70f7b188dfed4d019f">push_void_test</a>()
 <a name="l00739"></a>00739 {
 <a name="l00740"></a>00740     <span class="keywordtype">char</span> buffer[50];
 <a name="l00741"></a>00741     <span class="keywordtype">int</span> i;
 <a name="l00742"></a>00742     <a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a> temp;
 <a name="l00743"></a>00743     <a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a> temp2;
 <a name="l00744"></a>00744 
-<a name="l00745"></a>00745     <a class="code" href="structvector.html" title="Data structure for generic type (cast to void) vectors.">vector</a> vec1;
-<a name="l00746"></a>00746     <a class="code" href="structvector.html" title="Data structure for generic type (cast to void) vectors.">vector</a> vec2;
+<a name="l00745"></a>00745     <a class="code" href="structvector__void.html" title="Data structure for generic type (cast to void) vectors.">vector_void</a> vec1;
+<a name="l00746"></a>00746     <a class="code" href="structvector__void.html" title="Data structure for generic type (cast to void) vectors.">vector_void</a> vec2;
 <a name="l00747"></a>00747 
-<a name="l00748"></a>00748     <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>(&amp;vec1, 0, 0, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
-<a name="l00749"></a>00749     <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>(&amp;vec2, 0, 1,  <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>, NULL);
+<a name="l00748"></a>00748     <a class="code" href="vector__void_8c.html#a5c2a4279acb79d147986b7418ad8b2aa" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec_void</a>(&amp;vec1, 0, 0, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
+<a name="l00749"></a>00749     <a class="code" href="vector__void_8c.html#a5c2a4279acb79d147986b7418ad8b2aa" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec_void</a>(&amp;vec2, 0, 1,  <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>, NULL);
 <a name="l00750"></a>00750     
-<a name="l00751"></a>00751     CU_ASSERT_EQUAL(<a class="code" href="vector_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>, vec1.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>);
-<a name="l00752"></a>00752     CU_ASSERT_EQUAL(0, vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>);
+<a name="l00751"></a>00751     CU_ASSERT_EQUAL(<a class="code" href="vector__void_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>, vec1.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>);
+<a name="l00752"></a>00752     CU_ASSERT_EQUAL(0, vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>);
 <a name="l00753"></a>00753 
-<a name="l00754"></a>00754     CU_ASSERT_EQUAL(1, vec2.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>);
-<a name="l00755"></a>00755     CU_ASSERT_EQUAL(0, vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>);
+<a name="l00754"></a>00754     CU_ASSERT_EQUAL(1, vec2.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>);
+<a name="l00755"></a>00755     CU_ASSERT_EQUAL(0, vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>);
 <a name="l00756"></a>00756 
 <a name="l00757"></a>00757     <span class="keywordflow">for</span> (i=0; i&lt;100; i++) {
 <a name="l00758"></a>00758         sprintf(buffer, <span class="stringliteral">&quot;%d&quot;</span>, i);
 <a name="l00759"></a>00759         temp = <a class="code" href="vector__tests_8c.html#a4a6b836f82b0841b28a94a24016a0332">mk_t_struct</a>(i, i, buffer);
 <a name="l00760"></a>00760         temp2 = <a class="code" href="vector__tests_8c.html#a6b20ff6161d5e27631cc8fcee4935fea">mk_f_struct</a>(i, i, buffer);
 <a name="l00761"></a>00761 
-<a name="l00762"></a>00762         <a class="code" href="vector_8c.html#aa88045f76180948fbda9a79ee5b5cd3d" title="Append a to end of vector (size increased 1).">push</a>(&amp;vec1, &amp;temp);
-<a name="l00763"></a>00763         <a class="code" href="vector_8c.html#aa88045f76180948fbda9a79ee5b5cd3d" title="Append a to end of vector (size increased 1).">push</a>(&amp;vec2, &amp;temp2);
+<a name="l00762"></a>00762         <a class="code" href="vector__void_8c.html#adafcc720aca07772efc72a43da12a534" title="Append a to end of vector (size increased 1).">push_void</a>(&amp;vec1, &amp;temp);
+<a name="l00763"></a>00763         <a class="code" href="vector__void_8c.html#adafcc720aca07772efc72a43da12a534" title="Append a to end of vector (size increased 1).">push_void</a>(&amp;vec2, &amp;temp2);
 <a name="l00764"></a>00764     }
 <a name="l00765"></a>00765 
-<a name="l00766"></a>00766     CU_ASSERT_EQUAL(100, vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>);
-<a name="l00767"></a>00767     CU_ASSERT_EQUAL(100, vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>);
+<a name="l00766"></a>00766     CU_ASSERT_EQUAL(100, vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>);
+<a name="l00767"></a>00767     CU_ASSERT_EQUAL(100, vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>);
 <a name="l00768"></a>00768 
 <a name="l00769"></a>00769 
-<a name="l00770"></a>00770     <span class="keywordflow">for</span> (i=0; i&lt;vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>; i++) {
+<a name="l00770"></a>00770     <span class="keywordflow">for</span> (i=0; i&lt;vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>; i++) {
 <a name="l00771"></a>00771 
 <a name="l00772"></a>00772         sprintf(buffer, <span class="stringliteral">&quot;%d&quot;</span>, i);
 <a name="l00773"></a>00773         CU_ASSERT_EQUAL(i, <a class="code" href="vector__tests_8c.html#a8ce1f58eab2da6e4042120bf922e0c2a">GET_T</a>(vec1, i)-&gt;d);
@@ -860,24 +860,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00779"></a>00779         CU_ASSERT_STRING_EQUAL(buffer, <a class="code" href="vector__tests_8c.html#adf53320bed6f35020884d1167a0e8f01">GET_F</a>(vec2, i)-&gt;word);
 <a name="l00780"></a>00780     }
 <a name="l00781"></a>00781 
-<a name="l00782"></a>00782     <a class="code" href="vector_8c.html#a942a5a50dc54eff02d67d91e16e9575b" title="Frees the internal array and sets size and capacity to 0.">free_vec</a>(&amp;vec1);
-<a name="l00783"></a>00783     <a class="code" href="vector_8c.html#a942a5a50dc54eff02d67d91e16e9575b" title="Frees the internal array and sets size and capacity to 0.">free_vec</a>(&amp;vec2);
+<a name="l00782"></a>00782     <a class="code" href="vector__void_8c.html#a267b96dd9b33aa9eb07b6446a9d7c09b" title="Frees the internal array and sets size and capacity to 0.">free_vec_void</a>(&amp;vec1);
+<a name="l00783"></a>00783     <a class="code" href="vector__void_8c.html#a267b96dd9b33aa9eb07b6446a9d7c09b" title="Frees the internal array and sets size and capacity to 0.">free_vec_void</a>(&amp;vec2);
 <a name="l00784"></a>00784 }
 <a name="l00785"></a>00785 
 <a name="l00786"></a>00786 
-<a name="l00787"></a><a class="code" href="vector__tests_8c.html#ae0ed31d6578853149e7651f31c64f865">00787</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#ae0ed31d6578853149e7651f31c64f865">erase_test</a>()
+<a name="l00787"></a><a class="code" href="vector__tests_8c.html#a0aa76bf84243e0d91d8efa070ae37785">00787</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a0aa76bf84243e0d91d8efa070ae37785">erase_void_test</a>()
 <a name="l00788"></a>00788 {
 <a name="l00789"></a>00789     <span class="keywordtype">char</span> buffer[50];
 <a name="l00790"></a>00790     <span class="keywordtype">int</span> i,j;
 <a name="l00791"></a>00791 
-<a name="l00792"></a>00792     <a class="code" href="structvector.html" title="Data structure for generic type (cast to void) vectors.">vector</a>* vec1 = <a class="code" href="vector_8c.html#a57ef0792f1717ece6ce779a8714aca96" title="Creates a new vector.">vec_heap</a>(100, 101, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
-<a name="l00793"></a>00793     <a class="code" href="structvector.html" title="Data structure for generic type (cast to void) vectors.">vector</a>* vec2 = <a class="code" href="vector_8c.html#a57ef0792f1717ece6ce779a8714aca96" title="Creates a new vector.">vec_heap</a>(100, 0, <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>, NULL);
+<a name="l00792"></a>00792     <a class="code" href="structvector__void.html" title="Data structure for generic type (cast to void) vectors.">vector_void</a>* vec1 = <a class="code" href="vector__void_8c.html#af5a2f68eaa6032d18d3d9d2e28bba1a8" title="Creates a new vector.">vec_void_heap</a>(100, 101, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
+<a name="l00793"></a>00793     <a class="code" href="structvector__void.html" title="Data structure for generic type (cast to void) vectors.">vector_void</a>* vec2 = <a class="code" href="vector__void_8c.html#af5a2f68eaa6032d18d3d9d2e28bba1a8" title="Creates a new vector.">vec_void_heap</a>(100, 0, <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>, NULL);
 <a name="l00794"></a>00794 
-<a name="l00795"></a>00795     CU_ASSERT_EQUAL(101, vec1-&gt;<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>);
-<a name="l00796"></a>00796     CU_ASSERT_EQUAL(100, vec1-&gt;<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>);
+<a name="l00795"></a>00795     CU_ASSERT_EQUAL(101, vec1-&gt;<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>);
+<a name="l00796"></a>00796     CU_ASSERT_EQUAL(100, vec1-&gt;<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>);
 <a name="l00797"></a>00797 
-<a name="l00798"></a>00798     CU_ASSERT_EQUAL(<a class="code" href="vector_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>+100, vec2-&gt;<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>);
-<a name="l00799"></a>00799     CU_ASSERT_EQUAL(100, vec2-&gt;<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>);
+<a name="l00798"></a>00798     CU_ASSERT_EQUAL(<a class="code" href="vector__void_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>+100, vec2-&gt;<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>);
+<a name="l00799"></a>00799     CU_ASSERT_EQUAL(100, vec2-&gt;<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>);
 <a name="l00800"></a>00800 
 <a name="l00801"></a>00801     <span class="keywordflow">for</span> (i=0; i&lt;100; i++) {
 <a name="l00802"></a>00802         sprintf(buffer, <span class="stringliteral">&quot;%d&quot;</span>, i);
@@ -891,16 +891,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00810"></a>00810         <a class="code" href="vector__tests_8c.html#abc4da79b670b68dde04137876e4a681f">GET_FP</a>(vec2, i)-&gt;word = <a class="code" href="vectorstr_8c.html#a141b8e057d63a3ba14590139945e20a9" title="Useful utility function since strdup isn&#39;t in standard C.">mystrdup</a>(buffer);
 <a name="l00811"></a>00811     }
 <a name="l00812"></a>00812 
-<a name="l00813"></a>00813     CU_ASSERT_EQUAL(100, vec1-&gt;<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>);
-<a name="l00814"></a>00814     CU_ASSERT_EQUAL(100, vec2-&gt;<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>);
+<a name="l00813"></a>00813     CU_ASSERT_EQUAL(100, vec1-&gt;<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>);
+<a name="l00814"></a>00814     CU_ASSERT_EQUAL(100, vec2-&gt;<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>);
 <a name="l00815"></a>00815 
-<a name="l00816"></a>00816     <a class="code" href="vector_8c.html#a0c6bcaa8891ef981b036e37eff922cf8" title="Erases elements from start to end inclusive.">erase</a>(vec1, 25, 74);
-<a name="l00817"></a>00817     <a class="code" href="vector_8c.html#a0c6bcaa8891ef981b036e37eff922cf8" title="Erases elements from start to end inclusive.">erase</a>(vec2, 25, 74);
+<a name="l00816"></a>00816     <a class="code" href="vector__void_8c.html#a99319f38b2f930e9cf1bd98f8382ae19" title="Erases elements from start to end inclusive.">erase_void</a>(vec1, 25, 74);
+<a name="l00817"></a>00817     <a class="code" href="vector__void_8c.html#a99319f38b2f930e9cf1bd98f8382ae19" title="Erases elements from start to end inclusive.">erase_void</a>(vec2, 25, 74);
 <a name="l00818"></a>00818 
-<a name="l00819"></a>00819     CU_ASSERT_EQUAL(50, vec1-&gt;<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>);
-<a name="l00820"></a>00820     CU_ASSERT_EQUAL(50, vec2-&gt;<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>);
+<a name="l00819"></a>00819     CU_ASSERT_EQUAL(50, vec1-&gt;<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>);
+<a name="l00820"></a>00820     CU_ASSERT_EQUAL(50, vec2-&gt;<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>);
 <a name="l00821"></a>00821 
-<a name="l00822"></a>00822     <span class="keywordflow">for</span> (i=0,j=0; i&lt;vec1-&gt;<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>; i++,j++) {
+<a name="l00822"></a>00822     <span class="keywordflow">for</span> (i=0,j=0; i&lt;vec1-&gt;<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>; i++,j++) {
 <a name="l00823"></a>00823         sprintf(buffer, <span class="stringliteral">&quot;%d&quot;</span>, j);
 <a name="l00824"></a>00824         CU_ASSERT_EQUAL(<a class="code" href="vector__tests_8c.html#abef18b26d1cdc4d82f5d9a1ecb065914">GET_TP</a>(vec1, i)-&gt;d, j+0.5);
 <a name="l00825"></a>00825         CU_ASSERT_EQUAL(<a class="code" href="vector__tests_8c.html#abef18b26d1cdc4d82f5d9a1ecb065914">GET_TP</a>(vec1, i)-&gt;i, j);
@@ -913,20 +913,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00832"></a>00832         <span class="keywordflow">if</span>(i==24) j +=50;
 <a name="l00833"></a>00833     }
 <a name="l00834"></a>00834 
-<a name="l00835"></a>00835     <a class="code" href="vector_8c.html#a5866a7a7eed43fb09589cab61cff460b" title="Frees everything so don&#39;t use vec after calling this.">free_vec_heap</a>(vec1);
-<a name="l00836"></a>00836     <a class="code" href="vector_8c.html#a5866a7a7eed43fb09589cab61cff460b" title="Frees everything so don&#39;t use vec after calling this.">free_vec_heap</a>(vec2);
+<a name="l00835"></a>00835     <a class="code" href="vector__void_8c.html#a4d354231999f1cf1d9df6839daca0473" title="Frees everything so don&#39;t use vec after calling this.">free_vec_void_heap</a>(vec1);
+<a name="l00836"></a>00836     <a class="code" href="vector__void_8c.html#a4d354231999f1cf1d9df6839daca0473" title="Frees everything so don&#39;t use vec after calling this.">free_vec_void_heap</a>(vec2);
 <a name="l00837"></a>00837 }
 <a name="l00838"></a>00838 
 <a name="l00839"></a>00839 
 <a name="l00840"></a>00840 
-<a name="l00841"></a><a class="code" href="vector__tests_8c.html#a065d902cd4a3aaafd61d506d75811114">00841</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a065d902cd4a3aaafd61d506d75811114">insert_test</a>()
+<a name="l00841"></a><a class="code" href="vector__tests_8c.html#ab6eafbe81565e4a30776f7aea298a461">00841</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#ab6eafbe81565e4a30776f7aea298a461">insert_void_test</a>()
 <a name="l00842"></a>00842 {
 <a name="l00843"></a>00843     <a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a> array[10];
 <a name="l00844"></a>00844     <a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a> array2[10];
 <a name="l00845"></a>00845     <span class="keywordtype">int</span> i;
 <a name="l00846"></a>00846     <span class="keywordtype">char</span> buffer[50];
 <a name="l00847"></a>00847 
-<a name="l00848"></a>00848     <a class="code" href="structvector.html" title="Data structure for generic type (cast to void) vectors.">vector</a> vec1, vec2;
+<a name="l00848"></a>00848     <a class="code" href="structvector__void.html" title="Data structure for generic type (cast to void) vectors.">vector_void</a> vec1, vec2;
 <a name="l00849"></a>00849 
 <a name="l00850"></a>00850     <a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a> temp;
 <a name="l00851"></a>00851     <a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a> temp2;
@@ -943,15 +943,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00862"></a>00862     }
 <a name="l00863"></a>00863 
 <a name="l00864"></a>00864 
-<a name="l00865"></a>00865     <a class="code" href="vector_8c.html#af367cb962d4346b9d313a9d8797bdf4a" title="Same as init_vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in thi...">init_vec</a>(&amp;vec1, array, 10, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
-<a name="l00866"></a>00866     <a class="code" href="vector_8c.html#af367cb962d4346b9d313a9d8797bdf4a" title="Same as init_vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in thi...">init_vec</a>(&amp;vec2, array2, 10, <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>, NULL);
+<a name="l00865"></a>00865     <a class="code" href="vector__void_8c.html#a92313f2b981de4135938f7cca657fd38" title="Same as init_vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in thi...">init_vec_void</a>(&amp;vec1, array, 10, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
+<a name="l00866"></a>00866     <a class="code" href="vector__void_8c.html#a92313f2b981de4135938f7cca657fd38" title="Same as init_vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in thi...">init_vec_void</a>(&amp;vec2, array2, 10, <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>, NULL);
 <a name="l00867"></a>00867 
 <a name="l00868"></a>00868 
-<a name="l00869"></a>00869     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 10);
-<a name="l00870"></a>00870     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 10);
+<a name="l00869"></a>00869     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 10);
+<a name="l00870"></a>00870     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 10);
 <a name="l00871"></a>00871 
 <a name="l00872"></a>00872 
-<a name="l00873"></a>00873     <span class="keywordflow">for</span> (i=0; i&lt;vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>; i++) {
+<a name="l00873"></a>00873     <span class="keywordflow">for</span> (i=0; i&lt;vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>; i++) {
 <a name="l00874"></a>00874         sprintf(buffer, <span class="stringliteral">&quot;hello %d&quot;</span>, i);
 <a name="l00875"></a>00875         CU_ASSERT_EQUAL(<a class="code" href="vector__tests_8c.html#a8ce1f58eab2da6e4042120bf922e0c2a">GET_T</a>(vec1, i)-&gt;d, i+0.5);
 <a name="l00876"></a>00876         CU_ASSERT_EQUAL(<a class="code" href="vector__tests_8c.html#a8ce1f58eab2da6e4042120bf922e0c2a">GET_T</a>(vec1, i)-&gt;i, i);
@@ -967,15 +967,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00886"></a>00886         temp = <a class="code" href="vector__tests_8c.html#a4a6b836f82b0841b28a94a24016a0332">mk_t_struct</a>(-i-0.5, -i, buffer);
 <a name="l00887"></a>00887         temp2 = <a class="code" href="vector__tests_8c.html#a6b20ff6161d5e27631cc8fcee4935fea">mk_f_struct</a>(-i-0.5, -i, buffer);
 <a name="l00888"></a>00888 
-<a name="l00889"></a>00889         <a class="code" href="vector_8c.html#ad7021cbfcd3b26cf5a4d68270e01532f" title="Insert a at index i (0 based).">insert</a>(&amp;vec1, 0, &amp;temp);
-<a name="l00890"></a>00890         <a class="code" href="vector_8c.html#ad7021cbfcd3b26cf5a4d68270e01532f" title="Insert a at index i (0 based).">insert</a>(&amp;vec2, 0, &amp;temp2);
+<a name="l00889"></a>00889         <a class="code" href="vector__void_8c.html#aa7ed6dd5b0dfa35b117552d84d6db25f" title="Insert a at index i (0 based).">insert_void</a>(&amp;vec1, 0, &amp;temp);
+<a name="l00890"></a>00890         <a class="code" href="vector__void_8c.html#aa7ed6dd5b0dfa35b117552d84d6db25f" title="Insert a at index i (0 based).">insert_void</a>(&amp;vec2, 0, &amp;temp2);
 <a name="l00891"></a>00891     }
 <a name="l00892"></a>00892 
-<a name="l00893"></a>00893     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 20);
-<a name="l00894"></a>00894     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 20);
+<a name="l00893"></a>00893     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 20);
+<a name="l00894"></a>00894     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 20);
 <a name="l00895"></a>00895 
 <a name="l00896"></a>00896 
-<a name="l00897"></a>00897     <span class="keywordflow">for</span> (i=0; i&lt;vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>; i++) {
+<a name="l00897"></a>00897     <span class="keywordflow">for</span> (i=0; i&lt;vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>; i++) {
 <a name="l00898"></a>00898         sprintf(buffer, <span class="stringliteral">&quot;hello %d&quot;</span>, i-((i&lt;10)? 9 : 10));
 <a name="l00899"></a>00899 
 <a name="l00900"></a>00900         CU_ASSERT_EQUAL(<a class="code" href="vector__tests_8c.html#a8ce1f58eab2da6e4042120bf922e0c2a">GET_T</a>(vec1, i)-&gt;d, i-0.5-9 );
@@ -988,26 +988,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00907"></a>00907 
 <a name="l00908"></a>00908     }
 <a name="l00909"></a>00909 
-<a name="l00910"></a>00910     <a class="code" href="vector_8c.html#a942a5a50dc54eff02d67d91e16e9575b" title="Frees the internal array and sets size and capacity to 0.">free_vec</a>(&amp;vec1);
-<a name="l00911"></a>00911     <a class="code" href="vector_8c.html#a942a5a50dc54eff02d67d91e16e9575b" title="Frees the internal array and sets size and capacity to 0.">free_vec</a>(&amp;vec2);
+<a name="l00910"></a>00910     <a class="code" href="vector__void_8c.html#a267b96dd9b33aa9eb07b6446a9d7c09b" title="Frees the internal array and sets size and capacity to 0.">free_vec_void</a>(&amp;vec1);
+<a name="l00911"></a>00911     <a class="code" href="vector__void_8c.html#a267b96dd9b33aa9eb07b6446a9d7c09b" title="Frees the internal array and sets size and capacity to 0.">free_vec_void</a>(&amp;vec2);
 <a name="l00912"></a>00912 }
 <a name="l00913"></a>00913 
 <a name="l00914"></a>00914 
-<a name="l00915"></a><a class="code" href="vector__tests_8c.html#a35ec77499ffbfd8f5e68e8d3ae37e1c5">00915</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a35ec77499ffbfd8f5e68e8d3ae37e1c5">insert_array_test</a>()
+<a name="l00915"></a><a class="code" href="vector__tests_8c.html#a120020bd0ccb8851d6be30b3a351ac69">00915</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a120020bd0ccb8851d6be30b3a351ac69">insert_array_void_test</a>()
 <a name="l00916"></a>00916 {
 <a name="l00917"></a>00917     <span class="keywordtype">int</span> i;
 <a name="l00918"></a>00918     <span class="keywordtype">float</span> array[] = { 0.5f, 1.5f, 2.5f, 3.5f, 4.5f };
-<a name="l00919"></a>00919     <a class="code" href="structvector.html" title="Data structure for generic type (cast to void) vectors.">vector</a> vec1;
-<a name="l00920"></a>00920     <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>(&amp;vec1, 0, 0, <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>), NULL, NULL);
+<a name="l00919"></a>00919     <a class="code" href="structvector__void.html" title="Data structure for generic type (cast to void) vectors.">vector_void</a> vec1;
+<a name="l00920"></a>00920     <a class="code" href="vector__void_8c.html#a5c2a4279acb79d147986b7418ad8b2aa" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec_void</a>(&amp;vec1, 0, 0, <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>), NULL, NULL);
 <a name="l00921"></a>00921     
-<a name="l00922"></a>00922     <a class="code" href="vector_8c.html#ac21302d0c9da709ba66d7b3f68b5d5b6" title="Insert the first num elements of array a at index i.">insert_array</a>(&amp;vec1, 0, array, 5);
+<a name="l00922"></a>00922     <a class="code" href="vector__void_8c.html#afe7cf832327d022071b2a870604d3a5e" title="Insert the first num elements of array a at index i.">insert_array_void</a>(&amp;vec1, 0, array, 5);
 <a name="l00923"></a>00923     
-<a name="l00924"></a>00924     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 5);
+<a name="l00924"></a>00924     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 5);
 <a name="l00925"></a>00925     
-<a name="l00926"></a>00926     <span class="keywordflow">for</span> (i=0; i&lt;vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>; ++i)
-<a name="l00927"></a>00927         CU_ASSERT_EQUAL(((<span class="keywordtype">float</span>*)vec1.<a class="code" href="structvector.html#ae086a0bd5a910803add11ed953819018" title="Array.">a</a>)[i], i+0.5f);
+<a name="l00926"></a>00926     <span class="keywordflow">for</span> (i=0; i&lt;vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>; ++i)
+<a name="l00927"></a>00927         CU_ASSERT_EQUAL(((<span class="keywordtype">float</span>*)vec1.<a class="code" href="structvector__void.html#aae6cbf085d4de1f6ba3adab1aa7c7585" title="Array.">a</a>)[i], i+0.5f);
 <a name="l00928"></a>00928     
-<a name="l00929"></a>00929     <a class="code" href="vector_8c.html#a942a5a50dc54eff02d67d91e16e9575b" title="Frees the internal array and sets size and capacity to 0.">free_vec</a>(&amp;vec1);
+<a name="l00929"></a>00929     <a class="code" href="vector__void_8c.html#a267b96dd9b33aa9eb07b6446a9d7c09b" title="Frees the internal array and sets size and capacity to 0.">free_vec_void</a>(&amp;vec1);
 <a name="l00930"></a>00930 }
 <a name="l00931"></a>00931 
 <a name="l00932"></a>00932 
@@ -1016,22 +1016,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00935"></a>00935 
 <a name="l00936"></a>00936 
 <a name="l00937"></a>00937 
-<a name="l00938"></a><a class="code" href="vector__tests_8c.html#a541afdf27b6f93df539f3aca4efddcc6">00938</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a541afdf27b6f93df539f3aca4efddcc6">pop_test</a>()
+<a name="l00938"></a><a class="code" href="vector__tests_8c.html#ab9521656b91fedbd1de3e11fa78c790e">00938</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#ab9521656b91fedbd1de3e11fa78c790e">pop_void_test</a>()
 <a name="l00939"></a>00939 {
 <a name="l00940"></a>00940     <span class="keywordtype">char</span> buffer[50];
 <a name="l00941"></a>00941     <span class="keywordtype">int</span> i;
 <a name="l00942"></a>00942     <a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a> temp;
 <a name="l00943"></a>00943     <a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a> temp2;
 <a name="l00944"></a>00944 
-<a name="l00945"></a>00945     <a class="code" href="structvector.html" title="Data structure for generic type (cast to void) vectors.">vector</a> vec1, vec2;
+<a name="l00945"></a>00945     <a class="code" href="structvector__void.html" title="Data structure for generic type (cast to void) vectors.">vector_void</a> vec1, vec2;
 <a name="l00946"></a>00946     
-<a name="l00947"></a>00947     <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>(&amp;vec1, 10, 0, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
-<a name="l00948"></a>00948     <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>(&amp;vec2, 10, 0, <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>, NULL);
+<a name="l00947"></a>00947     <a class="code" href="vector__void_8c.html#a5c2a4279acb79d147986b7418ad8b2aa" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec_void</a>(&amp;vec1, 10, 0, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
+<a name="l00948"></a>00948     <a class="code" href="vector__void_8c.html#a5c2a4279acb79d147986b7418ad8b2aa" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec_void</a>(&amp;vec2, 10, 0, <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>, NULL);
 <a name="l00949"></a>00949 
-<a name="l00950"></a>00950     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>, 10+<a class="code" href="vector_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
-<a name="l00951"></a>00951     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>, 10+<a class="code" href="vector_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
+<a name="l00950"></a>00950     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>, 10+<a class="code" href="vector__void_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
+<a name="l00951"></a>00951     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>, 10+<a class="code" href="vector__void_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
 <a name="l00952"></a>00952     
-<a name="l00953"></a>00953     <span class="keywordflow">for</span> (i=0; i&lt;vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>; ++i)
+<a name="l00953"></a>00953     <span class="keywordflow">for</span> (i=0; i&lt;vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>; ++i)
 <a name="l00954"></a>00954         <a class="code" href="vector__tests_8c.html#adf53320bed6f35020884d1167a0e8f01">GET_F</a>(vec2, i)-&gt;word = <a class="code" href="vectorstr_8c.html#a141b8e057d63a3ba14590139945e20a9" title="Useful utility function since strdup isn&#39;t in standard C.">mystrdup</a>(<span class="stringliteral">&quot;hello&quot;</span>);
 <a name="l00955"></a>00955 
 <a name="l00956"></a>00956     <span class="keywordflow">for</span> (i=0; i&lt;1000; i++) {
@@ -1039,24 +1039,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00958"></a>00958         temp = <a class="code" href="vector__tests_8c.html#a4a6b836f82b0841b28a94a24016a0332">mk_t_struct</a>(i, i, buffer);
 <a name="l00959"></a>00959         temp2 = <a class="code" href="vector__tests_8c.html#a6b20ff6161d5e27631cc8fcee4935fea">mk_f_struct</a>(i, i, buffer);
 <a name="l00960"></a>00960 
-<a name="l00961"></a>00961         <a class="code" href="vector_8c.html#aa88045f76180948fbda9a79ee5b5cd3d" title="Append a to end of vector (size increased 1).">push</a>(&amp;vec1, &amp;temp);
-<a name="l00962"></a>00962         <a class="code" href="vector_8c.html#aa88045f76180948fbda9a79ee5b5cd3d" title="Append a to end of vector (size increased 1).">push</a>(&amp;vec2, &amp;temp2);
+<a name="l00961"></a>00961         <a class="code" href="vector__void_8c.html#adafcc720aca07772efc72a43da12a534" title="Append a to end of vector (size increased 1).">push_void</a>(&amp;vec1, &amp;temp);
+<a name="l00962"></a>00962         <a class="code" href="vector__void_8c.html#adafcc720aca07772efc72a43da12a534" title="Append a to end of vector (size increased 1).">push_void</a>(&amp;vec2, &amp;temp2);
 <a name="l00963"></a>00963     }
 <a name="l00964"></a>00964 
-<a name="l00965"></a>00965     <a class="code" href="vector_8c.html#ab666e9f05742911262401567e4604a32" title="Set capacity to size.">set_capacity</a>(&amp;vec1, vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>);
-<a name="l00966"></a>00966     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, vec1.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>);
-<a name="l00967"></a>00967     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 1010);
+<a name="l00965"></a>00965     <a class="code" href="vector__void_8c.html#a9c9f052538ef70be37482764ddbb9b0f" title="Set capacity to size.">set_capacity_void</a>(&amp;vec1, vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>);
+<a name="l00966"></a>00966     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, vec1.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>);
+<a name="l00967"></a>00967     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 1010);
 <a name="l00968"></a>00968 
-<a name="l00969"></a>00969     <a class="code" href="vector_8c.html#ab666e9f05742911262401567e4604a32" title="Set capacity to size.">set_capacity</a>(&amp;vec2, vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>);
-<a name="l00970"></a>00970     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, vec2.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>);
-<a name="l00971"></a>00971     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 1010);
+<a name="l00969"></a>00969     <a class="code" href="vector__void_8c.html#a9c9f052538ef70be37482764ddbb9b0f" title="Set capacity to size.">set_capacity_void</a>(&amp;vec2, vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>);
+<a name="l00970"></a>00970     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, vec2.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>);
+<a name="l00971"></a>00971     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 1010);
 <a name="l00972"></a>00972 
 <a name="l00973"></a>00973 
 <a name="l00974"></a>00974 
 <a name="l00975"></a>00975     <span class="keywordflow">for</span> (i=999; i&gt;=0; i--) {
 <a name="l00976"></a>00976         sprintf(buffer, <span class="stringliteral">&quot;hello %d&quot;</span>, i);
-<a name="l00977"></a>00977         <a class="code" href="vector_8c.html#aa7c4f5c92867ef1d6e3db0aba5126d39" title="Remove the last element (size decreased 1).">pop</a>(&amp;vec1, &amp;temp);
-<a name="l00978"></a>00978         <a class="code" href="vector_8c.html#aa7c4f5c92867ef1d6e3db0aba5126d39" title="Remove the last element (size decreased 1).">pop</a>(&amp;vec2, &amp;temp2);
+<a name="l00977"></a>00977         <a class="code" href="vector__void_8c.html#a031822e087afcc1fd841c70f4e613645" title="Remove the last element (size decreased 1).">pop_void</a>(&amp;vec1, &amp;temp);
+<a name="l00978"></a>00978         <a class="code" href="vector__void_8c.html#a031822e087afcc1fd841c70f4e613645" title="Remove the last element (size decreased 1).">pop_void</a>(&amp;vec2, &amp;temp2);
 <a name="l00979"></a>00979 
 <a name="l00980"></a>00980         CU_ASSERT_EQUAL(temp.<a class="code" href="structt__struct.html#a2029e2f2da88d23bcc9fa6ba45f51bf4">d</a>, i );
 <a name="l00981"></a>00981         CU_ASSERT_EQUAL(temp.<a class="code" href="structt__struct.html#a488184c86cae0be164cfb634882b8f7a">i</a>, i );
@@ -1068,75 +1068,75 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00987"></a>00987 <span class="comment">        was freed when it was popped */</span>
 <a name="l00988"></a>00988     }
 <a name="l00989"></a>00989 
-<a name="l00990"></a>00990     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 10);
-<a name="l00991"></a>00991     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 10);
+<a name="l00990"></a>00990     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 10);
+<a name="l00991"></a>00991     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 10);
 <a name="l00992"></a>00992 
-<a name="l00993"></a>00993     <a class="code" href="vector_8c.html#a942a5a50dc54eff02d67d91e16e9575b" title="Frees the internal array and sets size and capacity to 0.">free_vec</a>(&amp;vec1);
-<a name="l00994"></a>00994     <a class="code" href="vector_8c.html#a942a5a50dc54eff02d67d91e16e9575b" title="Frees the internal array and sets size and capacity to 0.">free_vec</a>(&amp;vec2);
+<a name="l00993"></a>00993     <a class="code" href="vector__void_8c.html#a267b96dd9b33aa9eb07b6446a9d7c09b" title="Frees the internal array and sets size and capacity to 0.">free_vec_void</a>(&amp;vec1);
+<a name="l00994"></a>00994     <a class="code" href="vector__void_8c.html#a267b96dd9b33aa9eb07b6446a9d7c09b" title="Frees the internal array and sets size and capacity to 0.">free_vec_void</a>(&amp;vec2);
 <a name="l00995"></a>00995 }
 <a name="l00996"></a>00996 
 <a name="l00997"></a>00997 
-<a name="l00998"></a><a class="code" href="vector__tests_8c.html#a104ee4b1de8ab65e7ce282ab28b427ff">00998</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a104ee4b1de8ab65e7ce282ab28b427ff">reserve_test</a>()
+<a name="l00998"></a><a class="code" href="vector__tests_8c.html#a09b1155f5d6149f6b48f412ad4a8dc79">00998</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a09b1155f5d6149f6b48f412ad4a8dc79">reserve_void_test</a>()
 <a name="l00999"></a>00999 {
-<a name="l01000"></a>01000     <a class="code" href="structvector.html" title="Data structure for generic type (cast to void) vectors.">vector</a>* vect = <a class="code" href="vector_8c.html#a57ef0792f1717ece6ce779a8714aca96" title="Creates a new vector.">vec_heap</a>(0, 19, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
-<a name="l01001"></a>01001     <a class="code" href="structvector.html" title="Data structure for generic type (cast to void) vectors.">vector</a>* vec2 = <a class="code" href="vector_8c.html#a57ef0792f1717ece6ce779a8714aca96" title="Creates a new vector.">vec_heap</a>(0, 21, <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), NULL, NULL);
+<a name="l01000"></a>01000     <a class="code" href="structvector__void.html" title="Data structure for generic type (cast to void) vectors.">vector_void</a>* vect = <a class="code" href="vector__void_8c.html#af5a2f68eaa6032d18d3d9d2e28bba1a8" title="Creates a new vector.">vec_void_heap</a>(0, 19, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
+<a name="l01001"></a>01001     <a class="code" href="structvector__void.html" title="Data structure for generic type (cast to void) vectors.">vector_void</a>* vec2 = <a class="code" href="vector__void_8c.html#af5a2f68eaa6032d18d3d9d2e28bba1a8" title="Creates a new vector.">vec_void_heap</a>(0, 21, <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), NULL, NULL);
 <a name="l01002"></a>01002 
-<a name="l01003"></a>01003     CU_ASSERT_EQUAL(vect-&gt;<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>, 19);
-<a name="l01004"></a>01004     CU_ASSERT_EQUAL(vec2-&gt;<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>, 21);
+<a name="l01003"></a>01003     CU_ASSERT_EQUAL(vect-&gt;<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>, 19);
+<a name="l01004"></a>01004     CU_ASSERT_EQUAL(vec2-&gt;<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>, 21);
 <a name="l01005"></a>01005     
-<a name="l01006"></a>01006     <a class="code" href="vector_8c.html#a7f6498e7460dafb6c94b7734776f9a9f" title="Makes sure capacity &gt;= size (the parameter not the member).">reserve</a>(vect, 20);
-<a name="l01007"></a>01007     <a class="code" href="vector_8c.html#a7f6498e7460dafb6c94b7734776f9a9f" title="Makes sure capacity &gt;= size (the parameter not the member).">reserve</a>(vec2, 20);
+<a name="l01006"></a>01006     <a class="code" href="vector__void_8c.html#a1f67c017efc4affc32635fb3d85e7698" title="Makes sure capacity &gt;= size (the parameter not the member).">reserve_void</a>(vect, 20);
+<a name="l01007"></a>01007     <a class="code" href="vector__void_8c.html#a1f67c017efc4affc32635fb3d85e7698" title="Makes sure capacity &gt;= size (the parameter not the member).">reserve_void</a>(vec2, 20);
 <a name="l01008"></a>01008 
-<a name="l01009"></a>01009     CU_ASSERT(vect-&gt;<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a> &gt;= 20);
-<a name="l01010"></a>01010     CU_ASSERT(vec2-&gt;<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a> &gt;= 20);
+<a name="l01009"></a>01009     CU_ASSERT(vect-&gt;<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a> &gt;= 20);
+<a name="l01010"></a>01010     CU_ASSERT(vec2-&gt;<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a> &gt;= 20);
 <a name="l01011"></a>01011 
-<a name="l01012"></a>01012     <a class="code" href="vector_8c.html#a5866a7a7eed43fb09589cab61cff460b" title="Frees everything so don&#39;t use vec after calling this.">free_vec_heap</a>(vect);
-<a name="l01013"></a>01013     <a class="code" href="vector_8c.html#a5866a7a7eed43fb09589cab61cff460b" title="Frees everything so don&#39;t use vec after calling this.">free_vec_heap</a>(vec2);
+<a name="l01012"></a>01012     <a class="code" href="vector__void_8c.html#a4d354231999f1cf1d9df6839daca0473" title="Frees everything so don&#39;t use vec after calling this.">free_vec_void_heap</a>(vect);
+<a name="l01013"></a>01013     <a class="code" href="vector__void_8c.html#a4d354231999f1cf1d9df6839daca0473" title="Frees everything so don&#39;t use vec after calling this.">free_vec_void_heap</a>(vec2);
 <a name="l01014"></a>01014 }
 <a name="l01015"></a>01015 
 <a name="l01016"></a>01016 
-<a name="l01017"></a><a class="code" href="vector__tests_8c.html#ac36d4b42e9e75f10d1955ab8c6a9c05a">01017</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#ac36d4b42e9e75f10d1955ab8c6a9c05a">set_capacity_test</a>()
+<a name="l01017"></a><a class="code" href="vector__tests_8c.html#add5a92b05062ff82391b9850f81287d6">01017</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#add5a92b05062ff82391b9850f81287d6">set_capacity_void_test</a>()
 <a name="l01018"></a>01018 {
 <a name="l01019"></a>01019     <span class="keywordtype">char</span> buffer[50];
 <a name="l01020"></a>01020     <span class="keywordtype">int</span> i;
 <a name="l01021"></a>01021     <a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a> temp;
 <a name="l01022"></a>01022     <a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a> temp2;
-<a name="l01023"></a>01023     <a class="code" href="structvector.html" title="Data structure for generic type (cast to void) vectors.">vector</a> vec1, vec2;
+<a name="l01023"></a>01023     <a class="code" href="structvector__void.html" title="Data structure for generic type (cast to void) vectors.">vector_void</a> vec1, vec2;
 <a name="l01024"></a>01024     
-<a name="l01025"></a>01025     <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>(&amp;vec1, 0, 0, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
-<a name="l01026"></a>01026     <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>(&amp;vec2, 0, 0, <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>, NULL);
+<a name="l01025"></a>01025     <a class="code" href="vector__void_8c.html#a5c2a4279acb79d147986b7418ad8b2aa" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec_void</a>(&amp;vec1, 0, 0, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
+<a name="l01026"></a>01026     <a class="code" href="vector__void_8c.html#a5c2a4279acb79d147986b7418ad8b2aa" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec_void</a>(&amp;vec2, 0, 0, <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>, NULL);
 <a name="l01027"></a>01027 
-<a name="l01028"></a>01028     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 0);
-<a name="l01029"></a>01029     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>, <a class="code" href="vector_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
-<a name="l01030"></a>01030     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 0);
-<a name="l01031"></a>01031     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>, <a class="code" href="vector_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
+<a name="l01028"></a>01028     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 0);
+<a name="l01029"></a>01029     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>, <a class="code" href="vector__void_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
+<a name="l01030"></a>01030     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 0);
+<a name="l01031"></a>01031     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>, <a class="code" href="vector__void_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
 <a name="l01032"></a>01032 
 <a name="l01033"></a>01033     <span class="keywordflow">for</span> (i=0; i&lt;1000; i++) {
 <a name="l01034"></a>01034         sprintf(buffer, <span class="stringliteral">&quot;hello %d&quot;</span>, i);
 <a name="l01035"></a>01035         temp = <a class="code" href="vector__tests_8c.html#a4a6b836f82b0841b28a94a24016a0332">mk_t_struct</a>(i, i, buffer);
 <a name="l01036"></a>01036         temp2 = <a class="code" href="vector__tests_8c.html#a6b20ff6161d5e27631cc8fcee4935fea">mk_f_struct</a>(i, i, buffer);
 <a name="l01037"></a>01037 
-<a name="l01038"></a>01038         <a class="code" href="vector_8c.html#aa88045f76180948fbda9a79ee5b5cd3d" title="Append a to end of vector (size increased 1).">push</a>(&amp;vec1, &amp;temp);
-<a name="l01039"></a>01039         <a class="code" href="vector_8c.html#aa88045f76180948fbda9a79ee5b5cd3d" title="Append a to end of vector (size increased 1).">push</a>(&amp;vec2, &amp;temp2);
+<a name="l01038"></a>01038         <a class="code" href="vector__void_8c.html#adafcc720aca07772efc72a43da12a534" title="Append a to end of vector (size increased 1).">push_void</a>(&amp;vec1, &amp;temp);
+<a name="l01039"></a>01039         <a class="code" href="vector__void_8c.html#adafcc720aca07772efc72a43da12a534" title="Append a to end of vector (size increased 1).">push_void</a>(&amp;vec2, &amp;temp2);
 <a name="l01040"></a>01040     }
 <a name="l01041"></a>01041 
-<a name="l01042"></a>01042     CU_ASSERT(vec1.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a> &gt;= 1000);
-<a name="l01043"></a>01043     CU_ASSERT(vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a> == 1000);
+<a name="l01042"></a>01042     CU_ASSERT(vec1.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a> &gt;= 1000);
+<a name="l01043"></a>01043     CU_ASSERT(vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a> == 1000);
 <a name="l01044"></a>01044 
-<a name="l01045"></a>01045     CU_ASSERT(vec2.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a> &gt;= 1000);
-<a name="l01046"></a>01046     CU_ASSERT(vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a> == 1000);
+<a name="l01045"></a>01045     CU_ASSERT(vec2.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a> &gt;= 1000);
+<a name="l01046"></a>01046     CU_ASSERT(vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a> == 1000);
 <a name="l01047"></a>01047 
-<a name="l01048"></a>01048     <a class="code" href="vector_8c.html#ab666e9f05742911262401567e4604a32" title="Set capacity to size.">set_capacity</a>(&amp;vec1, 500);
-<a name="l01049"></a>01049     <a class="code" href="vector_8c.html#ab666e9f05742911262401567e4604a32" title="Set capacity to size.">set_capacity</a>(&amp;vec2, 500);
+<a name="l01048"></a>01048     <a class="code" href="vector__void_8c.html#a9c9f052538ef70be37482764ddbb9b0f" title="Set capacity to size.">set_capacity_void</a>(&amp;vec1, 500);
+<a name="l01049"></a>01049     <a class="code" href="vector__void_8c.html#a9c9f052538ef70be37482764ddbb9b0f" title="Set capacity to size.">set_capacity_void</a>(&amp;vec2, 500);
 <a name="l01050"></a>01050 
 <a name="l01051"></a>01051 
-<a name="l01052"></a>01052     CU_ASSERT(vec1.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a> == 500);
-<a name="l01053"></a>01053     CU_ASSERT(vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a> == 500);
+<a name="l01052"></a>01052     CU_ASSERT(vec1.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a> == 500);
+<a name="l01053"></a>01053     CU_ASSERT(vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a> == 500);
 <a name="l01054"></a>01054 
-<a name="l01055"></a>01055     CU_ASSERT(vec2.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a> == 500);
-<a name="l01056"></a>01056     CU_ASSERT(vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a> == 500);
+<a name="l01055"></a>01055     CU_ASSERT(vec2.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a> == 500);
+<a name="l01056"></a>01056     CU_ASSERT(vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a> == 500);
 <a name="l01057"></a>01057 
-<a name="l01058"></a>01058     <span class="keywordflow">for</span> (i=0; i&lt;vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>; i++) {
+<a name="l01058"></a>01058     <span class="keywordflow">for</span> (i=0; i&lt;vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>; i++) {
 <a name="l01059"></a>01059         sprintf(buffer, <span class="stringliteral">&quot;hello %d&quot;</span>, i);
 <a name="l01060"></a>01060 
 <a name="l01061"></a>01061         CU_ASSERT_EQUAL(<a class="code" href="vector__tests_8c.html#a8ce1f58eab2da6e4042120bf922e0c2a">GET_T</a>(vec1, i)-&gt;d, i );
@@ -1148,43 +1148,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l01067"></a>01067         CU_ASSERT_STRING_EQUAL(<a class="code" href="vector__tests_8c.html#adf53320bed6f35020884d1167a0e8f01">GET_F</a>(vec2, i)-&gt;word, buffer);
 <a name="l01068"></a>01068     }
 <a name="l01069"></a>01069 
-<a name="l01070"></a>01070     <a class="code" href="vector_8c.html#a942a5a50dc54eff02d67d91e16e9575b" title="Frees the internal array and sets size and capacity to 0.">free_vec</a>(&amp;vec1);
-<a name="l01071"></a>01071     <a class="code" href="vector_8c.html#a942a5a50dc54eff02d67d91e16e9575b" title="Frees the internal array and sets size and capacity to 0.">free_vec</a>(&amp;vec2);
+<a name="l01070"></a>01070     <a class="code" href="vector__void_8c.html#a267b96dd9b33aa9eb07b6446a9d7c09b" title="Frees the internal array and sets size and capacity to 0.">free_vec_void</a>(&amp;vec1);
+<a name="l01071"></a>01071     <a class="code" href="vector__void_8c.html#a267b96dd9b33aa9eb07b6446a9d7c09b" title="Frees the internal array and sets size and capacity to 0.">free_vec_void</a>(&amp;vec2);
 <a name="l01072"></a>01072 }
 <a name="l01073"></a>01073 
 <a name="l01074"></a>01074 
 <a name="l01075"></a>01075 
 <a name="l01076"></a>01076 
-<a name="l01077"></a><a class="code" href="vector__tests_8c.html#a1cf5e5d54ef257d3453a432e980f2aba">01077</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a1cf5e5d54ef257d3453a432e980f2aba">set_val_test</a>()
+<a name="l01077"></a><a class="code" href="vector__tests_8c.html#af00d4a0c8a1bce6d14fe46faa5f06d1c">01077</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#af00d4a0c8a1bce6d14fe46faa5f06d1c">set_val_void_test</a>()
 <a name="l01078"></a>01078 {
 <a name="l01079"></a>01079     <span class="keywordtype">int</span> i;
-<a name="l01080"></a>01080     <a class="code" href="structvector.html" title="Data structure for generic type (cast to void) vectors.">vector</a> vec1, vec2;
+<a name="l01080"></a>01080     <a class="code" href="structvector__void.html" title="Data structure for generic type (cast to void) vectors.">vector_void</a> vec1, vec2;
 <a name="l01081"></a>01081     <a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a> temp;
 <a name="l01082"></a>01082     <a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a> temp2;
 <a name="l01083"></a>01083 
-<a name="l01084"></a>01084     <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>(&amp;vec1, 20, 25, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
-<a name="l01085"></a>01085     <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>(&amp;vec2, 20, 0, <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>, <a class="code" href="vector__tests_8c.html#ad50e3c1accbf74884432d3c0b4e952a4">init_f_struct</a>);
+<a name="l01084"></a>01084     <a class="code" href="vector__void_8c.html#a5c2a4279acb79d147986b7418ad8b2aa" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec_void</a>(&amp;vec1, 20, 25, <span class="keyword">sizeof</span>(<a class="code" href="structt__struct.html" title="Structure used to test generic vector.">t_struct</a>), NULL, NULL);
+<a name="l01085"></a>01085     <a class="code" href="vector__void_8c.html#a5c2a4279acb79d147986b7418ad8b2aa" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec_void</a>(&amp;vec2, 20, 0, <span class="keyword">sizeof</span>(<a class="code" href="structf__struct.html" title="Structure used to test generic vector.">f_struct</a>), <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>, <a class="code" href="vector__tests_8c.html#ad50e3c1accbf74884432d3c0b4e952a4">init_f_struct</a>);
 <a name="l01086"></a>01086     
 <a name="l01087"></a>01087     
-<a name="l01088"></a>01088     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 20);
-<a name="l01089"></a>01089     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 20);
+<a name="l01088"></a>01088     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 20);
+<a name="l01089"></a>01089     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 20);
 <a name="l01090"></a>01090 
-<a name="l01091"></a>01091     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>, 25);
-<a name="l01092"></a>01092     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>, 20+<a class="code" href="vector_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
+<a name="l01091"></a>01091     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>, 25);
+<a name="l01092"></a>01092     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>, 20+<a class="code" href="vector__void_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
 <a name="l01093"></a>01093 
-<a name="l01094"></a>01094     <span class="keywordflow">for</span> (i=0; i&lt;vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>; ++i)
+<a name="l01094"></a>01094     <span class="keywordflow">for</span> (i=0; i&lt;vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>; ++i)
 <a name="l01095"></a>01095         <a class="code" href="vector__tests_8c.html#adf53320bed6f35020884d1167a0e8f01">GET_F</a>(vec2, i)-&gt;word = <a class="code" href="vectorstr_8c.html#a141b8e057d63a3ba14590139945e20a9" title="Useful utility function since strdup isn&#39;t in standard C.">mystrdup</a>(<span class="stringliteral">&quot;hello&quot;</span>);
 <a name="l01096"></a>01096     
 <a name="l01097"></a>01097     
 <a name="l01098"></a>01098     temp = <a class="code" href="vector__tests_8c.html#a4a6b836f82b0841b28a94a24016a0332">mk_t_struct</a>(42.5, 42, <span class="stringliteral">&quot;hello&quot;</span>);
 <a name="l01099"></a>01099     temp2 = <a class="code" href="vector__tests_8c.html#a6b20ff6161d5e27631cc8fcee4935fea">mk_f_struct</a>(42.5, 42, <span class="stringliteral">&quot;hello&quot;</span>);
 <a name="l01100"></a>01100 
-<a name="l01101"></a>01101     <a class="code" href="vector_8c.html#a8bdff9301773943a8d9214f3a6db6c0a" title="Set all size elements to val.">set_val_sz</a>(&amp;vec1, &amp;temp);
-<a name="l01102"></a>01102     <a class="code" href="vector_8c.html#a8bdff9301773943a8d9214f3a6db6c0a" title="Set all size elements to val.">set_val_sz</a>(&amp;vec2, &amp;temp2);
+<a name="l01101"></a>01101     <a class="code" href="vector__void_8c.html#acecabf91cab4ea505e6535aee90ad000" title="Set all size elements to val.">set_val_sz_void</a>(&amp;vec1, &amp;temp);
+<a name="l01102"></a>01102     <a class="code" href="vector__void_8c.html#acecabf91cab4ea505e6535aee90ad000" title="Set all size elements to val.">set_val_sz_void</a>(&amp;vec2, &amp;temp2);
 <a name="l01103"></a>01103 
 <a name="l01104"></a>01104     <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>(&amp;temp2);
 <a name="l01105"></a>01105 
-<a name="l01106"></a>01106     <span class="keywordflow">for</span> (i=0; i&lt;vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>; i++) {
+<a name="l01106"></a>01106     <span class="keywordflow">for</span> (i=0; i&lt;vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>; i++) {
 <a name="l01107"></a>01107         CU_ASSERT_EQUAL(<a class="code" href="vector__tests_8c.html#a8ce1f58eab2da6e4042120bf922e0c2a">GET_T</a>(vec1, i)-&gt;d, 42.5);
 <a name="l01108"></a>01108         CU_ASSERT_EQUAL(<a class="code" href="vector__tests_8c.html#a8ce1f58eab2da6e4042120bf922e0c2a">GET_T</a>(vec1, i)-&gt;i, 42);
 <a name="l01109"></a>01109         CU_ASSERT_STRING_EQUAL(<a class="code" href="vector__tests_8c.html#a8ce1f58eab2da6e4042120bf922e0c2a">GET_T</a>(vec1, i)-&gt;word, <span class="stringliteral">&quot;hello&quot;</span>);
@@ -1197,22 +1197,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l01116"></a>01116     temp = <a class="code" href="vector__tests_8c.html#a4a6b836f82b0841b28a94a24016a0332">mk_t_struct</a>(25.5, 25, <span class="stringliteral">&quot;goodbye&quot;</span>);
 <a name="l01117"></a>01117     temp2 = <a class="code" href="vector__tests_8c.html#a6b20ff6161d5e27631cc8fcee4935fea">mk_f_struct</a>(25.5, 25, <span class="stringliteral">&quot;goodbye&quot;</span>);
 <a name="l01118"></a>01118 
-<a name="l01119"></a>01119     <a class="code" href="vector_8c.html#a4dbaf5b0808db2a7995f1bfff760e719" title="Fills entire allocated array (capacity) with val.">set_val_cap</a>(&amp;vec1, &amp;temp);
-<a name="l01120"></a>01120     <a class="code" href="vector_8c.html#a4dbaf5b0808db2a7995f1bfff760e719" title="Fills entire allocated array (capacity) with val.">set_val_cap</a>(&amp;vec2, &amp;temp2);
+<a name="l01119"></a>01119     <a class="code" href="vector__void_8c.html#adbf2dc68bc41dbb6accd961de8940ae7" title="Fills entire allocated array (capacity) with val.">set_val_cap_void</a>(&amp;vec1, &amp;temp);
+<a name="l01120"></a>01120     <a class="code" href="vector__void_8c.html#adbf2dc68bc41dbb6accd961de8940ae7" title="Fills entire allocated array (capacity) with val.">set_val_cap_void</a>(&amp;vec2, &amp;temp2);
 <a name="l01121"></a>01121 
 <a name="l01122"></a>01122     <a class="code" href="vector__tests_8c.html#aa4acd5ea5810b80fbe0a8aa212b62568">free_f_struct</a>(&amp;temp2);
 <a name="l01123"></a>01123 
 <a name="l01124"></a>01124     <span class="comment">/*difference here between having a free function and not</span>
 <a name="l01125"></a>01125 <span class="comment">    if yes then size is set to capacity by set_val_cap. */</span>
-<a name="l01126"></a>01126     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 20);
-<a name="l01127"></a>01127     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>, 25);
+<a name="l01126"></a>01126     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 20);
+<a name="l01127"></a>01127     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>, 25);
 <a name="l01128"></a>01128 
-<a name="l01129"></a>01129     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, vec2.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>);
-<a name="l01130"></a>01130     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>, 20+<a class="code" href="vector_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
+<a name="l01129"></a>01129     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, vec2.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>);
+<a name="l01130"></a>01130     CU_ASSERT_EQUAL(vec2.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>, 20+<a class="code" href="vector__void_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
 <a name="l01131"></a>01131 
 <a name="l01132"></a>01132 
-<a name="l01133"></a>01133     <span class="keywordflow">for</span> (i=0; i&lt;vec2.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>; i++) {
-<a name="l01134"></a>01134         <span class="keywordflow">if</span> (i &lt; vec1.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>) {
+<a name="l01133"></a>01133     <span class="keywordflow">for</span> (i=0; i&lt;vec2.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>; i++) {
+<a name="l01134"></a>01134         <span class="keywordflow">if</span> (i &lt; vec1.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>) {
 <a name="l01135"></a>01135             CU_ASSERT_EQUAL(<a class="code" href="vector__tests_8c.html#a8ce1f58eab2da6e4042120bf922e0c2a">GET_T</a>(vec1, i)-&gt;d, 25.5);
 <a name="l01136"></a>01136             CU_ASSERT_EQUAL(<a class="code" href="vector__tests_8c.html#a8ce1f58eab2da6e4042120bf922e0c2a">GET_T</a>(vec1, i)-&gt;i, 25);
 <a name="l01137"></a>01137             CU_ASSERT_STRING_EQUAL(<a class="code" href="vector__tests_8c.html#a8ce1f58eab2da6e4042120bf922e0c2a">GET_T</a>(vec1, i)-&gt;word, <span class="stringliteral">&quot;goodbye&quot;</span>);
@@ -1223,8 +1223,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l01142"></a>01142         CU_ASSERT_STRING_EQUAL(<a class="code" href="vector__tests_8c.html#adf53320bed6f35020884d1167a0e8f01">GET_F</a>(vec2, i)-&gt;word, <span class="stringliteral">&quot;goodbye&quot;</span>);
 <a name="l01143"></a>01143     }
 <a name="l01144"></a>01144 
-<a name="l01145"></a>01145     <a class="code" href="vector_8c.html#a942a5a50dc54eff02d67d91e16e9575b" title="Frees the internal array and sets size and capacity to 0.">free_vec</a>(&amp;vec1);
-<a name="l01146"></a>01146     <a class="code" href="vector_8c.html#a942a5a50dc54eff02d67d91e16e9575b" title="Frees the internal array and sets size and capacity to 0.">free_vec</a>(&amp;vec2);
+<a name="l01145"></a>01145     <a class="code" href="vector__void_8c.html#a267b96dd9b33aa9eb07b6446a9d7c09b" title="Frees the internal array and sets size and capacity to 0.">free_vec_void</a>(&amp;vec1);
+<a name="l01146"></a>01146     <a class="code" href="vector__void_8c.html#a267b96dd9b33aa9eb07b6446a9d7c09b" title="Frees the internal array and sets size and capacity to 0.">free_vec_void</a>(&amp;vec2);
 <a name="l01147"></a>01147 }
 <a name="l01148"></a>01148 
 <a name="l01149"></a>01149 
@@ -1234,13 +1234,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l01153"></a><a class="code" href="vector__tests_8c.html#a45ca56fe4533262e4275075fc9615c63">01153</a> <span class="keywordtype">void</span> <a class="code" href="main_8c.html#a45ca56fe4533262e4275075fc9615c63">vector_of_vectors_test</a>()
 <a name="l01154"></a>01154 {
 <a name="l01155"></a>01155     <span class="keywordtype">int</span> i, j, tmp_int;
-<a name="l01156"></a>01156     <a class="code" href="structvector.html" title="Data structure for generic type (cast to void) vectors.">vector</a> vec1, vec2;
+<a name="l01156"></a>01156     <a class="code" href="structvector__void.html" title="Data structure for generic type (cast to void) vectors.">vector_void</a> vec1, vec2;
 <a name="l01157"></a>01157     <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> tmp_veci, *tmp_veci2;
 <a name="l01158"></a>01158     <a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a> tmp_vecs;
 <a name="l01159"></a>01159     <span class="keywordtype">char</span> buffer[50];
 <a name="l01160"></a>01160     
-<a name="l01161"></a>01161     <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>(&amp;vec1, 0, 0, <span class="keyword">sizeof</span>(<a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a>), <a class="code" href="vectori_8c.html#a1d2da12e88f5b63ebbf755c6c71ddd42" title="Frees the internal array and sets size and capacity to 0.">free_veci</a>, <a class="code" href="vectori_8c.html#a7d8106e39b80ad7a82fc10a7cc500817" title="Makes dest an identical copy of src.">veci_copy</a>);
-<a name="l01162"></a>01162     <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>(&amp;vec2, 0, 0, <span class="keyword">sizeof</span>(<a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a>), <a class="code" href="vectorstr_8c.html#a7275b2aa8dd28b349644872d31d63d5a" title="Frees the internal array and sets size and capacity to 0.">free_vec_str</a>, <a class="code" href="vectorstr_8c.html#a17103a492a2c261c1333fb343657e5f1" title="Makes dest an identical copy of src.">vec_str_copy</a>);
+<a name="l01161"></a>01161     <a class="code" href="vector__void_8c.html#a5c2a4279acb79d147986b7418ad8b2aa" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec_void</a>(&amp;vec1, 0, 0, <span class="keyword">sizeof</span>(<a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a>), <a class="code" href="vectori_8c.html#a1d2da12e88f5b63ebbf755c6c71ddd42" title="Frees the internal array and sets size and capacity to 0.">free_veci</a>, <a class="code" href="vectori_8c.html#a7d8106e39b80ad7a82fc10a7cc500817" title="Makes dest an identical copy of src.">veci_copy</a>);
+<a name="l01162"></a>01162     <a class="code" href="vector__void_8c.html#a5c2a4279acb79d147986b7418ad8b2aa" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec_void</a>(&amp;vec2, 0, 0, <span class="keyword">sizeof</span>(<a class="code" href="structvector__str.html" title="Data structure for string vector.">vector_str</a>), <a class="code" href="vectorstr_8c.html#a7275b2aa8dd28b349644872d31d63d5a" title="Frees the internal array and sets size and capacity to 0.">free_vec_str</a>, <a class="code" href="vectorstr_8c.html#a17103a492a2c261c1333fb343657e5f1" title="Makes dest an identical copy of src.">vec_str_copy</a>);
 <a name="l01163"></a>01163 
 <a name="l01164"></a>01164     <a class="code" href="vectorstr_8c.html#a4cafadcad8de78fee1c7b27a32c4737a" title="Same as vec_str() except the vector passed in was declared on the stack so it isn&#39;t allocated in this...">vec_str</a>(&amp;tmp_vecs, 0, 0);
 <a name="l01165"></a>01165 
@@ -1252,8 +1252,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l01171"></a>01171         <a class="code" href="vectorstr_8c.html#aaea3c5e41a38b3f10cb44817e5d6bfb1" title="Append a to end of vector (size increased 1).">push_str</a>(&amp;tmp_vecs, buffer);
 <a name="l01172"></a>01172     }
 <a name="l01173"></a>01173     
-<a name="l01174"></a>01174     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 0);
-<a name="l01175"></a>01175     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a59f95fbd95d6f3e84e98a722a66e629a" title="Allocated size of array; always &gt;= size.">capacity</a>, <a class="code" href="vector_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
+<a name="l01174"></a>01174     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 0);
+<a name="l01175"></a>01175     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a440146243caeb1d285111fdd54e1006f" title="Allocated size of array; always &gt;= size.">capacity</a>, <a class="code" href="vector__void_8c.html#a09059d3291da8975ea105fefdab70c47">VEC_START_SZ</a>);
 <a name="l01176"></a>01176     
 <a name="l01177"></a>01177     <a class="code" href="vectori_8c.html#a7688f263b2099e8362bc5eac66d6671b" title="Same as vec_i() except the vector passed in was declared on the stack so it isn&#39;t allocated in this f...">vec_i</a>(&amp;tmp_veci, 0, 0);
 <a name="l01178"></a>01178     
@@ -1261,34 +1261,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l01180"></a>01180         <a class="code" href="vectori_8c.html#a0ec0d4144e7a43e72608159b9a351682" title="Append a to end of vector (size increased 1).">push_i</a>(&amp;tmp_veci, rand());
 <a name="l01181"></a>01181     
 <a name="l01182"></a>01182     <span class="keywordflow">for</span> (i=0; i&lt;20; ++i) {
-<a name="l01183"></a>01183         <a class="code" href="vector_8c.html#aa88045f76180948fbda9a79ee5b5cd3d" title="Append a to end of vector (size increased 1).">push</a>(&amp;vec1, &amp;tmp_veci);
+<a name="l01183"></a>01183         <a class="code" href="vector__void_8c.html#adafcc720aca07772efc72a43da12a534" title="Append a to end of vector (size increased 1).">push_void</a>(&amp;vec1, &amp;tmp_veci);
 <a name="l01184"></a>01184         <span class="keywordflow">for</span> (j=0; j&lt;500; ++j) {
-<a name="l01185"></a>01185             <a class="code" href="vectori_8c.html#a0ec0d4144e7a43e72608159b9a351682" title="Append a to end of vector (size increased 1).">push_i</a>((<a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a>*)(&amp;vec1.<a class="code" href="structvector.html#ae086a0bd5a910803add11ed953819018" title="Array.">a</a>[i*vec1.<a class="code" href="structvector.html#a5c32d3768ff522662c71cb74634bb717" title="Size in bytes of type stored (sizeof(T) where T is type).">elem_size</a>]), j);
+<a name="l01185"></a>01185             <a class="code" href="vectori_8c.html#a0ec0d4144e7a43e72608159b9a351682" title="Append a to end of vector (size increased 1).">push_i</a>((<a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a>*)(&amp;vec1.<a class="code" href="structvector__void.html#aae6cbf085d4de1f6ba3adab1aa7c7585" title="Array.">a</a>[i*vec1.<a class="code" href="structvector__void.html#afedda26ce85492462b79dae9090c49f6" title="Size in bytes of type stored (sizeof(T) where T is type).">elem_size</a>]), j);
 <a name="l01186"></a>01186         }
-<a name="l01187"></a>01187         tmp_veci2 = <a class="code" href="vector_8c.html#aa46156fb4f34b672a0ad7db2a8511b7b" title="Return a void pointer to the ith element.">vec_get</a>(&amp;vec1, i);
+<a name="l01187"></a>01187         tmp_veci2 = <a class="code" href="vector__void_8c.html#a1121ef2e9c292a925bfa6a4dd34e8dee" title="Return a void pointer to the ith element.">vec_void_get</a>(&amp;vec1, i);
 <a name="l01188"></a>01188         CU_ASSERT_EQUAL(tmp_veci2-&gt;<a class="code" href="structvector__i.html#a8df52068982f4b7dcaa024b37f243282" title="Current size (amount you use when manipulating array directly).">size</a>, 520);
 <a name="l01189"></a>01189     }
 <a name="l01190"></a>01190     
-<a name="l01191"></a>01191     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>, 20);
+<a name="l01191"></a>01191     CU_ASSERT_EQUAL(vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>, 20);
 <a name="l01192"></a>01192     
 <a name="l01193"></a>01193     <span class="keywordflow">for</span> (i=0; i&lt;20; ++i) {
 <a name="l01194"></a>01194         <span class="keywordflow">for</span> (j=0; j&lt;500; ++j) {
-<a name="l01195"></a>01195             tmp_int = <a class="code" href="vectori_8c.html#a1d92769da3588fbdb9d37a478c724e17" title="Remove and return the last element (size decreased 1).">pop_i</a>(<a class="code" href="vector__tests_8c.html#a097522f36be915c26e5fccbb262a40fd">GET_ELEMENT</a>(vec1, (vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>-1), <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a>)); <span class="comment">/*&amp;vec1.a[(vec1.size-1)*vec1.elem_size]);    GET_ELEMENT(vec1, i, vector_i));*/</span>
+<a name="l01195"></a>01195             tmp_int = <a class="code" href="vectori_8c.html#a1d92769da3588fbdb9d37a478c724e17" title="Remove and return the last element (size decreased 1).">pop_i</a>(<a class="code" href="vector__tests_8c.html#a097522f36be915c26e5fccbb262a40fd">GET_ELEMENT</a>(vec1, (vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>-1), <a class="code" href="structvector__i.html" title="Data structure for int vector.">vector_i</a>)); <span class="comment">/*&amp;vec1.a[(vec1.size-1)*vec1.elem_size]);    GET_ELEMENT(vec1, i, vector_i));*/</span>
 <a name="l01196"></a>01196             CU_ASSERT_EQUAL(tmp_int, 499-j);
 <a name="l01197"></a>01197         }
-<a name="l01198"></a>01198         tmp_veci2 = <a class="code" href="vector_8c.html#aa46156fb4f34b672a0ad7db2a8511b7b" title="Return a void pointer to the ith element.">vec_get</a>(&amp;vec1, vec1.<a class="code" href="structvector.html#a4200005b6949608d6a533db1a0d299c8" title="Current size (amount you should use when manipulating array directly).">size</a>-1);
+<a name="l01198"></a>01198         tmp_veci2 = <a class="code" href="vector__void_8c.html#a1121ef2e9c292a925bfa6a4dd34e8dee" title="Return a void pointer to the ith element.">vec_void_get</a>(&amp;vec1, vec1.<a class="code" href="structvector__void.html#a94e09482f6122993461724a988ae6f92" title="Current size (amount you should use when manipulating array directly).">size</a>-1);
 <a name="l01199"></a>01199         CU_ASSERT_EQUAL(tmp_veci2-&gt;<a class="code" href="structvector__i.html#a8df52068982f4b7dcaa024b37f243282" title="Current size (amount you use when manipulating array directly).">size</a>, 20);
 <a name="l01200"></a>01200         
 <a name="l01201"></a>01201         <span class="keywordflow">for</span> (j=0; j&lt;20; j++) {
 <a name="l01202"></a>01202             CU_ASSERT_EQUAL(tmp_veci.<a class="code" href="structvector__i.html#a1f7c0e586cb1e09323dec3dd48d13882" title="Array.">a</a>[i], tmp_veci2-&gt;<a class="code" href="structvector__i.html#a1f7c0e586cb1e09323dec3dd48d13882" title="Array.">a</a>[i]);
 <a name="l01203"></a>01203         }
 <a name="l01204"></a>01204         
-<a name="l01205"></a>01205         <a class="code" href="vector_8c.html#aa7c4f5c92867ef1d6e3db0aba5126d39" title="Remove the last element (size decreased 1).">pop</a>(&amp;vec1, NULL);
+<a name="l01205"></a>01205         <a class="code" href="vector__void_8c.html#a031822e087afcc1fd841c70f4e613645" title="Remove the last element (size decreased 1).">pop_void</a>(&amp;vec1, NULL);
 <a name="l01206"></a>01206     }
 <a name="l01207"></a>01207     
 <a name="l01208"></a>01208     
-<a name="l01209"></a>01209     <a class="code" href="vector_8c.html#a942a5a50dc54eff02d67d91e16e9575b" title="Frees the internal array and sets size and capacity to 0.">free_vec</a>(&amp;vec1);
-<a name="l01210"></a>01210     <a class="code" href="vector_8c.html#a942a5a50dc54eff02d67d91e16e9575b" title="Frees the internal array and sets size and capacity to 0.">free_vec</a>(&amp;vec2);
+<a name="l01209"></a>01209     <a class="code" href="vector__void_8c.html#a267b96dd9b33aa9eb07b6446a9d7c09b" title="Frees the internal array and sets size and capacity to 0.">free_vec_void</a>(&amp;vec1);
+<a name="l01210"></a>01210     <a class="code" href="vector__void_8c.html#a267b96dd9b33aa9eb07b6446a9d7c09b" title="Frees the internal array and sets size and capacity to 0.">free_vec_void</a>(&amp;vec2);
 <a name="l01211"></a>01211     <a class="code" href="vectori_8c.html#a1d2da12e88f5b63ebbf755c6c71ddd42" title="Frees the internal array and sets size and capacity to 0.">free_veci</a>(&amp;tmp_veci);
 <a name="l01212"></a>01212     <a class="code" href="vectorstr_8c.html#a7275b2aa8dd28b349644872d31d63d5a" title="Frees the internal array and sets size and capacity to 0.">free_vec_str</a>(&amp;tmp_vecs);
 <a name="l01213"></a>01213 }
@@ -1299,7 +1299,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l01218"></a>01218 {
 <a name="l01219"></a>01219 <span class="preprocessor">#ifdef DO_TEMPLATE_TEST</span>
 <a name="l01220"></a>01220 <span class="preprocessor"></span>    <span class="keywordtype">int</span> i;
-<a name="l01221"></a>01221     <a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a> <a class="code" href="vector_8c.html#a36f53ce4a2fc2a25a1f7f5a913eb3b7a" title="Same as vec() except the vector passed in was declared on the stack so it isn&#39;t allocated in this fun...">vec</a>;
+<a name="l01221"></a>01221     <a class="code" href="structvector__short.html" title="Data structure for short vector.">vector_short</a> vec;
 <a name="l01222"></a>01222     
 <a name="l01223"></a>01223     <a class="code" href="vector__short_8c.html#a14d7964eb85ec2ff3faba857fe202ae3">vec_short</a>(&amp;vec, 0, 0);
 <a name="l01224"></a>01224 
@@ -1350,7 +1350,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 10 2012 22:11:51 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 11 2012 18:57:04 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

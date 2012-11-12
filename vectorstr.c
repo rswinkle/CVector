@@ -6,7 +6,7 @@
 
 size_t VEC_STR_START_SZ = 20;
 
-#define VECS_ALLOCATOR(x) (x*2)
+#define VEC_STR_ALLOCATOR(x) (x*2)
 
 /** Useful utility function since strdup isn't in standard C.*/
 char* mystrdup(const char* str)
@@ -172,7 +172,7 @@ int push_str(vector_str* vec, char* a)
 	void* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VECS_ALLOCATOR(vec->capacity);
+		tmp_sz = VEC_STR_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;
@@ -242,7 +242,7 @@ int insert_str(vector_str* vec, size_t i, char* a)
 	void* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VECS_ALLOCATOR(vec->capacity);
+		tmp_sz = VEC_STR_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			STDERR("Error allocating memory\n");
 			return 0;

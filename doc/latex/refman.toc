@@ -1,0 +1,458 @@
+\contentsline {chapter}{\numberline {1}\discretionary {-}{}{}C\discretionary {-}{}{}Vector notes}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}\discretionary {-}{}{}Intro}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}\discretionary {-}{}{}Building}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}\discretionary {-}{}{}Usage}{2}{section.1.3}
+\contentsline {section}{\numberline {1.4}\discretionary {-}{}{}L\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}S\discretionary {-}{}{}E}{2}{section.1.4}
+\contentsline {chapter}{\numberline {2}\discretionary {-}{}{}Todo \discretionary {-}{}{}List}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}\discretionary {-}{}{}Data \discretionary {-}{}{}Structure \discretionary {-}{}{}Index}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}\discretionary {-}{}{}Data \discretionary {-}{}{}Structures}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}\discretionary {-}{}{}File \discretionary {-}{}{}Index}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}\discretionary {-}{}{}File \discretionary {-}{}{}List}{7}{section.4.1}
+\contentsline {chapter}{\numberline {5}\discretionary {-}{}{}Data \discretionary {-}{}{}Structure \discretionary {-}{}{}Documentation}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}f\discretionary {-}{}{}\_\discretionary {-}{}{}struct \discretionary {-}{}{}Struct \discretionary {-}{}{}Reference}{9}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{9}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}\discretionary {-}{}{}Field \discretionary {-}{}{}Documentation}{9}{subsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.2.1}d}{9}{subsubsection.5.1.2.1}
+\contentsline {subsubsection}{\numberline {5.1.2.2}i}{9}{subsubsection.5.1.2.2}
+\contentsline {subsubsection}{\numberline {5.1.2.3}word}{9}{subsubsection.5.1.2.3}
+\contentsline {section}{\numberline {5.2}t\discretionary {-}{}{}\_\discretionary {-}{}{}struct \discretionary {-}{}{}Struct \discretionary {-}{}{}Reference}{9}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{9}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}\discretionary {-}{}{}Field \discretionary {-}{}{}Documentation}{9}{subsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.1}d}{9}{subsubsection.5.2.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2.2}i}{10}{subsubsection.5.2.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.3}word}{10}{subsubsection.5.2.2.3}
+\contentsline {section}{\numberline {5.3}vector\discretionary {-}{}{}\_\discretionary {-}{}{}d \discretionary {-}{}{}Struct \discretionary {-}{}{}Reference}{10}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{10}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}\discretionary {-}{}{}Field \discretionary {-}{}{}Documentation}{10}{subsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.2.1}a}{10}{subsubsection.5.3.2.1}
+\contentsline {subsubsection}{\numberline {5.3.2.2}capacity}{10}{subsubsection.5.3.2.2}
+\contentsline {subsubsection}{\numberline {5.3.2.3}size}{10}{subsubsection.5.3.2.3}
+\contentsline {section}{\numberline {5.4}vector\discretionary {-}{}{}\_\discretionary {-}{}{}i \discretionary {-}{}{}Struct \discretionary {-}{}{}Reference}{10}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{11}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}\discretionary {-}{}{}Field \discretionary {-}{}{}Documentation}{11}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.2.1}a}{11}{subsubsection.5.4.2.1}
+\contentsline {subsubsection}{\numberline {5.4.2.2}capacity}{11}{subsubsection.5.4.2.2}
+\contentsline {subsubsection}{\numberline {5.4.2.3}size}{11}{subsubsection.5.4.2.3}
+\contentsline {section}{\numberline {5.5}vector\discretionary {-}{}{}\_\discretionary {-}{}{}short \discretionary {-}{}{}Struct \discretionary {-}{}{}Reference}{11}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{11}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}\discretionary {-}{}{}Field \discretionary {-}{}{}Documentation}{11}{subsection.5.5.2}
+\contentsline {subsubsection}{\numberline {5.5.2.1}a}{11}{subsubsection.5.5.2.1}
+\contentsline {subsubsection}{\numberline {5.5.2.2}capacity}{11}{subsubsection.5.5.2.2}
+\contentsline {subsubsection}{\numberline {5.5.2.3}size}{11}{subsubsection.5.5.2.3}
+\contentsline {section}{\numberline {5.6}vector\discretionary {-}{}{}\_\discretionary {-}{}{}str \discretionary {-}{}{}Struct \discretionary {-}{}{}Reference}{11}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{12}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}\discretionary {-}{}{}Field \discretionary {-}{}{}Documentation}{12}{subsection.5.6.2}
+\contentsline {subsubsection}{\numberline {5.6.2.1}a}{12}{subsubsection.5.6.2.1}
+\contentsline {subsubsection}{\numberline {5.6.2.2}capacity}{12}{subsubsection.5.6.2.2}
+\contentsline {subsubsection}{\numberline {5.6.2.3}size}{12}{subsubsection.5.6.2.3}
+\contentsline {section}{\numberline {5.7}vector\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E \discretionary {-}{}{}Struct \discretionary {-}{}{}Reference}{12}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{12}{subsection.5.7.1}
+\contentsline {subsection}{\numberline {5.7.2}\discretionary {-}{}{}Field \discretionary {-}{}{}Documentation}{12}{subsection.5.7.2}
+\contentsline {subsubsection}{\numberline {5.7.2.1}a}{12}{subsubsection.5.7.2.1}
+\contentsline {subsubsection}{\numberline {5.7.2.2}capacity}{12}{subsubsection.5.7.2.2}
+\contentsline {subsubsection}{\numberline {5.7.2.3}size}{13}{subsubsection.5.7.2.3}
+\contentsline {section}{\numberline {5.8}vector\discretionary {-}{}{}\_\discretionary {-}{}{}void \discretionary {-}{}{}Struct \discretionary {-}{}{}Reference}{13}{section.5.8}
+\contentsline {subsection}{\numberline {5.8.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{13}{subsection.5.8.1}
+\contentsline {subsection}{\numberline {5.8.2}\discretionary {-}{}{}Field \discretionary {-}{}{}Documentation}{13}{subsection.5.8.2}
+\contentsline {subsubsection}{\numberline {5.8.2.1}a}{13}{subsubsection.5.8.2.1}
+\contentsline {subsubsection}{\numberline {5.8.2.2}capacity}{13}{subsubsection.5.8.2.2}
+\contentsline {subsubsection}{\numberline {5.8.2.3}elem\discretionary {-}{}{}\_\discretionary {-}{}{}free}{13}{subsubsection.5.8.2.3}
+\contentsline {subsubsection}{\numberline {5.8.2.4}elem\discretionary {-}{}{}\_\discretionary {-}{}{}init}{13}{subsubsection.5.8.2.4}
+\contentsline {subsubsection}{\numberline {5.8.2.5}elem\discretionary {-}{}{}\_\discretionary {-}{}{}size}{13}{subsubsection.5.8.2.5}
+\contentsline {subsubsection}{\numberline {5.8.2.6}size}{13}{subsubsection.5.8.2.6}
+\contentsline {chapter}{\numberline {6}\discretionary {-}{}{}File \discretionary {-}{}{}Documentation}{15}{chapter.6}
+\contentsline {section}{\numberline {6.1}main.\discretionary {-}{}{}c \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{15}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{16}{subsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.1.1}erase\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.1}
+\contentsline {subsubsection}{\numberline {6.1.1.2}erase\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.2}
+\contentsline {subsubsection}{\numberline {6.1.1.3}erased\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.3}
+\contentsline {subsubsection}{\numberline {6.1.1.4}erasei\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.4}
+\contentsline {subsubsection}{\numberline {6.1.1.5}insert\discretionary {-}{}{}\_\discretionary {-}{}{}array\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.5}
+\contentsline {subsubsection}{\numberline {6.1.1.6}insert\discretionary {-}{}{}\_\discretionary {-}{}{}array\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.6}
+\contentsline {subsubsection}{\numberline {6.1.1.7}insert\discretionary {-}{}{}\_\discretionary {-}{}{}arrayd\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.7}
+\contentsline {subsubsection}{\numberline {6.1.1.8}insert\discretionary {-}{}{}\_\discretionary {-}{}{}arrayi\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.8}
+\contentsline {subsubsection}{\numberline {6.1.1.9}insert\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.9}
+\contentsline {subsubsection}{\numberline {6.1.1.10}insert\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.10}
+\contentsline {subsubsection}{\numberline {6.1.1.11}insertd\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.11}
+\contentsline {subsubsection}{\numberline {6.1.1.12}inserti\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.12}
+\contentsline {subsubsection}{\numberline {6.1.1.13}main}{16}{subsubsection.6.1.1.13}
+\contentsline {subsubsection}{\numberline {6.1.1.14}pop\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.14}
+\contentsline {subsubsection}{\numberline {6.1.1.15}pop\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.15}
+\contentsline {subsubsection}{\numberline {6.1.1.16}popd\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.16}
+\contentsline {subsubsection}{\numberline {6.1.1.17}popi\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.17}
+\contentsline {subsubsection}{\numberline {6.1.1.18}push\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.18}
+\contentsline {subsubsection}{\numberline {6.1.1.19}push\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.19}
+\contentsline {subsubsection}{\numberline {6.1.1.20}pushd\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.20}
+\contentsline {subsubsection}{\numberline {6.1.1.21}pushi\discretionary {-}{}{}\_\discretionary {-}{}{}test}{16}{subsubsection.6.1.1.21}
+\contentsline {subsubsection}{\numberline {6.1.1.22}reserve\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.22}
+\contentsline {subsubsection}{\numberline {6.1.1.23}reserve\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.23}
+\contentsline {subsubsection}{\numberline {6.1.1.24}reserved\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.24}
+\contentsline {subsubsection}{\numberline {6.1.1.25}reservei\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.25}
+\contentsline {subsubsection}{\numberline {6.1.1.26}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacity\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.26}
+\contentsline {subsubsection}{\numberline {6.1.1.27}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacity\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.27}
+\contentsline {subsubsection}{\numberline {6.1.1.28}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacityd\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.28}
+\contentsline {subsubsection}{\numberline {6.1.1.29}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacityi\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.29}
+\contentsline {subsubsection}{\numberline {6.1.1.30}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.30}
+\contentsline {subsubsection}{\numberline {6.1.1.31}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.31}
+\contentsline {subsubsection}{\numberline {6.1.1.32}set\discretionary {-}{}{}\_\discretionary {-}{}{}vald\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.32}
+\contentsline {subsubsection}{\numberline {6.1.1.33}set\discretionary {-}{}{}\_\discretionary {-}{}{}vali\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.33}
+\contentsline {subsubsection}{\numberline {6.1.1.34}template\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.34}
+\contentsline {subsubsection}{\numberline {6.1.1.35}vector\discretionary {-}{}{}\_\discretionary {-}{}{}of\discretionary {-}{}{}\_\discretionary {-}{}{}vectors\discretionary {-}{}{}\_\discretionary {-}{}{}test}{17}{subsubsection.6.1.1.35}
+\contentsline {subsection}{\numberline {6.1.2}\discretionary {-}{}{}Variable \discretionary {-}{}{}Documentation}{17}{subsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.2.1}template\discretionary {-}{}{}\_\discretionary {-}{}{}tests}{17}{subsubsection.6.1.2.1}
+\contentsline {subsubsection}{\numberline {6.1.2.2}vector\discretionary {-}{}{}\_\discretionary {-}{}{}d\discretionary {-}{}{}\_\discretionary {-}{}{}tests}{17}{subsubsection.6.1.2.2}
+\contentsline {subsubsection}{\numberline {6.1.2.3}vector\discretionary {-}{}{}\_\discretionary {-}{}{}i\discretionary {-}{}{}\_\discretionary {-}{}{}tests}{17}{subsubsection.6.1.2.3}
+\contentsline {subsubsection}{\numberline {6.1.2.4}vector\discretionary {-}{}{}\_\discretionary {-}{}{}s\discretionary {-}{}{}\_\discretionary {-}{}{}tests}{18}{subsubsection.6.1.2.4}
+\contentsline {subsubsection}{\numberline {6.1.2.5}vector\discretionary {-}{}{}\_\discretionary {-}{}{}suites}{18}{subsubsection.6.1.2.5}
+\contentsline {subsubsection}{\numberline {6.1.2.6}vector\discretionary {-}{}{}\_\discretionary {-}{}{}tests}{18}{subsubsection.6.1.2.6}
+\contentsline {section}{\numberline {6.2}vector\discretionary {-}{}{}\_\discretionary {-}{}{}all.\discretionary {-}{}{}h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{18}{section.6.2}
+\contentsline {section}{\numberline {6.3}vector\discretionary {-}{}{}\_\discretionary {-}{}{}short.\discretionary {-}{}{}c \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{18}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}\discretionary {-}{}{}Define \discretionary {-}{}{}Documentation}{19}{subsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.1.1}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}R}{19}{subsubsection.6.3.1.1}
+\contentsline {subsubsection}{\numberline {6.3.1.2}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}short\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}A\discretionary {-}{}{}L\discretionary {-}{}{}L\discretionary {-}{}{}O\discretionary {-}{}{}C\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}O\discretionary {-}{}{}R}{19}{subsubsection.6.3.1.2}
+\contentsline {subsection}{\numberline {6.3.2}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{19}{subsection.6.3.2}
+\contentsline {subsubsection}{\numberline {6.3.2.1}back\discretionary {-}{}{}\_\discretionary {-}{}{}short}{19}{subsubsection.6.3.2.1}
+\contentsline {subsubsection}{\numberline {6.3.2.2}clear\discretionary {-}{}{}\_\discretionary {-}{}{}short}{19}{subsubsection.6.3.2.2}
+\contentsline {subsubsection}{\numberline {6.3.2.3}erase\discretionary {-}{}{}\_\discretionary {-}{}{}short}{19}{subsubsection.6.3.2.3}
+\contentsline {subsubsection}{\numberline {6.3.2.4}extend\discretionary {-}{}{}\_\discretionary {-}{}{}short}{19}{subsubsection.6.3.2.4}
+\contentsline {subsubsection}{\numberline {6.3.2.5}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short}{19}{subsubsection.6.3.2.5}
+\contentsline {subsubsection}{\numberline {6.3.2.6}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{19}{subsubsection.6.3.2.6}
+\contentsline {subsubsection}{\numberline {6.3.2.7}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short}{19}{subsubsection.6.3.2.7}
+\contentsline {subsubsection}{\numberline {6.3.2.8}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{19}{subsubsection.6.3.2.8}
+\contentsline {subsubsection}{\numberline {6.3.2.9}insert\discretionary {-}{}{}\_\discretionary {-}{}{}array\discretionary {-}{}{}\_\discretionary {-}{}{}short}{19}{subsubsection.6.3.2.9}
+\contentsline {subsubsection}{\numberline {6.3.2.10}insert\discretionary {-}{}{}\_\discretionary {-}{}{}short}{19}{subsubsection.6.3.2.10}
+\contentsline {subsubsection}{\numberline {6.3.2.11}pop\discretionary {-}{}{}\_\discretionary {-}{}{}short}{19}{subsubsection.6.3.2.11}
+\contentsline {subsubsection}{\numberline {6.3.2.12}push\discretionary {-}{}{}\_\discretionary {-}{}{}short}{20}{subsubsection.6.3.2.12}
+\contentsline {subsubsection}{\numberline {6.3.2.13}reserve\discretionary {-}{}{}\_\discretionary {-}{}{}short}{20}{subsubsection.6.3.2.13}
+\contentsline {subsubsection}{\numberline {6.3.2.14}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacity\discretionary {-}{}{}\_\discretionary {-}{}{}short}{20}{subsubsection.6.3.2.14}
+\contentsline {subsubsection}{\numberline {6.3.2.15}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}cap\discretionary {-}{}{}\_\discretionary {-}{}{}short}{20}{subsubsection.6.3.2.15}
+\contentsline {subsubsection}{\numberline {6.3.2.16}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}sz\discretionary {-}{}{}\_\discretionary {-}{}{}short}{20}{subsubsection.6.3.2.16}
+\contentsline {subsubsection}{\numberline {6.3.2.17}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short}{20}{subsubsection.6.3.2.17}
+\contentsline {subsubsection}{\numberline {6.3.2.18}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short\discretionary {-}{}{}\_\discretionary {-}{}{}copy}{20}{subsubsection.6.3.2.18}
+\contentsline {subsubsection}{\numberline {6.3.2.19}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{20}{subsubsection.6.3.2.19}
+\contentsline {subsection}{\numberline {6.3.3}\discretionary {-}{}{}Variable \discretionary {-}{}{}Documentation}{20}{subsection.6.3.3}
+\contentsline {subsubsection}{\numberline {6.3.3.1}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}\_\discretionary {-}{}{}short\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}Z}{20}{subsubsection.6.3.3.1}
+\contentsline {section}{\numberline {6.4}vector\discretionary {-}{}{}\_\discretionary {-}{}{}short.\discretionary {-}{}{}h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{20}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{20}{subsection.6.4.1}
+\contentsline {subsubsection}{\numberline {6.4.1.1}back\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.1}
+\contentsline {subsubsection}{\numberline {6.4.1.2}clear\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.2}
+\contentsline {subsubsection}{\numberline {6.4.1.3}erase\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.3}
+\contentsline {subsubsection}{\numberline {6.4.1.4}extend\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.4}
+\contentsline {subsubsection}{\numberline {6.4.1.5}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.5}
+\contentsline {subsubsection}{\numberline {6.4.1.6}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{21}{subsubsection.6.4.1.6}
+\contentsline {subsubsection}{\numberline {6.4.1.7}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.7}
+\contentsline {subsubsection}{\numberline {6.4.1.8}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{21}{subsubsection.6.4.1.8}
+\contentsline {subsubsection}{\numberline {6.4.1.9}insert\discretionary {-}{}{}\_\discretionary {-}{}{}array\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.9}
+\contentsline {subsubsection}{\numberline {6.4.1.10}insert\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.10}
+\contentsline {subsubsection}{\numberline {6.4.1.11}pop\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.11}
+\contentsline {subsubsection}{\numberline {6.4.1.12}push\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.12}
+\contentsline {subsubsection}{\numberline {6.4.1.13}reserve\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.13}
+\contentsline {subsubsection}{\numberline {6.4.1.14}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacity\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.14}
+\contentsline {subsubsection}{\numberline {6.4.1.15}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}cap\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.15}
+\contentsline {subsubsection}{\numberline {6.4.1.16}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}sz\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.16}
+\contentsline {subsubsection}{\numberline {6.4.1.17}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short}{21}{subsubsection.6.4.1.17}
+\contentsline {subsubsection}{\numberline {6.4.1.18}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short\discretionary {-}{}{}\_\discretionary {-}{}{}copy}{21}{subsubsection.6.4.1.18}
+\contentsline {subsubsection}{\numberline {6.4.1.19}vec\discretionary {-}{}{}\_\discretionary {-}{}{}short\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{21}{subsubsection.6.4.1.19}
+\contentsline {subsection}{\numberline {6.4.2}\discretionary {-}{}{}Variable \discretionary {-}{}{}Documentation}{21}{subsection.6.4.2}
+\contentsline {subsubsection}{\numberline {6.4.2.1}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}\_\discretionary {-}{}{}short\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}Z}{21}{subsubsection.6.4.2.1}
+\contentsline {section}{\numberline {6.5}vector\discretionary {-}{}{}\_\discretionary {-}{}{}template.\discretionary {-}{}{}c \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{21}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}\discretionary {-}{}{}Define \discretionary {-}{}{}Documentation}{22}{subsection.6.5.1}
+\contentsline {subsubsection}{\numberline {6.5.1.1}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}R}{22}{subsubsection.6.5.1.1}
+\contentsline {subsubsection}{\numberline {6.5.1.2}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}A\discretionary {-}{}{}L\discretionary {-}{}{}L\discretionary {-}{}{}O\discretionary {-}{}{}C\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}O\discretionary {-}{}{}R}{22}{subsubsection.6.5.1.2}
+\contentsline {subsection}{\numberline {6.5.2}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{22}{subsection.6.5.2}
+\contentsline {subsubsection}{\numberline {6.5.2.1}back\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.1}
+\contentsline {subsubsection}{\numberline {6.5.2.2}clear\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.2}
+\contentsline {subsubsection}{\numberline {6.5.2.3}erase\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.3}
+\contentsline {subsubsection}{\numberline {6.5.2.4}extend\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.4}
+\contentsline {subsubsection}{\numberline {6.5.2.5}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.5}
+\contentsline {subsubsection}{\numberline {6.5.2.6}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{22}{subsubsection.6.5.2.6}
+\contentsline {subsubsection}{\numberline {6.5.2.7}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.7}
+\contentsline {subsubsection}{\numberline {6.5.2.8}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{22}{subsubsection.6.5.2.8}
+\contentsline {subsubsection}{\numberline {6.5.2.9}insert\discretionary {-}{}{}\_\discretionary {-}{}{}array\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.9}
+\contentsline {subsubsection}{\numberline {6.5.2.10}insert\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.10}
+\contentsline {subsubsection}{\numberline {6.5.2.11}pop\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.11}
+\contentsline {subsubsection}{\numberline {6.5.2.12}push\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.12}
+\contentsline {subsubsection}{\numberline {6.5.2.13}reserve\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.13}
+\contentsline {subsubsection}{\numberline {6.5.2.14}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacity\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.14}
+\contentsline {subsubsection}{\numberline {6.5.2.15}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}cap\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.15}
+\contentsline {subsubsection}{\numberline {6.5.2.16}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}sz\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.16}
+\contentsline {subsubsection}{\numberline {6.5.2.17}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{22}{subsubsection.6.5.2.17}
+\contentsline {subsubsection}{\numberline {6.5.2.18}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}copy}{22}{subsubsection.6.5.2.18}
+\contentsline {subsubsection}{\numberline {6.5.2.19}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{22}{subsubsection.6.5.2.19}
+\contentsline {subsection}{\numberline {6.5.3}\discretionary {-}{}{}Variable \discretionary {-}{}{}Documentation}{23}{subsection.6.5.3}
+\contentsline {subsubsection}{\numberline {6.5.3.1}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}Z}{23}{subsubsection.6.5.3.1}
+\contentsline {section}{\numberline {6.6}vector\discretionary {-}{}{}\_\discretionary {-}{}{}template.\discretionary {-}{}{}h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{23}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{23}{subsection.6.6.1}
+\contentsline {subsubsection}{\numberline {6.6.1.1}back\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{23}{subsubsection.6.6.1.1}
+\contentsline {subsubsection}{\numberline {6.6.1.2}clear\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{23}{subsubsection.6.6.1.2}
+\contentsline {subsubsection}{\numberline {6.6.1.3}erase\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{23}{subsubsection.6.6.1.3}
+\contentsline {subsubsection}{\numberline {6.6.1.4}extend\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{23}{subsubsection.6.6.1.4}
+\contentsline {subsubsection}{\numberline {6.6.1.5}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{23}{subsubsection.6.6.1.5}
+\contentsline {subsubsection}{\numberline {6.6.1.6}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{23}{subsubsection.6.6.1.6}
+\contentsline {subsubsection}{\numberline {6.6.1.7}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{23}{subsubsection.6.6.1.7}
+\contentsline {subsubsection}{\numberline {6.6.1.8}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{24}{subsubsection.6.6.1.8}
+\contentsline {subsubsection}{\numberline {6.6.1.9}insert\discretionary {-}{}{}\_\discretionary {-}{}{}array\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{24}{subsubsection.6.6.1.9}
+\contentsline {subsubsection}{\numberline {6.6.1.10}insert\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{24}{subsubsection.6.6.1.10}
+\contentsline {subsubsection}{\numberline {6.6.1.11}pop\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{24}{subsubsection.6.6.1.11}
+\contentsline {subsubsection}{\numberline {6.6.1.12}push\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{24}{subsubsection.6.6.1.12}
+\contentsline {subsubsection}{\numberline {6.6.1.13}reserve\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{24}{subsubsection.6.6.1.13}
+\contentsline {subsubsection}{\numberline {6.6.1.14}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacity\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{24}{subsubsection.6.6.1.14}
+\contentsline {subsubsection}{\numberline {6.6.1.15}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}cap\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{24}{subsubsection.6.6.1.15}
+\contentsline {subsubsection}{\numberline {6.6.1.16}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}sz\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{24}{subsubsection.6.6.1.16}
+\contentsline {subsubsection}{\numberline {6.6.1.17}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E}{24}{subsubsection.6.6.1.17}
+\contentsline {subsubsection}{\numberline {6.6.1.18}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}copy}{24}{subsubsection.6.6.1.18}
+\contentsline {subsubsection}{\numberline {6.6.1.19}vec\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{24}{subsubsection.6.6.1.19}
+\contentsline {subsection}{\numberline {6.6.2}\discretionary {-}{}{}Variable \discretionary {-}{}{}Documentation}{24}{subsection.6.6.2}
+\contentsline {subsubsection}{\numberline {6.6.2.1}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}Z}{24}{subsubsection.6.6.2.1}
+\contentsline {section}{\numberline {6.7}vector\discretionary {-}{}{}\_\discretionary {-}{}{}tests.\discretionary {-}{}{}c \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{24}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}\discretionary {-}{}{}Define \discretionary {-}{}{}Documentation}{25}{subsection.6.7.1}
+\contentsline {subsubsection}{\numberline {6.7.1.1}\discretionary {-}{}{}D\discretionary {-}{}{}O\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}E\discretionary {-}{}{}M\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}E\discretionary {-}{}{}S\discretionary {-}{}{}T}{25}{subsubsection.6.7.1.1}
+\contentsline {subsubsection}{\numberline {6.7.1.2}\discretionary {-}{}{}G\discretionary {-}{}{}E\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}E\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}M\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}T}{25}{subsubsection.6.7.1.2}
+\contentsline {subsubsection}{\numberline {6.7.1.3}\discretionary {-}{}{}G\discretionary {-}{}{}E\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}F}{25}{subsubsection.6.7.1.3}
+\contentsline {subsubsection}{\numberline {6.7.1.4}\discretionary {-}{}{}G\discretionary {-}{}{}E\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}F\discretionary {-}{}{}P}{25}{subsubsection.6.7.1.4}
+\contentsline {subsubsection}{\numberline {6.7.1.5}\discretionary {-}{}{}G\discretionary {-}{}{}E\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T}{25}{subsubsection.6.7.1.5}
+\contentsline {subsubsection}{\numberline {6.7.1.6}\discretionary {-}{}{}G\discretionary {-}{}{}E\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}P}{25}{subsubsection.6.7.1.6}
+\contentsline {subsubsection}{\numberline {6.7.1.7}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}R}{25}{subsubsection.6.7.1.7}
+\contentsline {subsection}{\numberline {6.7.2}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{25}{subsection.6.7.2}
+\contentsline {subsubsection}{\numberline {6.7.2.1}erase\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{25}{subsubsection.6.7.2.1}
+\contentsline {subsubsection}{\numberline {6.7.2.2}erase\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{25}{subsubsection.6.7.2.2}
+\contentsline {subsubsection}{\numberline {6.7.2.3}erased\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.3}
+\contentsline {subsubsection}{\numberline {6.7.2.4}erasei\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.4}
+\contentsline {subsubsection}{\numberline {6.7.2.5}free\discretionary {-}{}{}\_\discretionary {-}{}{}f\discretionary {-}{}{}\_\discretionary {-}{}{}struct}{26}{subsubsection.6.7.2.5}
+\contentsline {subsubsection}{\numberline {6.7.2.6}init\discretionary {-}{}{}\_\discretionary {-}{}{}f\discretionary {-}{}{}\_\discretionary {-}{}{}struct}{26}{subsubsection.6.7.2.6}
+\contentsline {subsubsection}{\numberline {6.7.2.7}insert\discretionary {-}{}{}\_\discretionary {-}{}{}array\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.7}
+\contentsline {subsubsection}{\numberline {6.7.2.8}insert\discretionary {-}{}{}\_\discretionary {-}{}{}array\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.8}
+\contentsline {subsubsection}{\numberline {6.7.2.9}insert\discretionary {-}{}{}\_\discretionary {-}{}{}arrayd\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.9}
+\contentsline {subsubsection}{\numberline {6.7.2.10}insert\discretionary {-}{}{}\_\discretionary {-}{}{}arrayi\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.10}
+\contentsline {subsubsection}{\numberline {6.7.2.11}insert\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.11}
+\contentsline {subsubsection}{\numberline {6.7.2.12}insert\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.12}
+\contentsline {subsubsection}{\numberline {6.7.2.13}insertd\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.13}
+\contentsline {subsubsection}{\numberline {6.7.2.14}inserti\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.14}
+\contentsline {subsubsection}{\numberline {6.7.2.15}mk\discretionary {-}{}{}\_\discretionary {-}{}{}f\discretionary {-}{}{}\_\discretionary {-}{}{}struct}{26}{subsubsection.6.7.2.15}
+\contentsline {subsubsection}{\numberline {6.7.2.16}mk\discretionary {-}{}{}\_\discretionary {-}{}{}t\discretionary {-}{}{}\_\discretionary {-}{}{}struct}{26}{subsubsection.6.7.2.16}
+\contentsline {subsubsection}{\numberline {6.7.2.17}pop\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.17}
+\contentsline {subsubsection}{\numberline {6.7.2.18}pop\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.18}
+\contentsline {subsubsection}{\numberline {6.7.2.19}popd\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.19}
+\contentsline {subsubsection}{\numberline {6.7.2.20}popi\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.20}
+\contentsline {subsubsection}{\numberline {6.7.2.21}push\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.21}
+\contentsline {subsubsection}{\numberline {6.7.2.22}push\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.22}
+\contentsline {subsubsection}{\numberline {6.7.2.23}pushd\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.23}
+\contentsline {subsubsection}{\numberline {6.7.2.24}pushi\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.24}
+\contentsline {subsubsection}{\numberline {6.7.2.25}reserve\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.25}
+\contentsline {subsubsection}{\numberline {6.7.2.26}reserve\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.26}
+\contentsline {subsubsection}{\numberline {6.7.2.27}reserved\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.27}
+\contentsline {subsubsection}{\numberline {6.7.2.28}reservei\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.28}
+\contentsline {subsubsection}{\numberline {6.7.2.29}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacity\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.29}
+\contentsline {subsubsection}{\numberline {6.7.2.30}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacity\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.30}
+\contentsline {subsubsection}{\numberline {6.7.2.31}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacityd\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.31}
+\contentsline {subsubsection}{\numberline {6.7.2.32}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacityi\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.32}
+\contentsline {subsubsection}{\numberline {6.7.2.33}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.33}
+\contentsline {subsubsection}{\numberline {6.7.2.34}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.34}
+\contentsline {subsubsection}{\numberline {6.7.2.35}set\discretionary {-}{}{}\_\discretionary {-}{}{}vald\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.35}
+\contentsline {subsubsection}{\numberline {6.7.2.36}set\discretionary {-}{}{}\_\discretionary {-}{}{}vali\discretionary {-}{}{}\_\discretionary {-}{}{}test}{26}{subsubsection.6.7.2.36}
+\contentsline {subsubsection}{\numberline {6.7.2.37}template\discretionary {-}{}{}\_\discretionary {-}{}{}test}{27}{subsubsection.6.7.2.37}
+\contentsline {subsubsection}{\numberline {6.7.2.38}vector\discretionary {-}{}{}\_\discretionary {-}{}{}of\discretionary {-}{}{}\_\discretionary {-}{}{}vectors\discretionary {-}{}{}\_\discretionary {-}{}{}test}{27}{subsubsection.6.7.2.38}
+\contentsline {section}{\numberline {6.8}vector\discretionary {-}{}{}\_\discretionary {-}{}{}void.\discretionary {-}{}{}c \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{27}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}\discretionary {-}{}{}Define \discretionary {-}{}{}Documentation}{28}{subsection.6.8.1}
+\contentsline {subsubsection}{\numberline {6.8.1.1}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}R}{28}{subsubsection.6.8.1.1}
+\contentsline {subsubsection}{\numberline {6.8.1.2}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}A\discretionary {-}{}{}L\discretionary {-}{}{}L\discretionary {-}{}{}O\discretionary {-}{}{}C\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}O\discretionary {-}{}{}R}{28}{subsubsection.6.8.1.2}
+\contentsline {subsection}{\numberline {6.8.2}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{28}{subsection.6.8.2}
+\contentsline {subsubsection}{\numberline {6.8.2.1}back\discretionary {-}{}{}\_\discretionary {-}{}{}void}{28}{subsubsection.6.8.2.1}
+\contentsline {subsubsection}{\numberline {6.8.2.2}clear\discretionary {-}{}{}\_\discretionary {-}{}{}void}{28}{subsubsection.6.8.2.2}
+\contentsline {subsubsection}{\numberline {6.8.2.3}erase\discretionary {-}{}{}\_\discretionary {-}{}{}void}{28}{subsubsection.6.8.2.3}
+\contentsline {subsubsection}{\numberline {6.8.2.4}extend\discretionary {-}{}{}\_\discretionary {-}{}{}void}{28}{subsubsection.6.8.2.4}
+\contentsline {subsubsection}{\numberline {6.8.2.5}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void}{28}{subsubsection.6.8.2.5}
+\contentsline {subsubsection}{\numberline {6.8.2.6}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{28}{subsubsection.6.8.2.6}
+\contentsline {subsubsection}{\numberline {6.8.2.7}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void}{28}{subsubsection.6.8.2.7}
+\contentsline {subsubsection}{\numberline {6.8.2.8}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{29}{subsubsection.6.8.2.8}
+\contentsline {subsubsection}{\numberline {6.8.2.9}insert\discretionary {-}{}{}\_\discretionary {-}{}{}array\discretionary {-}{}{}\_\discretionary {-}{}{}void}{29}{subsubsection.6.8.2.9}
+\contentsline {subsubsection}{\numberline {6.8.2.10}insert\discretionary {-}{}{}\_\discretionary {-}{}{}void}{29}{subsubsection.6.8.2.10}
+\contentsline {subsubsection}{\numberline {6.8.2.11}pop\discretionary {-}{}{}\_\discretionary {-}{}{}void}{29}{subsubsection.6.8.2.11}
+\contentsline {subsubsection}{\numberline {6.8.2.12}push\discretionary {-}{}{}\_\discretionary {-}{}{}void}{29}{subsubsection.6.8.2.12}
+\contentsline {subsubsection}{\numberline {6.8.2.13}reserve\discretionary {-}{}{}\_\discretionary {-}{}{}void}{29}{subsubsection.6.8.2.13}
+\contentsline {subsubsection}{\numberline {6.8.2.14}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacity\discretionary {-}{}{}\_\discretionary {-}{}{}void}{29}{subsubsection.6.8.2.14}
+\contentsline {subsubsection}{\numberline {6.8.2.15}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}cap\discretionary {-}{}{}\_\discretionary {-}{}{}void}{29}{subsubsection.6.8.2.15}
+\contentsline {subsubsection}{\numberline {6.8.2.16}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}sz\discretionary {-}{}{}\_\discretionary {-}{}{}void}{29}{subsubsection.6.8.2.16}
+\contentsline {subsubsection}{\numberline {6.8.2.17}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void}{29}{subsubsection.6.8.2.17}
+\contentsline {subsubsection}{\numberline {6.8.2.18}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}copy}{29}{subsubsection.6.8.2.18}
+\contentsline {subsubsection}{\numberline {6.8.2.19}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}get}{29}{subsubsection.6.8.2.19}
+\contentsline {subsubsection}{\numberline {6.8.2.20}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{30}{subsubsection.6.8.2.20}
+\contentsline {subsection}{\numberline {6.8.3}\discretionary {-}{}{}Variable \discretionary {-}{}{}Documentation}{30}{subsection.6.8.3}
+\contentsline {subsubsection}{\numberline {6.8.3.1}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}Z}{30}{subsubsection.6.8.3.1}
+\contentsline {section}{\numberline {6.9}vector\discretionary {-}{}{}\_\discretionary {-}{}{}void.\discretionary {-}{}{}h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{30}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}\discretionary {-}{}{}Typedef \discretionary {-}{}{}Documentation}{31}{subsection.6.9.1}
+\contentsline {subsubsection}{\numberline {6.9.1.1}byte}{31}{subsubsection.6.9.1.1}
+\contentsline {subsection}{\numberline {6.9.2}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{31}{subsection.6.9.2}
+\contentsline {subsubsection}{\numberline {6.9.2.1}back\discretionary {-}{}{}\_\discretionary {-}{}{}void}{31}{subsubsection.6.9.2.1}
+\contentsline {subsubsection}{\numberline {6.9.2.2}clear\discretionary {-}{}{}\_\discretionary {-}{}{}void}{31}{subsubsection.6.9.2.2}
+\contentsline {subsubsection}{\numberline {6.9.2.3}erase\discretionary {-}{}{}\_\discretionary {-}{}{}void}{31}{subsubsection.6.9.2.3}
+\contentsline {subsubsection}{\numberline {6.9.2.4}extend\discretionary {-}{}{}\_\discretionary {-}{}{}void}{31}{subsubsection.6.9.2.4}
+\contentsline {subsubsection}{\numberline {6.9.2.5}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void}{32}{subsubsection.6.9.2.5}
+\contentsline {subsubsection}{\numberline {6.9.2.6}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{32}{subsubsection.6.9.2.6}
+\contentsline {subsubsection}{\numberline {6.9.2.7}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void}{32}{subsubsection.6.9.2.7}
+\contentsline {subsubsection}{\numberline {6.9.2.8}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{32}{subsubsection.6.9.2.8}
+\contentsline {subsubsection}{\numberline {6.9.2.9}insert\discretionary {-}{}{}\_\discretionary {-}{}{}array\discretionary {-}{}{}\_\discretionary {-}{}{}void}{32}{subsubsection.6.9.2.9}
+\contentsline {subsubsection}{\numberline {6.9.2.10}insert\discretionary {-}{}{}\_\discretionary {-}{}{}void}{32}{subsubsection.6.9.2.10}
+\contentsline {subsubsection}{\numberline {6.9.2.11}pop\discretionary {-}{}{}\_\discretionary {-}{}{}void}{32}{subsubsection.6.9.2.11}
+\contentsline {subsubsection}{\numberline {6.9.2.12}push\discretionary {-}{}{}\_\discretionary {-}{}{}void}{32}{subsubsection.6.9.2.12}
+\contentsline {subsubsection}{\numberline {6.9.2.13}reserve\discretionary {-}{}{}\_\discretionary {-}{}{}void}{32}{subsubsection.6.9.2.13}
+\contentsline {subsubsection}{\numberline {6.9.2.14}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacity\discretionary {-}{}{}\_\discretionary {-}{}{}void}{32}{subsubsection.6.9.2.14}
+\contentsline {subsubsection}{\numberline {6.9.2.15}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}cap\discretionary {-}{}{}\_\discretionary {-}{}{}void}{32}{subsubsection.6.9.2.15}
+\contentsline {subsubsection}{\numberline {6.9.2.16}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}sz\discretionary {-}{}{}\_\discretionary {-}{}{}void}{32}{subsubsection.6.9.2.16}
+\contentsline {subsubsection}{\numberline {6.9.2.17}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void}{33}{subsubsection.6.9.2.17}
+\contentsline {subsubsection}{\numberline {6.9.2.18}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}copy}{33}{subsubsection.6.9.2.18}
+\contentsline {subsubsection}{\numberline {6.9.2.19}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}get}{33}{subsubsection.6.9.2.19}
+\contentsline {subsubsection}{\numberline {6.9.2.20}vec\discretionary {-}{}{}\_\discretionary {-}{}{}void\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{33}{subsubsection.6.9.2.20}
+\contentsline {subsection}{\numberline {6.9.3}\discretionary {-}{}{}Variable \discretionary {-}{}{}Documentation}{33}{subsection.6.9.3}
+\contentsline {subsubsection}{\numberline {6.9.3.1}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}Z}{33}{subsubsection.6.9.3.1}
+\contentsline {section}{\numberline {6.10}vectord.\discretionary {-}{}{}c \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{33}{section.6.10}
+\contentsline {subsection}{\numberline {6.10.1}\discretionary {-}{}{}Define \discretionary {-}{}{}Documentation}{34}{subsection.6.10.1}
+\contentsline {subsubsection}{\numberline {6.10.1.1}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}R}{34}{subsubsection.6.10.1.1}
+\contentsline {subsubsection}{\numberline {6.10.1.2}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}A\discretionary {-}{}{}L\discretionary {-}{}{}L\discretionary {-}{}{}O\discretionary {-}{}{}C\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}O\discretionary {-}{}{}R}{34}{subsubsection.6.10.1.2}
+\contentsline {subsection}{\numberline {6.10.2}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{34}{subsection.6.10.2}
+\contentsline {subsubsection}{\numberline {6.10.2.1}backd}{34}{subsubsection.6.10.2.1}
+\contentsline {subsubsection}{\numberline {6.10.2.2}capacityd}{34}{subsubsection.6.10.2.2}
+\contentsline {subsubsection}{\numberline {6.10.2.3}cleard}{35}{subsubsection.6.10.2.3}
+\contentsline {subsubsection}{\numberline {6.10.2.4}erased}{35}{subsubsection.6.10.2.4}
+\contentsline {subsubsection}{\numberline {6.10.2.5}extendd}{35}{subsubsection.6.10.2.5}
+\contentsline {subsubsection}{\numberline {6.10.2.6}free\discretionary {-}{}{}\_\discretionary {-}{}{}vecd}{35}{subsubsection.6.10.2.6}
+\contentsline {subsubsection}{\numberline {6.10.2.7}free\discretionary {-}{}{}\_\discretionary {-}{}{}vecd\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{35}{subsubsection.6.10.2.7}
+\contentsline {subsubsection}{\numberline {6.10.2.8}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}d}{35}{subsubsection.6.10.2.8}
+\contentsline {subsubsection}{\numberline {6.10.2.9}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}d\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{35}{subsubsection.6.10.2.9}
+\contentsline {subsubsection}{\numberline {6.10.2.10}insert\discretionary {-}{}{}\_\discretionary {-}{}{}arrayd}{35}{subsubsection.6.10.2.10}
+\contentsline {subsubsection}{\numberline {6.10.2.11}insertd}{35}{subsubsection.6.10.2.11}
+\contentsline {subsubsection}{\numberline {6.10.2.12}pop\discretionary {-}{}{}\_\discretionary {-}{}{}d}{35}{subsubsection.6.10.2.12}
+\contentsline {subsubsection}{\numberline {6.10.2.13}push\discretionary {-}{}{}\_\discretionary {-}{}{}d}{35}{subsubsection.6.10.2.13}
+\contentsline {subsubsection}{\numberline {6.10.2.14}reserved}{35}{subsubsection.6.10.2.14}
+\contentsline {subsubsection}{\numberline {6.10.2.15}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacityd}{36}{subsubsection.6.10.2.15}
+\contentsline {subsubsection}{\numberline {6.10.2.16}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}capd}{36}{subsubsection.6.10.2.16}
+\contentsline {subsubsection}{\numberline {6.10.2.17}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}szd}{36}{subsubsection.6.10.2.17}
+\contentsline {subsubsection}{\numberline {6.10.2.18}sized}{36}{subsubsection.6.10.2.18}
+\contentsline {subsubsection}{\numberline {6.10.2.19}vec\discretionary {-}{}{}\_\discretionary {-}{}{}d}{36}{subsubsection.6.10.2.19}
+\contentsline {subsubsection}{\numberline {6.10.2.20}vec\discretionary {-}{}{}\_\discretionary {-}{}{}d\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{36}{subsubsection.6.10.2.20}
+\contentsline {subsubsection}{\numberline {6.10.2.21}vecd\discretionary {-}{}{}\_\discretionary {-}{}{}copy}{36}{subsubsection.6.10.2.21}
+\contentsline {subsection}{\numberline {6.10.3}\discretionary {-}{}{}Variable \discretionary {-}{}{}Documentation}{36}{subsection.6.10.3}
+\contentsline {subsubsection}{\numberline {6.10.3.1}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}Z}{36}{subsubsection.6.10.3.1}
+\contentsline {section}{\numberline {6.11}vectord.\discretionary {-}{}{}h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{36}{section.6.11}
+\contentsline {subsection}{\numberline {6.11.1}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{37}{subsection.6.11.1}
+\contentsline {subsubsection}{\numberline {6.11.1.1}backd}{37}{subsubsection.6.11.1.1}
+\contentsline {subsubsection}{\numberline {6.11.1.2}cleard}{37}{subsubsection.6.11.1.2}
+\contentsline {subsubsection}{\numberline {6.11.1.3}erased}{37}{subsubsection.6.11.1.3}
+\contentsline {subsubsection}{\numberline {6.11.1.4}extendd}{38}{subsubsection.6.11.1.4}
+\contentsline {subsubsection}{\numberline {6.11.1.5}free\discretionary {-}{}{}\_\discretionary {-}{}{}vecd}{38}{subsubsection.6.11.1.5}
+\contentsline {subsubsection}{\numberline {6.11.1.6}free\discretionary {-}{}{}\_\discretionary {-}{}{}vecd\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{38}{subsubsection.6.11.1.6}
+\contentsline {subsubsection}{\numberline {6.11.1.7}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}d}{38}{subsubsection.6.11.1.7}
+\contentsline {subsubsection}{\numberline {6.11.1.8}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}d\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{38}{subsubsection.6.11.1.8}
+\contentsline {subsubsection}{\numberline {6.11.1.9}insert\discretionary {-}{}{}\_\discretionary {-}{}{}arrayd}{38}{subsubsection.6.11.1.9}
+\contentsline {subsubsection}{\numberline {6.11.1.10}insertd}{38}{subsubsection.6.11.1.10}
+\contentsline {subsubsection}{\numberline {6.11.1.11}pop\discretionary {-}{}{}\_\discretionary {-}{}{}d}{38}{subsubsection.6.11.1.11}
+\contentsline {subsubsection}{\numberline {6.11.1.12}push\discretionary {-}{}{}\_\discretionary {-}{}{}d}{38}{subsubsection.6.11.1.12}
+\contentsline {subsubsection}{\numberline {6.11.1.13}reserved}{38}{subsubsection.6.11.1.13}
+\contentsline {subsubsection}{\numberline {6.11.1.14}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacityd}{38}{subsubsection.6.11.1.14}
+\contentsline {subsubsection}{\numberline {6.11.1.15}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}capd}{38}{subsubsection.6.11.1.15}
+\contentsline {subsubsection}{\numberline {6.11.1.16}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}szd}{38}{subsubsection.6.11.1.16}
+\contentsline {subsubsection}{\numberline {6.11.1.17}vec\discretionary {-}{}{}\_\discretionary {-}{}{}d}{39}{subsubsection.6.11.1.17}
+\contentsline {subsubsection}{\numberline {6.11.1.18}vec\discretionary {-}{}{}\_\discretionary {-}{}{}d\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{39}{subsubsection.6.11.1.18}
+\contentsline {subsubsection}{\numberline {6.11.1.19}vecd\discretionary {-}{}{}\_\discretionary {-}{}{}copy}{39}{subsubsection.6.11.1.19}
+\contentsline {subsection}{\numberline {6.11.2}\discretionary {-}{}{}Variable \discretionary {-}{}{}Documentation}{39}{subsection.6.11.2}
+\contentsline {subsubsection}{\numberline {6.11.2.1}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}Z}{39}{subsubsection.6.11.2.1}
+\contentsline {section}{\numberline {6.12}vectori.\discretionary {-}{}{}c \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{39}{section.6.12}
+\contentsline {subsection}{\numberline {6.12.1}\discretionary {-}{}{}Define \discretionary {-}{}{}Documentation}{40}{subsection.6.12.1}
+\contentsline {subsubsection}{\numberline {6.12.1.1}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}R}{40}{subsubsection.6.12.1.1}
+\contentsline {subsubsection}{\numberline {6.12.1.2}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}I\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}A\discretionary {-}{}{}L\discretionary {-}{}{}L\discretionary {-}{}{}O\discretionary {-}{}{}C\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}O\discretionary {-}{}{}R}{40}{subsubsection.6.12.1.2}
+\contentsline {subsection}{\numberline {6.12.2}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{40}{subsection.6.12.2}
+\contentsline {subsubsection}{\numberline {6.12.2.1}backi}{40}{subsubsection.6.12.2.1}
+\contentsline {subsubsection}{\numberline {6.12.2.2}cleari}{40}{subsubsection.6.12.2.2}
+\contentsline {subsubsection}{\numberline {6.12.2.3}erasei}{40}{subsubsection.6.12.2.3}
+\contentsline {subsubsection}{\numberline {6.12.2.4}extendi}{40}{subsubsection.6.12.2.4}
+\contentsline {subsubsection}{\numberline {6.12.2.5}free\discretionary {-}{}{}\_\discretionary {-}{}{}veci}{41}{subsubsection.6.12.2.5}
+\contentsline {subsubsection}{\numberline {6.12.2.6}free\discretionary {-}{}{}\_\discretionary {-}{}{}veci\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{41}{subsubsection.6.12.2.6}
+\contentsline {subsubsection}{\numberline {6.12.2.7}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}i}{41}{subsubsection.6.12.2.7}
+\contentsline {subsubsection}{\numberline {6.12.2.8}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}i\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{41}{subsubsection.6.12.2.8}
+\contentsline {subsubsection}{\numberline {6.12.2.9}insert\discretionary {-}{}{}\_\discretionary {-}{}{}arrayi}{41}{subsubsection.6.12.2.9}
+\contentsline {subsubsection}{\numberline {6.12.2.10}inserti}{41}{subsubsection.6.12.2.10}
+\contentsline {subsubsection}{\numberline {6.12.2.11}pop\discretionary {-}{}{}\_\discretionary {-}{}{}i}{41}{subsubsection.6.12.2.11}
+\contentsline {subsubsection}{\numberline {6.12.2.12}push\discretionary {-}{}{}\_\discretionary {-}{}{}i}{41}{subsubsection.6.12.2.12}
+\contentsline {subsubsection}{\numberline {6.12.2.13}reservei}{41}{subsubsection.6.12.2.13}
+\contentsline {subsubsection}{\numberline {6.12.2.14}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacityi}{41}{subsubsection.6.12.2.14}
+\contentsline {subsubsection}{\numberline {6.12.2.15}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}capi}{41}{subsubsection.6.12.2.15}
+\contentsline {subsubsection}{\numberline {6.12.2.16}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}szi}{41}{subsubsection.6.12.2.16}
+\contentsline {subsubsection}{\numberline {6.12.2.17}vec\discretionary {-}{}{}\_\discretionary {-}{}{}i}{41}{subsubsection.6.12.2.17}
+\contentsline {subsubsection}{\numberline {6.12.2.18}vec\discretionary {-}{}{}\_\discretionary {-}{}{}i\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{42}{subsubsection.6.12.2.18}
+\contentsline {subsubsection}{\numberline {6.12.2.19}veci\discretionary {-}{}{}\_\discretionary {-}{}{}copy}{42}{subsubsection.6.12.2.19}
+\contentsline {subsection}{\numberline {6.12.3}\discretionary {-}{}{}Variable \discretionary {-}{}{}Documentation}{42}{subsection.6.12.3}
+\contentsline {subsubsection}{\numberline {6.12.3.1}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}I\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}Z}{42}{subsubsection.6.12.3.1}
+\contentsline {section}{\numberline {6.13}vectori.\discretionary {-}{}{}h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{42}{section.6.13}
+\contentsline {subsection}{\numberline {6.13.1}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{43}{subsection.6.13.1}
+\contentsline {subsubsection}{\numberline {6.13.1.1}backi}{43}{subsubsection.6.13.1.1}
+\contentsline {subsubsection}{\numberline {6.13.1.2}cleari}{43}{subsubsection.6.13.1.2}
+\contentsline {subsubsection}{\numberline {6.13.1.3}erasei}{43}{subsubsection.6.13.1.3}
+\contentsline {subsubsection}{\numberline {6.13.1.4}extendi}{43}{subsubsection.6.13.1.4}
+\contentsline {subsubsection}{\numberline {6.13.1.5}free\discretionary {-}{}{}\_\discretionary {-}{}{}veci}{43}{subsubsection.6.13.1.5}
+\contentsline {subsubsection}{\numberline {6.13.1.6}free\discretionary {-}{}{}\_\discretionary {-}{}{}veci\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{43}{subsubsection.6.13.1.6}
+\contentsline {subsubsection}{\numberline {6.13.1.7}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}i}{43}{subsubsection.6.13.1.7}
+\contentsline {subsubsection}{\numberline {6.13.1.8}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}i\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{44}{subsubsection.6.13.1.8}
+\contentsline {subsubsection}{\numberline {6.13.1.9}insert\discretionary {-}{}{}\_\discretionary {-}{}{}arrayi}{44}{subsubsection.6.13.1.9}
+\contentsline {subsubsection}{\numberline {6.13.1.10}inserti}{44}{subsubsection.6.13.1.10}
+\contentsline {subsubsection}{\numberline {6.13.1.11}pop\discretionary {-}{}{}\_\discretionary {-}{}{}i}{44}{subsubsection.6.13.1.11}
+\contentsline {subsubsection}{\numberline {6.13.1.12}push\discretionary {-}{}{}\_\discretionary {-}{}{}i}{44}{subsubsection.6.13.1.12}
+\contentsline {subsubsection}{\numberline {6.13.1.13}reservei}{44}{subsubsection.6.13.1.13}
+\contentsline {subsubsection}{\numberline {6.13.1.14}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacityi}{44}{subsubsection.6.13.1.14}
+\contentsline {subsubsection}{\numberline {6.13.1.15}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}capi}{44}{subsubsection.6.13.1.15}
+\contentsline {subsubsection}{\numberline {6.13.1.16}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}szi}{44}{subsubsection.6.13.1.16}
+\contentsline {subsubsection}{\numberline {6.13.1.17}vec\discretionary {-}{}{}\_\discretionary {-}{}{}i}{44}{subsubsection.6.13.1.17}
+\contentsline {subsubsection}{\numberline {6.13.1.18}vec\discretionary {-}{}{}\_\discretionary {-}{}{}i\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{44}{subsubsection.6.13.1.18}
+\contentsline {subsubsection}{\numberline {6.13.1.19}veci\discretionary {-}{}{}\_\discretionary {-}{}{}copy}{44}{subsubsection.6.13.1.19}
+\contentsline {subsection}{\numberline {6.13.2}\discretionary {-}{}{}Variable \discretionary {-}{}{}Documentation}{45}{subsection.6.13.2}
+\contentsline {subsubsection}{\numberline {6.13.2.1}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}I\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}Z}{45}{subsubsection.6.13.2.1}
+\contentsline {section}{\numberline {6.14}vectorstr.\discretionary {-}{}{}c \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{45}{section.6.14}
+\contentsline {subsection}{\numberline {6.14.1}\discretionary {-}{}{}Define \discretionary {-}{}{}Documentation}{46}{subsection.6.14.1}
+\contentsline {subsubsection}{\numberline {6.14.1.1}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}D\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}R}{46}{subsubsection.6.14.1.1}
+\contentsline {subsubsection}{\numberline {6.14.1.2}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}R\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}A\discretionary {-}{}{}L\discretionary {-}{}{}L\discretionary {-}{}{}O\discretionary {-}{}{}C\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}O\discretionary {-}{}{}R}{46}{subsubsection.6.14.1.2}
+\contentsline {subsection}{\numberline {6.14.2}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{46}{subsection.6.14.2}
+\contentsline {subsubsection}{\numberline {6.14.2.1}back\discretionary {-}{}{}\_\discretionary {-}{}{}str}{46}{subsubsection.6.14.2.1}
+\contentsline {subsubsection}{\numberline {6.14.2.2}clear\discretionary {-}{}{}\_\discretionary {-}{}{}str}{46}{subsubsection.6.14.2.2}
+\contentsline {subsubsection}{\numberline {6.14.2.3}erase\discretionary {-}{}{}\_\discretionary {-}{}{}str}{46}{subsubsection.6.14.2.3}
+\contentsline {subsubsection}{\numberline {6.14.2.4}extend\discretionary {-}{}{}\_\discretionary {-}{}{}str}{46}{subsubsection.6.14.2.4}
+\contentsline {subsubsection}{\numberline {6.14.2.5}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str}{46}{subsubsection.6.14.2.5}
+\contentsline {subsubsection}{\numberline {6.14.2.6}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{46}{subsubsection.6.14.2.6}
+\contentsline {subsubsection}{\numberline {6.14.2.7}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str}{46}{subsubsection.6.14.2.7}
+\contentsline {subsubsection}{\numberline {6.14.2.8}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{46}{subsubsection.6.14.2.8}
+\contentsline {subsubsection}{\numberline {6.14.2.9}insert\discretionary {-}{}{}\_\discretionary {-}{}{}array\discretionary {-}{}{}\_\discretionary {-}{}{}str}{47}{subsubsection.6.14.2.9}
+\contentsline {subsubsection}{\numberline {6.14.2.10}insert\discretionary {-}{}{}\_\discretionary {-}{}{}str}{47}{subsubsection.6.14.2.10}
+\contentsline {subsubsection}{\numberline {6.14.2.11}mystrdup}{47}{subsubsection.6.14.2.11}
+\contentsline {subsubsection}{\numberline {6.14.2.12}pop\discretionary {-}{}{}\_\discretionary {-}{}{}str}{47}{subsubsection.6.14.2.12}
+\contentsline {subsubsection}{\numberline {6.14.2.13}push\discretionary {-}{}{}\_\discretionary {-}{}{}str}{47}{subsubsection.6.14.2.13}
+\contentsline {subsubsection}{\numberline {6.14.2.14}reserve\discretionary {-}{}{}\_\discretionary {-}{}{}str}{47}{subsubsection.6.14.2.14}
+\contentsline {subsubsection}{\numberline {6.14.2.15}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacity\discretionary {-}{}{}\_\discretionary {-}{}{}str}{47}{subsubsection.6.14.2.15}
+\contentsline {subsubsection}{\numberline {6.14.2.16}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}cap\discretionary {-}{}{}\_\discretionary {-}{}{}str}{47}{subsubsection.6.14.2.16}
+\contentsline {subsubsection}{\numberline {6.14.2.17}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}sz\discretionary {-}{}{}\_\discretionary {-}{}{}str}{47}{subsubsection.6.14.2.17}
+\contentsline {subsubsection}{\numberline {6.14.2.18}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str}{47}{subsubsection.6.14.2.18}
+\contentsline {subsubsection}{\numberline {6.14.2.19}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}copy}{47}{subsubsection.6.14.2.19}
+\contentsline {subsubsection}{\numberline {6.14.2.20}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{47}{subsubsection.6.14.2.20}
+\contentsline {subsection}{\numberline {6.14.3}\discretionary {-}{}{}Variable \discretionary {-}{}{}Documentation}{48}{subsection.6.14.3}
+\contentsline {subsubsection}{\numberline {6.14.3.1}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}R\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}Z}{48}{subsubsection.6.14.3.1}
+\contentsline {section}{\numberline {6.15}vectorstr.\discretionary {-}{}{}h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{48}{section.6.15}
+\contentsline {subsection}{\numberline {6.15.1}\discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{49}{subsection.6.15.1}
+\contentsline {subsubsection}{\numberline {6.15.1.1}back\discretionary {-}{}{}\_\discretionary {-}{}{}str}{49}{subsubsection.6.15.1.1}
+\contentsline {subsubsection}{\numberline {6.15.1.2}clear\discretionary {-}{}{}\_\discretionary {-}{}{}str}{49}{subsubsection.6.15.1.2}
+\contentsline {subsubsection}{\numberline {6.15.1.3}erase\discretionary {-}{}{}\_\discretionary {-}{}{}str}{49}{subsubsection.6.15.1.3}
+\contentsline {subsubsection}{\numberline {6.15.1.4}extend\discretionary {-}{}{}\_\discretionary {-}{}{}str}{49}{subsubsection.6.15.1.4}
+\contentsline {subsubsection}{\numberline {6.15.1.5}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str}{49}{subsubsection.6.15.1.5}
+\contentsline {subsubsection}{\numberline {6.15.1.6}free\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{49}{subsubsection.6.15.1.6}
+\contentsline {subsubsection}{\numberline {6.15.1.7}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str}{49}{subsubsection.6.15.1.7}
+\contentsline {subsubsection}{\numberline {6.15.1.8}init\discretionary {-}{}{}\_\discretionary {-}{}{}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{49}{subsubsection.6.15.1.8}
+\contentsline {subsubsection}{\numberline {6.15.1.9}insert\discretionary {-}{}{}\_\discretionary {-}{}{}array\discretionary {-}{}{}\_\discretionary {-}{}{}str}{49}{subsubsection.6.15.1.9}
+\contentsline {subsubsection}{\numberline {6.15.1.10}insert\discretionary {-}{}{}\_\discretionary {-}{}{}str}{50}{subsubsection.6.15.1.10}
+\contentsline {subsubsection}{\numberline {6.15.1.11}mystrdup}{50}{subsubsection.6.15.1.11}
+\contentsline {subsubsection}{\numberline {6.15.1.12}pop\discretionary {-}{}{}\_\discretionary {-}{}{}str}{50}{subsubsection.6.15.1.12}
+\contentsline {subsubsection}{\numberline {6.15.1.13}push\discretionary {-}{}{}\_\discretionary {-}{}{}str}{50}{subsubsection.6.15.1.13}
+\contentsline {subsubsection}{\numberline {6.15.1.14}reserve\discretionary {-}{}{}\_\discretionary {-}{}{}str}{50}{subsubsection.6.15.1.14}
+\contentsline {subsubsection}{\numberline {6.15.1.15}set\discretionary {-}{}{}\_\discretionary {-}{}{}capacity\discretionary {-}{}{}\_\discretionary {-}{}{}str}{50}{subsubsection.6.15.1.15}
+\contentsline {subsubsection}{\numberline {6.15.1.16}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}cap\discretionary {-}{}{}\_\discretionary {-}{}{}str}{50}{subsubsection.6.15.1.16}
+\contentsline {subsubsection}{\numberline {6.15.1.17}set\discretionary {-}{}{}\_\discretionary {-}{}{}val\discretionary {-}{}{}\_\discretionary {-}{}{}sz\discretionary {-}{}{}\_\discretionary {-}{}{}str}{50}{subsubsection.6.15.1.17}
+\contentsline {subsubsection}{\numberline {6.15.1.18}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str}{50}{subsubsection.6.15.1.18}
+\contentsline {subsubsection}{\numberline {6.15.1.19}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}copy}{50}{subsubsection.6.15.1.19}
+\contentsline {subsubsection}{\numberline {6.15.1.20}vec\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}heap}{50}{subsubsection.6.15.1.20}
+\contentsline {subsection}{\numberline {6.15.2}\discretionary {-}{}{}Variable \discretionary {-}{}{}Documentation}{50}{subsection.6.15.2}
+\contentsline {subsubsection}{\numberline {6.15.2.1}\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}R\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}Z}{50}{subsubsection.6.15.2.1}
