@@ -579,14 +579,14 @@ I've also run it under valgrind and there are no memory leaks.
 valgrind --leak-check=yes ./vector
 
 <pre>
-==12365== HEAP SUMMARY:
-==12365==     in use at exit: 0 bytes in 0 blocks
-==12365==   total heap usage: 4,957 allocs, 4,957 frees, 797,993 bytes allocated
-==12365== 
-==12365== All heap blocks were freed -- no leaks are possible
-==12365== 
-==12365== For counts of detected and suppressed errors, rerun with: -v
-==12365== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4300== HEAP SUMMARY:
+==4300==     in use at exit: 0 bytes in 0 blocks
+==4300==   total heap usage: 4,957 allocs, 4,957 frees, 797,993 bytes allocated
+==4300== 
+==4300== All heap blocks were freed -- no leaks are possible
+==4300== 
+==4300== For counts of detected and suppressed errors, rerun with: -v
+==4300== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 </pre>
 
 You can probably get Cunit from your package manager but
