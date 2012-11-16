@@ -1,12 +1,14 @@
 #include "vector_void.h"
 
+#include <assert.h>
+
 #define STDERR(X) fprintf(stderr, X)
 
 
 size_t VEC_START_SZ = 20;
 
 
-#define VEC_ALLOCATOR(x) (x*2)
+#define VEC_ALLOCATOR(x) ((x) * 2)
 
 
 
@@ -16,7 +18,7 @@ size_t VEC_START_SZ = 20;
 /*  general vector */
 
 /**
- * Creates a new vector.
+ * Creates a new vector on the heap.
  * Vector size set to (size > 0) ? size : 0;
  * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
@@ -43,7 +45,7 @@ vector_void* vec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*e
 {
 	vector_void* vec;
 	if (!(vec = malloc(sizeof(vector_void)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec != NULL);
 		return NULL;
 	}
 
@@ -54,7 +56,7 @@ vector_void* vec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*e
 	
 	/*not calloc here and init_vec as in vector_s because elem_free cannot be calling free directly*/
 	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
 	}
@@ -67,22 +69,23 @@ vector_void* vec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*e
 
 
 
-/** Create and initialize vector with num elements of vals.
+/** Create (on the heap) and initialize vector with num elements of vals.
  *  If vals is NULL, capacity is set to num + VEC_I_START_SZ.
  *  Size is set to num in the first place, 0 otherwise.
  *  elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
- *  See vec() for more information about the elem_free and elem_init parameters.
+ *  See vec_void_heap() for more information about the elem_free and elem_init parameters.
  */
 vector_void* init_vec_void_heap(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	vector_void* vec;
 	size_t i;
 	
-	if (!vals || num < 1)
+	if (!vals || num < 1) {
 		return NULL;
+	}
 	
 	if (!(vec = malloc(sizeof(vector_void)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec != NULL);
 		return NULL;
 	}
 
@@ -91,7 +94,7 @@ vector_void* init_vec_void_heap(void* vals, size_t num, size_t elem_sz, void(*el
 	vec->capacity = num+VEC_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
 	}
@@ -110,8 +113,8 @@ vector_void* init_vec_void_heap(void* vals, size_t num, size_t elem_sz, void(*el
 	return vec;
 }
 
-/** Same as vec() except the vector passed in was declared on the stack so
- *  it isn't allocated in this function.  Use the free_vec_stack in that case
+/** Same as vec_void_heap() except the vector passed in was declared on the stack so
+ *  it isn't allocated in this function.  Use the free_vec_void in that case
  */
 int vec_void(vector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
@@ -121,7 +124,7 @@ int vec_void(vector_void* vec, size_t size, size_t capacity, size_t elem_sz, voi
 	vec->elem_size = elem_sz;
 	
 	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
 	}
@@ -132,21 +135,22 @@ int vec_void(vector_void* vec, size_t size, size_t capacity, size_t elem_sz, voi
 	return 1;
 }
 
-/** Same as init_vec() except the vector passed in was declared on the stack so
- *  it isn't allocated in this function.  Use the free_vec_stack in that case
+/** Same as init_vec_heap() except the vector passed in was declared on the stack so
+ *  it isn't allocated in this function.  Use the free_vec_void in this case
  */
 int init_vec_void(vector_void* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	size_t i;
-	if (!vals || num < 1)
+	if (!vals || num < 1) {
 		return 0;
+	}
 	
 	vec->elem_size = elem_sz;
 
 	vec->capacity = num+VEC_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
 	}
@@ -185,7 +189,7 @@ void vec_void_copy(void* dest, void* src)
 	
 	/*not much else we can do here*/
 	if (!(vec1->a = malloc(vec2->capacity*vec2->elem_size))) {
-		STDERR("Error allocating memory\n");
+		assert(vec1->a != NULL);
 		return;
 	}
 
@@ -196,8 +200,9 @@ void vec_void_copy(void* dest, void* src)
 	vec1->elem_free = vec2->elem_free;
 	
 	if (vec1->elem_init) {
-		for (i=0; i<vec1->size; ++i)
+		for (i=0; i<vec1->size; ++i) {
 			vec1->elem_init(&vec1->a[i*vec1->elem_size], &vec2->a[i*vec1->elem_size]);
+		}
 	} else {
 		memcpy(vec1->a, vec2->a, vec1->size*vec1->elem_size);
 	}
@@ -212,23 +217,24 @@ int push_void(vector_void* vec, void* a)
 	void* tmp;
 	size_t tmp_sz;
 	if (vec->capacity > vec->size) {
-		if (vec->elem_init)
+		if (vec->elem_init) {
 			vec->elem_init(&vec->a[vec->size*vec->elem_size], a);
-		else
+		} else {
 			memcpy(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
-
+		}
 	} else {
 		tmp_sz = VEC_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, vec->elem_size*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
 		
-		if (vec->elem_init)
+		if (vec->elem_init) {
 			vec->elem_init(&vec->a[vec->size*vec->elem_size], a);
-		else
+		} else {
 			memcpy(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
+		}
 		
 		vec->capacity = tmp_sz;
 	}
@@ -245,13 +251,15 @@ int push_void(vector_void* vec, void* a)
  */
 void pop_void(vector_void* vec, void* ret)
 {
-	if (ret)
+	if (ret) {
 		memcpy(ret, &vec->a[(--vec->size)*vec->elem_size], vec->elem_size);
-	else
+	} else {
 		vec->size--;
+	}
 
-	if (vec->elem_free)
+	if (vec->elem_free) {
 		vec->elem_free(&vec->a[vec->size*vec->elem_size]);
+	}
 }
 
 /** Return pointer to last element */
@@ -272,7 +280,7 @@ int extend_void(vector_void* vec, size_t num)
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_START_SZ;
 		if (!(tmp = realloc(vec->a, vec->elem_size*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -308,24 +316,26 @@ int insert_void(vector_void* vec, size_t i, void* a)
 	if (vec->capacity > vec->size) {
 		memmove(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
 
-		if (vec->elem_init)
+		if (vec->elem_init) {
 			vec->elem_init(&vec->a[i*vec->elem_size], a);
-		else
+		} else {
 			memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
-
+		}
 	} else {
 		tmp_sz = VEC_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, vec->elem_size*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
-		vec->a = tmp;
 		
+		vec->a = tmp;
 		memmove(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
-		if (vec->elem_init)
+		
+		if (vec->elem_init) {
 			vec->elem_init(&vec->a[i*vec->elem_size], a);
-		else
+		} else {
 			memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
+		}
 		
 		vec->capacity = tmp_sz;
 	}
@@ -348,7 +358,7 @@ int insert_array_void(vector_void* vec, size_t i, void* a, size_t num)
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_START_SZ;
 		if (!(tmp = realloc(vec->a, vec->elem_size*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -357,8 +367,9 @@ int insert_array_void(vector_void* vec, size_t i, void* a, size_t num)
 
 	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(int));
 	if (vec->elem_init) {
-		for (j=0; j<num; ++j)
+		for (j=0; j<num; ++j) {
 			vec->elem_init(&vec->a[(j+i)*vec->elem_size], &((byte*)a)[j*vec->elem_size]);
+		}
 	} else {
 		memcpy(&vec->a[i], a, num*vec->elem_size);
 	}
@@ -376,10 +387,11 @@ void erase_void(vector_void* vec, size_t start, size_t end)
 {
 	size_t i;
 	size_t d = end - start + 1;
-	if (vec->elem_free)
-		for (i=start; i<=end; i++)
+	if (vec->elem_free) {
+		for (i=start; i<=end; i++) {
 			vec->elem_free(&vec->a[i*vec->elem_size]);
-
+		}
+	}
 	memmove(&vec->a[start*vec->elem_size], &vec->a[(end+1)*vec->elem_size], (vec->size-1-end)*vec->elem_size);
 	vec->size -= d;
 }
@@ -390,8 +402,8 @@ int reserve_void(vector_void* vec, size_t size)
 {
 	void* tmp;
 	if (vec->capacity < size) {
-		if( !(tmp = realloc(vec->a, vec->elem_size*(size+VEC_START_SZ))) ) {
-			STDERR("Error allocating memory\n");
+		if (!(tmp = realloc(vec->a, vec->elem_size*(size+VEC_START_SZ)))) {
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -410,17 +422,18 @@ int set_capacity_void(vector_void* vec, size_t size)
 	size_t i;
 	void* tmp;
 	if (size < vec->size) {
-		if (vec->elem_free)
-			for (i=vec->size-1; i>=size; i--)
+		if (vec->elem_free) {
+			for (i=vec->size-1; i>=size; i--) {
 				vec->elem_free(&vec->a[i*vec->elem_size]);
-
+			}
+		}
 		vec->size = size;
 	}
 
 	vec->capacity = size;
 
 	if (!(tmp = realloc(vec->a, vec->elem_size*size))) {
-		STDERR("Error allocating memory\n");
+		assert(tmp != NULL);
 		return 0;
 	}
 	vec-> a = tmp;
@@ -434,16 +447,20 @@ void set_val_sz_void(vector_void* vec, void* val)
 {
 	size_t i;
 
-	if (vec->elem_free)
-		for(i=0; i<vec->size; i++)
+	if (vec->elem_free) {
+		for(i=0; i<vec->size; i++) {
 			vec->elem_free(&vec->a[i*vec->elem_size]);
-
+		}
+	}
+	
 	if (vec->elem_init) {
-		for (i=0; i<vec->size; i++)
+		for (i=0; i<vec->size; i++) {
 			vec->elem_init(&vec->a[i*vec->elem_size], val);
+		}
 	} else {
-		for (i=0; i<vec->size; i++)
+		for (i=0; i<vec->size; i++) {
 			memcpy(&vec->a[i*vec->elem_size], val, vec->elem_size);
+		}
 	}
 }
 
@@ -457,18 +474,20 @@ void set_val_cap_void(vector_void* vec, void* val)
 {
 	size_t i;
 	if (vec->elem_free) {
-		for (i=0; i<vec->size; i++)
+		for (i=0; i<vec->size; i++) {
 			vec->elem_free(&vec->a[i*vec->elem_size]);
-
+		}
 		vec->size = vec->capacity;
 	}
 
 	if (vec->elem_init) {
-		for (i=0; i<vec->capacity; i++)
+		for (i=0; i<vec->capacity; i++) {
 			vec->elem_init(&vec->a[i*vec->elem_size], val);
+		}
 	} else {
-		for (i=0; i<vec->capacity; i++)
+		for (i=0; i<vec->capacity; i++) {
 			memcpy(&vec->a[i*vec->elem_size], val, vec->elem_size);
+		}
 	}
 }
 
@@ -493,10 +512,11 @@ void free_vec_void_heap(void* vec)
 {
 	size_t i;
 	vector_void* tmp = vec;
-	if (tmp->elem_free)
-		for (i=0; i<tmp->size; i++)
+	if (tmp->elem_free) {
+		for (i=0; i<tmp->size; i++) {
 			tmp->elem_free(&tmp->a[i*tmp->elem_size]);
-
+		}
+	}
 	free(tmp->a);
 	free(tmp);
 }
@@ -507,9 +527,11 @@ void free_vec_void(void* vec)
 {
 	size_t i;
 	vector_void* tmp = vec;
-	if (tmp->elem_free)
-		for (i=0; i<tmp->size; i++)
+	if (tmp->elem_free) {
+		for (i=0; i<tmp->size; i++) {
 			tmp->elem_free(&tmp->a[i*tmp->elem_size]);
+		}
+	}
 
 	free(tmp->a);
 
@@ -538,10 +560,10 @@ size_t VEC_D_START_SZ = 50;
 size_t VEC_START_SZ = 20;
 size_t VEC_S_START_SZ = 20;
 
-#define VECI_ALLOCATOR(x) (x*2)
-#define VECD_ALLOCATOR(x) (x*2)
-#define VECS_ALLOCATOR(x) (x*2)
-#define VEC_ALLOCATOR(x) (x*2)
+#define VECI_ALLOCATOR(x) ((x) * 2)
+#define VECD_ALLOCATOR(x) ((x) * 2)
+#define VECS_ALLOCATOR(x) ((x) * 2)
+#define VEC_ALLOCATOR(x) ((x) * 2)
 </pre>
 The allocator macros are used in all functions that increase the size by 1.
 In others (constructors, insert_array, reserve) VEC_X_START_SZ is the amount
@@ -579,14 +601,14 @@ I've also run it under valgrind and there are no memory leaks.
 valgrind --leak-check=yes ./vector
 
 <pre>
-==4300== HEAP SUMMARY:
-==4300==     in use at exit: 0 bytes in 0 blocks
-==4300==   total heap usage: 4,957 allocs, 4,957 frees, 797,993 bytes allocated
-==4300== 
-==4300== All heap blocks were freed -- no leaks are possible
-==4300== 
-==4300== For counts of detected and suppressed errors, rerun with: -v
-==4300== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4776== HEAP SUMMARY:
+==4776==     in use at exit: 0 bytes in 0 blocks
+==4776==   total heap usage: 4,957 allocs, 4,957 frees, 797,993 bytes allocated
+==4776== 
+==4776== All heap blocks were freed -- no leaks are possible
+==4776== 
+==4776== For counts of detected and suppressed errors, rerun with: -v
+==4776== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 </pre>
 
 You can probably get Cunit from your package manager but

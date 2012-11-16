@@ -1,12 +1,14 @@
 #include "vectorstr.h"
 
+#include <assert.h>
+
 #define STDERR(X) fprintf(stderr, X)
 
 
 
 size_t VEC_STR_START_SZ = 20;
 
-#define VEC_STR_ALLOCATOR(x) (x*2)
+#define VEC_STR_ALLOCATOR(x) ((x) * 2)
 
 /** Useful utility function since strdup isn't in standard C.*/
 char* mystrdup(const char* str)
@@ -16,8 +18,10 @@ char* mystrdup(const char* str)
 	 */
 	size_t len = strlen(str);
 	char* temp = calloc(len+1, sizeof(char));
-	if (!temp)
+	if (!temp) {
+		assert(temp != NULL);
 		return NULL;
+	}
 	
 	return memcpy(temp, str, len);  /* memcpy returns to, and calloc already nulled last char */
 }
@@ -25,7 +29,7 @@ char* mystrdup(const char* str)
 
 
 /**
- * Create a new vector_str.
+ * Create a new vector_str on the heap.
  * Vector size set to (size > 0) ? size : 0;
  * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
@@ -38,7 +42,7 @@ vector_str* vec_str_heap(size_t size, size_t capacity)
 {
 	vector_str* vec;
 	if (!(vec = malloc(sizeof(vector_str)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec != NULL);
 		return NULL;
 	}
 
@@ -48,7 +52,7 @@ vector_str* vec_str_heap(size_t size, size_t capacity)
 	/* calloc here because it we free before poppirg/erasing and since nothing is
 	 * allocated these need to be NULL to not cause problems */
 	if (!(vec->a = calloc(vec->capacity, sizeof(char*)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
 	}
@@ -57,7 +61,7 @@ vector_str* vec_str_heap(size_t size, size_t capacity)
 }
 
 
-/** Create and initialize vector_str with num elements of vals.
+/** Create (on the heap) and initialize vector_str with num elements of vals.
  *  If vals is NULL, or num < 1, it returns NULL.  You should
  *  use vec_str(size_t) instead in those cases.
  */
@@ -66,31 +70,34 @@ vector_str* init_vec_str_heap(char** vals, size_t num)
 	vector_str* vec;
 	size_t i;
 	
-	if (!vals || num < 1)
+	if (!vals || num < 1) {
 		return NULL;
+	}
 	
 	if (!(vec = malloc(sizeof(vector_str)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec != NULL);
 		return NULL;
 	}
 
 	vec->capacity = num + VEC_STR_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(char*)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
 	}
 
-	for(i=0; i<num; i++)
+	for(i=0; i<num; i++) {
 		vec->a[i] = mystrdup(vals[i]);
-
+	}
+	
 	return vec;
 }
 
 
-/** Same as vec_str() except the vector passed in was declared on the stack so
- *  it isn't allocated in this function.  Use the free_vec_str_stack in that case
+/** Same as vec_str_heap() except the vector passed in was declared on the stack so
+ *  it isn't allocated in this function.  Use the free_vec_str in that case
+ *  This and init_vec_str should be preferred over the heap versions.
  */
 int vec_str(vector_str* vec, size_t size, size_t capacity)
 {
@@ -100,7 +107,7 @@ int vec_str(vector_str* vec, size_t size, size_t capacity)
 	/* calloc here because it we free before poppirg/erasing and since nothing is
 	 * allocated these need to be NULL to not cause problems */
 	if (!(vec->a = calloc(vec->capacity, sizeof(char*)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
 	}
@@ -115,20 +122,22 @@ int init_vec_str(vector_str* vec, char** vals, size_t num)
 {
 	size_t i;
 	
-	if (!vals || num < 1)
+	if (!vals || num < 1) {
 		return 0;
+	}
 	
 	vec->capacity = num + VEC_STR_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(char*)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
 	}
 
-	for(i=0; i<num; i++)
+	for(i=0; i<num; i++) {
 		vec->a[i] = mystrdup(vals[i]);
-
+	}
+	
 	return 1;
 }
 
@@ -150,12 +159,13 @@ void vec_str_copy(void* dest, void* src)
 	
 	/*not much else we can do here*/
 	if (!(vec1->a = malloc(vec2->capacity*sizeof(char*)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec1->a != NULL);
 		return;
 	}
 	
-	for (i=0; i<vec2->size; ++i)
+	for (i=0; i<vec2->size; ++i) {
 		vec1->a[i] = mystrdup(vec2->a[i]);
+	}
 	
 	vec1->size = vec2->size;
 	vec1->capacity = vec2->capacity;
@@ -174,7 +184,7 @@ int push_str(vector_str* vec, char* a)
 	if (vec->capacity == vec->size) {
 		tmp_sz = VEC_STR_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -191,8 +201,9 @@ int push_str(vector_str* vec, char* a)
  *  (ie ret has adequate space.) */
 void pop_str(vector_str* vec, char* ret)
 {
-	if (ret)
+	if (ret) {
 		strcpy(ret, vec->a[--vec->size]);
+	}
 	free(vec->a[vec->size]);
 }
 
@@ -217,7 +228,7 @@ int extend_str(vector_str* vec, size_t num)
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_STR_START_SZ;
 		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -244,7 +255,7 @@ int insert_str(vector_str* vec, size_t i, char* a)
 	if (vec->capacity == vec->size) {
 		tmp_sz = VEC_STR_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -270,7 +281,7 @@ int insert_array_str(vector_str* vec, size_t i, char** a, size_t num)
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_STR_START_SZ;
 		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -278,8 +289,10 @@ int insert_array_str(vector_str* vec, size_t i, char** a, size_t num)
 	}
 
 	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(char*));
-	for (j=0; j<num; ++j)
+	for (j=0; j<num; ++j) {
 		vec->a[j+i] = mystrdup(a[j]);
+	}
+	
 	vec->size += num;
 	return 1;
 }
@@ -296,8 +309,9 @@ void erase_str(vector_str* vec, size_t start, size_t end)
 {
 	size_t i;
 	size_t d = end - start + 1;
-	for (i=start; i<=end; i++)
+	for (i=start; i<=end; i++) {
 		free(vec->a[i]);
+	}
 	
 	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(char*));
 	vec->size -= d;
@@ -313,7 +327,7 @@ int reserve_str(vector_str* vec, size_t size)
 	void* tmp;
 	if (vec->capacity < size) {
 		if (!(tmp = realloc(vec->a, sizeof(char*)*(size+VEC_STR_START_SZ)))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -331,14 +345,15 @@ int set_capacity_str(vector_str* vec, size_t size)
 	size_t i;
 	void* tmp;
 	if (size < vec->size) {
-		for(i=vec->size-1; i>size-1; i--)
+		for(i=vec->size-1; i>size-1; i--) {
 			free(vec->a[i]);
+		}
 
 		vec->size = size;
 	}
 
 	if (!(tmp = realloc(vec->a, sizeof(char*)*size))) {
-		STDERR("Error allocating memory\n");
+		assert(tmp != NULL);
 		return 0;
 	}
 	vec->a = tmp;
@@ -369,9 +384,10 @@ void set_val_cap_str(vector_str* vec, char* val)
 {
 	size_t i;
 	for (i=0; i<vec->capacity; i++) {
-		if (i<vec->size)
+		if (i<vec->size) {
 			free(vec->a[i]);
-
+		}
+		
 		vec->a[i] = mystrdup(val);
 	}
 	vec->size = vec->capacity;
@@ -382,8 +398,9 @@ void set_val_cap_str(vector_str* vec, char* val)
 void clear_str(vector_str* vec)
 {
 	int i;
-	for (i=0; i<vec->size; i++)
+	for (i=0; i<vec->size; i++) {
 		free(vec->a[i]);
+	}
 	
 	vec->size = 0;
 }
@@ -394,8 +411,9 @@ void free_vec_str_heap(void* vec)
 {
 	size_t i;
 	vector_str* tmp = vec;
-	for (i=0; i<tmp->size; i++)
+	for (i=0; i<tmp->size; i++) {
 		free(tmp->a[i]);
+	}
 	
 	free(tmp->a);
 	free(tmp);
@@ -407,8 +425,9 @@ void free_vec_str(void* vec)
 {
 	size_t i;
 	vector_str* tmp = vec;
-	for (i=0; i<tmp->size; i++)
+	for (i=0; i<tmp->size; i++) {
 		free(tmp->a[i]);
+	}
 	
 	free(tmp->a);
 	tmp->size = 0;

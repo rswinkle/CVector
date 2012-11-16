@@ -1,18 +1,20 @@
 #include "vectori.h"
 
+#include <assert.h>
+
 #define STDERR(X) fprintf(stderr, X)
 
 
 
 size_t VEC_I_START_SZ = 50;
 
-#define VECI_ALLOCATOR(x) (x*2)
+#define VECI_ALLOCATOR(x) ((x) * 2)
 
 
 
 
 /**
- * Creates a new vector_i.
+ * Creates a new vector_i on the heap.
  * Vector size set to (size > 0) ? size : 0;
  * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course. 
@@ -21,7 +23,7 @@ vector_i* vec_i_heap(size_t size, size_t capacity)
 {
 	vector_i* vec;
 	if (!(vec = malloc(sizeof(vector_i)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec != NULL);
 		return NULL;
 	}
 
@@ -29,7 +31,7 @@ vector_i* vec_i_heap(size_t size, size_t capacity)
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ;
 
 	if (!(vec->a = malloc(vec->capacity*sizeof(int)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
 	}
@@ -37,7 +39,7 @@ vector_i* vec_i_heap(size_t size, size_t capacity)
 	return vec;
 }
 
-/** Create and initialize vector_i with num elements of vals.
+/** Create (on the heap) and initialize vector_i with num elements of vals.
  *  Capacity is set to num + VEC_I_START_SZ.
  *  If vals == NULL or num < 1 return NULL (you should just be using vec_i(size_t, size_t))
  */
@@ -45,18 +47,19 @@ vector_i* init_vec_i_heap(int* vals, size_t num)
 {
 	vector_i* vec;
 	
-	if (!vals || num < 1)
+	if (!vals || num < 1) {
 		return NULL;
+	}
 	
 	if (!(vec = malloc(sizeof(vector_i)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec != NULL);
 		return NULL;
 	}
 
 	vec->capacity = num + VEC_I_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(int)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
 	}
@@ -66,8 +69,9 @@ vector_i* init_vec_i_heap(int* vals, size_t num)
 	return vec;
 }
 
-/** Same as vec_i() except the vector passed in was declared on the stack so
- *  it isn't allocated in this function.  Use the free_veci_stack in that case.
+/** Same as vec_i_heap() except the vector passed in was declared on the stack so
+ *  it isn't allocated in this function.  Use the free_veci in that case.
+ *  This and init_vec_i should be preferred over the heap versions.
  */
 int vec_i(vector_i* vec, size_t size, size_t capacity)
 {
@@ -75,7 +79,7 @@ int vec_i(vector_i* vec, size_t size, size_t capacity)
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ;
 
 	if (!(vec->a = malloc(vec->capacity*sizeof(int)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
 	}
@@ -84,18 +88,19 @@ int vec_i(vector_i* vec, size_t size, size_t capacity)
 }
 
 
-/** Same as init_vec_i() except the vector passed in was declared on the stack so
+/** Same as init_vec_i_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the free_veci_stack in that case.
  */
 int init_vec_i(vector_i* vec, int* vals, size_t num)
 {
-	if (!vals || num < 1)
+	if (!vals || num < 1) {
 		return 0;
+	}
 
 	vec->capacity = num + VEC_I_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(int)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
 	}
@@ -122,7 +127,7 @@ void veci_copy(void* dest, void* src)
 	
 	/*not much else we can do here*/
 	if (!(vec1->a = malloc(vec2->capacity*sizeof(int)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec1->a != NULL);
 		return;
 	}
 	
@@ -146,7 +151,7 @@ int push_i(vector_i* vec, int a)
 	if (vec->capacity == vec->size) {
 		tmp_sz = VECI_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -182,7 +187,7 @@ int extendi(vector_i* vec, size_t num)
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_I_START_SZ;
 		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -208,7 +213,7 @@ int inserti(vector_i* vec, size_t i, int a)
 	if (vec->capacity == vec->size) {
 		tmp_sz = VECI_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -235,7 +240,7 @@ int insert_arrayi(vector_i* vec, size_t i, int* a, size_t num)
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_I_START_SZ;
 		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -271,7 +276,7 @@ int reservei(vector_i* vec, size_t size)
 	void* tmp;
 	if (vec->capacity < size) {
 		if (!(tmp = realloc(vec->a, sizeof(int)*(size+VEC_I_START_SZ)))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -289,11 +294,12 @@ int reservei(vector_i* vec, size_t size)
 int set_capacityi(vector_i* vec, size_t size)
 {
 	void* tmp;
-	if (size < vec->size)
+	if (size < vec->size) {
 		vec->size = size;
+	}
 
 	if (!(tmp = realloc(vec->a, sizeof(int)*size))) {
-		STDERR("Error allocating memory\n");
+		assert(tmp != NULL);
 		return 0;
 	}
 	vec->a = tmp;
@@ -307,8 +313,9 @@ int set_capacityi(vector_i* vec, size_t size)
 void set_val_szi(vector_i* vec, int val)
 {
 	size_t i;
-	for (i=0; i<vec->size; i++)
+	for (i=0; i<vec->size; i++) {
 		vec->a[i] = val;
+	}
 }
 
 
@@ -316,8 +323,9 @@ void set_val_szi(vector_i* vec, int val)
 void set_val_capi(vector_i* vec, int val)
 {
 	size_t i;
-	for (i=0; i<vec->capacity; i++)
+	for (i=0; i<vec->capacity; i++) {
 		vec->a[i] = val;
+	}
 }
 
 

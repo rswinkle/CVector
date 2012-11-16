@@ -1,5 +1,7 @@
 #include "vectord.h"
 
+#include <assert.h>
+
 #define STDERR(X) fprintf(stderr, X)
 
 
@@ -7,13 +9,13 @@
 size_t VEC_D_START_SZ = 50;
 
 
-#define VECD_ALLOCATOR(x) (x*2)
+#define VECD_ALLOCATOR(x) ((x) * 2)
 
 
 
 
 /**
- * Creates a new vector_d.
+ * Creates a new vector_d on the heap.
  * Vector size set to (size > 0) ? size : 0;
  * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
@@ -21,28 +23,26 @@ size_t VEC_D_START_SZ = 50;
 vector_d* vec_d_heap(size_t size, size_t capacity)
 {
 	vector_d* vec;
-	void* tmp;
 	
 	if (!(vec = malloc(sizeof(vector_d)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec != NULL);
 		return NULL;
 	}
 
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ;
 
-	if (!(tmp = malloc(vec->capacity*sizeof(double)))) {
-		STDERR("Error allocating memory\n");
+	if (!(vec->a = malloc(vec->capacity*sizeof(double)))) {
+		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
 	}
-	vec->a = tmp;
 
 	return vec;
 }
 
 
-/** Create and initialize vector_d with num elements of vals.
+/** Create (on the heap) and initialize vector_d with num elements of vals.
  *  Capacity is set to num + VEC_D_START_SZ.
  *  If vals == NULL or num < 1 return NULL (you should just be using vec_d(size_t, size_t))
  */
@@ -50,18 +50,19 @@ vector_d* init_vec_d_heap(double* vals, size_t num)
 {
 	vector_d* vec;
 	
-	if (!vals || num < 1)
+	if (!vals || num < 1) {
 		return NULL;
+	}
 	
 	if (!(vec = malloc(sizeof(vector_d)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec != NULL);
 		return NULL;
 	}
 
 	vec->capacity = num + VEC_D_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(double)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
 	}
@@ -72,8 +73,9 @@ vector_d* init_vec_d_heap(double* vals, size_t num)
 }
 
 
-/** Same as vec_d() except the vector passed in was declared on the stack so
- *  it isn't allocated in this function.  Use the free_vecd_stack in that case.
+/** Same as vec_d_heap() except the vector passed in was declared on the stack so
+ *  it isn't allocated in this function.  Use the free_vecd in this case.
+ *  This and init_vec_d should be preferred over the heap versions.
  */
 int vec_d(vector_d* vec, size_t size, size_t capacity)
 {
@@ -81,7 +83,7 @@ int vec_d(vector_d* vec, size_t size, size_t capacity)
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ;
 
 	if (!(vec->a = malloc(vec->capacity*sizeof(double)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
 	}
@@ -89,18 +91,19 @@ int vec_d(vector_d* vec, size_t size, size_t capacity)
 	return 1;
 }
 
-/** Same as init_vec_d() except the vector passed in was declared on the stack so
- *  it isn't allocated in this function.  Use the free_vecd_stack in that case.
+/** Same as init_vec_d_heap() except the vector passed in was declared on the stack so
+ *  it isn't allocated in this function.  Use the free_vecd in this case.
  */
 int init_vec_d(vector_d* vec, double* vals, size_t num)
 {
-	if (!vals || num < 1)
+	if (!vals || num < 1) {
 		return 0;
+	}
 
 	vec->capacity = num + VEC_D_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(double)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
 	}
@@ -126,7 +129,7 @@ void vecd_copy(void* dest, void* src)
 	
 	/*not much else we can do here*/
 	if (!(vec1->a = malloc(vec2->capacity*sizeof(double)))) {
-		STDERR("Error allocating memory\n");
+		assert(vec1->a != NULL);
 		return;
 	}
 	
@@ -151,7 +154,7 @@ int push_d(vector_d* vec, double a)
 	if (vec->capacity == vec->size) {
 		tmp_sz = VECD_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(double)*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -187,7 +190,7 @@ int extendd(vector_d* vec, size_t num)
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_D_START_SZ;
 		if (!(tmp = realloc(vec->a, sizeof(double)*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -213,7 +216,7 @@ int insertd(vector_d* vec, size_t i, double a)
 	if (vec->capacity == vec->size) {
 		tmp_sz = VECD_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(double)*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -239,7 +242,7 @@ int insert_arrayd(vector_d* vec, size_t i, double* a, size_t num)
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_D_START_SZ;
 		if (!(tmp = realloc(vec->a, sizeof(double)*tmp_sz))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -273,7 +276,7 @@ int reserved(vector_d* vec, size_t size)
 	void* tmp;
 	if (vec->capacity < size) {
 		if (!(tmp = realloc(vec->a, sizeof(double)*(size+VEC_D_START_SZ)))) {
-			STDERR("Error allocating memory\n");
+			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -294,7 +297,7 @@ int set_capacityd(vector_d* vec, size_t size)
 		vec->size = size;
 
 	if (!(tmp = realloc(vec->a, sizeof(double)*size))) {
-		STDERR("Error allocating memory\n");
+		assert(tmp != NULL);
 		return 0;
 	}
 	vec->a = tmp;
@@ -307,8 +310,9 @@ int set_capacityd(vector_d* vec, size_t size)
 void set_val_szd(vector_d* vec, double val)
 {
 	size_t i;
-	for(i=0; i<vec->size; i++)
+	for(i=0; i<vec->size; i++) {
 		vec->a[i] = val;
+	}
 }
 
 
@@ -316,17 +320,12 @@ void set_val_szd(vector_d* vec, double val)
 void set_val_capd(vector_d* vec, double val)
 {
 	size_t i;
-	for(i=0; i<vec->capacity; i++)
+	for(i=0; i<vec->capacity; i++) {
 		vec->a[i] = val;
+	}
 }
 
 
-
-/**If you don't want to access capacity directly for some reason.*/
-int capacityd(vector_d* vec) { return vec->capacity; }
-
-/**If you don't want to access size directly for some reason.*/
-int sized(vector_d* vec) { return vec->size; }
 
 /** Sets size to 0 (does not clear contents).*/
 void cleard(vector_d* vec) { vec->size = 0; }
