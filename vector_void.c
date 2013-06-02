@@ -70,8 +70,6 @@ vector_void* vec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*e
 
 
 /** Create (on the heap) and initialize vector with num elements of vals.
- *  If vals is NULL, capacity is set to num + VEC_I_START_SZ.
- *  Size is set to num in the first place, 0 otherwise.
  *  elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  *  See vec_void_heap() for more information about the elem_free and elem_init parameters.
  */
@@ -80,10 +78,6 @@ vector_void* init_vec_void_heap(void* vals, size_t num, size_t elem_sz, void(*el
 	vector_void* vec;
 	size_t i;
 	
-	if (!vals || num < 1) {
-		return NULL;
-	}
-	
 	if (!(vec = malloc(sizeof(vector_void)))) {
 		assert(vec != NULL);
 		return NULL;
@@ -91,7 +85,7 @@ vector_void* init_vec_void_heap(void* vals, size_t num, size_t elem_sz, void(*el
 
 	vec->elem_size = elem_sz;
 
-	vec->capacity = num+VEC_START_SZ;
+	vec->capacity = num + VEC_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
 		assert(vec->a != NULL);
@@ -141,13 +135,10 @@ int vec_void(vector_void* vec, size_t size, size_t capacity, size_t elem_sz, voi
 int init_vec_void(vector_void* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	size_t i;
-	if (!vals || num < 1) {
-		return 0;
-	}
 	
 	vec->elem_size = elem_sz;
 
-	vec->capacity = num+VEC_START_SZ;
+	vec->capacity = num + VEC_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
 		assert(vec->a != NULL);
@@ -307,7 +298,6 @@ void* vec_void_get(vector_void* vec, size_t i)
 /**
  * Insert a at index i (0 based).
  * Everything from that index and right is shifted one to the right.
- *\todo check for i < 0 or > size-1?
  */
 int insert_void(vector_void* vec, size_t i, void* a)
 {
@@ -346,7 +336,7 @@ int insert_void(vector_void* vec, size_t i, void* a)
 
 /**
  * Insert the first num elements of array a at index i.
- * Note that it is the user's responsibility to pass in valid
+ * Note that it is the user's responsibility to pass in val_id
  * arguments.  Also memcpy is used (when there is no elem_init function) 
  * so don't try to insert part of the vector array into itself 
  * (that would require memmove)
@@ -365,13 +355,13 @@ int insert_array_void(vector_void* vec, size_t i, void* a, size_t num)
 		vec->capacity = tmp_sz;
 	}
 
-	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(int));
+	memmove(&vec->a[(i+num)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
 	if (vec->elem_init) {
 		for (j=0; j<num; ++j) {
 			vec->elem_init(&vec->a[(j+i)*vec->elem_size], &((byte*)a)[j*vec->elem_size]);
 		}
 	} else {
-		memcpy(&vec->a[i], a, num*vec->elem_size);
+		memcpy(&vec->a[i*vec->elem_size], a, num*vec->elem_size);
 	}
 	vec->size += num;
 	return 1;
@@ -380,8 +370,8 @@ int insert_array_void(vector_void* vec, size_t i, void* a, size_t num)
 
 /**
  * Erases elements from start to end inclusive.
- * Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element
- * that was at index 4 would now be at 1 etc. \todo check start and end in range?
+ * Example erase_void(myvec, 1, 3) would free (if an elem_free function was provided) and remove elements at 1, 2, and 3 and the element
+ * that was at index 4 would now be at 1 etc.
  */
 void erase_void(vector_void* vec, size_t start, size_t end)
 {
@@ -601,14 +591,18 @@ I've also run it under valgrind and there are no memory leaks.
 valgrind --leak-check=yes ./vector
 
 <pre>
-==4776== HEAP SUMMARY:
-==4776==     in use at exit: 0 bytes in 0 blocks
-==4776==   total heap usage: 4,957 allocs, 4,957 frees, 797,993 bytes allocated
-==4776== 
-==4776== All heap blocks were freed -- no leaks are possible
-==4776== 
-==4776== For counts of detected and suppressed errors, rerun with: -v
-==4776== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==6100== 
+==6100== HEAP SUMMARY:
+==6100==     in use at exit: 0 bytes in 0 blocks
+==6100==   total heap usage: 4,957 allocs, 4,957 frees, 927,837 bytes allocated
+==6100== 
+==6100== All heap blocks were freed -- no leaks are possible
+==6100== 
+==6100== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+--6100-- 
+--6100-- used_suppression:      2 dl-hack3-cond-1
+==6100== 
+==6100== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
 </pre>
 
 You can probably get Cunit from your package manager but
@@ -628,7 +622,7 @@ behave, look at vector_tests.c
 
 \section LICENSE
 CVector is licensed under the MIT License.
-Copyright (c) 2011-2012 Robert Winkler
+Copyright (c) 2011-2013 Robert Winkler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation

@@ -8,7 +8,7 @@
 
 
 /** Data structure for short vector. */
-typedef struct vector_short_
+typedef struct vector_short
 {
 	short* a;           /**< Array. */
 	size_t size;       /**< Current size (amount you use when manipulating array directly). */

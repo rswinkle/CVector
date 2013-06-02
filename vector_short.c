@@ -36,10 +36,6 @@ vector_short* init_vec_short_heap(short* vals, size_t num)
 {
 	vector_short* vec;
 	
-	if (!vals || num < 1) {
-		return NULL;
-	}
-	
 	if (!(vec = malloc(sizeof(vector_short)))) {
 		assert(vec != NULL);
 		return NULL;
@@ -76,10 +72,6 @@ int vec_short(vector_short* vec, size_t size, size_t capacity)
 
 int init_vec_short(vector_short* vec, short* vals, size_t num)
 {
-	if (!vals || num < 1) {
-		return 0;
-	}
-
 	vec->capacity = num + VECTOR_short_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(short)))) {

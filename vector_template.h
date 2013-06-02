@@ -8,7 +8,7 @@
 
 
 /** Data structure for TYPE vector. */
-typedef struct vector_TYPE_
+typedef struct vector_TYPE
 {
 	TYPE* a;           /**< Array. */
 	size_t size;       /**< Current size (amount you use when manipulating array directly). */

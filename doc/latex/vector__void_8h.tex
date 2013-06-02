@@ -1,113 +1,113 @@
-\hypertarget{vector__void_8h}{\section{vector\-\_\-void.\-h \-File \-Reference}
+\hypertarget{vector__void_8h}{\section{vector\-\_\-void.\-h File Reference}
 \label{vector__void_8h}\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}}
 }
-{\ttfamily \#include $<$stdlib.\-h$>$}\*
-{\ttfamily \#include $<$string.\-h$>$}\*
-{\ttfamily \#include $<$stdio.\-h$>$}\*
-\subsection*{\-Data \-Structures}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+\subsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structvector__void}{vector\-\_\-void}
-\begin{DoxyCompactList}\small\item\em \-Data structure for generic type (cast to void) vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{\-Typedefs}
+\begin{DoxyCompactList}\small\item\em Data structure for generic type (cast to void) vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 typedef unsigned char \hyperlink{vector__void_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte}
 \end{DoxyCompactItemize}
-\subsection*{\-Functions}
+\subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{vector__void_8h_a5c2a4279acb79d147986b7418ad8b2aa}{vec\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, size\-\_\-t size, size\-\_\-t capacity, size\-\_\-t elem\-\_\-sz, void($\ast$elem\-\_\-free)(void $\ast$), void($\ast$elem\-\_\-init)(void $\ast$, void $\ast$))
-\begin{DoxyCompactList}\small\item\em \-Same as vec() except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Same as \hyperlink{vector__void_8c_af5a2f68eaa6032d18d3d9d2e28bba1a8}{vec\-\_\-void\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
 int \hyperlink{vector__void_8h_a92313f2b981de4135938f7cca657fd38}{init\-\_\-vec\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, void $\ast$vals, size\-\_\-t num, size\-\_\-t elem\-\_\-sz, void($\ast$elem\-\_\-free)(void $\ast$), void($\ast$elem\-\_\-init)(void $\ast$, void $\ast$))
-\begin{DoxyCompactList}\small\item\em \-Same as init\-\_\-vec() except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Same as init\-\_\-vec\-\_\-heap() except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
 \hyperlink{structvector__void}{vector\-\_\-void} $\ast$ \hyperlink{vector__void_8h_af5a2f68eaa6032d18d3d9d2e28bba1a8}{vec\-\_\-void\-\_\-heap} (size\-\_\-t size, size\-\_\-t capacity, size\-\_\-t elem\-\_\-sz, void($\ast$elem\-\_\-free)(void $\ast$), void($\ast$elem\-\_\-init)(void $\ast$, void $\ast$))
-\begin{DoxyCompactList}\small\item\em \-Creates a new vector. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creates a new vector on the heap. \end{DoxyCompactList}\item 
 \hyperlink{structvector__void}{vector\-\_\-void} $\ast$ \hyperlink{vector__void_8h_a742717173c3d6786b0eb1a623e9ee3b5}{init\-\_\-vec\-\_\-void\-\_\-heap} (void $\ast$vals, size\-\_\-t num, size\-\_\-t elem\-\_\-sz, void($\ast$elem\-\_\-free)(void $\ast$), void($\ast$elem\-\_\-init)(void $\ast$, void $\ast$))
-\begin{DoxyCompactList}\small\item\em \-Create and initialize vector with num elements of vals. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Create (on the heap) and initialize vector with num elements of vals. \end{DoxyCompactList}\item 
 void \hyperlink{vector__void_8h_a3ee24499e51ba355286e6afd6d4c21ab}{vec\-\_\-void\-\_\-copy} (void $\ast$dest, void $\ast$src)
-\begin{DoxyCompactList}\small\item\em \-Makes dest an identical copy of src. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Makes dest an identical copy of src. \end{DoxyCompactList}\item 
 int \hyperlink{vector__void_8h_a7ef24ff2a3b85442b67e2edce260cb08}{push\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, void $\ast$val)
-\begin{DoxyCompactList}\small\item\em \-Append a to end of vector (size increased 1). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Append a to end of vector (size increased 1). \end{DoxyCompactList}\item 
 void \hyperlink{vector__void_8h_a031822e087afcc1fd841c70f4e613645}{pop\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, void $\ast$ret)
-\begin{DoxyCompactList}\small\item\em \-Remove the last element (size decreased 1). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Remove the last element (size decreased 1). \end{DoxyCompactList}\item 
 void $\ast$ \hyperlink{vector__void_8h_a1121ef2e9c292a925bfa6a4dd34e8dee}{vec\-\_\-void\-\_\-get} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, size\-\_\-t i)
-\begin{DoxyCompactList}\small\item\em \-Return a void pointer to the ith element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Return a void pointer to the ith element. \end{DoxyCompactList}\item 
 int \hyperlink{vector__void_8h_a327035286915801d0c02594757115d2c}{extend\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, size\-\_\-t num)
-\begin{DoxyCompactList}\small\item\em \-Increase the size of the array num items. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Increase the size of the array num items. \end{DoxyCompactList}\item 
 int \hyperlink{vector__void_8h_aa7ed6dd5b0dfa35b117552d84d6db25f}{insert\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, size\-\_\-t i, void $\ast$a)
-\begin{DoxyCompactList}\small\item\em \-Insert a at index i (0 based). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Insert a at index i (0 based). \end{DoxyCompactList}\item 
 int \hyperlink{vector__void_8h_afe7cf832327d022071b2a870604d3a5e}{insert\-\_\-array\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, size\-\_\-t i, void $\ast$a, size\-\_\-t num)
-\begin{DoxyCompactList}\small\item\em \-Insert the first num elements of array a at index i. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Insert the first num elements of array a at index i. \end{DoxyCompactList}\item 
 void \hyperlink{vector__void_8h_a99319f38b2f930e9cf1bd98f8382ae19}{erase\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, size\-\_\-t start, size\-\_\-t end)
-\begin{DoxyCompactList}\small\item\em \-Erases elements from start to end inclusive. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Erases elements from start to end inclusive. \end{DoxyCompactList}\item 
 int \hyperlink{vector__void_8h_a1f67c017efc4affc32635fb3d85e7698}{reserve\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, size\-\_\-t size)
-\begin{DoxyCompactList}\small\item\em \-Makes sure capacity $>$= size (the parameter not the member). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Makes sure capacity $>$= size (the parameter not the member). \end{DoxyCompactList}\item 
 int \hyperlink{vector__void_8h_a9c9f052538ef70be37482764ddbb9b0f}{set\-\_\-capacity\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, size\-\_\-t size)
-\begin{DoxyCompactList}\small\item\em \-Set capacity to size. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set capacity to size. \end{DoxyCompactList}\item 
 void \hyperlink{vector__void_8h_acecabf91cab4ea505e6535aee90ad000}{set\-\_\-val\-\_\-sz\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, void $\ast$val)
-\begin{DoxyCompactList}\small\item\em \-Set all size elements to val. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set all size elements to val. \end{DoxyCompactList}\item 
 void \hyperlink{vector__void_8h_adbf2dc68bc41dbb6accd961de8940ae7}{set\-\_\-val\-\_\-cap\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, void $\ast$val)
-\begin{DoxyCompactList}\small\item\em \-Fills entire allocated array (capacity) with val. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Fills entire allocated array (capacity) with val. \end{DoxyCompactList}\item 
 void $\ast$ \hyperlink{vector__void_8h_a0f0f1b73d846e55ea0981f4863a54447}{back\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec)
-\begin{DoxyCompactList}\small\item\em \-Return pointer to last element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Return pointer to last element. \end{DoxyCompactList}\item 
 void \hyperlink{vector__void_8h_a620981df2e4f494eea96bc23a36706a0}{clear\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec)
-\begin{DoxyCompactList}\small\item\em \-Sets size to 0 (does not change contents unless elem\-\_\-free is set then it will free all size elements as in vector\-\_\-s). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets size to 0 (does not change contents unless elem\-\_\-free is set then it will free all size elements as in vector\-\_\-s). \end{DoxyCompactList}\item 
 void \hyperlink{vector__void_8h_a4d354231999f1cf1d9df6839daca0473}{free\-\_\-vec\-\_\-void\-\_\-heap} (void $\ast$vec)
-\begin{DoxyCompactList}\small\item\em \-Frees everything so don't use vec after calling this. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Frees everything so don't use vec after calling this. \end{DoxyCompactList}\item 
 void \hyperlink{vector__void_8h_a267b96dd9b33aa9eb07b6446a9d7c09b}{free\-\_\-vec\-\_\-void} (void $\ast$vec)
-\begin{DoxyCompactList}\small\item\em \-Frees the internal array and sets size and capacity to 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{\-Variables}
+\begin{DoxyCompactList}\small\item\em Frees the internal array and sets size and capacity to 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}
+size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}
 \end{DoxyCompactItemize}
 
 
-\subsection{\-Typedef \-Documentation}
+\subsection{Typedef Documentation}
 \hypertarget{vector__void_8h_a0c8186d9b9b7880309c27230bbb5e69d}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!byte@{byte}}
 \index{byte@{byte}!vector_void.h@{vector\-\_\-void.\-h}}
 \subsubsection[{byte}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned char {\bf byte}}}\label{vector__void_8h_a0c8186d9b9b7880309c27230bbb5e69d}
 
 
-\-Definition at line 8 of file vector\-\_\-void.\-h.
+Definition at line 8 of file vector\-\_\-void.\-h.
 
 
 
-\subsection{\-Function \-Documentation}
+\subsection{Function Documentation}
 \hypertarget{vector__void_8h_a0f0f1b73d846e55ea0981f4863a54447}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!back\-\_\-void@{back\-\_\-void}}
 \index{back\-\_\-void@{back\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{back\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ {\bf back\-\_\-void} (
+\subsubsection[{back\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ back\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}\label{vector__void_8h_a0f0f1b73d846e55ea0981f4863a54447}
 
 
-\-Return pointer to last element. 
+Return pointer to last element. 
 
 
 
-\-Definition at line 258 of file vector\-\_\-void.\-c.
+Definition at line 257 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a620981df2e4f494eea96bc23a36706a0}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!clear\-\_\-void@{clear\-\_\-void}}
 \index{clear\-\_\-void@{clear\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{clear\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf clear\-\_\-void} (
+\subsubsection[{clear\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void clear\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}\label{vector__void_8h_a620981df2e4f494eea96bc23a36706a0}
 
 
-\-Sets size to 0 (does not change contents unless elem\-\_\-free is set then it will free all size elements as in vector\-\_\-s). 
+Sets size to 0 (does not change contents unless elem\-\_\-free is set then it will free all size elements as in vector\-\_\-s). 
 
 
 
-\-Definition at line 478 of file vector\-\_\-void.\-c.
+Definition at line 487 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a99319f38b2f930e9cf1bd98f8382ae19}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!erase\-\_\-void@{erase\-\_\-void}}
 \index{erase\-\_\-void@{erase\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{erase\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf erase\-\_\-void} (
+\subsubsection[{erase\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void erase\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{start, }
@@ -116,17 +116,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_a99319f38b2f930e9cf1bd98f8382ae19}
 
 
-\-Erases elements from start to end inclusive. 
+Erases elements from start to end inclusive. 
 
-\-Example erases(myvec, 1, 3) would free and remove elements at 1, 2, and 3 and the element that was at index 4 would now be at 1 etc.\begin{DoxyRefDesc}{\-Todo}
-\item[\hyperlink{todo__todo000002}{\-Todo}]check start and end in range? \end{DoxyRefDesc}
+Example erase\-\_\-void(myvec, 1, 3) would free (if an elem\-\_\-free function was provided) and remove elements at 1, 2, and 3 and the element that was at index 4 would now be at 1 etc. 
 
-
-\-Definition at line 375 of file vector\-\_\-void.\-c.
+Definition at line 376 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a327035286915801d0c02594757115d2c}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!extend\-\_\-void@{extend\-\_\-void}}
 \index{extend\-\_\-void@{extend\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{extend\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf extend\-\_\-void} (
+\subsubsection[{extend\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int extend\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{num}
@@ -134,45 +132,45 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_a327035286915801d0c02594757115d2c}
 
 
-\-Increase the size of the array num items. 
+Increase the size of the array num items. 
 
-\-Items are not initialized to anything! 
+Items are not initialized to anything! 
 
-\-Definition at line 268 of file vector\-\_\-void.\-c.
+Definition at line 267 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a267b96dd9b33aa9eb07b6446a9d7c09b}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!free\-\_\-vec\-\_\-void@{free\-\_\-vec\-\_\-void}}
 \index{free\-\_\-vec\-\_\-void@{free\-\_\-vec\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{free\-\_\-vec\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf free\-\_\-vec\-\_\-void} (
+\subsubsection[{free\-\_\-vec\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void free\-\_\-vec\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{void $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}\label{vector__void_8h_a267b96dd9b33aa9eb07b6446a9d7c09b}
 
 
-\-Frees the internal array and sets size and capacity to 0. 
+Frees the internal array and sets size and capacity to 0. 
 
 
 
-\-Definition at line 506 of file vector\-\_\-void.\-c.
+Definition at line 516 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a4d354231999f1cf1d9df6839daca0473}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!free\-\_\-vec\-\_\-void\-\_\-heap@{free\-\_\-vec\-\_\-void\-\_\-heap}}
 \index{free\-\_\-vec\-\_\-void\-\_\-heap@{free\-\_\-vec\-\_\-void\-\_\-heap}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{free\-\_\-vec\-\_\-void\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf free\-\_\-vec\-\_\-void\-\_\-heap} (
+\subsubsection[{free\-\_\-vec\-\_\-void\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}void free\-\_\-vec\-\_\-void\-\_\-heap (
 \begin{DoxyParamCaption}
 \item[{void $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}\label{vector__void_8h_a4d354231999f1cf1d9df6839daca0473}
 
 
-\-Frees everything so don't use vec after calling this. 
+Frees everything so don't use vec after calling this. 
 
-\-If you set a free function it will be called on all size elements of course. 
+If you set a free function it will be called on all size elements of course. 
 
-\-Definition at line 492 of file vector\-\_\-void.\-c.
+Definition at line 501 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a92313f2b981de4135938f7cca657fd38}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!init\-\_\-vec\-\_\-void@{init\-\_\-vec\-\_\-void}}
 \index{init\-\_\-vec\-\_\-void@{init\-\_\-vec\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{init\-\_\-vec\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf init\-\_\-vec\-\_\-void} (
+\subsubsection[{init\-\_\-vec\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int init\-\_\-vec\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec, }
 \item[{void $\ast$}]{vals, }
@@ -184,15 +182,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_a92313f2b981de4135938f7cca657fd38}
 
 
-\-Same as init\-\_\-vec() except the vector passed in was declared on the stack so it isn't allocated in this function. 
+Same as init\-\_\-vec\-\_\-heap() except the vector passed in was declared on the stack so it isn't allocated in this function. 
 
-\-Use the free\-\_\-vec\-\_\-stack in that case 
+Use the free\-\_\-vec\-\_\-void in this case 
 
-\-Definition at line 138 of file vector\-\_\-void.\-c.
+Definition at line 135 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a742717173c3d6786b0eb1a623e9ee3b5}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!init\-\_\-vec\-\_\-void\-\_\-heap@{init\-\_\-vec\-\_\-void\-\_\-heap}}
 \index{init\-\_\-vec\-\_\-void\-\_\-heap@{init\-\_\-vec\-\_\-void\-\_\-heap}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{init\-\_\-vec\-\_\-void\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\-\_\-void}$\ast$ {\bf init\-\_\-vec\-\_\-void\-\_\-heap} (
+\subsubsection[{init\-\_\-vec\-\_\-void\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\-\_\-void}$\ast$ init\-\_\-vec\-\_\-void\-\_\-heap (
 \begin{DoxyParamCaption}
 \item[{void $\ast$}]{vals, }
 \item[{size\-\_\-t}]{num, }
@@ -203,15 +201,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_a742717173c3d6786b0eb1a623e9ee3b5}
 
 
-\-Create and initialize vector with num elements of vals. 
+Create (on the heap) and initialize vector with num elements of vals. 
 
-\-If vals is \-N\-U\-L\-L, capacity is set to num + \-V\-E\-C\-\_\-\-I\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z. \-Size is set to num in the first place, 0 otherwise. elem\-\_\-sz is the size of the type you want to store ( ie sizeof(\-T) where \-T is your type ). \-See vec() for more information about the elem\-\_\-free and elem\-\_\-init parameters. 
+elem\-\_\-sz is the size of the type you want to store ( ie sizeof(\-T) where T is your type ). See \hyperlink{vector__void_8c_af5a2f68eaa6032d18d3d9d2e28bba1a8}{vec\-\_\-void\-\_\-heap()} for more information about the elem\-\_\-free and elem\-\_\-init parameters. 
 
-\-Definition at line 76 of file vector\-\_\-void.\-c.
+Definition at line 76 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_afe7cf832327d022071b2a870604d3a5e}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!insert\-\_\-array\-\_\-void@{insert\-\_\-array\-\_\-void}}
 \index{insert\-\_\-array\-\_\-void@{insert\-\_\-array\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{insert\-\_\-array\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf insert\-\_\-array\-\_\-void} (
+\subsubsection[{insert\-\_\-array\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int insert\-\_\-array\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{i, }
@@ -221,15 +219,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_afe7cf832327d022071b2a870604d3a5e}
 
 
-\-Insert the first num elements of array a at index i. 
+Insert the first num elements of array a at index i. 
 
-\-Note that it is the user's responsibility to pass in valid arguments. \-Also memcpy is used (when there is no elem\-\_\-init function) so don't try to insert part of the vector array into itself (that would require memmove) 
+Note that it is the user's responsibility to pass in val\-\_\-id arguments. Also memcpy is used (when there is no elem\-\_\-init function) so don't try to insert part of the vector array into itself (that would require memmove) 
 
-\-Definition at line 344 of file vector\-\_\-void.\-c.
+Definition at line 344 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_aa7ed6dd5b0dfa35b117552d84d6db25f}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!insert\-\_\-void@{insert\-\_\-void}}
 \index{insert\-\_\-void@{insert\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{insert\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf insert\-\_\-void} (
+\subsubsection[{insert\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int insert\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{i, }
@@ -238,17 +236,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_aa7ed6dd5b0dfa35b117552d84d6db25f}
 
 
-\-Insert a at index i (0 based). 
+Insert a at index i (0 based). 
 
-\-Everything from that index and right is shifted one to the right. \begin{DoxyRefDesc}{\-Todo}
-\item[\hyperlink{todo__todo000001}{\-Todo}]check for i $<$ 0 or $>$ size-\/1? \end{DoxyRefDesc}
+Everything from that index and right is shifted one to the right. 
 
-
-\-Definition at line 304 of file vector\-\_\-void.\-c.
+Definition at line 302 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a031822e087afcc1fd841c70f4e613645}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!pop\-\_\-void@{pop\-\_\-void}}
 \index{pop\-\_\-void@{pop\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{pop\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf pop\-\_\-void} (
+\subsubsection[{pop\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void pop\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec, }
 \item[{void $\ast$}]{ret}
@@ -256,15 +252,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_a031822e087afcc1fd841c70f4e613645}
 
 
-\-Remove the last element (size decreased 1). 
+Remove the last element (size decreased 1). 
 
-\-Copy the element into ret. \-This function assumes that ret is not \-N\-U\-L\-L and is large accept the element and just memcpy's it in. \-Similar to pop\-\_\-backs it is users responsibility. 
+Copy the element into ret. This function assumes that ret is not N\-U\-L\-L and is large accept the element and just memcpy's it in. Similar to pop\-\_\-backs it is users responsibility. 
 
-\-Definition at line 246 of file vector\-\_\-void.\-c.
+Definition at line 243 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a7ef24ff2a3b85442b67e2edce260cb08}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!push\-\_\-void@{push\-\_\-void}}
 \index{push\-\_\-void@{push\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{push\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf push\-\_\-void} (
+\subsubsection[{push\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int push\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec, }
 \item[{void $\ast$}]{a}
@@ -272,15 +268,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_a7ef24ff2a3b85442b67e2edce260cb08}
 
 
-\-Append a to end of vector (size increased 1). 
+Append a to end of vector (size increased 1). 
 
-\-Capacity is increased by doubling when necessary. 
+Capacity is increased by doubling when necessary. 
 
-\-Definition at line 210 of file vector\-\_\-void.\-c.
+Definition at line 206 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a1f67c017efc4affc32635fb3d85e7698}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!reserve\-\_\-void@{reserve\-\_\-void}}
 \index{reserve\-\_\-void@{reserve\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{reserve\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf reserve\-\_\-void} (
+\subsubsection[{reserve\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int reserve\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{size}
@@ -288,15 +284,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_a1f67c017efc4affc32635fb3d85e7698}
 
 
-\-Makes sure capacity $>$= size (the parameter not the member). 
+Makes sure capacity $>$= size (the parameter not the member). 
 
 
 
-\-Definition at line 389 of file vector\-\_\-void.\-c.
+Definition at line 391 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a9c9f052538ef70be37482764ddbb9b0f}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!set\-\_\-capacity\-\_\-void@{set\-\_\-capacity\-\_\-void}}
 \index{set\-\_\-capacity\-\_\-void@{set\-\_\-capacity\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{set\-\_\-capacity\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf set\-\_\-capacity\-\_\-void} (
+\subsubsection[{set\-\_\-capacity\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int set\-\_\-capacity\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{size}
@@ -304,15 +300,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_a9c9f052538ef70be37482764ddbb9b0f}
 
 
-\-Set capacity to size. 
+Set capacity to size. 
 
-\-You will lose data if you shrink the capacity below the current size. \-If you do, the size will be set to capacity of course. 
+You will lose data if you shrink the capacity below the current size. If you do, the size will be set to capacity of course. 
 
-\-Definition at line 408 of file vector\-\_\-void.\-c.
+Definition at line 410 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_adbf2dc68bc41dbb6accd961de8940ae7}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!set\-\_\-val\-\_\-cap\-\_\-void@{set\-\_\-val\-\_\-cap\-\_\-void}}
 \index{set\-\_\-val\-\_\-cap\-\_\-void@{set\-\_\-val\-\_\-cap\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{set\-\_\-val\-\_\-cap\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf set\-\_\-val\-\_\-cap\-\_\-void} (
+\subsubsection[{set\-\_\-val\-\_\-cap\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-val\-\_\-cap\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec, }
 \item[{void $\ast$}]{val}
@@ -320,15 +316,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_adbf2dc68bc41dbb6accd961de8940ae7}
 
 
-\-Fills entire allocated array (capacity) with val. 
+Fills entire allocated array (capacity) with val. 
 
-\-If you set a free function then size is set to capacity like vector\-\_\-s for the same reason, ie \-I need to know that the free function needs to be called on those elements. \-T\-O\-D\-O \-Remove this function? \-Same reason as set\-\_\-val\-\_\-caps. 
+If you set a free function then size is set to capacity like vector\-\_\-s for the same reason, ie I need to know that the free function needs to be called on those elements. T\-O\-D\-O Remove this function? Same reason as set\-\_\-val\-\_\-caps. 
 
-\-Definition at line 456 of file vector\-\_\-void.\-c.
+Definition at line 463 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_acecabf91cab4ea505e6535aee90ad000}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!set\-\_\-val\-\_\-sz\-\_\-void@{set\-\_\-val\-\_\-sz\-\_\-void}}
 \index{set\-\_\-val\-\_\-sz\-\_\-void@{set\-\_\-val\-\_\-sz\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{set\-\_\-val\-\_\-sz\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf set\-\_\-val\-\_\-sz\-\_\-void} (
+\subsubsection[{set\-\_\-val\-\_\-sz\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-val\-\_\-sz\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec, }
 \item[{void $\ast$}]{val}
@@ -336,15 +332,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_acecabf91cab4ea505e6535aee90ad000}
 
 
-\-Set all size elements to val. 
+Set all size elements to val. 
 
 
 
-\-Definition at line 433 of file vector\-\_\-void.\-c.
+Definition at line 436 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a5c2a4279acb79d147986b7418ad8b2aa}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!vec\-\_\-void@{vec\-\_\-void}}
 \index{vec\-\_\-void@{vec\-\_\-void}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{vec\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf vec\-\_\-void} (
+\subsubsection[{vec\-\_\-void}]{\setlength{\rightskip}{0pt plus 5cm}int vec\-\_\-void (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{size, }
@@ -356,15 +352,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_a5c2a4279acb79d147986b7418ad8b2aa}
 
 
-\-Same as vec() except the vector passed in was declared on the stack so it isn't allocated in this function. 
+Same as \hyperlink{vector__void_8c_af5a2f68eaa6032d18d3d9d2e28bba1a8}{vec\-\_\-void\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. 
 
-\-Use the free\-\_\-vec\-\_\-stack in that case 
+Use the free\-\_\-vec\-\_\-void in that case 
 
-\-Definition at line 116 of file vector\-\_\-void.\-c.
+Definition at line 113 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a3ee24499e51ba355286e6afd6d4c21ab}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!vec\-\_\-void\-\_\-copy@{vec\-\_\-void\-\_\-copy}}
 \index{vec\-\_\-void\-\_\-copy@{vec\-\_\-void\-\_\-copy}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{vec\-\_\-void\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf vec\-\_\-void\-\_\-copy} (
+\subsubsection[{vec\-\_\-void\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}void vec\-\_\-void\-\_\-copy (
 \begin{DoxyParamCaption}
 \item[{void $\ast$}]{dest, }
 \item[{void $\ast$}]{src}
@@ -372,15 +368,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_a3ee24499e51ba355286e6afd6d4c21ab}
 
 
-\-Makes dest an identical copy of src. 
+Makes dest an identical copy of src. 
 
-\-The parameters are void so it can be used as the constructor when making a vector of generic vector's. (\-I would recommend against doing that, and using generate\-\_\-code.\-py to make your own vector type and do a vector of those instead). \-Assumes dest (the structure) is already allocated (probably on the stack) and that capacity is 0 (ie the array doesn't need to be freed). 
+The parameters are void so it can be used as the constructor when making a vector of generic vector's. (I would recommend against doing that, and using generate\-\_\-code.\-py to make your own vector type and do a vector of those instead). Assumes dest (the structure) is already allocated (probably on the stack) and that capacity is 0 (ie the array doesn't need to be freed). 
 
-\-Definition at line 177 of file vector\-\_\-void.\-c.
+Definition at line 172 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_a1121ef2e9c292a925bfa6a4dd34e8dee}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!vec\-\_\-void\-\_\-get@{vec\-\_\-void\-\_\-get}}
 \index{vec\-\_\-void\-\_\-get@{vec\-\_\-void\-\_\-get}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{vec\-\_\-void\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ {\bf vec\-\_\-void\-\_\-get} (
+\subsubsection[{vec\-\_\-void\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ vec\-\_\-void\-\_\-get (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-void} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{i}
@@ -388,15 +384,15 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_a1121ef2e9c292a925bfa6a4dd34e8dee}
 
 
-\-Return a void pointer to the ith element. 
+Return a void pointer to the ith element. 
 
-\-Another way to get elements from vector that is used in \hyperlink{vector__tests_8c}{vector\-\_\-tests.\-c} is a macro like this one \#define \hyperlink{vector__tests_8c_a097522f36be915c26e5fccbb262a40fd}{\-G\-E\-T\-\_\-\-E\-L\-E\-M\-E\-N\-T(\-X,\-Y,\-T\-Y\-P\-E)} ((\-T\-Y\-P\-E$\ast$)\&\-X.\-a\mbox{[}\-Y$\ast$\-X.elem\-\_\-size\mbox{]}) 
+Another way to get elements from vector that is used in \hyperlink{vector__tests_8c}{vector\-\_\-tests.\-c} is a macro like this one \#define \hyperlink{vector__tests_8c_a097522f36be915c26e5fccbb262a40fd}{G\-E\-T\-\_\-\-E\-L\-E\-M\-E\-N\-T(\-X,\-Y,\-T\-Y\-P\-E)} ((T\-Y\-P\-E$\ast$)\&X.\-a\mbox{[}Y$\ast$\-X.elem\-\_\-size\mbox{]}) 
 
-\-Definition at line 292 of file vector\-\_\-void.\-c.
+Definition at line 291 of file vector\-\_\-void.\-c.
 
 \hypertarget{vector__void_8h_af5a2f68eaa6032d18d3d9d2e28bba1a8}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!vec\-\_\-void\-\_\-heap@{vec\-\_\-void\-\_\-heap}}
 \index{vec\-\_\-void\-\_\-heap@{vec\-\_\-void\-\_\-heap}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{vec\-\_\-void\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\-\_\-void}$\ast$ {\bf vec\-\_\-void\-\_\-heap} (
+\subsubsection[{vec\-\_\-void\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\-\_\-void}$\ast$ vec\-\_\-void\-\_\-heap (
 \begin{DoxyParamCaption}
 \item[{size\-\_\-t}]{size, }
 \item[{size\-\_\-t}]{capacity, }
@@ -407,25 +403,25 @@ size\-\_\-t \hyperlink{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\-V\-E
 )}}\label{vector__void_8h_af5a2f68eaa6032d18d3d9d2e28bba1a8}
 
 
-\-Creates a new vector. 
+Creates a new vector on the heap. 
 
-\-Vector size set to (size $>$ 0) ? size \-: 0; \-Capacity to (capacity $>$ vec-\/$>$size $|$$|$ (vec-\/$>$size \&\& capacity == vec-\/$>$size)) ? capacity \-: vec-\/$>$size + \-V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z in other words capacity has to be at least 1 and $>$= to vec-\/$>$size of course. elem\-\_\-sz is the size of the type you want to store ( ie sizeof(\-T) where \-T is your type ). \-You can pass in a function, elem\-\_\-free, to be called on every element before it is removed from the vector to free any dynamically allocated memory. \-For example if you passed in sizeof(char$\ast$) for elem\-\_\-sz, and wrappers around the standard free(void$\ast$) function for elem\-\_\-free and strdup (or mystrdup in this project) for elem\-\_\-init you could make vector work exactly like vector\-\_\-s. \-Pass in \-N\-U\-L\-L, to not use the function parameters.
+Vector size set to (size $>$ 0) ? size \-: 0; Capacity to (capacity $>$ vec-\/$>$size $|$$|$ (vec-\/$>$size \&\& capacity == vec-\/$>$size)) ? capacity \-: vec-\/$>$size + V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z in other words capacity has to be at least 1 and $>$= to vec-\/$>$size of course. elem\-\_\-sz is the size of the type you want to store ( ie sizeof(\-T) where T is your type ). You can pass in a function, elem\-\_\-free, to be called on every element before it is removed from the vector to free any dynamically allocated memory. For example if you passed in sizeof(char$\ast$) for elem\-\_\-sz, and wrappers around the standard free(void$\ast$) function for elem\-\_\-free and strdup (or mystrdup in this project) for elem\-\_\-init you could make vector work exactly like vector\-\_\-s. Pass in N\-U\-L\-L, to not use the function parameters.
 
-\-All functions call elem\-\_\-free before overwriting/popping/erasing elements if elem\-\_\-free is provided.
+All functions call elem\-\_\-free before overwriting/popping/erasing elements if elem\-\_\-free is provided.
 
-elem\-\_\-init is only used in set\-\_\-val\-\_\-sz and set\-\_\-val\-\_\-cap because in those cases you are setting many elements to a single \char`\"{}value\char`\"{} and using the elem\-\_\-init functionality you can provide what amounts to a copy constructor which duplicates dynamically allocated memory instead of just copying the pointer ie just like strdup or mystrdup does with a string. \-This allows the free function to work correctly when called on all those elements. \-If you didn't provide an elem\-\_\-init function but did provide a free function, then after calling one of the set\-\_\-val functions, eventually the free function would be called on all those elements and you'd get a double free or corruption error.
+elem\-\_\-init is only used in set\-\_\-val\-\_\-sz and set\-\_\-val\-\_\-cap because in those cases you are setting many elements to a single \char`\"{}value\char`\"{} and using the elem\-\_\-init functionality you can provide what amounts to a copy constructor which duplicates dynamically allocated memory instead of just copying the pointer ie just like strdup or mystrdup does with a string. This allows the free function to work correctly when called on all those elements. If you didn't provide an elem\-\_\-init function but did provide a free function, then after calling one of the set\-\_\-val functions, eventually the free function would be called on all those elements and you'd get a double free or corruption error.
 
-\-See the other functions and the tests for more behavioral/usage details. 
+See the other functions and the tests for more behavioral/usage details. 
 
-\-Definition at line 42 of file vector\-\_\-void.\-c.
-
-
-
-\subsection{\-Variable \-Documentation}
-\hypertarget{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!\-V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z@{\-V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}}
-\index{\-V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z@{\-V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}!vector_void.h@{vector\-\_\-void.\-h}}
-\subsubsection[{\-V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf \-V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}}}\label{vector__void_8h_a09059d3291da8975ea105fefdab70c47}
+Definition at line 44 of file vector\-\_\-void.\-c.
 
 
-\-Definition at line 6 of file vector\-\_\-void.\-c.
+
+\subsection{Variable Documentation}
+\hypertarget{vector__void_8h_a09059d3291da8975ea105fefdab70c47}{\index{vector\-\_\-void.\-h@{vector\-\_\-void.\-h}!V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z@{V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}}
+\index{V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z@{V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}!vector_void.h@{vector\-\_\-void.\-h}}
+\subsubsection[{V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}}\label{vector__void_8h_a09059d3291da8975ea105fefdab70c47}
+
+
+Definition at line 8 of file vector\-\_\-void.\-c.
 

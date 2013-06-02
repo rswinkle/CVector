@@ -12,23 +12,23 @@
 #include "vector_all.h"
 
 
-extern void pushi_test();
-extern void erasei_test();
-extern void inserti_test();
-extern void insert_arrayi_test();
-extern void popi_test();
-extern void reservei_test();
-extern void set_capacityi_test();
-extern void set_vali_test();
+extern void push_i_test();
+extern void erase_i_test();
+extern void insert_i_test();
+extern void insert_array_i_test();
+extern void pop_i_test();
+extern void reserve_i_test();
+extern void set_capacity_i_test();
+extern void set_val_i_test();
 
-extern void pushd_test();
-extern void erased_test();
-extern void insertd_test();
-extern void insert_arrayd_test();
-extern void popd_test();
-extern void reserved_test();
-extern void set_capacityd_test();
-extern void set_vald_test();
+extern void push_d_test();
+extern void erase_d_test();
+extern void insert_d_test();
+extern void insert_array_d_test();
+extern void pop_d_test();
+extern void reserve_d_test();
+extern void set_capacity_d_test();
+extern void set_val_d_test();
 
 
 extern void push_str_test();
@@ -57,26 +57,26 @@ extern void template_test();
 
 
 CU_TestInfo vector_i_tests[] = {
-	{ "pushi_test",           pushi_test },
-	{ "erasei_test",          erasei_test },
-	{ "inserti_test",         inserti_test },
-	{ "insert_arrayi_test",   insert_arrayi_test },
-	{ "popi_test",            popi_test },
-	{ "reservei_test",        reservei_test },
-	{ "set_capacityi_test",   set_capacityi_test },
-	{ "set_vali_test",        set_vali_test },
+	{ "push_i_test",           push_i_test },
+	{ "erase_i_test",          erase_i_test },
+	{ "insert_i_test",         insert_i_test },
+	{ "insert_array_i_test",   insert_array_i_test },
+	{ "pop_i_test",            pop_i_test },
+	{ "reserve_i_test",        reserve_i_test },
+	{ "set_capacity_i_test",   set_capacity_i_test },
+	{ "set_val_i_test",        set_val_i_test },
 	CU_TEST_INFO_NULL
 };
 
 CU_TestInfo vector_d_tests[] = {
-	{ "pushd_test",           pushd_test },
-	{ "erased_test",          erased_test },
-	{ "insertd_test",         insertd_test },
-	{ "insert_arrayd_test",   insert_arrayd_test },
-	{ "popd_test",            popd_test },
-	{ "reserved_test",        reserved_test },
-	{ "set_capacityd_test",   set_capacityd_test },
-	{ "set_vald_test",        set_vald_test },
+	{ "push_d_test",           push_d_test },
+	{ "erase_d_test",          erase_d_test },
+	{ "insert_d_test",         insert_d_test },
+	{ "insert_array_d_test",   insert_array_d_test },
+	{ "pop_d_test",            pop_d_test },
+	{ "reserve_d_test",        reserve_d_test },
+	{ "set_capacity_d_test",   set_capacity_d_test },
+	{ "set_val_d_test",        set_val_d_test },
 	CU_TEST_INFO_NULL
 };
 

@@ -1,15 +1,16 @@
-\hypertarget{vector__short_8c}{\section{vector\-\_\-short.\-c \-File \-Reference}
+\hypertarget{vector__short_8c}{\section{vector\-\_\-short.\-c File Reference}
 \label{vector__short_8c}\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}}
 }
-{\ttfamily \#include \char`\"{}vector\-\_\-short.\-h\char`\"{}}\*
-\subsection*{\-Defines}
+{\ttfamily \#include \char`\"{}vector\-\_\-short.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+\subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{vector__short_8c_a675cc8ee6a54f986507a8612bc538c1a}{\-S\-T\-D\-E\-R\-R}(\-X)~fprintf(stderr, \-X)
+\#define \hyperlink{vector__short_8c_a675cc8ee6a54f986507a8612bc538c1a}{S\-T\-D\-E\-R\-R}(X)~fprintf(stderr, X)
 \item 
-\#define \hyperlink{vector__short_8c_a2dc7d7c0431a42a61a14f19c8a269ae5}{\-V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}(x)~(x$\ast$2)
+\#define \hyperlink{vector__short_8c_a2dc7d7c0431a42a61a14f19c8a269ae5}{V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}(x)~((x) $\ast$ 2)
 \end{DoxyCompactItemize}
-\subsection*{\-Functions}
+\subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{structvector__short}{vector\-\_\-short} $\ast$ \hyperlink{vector__short_8c_a3eae30f8c63fc23fbbd4430aca2e0bba}{vec\-\_\-short\-\_\-heap} (size\-\_\-t size, size\-\_\-t capacity)
@@ -50,64 +51,64 @@ void \hyperlink{vector__short_8c_a21c8776be68851c98548dde11387d046}{free\-\_\-ve
 \item 
 void \hyperlink{vector__short_8c_a17dafd2c29845a45bb960dea73058dde}{free\-\_\-vec\-\_\-short} (void $\ast$vec)
 \end{DoxyCompactItemize}
-\subsection*{\-Variables}
+\subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z} = 50
+size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z} = 50
 \end{DoxyCompactItemize}
 
 
-\subsection{\-Define \-Documentation}
-\hypertarget{vector__short_8c_a675cc8ee6a54f986507a8612bc538c1a}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!\-S\-T\-D\-E\-R\-R@{\-S\-T\-D\-E\-R\-R}}
-\index{\-S\-T\-D\-E\-R\-R@{\-S\-T\-D\-E\-R\-R}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{\-S\-T\-D\-E\-R\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-S\-T\-D\-E\-R\-R}(
+\subsection{Macro Definition Documentation}
+\hypertarget{vector__short_8c_a675cc8ee6a54f986507a8612bc538c1a}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!S\-T\-D\-E\-R\-R@{S\-T\-D\-E\-R\-R}}
+\index{S\-T\-D\-E\-R\-R@{S\-T\-D\-E\-R\-R}!vector_short.c@{vector\-\_\-short.\-c}}
+\subsubsection[{S\-T\-D\-E\-R\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-D\-E\-R\-R(
 \begin{DoxyParamCaption}
-\item[{}]{\-X}
+\item[{}]{X}
 \end{DoxyParamCaption}
-)~fprintf(stderr, \-X)}}\label{vector__short_8c_a675cc8ee6a54f986507a8612bc538c1a}
+)~fprintf(stderr, X)}}\label{vector__short_8c_a675cc8ee6a54f986507a8612bc538c1a}
 
 
-\-Definition at line 3 of file vector\-\_\-short.\-c.
+Definition at line 5 of file vector\-\_\-short.\-c.
 
-\hypertarget{vector__short_8c_a2dc7d7c0431a42a61a14f19c8a269ae5}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!\-V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R@{\-V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}}
-\index{\-V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R@{\-V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{\-V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}(
+\hypertarget{vector__short_8c_a2dc7d7c0431a42a61a14f19c8a269ae5}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R@{V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}}
+\index{V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R@{V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}!vector_short.c@{vector\-\_\-short.\-c}}
+\subsubsection[{V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-E\-C\-\_\-short\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R(
 \begin{DoxyParamCaption}
 \item[{}]{x}
 \end{DoxyParamCaption}
-)~(x$\ast$2)}}\label{vector__short_8c_a2dc7d7c0431a42a61a14f19c8a269ae5}
+)~((x) $\ast$ 2)}}\label{vector__short_8c_a2dc7d7c0431a42a61a14f19c8a269ae5}
 
 
-\-Definition at line 5 of file vector\-\_\-short.\-c.
+Definition at line 7 of file vector\-\_\-short.\-c.
 
 
 
-\subsection{\-Function \-Documentation}
+\subsection{Function Documentation}
 \hypertarget{vector__short_8c_a4a7032ff983b4f3e0a0a132775727fe2}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!back\-\_\-short@{back\-\_\-short}}
 \index{back\-\_\-short@{back\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{back\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}short$\ast$ {\bf back\-\_\-short} (
+\subsubsection[{back\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}short$\ast$ back\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}\label{vector__short_8c_a4a7032ff983b4f3e0a0a132775727fe2}
 
 
-\-Definition at line 142 of file vector\-\_\-short.\-c.
+Definition at line 138 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_af803537791afde7d4fdc3344fcebca64}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!clear\-\_\-short@{clear\-\_\-short}}
 \index{clear\-\_\-short@{clear\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{clear\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf clear\-\_\-short} (
+\subsubsection[{clear\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}void clear\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}\label{vector__short_8c_af803537791afde7d4fdc3344fcebca64}
 
 
-\-Definition at line 270 of file vector\-\_\-short.\-c.
+Definition at line 269 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a133af4955b75c7806ca187934fe6962e}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!erase\-\_\-short@{erase\-\_\-short}}
 \index{erase\-\_\-short@{erase\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{erase\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf erase\-\_\-short} (
+\subsubsection[{erase\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}void erase\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{start, }
@@ -116,11 +117,11 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_a133af4955b75c7806ca187934fe6962e}
 
 
-\-Definition at line 212 of file vector\-\_\-short.\-c.
+Definition at line 208 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a6f413458da2818c6476ca045796e113e}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!extend\-\_\-short@{extend\-\_\-short}}
 \index{extend\-\_\-short@{extend\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{extend\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf extend\-\_\-short} (
+\subsubsection[{extend\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int extend\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{num}
@@ -128,33 +129,33 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_a6f413458da2818c6476ca045796e113e}
 
 
-\-Definition at line 148 of file vector\-\_\-short.\-c.
+Definition at line 144 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a17dafd2c29845a45bb960dea73058dde}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!free\-\_\-vec\-\_\-short@{free\-\_\-vec\-\_\-short}}
 \index{free\-\_\-vec\-\_\-short@{free\-\_\-vec\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{free\-\_\-vec\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf free\-\_\-vec\-\_\-short} (
+\subsubsection[{free\-\_\-vec\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}void free\-\_\-vec\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{void $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}\label{vector__short_8c_a17dafd2c29845a45bb960dea73058dde}
 
 
-\-Definition at line 279 of file vector\-\_\-short.\-c.
+Definition at line 278 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a21c8776be68851c98548dde11387d046}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!free\-\_\-vec\-\_\-short\-\_\-heap@{free\-\_\-vec\-\_\-short\-\_\-heap}}
 \index{free\-\_\-vec\-\_\-short\-\_\-heap@{free\-\_\-vec\-\_\-short\-\_\-heap}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{free\-\_\-vec\-\_\-short\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf free\-\_\-vec\-\_\-short\-\_\-heap} (
+\subsubsection[{free\-\_\-vec\-\_\-short\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}void free\-\_\-vec\-\_\-short\-\_\-heap (
 \begin{DoxyParamCaption}
 \item[{void $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}\label{vector__short_8c_a21c8776be68851c98548dde11387d046}
 
 
-\-Definition at line 272 of file vector\-\_\-short.\-c.
+Definition at line 271 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_af484a7bb1b58b80ca2243167a7661161}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!init\-\_\-vec\-\_\-short@{init\-\_\-vec\-\_\-short}}
 \index{init\-\_\-vec\-\_\-short@{init\-\_\-vec\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{init\-\_\-vec\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf init\-\_\-vec\-\_\-short} (
+\subsubsection[{init\-\_\-vec\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int init\-\_\-vec\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec, }
 \item[{short $\ast$}]{vals, }
@@ -163,11 +164,11 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_af484a7bb1b58b80ca2243167a7661161}
 
 
-\-Definition at line 74 of file vector\-\_\-short.\-c.
+Definition at line 73 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_aca13dab13ee29e0bf3024cd868511410}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!init\-\_\-vec\-\_\-short\-\_\-heap@{init\-\_\-vec\-\_\-short\-\_\-heap}}
 \index{init\-\_\-vec\-\_\-short\-\_\-heap@{init\-\_\-vec\-\_\-short\-\_\-heap}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{init\-\_\-vec\-\_\-short\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\-\_\-short}$\ast$ {\bf init\-\_\-vec\-\_\-short\-\_\-heap} (
+\subsubsection[{init\-\_\-vec\-\_\-short\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\-\_\-short}$\ast$ init\-\_\-vec\-\_\-short\-\_\-heap (
 \begin{DoxyParamCaption}
 \item[{short $\ast$}]{vals, }
 \item[{size\-\_\-t}]{num}
@@ -175,11 +176,11 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_aca13dab13ee29e0bf3024cd868511410}
 
 
-\-Definition at line 33 of file vector\-\_\-short.\-c.
+Definition at line 35 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a56b32bd1983e8e93fc64969921fbc872}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!insert\-\_\-array\-\_\-short@{insert\-\_\-array\-\_\-short}}
 \index{insert\-\_\-array\-\_\-short@{insert\-\_\-array\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{insert\-\_\-array\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf insert\-\_\-array\-\_\-short} (
+\subsubsection[{insert\-\_\-array\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int insert\-\_\-array\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{i, }
@@ -189,11 +190,11 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_a56b32bd1983e8e93fc64969921fbc872}
 
 
-\-Definition at line 191 of file vector\-\_\-short.\-c.
+Definition at line 187 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a91c7eb173c1b826abaa97f609a5550b3}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!insert\-\_\-short@{insert\-\_\-short}}
 \index{insert\-\_\-short@{insert\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{insert\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf insert\-\_\-short} (
+\subsubsection[{insert\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int insert\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{i, }
@@ -202,22 +203,22 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_a91c7eb173c1b826abaa97f609a5550b3}
 
 
-\-Definition at line 167 of file vector\-\_\-short.\-c.
+Definition at line 163 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a4002cedc10ceb16ecfc0768fd2e2503e}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!pop\-\_\-short@{pop\-\_\-short}}
 \index{pop\-\_\-short@{pop\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{pop\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}short {\bf pop\-\_\-short} (
+\subsubsection[{pop\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}short pop\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec}
 \end{DoxyParamCaption}
 )}}\label{vector__short_8c_a4002cedc10ceb16ecfc0768fd2e2503e}
 
 
-\-Definition at line 137 of file vector\-\_\-short.\-c.
+Definition at line 133 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a60a96c13e13ce4d33cd9cd7da66cab7d}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!push\-\_\-short@{push\-\_\-short}}
 \index{push\-\_\-short@{push\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{push\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf push\-\_\-short} (
+\subsubsection[{push\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int push\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec, }
 \item[{short}]{a}
@@ -225,11 +226,11 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_a60a96c13e13ce4d33cd9cd7da66cab7d}
 
 
-\-Definition at line 116 of file vector\-\_\-short.\-c.
+Definition at line 112 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a383aae0dbc23be3cdb94741446c4bfb3}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!reserve\-\_\-short@{reserve\-\_\-short}}
 \index{reserve\-\_\-short@{reserve\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{reserve\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf reserve\-\_\-short} (
+\subsubsection[{reserve\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int reserve\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{size}
@@ -237,11 +238,11 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_a383aae0dbc23be3cdb94741446c4bfb3}
 
 
-\-Definition at line 220 of file vector\-\_\-short.\-c.
+Definition at line 216 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a56a5aab3e56603053ab7274f7933bdb9}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!set\-\_\-capacity\-\_\-short@{set\-\_\-capacity\-\_\-short}}
 \index{set\-\_\-capacity\-\_\-short@{set\-\_\-capacity\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{set\-\_\-capacity\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf set\-\_\-capacity\-\_\-short} (
+\subsubsection[{set\-\_\-capacity\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int set\-\_\-capacity\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{size}
@@ -249,11 +250,11 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_a56a5aab3e56603053ab7274f7933bdb9}
 
 
-\-Definition at line 237 of file vector\-\_\-short.\-c.
+Definition at line 233 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a230aa8cd3221076a37967bc953ab49b4}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!set\-\_\-val\-\_\-cap\-\_\-short@{set\-\_\-val\-\_\-cap\-\_\-short}}
 \index{set\-\_\-val\-\_\-cap\-\_\-short@{set\-\_\-val\-\_\-cap\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{set\-\_\-val\-\_\-cap\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf set\-\_\-val\-\_\-cap\-\_\-short} (
+\subsubsection[{set\-\_\-val\-\_\-cap\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-val\-\_\-cap\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec, }
 \item[{short}]{val}
@@ -261,11 +262,11 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_a230aa8cd3221076a37967bc953ab49b4}
 
 
-\-Definition at line 262 of file vector\-\_\-short.\-c.
+Definition at line 260 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a239d76c322dfc74e755048421292745b}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!set\-\_\-val\-\_\-sz\-\_\-short@{set\-\_\-val\-\_\-sz\-\_\-short}}
 \index{set\-\_\-val\-\_\-sz\-\_\-short@{set\-\_\-val\-\_\-sz\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{set\-\_\-val\-\_\-sz\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf set\-\_\-val\-\_\-sz\-\_\-short} (
+\subsubsection[{set\-\_\-val\-\_\-sz\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-val\-\_\-sz\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec, }
 \item[{short}]{val}
@@ -273,11 +274,11 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_a239d76c322dfc74e755048421292745b}
 
 
-\-Definition at line 254 of file vector\-\_\-short.\-c.
+Definition at line 251 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a14d7964eb85ec2ff3faba857fe202ae3}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!vec\-\_\-short@{vec\-\_\-short}}
 \index{vec\-\_\-short@{vec\-\_\-short}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{vec\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf vec\-\_\-short} (
+\subsubsection[{vec\-\_\-short}]{\setlength{\rightskip}{0pt plus 5cm}int vec\-\_\-short (
 \begin{DoxyParamCaption}
 \item[{{\bf vector\-\_\-short} $\ast$}]{vec, }
 \item[{size\-\_\-t}]{size, }
@@ -286,11 +287,11 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_a14d7964eb85ec2ff3faba857fe202ae3}
 
 
-\-Definition at line 59 of file vector\-\_\-short.\-c.
+Definition at line 58 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_ab8dcf633e9484048042c7d7f5893fdf1}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!vec\-\_\-short\-\_\-copy@{vec\-\_\-short\-\_\-copy}}
 \index{vec\-\_\-short\-\_\-copy@{vec\-\_\-short\-\_\-copy}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{vec\-\_\-short\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf vec\-\_\-short\-\_\-copy} (
+\subsubsection[{vec\-\_\-short\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}void vec\-\_\-short\-\_\-copy (
 \begin{DoxyParamCaption}
 \item[{void $\ast$}]{dest, }
 \item[{void $\ast$}]{src}
@@ -298,11 +299,11 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_ab8dcf633e9484048042c7d7f5893fdf1}
 
 
-\-Definition at line 92 of file vector\-\_\-short.\-c.
+Definition at line 88 of file vector\-\_\-short.\-c.
 
 \hypertarget{vector__short_8c_a3eae30f8c63fc23fbbd4430aca2e0bba}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!vec\-\_\-short\-\_\-heap@{vec\-\_\-short\-\_\-heap}}
 \index{vec\-\_\-short\-\_\-heap@{vec\-\_\-short\-\_\-heap}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{vec\-\_\-short\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\-\_\-short}$\ast$ {\bf vec\-\_\-short\-\_\-heap} (
+\subsubsection[{vec\-\_\-short\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\-\_\-short}$\ast$ vec\-\_\-short\-\_\-heap (
 \begin{DoxyParamCaption}
 \item[{size\-\_\-t}]{size, }
 \item[{size\-\_\-t}]{capacity}
@@ -310,15 +311,15 @@ size\-\_\-t \hyperlink{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\-V\-
 )}}\label{vector__short_8c_a3eae30f8c63fc23fbbd4430aca2e0bba}
 
 
-\-Definition at line 12 of file vector\-\_\-short.\-c.
+Definition at line 14 of file vector\-\_\-short.\-c.
 
 
 
-\subsection{\-Variable \-Documentation}
-\hypertarget{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!\-V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z@{\-V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z}}
-\index{\-V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z@{\-V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z}!vector_short.c@{vector\-\_\-short.\-c}}
-\subsubsection[{\-V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf \-V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z} = 50}}\label{vector__short_8c_a29de7764e966011d858e8350ae61e214}
+\subsection{Variable Documentation}
+\hypertarget{vector__short_8c_a29de7764e966011d858e8350ae61e214}{\index{vector\-\_\-short.\-c@{vector\-\_\-short.\-c}!V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z@{V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z}}
+\index{V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z@{V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z}!vector_short.c@{vector\-\_\-short.\-c}}
+\subsubsection[{V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t V\-E\-C\-T\-O\-R\-\_\-short\-\_\-\-S\-Z = 50}}\label{vector__short_8c_a29de7764e966011d858e8350ae61e214}
 
 
-\-Definition at line 8 of file vector\-\_\-short.\-c.
+Definition at line 10 of file vector\-\_\-short.\-c.
 

@@ -10,6 +10,8 @@
 \RequirePackage{longtable}
 \RequirePackage{verbatim}
 \RequirePackage{ifthen}
+\RequirePackage{xtab}
+\RequirePackage{multirow}
 \RequirePackage[table]{xcolor}
 
 % Use helvetica font instead of times roman
@@ -39,8 +41,8 @@
 \fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
 \fancyfoot[LE]{\fancyplain{}{}}
 \fancyfoot[CE]{\fancyplain{}{}}
-\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize \-Generated on \-Tue \-Nov 13 2012 20\-:58\-:25 for \-Cvector by Doxygen }}
-\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize \-Generated on \-Tue \-Nov 13 2012 20\-:58\-:25 for \-Cvector by Doxygen }}
+\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Generated on Sun Jun 2 2013 23\-:24\-:23 for Cvector by Doxygen }}
+\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Generated on Sun Jun 2 2013 23\-:24\-:23 for Cvector by Doxygen }}
 \fancyfoot[CO]{\fancyplain{}{}}
 \fancyfoot[RO]{\fancyplain{}{}}
 %---------- Internal commands used in this style file ----------------
@@ -95,11 +97,11 @@
 
 % Used by @code ... @endcode
 \newenvironment{DoxyCode}{%
-  \footnotesize%
-  \verbatim%
+
+
+\begin{scriptsize}\begin{alltt}%
 }{%
-  \endverbatim%
-  \normalsize%
+\end{alltt}\end{scriptsize}%
 }
 
 % Used by @example, @include, @includelineno and @dontinclude
@@ -402,10 +404,10 @@
 {
 \setlength{\tmplength}
      {\linewidth/(#1)-\tabcolsep*2-\arrayrulewidth*(#1+1)/(#1)}
-      \par\begin{tabular*}{\linewidth}
+      \par\begin{xtabular*}{\linewidth}
              {*{#1}{|>{\PBS\raggedright\hspace{0pt}}p{\the\tmplength}}|}
 }
-{\end{tabular*}\par}
+{\end{xtabular*}\par}
 \newcommand{\entrylabel}[1]{
    {\parbox[b]{\labelwidth-4pt}{\makebox[0pt][l]{%
    \usefont{OT1}{phv}{bc}{n}\color{darkgray}#1}\vspace{1.5\baselineskip}}}}

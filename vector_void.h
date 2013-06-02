@@ -8,7 +8,7 @@
 typedef unsigned char byte;
 
 /** Data structure for generic type (cast to void) vectors */
-typedef struct vector_
+typedef struct vector_void
 {
 	byte* a;                 /**< Array. */
 	size_t size;             /**< Current size (amount you should use when manipulating array directly). */
