@@ -88,7 +88,7 @@ size_t VEC_D_START_SZ = 50;
 size_t VEC_START_SZ = 20;
 size_t VEC_S_START_SZ = 20;</pre><pre>#define <a class="el" href="vector__i_8c.html#a6d9a8fd1aaa4a8df09d79da016a5c5aa">VEC_I_ALLOCATOR(x)</a> ((x) * 2)
 #define <a class="el" href="vector__d_8c.html#a024a194564bd2419ca1ac75e3cdec3e8">VEC_D_ALLOCATOR(x)</a> ((x) * 2)
-#define VEC_S_ALLOCATOR(x) ((x) * 2)
+#define <a class="el" href="vector__str_8c.html#ac6b46abc3594994ede1811c5268fa72f">VEC_STR_ALLOCATOR(x)</a> ((x) * 2)
 #define <a class="el" href="vector__void_8c.html#a6f86fe931c02dfbb3d901d2f5e5ec969">VEC_VOID_ALLOCATOR(x)</a> ((x) * 2)
 </pre><p> The allocator macros are used in all functions that increase the size by 1. In others (constructors, insert_array, reserve) VEC_X_START_SZ is the amount extra allocated.</p>
 <p>With version 2.0 I've added <a class="el" href="vector__template_8c.html">vector_template.c</a> and <a class="el" href="vector__template_8h.html">vector_template.h</a> which are used to generate code for any type (that doesn't require individual allocation/freeing like vector_s). It behaves exactly like <a class="el" href="structvector__i.html" title="Data structure for int vector.">vector_i</a> (or d). This is preferable to using the generic vector for simple types and basic structures etc. since it's faster and clearer.</p>
@@ -102,7 +102,7 @@ Building</h1>
 <p>I use premake so the command on linux is premake4 gmake which will generate a build directory. cd into that and run make or make config=release. I have not tried it on windows though it should work (well I'm not sure about CUnit ...).</p>
 <p>There is no output of any kind, no errors or warnings.</p>
 <p>It has been relatively well tested using Cunit tests which all pass. I've also run it under valgrind and there are no memory leaks.</p>
-<p>valgrind &ndash;leak-check=yes ./vector</p>
+<p>valgrind &ndash;leak-check=full -v ./vector</p>
 <pre>
 ==6100== 
 ==6100== HEAP SUMMARY:
@@ -131,7 +131,7 @@ LICENSE</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 3 2013 22:29:23 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 3 2013 23:56:15 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

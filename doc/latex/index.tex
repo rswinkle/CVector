@@ -12,7 +12,7 @@ size\_t VEC\_S\_START\_SZ = 20;\end{DoxyPre}
 
 \begin{DoxyPre}#define \hyperlink{vector__i_8c_a6d9a8fd1aaa4a8df09d79da016a5c5aa}{VEC\_I\_ALLOCATOR(x)} ((x) * 2)
 #define \hyperlink{vector__d_8c_a024a194564bd2419ca1ac75e3cdec3e8}{VEC\_D\_ALLOCATOR(x)} ((x) * 2)
-#define VEC\_S\_ALLOCATOR(x) ((x) * 2)
+#define \hyperlink{vector__str_8c_ac6b46abc3594994ede1811c5268fa72f}{VEC\_STR\_ALLOCATOR(x)} ((x) * 2)
 #define \hyperlink{vector__void_8c_a6f86fe931c02dfbb3d901d2f5e5ec969}{VEC\_VOID\_ALLOCATOR(x)} ((x) * 2)
 \end{DoxyPre}
  The allocator macros are used in all functions that increase the size by 1. In others (constructors, insert\-\_\-array, reserve) V\-E\-C\-\_\-\-X\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z is the amount extra allocated.
@@ -34,7 +34,7 @@ There is no output of any kind, no errors or warnings.
 
 It has been relatively well tested using Cunit tests which all pass. I've also run it under valgrind and there are no memory leaks.
 
-valgrind --leak-\/check=yes ./vector
+valgrind --leak-\/check=full -\/v ./vector
 
 
 \begin{DoxyPre}

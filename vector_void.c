@@ -552,7 +552,7 @@ size_t VEC_S_START_SZ = 20;
 
 #define VEC_I_ALLOCATOR(x) ((x) * 2)
 #define VEC_D_ALLOCATOR(x) ((x) * 2)
-#define VEC_S_ALLOCATOR(x) ((x) * 2)
+#define VEC_STR_ALLOCATOR(x) ((x) * 2)
 #define VEC_VOID_ALLOCATOR(x) ((x) * 2)
 </pre>
 The allocator macros are used in all functions that increase the size by 1.
@@ -588,7 +588,7 @@ There is no output of any kind, no errors or warnings.
 It has been relatively well tested using Cunit tests which all pass.
 I've also run it under valgrind and there are no memory leaks.
 
-valgrind --leak-check=yes ./vector
+valgrind --leak-check=full -v ./vector
 
 <pre>
 ==6100== 

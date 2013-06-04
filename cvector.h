@@ -1,3 +1,5 @@
+/* header starts */
+
 #ifndef CVECTOR_H
 #define CVECTOR_H
 
@@ -5,8 +7,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <assert.h>
-
-/* header starts */
 
 /** Data structure for int vector. */
 typedef struct vector_i
@@ -160,6 +160,8 @@ void free_vec_void_heap(void* vec);
 void free_vec_void(void* vec);
 
 /* header ends */
+#endif 
+
 
 #ifdef CVECTOR_IMPLEMENTATION
 
@@ -1386,7 +1388,5 @@ void free_vec_void(void* vec)
 	tmp->size = 0;
 	tmp->capacity = 0;
 }
-
-#endif 
 
 #endif

@@ -23,7 +23,7 @@ solution "CVector"
          flags { "Optimize" }
  
       configuration { "linux", "gmake" }
-         buildoptions { "-ansi", "-pedantic-errors" }
+         buildoptions { "-ansi", "-pedantic-errors", "-fno-strict-aliasing", "-Wunused-variable", "-Wreturn-type" }
 
 
    project "cvector"
@@ -48,4 +48,4 @@ solution "CVector"
          flags { "Optimize" }
  
       configuration { "linux", "gmake" }
-         buildoptions { "-ansi", "-pedantic-errors" }
+         buildoptions { "-ansi", "-pedantic-errors", "-fno-strict-aliasing", "-Wunused-variable", "-Wreturn-type" }
