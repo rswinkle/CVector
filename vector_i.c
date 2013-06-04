@@ -8,7 +8,7 @@
 
 size_t VEC_I_START_SZ = 50;
 
-#define VECI_ALLOCATOR(x) ((x) * 2)
+#define VEC_I_ALLOCATOR(x) ((x) * 2)
 
 
 
@@ -140,7 +140,7 @@ int push_i(vector_i* vec, int a)
 	void* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VECI_ALLOCATOR(vec->capacity);
+		tmp_sz = VEC_I_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -201,7 +201,7 @@ int insert_i(vector_i* vec, size_t i, int a)
 	void* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VECI_ALLOCATOR(vec->capacity);
+		tmp_sz = VEC_I_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;

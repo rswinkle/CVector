@@ -8,7 +8,7 @@
 \item 
 \#define \hyperlink{vector__void_8c_a675cc8ee6a54f986507a8612bc538c1a}{S\-T\-D\-E\-R\-R}(X)~fprintf(stderr, X)
 \item 
-\#define \hyperlink{vector__void_8c_acc6ff7ec59b6544f657758f724fb7a8b}{V\-E\-C\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}(x)~((x) $\ast$ 2)
+\#define \hyperlink{vector__void_8c_a6f86fe931c02dfbb3d901d2f5e5ec969}{V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}(x)~((x) $\ast$ 2)
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -18,7 +18,7 @@
 \hyperlink{structvector__void}{vector\-\_\-void} $\ast$ \hyperlink{vector__void_8c_a742717173c3d6786b0eb1a623e9ee3b5}{init\-\_\-vec\-\_\-void\-\_\-heap} (void $\ast$vals, size\-\_\-t num, size\-\_\-t elem\-\_\-sz, void($\ast$elem\-\_\-free)(void $\ast$), void($\ast$elem\-\_\-init)(void $\ast$, void $\ast$))
 \begin{DoxyCompactList}\small\item\em Create (on the heap) and initialize vector with num elements of vals. \end{DoxyCompactList}\item 
 int \hyperlink{vector__void_8c_a5c2a4279acb79d147986b7418ad8b2aa}{vec\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, size\-\_\-t size, size\-\_\-t capacity, size\-\_\-t elem\-\_\-sz, void($\ast$elem\-\_\-free)(void $\ast$), void($\ast$elem\-\_\-init)(void $\ast$, void $\ast$))
-\begin{DoxyCompactList}\small\item\em Same as \hyperlink{vector__void_8c_af5a2f68eaa6032d18d3d9d2e28bba1a8}{vec\-\_\-void\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Same as \hyperlink{cvector_8h_af5a2f68eaa6032d18d3d9d2e28bba1a8}{vec\-\_\-void\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
 int \hyperlink{vector__void_8c_a92313f2b981de4135938f7cca657fd38}{init\-\_\-vec\-\_\-void} (\hyperlink{structvector__void}{vector\-\_\-void} $\ast$vec, void $\ast$vals, size\-\_\-t num, size\-\_\-t elem\-\_\-sz, void($\ast$elem\-\_\-free)(void $\ast$), void($\ast$elem\-\_\-init)(void $\ast$, void $\ast$))
 \begin{DoxyCompactList}\small\item\em Same as init\-\_\-vec\-\_\-heap() except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
 void \hyperlink{vector__void_8c_a3ee24499e51ba355286e6afd6d4c21ab}{vec\-\_\-void\-\_\-copy} (void $\ast$dest, void $\ast$src)
@@ -72,13 +72,13 @@ size\-\_\-t \hyperlink{vector__void_8c_a09059d3291da8975ea105fefdab70c47}{V\-E\-
 
 Definition at line 5 of file vector\-\_\-void.\-c.
 
-\hypertarget{vector__void_8c_acc6ff7ec59b6544f657758f724fb7a8b}{\index{vector\-\_\-void.\-c@{vector\-\_\-void.\-c}!V\-E\-C\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R@{V\-E\-C\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}}
-\index{V\-E\-C\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R@{V\-E\-C\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}!vector_void.c@{vector\-\_\-void.\-c}}
-\subsubsection[{V\-E\-C\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-E\-C\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R(
+\hypertarget{vector__void_8c_a6f86fe931c02dfbb3d901d2f5e5ec969}{\index{vector\-\_\-void.\-c@{vector\-\_\-void.\-c}!V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R@{V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}}
+\index{V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R@{V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}!vector_void.c@{vector\-\_\-void.\-c}}
+\subsubsection[{V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R(
 \begin{DoxyParamCaption}
 \item[{}]{x}
 \end{DoxyParamCaption}
-)~((x) $\ast$ 2)}}\label{vector__void_8c_acc6ff7ec59b6544f657758f724fb7a8b}
+)~((x) $\ast$ 2)}}\label{vector__void_8c_a6f86fe931c02dfbb3d901d2f5e5ec969}
 
 
 Definition at line 11 of file vector\-\_\-void.\-c.
@@ -214,7 +214,7 @@ Definition at line 135 of file vector\-\_\-void.\-c.
 
 Create (on the heap) and initialize vector with num elements of vals. 
 
-elem\-\_\-sz is the size of the type you want to store ( ie sizeof(\-T) where T is your type ). See \hyperlink{vector__void_8c_af5a2f68eaa6032d18d3d9d2e28bba1a8}{vec\-\_\-void\-\_\-heap()} for more information about the elem\-\_\-free and elem\-\_\-init parameters. 
+elem\-\_\-sz is the size of the type you want to store ( ie sizeof(\-T) where T is your type ). See \hyperlink{cvector_8h_af5a2f68eaa6032d18d3d9d2e28bba1a8}{vec\-\_\-void\-\_\-heap()} for more information about the elem\-\_\-free and elem\-\_\-init parameters. 
 
 Definition at line 76 of file vector\-\_\-void.\-c.
 
@@ -363,7 +363,7 @@ Definition at line 436 of file vector\-\_\-void.\-c.
 )}}\label{vector__void_8c_a5c2a4279acb79d147986b7418ad8b2aa}
 
 
-Same as \hyperlink{vector__void_8c_af5a2f68eaa6032d18d3d9d2e28bba1a8}{vec\-\_\-void\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. 
+Same as \hyperlink{cvector_8h_af5a2f68eaa6032d18d3d9d2e28bba1a8}{vec\-\_\-void\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. 
 
 Use the free\-\_\-vec\-\_\-void in that case 
 
@@ -397,7 +397,7 @@ Definition at line 172 of file vector\-\_\-void.\-c.
 
 Return a void pointer to the ith element. 
 
-Another way to get elements from vector that is used in \hyperlink{vector__tests_8c}{vector\-\_\-tests.\-c} is a macro like this one \#define \hyperlink{vector__tests_8c_a097522f36be915c26e5fccbb262a40fd}{G\-E\-T\-\_\-\-E\-L\-E\-M\-E\-N\-T(\-X,\-Y,\-T\-Y\-P\-E)} ((T\-Y\-P\-E$\ast$)\&X.\-a\mbox{[}Y$\ast$\-X.elem\-\_\-size\mbox{]}) 
+Another way to get elements from vector that is used in \hyperlink{vector__tests_8c}{vector\-\_\-tests.\-c} is a macro like this one \#define \hyperlink{vector__tests2_8c_a097522f36be915c26e5fccbb262a40fd}{G\-E\-T\-\_\-\-E\-L\-E\-M\-E\-N\-T(\-X,\-Y,\-T\-Y\-P\-E)} ((T\-Y\-P\-E$\ast$)\&X.\-a\mbox{[}Y$\ast$\-X.elem\-\_\-size\mbox{]}) 
 
 Definition at line 291 of file vector\-\_\-void.\-c.
 

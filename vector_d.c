@@ -9,7 +9,7 @@
 size_t VEC_D_START_SZ = 50;
 
 
-#define VECD_ALLOCATOR(x) ((x) * 2)
+#define VEC_D_ALLOCATOR(x) ((x) * 2)
 
 
 
@@ -143,7 +143,7 @@ int push_d(vector_d* vec, double a)
 	void* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VECD_ALLOCATOR(vec->capacity);
+		tmp_sz = VEC_D_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(double)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -204,7 +204,7 @@ int insert_d(vector_d* vec, size_t i, double a)
 	void* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VECD_ALLOCATOR(vec->capacity);
+		tmp_sz = VEC_D_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, sizeof(double)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;

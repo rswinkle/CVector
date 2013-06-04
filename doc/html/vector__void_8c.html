@@ -96,7 +96,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a675cc8ee6a54f986507a8612bc538c1a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__void_8c.html#a675cc8ee6a54f986507a8612bc538c1a">STDERR</a>(X)&#160;&#160;&#160;fprintf(stderr, X)</td></tr>
-<tr class="memitem:acc6ff7ec59b6544f657758f724fb7a8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__void_8c.html#acc6ff7ec59b6544f657758f724fb7a8b">VEC_ALLOCATOR</a>(x)&#160;&#160;&#160;((x) * 2)</td></tr>
+<tr class="memitem:a6f86fe931c02dfbb3d901d2f5e5ec969"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__void_8c.html#a6f86fe931c02dfbb3d901d2f5e5ec969">VEC_VOID_ALLOCATOR</a>(x)&#160;&#160;&#160;((x) * 2)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -105,7 +105,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a742717173c3d6786b0eb1a623e9ee3b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvector__void.html">vector_void</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__void_8c.html#a742717173c3d6786b0eb1a623e9ee3b5">init_vec_void_heap</a> (void *vals, size_t num, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))</td></tr>
 <tr class="memdesc:a742717173c3d6786b0eb1a623e9ee3b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create (on the heap) and initialize vector with num elements of vals.  <a href="#a742717173c3d6786b0eb1a623e9ee3b5"></a><br/></td></tr>
 <tr class="memitem:a5c2a4279acb79d147986b7418ad8b2aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__void_8c.html#a5c2a4279acb79d147986b7418ad8b2aa">vec_void</a> (<a class="el" href="structvector__void.html">vector_void</a> *vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))</td></tr>
-<tr class="memdesc:a5c2a4279acb79d147986b7418ad8b2aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="vector__void_8c.html#af5a2f68eaa6032d18d3d9d2e28bba1a8" title="Creates a new vector on the heap.">vec_void_heap()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#a5c2a4279acb79d147986b7418ad8b2aa"></a><br/></td></tr>
+<tr class="memdesc:a5c2a4279acb79d147986b7418ad8b2aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="cvector_8h.html#af5a2f68eaa6032d18d3d9d2e28bba1a8" title="Creates a new vector on the heap.">vec_void_heap()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#a5c2a4279acb79d147986b7418ad8b2aa"></a><br/></td></tr>
 <tr class="memitem:a92313f2b981de4135938f7cca657fd38"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__void_8c.html#a92313f2b981de4135938f7cca657fd38">init_vec_void</a> (<a class="el" href="structvector__void.html">vector_void</a> *vec, void *vals, size_t num, size_t elem_sz, void(*elem_free)(void *), void(*elem_init)(void *, void *))</td></tr>
 <tr class="memdesc:a92313f2b981de4135938f7cca657fd38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as init_vec_heap() except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#a92313f2b981de4135938f7cca657fd38"></a><br/></td></tr>
 <tr class="memitem:a3ee24499e51ba355286e6afd6d4c21ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__void_8c.html#a3ee24499e51ba355286e6afd6d4c21ab">vec_void_copy</a> (void *dest, void *src)</td></tr>
@@ -164,12 +164,12 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="acc6ff7ec59b6544f657758f724fb7a8b"></a>
+<a class="anchor" id="a6f86fe931c02dfbb3d901d2f5e5ec969"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define VEC_ALLOCATOR</td>
+          <td class="memname">#define VEC_VOID_ALLOCATOR</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">x</td><td>)</td>
@@ -430,7 +430,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Create (on the heap) and initialize vector with num elements of vals. </p>
-<p>elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ). See <a class="el" href="vector__void_8c.html#af5a2f68eaa6032d18d3d9d2e28bba1a8" title="Creates a new vector on the heap.">vec_void_heap()</a> for more information about the elem_free and elem_init parameters. </p>
+<p>elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ). See <a class="el" href="cvector_8h.html#af5a2f68eaa6032d18d3d9d2e28bba1a8" title="Creates a new vector on the heap.">vec_void_heap()</a> for more information about the elem_free and elem_init parameters. </p>
 
 <p>Definition at line <a class="el" href="vector__void_8c_source.html#l00076">76</a> of file <a class="el" href="vector__void_8c_source.html">vector_void.c</a>.</p>
 
@@ -748,7 +748,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Same as <a class="el" href="vector__void_8c.html#af5a2f68eaa6032d18d3d9d2e28bba1a8" title="Creates a new vector on the heap.">vec_void_heap()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
+<p>Same as <a class="el" href="cvector_8h.html#af5a2f68eaa6032d18d3d9d2e28bba1a8" title="Creates a new vector on the heap.">vec_void_heap()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
 <p>Use the free_vec_void in that case </p>
 
 <p>Definition at line <a class="el" href="vector__void_8c_source.html#l00113">113</a> of file <a class="el" href="vector__void_8c_source.html">vector_void.c</a>.</p>
@@ -811,7 +811,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Return a void pointer to the ith element. </p>
-<p>Another way to get elements from vector that is used in <a class="el" href="vector__tests_8c.html">vector_tests.c</a> is a macro like this one #define <a class="el" href="vector__tests_8c.html#a097522f36be915c26e5fccbb262a40fd">GET_ELEMENT(X,Y,TYPE)</a> ((TYPE*)&amp;X.a[Y*X.elem_size]) </p>
+<p>Another way to get elements from vector that is used in <a class="el" href="vector__tests_8c.html">vector_tests.c</a> is a macro like this one #define <a class="el" href="vector__tests2_8c.html#a097522f36be915c26e5fccbb262a40fd">GET_ELEMENT(X,Y,TYPE)</a> ((TYPE*)&amp;X.a[Y*X.elem_size]) </p>
 
 <p>Definition at line <a class="el" href="vector__void_8c_source.html#l00291">291</a> of file <a class="el" href="vector__void_8c_source.html">vector_void.c</a>.</p>
 
@@ -887,7 +887,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 2 2013 23:24:23 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 3 2013 22:29:23 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

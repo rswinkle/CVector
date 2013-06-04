@@ -8,7 +8,7 @@
 \item 
 \#define \hyperlink{vector__i_8c_a675cc8ee6a54f986507a8612bc538c1a}{S\-T\-D\-E\-R\-R}(X)~fprintf(stderr, X)
 \item 
-\#define \hyperlink{vector__i_8c_a88db9d722845b6a23eb29d044a0a3c98}{V\-E\-C\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}(x)~((x) $\ast$ 2)
+\#define \hyperlink{vector__i_8c_a6d9a8fd1aaa4a8df09d79da016a5c5aa}{V\-E\-C\-\_\-\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}(x)~((x) $\ast$ 2)
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -18,9 +18,9 @@
 \hyperlink{structvector__i}{vector\-\_\-i} $\ast$ \hyperlink{vector__i_8c_ad4b9473b1c5a40dfa7d02faa5c7404b9}{init\-\_\-vec\-\_\-i\-\_\-heap} (int $\ast$vals, size\-\_\-t num)
 \begin{DoxyCompactList}\small\item\em Create (on the heap) and initialize \hyperlink{structvector__i}{vector\-\_\-i} with num elements of vals. \end{DoxyCompactList}\item 
 int \hyperlink{vector__i_8c_a7688f263b2099e8362bc5eac66d6671b}{vec\-\_\-i} (\hyperlink{structvector__i}{vector\-\_\-i} $\ast$vec, size\-\_\-t size, size\-\_\-t capacity)
-\begin{DoxyCompactList}\small\item\em Same as \hyperlink{vector__i_8c_aacd351d61db8f2190d3867db3d3da604}{vec\-\_\-i\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Same as \hyperlink{cvector_8h_aacd351d61db8f2190d3867db3d3da604}{vec\-\_\-i\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
 int \hyperlink{vector__i_8c_a5e111a1723ee47769957d148b3201b5d}{init\-\_\-vec\-\_\-i} (\hyperlink{structvector__i}{vector\-\_\-i} $\ast$vec, int $\ast$vals, size\-\_\-t num)
-\begin{DoxyCompactList}\small\item\em Same as \hyperlink{vector__i_8c_ad4b9473b1c5a40dfa7d02faa5c7404b9}{init\-\_\-vec\-\_\-i\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Same as \hyperlink{cvector_8h_ad4b9473b1c5a40dfa7d02faa5c7404b9}{init\-\_\-vec\-\_\-i\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
 void \hyperlink{vector__i_8c_ac0603cc70fe778ecfab800b873bd6099}{vec\-\_\-i\-\_\-copy} (void $\ast$dest, void $\ast$src)
 \begin{DoxyCompactList}\small\item\em Makes dest an identical copy of src. \end{DoxyCompactList}\item 
 int \hyperlink{vector__i_8c_a0ec0d4144e7a43e72608159b9a351682}{push\-\_\-i} (\hyperlink{structvector__i}{vector\-\_\-i} $\ast$vec, int a)
@@ -70,13 +70,13 @@ size\-\_\-t \hyperlink{vector__i_8c_a9dfda901bb45b8c35164ec186c1c844e}{V\-E\-C\-
 
 Definition at line 5 of file vector\-\_\-i.\-c.
 
-\hypertarget{vector__i_8c_a88db9d722845b6a23eb29d044a0a3c98}{\index{vector\-\_\-i.\-c@{vector\-\_\-i.\-c}!V\-E\-C\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R@{V\-E\-C\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}}
-\index{V\-E\-C\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R@{V\-E\-C\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}!vector_i.c@{vector\-\_\-i.\-c}}
-\subsubsection[{V\-E\-C\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-E\-C\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R(
+\hypertarget{vector__i_8c_a6d9a8fd1aaa4a8df09d79da016a5c5aa}{\index{vector\-\_\-i.\-c@{vector\-\_\-i.\-c}!V\-E\-C\-\_\-\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R@{V\-E\-C\-\_\-\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}}
+\index{V\-E\-C\-\_\-\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R@{V\-E\-C\-\_\-\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}!vector_i.c@{vector\-\_\-i.\-c}}
+\subsubsection[{V\-E\-C\-\_\-\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-E\-C\-\_\-\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-O\-R(
 \begin{DoxyParamCaption}
 \item[{}]{x}
 \end{DoxyParamCaption}
-)~((x) $\ast$ 2)}}\label{vector__i_8c_a88db9d722845b6a23eb29d044a0a3c98}
+)~((x) $\ast$ 2)}}\label{vector__i_8c_a6d9a8fd1aaa4a8df09d79da016a5c5aa}
 
 
 Definition at line 11 of file vector\-\_\-i.\-c.
@@ -188,7 +188,7 @@ Definition at line 326 of file vector\-\_\-i.\-c.
 )}}\label{vector__i_8c_a5e111a1723ee47769957d148b3201b5d}
 
 
-Same as \hyperlink{vector__i_8c_ad4b9473b1c5a40dfa7d02faa5c7404b9}{init\-\_\-vec\-\_\-i\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. 
+Same as \hyperlink{cvector_8h_ad4b9473b1c5a40dfa7d02faa5c7404b9}{init\-\_\-vec\-\_\-i\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. 
 
 
 
@@ -351,7 +351,7 @@ Definition at line 303 of file vector\-\_\-i.\-c.
 )}}\label{vector__i_8c_a7688f263b2099e8362bc5eac66d6671b}
 
 
-Same as \hyperlink{vector__i_8c_aacd351d61db8f2190d3867db3d3da604}{vec\-\_\-i\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. 
+Same as \hyperlink{cvector_8h_aacd351d61db8f2190d3867db3d3da604}{vec\-\_\-i\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. 
 
 Use the free\-\_\-vec\-\_\-i in this case. This and init\-\_\-vec\-\_\-i should be preferred over the heap versions. 
 

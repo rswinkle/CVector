@@ -107,9 +107,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a4ec7e603dd0eb5ad39b3769fed8e58ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvector__str.html">vector_str</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__str_8c.html#a4ec7e603dd0eb5ad39b3769fed8e58ef">init_vec_str_heap</a> (char **vals, size_t num)</td></tr>
 <tr class="memdesc:a4ec7e603dd0eb5ad39b3769fed8e58ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create (on the heap) and initialize <a class="el" href="structvector__str.html" title="Data structure for string vector.">vector_str</a> with num elements of vals.  <a href="#a4ec7e603dd0eb5ad39b3769fed8e58ef"></a><br/></td></tr>
 <tr class="memitem:a4cafadcad8de78fee1c7b27a32c4737a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__str_8c.html#a4cafadcad8de78fee1c7b27a32c4737a">vec_str</a> (<a class="el" href="structvector__str.html">vector_str</a> *vec, size_t size, size_t capacity)</td></tr>
-<tr class="memdesc:a4cafadcad8de78fee1c7b27a32c4737a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="vector__str_8c.html#af0312674facca46fa1a4d5853d067478" title="Create a new vector_str on the heap.">vec_str_heap()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#a4cafadcad8de78fee1c7b27a32c4737a"></a><br/></td></tr>
+<tr class="memdesc:a4cafadcad8de78fee1c7b27a32c4737a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="cvector_8h.html#af0312674facca46fa1a4d5853d067478" title="Create a new vector_str on the heap.">vec_str_heap()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#a4cafadcad8de78fee1c7b27a32c4737a"></a><br/></td></tr>
 <tr class="memitem:a5e782880d6fbdb6e578d26586f6e4559"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__str_8c.html#a5e782880d6fbdb6e578d26586f6e4559">init_vec_str</a> (<a class="el" href="structvector__str.html">vector_str</a> *vec, char **vals, size_t num)</td></tr>
-<tr class="memdesc:a5e782880d6fbdb6e578d26586f6e4559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="vector__str_8c.html#a5e782880d6fbdb6e578d26586f6e4559" title="Same as init_vec_str() except the vector passed in was declared on the stack so it isn&#39;t allocated in...">init_vec_str()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#a5e782880d6fbdb6e578d26586f6e4559"></a><br/></td></tr>
+<tr class="memdesc:a5e782880d6fbdb6e578d26586f6e4559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="cvector_8h.html#a5e782880d6fbdb6e578d26586f6e4559" title="Same as init_vec_str() except the vector passed in was declared on the stack so it isn&#39;t allocated in...">init_vec_str()</a> except the vector passed in was declared on the stack so it isn't allocated in this function.  <a href="#a5e782880d6fbdb6e578d26586f6e4559"></a><br/></td></tr>
 <tr class="memitem:a17103a492a2c261c1333fb343657e5f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__str_8c.html#a17103a492a2c261c1333fb343657e5f1">vec_str_copy</a> (void *dest, void *src)</td></tr>
 <tr class="memdesc:a17103a492a2c261c1333fb343657e5f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes dest an identical copy of src.  <a href="#a17103a492a2c261c1333fb343657e5f1"></a><br/></td></tr>
 <tr class="memitem:aaea3c5e41a38b3f10cb44817e5d6bfb1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__str_8c.html#aaea3c5e41a38b3f10cb44817e5d6bfb1">push_str</a> (<a class="el" href="structvector__str.html">vector_str</a> *vec, char *a)</td></tr>
@@ -361,7 +361,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Same as <a class="el" href="vector__str_8c.html#a5e782880d6fbdb6e578d26586f6e4559" title="Same as init_vec_str() except the vector passed in was declared on the stack so it isn&#39;t allocated in...">init_vec_str()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
+<p>Same as <a class="el" href="cvector_8h.html#a5e782880d6fbdb6e578d26586f6e4559" title="Same as init_vec_str() except the vector passed in was declared on the stack so it isn&#39;t allocated in...">init_vec_str()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
 <p>Use the free_vec_str in this case </p>
 
 <p>Definition at line <a class="el" href="vector__str_8c_source.html#l00115">115</a> of file <a class="el" href="vector__str_8c_source.html">vector_str.c</a>.</p>
@@ -712,7 +712,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Same as <a class="el" href="vector__str_8c.html#af0312674facca46fa1a4d5853d067478" title="Create a new vector_str on the heap.">vec_str_heap()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
+<p>Same as <a class="el" href="cvector_8h.html#af0312674facca46fa1a4d5853d067478" title="Create a new vector_str on the heap.">vec_str_heap()</a> except the vector passed in was declared on the stack so it isn't allocated in this function. </p>
 <p>Use the free_vec_str in this case This and init_vec_str should be preferred over the heap versions. </p>
 
 <p>Definition at line <a class="el" href="vector__str_8c_source.html#l00096">96</a> of file <a class="el" href="vector__str_8c_source.html">vector_str.c</a>.</p>
@@ -775,7 +775,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Create a new <a class="el" href="structvector__str.html" title="Data structure for string vector.">vector_str</a> on the heap. </p>
-<p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + VEC_STR_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. Note: <a class="el" href="structvector__str.html" title="Data structure for string vector.">vector_str</a> does not copy pointers passed in but duplicates the strings they point to (using <a class="el" href="vector__str_8c.html#a141b8e057d63a3ba14590139945e20a9" title="Useful utility function since strdup isn&#39;t in standard C.">mystrdup()</a>) so you don't have to worry about freeing or changing the contents of variables that you've pushed or inserted; it won't affect the values vector. </p>
+<p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + VEC_STR_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. Note: <a class="el" href="structvector__str.html" title="Data structure for string vector.">vector_str</a> does not copy pointers passed in but duplicates the strings they point to (using <a class="el" href="cvector_8h.html#a141b8e057d63a3ba14590139945e20a9" title="Useful utility function since strdup isn&#39;t in standard C.">mystrdup()</a>) so you don't have to worry about freeing or changing the contents of variables that you've pushed or inserted; it won't affect the values vector. </p>
 
 <p>Definition at line <a class="el" href="vector__str_8c_source.html#l00041">41</a> of file <a class="el" href="vector__str_8c_source.html">vector_str.c</a>.</p>
 
@@ -799,7 +799,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 2 2013 23:24:23 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 3 2013 22:29:23 for Cvector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

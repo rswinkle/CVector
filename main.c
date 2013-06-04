@@ -9,7 +9,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <CUnit/Automated.h>
-#include "vector_all.h"
 
 
 extern void push_i_test();

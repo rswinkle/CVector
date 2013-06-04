@@ -10,10 +10,10 @@ size\_t VEC\_S\_START\_SZ = 20;\end{DoxyPre}
 
 
 
-\begin{DoxyPre}#define \hyperlink{vector__i_8c_a88db9d722845b6a23eb29d044a0a3c98}{VECI\_ALLOCATOR(x)} ((x) * 2)
-#define \hyperlink{vector__d_8c_af2c425102d9020ae35b894de0c7eadea}{VECD\_ALLOCATOR(x)} ((x) * 2)
-#define VECS\_ALLOCATOR(x) ((x) * 2)
-#define \hyperlink{vector__void_8c_acc6ff7ec59b6544f657758f724fb7a8b}{VEC\_ALLOCATOR(x)} ((x) * 2)
+\begin{DoxyPre}#define \hyperlink{vector__i_8c_a6d9a8fd1aaa4a8df09d79da016a5c5aa}{VEC\_I\_ALLOCATOR(x)} ((x) * 2)
+#define \hyperlink{vector__d_8c_a024a194564bd2419ca1ac75e3cdec3e8}{VEC\_D\_ALLOCATOR(x)} ((x) * 2)
+#define VEC\_S\_ALLOCATOR(x) ((x) * 2)
+#define \hyperlink{vector__void_8c_a6f86fe931c02dfbb3d901d2f5e5ec969}{VEC\_VOID\_ALLOCATOR(x)} ((x) * 2)
 \end{DoxyPre}
  The allocator macros are used in all functions that increase the size by 1. In others (constructors, insert\-\_\-array, reserve) V\-E\-C\-\_\-\-X\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z is the amount extra allocated.
 

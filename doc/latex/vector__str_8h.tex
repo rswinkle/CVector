@@ -15,9 +15,9 @@ struct \hyperlink{structvector__str}{vector\-\_\-str}
 char $\ast$ \hyperlink{vector__str_8h_a141b8e057d63a3ba14590139945e20a9}{mystrdup} (const char $\ast$str)
 \begin{DoxyCompactList}\small\item\em Useful utility function since strdup isn't in standard C. \end{DoxyCompactList}\item 
 int \hyperlink{vector__str_8h_a4cafadcad8de78fee1c7b27a32c4737a}{vec\-\_\-str} (\hyperlink{structvector__str}{vector\-\_\-str} $\ast$vec, size\-\_\-t size, size\-\_\-t capacity)
-\begin{DoxyCompactList}\small\item\em Same as \hyperlink{vector__str_8c_af0312674facca46fa1a4d5853d067478}{vec\-\_\-str\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Same as \hyperlink{cvector_8h_af0312674facca46fa1a4d5853d067478}{vec\-\_\-str\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
 int \hyperlink{vector__str_8h_a5e782880d6fbdb6e578d26586f6e4559}{init\-\_\-vec\-\_\-str} (\hyperlink{structvector__str}{vector\-\_\-str} $\ast$vec, char $\ast$$\ast$vals, size\-\_\-t num)
-\begin{DoxyCompactList}\small\item\em Same as \hyperlink{vector__str_8c_a5e782880d6fbdb6e578d26586f6e4559}{init\-\_\-vec\-\_\-str()} except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Same as \hyperlink{cvector_8h_a5e782880d6fbdb6e578d26586f6e4559}{init\-\_\-vec\-\_\-str()} except the vector passed in was declared on the stack so it isn't allocated in this function. \end{DoxyCompactList}\item 
 \hyperlink{structvector__str}{vector\-\_\-str} $\ast$ \hyperlink{vector__str_8h_af0312674facca46fa1a4d5853d067478}{vec\-\_\-str\-\_\-heap} (size\-\_\-t size, size\-\_\-t capacity)
 \begin{DoxyCompactList}\small\item\em Create a new \hyperlink{structvector__str}{vector\-\_\-str} on the heap. \end{DoxyCompactList}\item 
 \hyperlink{structvector__str}{vector\-\_\-str} $\ast$ \hyperlink{vector__str_8h_a4ec7e603dd0eb5ad39b3769fed8e58ef}{init\-\_\-vec\-\_\-str\-\_\-heap} (char $\ast$$\ast$vals, size\-\_\-t num)
@@ -164,7 +164,7 @@ Definition at line 399 of file vector\-\_\-str.\-c.
 )}}\label{vector__str_8h_a5e782880d6fbdb6e578d26586f6e4559}
 
 
-Same as \hyperlink{vector__str_8c_a5e782880d6fbdb6e578d26586f6e4559}{init\-\_\-vec\-\_\-str()} except the vector passed in was declared on the stack so it isn't allocated in this function. 
+Same as \hyperlink{cvector_8h_a5e782880d6fbdb6e578d26586f6e4559}{init\-\_\-vec\-\_\-str()} except the vector passed in was declared on the stack so it isn't allocated in this function. 
 
 Use the free\-\_\-vec\-\_\-str in this case 
 
@@ -343,7 +343,7 @@ Definition at line 356 of file vector\-\_\-str.\-c.
 )}}\label{vector__str_8h_a4cafadcad8de78fee1c7b27a32c4737a}
 
 
-Same as \hyperlink{vector__str_8c_af0312674facca46fa1a4d5853d067478}{vec\-\_\-str\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. 
+Same as \hyperlink{cvector_8h_af0312674facca46fa1a4d5853d067478}{vec\-\_\-str\-\_\-heap()} except the vector passed in was declared on the stack so it isn't allocated in this function. 
 
 Use the free\-\_\-vec\-\_\-str in this case This and init\-\_\-vec\-\_\-str should be preferred over the heap versions. 
 
@@ -377,7 +377,7 @@ Definition at line 141 of file vector\-\_\-str.\-c.
 
 Create a new \hyperlink{structvector__str}{vector\-\_\-str} on the heap. 
 
-Vector size set to (size $>$ 0) ? size \-: 0; Capacity to (capacity $>$ vec-\/$>$size $|$$|$ (vec-\/$>$size \&\& capacity == vec-\/$>$size)) ? capacity \-: vec-\/$>$size + V\-E\-C\-\_\-\-S\-T\-R\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z in other words capacity has to be at least 1 and $>$= to vec-\/$>$size of course. Note\-: \hyperlink{structvector__str}{vector\-\_\-str} does not copy pointers passed in but duplicates the strings they point to (using \hyperlink{vector__str_8c_a141b8e057d63a3ba14590139945e20a9}{mystrdup()}) so you don't have to worry about freeing or changing the contents of variables that you've pushed or inserted; it won't affect the values vector. 
+Vector size set to (size $>$ 0) ? size \-: 0; Capacity to (capacity $>$ vec-\/$>$size $|$$|$ (vec-\/$>$size \&\& capacity == vec-\/$>$size)) ? capacity \-: vec-\/$>$size + V\-E\-C\-\_\-\-S\-T\-R\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z in other words capacity has to be at least 1 and $>$= to vec-\/$>$size of course. Note\-: \hyperlink{structvector__str}{vector\-\_\-str} does not copy pointers passed in but duplicates the strings they point to (using \hyperlink{cvector_8h_a141b8e057d63a3ba14590139945e20a9}{mystrdup()}) so you don't have to worry about freeing or changing the contents of variables that you've pushed or inserted; it won't affect the values vector. 
 
 Definition at line 41 of file vector\-\_\-str.\-c.
 

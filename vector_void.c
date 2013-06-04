@@ -8,7 +8,7 @@
 size_t VEC_START_SZ = 20;
 
 
-#define VEC_ALLOCATOR(x) ((x) * 2)
+#define VEC_VOID_ALLOCATOR(x) ((x) * 2)
 
 
 
@@ -214,7 +214,7 @@ int push_void(vector_void* vec, void* a)
 			memcpy(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
 		}
 	} else {
-		tmp_sz = VEC_ALLOCATOR(vec->capacity);
+		tmp_sz = VEC_VOID_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, vec->elem_size*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -312,7 +312,7 @@ int insert_void(vector_void* vec, size_t i, void* a)
 			memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
 		}
 	} else {
-		tmp_sz = VEC_ALLOCATOR(vec->capacity);
+		tmp_sz = VEC_VOID_ALLOCATOR(vec->capacity);
 		if (!(tmp = realloc(vec->a, vec->elem_size*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -550,10 +550,10 @@ size_t VEC_D_START_SZ = 50;
 size_t VEC_START_SZ = 20;
 size_t VEC_S_START_SZ = 20;
 
-#define VECI_ALLOCATOR(x) ((x) * 2)
-#define VECD_ALLOCATOR(x) ((x) * 2)
-#define VECS_ALLOCATOR(x) ((x) * 2)
-#define VEC_ALLOCATOR(x) ((x) * 2)
+#define VEC_I_ALLOCATOR(x) ((x) * 2)
+#define VEC_D_ALLOCATOR(x) ((x) * 2)
+#define VEC_S_ALLOCATOR(x) ((x) * 2)
+#define VEC_VOID_ALLOCATOR(x) ((x) * 2)
 </pre>
 The allocator macros are used in all functions that increase the size by 1.
 In others (constructors, insert_array, reserve) VEC_X_START_SZ is the amount
