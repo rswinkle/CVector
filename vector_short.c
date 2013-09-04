@@ -87,7 +87,6 @@ int init_vec_short(vector_short* vec, short* vals, size_t num)
 
 void vec_short_copy(void* dest, void* src)
 {
-	size_t i;
 	vector_short* vec1 = dest;
 	vector_short* vec2 = src;
 	
@@ -95,7 +94,7 @@ void vec_short_copy(void* dest, void* src)
 	vec1->capacity = 0;
 	
 	/*not much else we can do here*/
-	if (!(vec1->a = malloc(vec2->capacity*sizeof(int)))) {
+	if (!(vec1->a = malloc(vec2->capacity*sizeof(short)))) {
 		assert(vec1->a != NULL);
 		return;
 	}

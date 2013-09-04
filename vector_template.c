@@ -87,7 +87,6 @@ int init_vec_TYPE(vector_TYPE* vec, TYPE* vals, size_t num)
 
 void vec_TYPE_copy(void* dest, void* src)
 {
-	size_t i;
 	vector_TYPE* vec1 = dest;
 	vector_TYPE* vec2 = src;
 	
@@ -95,7 +94,7 @@ void vec_TYPE_copy(void* dest, void* src)
 	vec1->capacity = 0;
 	
 	/*not much else we can do here*/
-	if (!(vec1->a = malloc(vec2->capacity*sizeof(int)))) {
+	if (!(vec1->a = malloc(vec2->capacity*sizeof(TYPE)))) {
 		assert(vec1->a != NULL);
 		return;
 	}
