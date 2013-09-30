@@ -1,0 +1,312 @@
+\hypertarget{vector__template2_8h}{\section{vector\-\_\-template2.\-h File Reference}
+\label{vector__template2_8h}\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E}
+\begin{DoxyCompactList}\small\item\em Data structure for T\-Y\-P\-E vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{vector__template2_8h_a7f249460c2de3106f6ad555334e4adf7}{vec\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec, size\-\_\-t size, size\-\_\-t capacity, void($\ast$elem\-\_\-free)(void $\ast$), void($\ast$elem\-\_\-init)(void $\ast$, void $\ast$))
+\item 
+int \hyperlink{vector__template2_8h_a4ab96bb93a198dd3e6b2436b8ba7110e}{init\-\_\-vec\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec, T\-Y\-P\-E $\ast$vals, size\-\_\-t num, void($\ast$elem\-\_\-free)(void $\ast$), void($\ast$elem\-\_\-init)(void $\ast$, void $\ast$))
+\item 
+\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$ \hyperlink{vector__template2_8h_a28b19b61435bf3c88d717558fe510be1}{vec\-\_\-\-T\-Y\-P\-E\-\_\-heap} (size\-\_\-t size, size\-\_\-t capacity, void($\ast$elem\-\_\-free)(void $\ast$), void($\ast$elem\-\_\-init)(void $\ast$, void $\ast$))
+\item 
+\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$ \hyperlink{vector__template2_8h_af58df278a9e8ef43f7419c1ba1943511}{init\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap} (T\-Y\-P\-E $\ast$vals, size\-\_\-t num, void($\ast$elem\-\_\-free)(void $\ast$), void($\ast$elem\-\_\-init)(void $\ast$, void $\ast$))
+\item 
+void \hyperlink{vector__template2_8h_a6343398fc4f09ecd0a8eca649ba2fdb6}{vec\-\_\-\-T\-Y\-P\-E\-\_\-copy} (void $\ast$dest, void $\ast$src)
+\item 
+int \hyperlink{vector__template2_8h_a36efdd6baf3c7b1815dd033d1492b729}{push\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec, T\-Y\-P\-E $\ast$val)
+\item 
+void \hyperlink{vector__template2_8h_a868b31e61ffe7fb35668aa2ea5f992e8}{pop\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec, T\-Y\-P\-E $\ast$ret)
+\item 
+int \hyperlink{vector__template2_8h_a07f4002b78da93644bda74c11d258258}{extend\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec, size\-\_\-t num)
+\item 
+int \hyperlink{vector__template2_8h_abbe018cc355d0523a9fe6c20629e4ce9}{insert\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec, size\-\_\-t i, T\-Y\-P\-E $\ast$a)
+\item 
+int \hyperlink{vector__template2_8h_a93ecd6720fde76ed578de52e38601dbd}{insert\-\_\-array\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec, size\-\_\-t i, T\-Y\-P\-E $\ast$a, size\-\_\-t num)
+\item 
+void \hyperlink{vector__template2_8h_a20673888111fc127f9271e9b806f24d6}{erase\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec, size\-\_\-t start, size\-\_\-t end)
+\item 
+int \hyperlink{vector__template2_8h_aeb1ac37a323ac7d9092dc53ef561a229}{reserve\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec, size\-\_\-t size)
+\item 
+int \hyperlink{vector__template2_8h_af371cf0d7bbfb44881b2db058351986b}{set\-\_\-capacity\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec, size\-\_\-t size)
+\item 
+void \hyperlink{vector__template2_8h_ae91c5daf41e070612290043d119e5407}{set\-\_\-val\-\_\-sz\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec, T\-Y\-P\-E $\ast$val)
+\item 
+void \hyperlink{vector__template2_8h_ab879972f8e22076a97d869c155850145}{set\-\_\-val\-\_\-cap\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec, T\-Y\-P\-E $\ast$val)
+\item 
+T\-Y\-P\-E $\ast$ \hyperlink{vector__template2_8h_aa9bf889e6f2992f2b2eb3997e7989aa9}{back\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec)
+\begin{DoxyCompactList}\small\item\em Return pointer to last element. \end{DoxyCompactList}\item 
+void \hyperlink{vector__template2_8h_a7346a4dc2b505c7ae500e39fd4789c96}{clear\-\_\-\-T\-Y\-P\-E} (\hyperlink{structvector___t_y_p_e}{vector\-\_\-\-T\-Y\-P\-E} $\ast$vec)
+\item 
+void \hyperlink{vector__template2_8h_a4cc635e0769c9efb2c79bdf29bd68d74}{free\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap} (void $\ast$vec)
+\item 
+void \hyperlink{vector__template2_8h_aedaeda5561218099e8d087690d11583c}{free\-\_\-vec\-\_\-\-T\-Y\-P\-E} (void $\ast$vec)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+size\-\_\-t \hyperlink{vector__template2_8h_a8fc9ea86057bacb9a9d3466a396e2133}{V\-E\-C\-\_\-\-T\-Y\-P\-E\-\_\-\-S\-Z}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{vector__template2_8h_aa9bf889e6f2992f2b2eb3997e7989aa9}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!back\-\_\-\-T\-Y\-P\-E@{back\-\_\-\-T\-Y\-P\-E}}
+\index{back\-\_\-\-T\-Y\-P\-E@{back\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{back\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}T\-Y\-P\-E$\ast$ back\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_aa9bf889e6f2992f2b2eb3997e7989aa9}
+
+
+Return pointer to last element. 
+
+
+
+Definition at line 137 of file vector\-\_\-template.\-c.
+
+\hypertarget{vector__template2_8h_a7346a4dc2b505c7ae500e39fd4789c96}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!clear\-\_\-\-T\-Y\-P\-E@{clear\-\_\-\-T\-Y\-P\-E}}
+\index{clear\-\_\-\-T\-Y\-P\-E@{clear\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{clear\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}void clear\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_a7346a4dc2b505c7ae500e39fd4789c96}
+
+
+Definition at line 268 of file vector\-\_\-template.\-c.
+
+\hypertarget{vector__template2_8h_a20673888111fc127f9271e9b806f24d6}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!erase\-\_\-\-T\-Y\-P\-E@{erase\-\_\-\-T\-Y\-P\-E}}
+\index{erase\-\_\-\-T\-Y\-P\-E@{erase\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{erase\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}void erase\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec, }
+\item[{size\-\_\-t}]{start, }
+\item[{size\-\_\-t}]{end}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_a20673888111fc127f9271e9b806f24d6}
+
+
+Definition at line 207 of file vector\-\_\-template.\-c.
+
+\hypertarget{vector__template2_8h_a07f4002b78da93644bda74c11d258258}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!extend\-\_\-\-T\-Y\-P\-E@{extend\-\_\-\-T\-Y\-P\-E}}
+\index{extend\-\_\-\-T\-Y\-P\-E@{extend\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{extend\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}int extend\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec, }
+\item[{size\-\_\-t}]{num}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_a07f4002b78da93644bda74c11d258258}
+
+
+Definition at line 143 of file vector\-\_\-template.\-c.
+
+\hypertarget{vector__template2_8h_aedaeda5561218099e8d087690d11583c}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!free\-\_\-vec\-\_\-\-T\-Y\-P\-E@{free\-\_\-vec\-\_\-\-T\-Y\-P\-E}}
+\index{free\-\_\-vec\-\_\-\-T\-Y\-P\-E@{free\-\_\-vec\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{free\-\_\-vec\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}void free\-\_\-vec\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{vec}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_aedaeda5561218099e8d087690d11583c}
+
+
+Definition at line 277 of file vector\-\_\-template.\-c.
+
+\hypertarget{vector__template2_8h_a4cc635e0769c9efb2c79bdf29bd68d74}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!free\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap@{free\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap}}
+\index{free\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap@{free\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{free\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}void free\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{vec}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_a4cc635e0769c9efb2c79bdf29bd68d74}
+
+
+Definition at line 270 of file vector\-\_\-template.\-c.
+
+\hypertarget{vector__template2_8h_a4ab96bb93a198dd3e6b2436b8ba7110e}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!init\-\_\-vec\-\_\-\-T\-Y\-P\-E@{init\-\_\-vec\-\_\-\-T\-Y\-P\-E}}
+\index{init\-\_\-vec\-\_\-\-T\-Y\-P\-E@{init\-\_\-vec\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{init\-\_\-vec\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}int init\-\_\-vec\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec, }
+\item[{T\-Y\-P\-E $\ast$}]{vals, }
+\item[{size\-\_\-t}]{num, }
+\item[{void($\ast$)(void $\ast$)}]{elem\-\_\-free, }
+\item[{void($\ast$)(void $\ast$, void $\ast$)}]{elem\-\_\-init}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_a4ab96bb93a198dd3e6b2436b8ba7110e}
+
+
+Definition at line 95 of file vector\-\_\-template2.\-c.
+
+\hypertarget{vector__template2_8h_af58df278a9e8ef43f7419c1ba1943511}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!init\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap@{init\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap}}
+\index{init\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap@{init\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{init\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\-\_\-\-T\-Y\-P\-E}$\ast$ init\-\_\-vec\-\_\-\-T\-Y\-P\-E\-\_\-heap (
+\begin{DoxyParamCaption}
+\item[{T\-Y\-P\-E $\ast$}]{vals, }
+\item[{size\-\_\-t}]{num, }
+\item[{void($\ast$)(void $\ast$)}]{elem\-\_\-free, }
+\item[{void($\ast$)(void $\ast$, void $\ast$)}]{elem\-\_\-init}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_af58df278a9e8ef43f7419c1ba1943511}
+
+
+Definition at line 46 of file vector\-\_\-template2.\-c.
+
+\hypertarget{vector__template2_8h_a93ecd6720fde76ed578de52e38601dbd}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!insert\-\_\-array\-\_\-\-T\-Y\-P\-E@{insert\-\_\-array\-\_\-\-T\-Y\-P\-E}}
+\index{insert\-\_\-array\-\_\-\-T\-Y\-P\-E@{insert\-\_\-array\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{insert\-\_\-array\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}int insert\-\_\-array\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec, }
+\item[{size\-\_\-t}]{i, }
+\item[{T\-Y\-P\-E $\ast$}]{a, }
+\item[{size\-\_\-t}]{num}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_a93ecd6720fde76ed578de52e38601dbd}
+
+
+Definition at line 186 of file vector\-\_\-template.\-c.
+
+\hypertarget{vector__template2_8h_abbe018cc355d0523a9fe6c20629e4ce9}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!insert\-\_\-\-T\-Y\-P\-E@{insert\-\_\-\-T\-Y\-P\-E}}
+\index{insert\-\_\-\-T\-Y\-P\-E@{insert\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{insert\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}int insert\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec, }
+\item[{size\-\_\-t}]{i, }
+\item[{T\-Y\-P\-E $\ast$}]{a}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_abbe018cc355d0523a9fe6c20629e4ce9}
+
+
+Definition at line 225 of file vector\-\_\-template2.\-c.
+
+\hypertarget{vector__template2_8h_a868b31e61ffe7fb35668aa2ea5f992e8}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!pop\-\_\-\-T\-Y\-P\-E@{pop\-\_\-\-T\-Y\-P\-E}}
+\index{pop\-\_\-\-T\-Y\-P\-E@{pop\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{pop\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}void pop\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec, }
+\item[{T\-Y\-P\-E $\ast$}]{ret}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_a868b31e61ffe7fb35668aa2ea5f992e8}
+
+
+Definition at line 184 of file vector\-\_\-template2.\-c.
+
+\hypertarget{vector__template2_8h_a36efdd6baf3c7b1815dd033d1492b729}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!push\-\_\-\-T\-Y\-P\-E@{push\-\_\-\-T\-Y\-P\-E}}
+\index{push\-\_\-\-T\-Y\-P\-E@{push\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{push\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}int push\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec, }
+\item[{T\-Y\-P\-E $\ast$}]{val}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_a36efdd6baf3c7b1815dd033d1492b729}
+
+
+Definition at line 152 of file vector\-\_\-template2.\-c.
+
+\hypertarget{vector__template2_8h_aeb1ac37a323ac7d9092dc53ef561a229}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!reserve\-\_\-\-T\-Y\-P\-E@{reserve\-\_\-\-T\-Y\-P\-E}}
+\index{reserve\-\_\-\-T\-Y\-P\-E@{reserve\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{reserve\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}int reserve\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec, }
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_aeb1ac37a323ac7d9092dc53ef561a229}
+
+
+Definition at line 215 of file vector\-\_\-template.\-c.
+
+\hypertarget{vector__template2_8h_af371cf0d7bbfb44881b2db058351986b}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!set\-\_\-capacity\-\_\-\-T\-Y\-P\-E@{set\-\_\-capacity\-\_\-\-T\-Y\-P\-E}}
+\index{set\-\_\-capacity\-\_\-\-T\-Y\-P\-E@{set\-\_\-capacity\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{set\-\_\-capacity\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}int set\-\_\-capacity\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec, }
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_af371cf0d7bbfb44881b2db058351986b}
+
+
+Definition at line 232 of file vector\-\_\-template.\-c.
+
+\hypertarget{vector__template2_8h_ab879972f8e22076a97d869c155850145}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!set\-\_\-val\-\_\-cap\-\_\-\-T\-Y\-P\-E@{set\-\_\-val\-\_\-cap\-\_\-\-T\-Y\-P\-E}}
+\index{set\-\_\-val\-\_\-cap\-\_\-\-T\-Y\-P\-E@{set\-\_\-val\-\_\-cap\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{set\-\_\-val\-\_\-cap\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-val\-\_\-cap\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec, }
+\item[{T\-Y\-P\-E $\ast$}]{val}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_ab879972f8e22076a97d869c155850145}
+
+
+Definition at line 363 of file vector\-\_\-template2.\-c.
+
+\hypertarget{vector__template2_8h_ae91c5daf41e070612290043d119e5407}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!set\-\_\-val\-\_\-sz\-\_\-\-T\-Y\-P\-E@{set\-\_\-val\-\_\-sz\-\_\-\-T\-Y\-P\-E}}
+\index{set\-\_\-val\-\_\-sz\-\_\-\-T\-Y\-P\-E@{set\-\_\-val\-\_\-sz\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{set\-\_\-val\-\_\-sz\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-val\-\_\-sz\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec, }
+\item[{T\-Y\-P\-E $\ast$}]{val}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_ae91c5daf41e070612290043d119e5407}
+
+
+Definition at line 341 of file vector\-\_\-template2.\-c.
+
+\hypertarget{vector__template2_8h_a7f249460c2de3106f6ad555334e4adf7}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!vec\-\_\-\-T\-Y\-P\-E@{vec\-\_\-\-T\-Y\-P\-E}}
+\index{vec\-\_\-\-T\-Y\-P\-E@{vec\-\_\-\-T\-Y\-P\-E}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{vec\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}int vec\-\_\-\-T\-Y\-P\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf vector\-\_\-\-T\-Y\-P\-E} $\ast$}]{vec, }
+\item[{size\-\_\-t}]{size, }
+\item[{size\-\_\-t}]{capacity, }
+\item[{void($\ast$)(void $\ast$)}]{elem\-\_\-free, }
+\item[{void($\ast$)(void $\ast$, void $\ast$)}]{elem\-\_\-init}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_a7f249460c2de3106f6ad555334e4adf7}
+
+
+Definition at line 78 of file vector\-\_\-template2.\-c.
+
+\hypertarget{vector__template2_8h_a6343398fc4f09ecd0a8eca649ba2fdb6}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!vec\-\_\-\-T\-Y\-P\-E\-\_\-copy@{vec\-\_\-\-T\-Y\-P\-E\-\_\-copy}}
+\index{vec\-\_\-\-T\-Y\-P\-E\-\_\-copy@{vec\-\_\-\-T\-Y\-P\-E\-\_\-copy}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{vec\-\_\-\-T\-Y\-P\-E\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}void vec\-\_\-\-T\-Y\-P\-E\-\_\-copy (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{dest, }
+\item[{void $\ast$}]{src}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_a6343398fc4f09ecd0a8eca649ba2fdb6}
+
+
+Definition at line 88 of file vector\-\_\-template.\-c.
+
+\hypertarget{vector__template2_8h_a28b19b61435bf3c88d717558fe510be1}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!vec\-\_\-\-T\-Y\-P\-E\-\_\-heap@{vec\-\_\-\-T\-Y\-P\-E\-\_\-heap}}
+\index{vec\-\_\-\-T\-Y\-P\-E\-\_\-heap@{vec\-\_\-\-T\-Y\-P\-E\-\_\-heap}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{vec\-\_\-\-T\-Y\-P\-E\-\_\-heap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vector\-\_\-\-T\-Y\-P\-E}$\ast$ vec\-\_\-\-T\-Y\-P\-E\-\_\-heap (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{size, }
+\item[{size\-\_\-t}]{capacity, }
+\item[{void($\ast$)(void $\ast$)}]{elem\-\_\-free, }
+\item[{void($\ast$)(void $\ast$, void $\ast$)}]{elem\-\_\-init}
+\end{DoxyParamCaption}
+)}}\label{vector__template2_8h_a28b19b61435bf3c88d717558fe510be1}
+
+
+Definition at line 20 of file vector\-\_\-template2.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{vector__template2_8h_a8fc9ea86057bacb9a9d3466a396e2133}{\index{vector\-\_\-template2.\-h@{vector\-\_\-template2.\-h}!V\-E\-C\-\_\-\-T\-Y\-P\-E\-\_\-\-S\-Z@{V\-E\-C\-\_\-\-T\-Y\-P\-E\-\_\-\-S\-Z}}
+\index{V\-E\-C\-\_\-\-T\-Y\-P\-E\-\_\-\-S\-Z@{V\-E\-C\-\_\-\-T\-Y\-P\-E\-\_\-\-S\-Z}!vector_template2.h@{vector\-\_\-template2.\-h}}
+\subsubsection[{V\-E\-C\-\_\-\-T\-Y\-P\-E\-\_\-\-S\-Z}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t V\-E\-C\-\_\-\-T\-Y\-P\-E\-\_\-\-S\-Z}}\label{vector__template2_8h_a8fc9ea86057bacb9a9d3466a396e2133}
+
+
+Definition at line 10 of file vector\-\_\-template.\-c.
+

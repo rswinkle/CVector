@@ -5,7 +5,7 @@
 #define STDERR(X) fprintf(stderr, X)
 
 
-size_t VEC_START_SZ = 20;
+size_t VEC_VOID_START_SZ = 20;
 
 
 #define VEC_VOID_ALLOCATOR(x) ((x) * 2)
@@ -20,7 +20,7 @@ size_t VEC_START_SZ = 20;
 /**
  * Creates a new vector on the heap.
  * Vector size set to (size > 0) ? size : 0;
- * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_START_SZ
+ * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_VOID_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
  * elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  * You can pass in a function, elem_free, to be called on every element before it is removed
@@ -50,7 +50,7 @@ vector_void* vec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*e
 	}
 
 	vec->size = (size > 0) ? size : 0;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_VOID_START_SZ;
 
 	vec->elem_size = elem_sz;
 	
@@ -85,7 +85,7 @@ vector_void* init_vec_void_heap(void* vals, size_t num, size_t elem_sz, void(*el
 
 	vec->elem_size = elem_sz;
 
-	vec->capacity = num + VEC_START_SZ;
+	vec->capacity = num + VEC_VOID_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
 		assert(vec->a != NULL);
@@ -113,7 +113,7 @@ vector_void* init_vec_void_heap(void* vals, size_t num, size_t elem_sz, void(*el
 int vec_void(vector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	vec->size = (size > 0) ? size : 0;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_VOID_START_SZ;
 
 	vec->elem_size = elem_sz;
 	
@@ -138,7 +138,7 @@ int init_vec_void(vector_void* vec, void* vals, size_t num, size_t elem_sz, void
 	
 	vec->elem_size = elem_sz;
 
-	vec->capacity = num + VEC_START_SZ;
+	vec->capacity = num + VEC_VOID_START_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*elem_sz))) {
 		assert(vec->a != NULL);
@@ -269,7 +269,7 @@ int extend_void(vector_void* vec, size_t num)
 	void* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VEC_START_SZ;
+		tmp_sz = vec->capacity + num + VEC_VOID_START_SZ;
 		if (!(tmp = realloc(vec->a, vec->elem_size*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -346,7 +346,7 @@ int insert_array_void(vector_void* vec, size_t i, void* a, size_t num)
 	void* tmp;
 	size_t tmp_sz, j;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VEC_START_SZ;
+		tmp_sz = vec->capacity + num + VEC_VOID_START_SZ;
 		if (!(tmp = realloc(vec->a, vec->elem_size*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -392,12 +392,12 @@ int reserve_void(vector_void* vec, size_t size)
 {
 	void* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = realloc(vec->a, vec->elem_size*(size+VEC_START_SZ)))) {
+		if (!(tmp = realloc(vec->a, vec->elem_size*(size+VEC_VOID_START_SZ)))) {
 			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
-		vec->capacity = size + VEC_START_SZ;
+		vec->capacity = size + VEC_VOID_START_SZ;
 	}
 	return 1;
 }
@@ -547,7 +547,7 @@ Other modifiable parameters are at the top of vector.c
 <pre>
 size_t VEC_I_START_SZ = 50;
 size_t VEC_D_START_SZ = 50;
-size_t VEC_START_SZ = 20;
+size_t VEC_VOID_START_SZ = 20;
 size_t VEC_S_START_SZ = 20;
 
 #define VEC_I_ALLOCATOR(x) ((x) * 2)
@@ -560,19 +560,25 @@ In others (constructors, insert_array, reserve) VEC_X_START_SZ is the amount
 extra allocated.
 
 
-With version 2.0 I've added vector_template.c and vector_template.h which are
-used to generate code for any type (that doesn't require individual allocation/freeing
-like vector_s).  It behaves exactly like vector_i (or d).  This is preferable to using
-the generic vector for simple types and basic structures etc. since it's faster and clearer.
+There are also 2 templates, one for basic types and one for types that contain
+dynamically allocated memory and you might want a free and/or init function.
+In other words the first template is based off vector_i and the second is based
+off of vector_void, so look at the corresponding documentation for behavior.
 
-To use generate your own c and h file for a type just run:
+They are located in vector_template.c/h and vector_template2.c/h respectively.
+
+To use generate your own c and h files for a type just run:
 <pre>
 python3 generate_code.py yourtype
 </pre>
 
-which will generate vector_yourtype.c and vector_yourtype.h
+which will generate vector_yourtype*.c and vector_yourtype*.h
+It generates the results for both templates so just delete the pair
+you don't want.
 
-vector_short is an example of the process and how to add it to the testing.
+vector_short and vector_f_struct are examples of the process and
+how to add it to the testing.
+
 
 
 
@@ -591,18 +597,14 @@ I've also run it under valgrind and there are no memory leaks.
 valgrind --leak-check=full -v ./vector
 
 <pre>
-==6100== 
-==6100== HEAP SUMMARY:
-==6100==     in use at exit: 0 bytes in 0 blocks
-==6100==   total heap usage: 4,957 allocs, 4,957 frees, 927,837 bytes allocated
-==6100== 
-==6100== All heap blocks were freed -- no leaks are possible
-==6100== 
-==6100== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
---6100-- 
---6100-- used_suppression:      2 dl-hack3-cond-1
-==6100== 
-==6100== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==17650== 
+==17650== HEAP SUMMARY:
+==17650==     in use at exit: 0 bytes in 0 blocks
+==17650==   total heap usage: 5,146 allocs, 5,146 frees, 936,924 bytes allocated
+==17650== 
+==17650== All heap blocks were freed -- no leaks are possible
+==17650== 
+==17650== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
 </pre>
 
 You can probably get Cunit from your package manager but

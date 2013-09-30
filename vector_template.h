@@ -17,7 +17,7 @@ typedef struct vector_TYPE
 
 
 
-extern size_t VECTOR_TYPE_SZ;
+extern size_t VEC_TYPE_SZ;
 
 int vec_TYPE(vector_TYPE* vec, size_t size, size_t capacity);
 int init_vec_TYPE(vector_TYPE* vec, TYPE* vals, size_t num);

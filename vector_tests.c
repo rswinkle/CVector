@@ -4,7 +4,10 @@
 #ifdef DO_TEMPLATE_TEST
 /*replace with or add your own generated file and edit the template test*/
 #include "vector_short.h"
+#include "vector_f_struct.h"
 #endif
+
+#include "test_types.h"
 
 #include <CUnit/Automated.h>
 
@@ -664,25 +667,6 @@ void set_val_str_test()
 
 /* vector tests */
 
-/** Structure used to test generic vector. */
-typedef struct
-{
-	double d;
-	int i;
-	char word[30];
-} t_struct;
-
-/** Structure used to test generic vector. */
-typedef struct
-{
-	double d;
-	int i;
-	char* word;
-} f_struct;
-
-
-
-
 t_struct mk_t_struct(double d, int i, char* word)
 {
 	/*could make this static since I'm just copying the values outside */
@@ -702,8 +686,6 @@ f_struct mk_f_struct(double d, int i, char* word)
 	a.word = mystrdup(word);
 	return a;
 }
-
-
 
 
 #define GET_T(X,Y) ((t_struct*)&X.a[Y*X.elem_size])
@@ -746,7 +728,7 @@ void push_void_test()
 	vec_void(&vec1, 0, 0, sizeof(t_struct), NULL, NULL);
 	vec_void(&vec2, 0, 1,  sizeof(f_struct), free_f_struct, NULL);
 
-	CU_ASSERT_EQUAL(VEC_START_SZ, vec1.capacity);
+	CU_ASSERT_EQUAL(VEC_VOID_START_SZ, vec1.capacity);
 	CU_ASSERT_EQUAL(0, vec1.size);
 
 	CU_ASSERT_EQUAL(1, vec2.capacity);
@@ -793,7 +775,7 @@ void erase_void_test()
 	CU_ASSERT_EQUAL(101, vec1->capacity);
 	CU_ASSERT_EQUAL(100, vec1->size);
 
-	CU_ASSERT_EQUAL(VEC_START_SZ+100, vec2->capacity);
+	CU_ASSERT_EQUAL(VEC_VOID_START_SZ+100, vec2->capacity);
 	CU_ASSERT_EQUAL(100, vec2->size);
 
 	for (i=0; i<100; i++) {
@@ -915,7 +897,6 @@ void insert_array_void_test()
 	int i;
 	float array1[] = { 0.5f, 1.5f, 7.5f, 8.5f, 9.5f };
 	float array2[] = { 2.5f, 3.5f, 4.5f, 5.5f, 6.5f };
-	float tmp;
 	vector_void vec1;
 
 	init_vec_void(&vec1, array1, 5, sizeof(float), NULL, NULL);
@@ -946,8 +927,8 @@ void pop_void_test()
 	vec_void(&vec1, 10, 0, sizeof(t_struct), NULL, NULL);
 	vec_void(&vec2, 10, 0, sizeof(f_struct), free_f_struct, NULL);
 
-	CU_ASSERT_EQUAL(vec1.capacity, 10+VEC_START_SZ);
-	CU_ASSERT_EQUAL(vec2.capacity, 10+VEC_START_SZ);
+	CU_ASSERT_EQUAL(vec1.capacity, 10+VEC_VOID_START_SZ);
+	CU_ASSERT_EQUAL(vec2.capacity, 10+VEC_VOID_START_SZ);
 
 	for (i=0; i<vec2.size; ++i)
 		GET_F(vec2, i)->word = mystrdup("hello");
@@ -1025,9 +1006,9 @@ void set_capacity_void_test()
 	vec_void(&vec2, 0, 0, sizeof(f_struct), free_f_struct, NULL);
 
 	CU_ASSERT_EQUAL(vec1.size, 0);
-	CU_ASSERT_EQUAL(vec1.capacity, VEC_START_SZ);
+	CU_ASSERT_EQUAL(vec1.capacity, VEC_VOID_START_SZ);
 	CU_ASSERT_EQUAL(vec2.size, 0);
-	CU_ASSERT_EQUAL(vec2.capacity, VEC_START_SZ);
+	CU_ASSERT_EQUAL(vec2.capacity, VEC_VOID_START_SZ);
 
 	for (i=0; i<1000; i++) {
 		sprintf(buffer, "hello %d", i);
@@ -1087,7 +1068,7 @@ void set_val_void_test()
 	CU_ASSERT_EQUAL(vec2.size, 20);
 
 	CU_ASSERT_EQUAL(vec1.capacity, 25);
-	CU_ASSERT_EQUAL(vec2.capacity, 20+VEC_START_SZ);
+	CU_ASSERT_EQUAL(vec2.capacity, 20+VEC_VOID_START_SZ);
 
 	for (i=0; i<vec2.size; ++i)
 		GET_F(vec2, i)->word = mystrdup("hello");
@@ -1124,7 +1105,7 @@ void set_val_void_test()
 	CU_ASSERT_EQUAL(vec1.capacity, 25);
 
 	CU_ASSERT_EQUAL(vec2.size, vec2.capacity);
-	CU_ASSERT_EQUAL(vec2.capacity, 20+VEC_START_SZ);
+	CU_ASSERT_EQUAL(vec2.capacity, 20+VEC_VOID_START_SZ);
 
 
 	for (i=0; i<vec2.capacity; i++) {
@@ -1169,7 +1150,7 @@ void vector_of_vectors_test()
 	}
 
 	CU_ASSERT_EQUAL(vec1.size, 0);
-	CU_ASSERT_EQUAL(vec1.capacity, VEC_START_SZ);
+	CU_ASSERT_EQUAL(vec1.capacity, VEC_VOID_START_SZ);
 
 	vec_i(&tmp_vec_i, 0, 0);
 
@@ -1218,7 +1199,7 @@ void template_test()
 
 	vec_short(&vec, 0, 0);
 
-	CU_ASSERT_EQUAL(VECTOR_short_SZ, vec.capacity);
+	CU_ASSERT_EQUAL(VEC_short_SZ, vec.capacity);
 	CU_ASSERT_EQUAL(0, vec.size);
 
 	for (i=0; i<100; i++)
@@ -1233,6 +1214,89 @@ void template_test()
 #endif
 }
 
+void template_test2()
+{
+#ifdef DO_TEMPLATE_TEST
+	int i;
+	char buffer[50];
+	f_struct temp;
+	vector_f_struct vec;
+
+	vec_f_struct(&vec, 20, 0, free_f_struct, init_f_struct);
+
+	CU_ASSERT_EQUAL(vec.size, 20);
+	CU_ASSERT_EQUAL(vec.capacity, 20+VEC_f_struct_SZ);
+
+	for (i=0; i<vec.size; ++i)
+		vec.a[i].word = mystrdup("hello");
+
+	temp = mk_f_struct(42.5, 42, "hello");
+
+	set_val_sz_f_struct(&vec, &temp);
+
+	free_f_struct(&temp);
+
+	for (i=0; i<vec.size; i++) {
+		CU_ASSERT_EQUAL(vec.a[i].d, 42.5);
+		CU_ASSERT_EQUAL(vec.a[i].i, 42);
+		CU_ASSERT_STRING_EQUAL(vec.a[i].word, "hello");
+	}
+
+	temp = mk_f_struct(25.5, 25, "goodbye");
+
+	set_val_cap_f_struct(&vec, &temp);
+
+	free_f_struct(&temp);
+
+	/*difference here between having a free function and not
+	if yes then size is set to capacity by set_val_cap. */
+	CU_ASSERT_EQUAL(vec.size, vec.capacity);
+	CU_ASSERT_EQUAL(vec.capacity, 20+VEC_f_struct_SZ);
+
+
+	for (i=0; i<vec.capacity; i++) {
+		CU_ASSERT_EQUAL(vec.a[i].d, 25.5);
+		CU_ASSERT_EQUAL(vec.a[i].i, 25);
+		CU_ASSERT_STRING_EQUAL(vec.a[i].word, "goodbye");
+	}
+
+	free_vec_f_struct(&vec);
+
+	vec_f_struct(&vec, 0, 0, free_f_struct, NULL);
+	CU_ASSERT_EQUAL(vec.capacity, VEC_f_struct_SZ);
+
+	for (i=0; i<100; i++) {
+		sprintf(buffer, "%d", i);
+		temp = mk_f_struct(i, i, buffer);
+
+		push_f_struct(&vec, &temp);
+	}
+
+	CU_ASSERT_EQUAL(100, vec.size);
+
+	for (i=0; i<vec.size; i++) {
+		sprintf(buffer, "%d", i);
+		CU_ASSERT_EQUAL(i, vec.a[i].d);
+		CU_ASSERT_EQUAL(i, vec.a[i].i);
+		CU_ASSERT_STRING_EQUAL(buffer, vec.a[i].word);
+	}
+
+	for (i=vec.size-1; i >= 10; i--) {
+		sprintf(buffer, "%d", i);
+		pop_f_struct(&vec, &temp);
+
+		CU_ASSERT_EQUAL(temp.d, i );
+		CU_ASSERT_EQUAL(temp.i, i );
+		/*No CU_ASSERT_STRING_EQUAL here because the string
+		was freed when it was popped */
+	}
+
+	CU_ASSERT_EQUAL(10, vec.size);
+
+	free_vec_f_struct(&vec);
+
+#endif
+}
 
 
 

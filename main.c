@@ -1,10 +1,3 @@
-/*
- * main.c
- *
- *  Created on: Mar 22, 2011
- *      Author: robert
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -51,6 +44,7 @@ extern void set_val_void_test();
 extern void vector_of_vectors_test();
 
 extern void template_test();
+extern void template_test2();
 
 
 
@@ -107,6 +101,7 @@ CU_TestInfo vector_tests[] = {
 
 CU_TestInfo template_tests[] = {
 	{ "template_test",       template_test },
+	{ "template_test2",       template_test2 },
 	CU_TEST_INFO_NULL
 };
 

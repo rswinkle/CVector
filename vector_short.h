@@ -17,7 +17,7 @@ typedef struct vector_short
 
 
 
-extern size_t VECTOR_short_SZ;
+extern size_t VEC_short_SZ;
 
 int vec_short(vector_short* vec, size_t size, size_t capacity);
 int init_vec_short(vector_short* vec, short* vals, size_t num);

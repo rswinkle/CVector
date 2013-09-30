@@ -16,6 +16,11 @@ struct \hyperlink{structvector__str}{vector\-\_\-str}
 \begin{DoxyCompactList}\small\item\em Data structure for string vector. \end{DoxyCompactList}\item 
 struct \hyperlink{structvector__void}{vector\-\_\-void}
 \begin{DoxyCompactList}\small\item\em Data structure for generic type (cast to void) vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{cvector_8h_ae33134515b733eb93542bc5f50c7fe86}{G\-E\-T\-\_\-\-V\-O\-I\-D}(V\-E\-C, T\-Y\-P\-E, I)~((T\-Y\-P\-E$\ast$)\&(V\-E\-C)-\/$>$a\mbox{[}(I)$\ast$(V\-E\-C)-\/$>$elem\-\_\-size\mbox{]})
+\end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -189,8 +194,24 @@ size\-\_\-t \hyperlink{cvector_8h_a57df2435a35a69bca888700984b749d6}{V\-E\-C\-\_
 \item 
 size\-\_\-t \hyperlink{cvector_8h_aa42e1cec745f7340ed3237ff0ac18c42}{V\-E\-C\-\_\-\-S\-T\-R\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}
 \item 
-size\-\_\-t \hyperlink{cvector_8h_a09059d3291da8975ea105fefdab70c47}{V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}
+size\-\_\-t \hyperlink{cvector_8h_adaf6c119232f4ba4ce2acb0a8e1dd01e}{V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}
 \end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{cvector_8h_ae33134515b733eb93542bc5f50c7fe86}{\index{cvector.\-h@{cvector.\-h}!G\-E\-T\-\_\-\-V\-O\-I\-D@{G\-E\-T\-\_\-\-V\-O\-I\-D}}
+\index{G\-E\-T\-\_\-\-V\-O\-I\-D@{G\-E\-T\-\_\-\-V\-O\-I\-D}!cvector.h@{cvector.\-h}}
+\subsubsection[{G\-E\-T\-\_\-\-V\-O\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-E\-T\-\_\-\-V\-O\-I\-D(
+\begin{DoxyParamCaption}
+\item[{}]{V\-E\-C, }
+\item[{}]{T\-Y\-P\-E, }
+\item[{}]{I}
+\end{DoxyParamCaption}
+)~((T\-Y\-P\-E$\ast$)\&(V\-E\-C)-\/$>$a\mbox{[}(I)$\ast$(V\-E\-C)-\/$>$elem\-\_\-size\mbox{]})}}\label{cvector_8h_ae33134515b733eb93542bc5f50c7fe86}
+
+
+Definition at line 135 of file cvector.\-h.
+
 
 
 \subsection{Typedef Documentation}
@@ -1465,7 +1486,7 @@ Definition at line 291 of file vector\-\_\-void.\-c.
 
 Creates a new vector on the heap. 
 
-Vector size set to (size $>$ 0) ? size \-: 0; Capacity to (capacity $>$ vec-\/$>$size $|$$|$ (vec-\/$>$size \&\& capacity == vec-\/$>$size)) ? capacity \-: vec-\/$>$size + V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z in other words capacity has to be at least 1 and $>$= to vec-\/$>$size of course. elem\-\_\-sz is the size of the type you want to store ( ie sizeof(\-T) where T is your type ). You can pass in a function, elem\-\_\-free, to be called on every element before it is removed from the vector to free any dynamically allocated memory. For example if you passed in sizeof(char$\ast$) for elem\-\_\-sz, and wrappers around the standard free(void$\ast$) function for elem\-\_\-free and strdup (or mystrdup in this project) for elem\-\_\-init you could make vector work exactly like vector\-\_\-s. Pass in N\-U\-L\-L, to not use the function parameters.
+Vector size set to (size $>$ 0) ? size \-: 0; Capacity to (capacity $>$ vec-\/$>$size $|$$|$ (vec-\/$>$size \&\& capacity == vec-\/$>$size)) ? capacity \-: vec-\/$>$size + V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z in other words capacity has to be at least 1 and $>$= to vec-\/$>$size of course. elem\-\_\-sz is the size of the type you want to store ( ie sizeof(\-T) where T is your type ). You can pass in a function, elem\-\_\-free, to be called on every element before it is removed from the vector to free any dynamically allocated memory. For example if you passed in sizeof(char$\ast$) for elem\-\_\-sz, and wrappers around the standard free(void$\ast$) function for elem\-\_\-free and strdup (or mystrdup in this project) for elem\-\_\-init you could make vector work exactly like vector\-\_\-s. Pass in N\-U\-L\-L, to not use the function parameters.
 
 All functions call elem\-\_\-free before overwriting/popping/erasing elements if elem\-\_\-free is provided.
 
@@ -1492,17 +1513,17 @@ Definition at line 9 of file vector\-\_\-d.\-c.
 
 Definition at line 9 of file vector\-\_\-i.\-c.
 
-\hypertarget{cvector_8h_a09059d3291da8975ea105fefdab70c47}{\index{cvector.\-h@{cvector.\-h}!V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z@{V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}}
-\index{V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z@{V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}!cvector.h@{cvector.\-h}}
-\subsubsection[{V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t V\-E\-C\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}}\label{cvector_8h_a09059d3291da8975ea105fefdab70c47}
-
-
-Definition at line 8 of file vector\-\_\-void.\-c.
-
 \hypertarget{cvector_8h_aa42e1cec745f7340ed3237ff0ac18c42}{\index{cvector.\-h@{cvector.\-h}!V\-E\-C\-\_\-\-S\-T\-R\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z@{V\-E\-C\-\_\-\-S\-T\-R\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}}
 \index{V\-E\-C\-\_\-\-S\-T\-R\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z@{V\-E\-C\-\_\-\-S\-T\-R\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}!cvector.h@{cvector.\-h}}
 \subsubsection[{V\-E\-C\-\_\-\-S\-T\-R\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t V\-E\-C\-\_\-\-S\-T\-R\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}}\label{cvector_8h_aa42e1cec745f7340ed3237ff0ac18c42}
 
 
 Definition at line 9 of file vector\-\_\-str.\-c.
+
+\hypertarget{cvector_8h_adaf6c119232f4ba4ce2acb0a8e1dd01e}{\index{cvector.\-h@{cvector.\-h}!V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z@{V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}}
+\index{V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z@{V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}!cvector.h@{cvector.\-h}}
+\subsubsection[{V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t V\-E\-C\-\_\-\-V\-O\-I\-D\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z}}\label{cvector_8h_adaf6c119232f4ba4ce2acb0a8e1dd01e}
+
+
+Definition at line 8 of file vector\-\_\-void.\-c.
 

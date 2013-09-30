@@ -7,7 +7,7 @@
 #define VEC_TYPE_ALLOCATOR(x) ((x) * 2)
 
 
-size_t VECTOR_TYPE_SZ = 50;
+size_t VEC_TYPE_SZ = 50;
 
 
 
@@ -20,7 +20,7 @@ vector_TYPE* vec_TYPE_heap(size_t size, size_t capacity)
 	}
 
 	vec->size = (size > 0) ? size : 0;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VECTOR_TYPE_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_TYPE_SZ;
 
 	if (!(vec->a = malloc(vec->capacity*sizeof(TYPE)))) {
 		assert(vec->a != NULL);
@@ -41,7 +41,7 @@ vector_TYPE* init_vec_TYPE_heap(TYPE* vals, size_t num)
 		return NULL;
 	}
 
-	vec->capacity = num + VECTOR_TYPE_SZ;
+	vec->capacity = num + VEC_TYPE_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(TYPE)))) {
 		assert(vec->a != NULL);
@@ -58,7 +58,7 @@ vector_TYPE* init_vec_TYPE_heap(TYPE* vals, size_t num)
 int vec_TYPE(vector_TYPE* vec, size_t size, size_t capacity)
 {
 	vec->size = (size > 0) ? size : 0;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VECTOR_TYPE_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_TYPE_SZ;
 
 	if (!(vec->a = malloc(vec->capacity*sizeof(TYPE)))) {
 		assert(vec->a != NULL);
@@ -72,7 +72,7 @@ int vec_TYPE(vector_TYPE* vec, size_t size, size_t capacity)
 
 int init_vec_TYPE(vector_TYPE* vec, TYPE* vals, size_t num)
 {
-	vec->capacity = num + VECTOR_TYPE_SZ;
+	vec->capacity = num + VEC_TYPE_SZ;
 	vec->size = num;
 	if (!(vec->a = malloc(vec->capacity*sizeof(TYPE)))) {
 		assert(vec->a != NULL);
@@ -145,7 +145,7 @@ int extend_TYPE(vector_TYPE* vec, size_t num)
 	void* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VECTOR_TYPE_SZ;
+		tmp_sz = vec->capacity + num + VEC_TYPE_SZ;
 		if (!(tmp = realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -188,7 +188,7 @@ int insert_array_TYPE(vector_TYPE* vec, size_t i, TYPE* a, size_t num)
 	void* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VECTOR_TYPE_SZ;
+		tmp_sz = vec->capacity + num + VEC_TYPE_SZ;
 		if (!(tmp = realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -216,12 +216,12 @@ int reserve_TYPE(vector_TYPE* vec, size_t size)
 {
 	void* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = realloc(vec->a, sizeof(TYPE)*(size+VECTOR_TYPE_SZ)))) {
+		if (!(tmp = realloc(vec->a, sizeof(TYPE)*(size+VEC_TYPE_SZ)))) {
 			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
-		vec->capacity = size + VECTOR_TYPE_SZ;
+		vec->capacity = size + VEC_TYPE_SZ;
 	}
 	return 1;
 }

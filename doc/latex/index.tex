@@ -5,7 +5,7 @@ Other modifiable parameters are at the top of vector.\-c
 \begin{DoxyPre}
 size\_t VEC\_I\_START\_SZ = 50;
 size\_t VEC\_D\_START\_SZ = 50;
-size\_t VEC\_START\_SZ = 20;
+size\_t VEC\_VOID\_START\_SZ = 20;
 size\_t VEC\_S\_START\_SZ = 20;\end{DoxyPre}
 
 
@@ -17,17 +17,19 @@ size\_t VEC\_S\_START\_SZ = 20;\end{DoxyPre}
 \end{DoxyPre}
  The allocator macros are used in all functions that increase the size by 1. In others (constructors, insert\-\_\-array, reserve) V\-E\-C\-\_\-\-X\-\_\-\-S\-T\-A\-R\-T\-\_\-\-S\-Z is the amount extra allocated.
 
-With version 2.\-0 I've added \hyperlink{vector__template_8c}{vector\-\_\-template.\-c} and \hyperlink{vector__template_8h}{vector\-\_\-template.\-h} which are used to generate code for any type (that doesn't require individual allocation/freeing like vector\-\_\-s). It behaves exactly like \hyperlink{structvector__i}{vector\-\_\-i} (or d). This is preferable to using the generic vector for simple types and basic structures etc. since it's faster and clearer.
+There are also 2 templates, one for basic types and one for types that contain dynamically allocated memory and you might want a free and/or init function. In other words the first template is based off \hyperlink{structvector__i}{vector\-\_\-i} and the second is based off of \hyperlink{structvector__void}{vector\-\_\-void}, so look at the corresponding documentation for behavior.
 
-To use generate your own c and h file for a type just run\-: 
+They are located in \hyperlink{vector__template_8c}{vector\-\_\-template.\-c}/h and \hyperlink{vector__template2_8c}{vector\-\_\-template2.\-c}/h respectively.
+
+To use generate your own c and h files for a type just run\-: 
 \begin{DoxyPre}
 python3 generate\_code.py yourtype
 \end{DoxyPre}
 
 
-which will generate vector\-\_\-yourtype.\-c and vector\-\_\-yourtype.\-h
+which will generate vector\-\_\-yourtype$\ast$.c and vector\-\_\-yourtype$\ast$.h It generates the results for both templates so just delete the pair you don't want.
 
-\hyperlink{structvector__short}{vector\-\_\-short} is an example of the process and how to add it to the testing.\hypertarget{index_Building}{}\section{Building}\label{index_Building}
+\hyperlink{structvector__short}{vector\-\_\-short} and \hyperlink{structvector__f__struct}{vector\-\_\-f\-\_\-struct} are examples of the process and how to add it to the testing.\hypertarget{index_Building}{}\section{Building}\label{index_Building}
 I use premake so the command on linux is premake4 gmake which will generate a build directory. cd into that and run make or make config=release. I have not tried it on windows though it should work (well I'm not sure about C\-Unit ...).
 
 There is no output of any kind, no errors or warnings.
@@ -38,18 +40,14 @@ valgrind --leak-\/check=full -\/v ./vector
 
 
 \begin{DoxyPre}
-==6100== 
-==6100== HEAP SUMMARY:
-==6100==     in use at exit: 0 bytes in 0 blocks
-==6100==   total heap usage: 4,957 allocs, 4,957 frees, 927,837 bytes allocated
-==6100== 
-==6100== All heap blocks were freed -- no leaks are possible
-==6100== 
-==6100== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
---6100-- 
---6100-- used\_suppression:      2 dl-hack3-cond-1
-==6100== 
-==6100== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==17650== 
+==17650== HEAP SUMMARY:
+==17650==     in use at exit: 0 bytes in 0 blocks
+==17650==   total heap usage: 5,146 allocs, 5,146 frees, 936,924 bytes allocated
+==17650== 
+==17650== All heap blocks were freed -- no leaks are possible
+==17650== 
+==17650== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
 \end{DoxyPre}
 
 
