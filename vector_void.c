@@ -548,7 +548,7 @@ Other modifiable parameters are at the top of vector.c
 size_t VEC_I_START_SZ = 50;
 size_t VEC_D_START_SZ = 50;
 size_t VEC_VOID_START_SZ = 20;
-size_t VEC_S_START_SZ = 20;
+size_t VEC_STR_START_SZ = 20;
 
 #define VEC_I_ALLOCATOR(x) ((x) * 2)
 #define VEC_D_ALLOCATOR(x) ((x) * 2)
