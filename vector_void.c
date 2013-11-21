@@ -543,7 +543,7 @@ The generic vector is very flexible and allows you to provide free and init func
 if you like that it will call at appropriate times similar to the way C++ containers
 will call destructors.
 
-Other modifiable parameters are at the top of vector.c
+Other modifiable parameters are at the top of vector_*.c
 <pre>
 size_t VEC_I_START_SZ = 50;
 size_t VEC_D_START_SZ = 50;
@@ -579,6 +579,30 @@ you don't want.
 vector_short and vector_f_struct are examples of the process and
 how to add it to the testing.
 
+
+\section des_notes Design Notes
+Memory allocations are checked and asserted.  If not in debug mode (ie NDEBUG is defined)
+0 is returned on allocation failure.
+
+No other error checking is performed.  If you pass bad parameters, bad things will probably happen.
+This is consistent with my belief that it is the caller's responsibility to pass valid arguments
+and library code shouldn't be larger/uglier/slower for everyone just to pretty print errors.  This
+is also consistent with the C standard library where, for the most part, passing invalid parameters
+results in undefined behavior (see section 4.1.6 in C89, 7.1.4 in C99 and C11).
+
+The back functions simply return the address of size - 1.  This is fine even if your size is zero
+for the use of <= back_i(myvec) since the beginning of the array will already be > back.  If I were
+to return NULL in the case of size 0, you'd just exchange a possible size check before the call for
+a possible NULL check after the call.  I choose this way because it doesn't add an if check
+to the function so it's smaller/faster, I think the <= use case is more likely, and it's easier
+and more normal to know when your vector is empty than to remember to check for NULL after the fact.
+
+The insert functions (insert_i and insert_array_i for example) do allow you to insert at the end.
+The memmove inside the functions will simply move 0 bytes if you pass the current size as the index.
+C99 and C11 guarrantee this behavior in the standard (and thus C++ does as well).  Though I wrote
+this library to be compliant with C89, which does not guarrantee this behavior, I think
+it's safe to assume they'd use the same implementation since it doesn't contradict C89 and it
+just makes sense.
 
 
 
