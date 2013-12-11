@@ -62,6 +62,7 @@ There is no output of any kind, no errors or warnings.
 It has been relatively well tested using Cunit tests which all pass.
 I've also run it under valgrind and there are no memory leaks.
 
+<pre>
 valgrind --leak-check=yes ./vector
  
 ==17650== 
@@ -72,6 +73,7 @@ valgrind --leak-check=yes ./vector
 ==17650== All heap blocks were freed -- no leaks are possible
 ==17650== 
 ==17650== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+</pre>
 
 
 

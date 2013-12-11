@@ -618,9 +618,9 @@ There is no output of any kind, no errors or warnings.
 It has been relatively well tested using Cunit tests which all pass.
 I've also run it under valgrind and there are no memory leaks.
 
+<pre>
 valgrind --leak-check=full -v ./vector
 
-<pre>
 ==17650== 
 ==17650== HEAP SUMMARY:
 ==17650==     in use at exit: 0 bytes in 0 blocks
