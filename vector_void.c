@@ -567,7 +567,7 @@ off of vector_void, so look at the corresponding documentation for behavior.
 
 They are located in vector_template.c/h and vector_template2.c/h respectively.
 
-To use generate your own c and h files for a type just run:
+To generate your own c and h files for a type just run:
 <pre>
 python3 generate_code.py yourtype
 </pre>
@@ -641,8 +641,8 @@ I used version 2.1-2.
 
 
 \section Usage
-To actually use the library just copy vector.c and vector.h to your project.
-Also copy in generated types to your project as well.
+To actually use the library just copy the appropriate c/h file pair(s) to your project
+or just use cvector.h.
 To get a good idea of how to use the library and see it in action and how it should
 behave, look at vector_tests.c
 
