@@ -35,6 +35,59 @@ solution "CVector"
       language "C"
       files {
       	  "main.c", "vector_tests2.c",
+      	  "vector_short.h",
+      	  "vector_f_struct.h"
+      }
+    --  excludes { "vector_template.*", "vector_tests.c" }
+--      libdirs { }
+      links { "cunit" } 
+	  targetdir "build"
+  
+      configuration "Debug"
+         defines { "DEBUG" }
+         flags { "Symbols" }
+ 
+      configuration "Release"
+         defines { "NDEBUG" }
+         flags { "Optimize" }
+ 
+      configuration { "linux", "gmake" }
+         buildoptions { "-ansi", "-pedantic-errors", "-fno-strict-aliasing", "-Wunused-variable", "-Wreturn-type" }
+
+
+   project "vectorcpp"
+      location "build"
+      kind "ConsoleApp"
+      language "C++"
+      files
+      {
+         "main.cpp",
+         "vector_f_struct.h",
+         "vector_short.h"
+      }
+    --  excludes { }
+--      libdirs { }
+ --     links { "cunit" } 
+	  targetdir "build"
+  
+      configuration "Debug"
+         defines { "DEBUG" }
+         flags { "Symbols" }
+ 
+      configuration "Release"
+         defines { "NDEBUG" }
+         flags { "Optimize" }
+ 
+      configuration { "linux", "gmake" }
+         buildoptions { "-ansi", "-pedantic-errors", "-fno-strict-aliasing", "-Wunused-variable", "-Wreturn-type" }
+
+--[[
+   project "cvectorcpp"
+      location "build"
+      kind "ConsoleApp"
+      language "C++"
+      files {
+      	  "main.c", "vector_tests2.c",
       	  "vector_short.c", "vector_short.h",
       	  "vector_f_struct.c", "vector_f_struct.h"
       }
@@ -53,3 +106,5 @@ solution "CVector"
  
       configuration { "linux", "gmake" }
          buildoptions { "-ansi", "-pedantic-errors", "-fno-strict-aliasing", "-Wunused-variable", "-Wreturn-type" }
+--]]
+        

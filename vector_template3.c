@@ -14,7 +14,7 @@ size_t VEC_TYPE_SZ = 50;
 vector_TYPE* vec_TYPE_heap(size_t size, size_t capacity)
 {
 	vector_TYPE* vec;
-	if (!(vec = malloc(sizeof(vector_TYPE)))) {
+	if (!(vec = (vector_TYPE*)malloc(sizeof(vector_TYPE)))) {
 		assert(vec != NULL);
 		return NULL;
 	}
@@ -22,7 +22,7 @@ vector_TYPE* vec_TYPE_heap(size_t size, size_t capacity)
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_TYPE_SZ;
 
-	if (!(vec->a = malloc(vec->capacity*sizeof(TYPE)))) {
+	if (!(vec->a = (TYPE*)malloc(vec->capacity*sizeof(TYPE)))) {
 		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
@@ -36,14 +36,14 @@ vector_TYPE* init_vec_TYPE_heap(TYPE* vals, size_t num)
 {
 	vector_TYPE* vec;
 	
-	if (!(vec = malloc(sizeof(vector_TYPE)))) {
+	if (!(vec = (vector_TYPE*)malloc(sizeof(vector_TYPE)))) {
 		assert(vec != NULL);
 		return NULL;
 	}
 
 	vec->capacity = num + VEC_TYPE_SZ;
 	vec->size = num;
-	if (!(vec->a = malloc(vec->capacity*sizeof(TYPE)))) {
+	if (!(vec->a = (TYPE*)malloc(vec->capacity*sizeof(TYPE)))) {
 		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
@@ -60,7 +60,7 @@ int vec_TYPE(vector_TYPE* vec, size_t size, size_t capacity)
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_TYPE_SZ;
 
-	if (!(vec->a = malloc(vec->capacity*sizeof(TYPE)))) {
+	if (!(vec->a = (TYPE*)malloc(vec->capacity*sizeof(TYPE)))) {
 		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
@@ -74,7 +74,7 @@ int init_vec_TYPE(vector_TYPE* vec, TYPE* vals, size_t num)
 {
 	vec->capacity = num + VEC_TYPE_SZ;
 	vec->size = num;
-	if (!(vec->a = malloc(vec->capacity*sizeof(TYPE)))) {
+	if (!(vec->a = (TYPE*)malloc(vec->capacity*sizeof(TYPE)))) {
 		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
@@ -87,14 +87,14 @@ int init_vec_TYPE(vector_TYPE* vec, TYPE* vals, size_t num)
 
 void vec_TYPE_copy(void* dest, void* src)
 {
-	vector_TYPE* vec1 = dest;
-	vector_TYPE* vec2 = src;
+	vector_TYPE* vec1 = (vector_TYPE*)dest;
+	vector_TYPE* vec2 = (vector_TYPE*)src;
 	
 	vec1->size = 0;
 	vec1->capacity = 0;
 	
 	/*not much else we can do here*/
-	if (!(vec1->a = malloc(vec2->capacity*sizeof(TYPE)))) {
+	if (!(vec1->a = (TYPE*)malloc(vec2->capacity*sizeof(TYPE)))) {
 		assert(vec1->a != NULL);
 		return;
 	}
@@ -110,13 +110,13 @@ void vec_TYPE_copy(void* dest, void* src)
 
 int push_TYPE(vector_TYPE* vec, TYPE a)
 {
-	void* tmp;
+	TYPE* tmp;
 	size_t tmp_sz;
 	if (vec->capacity > vec->size) {
 		vec->a[vec->size++] = a;
 	} else {
 		tmp_sz = VEC_TYPE_ALLOCATOR(vec->capacity);
-		if (!(tmp = realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
+		if (!(tmp = (TYPE*)realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -142,11 +142,11 @@ TYPE* back_TYPE(vector_TYPE* vec)
 
 int extend_TYPE(vector_TYPE* vec, size_t num)
 {
-	void* tmp;
+	TYPE* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_TYPE_SZ;
-		if (!(tmp = realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
+		if (!(tmp = (TYPE*)realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -161,14 +161,14 @@ int extend_TYPE(vector_TYPE* vec, size_t num)
 
 int insert_TYPE(vector_TYPE* vec, size_t i, TYPE a)
 {
-	void* tmp;
+	TYPE* tmp;
 	size_t tmp_sz;
 	if (vec->capacity > vec->size) {
 		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(TYPE));
 		vec->a[i] = a;
 	} else {
 		tmp_sz = VEC_TYPE_ALLOCATOR(vec->capacity);
-		if (!(tmp = realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
+		if (!(tmp = (TYPE*)realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -185,11 +185,11 @@ int insert_TYPE(vector_TYPE* vec, size_t i, TYPE a)
 
 int insert_array_TYPE(vector_TYPE* vec, size_t i, TYPE* a, size_t num)
 {
-	void* tmp;
+	TYPE* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_TYPE_SZ;
-		if (!(tmp = realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
+		if (!(tmp = (TYPE*)realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -214,9 +214,9 @@ void erase_TYPE(vector_TYPE* vec, size_t start, size_t end)
 
 int reserve_TYPE(vector_TYPE* vec, size_t size)
 {
-	void* tmp;
+	TYPE* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = realloc(vec->a, sizeof(TYPE)*(size+VEC_TYPE_SZ)))) {
+		if (!(tmp = (TYPE*)realloc(vec->a, sizeof(TYPE)*(size+VEC_TYPE_SZ)))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -231,12 +231,12 @@ int reserve_TYPE(vector_TYPE* vec, size_t size)
 
 int set_capacity_TYPE(vector_TYPE* vec, size_t size)
 {
-	void* tmp;
+	TYPE* tmp;
 	if (size < vec->size) {
 		vec->size = size;
 	}
 
-	if (!(tmp = realloc(vec->a, sizeof(TYPE)*size))) {
+	if (!(tmp = (TYPE*)realloc(vec->a, sizeof(TYPE)*size))) {
 		assert(tmp != NULL);
 		return 0;
 	}
@@ -269,14 +269,14 @@ void clear_TYPE(vector_TYPE* vec) { vec->size = 0; }
 
 void free_vec_TYPE_heap(void* vec)
 {
-	vector_TYPE* tmp = vec;
+	vector_TYPE* tmp = (vector_TYPE*)vec;
 	free(tmp->a);
 	free(tmp);
 }
 
 void free_vec_TYPE(void* vec)
 {
-	vector_TYPE* tmp = vec;
+	vector_TYPE* tmp = (vector_TYPE*)vec;
 	free(tmp->a);
 	tmp->size = 0;
 	tmp->capacity = 0;

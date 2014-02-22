@@ -4,6 +4,9 @@
 #define DO_TEMPLATE_TEST 1
 #ifdef DO_TEMPLATE_TEST
 /*replace with or add your own generated file and edit the template test*/
+
+#define VECTOR_short_IMPLEMENTATION
+#define VECTOR_f_struct_IMPLEMENTATION
 #include "vector_short.h"
 #include "vector_f_struct.h"
 #endif
