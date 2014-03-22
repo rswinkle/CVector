@@ -10,12 +10,12 @@
 extern "C" {
 #endif
 
-/** Data structure for generic type (cast to void) vectors */
+
 typedef struct vector_TYPE
 {
-	TYPE* a;                 /**< Array. */
-	size_t size;             /**< Current size (amount you should use when manipulating array directly). */
-	size_t capacity;         /**< Allocated size of array; always >= size. */
+	TYPE* a;
+	size_t size;
+	size_t capacity;
 	void (*elem_init)(void*, void*);
 	void (*elem_free)(void*);
 } vector_TYPE;
