@@ -33,8 +33,11 @@ solution "CVector"
       location "build"
       kind "ConsoleApp"
       language "C"
-      files {
-      	  "main.c", "vector_tests2.c",
+      files
+      {
+      	  "main.c",
+      	  "vector_tests2.c",
+      	  "cvector.h",
       	  "vector_short.h",
       	  "vector_f_struct.h"
       }
@@ -62,6 +65,10 @@ solution "CVector"
       files
       {
          "main.cpp",
+         "vector_i.c",
+         "vector_d.c",
+         "vector_str.c",
+         "vector_void.c",
          "vector_f_struct.h",
          "vector_short.h"
       }
@@ -79,17 +86,17 @@ solution "CVector"
          flags { "Optimize" }
  
       configuration { "linux", "gmake" }
-         buildoptions { "-ansi", "-pedantic-errors", "-fno-strict-aliasing", "-Wunused-variable", "-Wreturn-type" }
+         buildoptions { "-ansi", "-pedantic-errors", "-fno-strict-aliasing", "-Wunused-variable", "-Wreturn-type", "-x c++" }
 
---[[
+
    project "cvectorcpp"
       location "build"
       kind "ConsoleApp"
       language "C++"
-      files {
-      	  "main.c", "vector_tests2.c",
-      	  "vector_short.c", "vector_short.h",
-      	  "vector_f_struct.c", "vector_f_struct.h"
+      files
+      {
+      	  "main2.cpp",
+      	  "cvector.h"
       }
     --  excludes { "vector_template.*", "vector_tests.c" }
 --      libdirs { }
@@ -105,6 +112,5 @@ solution "CVector"
          flags { "Optimize" }
  
       configuration { "linux", "gmake" }
-         buildoptions { "-ansi", "-pedantic-errors", "-fno-strict-aliasing", "-Wunused-variable", "-Wreturn-type" }
---]]
+         buildoptions { "-ansi", "-pedantic-errors", "-fno-strict-aliasing", "-Wunused-variable", "-Wreturn-type", "-x c++" }
         

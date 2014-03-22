@@ -22,7 +22,7 @@ size_t VEC_I_START_SZ = 50;
 vector_i* vec_i_heap(size_t size, size_t capacity)
 {
 	vector_i* vec;
-	if (!(vec = malloc(sizeof(vector_i)))) {
+	if (!(vec = (vector_i*)malloc(sizeof(vector_i)))) {
 		assert(vec != NULL);
 		return NULL;
 	}
@@ -30,7 +30,7 @@ vector_i* vec_i_heap(size_t size, size_t capacity)
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ;
 
-	if (!(vec->a = malloc(vec->capacity*sizeof(int)))) {
+	if (!(vec->a = (int*)malloc(vec->capacity*sizeof(int)))) {
 		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
@@ -46,14 +46,14 @@ vector_i* init_vec_i_heap(int* vals, size_t num)
 {
 	vector_i* vec;
 	
-	if (!(vec = malloc(sizeof(vector_i)))) {
+	if (!(vec = (vector_i*)malloc(sizeof(vector_i)))) {
 		assert(vec != NULL);
 		return NULL;
 	}
 
 	vec->capacity = num + VEC_I_START_SZ;
 	vec->size = num;
-	if (!(vec->a = malloc(vec->capacity*sizeof(int)))) {
+	if (!(vec->a = (int*)malloc(vec->capacity*sizeof(int)))) {
 		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
@@ -73,7 +73,7 @@ int vec_i(vector_i* vec, size_t size, size_t capacity)
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ;
 
-	if (!(vec->a = malloc(vec->capacity*sizeof(int)))) {
+	if (!(vec->a = (int*)malloc(vec->capacity*sizeof(int)))) {
 		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
@@ -90,7 +90,7 @@ int init_vec_i(vector_i* vec, int* vals, size_t num)
 {
 	vec->capacity = num + VEC_I_START_SZ;
 	vec->size = num;
-	if (!(vec->a = malloc(vec->capacity*sizeof(int)))) {
+	if (!(vec->a = (int*)malloc(vec->capacity*sizeof(int)))) {
 		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
@@ -110,14 +110,14 @@ int init_vec_i(vector_i* vec, int* vals, size_t num)
  */
 void vec_i_copy(void* dest, void* src)
 {
-	vector_i* vec1 = dest;
-	vector_i* vec2 = src;
+	vector_i* vec1 = (vector_i*)dest;
+	vector_i* vec2 = (vector_i*)src;
 	
 	vec1->size = 0;
 	vec1->capacity = 0;
 	
 	/*not much else we can do here*/
-	if (!(vec1->a = malloc(vec2->capacity*sizeof(int)))) {
+	if (!(vec1->a = (int*)malloc(vec2->capacity*sizeof(int)))) {
 		assert(vec1->a != NULL);
 		return;
 	}
@@ -137,11 +137,11 @@ void vec_i_copy(void* dest, void* src)
  */
 int push_i(vector_i* vec, int a)
 {
-	void* tmp;
+	int* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = VEC_I_ALLOCATOR(vec->capacity);
-		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
+		if (!(tmp = (int*)realloc(vec->a, sizeof(int)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -173,11 +173,11 @@ int* back_i(vector_i* vec)
  *  are not initialized to anything */
 int extend_i(vector_i* vec, size_t num)
 {
-	void* tmp;
+	int* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_I_START_SZ;
-		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
+		if (!(tmp = (int*)realloc(vec->a, sizeof(int)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -198,11 +198,11 @@ int extend_i(vector_i* vec, size_t num)
  */
 int insert_i(vector_i* vec, size_t i, int a)
 {
-	void* tmp;
+	int* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = VEC_I_ALLOCATOR(vec->capacity);
-		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
+		if (!(tmp = (int*)realloc(vec->a, sizeof(int)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -225,11 +225,11 @@ int insert_i(vector_i* vec, size_t i, int a)
  */
 int insert_array_i(vector_i* vec, size_t i, int* a, size_t num)
 {
-	void* tmp;
+	int* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_I_START_SZ;
-		if (!(tmp = realloc(vec->a, sizeof(int)*tmp_sz))) {
+		if (!(tmp = (int*)realloc(vec->a, sizeof(int)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -263,9 +263,9 @@ void erase_i(vector_i* vec, size_t start, size_t end)
 /** Make sure capacity is at least size(parameter not member). */
 int reserve_i(vector_i* vec, size_t size)
 {
-	void* tmp;
+	int* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = realloc(vec->a, sizeof(int)*(size+VEC_I_START_SZ)))) {
+		if (!(tmp = (int*)realloc(vec->a, sizeof(int)*(size+VEC_I_START_SZ)))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -283,12 +283,12 @@ int reserve_i(vector_i* vec, size_t size)
 */
 int set_capacity_i(vector_i* vec, size_t size)
 {
-	void* tmp;
+	int* tmp;
 	if (size < vec->size) {
 		vec->size = size;
 	}
 
-	if (!(tmp = realloc(vec->a, sizeof(int)*size))) {
+	if (!(tmp = (int*)realloc(vec->a, sizeof(int)*size))) {
 		assert(tmp != NULL);
 		return 0;
 	}
@@ -325,7 +325,7 @@ void clear_i(vector_i* vec) { vec->size = 0; }
 /** Frees everything so don't use vec after calling this. */
 void free_vec_i_heap(void* vec)
 {
-	vector_i* tmp = vec;
+	vector_i* tmp = (vector_i*)vec;
 	free(tmp->a);
 	free(tmp);
 }
@@ -333,7 +333,7 @@ void free_vec_i_heap(void* vec)
 /** Frees the internal array and sets size and capacity to 0 */
 void free_vec_i(void* vec)
 {
-	vector_i* tmp = vec;
+	vector_i* tmp = (vector_i*)vec;
 	free(tmp->a);
 	tmp->size = 0;
 	tmp->capacity = 0;

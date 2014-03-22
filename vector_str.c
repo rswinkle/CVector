@@ -17,13 +17,13 @@ char* mystrdup(const char* str)
 	 * 	return NULL;
 	 */
 	size_t len = strlen(str);
-	char* temp = calloc(len+1, sizeof(char));
+	char* temp = (char*)calloc(len+1, sizeof(char));
 	if (!temp) {
 		assert(temp != NULL);
 		return NULL;
 	}
 	
-	return memcpy(temp, str, len);  /* memcpy returns to, and calloc already nulled last char */
+	return (char*)memcpy(temp, str, len);  /* memcpy returns to, and (char**)calloc already nulled last char */
 }
 
 
@@ -41,7 +41,7 @@ char* mystrdup(const char* str)
 vector_str* vec_str_heap(size_t size, size_t capacity)
 {
 	vector_str* vec;
-	if (!(vec = malloc(sizeof(vector_str)))) {
+	if (!(vec = (vector_str*)malloc(sizeof(vector_str)))) {
 		assert(vec != NULL);
 		return NULL;
 	}
@@ -49,9 +49,9 @@ vector_str* vec_str_heap(size_t size, size_t capacity)
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ;
 
-	/* calloc here because it we free before poppirg/erasing and since nothing is
+	/* calloc here because if we free before poppirg/erasing and since nothing is
 	 * allocated these need to be NULL to not cause problems */
-	if (!(vec->a = calloc(vec->capacity, sizeof(char*)))) {
+	if (!(vec->a = (char**)calloc(vec->capacity, sizeof(char*)))) {
 		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
@@ -68,14 +68,14 @@ vector_str* init_vec_str_heap(char** vals, size_t num)
 	vector_str* vec;
 	size_t i;
 	
-	if (!(vec = malloc(sizeof(vector_str)))) {
+	if (!(vec = (vector_str*)malloc(sizeof(vector_str)))) {
 		assert(vec != NULL);
 		return NULL;
 	}
 
 	vec->capacity = num + VEC_STR_START_SZ;
 	vec->size = num;
-	if (!(vec->a = malloc(vec->capacity*sizeof(char*)))) {
+	if (!(vec->a = (char**)malloc(vec->capacity*sizeof(char*)))) {
 		assert(vec->a != NULL);
 		free(vec);
 		return NULL;
@@ -98,9 +98,9 @@ int vec_str(vector_str* vec, size_t size, size_t capacity)
 	vec->size = (size > 0) ? size : 0;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ;
 
-	/* calloc here because it we free before poppirg/erasing and since nothing is
+	/* (char**)calloc here because it we free before poppirg/erasing and since nothing is
 	 * allocated these need to be NULL to not cause problems */
-	if (!(vec->a = calloc(vec->capacity, sizeof(char*)))) {
+	if (!(vec->a = (char**)calloc(vec->capacity, sizeof(char*)))) {
 		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
@@ -118,7 +118,7 @@ int init_vec_str(vector_str* vec, char** vals, size_t num)
 	
 	vec->capacity = num + VEC_STR_START_SZ;
 	vec->size = num;
-	if (!(vec->a = malloc(vec->capacity*sizeof(char*)))) {
+	if (!(vec->a = (char**)malloc(vec->capacity*sizeof(char*)))) {
 		assert(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
@@ -141,14 +141,14 @@ int init_vec_str(vector_str* vec, char** vals, size_t num)
 void vec_str_copy(void* dest, void* src)
 {
 	size_t i;
-	vector_str* vec1 = dest;
-	vector_str* vec2 = src;
+	vector_str* vec1 = (vector_str*)dest;
+	vector_str* vec2 = (vector_str*)src;
 	
 	vec1->size = 0;
 	vec1->capacity = 0;
 	
 	/*not much else we can do here*/
-	if (!(vec1->a = malloc(vec2->capacity*sizeof(char*)))) {
+	if (!(vec1->a = (char**)malloc(vec2->capacity*sizeof(char*)))) {
 		assert(vec1->a != NULL);
 		return;
 	}
@@ -169,11 +169,11 @@ void vec_str_copy(void* dest, void* src)
  */
 int push_str(vector_str* vec, char* a)
 {
-	void* tmp;
+	char** tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = VEC_STR_ALLOCATOR(vec->capacity);
-		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
+		if (!(tmp = (char**)realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -213,11 +213,11 @@ char** back_str(vector_str* vec)
     popped or the vector is freed.*/
 int extend_str(vector_str* vec, size_t num)
 {
-	void* tmp;
+	char** tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_STR_START_SZ;
-		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
+		if (!(tmp = (char**)realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -239,11 +239,11 @@ int extend_str(vector_str* vec, size_t num)
  */
 int insert_str(vector_str* vec, size_t i, char* a)
 {
-	void* tmp;
+	char** tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = VEC_STR_ALLOCATOR(vec->capacity);
-		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
+		if (!(tmp = (char**)realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -265,11 +265,11 @@ int insert_str(vector_str* vec, size_t i, char* a)
  */
 int insert_array_str(vector_str* vec, size_t i, char** a, size_t num)
 {
-	void* tmp;
+	char** tmp;
 	size_t tmp_sz, j;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + VEC_STR_START_SZ;
-		if (!(tmp = realloc(vec->a, sizeof(char*)*tmp_sz))) {
+		if (!(tmp = (char**)realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -313,9 +313,9 @@ void erase_str(vector_str* vec, size_t start, size_t end)
 /** Makes sure the vector capacity is >= size (parameter not member). */
 int reserve_str(vector_str* vec, size_t size)
 {
-	void* tmp;
+	char** tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = realloc(vec->a, sizeof(char*)*(size+VEC_STR_START_SZ)))) {
+		if (!(tmp = (char**)realloc(vec->a, sizeof(char*)*(size+VEC_STR_START_SZ)))) {
 			assert(tmp != NULL);
 			return 0;
 		}
@@ -332,7 +332,7 @@ int reserve_str(vector_str* vec, size_t size)
 int set_capacity_str(vector_str* vec, size_t size)
 {
 	size_t i;
-	void* tmp;
+	char** tmp;
 	if (size < vec->size) {
 		for(i=vec->size-1; i>size-1; i--) {
 			free(vec->a[i]);
@@ -341,7 +341,7 @@ int set_capacity_str(vector_str* vec, size_t size)
 		vec->size = size;
 	}
 
-	if (!(tmp = realloc(vec->a, sizeof(char*)*size))) {
+	if (!(tmp = (char**)realloc(vec->a, sizeof(char*)*size))) {
 		assert(tmp != NULL);
 		return 0;
 	}
@@ -359,7 +359,7 @@ void set_val_sz_str(vector_str* vec, char* val)
 	for(i=0; i<vec->size; i++) {
 		free(vec->a[i]);
 
-		/* not worth checking/reallocing to me */
+		/* not worth checking/(char**)reallocing to me */
 		vec->a[i] = mystrdup(val);
 	}
 }
@@ -399,7 +399,7 @@ void clear_str(vector_str* vec)
 void free_vec_str_heap(void* vec)
 {
 	size_t i;
-	vector_str* tmp = vec;
+	vector_str* tmp = (vector_str*)vec;
 	for (i=0; i<tmp->size; i++) {
 		free(tmp->a[i]);
 	}
@@ -413,7 +413,7 @@ void free_vec_str_heap(void* vec)
 void free_vec_str(void* vec)
 {
 	size_t i;
-	vector_str* tmp = vec;
+	vector_str* tmp = (vector_str*)vec;
 	for (i=0; i<tmp->size; i++) {
 		free(tmp->a[i]);
 	}

@@ -5,6 +5,10 @@
 #include <string.h>
 #include <stdio.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** Data structure for string vector. */
 typedef struct vector_str
 {
@@ -44,6 +48,9 @@ void clear_str(vector_str* vec);
 void free_vec_str_heap(void* vec);
 void free_vec_str(void* vec);
 
+#ifdef __cplusplus
+}
+#endif
 
 
 #endif

@@ -5,6 +5,10 @@
 #include <string.h>
 #include <stdio.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** Data structure for double vector. */
 typedef struct vector_d
 {
@@ -42,5 +46,9 @@ double* back_d(vector_d* vec);
 void clear_d(vector_d* vec);
 void free_vec_d_heap(void* vec);
 void free_vec_d(void* vec);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

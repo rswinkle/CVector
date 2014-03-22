@@ -5,6 +5,10 @@
 #include <string.h>
 #include <stdio.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef unsigned char byte;
 
 /** Data structure for generic type (cast to void) vectors */
@@ -49,6 +53,9 @@ void clear_void(vector_void* vec);
 void free_vec_void_heap(void* vec);
 void free_vec_void(void* vec);
 
+#ifdef __cplusplus
+}
+#endif
 
 
 #endif

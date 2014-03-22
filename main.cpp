@@ -6,20 +6,10 @@
 #define VECTOR_f_struct_IMPLEMENTATION
 #include "vector_f_struct.h"
 
+#include "vector_all.h"
+
 #include <iostream>
 
-char* mystrdup(const char* str)
-{
-	
-	size_t len = strlen(str);
-	char* temp = (char*)calloc(len+1, sizeof(char));
-	if (!temp) {
-		assert(temp != NULL);
-		return NULL;
-	}
-	
-	return (char*)memcpy(temp, str, len);  
-}
 
 void free_f_struct(void* tmp)
 {
@@ -44,17 +34,33 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
+	vector_i veci;
+	vector_d vecd;
+	vector_str vecstr;
+	vector_void vecvoid;
+
 	vector_short vshort;
 	vector_f_struct vf_struct;
 
+	vec_i(&veci, 0, 10);
+	vec_d(&vecd, 0, 10);
+	vec_str(&vecstr, 0, 10);
+	vec_void(&vecvoid, 0, 10, sizeof(long double), NULL, NULL);
+
+
 	vec_short(&vshort, 0, 10);
 	vec_f_struct(&vf_struct, 0, 10, free_f_struct, init_f_struct);
+
 
 
 	//THIS IS REALLY JUST A C++ compilation test
 	//functionality testing is done in vector_tests.h
 	//and vector_tests2.h
 
+	free_vec_i(&veci);
+	free_vec_d(&vecd);
+	free_vec_str(&vecstr);
+	free_vec_void(&vecvoid);
 
 	free_vec_short(&vshort);
 	free_vec_f_struct(&vf_struct);

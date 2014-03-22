@@ -5,6 +5,9 @@
 #include <string.h>
 #include <stdio.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /** Data structure for int vector. */
 typedef struct vector_i
@@ -44,5 +47,8 @@ void free_vec_i_heap(void* vec);
 void free_vec_i(void* vec);
 
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif
