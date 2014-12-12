@@ -564,16 +564,18 @@ There are also 2 templates, one for basic types and one for types that contain
 dynamically allocated memory and you might want a free and/or init function.
 In other words the first template is based off vector_i and the second is based
 off of vector_void, so look at the corresponding documentation for behavior.
+There are actually 2 varieties of each template, one all-in-one header variety that works
+like cvector.h, and the other generates a matching c/h pair.
 
-They are located in vector_template.c/h and vector_template2.c/h respectively.
+They are located in vector_template.h, vector_template2.h, vector_template3.c/h and
+vector_template4.c/h.
 
-To generate your own c and h files for a type just run:
+To generate your own vector files for a type just run:
 <pre>
 python3 generate_code.py yourtype
 </pre>
 
-which will generate vector_yourtype*.c and vector_yourtype*.h
-It generates the results for both templates so just delete the pair
+which will generate the results for all templates so just delete the ones
 you don't want.
 
 vector_short and vector_f_struct are examples of the process and
@@ -648,7 +650,7 @@ behave, look at vector_tests.c
 
 \section LICENSE
 CVector is licensed under the MIT License.
-Copyright (c) 2011-2013 Robert Winkler
+Copyright (c) 2011-2014 Robert Winkler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation

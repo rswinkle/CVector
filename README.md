@@ -8,7 +8,7 @@ using a generic structure where the type is passed in as void* and stored in a b
 (to avoid dereferencing void* warnings and frequent casting) .
 The generic vector is very flexible and allows you to provide free and init functions 
 if you like that it will call at appropriate times similar to the way C++ containers
-will call destructors.
+will call destructors and copy constructors.
 
 Other modifiable parameters are at the top of vector.c
 <pre>
@@ -31,16 +31,18 @@ There are also 2 templates, one for basic types and one for types that contain
 dynamically allocated memory and you might want a free and/or init function.
 In other words the first template is based off vector_i and the second is based
 off of vector_void, so look at the corresponding documentation for behavior.
+There are actually 2 varieties of each template, one all-in-one header variety that works
+like c_vector.h, and the other generates a matching c/h pair.
 
-They are located in vector_template.c/h and vector_template2.c/h respectively.
+They are located in vector_template.h, vector_template2.h, vector_template3.c/h and
+vector_template4.c/h.
 
-To generate your own c and h files for a type just run:
+To generate your own vector files for a type just run:
 <pre>
 python3 generate_code.py yourtype
 </pre>
 
-which will generate vector_yourtype*.c and vector_yourtype*.h
-It generates the results for both templates so just delete the pair
+which will generate the results for all templates so just delete the ones
 you don't want.
 
 vector_short and vector_f_struct are examples of the process and
@@ -91,11 +93,32 @@ http://sourceforge.net/projects/cunit/
 I used version 2.1-2.
 
 
-
+Usage
+=====
 To actually use the library just copy the appropriate c/h file pair(s) to your project
 or just use cvector.h.
 To get a good idea of how to use the library and see it in action and how it should
 behave, look at vector_tests.c
 
+Documentation
+=============
+The Doxygen generated html docs are in doc.tar.gz and [online here](http://www.robertwinkler.com/Projects/cvector/index.html)
 
-CVector is licensed under the MIT License.  See LICENSE
+
+LICENSE
+=======
+CVector is licensed under the MIT License.
+Copyright (c) 2011-2014 Robert Winkler
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and
+to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
