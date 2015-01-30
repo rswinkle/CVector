@@ -76,7 +76,7 @@ vector_TYPE* vec_TYPE_heap(size_t size, size_t capacity)
 		return NULL;
 	}
 
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_TYPE_SZ;
 
 	if (!(vec->a = (TYPE*)malloc(vec->capacity*sizeof(TYPE)))) {
@@ -114,7 +114,7 @@ vector_TYPE* init_vec_TYPE_heap(TYPE* vals, size_t num)
 
 int vec_TYPE(vector_TYPE* vec, size_t size, size_t capacity)
 {
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_TYPE_SZ;
 
 	if (!(vec->a = (TYPE*)malloc(vec->capacity*sizeof(TYPE)))) {

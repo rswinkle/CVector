@@ -76,7 +76,7 @@ vector_short* vec_short_heap(size_t size, size_t capacity)
 		return NULL;
 	}
 
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_short_SZ;
 
 	if (!(vec->a = (short*)malloc(vec->capacity*sizeof(short)))) {
@@ -114,7 +114,7 @@ vector_short* init_vec_short_heap(short* vals, size_t num)
 
 int vec_short(vector_short* vec, size_t size, size_t capacity)
 {
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_short_SZ;
 
 	if (!(vec->a = (short*)malloc(vec->capacity*sizeof(short)))) {

@@ -29,7 +29,7 @@ vector_d* vec_d_heap(size_t size, size_t capacity)
 		return NULL;
 	}
 
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ;
 
 	if (!(vec->a = (double*)malloc(vec->capacity*sizeof(double)))) {
@@ -74,7 +74,7 @@ vector_d* init_vec_d_heap(double* vals, size_t num)
  */
 int vec_d(vector_d* vec, size_t size, size_t capacity)
 {
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ;
 
 	if (!(vec->a = (double*)malloc(vec->capacity*sizeof(double)))) {

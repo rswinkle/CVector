@@ -83,7 +83,7 @@ vector_TYPE* vec_TYPE_heap(size_t size, size_t capacity, void(*elem_free)(void*)
 		return NULL;
 	}
 
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_TYPE_SZ;
 
 	/*not calloc here and init_vec as in vector_s because elem_free cannot be calling free directly*/
@@ -135,7 +135,7 @@ vector_TYPE* init_vec_TYPE_heap(TYPE* vals, size_t num, void(*elem_free)(void*),
 
 int vec_TYPE(vector_TYPE* vec, size_t size, size_t capacity, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_TYPE_SZ;
 
 	if (!(vec->a = (TYPE*)malloc(vec->capacity * sizeof(TYPE)))) {

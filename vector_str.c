@@ -46,7 +46,7 @@ vector_str* vec_str_heap(size_t size, size_t capacity)
 		return NULL;
 	}
 
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ;
 
 	/* calloc here because if we free before poppirg/erasing and since nothing is
@@ -95,7 +95,7 @@ vector_str* init_vec_str_heap(char** vals, size_t num)
  */
 int vec_str(vector_str* vec, size_t size, size_t capacity)
 {
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ;
 
 	/* (char**)calloc here because it we free before poppirg/erasing and since nothing is

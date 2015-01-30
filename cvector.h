@@ -187,7 +187,7 @@ vector_i* vec_i_heap(size_t size, size_t capacity)
 		return NULL;
 	}
 
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ;
 
 	if (!(vec->a = (int*)malloc(vec->capacity*sizeof(int)))) {
@@ -223,7 +223,7 @@ vector_i* init_vec_i_heap(int* vals, size_t num)
 
 int vec_i(vector_i* vec, size_t size, size_t capacity)
 {
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ;
 
 	if (!(vec->a = (int*)malloc(vec->capacity*sizeof(int)))) {
@@ -438,7 +438,7 @@ vector_d* vec_d_heap(size_t size, size_t capacity)
 		return NULL;
 	}
 
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ;
 
 	if (!(vec->a = (double*)malloc(vec->capacity*sizeof(double)))) {
@@ -474,7 +474,7 @@ vector_d* init_vec_d_heap(double* vals, size_t num)
 
 int vec_d(vector_d* vec, size_t size, size_t capacity)
 {
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ;
 
 	if (!(vec->a = (double*)malloc(vec->capacity*sizeof(double)))) {
@@ -699,7 +699,7 @@ vector_str* vec_str_heap(size_t size, size_t capacity)
 		return NULL;
 	}
 
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ;
 
 	
@@ -739,7 +739,7 @@ vector_str* init_vec_str_heap(char** vals, size_t num)
 
 int vec_str(vector_str* vec, size_t size, size_t capacity)
 {
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ;
 
 	
@@ -1005,7 +1005,7 @@ vector_void* vec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*e
 		return NULL;
 	}
 
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_VOID_START_SZ;
 
 	vec->elem_size = elem_sz;
@@ -1059,7 +1059,7 @@ vector_void* init_vec_void_heap(void* vals, size_t num, size_t elem_sz, void(*el
 
 int vec_void(vector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_VOID_START_SZ;
 
 	vec->elem_size = elem_sz;

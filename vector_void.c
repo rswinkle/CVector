@@ -49,7 +49,7 @@ vector_void* vec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*e
 		return NULL;
 	}
 
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_VOID_START_SZ;
 
 	vec->elem_size = elem_sz;
@@ -112,7 +112,7 @@ vector_void* init_vec_void_heap(void* vals, size_t num, size_t elem_sz, void(*el
  */
 int vec_void(vector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_VOID_START_SZ;
 
 	vec->elem_size = elem_sz;
@@ -650,7 +650,8 @@ behave, look at vector_tests.c
 
 \section LICENSE
 CVector is licensed under the MIT License.
-Copyright (c) 2011-2014 Robert Winkler
+
+Copyright (c) 2011-2015 Robert Winkler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation

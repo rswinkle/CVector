@@ -85,7 +85,7 @@ vector_f_struct* vec_f_struct_heap(size_t size, size_t capacity, void(*elem_free
 		return NULL;
 	}
 
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_f_struct_SZ;
 
 	/*not calloc here and init_vec as in vector_s because elem_free cannot be calling free directly*/
@@ -137,7 +137,7 @@ vector_f_struct* init_vec_f_struct_heap(f_struct* vals, size_t num, void(*elem_f
 
 int vec_f_struct(vector_f_struct* vec, size_t size, size_t capacity, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
-	vec->size = (size > 0) ? size : 0;
+	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_f_struct_SZ;
 
 	if (!(vec->a = (f_struct*)malloc(vec->capacity * sizeof(f_struct)))) {
