@@ -121,14 +121,18 @@ CU_SuiteInfo vector_suites[] = {
 int main()
 {
 	CU_ErrorCode error;
-	if (CUE_SUCCESS != CU_initialize_registry())
-	      return CU_get_error();
+	error = CU_initialize_registry();
+	if (error != CUE_SUCCESS) {
+		fprintf(stderr, "Failed to initialize registry\n");
+		return CU_get_error();
+	}
 
 	error = CU_register_suites(vector_suites);
 
-	if (error != CUE_SUCCESS)
-		fprintf(stderr, "wtf!");
-
+	if (error != CUE_SUCCESS) {
+		fprintf(stderr, "Failed to register test suite\n");
+		return CU_get_error();
+	}
 
 	CU_automated_run_tests();
 	fprintf(stdout, "CU_get_error() returned %d\n", CU_get_error());
