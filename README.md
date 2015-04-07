@@ -1,6 +1,6 @@
-
 CVECTOR
 =======
+[![Contact me on Codementor](https://cdn.codementor.io/badges/contact_me_github.svg)](https://www.codementor.io/rswinkle)
 
 This is a relatively simple ANSI compliant C vector library with specific structures and
 functions for int's, double's and string's and support for all other types
