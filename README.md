@@ -102,7 +102,7 @@ behave, look at vector_tests.c
 
 Documentation
 =============
-The Doxygen generated html docs are in doc.tar.gz and [online here](http://www.robertwinkler.com/Projects/cvector/index.html)
+The Doxygen generated html docs are in doc.tar.gz and [online here](http://www.robertwinkler.com/projects/cvector/index.html)
 
 
 LICENSE
