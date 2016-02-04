@@ -1,5 +1,6 @@
 CVECTOR
 =======
+[http://www.robertwinkler.com/projects/cvector.html](http://www.robertwinkler.com/projects/cvector.html)
 [![Contact me on Codementor](https://cdn.codementor.io/badges/contact_me_github.svg)](https://www.codementor.io/rswinkle)
 
 This is a relatively simple ANSI compliant C vector library with specific structures and
@@ -11,17 +12,17 @@ if you like that it will call at appropriate times similar to the way C++ contai
 will call destructors and copy constructors.
 
 Other modifiable parameters are at the top of vector.c
-<pre>
-size_t VEC_I_START_SZ = 50;
-size_t VEC_D_START_SZ = 50;
-size_t VEC_VOID_START_SZ = 20;
-size_t VEC_STR_START_SZ = 20;
 
-#define VEC_I_ALLOCATOR(x) ((x) * 2)
-#define VEC_D_ALLOCATOR(x) ((x) * 2)
-#define VEC_STR_ALLOCATOR(x) ((x) * 2)
-#define VEC_VOID_ALLOCATOR(x) ((x) * 2)
-</pre>
+	size_t VEC_I_START_SZ = 50;
+	size_t VEC_D_START_SZ = 50;
+	size_t VEC_VOID_START_SZ = 20;
+	size_t VEC_STR_START_SZ = 20;
+
+	#define VEC_I_ALLOCATOR(x) ((x) * 2)
+	#define VEC_D_ALLOCATOR(x) ((x) * 2)
+	#define VEC_STR_ALLOCATOR(x) ((x) * 2)
+	#define VEC_VOID_ALLOCATOR(x) ((x) * 2)
+
 The allocator macros are used in all functions that increase the size by 1.
 In others (constructors, insert_array, reserve) VEC_X_START_SZ is the amount
 extra allocated.
@@ -38,9 +39,8 @@ They are located in vector_template.h, vector_template2.h, vector_template3.c/h 
 vector_template4.c/h.
 
 To generate your own vector files for a type just run:
-<pre>
-python3 generate_code.py yourtype
-</pre>
+
+	python3 generate_code.py yourtype
 
 which will generate the results for all templates so just delete the ones
 you don't want.
@@ -62,18 +62,16 @@ There is no output of any kind, no errors or warnings.
 It has been relatively well tested using Cunit tests which all pass.
 I've also run it under valgrind and there are no memory leaks.
 
-<pre>
-valgrind --leak-check=yes ./vector
- 
-==17650== 
-==17650== HEAP SUMMARY:
-==17650==     in use at exit: 0 bytes in 0 blocks
-==17650==   total heap usage: 5,146 allocs, 5,146 frees, 936,924 bytes allocated
-==17650== 
-==17650== All heap blocks were freed -- no leaks are possible
-==17650== 
-==17650== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
-</pre>
+	valgrind --leak-check=yes ./vector
+	
+	==17650== 
+	==17650== HEAP SUMMARY:
+	==17650==     in use at exit: 0 bytes in 0 blocks
+	==17650==   total heap usage: 5,146 allocs, 5,146 frees, 936,924 bytes allocated
+	==17650== 
+	==17650== All heap blocks were freed -- no leaks are possible
+	==17650== 
+	==17650== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
 
 
 
@@ -81,7 +79,7 @@ valgrind --leak-check=yes ./vector
 I plan to continue to improve/modify it but probably only in minor ways and
 only if I think something should be changed.  This library is mostly
 for my own use but I thought I would share it and use it as a platform
-to learn TDD, CUnit and Doxygen.
+to learn CUnit and Doxygen.
 
 
 You can probably get Cunit from your package manager but
