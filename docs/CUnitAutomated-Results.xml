@@ -1,0 +1,231 @@
+<?xml version="1.0" ?> 
+<?xml-stylesheet type="text/xsl" href="CUnit-Run.xsl" ?> 
+<!DOCTYPE CUNIT_TEST_RUN_REPORT SYSTEM "CUnit-Run.dtd"> 
+<CUNIT_TEST_RUN_REPORT> 
+  <CUNIT_HEADER/> 
+  <CUNIT_RESULT_LISTING> 
+    <CUNIT_RUN_SUITE> 
+      <CUNIT_RUN_SUITE_SUCCESS> 
+        <SUITE_NAME> vector_i </SUITE_NAME> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> push_i_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> erase_i_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> insert_i_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> insert_array_i_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> pop_i_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> reserve_i_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> set_capacity_i_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> set_val_i_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+      </CUNIT_RUN_SUITE_SUCCESS> 
+    </CUNIT_RUN_SUITE> 
+    <CUNIT_RUN_SUITE> 
+      <CUNIT_RUN_SUITE_SUCCESS> 
+        <SUITE_NAME> vector_d </SUITE_NAME> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> push_d_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> erase_d_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> insert_d_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> insert_array_d_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> pop_d_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> reserve_d_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> set_capacity_d_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> set_val_d_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+      </CUNIT_RUN_SUITE_SUCCESS> 
+    </CUNIT_RUN_SUITE> 
+    <CUNIT_RUN_SUITE> 
+      <CUNIT_RUN_SUITE_SUCCESS> 
+        <SUITE_NAME> vector_str </SUITE_NAME> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> push_str_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> erase_str_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> insert_str_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> insert_array_str_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> pop_str_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> reserve_str_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> set_capacity_str_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> set_val_str_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+      </CUNIT_RUN_SUITE_SUCCESS> 
+    </CUNIT_RUN_SUITE> 
+    <CUNIT_RUN_SUITE> 
+      <CUNIT_RUN_SUITE_SUCCESS> 
+        <SUITE_NAME> vector </SUITE_NAME> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> push_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> erase_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> insert_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> insert_array_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> pop_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> reserve_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> set_capacity_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> set_val_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> vector_of_vectors_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+      </CUNIT_RUN_SUITE_SUCCESS> 
+    </CUNIT_RUN_SUITE> 
+    <CUNIT_RUN_SUITE> 
+      <CUNIT_RUN_SUITE_SUCCESS> 
+        <SUITE_NAME> template </SUITE_NAME> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> template_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+      </CUNIT_RUN_SUITE_SUCCESS> 
+    </CUNIT_RUN_SUITE> 
+  </CUNIT_RESULT_LISTING>
+  <CUNIT_RUN_SUMMARY> 
+    <CUNIT_RUN_SUMMARY_RECORD> 
+      <TYPE> Suites </TYPE> 
+      <TOTAL> 5 </TOTAL> 
+      <RUN> 5 </RUN> 
+      <SUCCEEDED> - NA - </SUCCEEDED> 
+      <FAILED> 0 </FAILED> 
+      <INACTIVE> 0 </INACTIVE> 
+    </CUNIT_RUN_SUMMARY_RECORD> 
+    <CUNIT_RUN_SUMMARY_RECORD> 
+      <TYPE> Test Cases </TYPE> 
+      <TOTAL> 34 </TOTAL> 
+      <RUN> 34 </RUN> 
+      <SUCCEEDED> 34 </SUCCEEDED> 
+      <FAILED> 0 </FAILED> 
+      <INACTIVE> 0 </INACTIVE> 
+    </CUNIT_RUN_SUMMARY_RECORD> 
+    <CUNIT_RUN_SUMMARY_RECORD> 
+      <TYPE> Assertions </TYPE> 
+      <TOTAL> 25437 </TOTAL> 
+      <RUN> 25437 </RUN> 
+      <SUCCEEDED> 25437 </SUCCEEDED> 
+      <FAILED> 0 </FAILED> 
+      <INACTIVE> n/a </INACTIVE> 
+    </CUNIT_RUN_SUMMARY_RECORD> 
+  </CUNIT_RUN_SUMMARY> 
+  <CUNIT_FOOTER> File Generated By CUnit v2.1-2 - Mon Jun  3 23:55:21 2013
+ </CUNIT_FOOTER> 
+</CUNIT_TEST_RUN_REPORT>
