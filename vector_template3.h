@@ -53,5 +53,3 @@ void free_vec_TYPE(void* vec);
 
 #endif
 
-
-#ifdef
