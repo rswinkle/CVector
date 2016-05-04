@@ -17,7 +17,7 @@ size_t VEC_I_START_SZ = 50;
  * Creates a new vector_i on the heap.
  * Vector size set to (size > 0) ? size : 0;
  * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ
- * in other words capacity has to be at least 1 and >= to vec->size of course. 
+ * in other words capacity has to be at least 1 and >= to vec->size of course.
  */
 vector_i* vec_i_heap(size_t size, size_t capacity)
 {
@@ -244,7 +244,13 @@ int insert_array_i(vector_i* vec, size_t i, int* a, size_t num)
 }
 
 
-
+/** Replace value at index i with a, return original value. */
+int replace_i(vector_i* vec, size_t i, int a)
+{
+	int tmp = vec->a[i];
+	vec->a[i] = a;
+	return tmp;
+}
 
 
 /**

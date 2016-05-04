@@ -13,8 +13,6 @@ size_t VEC_VOID_START_SZ = 20;
 
 
 
-
-
 /*  general vector */
 
 /**
@@ -163,7 +161,7 @@ int init_vec_void(vector_void* vec, void* vals, size_t num, size_t elem_sz, void
 
 /** Makes dest an identical copy of src.  The parameters
  *  are void so it can be used as the constructor when making
- *  a vector of generic vector's. (I would recommend against doing that, and using 
+ *  a vector of generic vector's. (I would recommend against doing that, and using
  *  generate_code.py to make your own vector type and do a vector of those
  *  instead).  Assumes dest (the structure)
  *  is already allocated (probably on the stack) and that
@@ -337,8 +335,8 @@ int insert_void(vector_void* vec, size_t i, void* a)
 /**
  * Insert the first num elements of array a at index i.
  * Note that it is the user's responsibility to pass in val_id
- * arguments.  Also memcpy is used (when there is no elem_init function) 
- * so don't try to insert part of the vector array into itself 
+ * arguments.  Also memcpy is used (when there is no elem_init function)
+ * so don't try to insert part of the vector array into itself
  * (that would require memmove)
  */
 int insert_array_void(vector_void* vec, size_t i, void* a, size_t num)
@@ -367,6 +365,16 @@ int insert_array_void(vector_void* vec, size_t i, void* a, size_t num)
 	return 1;
 }
 
+/**
+ * Replace value at i with a, return old value in ret if non-NULL.
+ * TODO: Think about replacing memcpy's here, and in pop with memmove becaue
+ * a programmer might want to shuffle elements within the vector */
+void replace_void(vector_void* vec, size_t i, void* a, void* ret)
+{
+	if (ret)
+		memcpy(ret, &vec->a[i*vec->elem_size], vec->elem_size);
+	memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
+}
 
 /**
  * Erases elements from start to end inclusive.
@@ -457,7 +465,7 @@ void set_val_sz_void(vector_void* vec, void* val)
 
 /** Fills entire allocated array (capacity) with val.  If you set a free function
  * then size is set to capacity like vector_s for the same reason, ie I need to know
- * that the free function needs to be called on those elements. 
+ * that the free function needs to be called on those elements.
  * TODO Remove this function?  Same reason as set_val_caps.
  */
 void set_val_cap_void(vector_void* vec, void* val)
@@ -539,7 +547,7 @@ This is a relatively simple ANSI compliant C vector library with specific struct
 functions for int's, double's and string's and support for all other types
 using a generic structure where the type is passed in as void* and stored in a byte array
 (to avoid dereferencing void* warnings and frequent casting) .
-The generic vector is very flexible and allows you to provide free and init functions 
+The generic vector is very flexible and allows you to provide free and init functions
 if you like that it will call at appropriate times similar to the way C++ containers
 will call destructors.
 
@@ -639,7 +647,7 @@ if you want to get the most up to date version of CUnit go here:
 http://cunit.sourceforge.net/index.html
 http://sourceforge.net/projects/cunit/
 
-I used version 2.1-2.
+I'm using version 2.1-3.
 
 
 \section Usage
@@ -666,7 +674,7 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
  *
- * 
+ *
  */
 
 

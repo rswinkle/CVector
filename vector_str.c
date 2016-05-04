@@ -286,7 +286,19 @@ int insert_array_str(vector_str* vec, size_t i, char** a, size_t num)
 	return 1;
 }
 
-
+/**
+ * Replace string at i with a. If ret != NULL, set to old str, else free it.
+ * TODO: Should I change this to act like pop_str using strcpy? or change pop_str
+ * to act like this?
+ * */
+void replace_str(vector_str* vec, size_t i, char* a, char** ret)
+{
+	if (ret)
+		*ret = vec->a[i];
+	else
+		free(vec->a[i]);
+	vec->a[i] = mystrdup(a);
+}
 
 
 /**
@@ -367,7 +379,7 @@ void set_val_sz_str(vector_str* vec, char* val)
 
 /** Fills entire allocated array (capacity) with val.  Size is set
  * to capacity in this case because strings are individually dynamically allocated.
- * This is different from vector_i, vector_d and vector (without a free function) where the size stays the same. 
+ * This is different from vector_i, vector_d and vector (without a free function) where the size stays the same.
    TODO  Remove this function?  even more unnecessary than for vector_i and vector_d and different behavior*/
 void set_val_cap_str(vector_str* vec, char* val)
 {

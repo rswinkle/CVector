@@ -34,6 +34,7 @@ int pop_i(vector_i* vec);
 int extend_i(vector_i* vec, size_t num);
 int insert_i(vector_i* vec, size_t i, int a);
 int insert_array_i(vector_i* vec, size_t i, int* a, size_t num);
+int replace_i(vector_i* vec, size_t i, int a);
 void erase_i(vector_i* vec, size_t start, size_t end);
 int reserve_i(vector_i* vec, size_t size);
 int set_capacity_i(vector_i* vec, size_t size);

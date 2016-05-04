@@ -41,6 +41,7 @@ void* vec_void_get(vector_void* vec, size_t i);
 int extend_void(vector_void* vec, size_t num);
 int insert_void(vector_void* vec, size_t i, void* a);
 int insert_array_void(vector_void* vec, size_t i, void* a, size_t num);
+void replace_void(vector_void* vec, size_t i, void* a, void* ret);
 void erase_void(vector_void* vec, size_t start, size_t end);
 int reserve_void(vector_void* vec, size_t size);
 int set_capacity_void(vector_void* vec, size_t size);

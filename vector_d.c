@@ -246,6 +246,13 @@ int insert_array_d(vector_d* vec, size_t i, double* a, size_t num)
 }
 
 
+/** Replace value at index i with a, return original value. */
+double replace_d(vector_d* vec, size_t i, double a)
+{
+	double tmp = vec->a[i];
+	vec->a[i] = a;
+	return tmp;
+}
 
 /**
  * Erases elements from start to end inclusive.

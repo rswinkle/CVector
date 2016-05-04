@@ -35,6 +35,7 @@ double pop_d(vector_d* vec);
 int extend_d(vector_d* vec, size_t num);
 int insert_d(vector_d* vec, size_t i, double a);
 int insert_array_d(vector_d* vec, size_t i, double* a, size_t num);
+double replace_d(vector_d* vec, size_t i, double a);
 void erase_d(vector_d* vec, size_t start, size_t end);
 int reserve_d(vector_d* vec, size_t size);
 int set_capacity_d(vector_d* vec, size_t size);

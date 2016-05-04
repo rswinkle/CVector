@@ -101,18 +101,18 @@ CU_TestInfo vector_tests[] = {
 
 CU_TestInfo template_tests[] = {
 	{ "template_test",       template_test },
-	{ "template_test2",       template_test2 },
+	{ "template_test2",      template_test2 },
 	CU_TEST_INFO_NULL
 };
 
 
 
 CU_SuiteInfo vector_suites[] = {
-	{ "vector_i", NULL, NULL, vector_i_tests },
-	{ "vector_d", NULL, NULL, vector_d_tests },
-	{ "vector_str", NULL, NULL, vector_s_tests },
-	{ "vector",   NULL, NULL, vector_tests   },
-	{ "template", NULL, NULL, template_tests },
+	{ "vector_i",   NULL, NULL, NULL, NULL, vector_i_tests },
+	{ "vector_d",   NULL, NULL, NULL, NULL, vector_d_tests },
+	{ "vector_str", NULL, NULL, NULL, NULL, vector_s_tests },
+	{ "vector",     NULL, NULL, NULL, NULL, vector_tests   },
+	{ "template",   NULL, NULL, NULL, NULL, template_tests },
 	CU_SUITE_INFO_NULL
 };
 

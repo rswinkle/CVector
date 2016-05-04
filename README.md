@@ -89,7 +89,7 @@ if you want to get the most up to date version of CUnit go here:
 http://cunit.sourceforge.net/index.html
 http://sourceforge.net/projects/cunit/
 
-I used version 2.1-2.
+I'm using version 2.1-3.
 
 
 Usage

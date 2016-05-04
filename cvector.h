@@ -35,6 +35,7 @@ int pop_i(vector_i* vec);
 int extend_i(vector_i* vec, size_t num);
 int insert_i(vector_i* vec, size_t i, int a);
 int insert_array_i(vector_i* vec, size_t i, int* a, size_t num);
+int replace_i(vector_i* vec, size_t i, int a);
 void erase_i(vector_i* vec, size_t start, size_t end);
 int reserve_i(vector_i* vec, size_t size);
 int set_capacity_i(vector_i* vec, size_t size);
@@ -71,6 +72,7 @@ double pop_d(vector_d* vec);
 int extend_d(vector_d* vec, size_t num);
 int insert_d(vector_d* vec, size_t i, double a);
 int insert_array_d(vector_d* vec, size_t i, double* a, size_t num);
+double replace_d(vector_d* vec, size_t i, double a);
 void erase_d(vector_d* vec, size_t start, size_t end);
 int reserve_d(vector_d* vec, size_t size);
 int set_capacity_d(vector_d* vec, size_t size);
@@ -109,6 +111,7 @@ void pop_str(vector_str* vec, char* ret);
 int extend_str(vector_str* vec, size_t num);
 int insert_str(vector_str* vec, size_t i, char* a);
 int insert_array_str(vector_str* vec, size_t i, char** , size_t num);
+void replace_str(vector_str* vec, size_t i, char* a, char** ret);
 void erase_str(vector_str* vec, size_t start, size_t end);
 int reserve_str(vector_str* vec, size_t size);
 int set_capacity_str(vector_str* vec, size_t size);
@@ -153,6 +156,7 @@ void* vec_void_get(vector_void* vec, size_t i);
 int extend_void(vector_void* vec, size_t num);
 int insert_void(vector_void* vec, size_t i, void* a);
 int insert_array_void(vector_void* vec, size_t i, void* a, size_t num);
+void replace_void(vector_void* vec, size_t i, void* a, void* ret);
 void erase_void(vector_void* vec, size_t start, size_t end);
 int reserve_void(vector_void* vec, size_t size);
 int set_capacity_void(vector_void* vec, size_t size);
@@ -170,7 +174,7 @@ void free_vec_void(void* vec);
 #endif
 
 /* header ends */
-#endif 
+#endif
 
 
 #ifdef CVECTOR_IMPLEMENTATION
@@ -353,6 +357,13 @@ int insert_array_i(vector_i* vec, size_t i, int* a, size_t num)
 	memcpy(&vec->a[i], a, num*sizeof(int));
 	vec->size += num;
 	return 1;
+}
+
+int replace_i(vector_i* vec, size_t i, int a)
+{
+	int tmp = vec->a[i];
+	vec->a[i] = a;
+	return tmp;
 }
 
 void erase_i(vector_i* vec, size_t start, size_t end)
@@ -605,6 +616,13 @@ int insert_array_d(vector_d* vec, size_t i, double* a, size_t num)
 	return 1;
 }
 
+double replace_d(vector_d* vec, size_t i, double a)
+{
+	double tmp = vec->a[i];
+	vec->a[i] = a;
+	return tmp;
+}
+
 void erase_d(vector_d* vec, size_t start, size_t end)
 {
 	size_t d = end - start + 1;
@@ -688,7 +706,7 @@ char* mystrdup(const char* str)
 		return NULL;
 	}
 	
-	return (char*)memcpy(temp, str, len);  
+	return (char*)memcpy(temp, str, len);
 }
 
 vector_str* vec_str_heap(size_t size, size_t capacity)
@@ -885,6 +903,15 @@ int insert_array_str(vector_str* vec, size_t i, char** a, size_t num)
 	
 	vec->size += num;
 	return 1;
+}
+
+void replace_str(vector_str* vec, size_t i, char* a, char** ret)
+{
+	if (ret)
+		*ret = vec->a[i];
+	else
+		free(vec->a[i]);
+	vec->a[i] = mystrdup(a);
 }
 
 void erase_str(vector_str* vec, size_t start, size_t end)
@@ -1265,6 +1292,13 @@ int insert_array_void(vector_void* vec, size_t i, void* a, size_t num)
 	}
 	vec->size += num;
 	return 1;
+}
+
+void replace_void(vector_void* vec, size_t i, void* a, void* ret)
+{
+	if (ret)
+		memcpy(ret, &vec->a[i*vec->elem_size], vec->elem_size);
+	memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
 }
 
 void erase_void(vector_void* vec, size_t start, size_t end)
