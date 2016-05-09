@@ -14,8 +14,9 @@ solution "CVector"
 			"vector_template*", "cvector.h", "vector_tests2.c"
 		}
 --      libdirs { }
-		links { "cunit" } 
+		links { "cunit" }
 		targetdir "build"
+
 
 		configuration "Debug"
 			defines { "DEBUG" }
@@ -36,15 +37,17 @@ solution "CVector"
 		files
 		{
 			  "main.c",
-			  "vector_tests2.c",
+			  "vector_tests.c",
 			  "cvector.h",
 			  "vector_short.h",
 			  "vector_f_struct.h"
 		}
 		--excludes { "vector_template.*", "vector_tests.c" }
 		--libdirs { }
-		links { "cunit" } 
+		links { "cunit" }
 		targetdir "build"
+		
+		defines { "TESTING_CVECTOR_H" }
 
 		configuration "Debug"
 			defines { "DEBUG" }
@@ -74,17 +77,17 @@ solution "CVector"
 		}
 		--excludes { }
 		--libdirs { }
-		--links { "cunit" } 
+		--links { "cunit" }
 		targetdir "build"
 
 		configuration "Debug"
 			defines { "DEBUG" }
 			flags { "Symbols" }
- 
+
 		configuration "Release"
 			defines { "NDEBUG" }
 			flags { "Optimize" }
- 
+
 		configuration { "linux", "gmake" }
 			buildoptions { "-ansi", "-pedantic-errors", "-fno-strict-aliasing", "-Wunused-variable", "-Wreturn-type", "-x c++" }
 
@@ -100,7 +103,7 @@ solution "CVector"
 		}
 		--excludes { "vector_template.*", "vector_tests.c" }
 		--libdirs { }
-		links { "cunit" } 
+		links { "cunit" }
 		targetdir "build"
 
 		configuration "Debug"

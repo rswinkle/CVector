@@ -9,6 +9,7 @@ extern void erase_i_test();
 extern void insert_i_test();
 extern void insert_array_i_test();
 extern void pop_i_test();
+extern void replace_i_test();
 extern void reserve_i_test();
 extern void set_capacity_i_test();
 extern void set_val_i_test();
@@ -18,6 +19,7 @@ extern void erase_d_test();
 extern void insert_d_test();
 extern void insert_array_d_test();
 extern void pop_d_test();
+extern void replace_d_test();
 extern void reserve_d_test();
 extern void set_capacity_d_test();
 extern void set_val_d_test();
@@ -28,6 +30,7 @@ extern void erase_str_test();
 extern void insert_str_test();
 extern void insert_array_str_test();
 extern void pop_str_test();
+extern void replace_str_test();
 extern void reserve_str_test();
 extern void set_capacity_str_test();
 extern void set_val_str_test();
@@ -38,6 +41,7 @@ extern void erase_void_test();
 extern void insert_void_test();
 extern void insert_array_void_test();
 extern void pop_void_test();
+extern void replace_void_test();
 extern void reserve_void_test();
 extern void set_capacity_void_test();
 extern void set_val_void_test();
@@ -55,6 +59,7 @@ CU_TestInfo vector_i_tests[] = {
 	{ "insert_i_test",         insert_i_test },
 	{ "insert_array_i_test",   insert_array_i_test },
 	{ "pop_i_test",            pop_i_test },
+	{ "replace_i_test",        replace_i_test },
 	{ "reserve_i_test",        reserve_i_test },
 	{ "set_capacity_i_test",   set_capacity_i_test },
 	{ "set_val_i_test",        set_val_i_test },
@@ -67,6 +72,7 @@ CU_TestInfo vector_d_tests[] = {
 	{ "insert_d_test",         insert_d_test },
 	{ "insert_array_d_test",   insert_array_d_test },
 	{ "pop_d_test",            pop_d_test },
+	{ "replace_d_test",        replace_d_test },
 	{ "reserve_d_test",        reserve_d_test },
 	{ "set_capacity_d_test",   set_capacity_d_test },
 	{ "set_val_d_test",        set_val_d_test },
@@ -79,6 +85,7 @@ CU_TestInfo vector_s_tests[] = {
 	{ "insert_str_test",         insert_str_test },
 	{ "insert_array_str_test",   insert_array_str_test },
 	{ "pop_str_test",            pop_str_test },
+	{ "replace_str_test",        replace_str_test },
 	{ "reserve_str_test",        reserve_str_test },
 	{ "set_capacity_str_test",   set_capacity_str_test },
 	{ "set_val_str_test",        set_val_str_test },
@@ -92,6 +99,7 @@ CU_TestInfo vector_tests[] = {
 	{ "insert_test",               insert_void_test },
 	{ "insert_array_test",         insert_array_void_test },
 	{ "pop_test",                  pop_void_test },
+	{ "replace_void_test",         replace_void_test },
 	{ "reserve_test",              reserve_void_test },
 	{ "set_capacity_test",         set_capacity_void_test },
 	{ "set_val_test",              set_val_void_test },

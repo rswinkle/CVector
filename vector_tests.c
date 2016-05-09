@@ -1,7 +1,11 @@
-#include "vector_all.h"
+#ifdef TESTING_CVECTOR_H
+	#define CVECTOR_IMPLEMENTATION
+	#include "cvector.h"
+#else
+	#include "vector_all.h"
+#endif
 
 #define DO_TEMPLATE_TEST 1
-
 #ifdef DO_TEMPLATE_TEST
 /*replace with or add your own generated file and edit the template test*/
 
@@ -152,6 +156,23 @@ void pop_i_test()
 	free_vec_i(&vec);
 }
 
+void replace_i_test()
+{
+	int array[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	int ret;
+
+	vector_i vec;
+	init_vec_i(&vec, array, 10);
+
+	CU_ASSERT_EQUAL(vec.a[4], 4);
+
+	ret = replace_i(&vec, 4, 42);
+
+	CU_ASSERT_EQUAL(ret, 4);
+	CU_ASSERT_EQUAL(vec.a[4], 42);
+
+	free_vec_i(&vec);
+}
 
 void reserve_i_test()
 {
@@ -363,6 +384,23 @@ void pop_d_test()
 	free_vec_d(&vec1);
 }
 
+void replace_d_test()
+{
+	double array[] = { 0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5 };
+	double ret;
+
+	vector_d vec;
+	init_vec_d(&vec, array, 10);
+
+	CU_ASSERT_EQUAL(vec.a[4], 4.5);
+
+	ret = replace_d(&vec, 4, 42);
+
+	CU_ASSERT_EQUAL(ret, 4.5);
+	CU_ASSERT_EQUAL(vec.a[4], 42);
+
+	free_vec_d(&vec);
+}
 
 void reserve_d_test()
 {
@@ -590,6 +628,35 @@ void pop_str_test()
 	free_vec_str(&vec1);
 }
 
+void replace_str_test()
+{
+	int i, loc, to_replace[] = { 0, 125, 256 };
+	char buffer[50];
+	char buffer2[50];
+	char retbuf[50];
+
+	vector_str vec;
+	vec_str(&vec, 0, 10);
+
+	CU_ASSERT_EQUAL(vec.capacity, 10);
+
+	for (i=0; i<1000; i++) {
+		sprintf(buffer, "hello %d", i);
+		push_str(&vec, buffer);
+	}
+
+	for (i=0; i<sizeof(to_replace)/sizeof(int); i++) {
+		loc = to_replace[i];
+		sprintf(buffer, "hello %d", loc);
+		sprintf(buffer2, "goodbye %d", loc);
+		CU_ASSERT_STRING_EQUAL(vec.a[loc], buffer);
+
+		replace_str(&vec, loc, buffer2, retbuf);
+		CU_ASSERT_STRING_EQUAL(vec.a[loc], buffer2);
+		CU_ASSERT_STRING_EQUAL(retbuf, buffer);
+	}
+	free_vec_str(&vec);
+}
 
 void reserve_str_test()
 {
@@ -976,6 +1043,68 @@ void pop_void_test()
 	free_vec_void(&vec2);
 }
 
+void replace_void_test()
+{
+	char buffer[50];
+	char buffer2[50];
+	int i, loc, to_replace[] = { 1, 25, 50 };
+	t_struct temp, ret_t_struct;
+	f_struct temp2, ret_f_struct;
+
+	vector_void vec1;
+	vector_void vec2;
+
+	vec_void(&vec1, 0, 0, sizeof(t_struct), NULL, NULL);
+	vec_void(&vec2, 0, 0,  sizeof(f_struct), free_f_struct, NULL);
+
+
+	for (i=0; i<100; i++) {
+		sprintf(buffer, "%d", i);
+		temp = mk_t_struct(i, i, buffer);
+		temp2 = mk_f_struct(i, i, buffer);
+
+		push_void(&vec1, &temp);
+		push_void(&vec2, &temp2);
+	}
+
+	for (i=0; i<sizeof(to_replace)/sizeof(int); ++i) {
+		loc = to_replace[i];
+		sprintf(buffer, "%d", loc);
+		CU_ASSERT_EQUAL(loc, GET_T(vec1, loc)->d);
+		CU_ASSERT_EQUAL(loc, GET_T(vec1, loc)->i);
+		CU_ASSERT_STRING_EQUAL(buffer, GET_T(vec1, loc)->word);
+
+		CU_ASSERT_EQUAL(loc, GET_F(vec2, loc)->d);
+		CU_ASSERT_EQUAL(loc, GET_F(vec2, loc)->i);
+		CU_ASSERT_STRING_EQUAL(buffer, GET_F(vec2, loc)->word);
+
+		sprintf(buffer2, "neg %d", -loc);
+		temp = mk_t_struct(-loc, -loc, buffer2);
+		temp2 = mk_f_struct(-loc, -loc, buffer2);
+
+		replace_void(&vec1, loc, &temp, &ret_t_struct);
+		replace_void(&vec2, loc, &temp2, &ret_f_struct);
+
+		CU_ASSERT_EQUAL(-loc, GET_T(vec1, loc)->d);
+		CU_ASSERT_EQUAL(-loc, GET_T(vec1, loc)->i);
+		CU_ASSERT_STRING_EQUAL(buffer2, GET_T(vec1, loc)->word);
+
+		CU_ASSERT_EQUAL(-loc, GET_F(vec2, loc)->d);
+		CU_ASSERT_EQUAL(-loc, GET_F(vec2, loc)->i);
+		CU_ASSERT_STRING_EQUAL(buffer2, GET_F(vec2, loc)->word);
+
+		CU_ASSERT_EQUAL(loc, ret_t_struct.d);
+		CU_ASSERT_EQUAL(loc, ret_t_struct.i);
+		CU_ASSERT_STRING_EQUAL(buffer, ret_t_struct.word);
+
+		CU_ASSERT_EQUAL(loc, ret_f_struct.d);
+		CU_ASSERT_EQUAL(loc, ret_f_struct.i);
+		CU_ASSERT_STRING_EQUAL(buffer, ret_f_struct.word);
+	}
+
+	free_vec_void(&vec1);
+	free_vec_void(&vec2);
+}
 
 void reserve_void_test()
 {

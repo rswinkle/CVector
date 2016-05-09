@@ -111,7 +111,7 @@ void pop_str(vector_str* vec, char* ret);
 int extend_str(vector_str* vec, size_t num);
 int insert_str(vector_str* vec, size_t i, char* a);
 int insert_array_str(vector_str* vec, size_t i, char** , size_t num);
-void replace_str(vector_str* vec, size_t i, char* a, char** ret);
+void replace_str(vector_str* vec, size_t i, char* a, char* ret);
 void erase_str(vector_str* vec, size_t start, size_t end);
 int reserve_str(vector_str* vec, size_t size);
 int set_capacity_str(vector_str* vec, size_t size);
@@ -905,12 +905,11 @@ int insert_array_str(vector_str* vec, size_t i, char** a, size_t num)
 	return 1;
 }
 
-void replace_str(vector_str* vec, size_t i, char* a, char** ret)
+void replace_str(vector_str* vec, size_t i, char* a, char* ret)
 {
 	if (ret)
-		*ret = vec->a[i];
-	else
-		free(vec->a[i]);
+		strcpy(ret, vec->a[i]);
+	free(vec->a[i]);
 	vec->a[i] = mystrdup(a);
 }
 
