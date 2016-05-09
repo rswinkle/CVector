@@ -240,12 +240,10 @@ int push_void(vector_void* vec, void* a)
  */
 void pop_void(vector_void* vec, void* ret)
 {
+	vec->size--;
 	if (ret) {
-		memcpy(ret, &vec->a[(--vec->size)*vec->elem_size], vec->elem_size);
-	} else {
-		vec->size--;
+		memmove(ret, &vec->a[vec->size*vec->elem_size], vec->elem_size);
 	}
-
 	if (vec->elem_free) {
 		vec->elem_free(&vec->a[vec->size*vec->elem_size]);
 	}
@@ -367,13 +365,12 @@ int insert_array_void(vector_void* vec, size_t i, void* a, size_t num)
 
 /**
  * Replace value at i with a, return old value in ret if non-NULL.
- * TODO: Think about replacing memcpy's here, and in pop with memmove becaue
- * a programmer might want to shuffle elements within the vector */
+ */
 void replace_void(vector_void* vec, size_t i, void* a, void* ret)
 {
 	if (ret)
-		memcpy(ret, &vec->a[i*vec->elem_size], vec->elem_size);
-	memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
+		memmove(ret, &vec->a[i*vec->elem_size], vec->elem_size);
+	memmove(&vec->a[i*vec->elem_size], a, vec->elem_size);
 }
 
 /**

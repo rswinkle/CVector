@@ -191,9 +191,8 @@ int push_str(vector_str* vec, char* a)
  *  (ie ret has adequate space.) */
 void pop_str(vector_str* vec, char* ret)
 {
-	if (ret) {
+	if (ret)
 		strcpy(ret, vec->a[--vec->size]);
-	}
 	free(vec->a[vec->size]);
 }
 
@@ -287,16 +286,14 @@ int insert_array_str(vector_str* vec, size_t i, char** a, size_t num)
 }
 
 /**
- * Replace string at i with a. If ret != NULL, set to old str, else free it.
- * TODO: Should I change this to act like pop_str using strcpy? or change pop_str
- * to act like this?
+ * Replace string at i with a. If ret != NULL, strcpy the old str to it.
+ * See pop_str warning
  * */
-void replace_str(vector_str* vec, size_t i, char* a, char** ret)
+void replace_str(vector_str* vec, size_t i, char* a, char* ret)
 {
 	if (ret)
-		*ret = vec->a[i];
-	else
-		free(vec->a[i]);
+		strcpy(ret, vec->a[i]);
+	free(vec->a[i]);
 	vec->a[i] = mystrdup(a);
 }
 

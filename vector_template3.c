@@ -203,6 +203,12 @@ int insert_array_TYPE(vector_TYPE* vec, size_t i, TYPE* a, size_t num)
 	return 1;
 }
 
+TYPE replace_TYPE(vector_TYPE* vec, size_t i, TYPE a)
+{
+	TYPE tmp = vec->a[i];
+	vec->a[i] = a;
+	return tmp;
+}
 
 void erase_TYPE(vector_TYPE* vec, size_t start, size_t end)
 {

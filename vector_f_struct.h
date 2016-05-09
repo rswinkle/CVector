@@ -12,12 +12,12 @@
 extern "C" {
 #endif
 
-/** Data structure for generic type (cast to void) vectors */
+
 typedef struct vector_f_struct
 {
-	f_struct* a;                 /**< Array. */
-	size_t size;             /**< Current size (amount you should use when manipulating array directly). */
-	size_t capacity;         /**< Allocated size of array; always >= size. */
+	f_struct* a;
+	size_t size;
+	size_t capacity;
 	void (*elem_init)(void*, void*);
 	void (*elem_free)(void*);
 } vector_f_struct;
@@ -38,6 +38,7 @@ void pop_f_struct(vector_f_struct* vec, f_struct* ret);
 int extend_f_struct(vector_f_struct* vec, size_t num);
 int insert_f_struct(vector_f_struct* vec, size_t i, f_struct* a);
 int insert_array_f_struct(vector_f_struct* vec, size_t i, f_struct* a, size_t num);
+void replace_f_struct(vector_f_struct* vec, size_t i, f_struct* a, f_struct* ret);
 void erase_f_struct(vector_f_struct* vec, size_t start, size_t end);
 int reserve_f_struct(vector_f_struct* vec, size_t size);
 int set_capacity_f_struct(vector_f_struct* vec, size_t size);
@@ -343,6 +344,12 @@ int insert_array_f_struct(vector_f_struct* vec, size_t i, f_struct* a, size_t nu
 	return 1;
 }
 
+void replace_f_struct(vector_f_struct* vec, size_t i, f_struct* a, f_struct* ret)
+{
+	if (ret)
+		memmove(ret, &vec->a[i], sizeof(f_struct));
+	memmove(&vec->a[i], a, sizeof(f_struct));
+}
 
 void erase_f_struct(vector_f_struct* vec, size_t start, size_t end)
 {

@@ -36,6 +36,7 @@ void pop_TYPE(vector_TYPE* vec, TYPE* ret);
 int extend_TYPE(vector_TYPE* vec, size_t num);
 int insert_TYPE(vector_TYPE* vec, size_t i, TYPE* a);
 int insert_array_TYPE(vector_TYPE* vec, size_t i, TYPE* a, size_t num);
+void replace_TYPE(vector_TYPE* vec, size_t i, TYPE* a, TYPE* ret);
 void erase_TYPE(vector_TYPE* vec, size_t start, size_t end);
 int reserve_TYPE(vector_TYPE* vec, size_t size);
 int set_capacity_TYPE(vector_TYPE* vec, size_t size);
@@ -341,6 +342,12 @@ int insert_array_TYPE(vector_TYPE* vec, size_t i, TYPE* a, size_t num)
 	return 1;
 }
 
+void replace_TYPE(vector_TYPE* vec, size_t i, TYPE* a, TYPE* ret)
+{
+	if (ret)
+		memmove(ret, &vec->a[i], sizeof(TYPE));
+	memmove(&vec->a[i], a, sizeof(TYPE));
+}
 
 void erase_TYPE(vector_TYPE* vec, size_t start, size_t end)
 {
