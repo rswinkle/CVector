@@ -63,8 +63,6 @@ void free_vec_f_struct(void* vec);
 
 #include <assert.h>
 
-#define STDERR(X) fprintf(stderr, X)
-
 
 size_t VEC_f_struct_SZ = 20;
 

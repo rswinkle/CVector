@@ -15,8 +15,6 @@
 
 #include <CUnit/Automated.h>
 
-#define STDERR(X) fprintf(stderr, X)
-
 
 /* vector_i tests */
 void push_i_test()

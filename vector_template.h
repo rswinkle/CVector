@@ -60,8 +60,6 @@ void free_vec_TYPE(void* vec);
 
 #include <assert.h>
 
-#define STDERR(X) fprintf(stderr, X)
-
 #define VEC_TYPE_ALLOCATOR(x) ((x) * 2)
 
 

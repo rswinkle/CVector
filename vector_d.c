@@ -2,8 +2,6 @@
 
 #include <assert.h>
 
-#define STDERR(X) fprintf(stderr, X)
-
 
 
 size_t VEC_D_START_SZ = 50;

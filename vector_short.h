@@ -59,8 +59,6 @@ void free_vec_short(void* vec);
 
 #include <assert.h>
 
-#define STDERR(X) fprintf(stderr, X)
-
 #define VEC_short_ALLOCATOR(x) ((x) * 2)
 
 
