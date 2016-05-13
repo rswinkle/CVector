@@ -3,6 +3,7 @@ compiler:
   - gcc
   - clang
 
+install: sudo apt-get install libcunit1-dev
 
 script: cd build/ && make CFLAGS=-DOLD_CUNIT
 
