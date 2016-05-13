@@ -116,11 +116,19 @@ CU_TestInfo template_tests[] = {
 
 
 CU_SuiteInfo vector_suites[] = {
+#ifndef OLD_CUNIT
 	{ "vector_i",   NULL, NULL, NULL, NULL, vector_i_tests },
 	{ "vector_d",   NULL, NULL, NULL, NULL, vector_d_tests },
 	{ "vector_str", NULL, NULL, NULL, NULL, vector_s_tests },
 	{ "vector",     NULL, NULL, NULL, NULL, vector_tests   },
 	{ "template",   NULL, NULL, NULL, NULL, template_tests },
+#else
+	{ "vector_i",   NULL, NULL, vector_i_tests },
+	{ "vector_d",   NULL, NULL, vector_d_tests },
+	{ "vector_str", NULL, NULL, vector_s_tests },
+	{ "vector",     NULL, NULL, vector_tests   },
+	{ "template",   NULL, NULL, template_tests },
+#endif
 	CU_SUITE_INFO_NULL
 };
 
