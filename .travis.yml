@@ -1,0 +1,8 @@
+language: c
+compiler:
+  - gcc
+  - clang
+
+
+script: cd build/ && make -j2
+

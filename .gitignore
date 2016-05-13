@@ -1,13 +1,30 @@
-#ignore ~ files
+# Object files
+*.o
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# misc
 *~
-*.gif
 *.kate-swp
-vector
-#need to try premake
 CMakeFiles/*
 CMakeCache.txt
 Makefile
 cmake_install.cmake
 stats/*
 build/*
+!build/Makefile
+!build/*.make
 *.swp

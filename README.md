@@ -1,5 +1,6 @@
 CVECTOR
 =======
+[![Build Status](https://travis-ci.org/rswinkle/CVector.svg?branch=master)](https://travis-ci.org/rswinkle/CVector)
 [![Contact me on Codementor](https://cdn.codementor.io/badges/contact_me_github.svg)](https://www.codementor.io/rswinkle)
 
 [http://www.robertwinkler.com/projects/cvector.html](http://www.robertwinkler.com/projects/cvector.html)
