@@ -11,9 +11,6 @@ size_t VEC_STR_START_SZ = 20;
 /** Useful utility function since strdup isn't in standard C.*/
 char* mystrdup(const char* str)
 {
-	/* if (!str)
-	 * 	return NULL;
-	 */
 	size_t len = strlen(str);
 	char* temp = (char*)calloc(len+1, sizeof(char));
 	if (!temp) {
@@ -96,7 +93,7 @@ int vec_str(vector_str* vec, size_t size, size_t capacity)
 	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ;
 
-	/* (char**)calloc here because it we free before poppirg/erasing and since nothing is
+	/* (char**)calloc here because if we free before popping/erasing and since nothing is
 	 * allocated these need to be NULL to not cause problems */
 	if (!(vec->a = (char**)calloc(vec->capacity, sizeof(char*)))) {
 		assert(vec->a != NULL);

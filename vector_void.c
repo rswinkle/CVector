@@ -203,27 +203,19 @@ int push_void(vector_void* vec, void* a)
 {
 	byte* tmp;
 	size_t tmp_sz;
-	if (vec->capacity > vec->size) {
-		if (vec->elem_init) {
-			vec->elem_init(&vec->a[vec->size*vec->elem_size], a);
-		} else {
-			memcpy(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
-		}
-	} else {
+	if (vec->capacity == vec->size) {
 		tmp_sz = VEC_VOID_ALLOCATOR(vec->capacity);
 		if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
-		
-		if (vec->elem_init) {
-			vec->elem_init(&vec->a[vec->size*vec->elem_size], a);
-		} else {
-			memcpy(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
-		}
-		
 		vec->capacity = tmp_sz;
+	}
+	if (vec->elem_init) {
+		vec->elem_init(&vec->a[vec->size*vec->elem_size], a);
+	} else {
+		memmove(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
 	}
 	
 	vec->size++;
@@ -233,7 +225,7 @@ int push_void(vector_void* vec, void* a)
 
 /** Remove the last element (size decreased 1).
  * Copy the element into ret.  This function assumes
- * that ret is not NULL and is large accept the element and just memcpy's it in.
+ * that ret is not NULL and is large accept the element and just memmove's it in.
  * Similar to pop_backs it is users responsibility.
  */
 void pop_void(vector_void* vec, void* ret)
@@ -297,15 +289,7 @@ int insert_void(vector_void* vec, size_t i, void* a)
 {
 	byte* tmp;
 	size_t tmp_sz;
-	if (vec->capacity > vec->size) {
-		memmove(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
-
-		if (vec->elem_init) {
-			vec->elem_init(&vec->a[i*vec->elem_size], a);
-		} else {
-			memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
-		}
-	} else {
+	if (vec->capacity == vec->size) {
 		tmp_sz = VEC_VOID_ALLOCATOR(vec->capacity);
 		if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*tmp_sz))) {
 			assert(tmp != NULL);
@@ -313,15 +297,14 @@ int insert_void(vector_void* vec, size_t i, void* a)
 		}
 		
 		vec->a = tmp;
-		memmove(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
-		
-		if (vec->elem_init) {
-			vec->elem_init(&vec->a[i*vec->elem_size], a);
-		} else {
-			memcpy(&vec->a[i*vec->elem_size], a, vec->elem_size);
-		}
-		
 		vec->capacity = tmp_sz;
+	}
+	memmove(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
+
+	if (vec->elem_init) {
+		vec->elem_init(&vec->a[i*vec->elem_size], a);
+	} else {
+		memmove(&vec->a[i*vec->elem_size], a, vec->elem_size);
 	}
 
 	vec->size++;
@@ -452,7 +435,7 @@ void set_val_sz_void(vector_void* vec, void* val)
 		}
 	} else {
 		for (i=0; i<vec->size; i++) {
-			memcpy(&vec->a[i*vec->elem_size], val, vec->elem_size);
+			memmove(&vec->a[i*vec->elem_size], val, vec->elem_size);
 		}
 	}
 }
@@ -479,7 +462,7 @@ void set_val_cap_void(vector_void* vec, void* val)
 		}
 	} else {
 		for (i=0; i<vec->capacity; i++) {
-			memcpy(&vec->a[i*vec->elem_size], val, vec->elem_size);
+			memmove(&vec->a[i*vec->elem_size], val, vec->elem_size);
 		}
 	}
 }
@@ -654,7 +637,7 @@ behave, look at vector_tests.c
 \section LICENSE
 CVector is licensed under the MIT License.
 
-Copyright (c) 2011-2015 Robert Winkler
+Copyright (c) 2011-2016 Robert Winkler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation
