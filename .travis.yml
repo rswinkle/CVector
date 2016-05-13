@@ -3,6 +3,7 @@ compiler:
   - gcc
   - clang
 
+install: sudo apt install libcunit1-dev
 
 script: cd build/ && make -j2
 
