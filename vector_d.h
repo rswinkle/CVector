@@ -20,33 +20,33 @@ typedef struct vector_d
 extern size_t VEC_D_START_SZ;
 
 
-int vec_d(vector_d* vec, size_t size, size_t capacity);
-int init_vec_d(vector_d* vec, double* vals, size_t num);
+int cvec_d(vector_d* vec, size_t size, size_t capacity);
+int cvec_init_d(vector_d* vec, double* vals, size_t num);
 
-vector_d* vec_d_heap(size_t size, size_t capacity);
-vector_d* init_vec_d_heap(double* vals, size_t num);
+vector_d* cvec_d_heap(size_t size, size_t capacity);
+vector_d* cvec_init_d_heap(double* vals, size_t num);
 
-void vec_d_copy(void* dest, void* src);
+void cvec_d_copy(void* dest, void* src);
 
 
-int push_d(vector_d* vec, double a);
-double pop_d(vector_d* vec);
+int cvec_push_d(vector_d* vec, double a);
+double cvec_pop_d(vector_d* vec);
 
-int extend_d(vector_d* vec, size_t num);
-int insert_d(vector_d* vec, size_t i, double a);
-int insert_array_d(vector_d* vec, size_t i, double* a, size_t num);
-double replace_d(vector_d* vec, size_t i, double a);
-void erase_d(vector_d* vec, size_t start, size_t end);
-int reserve_d(vector_d* vec, size_t size);
-int set_capacity_d(vector_d* vec, size_t size);
-void set_val_sz_d(vector_d* vec, double val);
-void set_val_cap_d(vector_d* vec, double val);
+int cvec_extend_d(vector_d* vec, size_t num);
+int cvec_insert_d(vector_d* vec, size_t i, double a);
+int cvec_insert_array_d(vector_d* vec, size_t i, double* a, size_t num);
+double cvec_replace_d(vector_d* vec, size_t i, double a);
+void cvec_erase_d(vector_d* vec, size_t start, size_t end);
+int cvec_reserve_d(vector_d* vec, size_t size);
+int cvec_set_cap_d(vector_d* vec, size_t size);
+void cvec_set_val_sz_d(vector_d* vec, double val);
+void cvec_set_val_cap_d(vector_d* vec, double val);
 
-double* back_d(vector_d* vec);
+double* cvec_back_d(vector_d* vec);
 
-void clear_d(vector_d* vec);
-void free_vec_d_heap(void* vec);
-void free_vec_d(void* vec);
+void cvec_clear_d(vector_d* vec);
+void cvec_free_d_heap(void* vec);
+void cvec_free_d(void* vec);
 
 #ifdef __cplusplus
 }

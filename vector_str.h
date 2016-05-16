@@ -22,32 +22,32 @@ extern size_t VEC_STR_START_SZ;
 
 char* mystrdup(const char* str);
 
-int vec_str(vector_str* vec, size_t size, size_t capacity);
-int init_vec_str(vector_str* vec, char** vals, size_t num);
+int cvec_str(vector_str* vec, size_t size, size_t capacity);
+int cvec_init_str(vector_str* vec, char** vals, size_t num);
 
-vector_str* vec_str_heap(size_t size, size_t capacity);
-vector_str* init_vec_str_heap(char** vals, size_t num);
+vector_str* cvec_str_heap(size_t size, size_t capacity);
+vector_str* cvec_init_str_heap(char** vals, size_t num);
 
-void vec_str_copy(void* dest, void* src);
+void cvec_str_copy(void* dest, void* src);
 
-int push_str(vector_str* vec, char* a);
-void pop_str(vector_str* vec, char* ret);
+int cvec_push_str(vector_str* vec, char* a);
+void cvec_pop_str(vector_str* vec, char* ret);
 
-int extend_str(vector_str* vec, size_t num);
-int insert_str(vector_str* vec, size_t i, char* a);
-int insert_array_str(vector_str* vec, size_t i, char** a, size_t num);
-void replace_str(vector_str* vec, size_t i, char* a, char* ret);
-void erase_str(vector_str* vec, size_t start, size_t end);
-int reserve_str(vector_str* vec, size_t size);
-int set_capacity_str(vector_str* vec, size_t size);
-void set_val_sz_str(vector_str* vec, char* val);
-void set_val_cap_str(vector_str* vec, char* val);
+int cvec_extend_str(vector_str* vec, size_t num);
+int cvec_insert_str(vector_str* vec, size_t i, char* a);
+int cvec_insert_array_str(vector_str* vec, size_t i, char** a, size_t num);
+void cvec_replace_str(vector_str* vec, size_t i, char* a, char* ret);
+void cvec_erase_str(vector_str* vec, size_t start, size_t end);
+int cvec_reserve_str(vector_str* vec, size_t size);
+int cvec_set_cap_str(vector_str* vec, size_t size);
+void cvec_set_val_sz_str(vector_str* vec, char* val);
+void cvec_set_val_cap_str(vector_str* vec, char* val);
 
-char** back_str(vector_str* vec);
+char** cvec_back_str(vector_str* vec);
 
-void clear_str(vector_str* vec);
-void free_vec_str_heap(void* vec);
-void free_vec_str(void* vec);
+void cvec_clear_str(vector_str* vec);
+void cvec_free_str_heap(void* vec);
+void cvec_free_str(void* vec);
 
 #ifdef __cplusplus
 }

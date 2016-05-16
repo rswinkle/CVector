@@ -26,33 +26,33 @@ extern size_t VEC_VOID_START_SZ;
 
 #define GET_VOID(VEC, TYPE, I) ((TYPE*)&(VEC)->a[(I)*(VEC)->elem_size])
 
-int vec_void(vector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
-int init_vec_void(vector_void* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
+int cvec_void(vector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
+int cvec_init_void(vector_void* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
 
-vector_void* vec_void_heap(size_t size, size_t capacity, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
-vector_void* init_vec_void_heap(void* vals, size_t num, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
+vector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
+vector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
 
-void vec_void_copy(void* dest, void* src);
+void cvec_void_copy(void* dest, void* src);
 
-int push_void(vector_void* vec, void* val);
-void pop_void(vector_void* vec, void* ret);
-void* vec_void_get(vector_void* vec, size_t i);
+int cvec_push_void(vector_void* vec, void* val);
+void cvec_pop_void(vector_void* vec, void* ret);
+void* cvec_get_void(vector_void* vec, size_t i);
 
-int extend_void(vector_void* vec, size_t num);
-int insert_void(vector_void* vec, size_t i, void* a);
-int insert_array_void(vector_void* vec, size_t i, void* a, size_t num);
-void replace_void(vector_void* vec, size_t i, void* a, void* ret);
-void erase_void(vector_void* vec, size_t start, size_t end);
-int reserve_void(vector_void* vec, size_t size);
-int set_capacity_void(vector_void* vec, size_t size);
-void set_val_sz_void(vector_void* vec, void* val);
-void set_val_cap_void(vector_void* vec, void* val);
+int cvec_extend_void(vector_void* vec, size_t num);
+int cvec_insert_void(vector_void* vec, size_t i, void* a);
+int cvec_insert_array_void(vector_void* vec, size_t i, void* a, size_t num);
+void cvec_replace_void(vector_void* vec, size_t i, void* a, void* ret);
+void cvec_erase_void(vector_void* vec, size_t start, size_t end);
+int cvec_reserve_void(vector_void* vec, size_t size);
+int cvec_set_cap_void(vector_void* vec, size_t size);
+void cvec_set_val_sz_void(vector_void* vec, void* val);
+void cvec_set_val_cap_void(vector_void* vec, void* val);
 
-void* back_void(vector_void* vec);
+void* cvec_back_void(vector_void* vec);
 
-void clear_void(vector_void* vec);
-void free_vec_void_heap(void* vec);
-void free_vec_void(void* vec);
+void cvec_clear_void(vector_void* vec);
+void cvec_free_void_heap(void* vec);
+void cvec_free_void(void* vec);
 
 #ifdef __cplusplus
 }

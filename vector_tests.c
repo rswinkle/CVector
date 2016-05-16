@@ -25,20 +25,20 @@ void push_i_test()
 {
 	int i;
 	vector_i vec;
-	vec_i(&vec, 0, 0);
+	cvec_i(&vec, 0, 0);
 
 	CU_ASSERT_EQUAL(VEC_I_START_SZ, vec.capacity);
 	CU_ASSERT_EQUAL(0, vec.size);
 
 	for (i=0; i<100; i++)
-		push_i(&vec, i);
+		cvec_push_i(&vec, i);
 
 	CU_ASSERT_EQUAL(100, vec.size);
 
 	for (i=0; i<vec.size; i++)
 		CU_ASSERT_EQUAL(i, vec.a[i]);
 
-	free_vec_i(&vec);
+	cvec_free_i(&vec);
 }
 
 
@@ -46,7 +46,7 @@ void erase_i_test()
 {
 	int i,j;
 	vector_i vec;
-	vec_i(&vec, 100, 0);
+	cvec_i(&vec, 100, 0);
 
 	CU_ASSERT_EQUAL(VEC_I_START_SZ+100, vec.capacity);
 	CU_ASSERT_EQUAL(100, vec.size);
@@ -57,7 +57,7 @@ void erase_i_test()
 
 	CU_ASSERT_EQUAL(100, vec.size);
 
-	erase_i(&vec, 25, 74);
+	cvec_erase_i(&vec, 25, 74);
 
 	CU_ASSERT_EQUAL(50, vec.size);
 
@@ -66,7 +66,7 @@ void erase_i_test()
 		if(i == 24) j +=50;
 	}
 
-	free_vec_i(&vec);
+	cvec_free_i(&vec);
 }
 
 
@@ -77,7 +77,7 @@ void insert_i_test()
 	int i;
 
 	vector_i vec;
-	init_vec_i(&vec, array, 10);
+	cvec_init_i(&vec, array, 10);
 
 	CU_ASSERT_EQUAL(vec.size, 10);
 
@@ -85,14 +85,14 @@ void insert_i_test()
 		CU_ASSERT_EQUAL(vec.a[i], i);
 
 	for (i=0; i<10; i++)
-		insert_i(&vec, 0, -i);
+		cvec_insert_i(&vec, 0, -i);
 
 	CU_ASSERT_EQUAL(vec.size, 20);
 
 	for (i=0; i<vec.size; i++)
 		CU_ASSERT_EQUAL(vec.a[i], i-((i<10)? 9 : 10) );
 
-	free_vec_i(&vec);
+	cvec_free_i(&vec);
 }
 
 void insert_array_i_test()
@@ -100,15 +100,15 @@ void insert_array_i_test()
 	int i;
 	int array[] = { 0, 1, 0, 1, 0, 1 };
 	vector_i vec;
-	vec_i(&vec, 0, 0);
+	cvec_i(&vec, 0, 0);
 
 	for (i=0; i<VEC_I_START_SZ*2-5; ++i)
-		push_i(&vec, i);
+		cvec_push_i(&vec, i);
 
 	CU_ASSERT_EQUAL(vec.size, VEC_I_START_SZ*2-5);
 	CU_ASSERT_EQUAL(vec.capacity, VEC_I_START_SZ*2);
 
-	insert_array_i(&vec, 30, array, 6);
+	cvec_insert_array_i(&vec, 30, array, 6);
 
 	CU_ASSERT_EQUAL(vec.size, VEC_I_START_SZ*2+1);
 	CU_ASSERT_EQUAL(vec.capacity, 3*VEC_I_START_SZ+6);
@@ -123,7 +123,7 @@ void insert_array_i_test()
 		}
 	}
 
-	free_vec_i(&vec);
+	cvec_free_i(&vec);
 }
 
 
@@ -132,28 +132,28 @@ void pop_i_test()
 {
 	int i, temp;
 	vector_i vec;
-	vec_i(&vec, 10, 100);
+	cvec_i(&vec, 10, 100);
 
 	CU_ASSERT_EQUAL(vec.capacity, 100);
 	CU_ASSERT_EQUAL(vec.size, 10);
 
 	for (i=0; i<1000; i++) {
-		push_i(&vec, i);
+		cvec_push_i(&vec, i);
 	}
 	CU_ASSERT_EQUAL(vec.size, 1010);
 
 
-	set_capacity_i(&vec, vec.size);
+	cvec_set_cap_i(&vec, vec.size);
 	CU_ASSERT_EQUAL(vec.size, vec.capacity);
 
 	for (i=999; i>=0; i--) {
-		temp = pop_i(&vec);
+		temp = cvec_pop_i(&vec);
 		CU_ASSERT_EQUAL(temp, i);
 	}
 
 	CU_ASSERT_EQUAL(vec.size, 10);
 
-	free_vec_i(&vec);
+	cvec_free_i(&vec);
 }
 
 void replace_i_test()
@@ -162,47 +162,47 @@ void replace_i_test()
 	int ret;
 
 	vector_i vec;
-	init_vec_i(&vec, array, 10);
+	cvec_init_i(&vec, array, 10);
 
 	CU_ASSERT_EQUAL(vec.a[4], 4);
 
-	ret = replace_i(&vec, 4, 42);
+	ret = cvec_replace_i(&vec, 4, 42);
 
 	CU_ASSERT_EQUAL(ret, 4);
 	CU_ASSERT_EQUAL(vec.a[4], 42);
 
-	free_vec_i(&vec);
+	cvec_free_i(&vec);
 }
 
 void reserve_i_test()
 {
-	vector_i* vec = vec_i_heap(0, 0);
+	vector_i* vec = cvec_i_heap(0, 0);
 
 	CU_ASSERT_EQUAL(vec->size, 0);
 	CU_ASSERT_EQUAL(vec->capacity, VEC_I_START_SZ);
 
-	reserve_i(vec, 20);
+	cvec_reserve_i(vec, 20);
 	CU_ASSERT(vec->capacity >= 20);
 
-	free_vec_i_heap(vec);
+	cvec_free_i_heap(vec);
 }
 
 
 void set_capacity_i_test()
 {
 	int i;
-	vector_i* vec = vec_i_heap(0, 0);
+	vector_i* vec = cvec_i_heap(0, 0);
 
 	CU_ASSERT_EQUAL(vec->size, 0);
 	CU_ASSERT_EQUAL(vec->capacity, VEC_I_START_SZ);
 
 	for (i=0; i<1000; i++)
-		push_i(vec, i);
+		cvec_push_i(vec, i);
 
 	CU_ASSERT(vec->capacity >= 1000);
 	CU_ASSERT(vec->size == 1000);
 
-	set_capacity_i(vec, 500);
+	cvec_set_cap_i(vec, 500);
 
 	CU_ASSERT(vec->capacity == 500);
 	CU_ASSERT(vec->size == 500);
@@ -210,7 +210,7 @@ void set_capacity_i_test()
 	for (i=0; i<vec->size; i++)
 		CU_ASSERT_EQUAL(vec->a[i], i);
 
-	free_vec_i_heap(vec);
+	cvec_free_i_heap(vec);
 }
 
 
@@ -220,17 +220,17 @@ void set_val_i_test()
 {
 	int i;
 	vector_i vec;
-	vec_i(&vec, 20, 20);
+	cvec_i(&vec, 20, 20);
 
 	CU_ASSERT_EQUAL(vec.size, 20);
 	CU_ASSERT_EQUAL(vec.capacity, 20);
 
-	set_val_cap_i(&vec, 25);
+	cvec_set_val_cap_i(&vec, 25);
 
 	for (i=0; i<vec.capacity; i++)
 		CU_ASSERT_EQUAL(vec.a[i], 25);
 
-	set_val_sz_i(&vec, 42);
+	cvec_set_val_sz_i(&vec, 42);
 	for (i=0; i<vec.capacity; i++) {
 		/*macro is multiple lines/operations, hence the need for braces*/
 		if (i < vec.size) {
@@ -240,7 +240,7 @@ void set_val_i_test()
 		}
 	}
 
-	free_vec_i(&vec);
+	cvec_free_i(&vec);
 }
 
 
@@ -252,21 +252,21 @@ void push_d_test()
 {
 	int i;
 	vector_d vec;
-	vec_d(&vec, 0, 1);
+	cvec_d(&vec, 0, 1);
 
 	CU_ASSERT_EQUAL(1, vec.capacity);
 	CU_ASSERT_EQUAL(0, vec.size);
 
 
 	for (i=0; i<100; i++)
-		push_d(&vec, i+0.5);
+		cvec_push_d(&vec, i+0.5);
 
 	CU_ASSERT_EQUAL(100, vec.size);
 
 	for (i=0; i<vec.size; i++)
 		CU_ASSERT_EQUAL(i+0.5, vec.a[i]);
 
-	free_vec_d(&vec);
+	cvec_free_d(&vec);
 }
 
 
@@ -274,7 +274,7 @@ void erase_d_test()
 {
 	int i,j;
 	vector_d vec;
-	vec_d(&vec, 100, 101);
+	cvec_d(&vec, 100, 101);
 
 	CU_ASSERT_EQUAL(101, vec.capacity);
 	CU_ASSERT_EQUAL(100, vec.size);
@@ -284,7 +284,7 @@ void erase_d_test()
 
 	CU_ASSERT_EQUAL(100, vec.size);
 
-	erase_d(&vec, 25, 74);
+	cvec_erase_d(&vec, 25, 74);
 
 	CU_ASSERT_EQUAL(50, vec.size);
 
@@ -293,7 +293,7 @@ void erase_d_test()
 		if(i==24) j +=50;
 	}
 
-	free_vec_d(&vec);
+	cvec_free_d(&vec);
 }
 
 
@@ -304,7 +304,7 @@ void insert_d_test()
 	double array[] = { 0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5 };
 
 	vector_d vec1;
-	init_vec_d(&vec1, array, 10);
+	cvec_init_d(&vec1, array, 10);
 
 	CU_ASSERT_EQUAL(vec1.size, 10);
 	CU_ASSERT_EQUAL(vec1.capacity, 10+VEC_D_START_SZ);
@@ -313,14 +313,14 @@ void insert_d_test()
 		CU_ASSERT_EQUAL(vec1.a[i], i+0.5);
 
 	for (i=0; i<10; i++)
-		insert_d(&vec1, 0, -i-0.5);
+		cvec_insert_d(&vec1, 0, -i-0.5);
 
 	CU_ASSERT_EQUAL(vec1.size, 20);
 
 	for (i=0; i<vec1.size; i++)
 		CU_ASSERT_EQUAL(vec1.a[i], i-9.5 );
 
-	free_vec_d(&vec1);
+	cvec_free_d(&vec1);
 }
 
 
@@ -329,15 +329,15 @@ void insert_array_d_test()
 	int i;
 	double array[] = { 0, 1, 0, 1, 0, 1 };
 	vector_d vec;
-	vec_d(&vec, 0, 0);
+	cvec_d(&vec, 0, 0);
 
 	for (i=0; i<VEC_D_START_SZ*2-5; ++i)
-		push_d(&vec, i);
+		cvec_push_d(&vec, i);
 
 	CU_ASSERT_EQUAL(vec.size, VEC_D_START_SZ*2-5);
 	CU_ASSERT_EQUAL(vec.capacity, VEC_D_START_SZ*2);
 
-	insert_array_d(&vec, 30, array, 6);
+	cvec_insert_array_d(&vec, 30, array, 6);
 
 	CU_ASSERT_EQUAL(vec.size, VEC_D_START_SZ*2+1);
 	CU_ASSERT_EQUAL(vec.capacity, 3*VEC_D_START_SZ+6);
@@ -352,7 +352,7 @@ void insert_array_d_test()
 		}
 	}
 
-	free_vec_d(&vec);
+	cvec_free_d(&vec);
 }
 
 
@@ -361,27 +361,27 @@ void pop_d_test()
 	int i;
 	double temp;
 	vector_d vec1;
-	vec_d(&vec1, 0, 0);
+	cvec_d(&vec1, 0, 0);
 
 	CU_ASSERT_EQUAL(vec1.capacity, VEC_D_START_SZ);
 	CU_ASSERT_EQUAL(vec1.size, 0);
 
 	for (i=0; i<1000; i++)
-		push_d(&vec1, i);
+		cvec_push_d(&vec1, i);
 
 	CU_ASSERT_EQUAL(vec1.size, 1000);
 
-	set_capacity_d(&vec1, vec1.size);
+	cvec_set_cap_d(&vec1, vec1.size);
 	CU_ASSERT_EQUAL(vec1.size, vec1.capacity);
 
 	for (i=999; i>=0; i--) {
-		temp = pop_d(&vec1);
+		temp = cvec_pop_d(&vec1);
 		CU_ASSERT_EQUAL(temp, i);
 	}
 
 	CU_ASSERT_EQUAL(vec1.size, 0);
 
-	free_vec_d(&vec1);
+	cvec_free_d(&vec1);
 }
 
 void replace_d_test()
@@ -390,26 +390,26 @@ void replace_d_test()
 	double ret;
 
 	vector_d vec;
-	init_vec_d(&vec, array, 10);
+	cvec_init_d(&vec, array, 10);
 
 	CU_ASSERT_EQUAL(vec.a[4], 4.5);
 
-	ret = replace_d(&vec, 4, 42);
+	ret = cvec_replace_d(&vec, 4, 42);
 
 	CU_ASSERT_EQUAL(ret, 4.5);
 	CU_ASSERT_EQUAL(vec.a[4], 42);
 
-	free_vec_d(&vec);
+	cvec_free_d(&vec);
 }
 
 void reserve_d_test()
 {
-	vector_d* vec = vec_d_heap(0, 0);
+	vector_d* vec = cvec_d_heap(0, 0);
 
-	reserve_d(vec, 20);
+	cvec_reserve_d(vec, 20);
 	CU_ASSERT(vec->capacity >= 20);
 
-	free_vec_d_heap(vec);
+	cvec_free_d(vec);
 }
 
 
@@ -418,17 +418,17 @@ void set_capacity_d_test()
 {
 	int i;
 	vector_d vec1;
-	vec_d(&vec1, 0, 10);
+	cvec_d(&vec1, 0, 10);
 
 	CU_ASSERT_EQUAL(vec1.capacity, 10);
 
 	for (i=0; i<1000; i++)
-		push_d(&vec1, i+0.5);
+		cvec_push_d(&vec1, i+0.5);
 
 	CU_ASSERT(vec1.capacity >= 1000);
 	CU_ASSERT(vec1.size == 1000);
 
-	set_capacity_d(&vec1, 500);
+	cvec_set_cap_d(&vec1, 500);
 
 	CU_ASSERT(vec1.capacity == 500);
 	CU_ASSERT(vec1.size == 500);
@@ -436,7 +436,7 @@ void set_capacity_d_test()
 	for (i=0; i<vec1.size; i++)
 		CU_ASSERT_EQUAL(vec1.a[i], i+0.5);
 
-	free_vec_d(&vec1);
+	cvec_free_d(&vec1);
 }
 
 
@@ -444,20 +444,20 @@ void set_capacity_d_test()
 void set_val_d_test()
 {
 	int i;
-	vector_d* vec = vec_d_heap(20, 20);
+	vector_d* vec = cvec_d_heap(20, 20);
 
 	CU_ASSERT_EQUAL(vec->capacity, 20);
 
-	set_val_sz_d(vec, 42.5);
+	cvec_set_val_sz_d(vec, 42.5);
 	for (i=0; i<vec->size; i++)
 		CU_ASSERT_EQUAL(vec->a[i], 42.5);
 
-	set_val_cap_d(vec, 25.5);
+	cvec_set_val_cap_d(vec, 25.5);
 
 	for (i=0; i<vec->capacity; i++)
 		CU_ASSERT_EQUAL(vec->a[i], 25.5);
 
-	free_vec_d_heap(vec);
+	cvec_free_d(vec);
 }
 
 
@@ -470,14 +470,14 @@ void push_str_test()
 {
 	int i;
 	char buffer[50];
-	vector_str* vec = vec_str_heap(0, 0);
+	vector_str* vec = cvec_str_heap(0, 0);
 
 	CU_ASSERT_EQUAL(VEC_STR_START_SZ, vec->capacity);
 	CU_ASSERT_EQUAL(0, vec->size);
 
 	for (i=0; i<50; i++) {
 		sprintf(buffer, "hello %d", i);
-		push_str(vec, buffer);
+		cvec_push_str(vec, buffer);
 	}
 
 	CU_ASSERT_EQUAL(50, vec->size);
@@ -488,7 +488,7 @@ void push_str_test()
 	}
 
 
-	free_vec_str_heap(vec);
+	cvec_free_str_heap(vec);
 }
 
 
@@ -497,18 +497,18 @@ void erase_str_test()
 	int i,j;
 	char buffer[50];
 	vector_str vec1;
-	vec_str(&vec1, 0, 0);
+	cvec_str(&vec1, 0, 0);
 
 	CU_ASSERT_EQUAL(VEC_STR_START_SZ, vec1.capacity);
 
 	for (i=0; i<100; i++) {
 		sprintf(buffer, "hello %d", i);
-		push_str(&vec1, buffer);
+		cvec_push_str(&vec1, buffer);
 	}
 
 	CU_ASSERT_EQUAL(100, vec1.size);
 
-	erase_str(&vec1, 25, 74);
+	cvec_erase_str(&vec1, 25, 74);
 
 	CU_ASSERT_EQUAL(50, vec1.size);
 
@@ -519,7 +519,7 @@ void erase_str_test()
 		if(i==24) j +=50;
 	}
 
-	free_vec_str(&vec1);
+	cvec_free_str(&vec1);
 
 }
 
@@ -533,7 +533,7 @@ void insert_str_test()
 	char buffer[50];
 	int i;
 
-	vector_str* vec = init_vec_str_heap(array, 10);
+	vector_str* vec = cvec_init_str_heap(array, 10);
 
 	CU_ASSERT_EQUAL(vec->size, 10);
 
@@ -544,7 +544,7 @@ void insert_str_test()
 
 	for (i=0; i<10; i++) {
 		sprintf(buffer, "hello %d", -i);
-		insert_str(vec, 0, buffer);
+		cvec_insert_str(vec, 0, buffer);
 	}
 
 
@@ -555,7 +555,7 @@ void insert_str_test()
 		CU_ASSERT_STRING_EQUAL(vec->a[i], buffer);
 	}
 
-	free_vec_str_heap(vec);
+	cvec_free_str_heap(vec);
 }
 
 
@@ -566,12 +566,12 @@ void insert_array_str_test()
 	char* array[] = { "hello 0", "hello 1", "hello 2", "hello 3", "hello 4",
 			"hello 5", "hello 6", "hello 7", "hello 8", "hello 9", "hello 10" };
 	vector_str vec;
-	init_vec_str(&vec, array, 10);
+	cvec_init_str(&vec, array, 10);
 
 	CU_ASSERT_EQUAL(vec.size, 10);
 	CU_ASSERT_EQUAL(vec.capacity, 10+VEC_STR_START_SZ);
 
-	insert_array_str(&vec, 0, array, 11);
+	cvec_insert_array_str(&vec, 0, array, 11);
 
 	CU_ASSERT_EQUAL(vec.size, 21);
 	CU_ASSERT_EQUAL(vec.capacity, 10+VEC_STR_START_SZ);
@@ -587,7 +587,7 @@ void insert_array_str_test()
 		}
 	}
 
-	free_vec_str(&vec);
+	cvec_free_str(&vec);
 }
 
 
@@ -603,29 +603,29 @@ void pop_str_test()
 	char buffer2[50];
 
 	vector_str vec1;
-	vec_str(&vec1, 0, 10);
+	cvec_str(&vec1, 0, 10);
 
 	CU_ASSERT_EQUAL(vec1.capacity, 10);
 
 	for (i=0; i<1000; i++) {
 		sprintf(buffer, "hello %d", i);
-		push_str(&vec1, buffer);
+		cvec_push_str(&vec1, buffer);
 	}
 
 	CU_ASSERT_EQUAL(vec1.size, 1000);
 
-	set_capacity_str(&vec1, vec1.size);
+	cvec_set_cap_str(&vec1, vec1.size);
 	CU_ASSERT_EQUAL(vec1.size, vec1.capacity);
 
 	for (i=999; i>=0; i--) {
 		sprintf(buffer, "hello %d", i);
-		pop_str(&vec1, buffer2);
+		cvec_pop_str(&vec1, buffer2);
 		CU_ASSERT_STRING_EQUAL(buffer, buffer2);
 	}
 
 	CU_ASSERT_EQUAL(vec1.size, 0);
 
-	free_vec_str(&vec1);
+	cvec_free_str(&vec1);
 }
 
 void replace_str_test()
@@ -636,13 +636,13 @@ void replace_str_test()
 	char retbuf[50];
 
 	vector_str vec;
-	vec_str(&vec, 0, 10);
+	cvec_str(&vec, 0, 10);
 
 	CU_ASSERT_EQUAL(vec.capacity, 10);
 
 	for (i=0; i<1000; i++) {
 		sprintf(buffer, "hello %d", i);
-		push_str(&vec, buffer);
+		cvec_push_str(&vec, buffer);
 	}
 
 	for (i=0; i<sizeof(to_replace)/sizeof(int); i++) {
@@ -651,22 +651,22 @@ void replace_str_test()
 		sprintf(buffer2, "goodbye %d", loc);
 		CU_ASSERT_STRING_EQUAL(vec.a[loc], buffer);
 
-		replace_str(&vec, loc, buffer2, retbuf);
+		cvec_replace_str(&vec, loc, buffer2, retbuf);
 		CU_ASSERT_STRING_EQUAL(vec.a[loc], buffer2);
 		CU_ASSERT_STRING_EQUAL(retbuf, buffer);
 	}
-	free_vec_str(&vec);
+	cvec_free_str(&vec);
 }
 
 void reserve_str_test()
 {
 	vector_str vec;
-	vec_str(&vec, 0, 100);
+	cvec_str(&vec, 0, 100);
 
-	reserve_str(&vec, 20);
+	cvec_reserve_str(&vec, 20);
 	CU_ASSERT(vec.capacity >= 20);
 
-	free_vec_str(&vec);
+	cvec_free_str(&vec);
 }
 
 
@@ -677,20 +677,20 @@ void set_capacity_str_test()
 	char buffer[50];
 
 	vector_str vec;
-	vec_str(&vec, 1, 1);
+	cvec_str(&vec, 1, 1);
 
 	CU_ASSERT_EQUAL(vec.size, 1);
 	CU_ASSERT_EQUAL(vec.capacity, 1);
 
 	for (i=0; i<1000; i++) {
 		sprintf(buffer, "hello %d", i);
-		push_str(&vec, buffer);
+		cvec_push_str(&vec, buffer);
 	}
 
 	CU_ASSERT(vec.capacity >= 1001);
 	CU_ASSERT(vec.size == 1001);
 
-	set_capacity_str(&vec, 500);
+	cvec_set_cap_str(&vec, 500);
 
 	CU_ASSERT(vec.capacity == 500);
 	CU_ASSERT(vec.size == 500);
@@ -704,7 +704,7 @@ void set_capacity_str_test()
 		}
 	}
 
-	free_vec_str(&vec);
+	cvec_free_str(&vec);
 }
 
 
@@ -712,22 +712,22 @@ void set_val_str_test()
 {
 	int i;
 	vector_str vec;
-	vec_str(&vec, 20, 0);
+	cvec_str(&vec, 20, 0);
 
 	CU_ASSERT_EQUAL(vec.size, 20)
 	CU_ASSERT_EQUAL(vec.capacity, 20+VEC_STR_START_SZ);
 
-	set_val_sz_str(&vec, "42");
+	cvec_set_val_sz_str(&vec, "42");
 
 	for (i=0; i<vec.size; i++)
 		CU_ASSERT_STRING_EQUAL(vec.a[i], "42");
 
-	set_val_cap_str(&vec, "25");
+	cvec_set_val_cap_str(&vec, "25");
 
 	for (i=0; i<vec.capacity; i++)
 		CU_ASSERT_STRING_EQUAL(vec.a[i], "25");
 
-	free_vec_str(&vec);
+	cvec_free_str(&vec);
 }
 
 
@@ -794,8 +794,8 @@ void push_void_test()
 	vector_void vec1;
 	vector_void vec2;
 
-	vec_void(&vec1, 0, 0, sizeof(t_struct), NULL, NULL);
-	vec_void(&vec2, 0, 1,  sizeof(f_struct), free_f_struct, NULL);
+	cvec_void(&vec1, 0, 0, sizeof(t_struct), NULL, NULL);
+	cvec_void(&vec2, 0, 1,  sizeof(f_struct), free_f_struct, NULL);
 
 	CU_ASSERT_EQUAL(VEC_VOID_START_SZ, vec1.capacity);
 	CU_ASSERT_EQUAL(0, vec1.size);
@@ -808,8 +808,8 @@ void push_void_test()
 		temp = mk_t_struct(i, i, buffer);
 		temp2 = mk_f_struct(i, i, buffer);
 
-		push_void(&vec1, &temp);
-		push_void(&vec2, &temp2);
+		cvec_push_void(&vec1, &temp);
+		cvec_push_void(&vec2, &temp2);
 	}
 
 	CU_ASSERT_EQUAL(100, vec1.size);
@@ -828,8 +828,8 @@ void push_void_test()
 		CU_ASSERT_STRING_EQUAL(buffer, GET_F(vec2, i)->word);
 	}
 
-	free_vec_void(&vec1);
-	free_vec_void(&vec2);
+	cvec_free_void(&vec1);
+	cvec_free_void(&vec2);
 }
 
 
@@ -838,8 +838,8 @@ void erase_void_test()
 	char buffer[50];
 	int i,j;
 
-	vector_void* vec1 = vec_void_heap(100, 101, sizeof(t_struct), NULL, NULL);
-	vector_void* vec2 = vec_void_heap(100, 0, sizeof(f_struct), free_f_struct, NULL);
+	vector_void* vec1 = cvec_void_heap(100, 101, sizeof(t_struct), NULL, NULL);
+	vector_void* vec2 = cvec_void_heap(100, 0, sizeof(f_struct), free_f_struct, NULL);
 
 	CU_ASSERT_EQUAL(101, vec1->capacity);
 	CU_ASSERT_EQUAL(100, vec1->size);
@@ -862,8 +862,8 @@ void erase_void_test()
 	CU_ASSERT_EQUAL(100, vec1->size);
 	CU_ASSERT_EQUAL(100, vec2->size);
 
-	erase_void(vec1, 25, 74);
-	erase_void(vec2, 25, 74);
+	cvec_erase_void(vec1, 25, 74);
+	cvec_erase_void(vec2, 25, 74);
 
 	CU_ASSERT_EQUAL(50, vec1->size);
 	CU_ASSERT_EQUAL(50, vec2->size);
@@ -881,8 +881,8 @@ void erase_void_test()
 		if(i==24) j +=50;
 	}
 
-	free_vec_void_heap(vec1);
-	free_vec_void_heap(vec2);
+	cvec_free_void_heap(vec1);
+	cvec_free_void_heap(vec2);
 }
 
 
@@ -911,8 +911,8 @@ void insert_void_test()
 	}
 
 
-	init_vec_void(&vec1, array, 10, sizeof(t_struct), NULL, NULL);
-	init_vec_void(&vec2, array2, 10, sizeof(f_struct), free_f_struct, NULL);
+	cvec_init_void(&vec1, array, 10, sizeof(t_struct), NULL, NULL);
+	cvec_init_void(&vec2, array2, 10, sizeof(f_struct), free_f_struct, NULL);
 
 
 	CU_ASSERT_EQUAL(vec1.size, 10);
@@ -935,8 +935,8 @@ void insert_void_test()
 		temp = mk_t_struct(-i-0.5, -i, buffer);
 		temp2 = mk_f_struct(-i-0.5, -i, buffer);
 
-		insert_void(&vec1, 0, &temp);
-		insert_void(&vec2, 0, &temp2);
+		cvec_insert_void(&vec1, 0, &temp);
+		cvec_insert_void(&vec2, 0, &temp2);
 	}
 
 	CU_ASSERT_EQUAL(vec1.size, 20);
@@ -956,8 +956,8 @@ void insert_void_test()
 
 	}
 
-	free_vec_void(&vec1);
-	free_vec_void(&vec2);
+	cvec_free_void(&vec1);
+	cvec_free_void(&vec2);
 }
 
 
@@ -968,14 +968,14 @@ void insert_array_void_test()
 	float array2[] = { 2.5f, 3.5f, 4.5f, 5.5f, 6.5f };
 	vector_void vec1;
 
-	init_vec_void(&vec1, array1, 5, sizeof(float), NULL, NULL);
-	insert_array_void(&vec1, 2, array2, 5);
+	cvec_init_void(&vec1, array1, 5, sizeof(float), NULL, NULL);
+	cvec_insert_array_void(&vec1, 2, array2, 5);
 	CU_ASSERT_EQUAL(vec1.size, 10);
 
 	for (i=0; i<vec1.size; ++i)
 		CU_ASSERT_EQUAL(((float*)vec1.a)[i], i+0.5f);
 
-	free_vec_void(&vec1);
+	cvec_free_void(&vec1);
 }
 
 
@@ -993,8 +993,8 @@ void pop_void_test()
 
 	vector_void vec1, vec2;
 
-	vec_void(&vec1, 10, 0, sizeof(t_struct), NULL, NULL);
-	vec_void(&vec2, 10, 0, sizeof(f_struct), free_f_struct, NULL);
+	cvec_void(&vec1, 10, 0, sizeof(t_struct), NULL, NULL);
+	cvec_void(&vec2, 10, 0, sizeof(f_struct), free_f_struct, NULL);
 
 	CU_ASSERT_EQUAL(vec1.capacity, 10+VEC_VOID_START_SZ);
 	CU_ASSERT_EQUAL(vec2.capacity, 10+VEC_VOID_START_SZ);
@@ -1007,15 +1007,15 @@ void pop_void_test()
 		temp = mk_t_struct(i, i, buffer);
 		temp2 = mk_f_struct(i, i, buffer);
 
-		push_void(&vec1, &temp);
-		push_void(&vec2, &temp2);
+		cvec_push_void(&vec1, &temp);
+		cvec_push_void(&vec2, &temp2);
 	}
 
-	set_capacity_void(&vec1, vec1.size);
+	cvec_set_cap_void(&vec1, vec1.size);
 	CU_ASSERT_EQUAL(vec1.size, vec1.capacity);
 	CU_ASSERT_EQUAL(vec1.size, 1010);
 
-	set_capacity_void(&vec2, vec2.size);
+	cvec_set_cap_void(&vec2, vec2.size);
 	CU_ASSERT_EQUAL(vec2.size, vec2.capacity);
 	CU_ASSERT_EQUAL(vec2.size, 1010);
 
@@ -1023,8 +1023,8 @@ void pop_void_test()
 
 	for (i=999; i>=0; i--) {
 		sprintf(buffer, "hello %d", i);
-		pop_void(&vec1, &temp);
-		pop_void(&vec2, &temp2);
+		cvec_pop_void(&vec1, &temp);
+		cvec_pop_void(&vec2, &temp2);
 
 		CU_ASSERT_EQUAL(temp.d, i );
 		CU_ASSERT_EQUAL(temp.i, i );
@@ -1039,8 +1039,8 @@ void pop_void_test()
 	CU_ASSERT_EQUAL(vec1.size, 10);
 	CU_ASSERT_EQUAL(vec2.size, 10);
 
-	free_vec_void(&vec1);
-	free_vec_void(&vec2);
+	cvec_free_void(&vec1);
+	cvec_free_void(&vec2);
 }
 
 void replace_void_test()
@@ -1054,8 +1054,8 @@ void replace_void_test()
 	vector_void vec1;
 	vector_void vec2;
 
-	vec_void(&vec1, 0, 0, sizeof(t_struct), NULL, NULL);
-	vec_void(&vec2, 0, 0,  sizeof(f_struct), free_f_struct, NULL);
+	cvec_void(&vec1, 0, 0, sizeof(t_struct), NULL, NULL);
+	cvec_void(&vec2, 0, 0,  sizeof(f_struct), free_f_struct, NULL);
 
 
 	for (i=0; i<100; i++) {
@@ -1063,8 +1063,8 @@ void replace_void_test()
 		temp = mk_t_struct(i, i, buffer);
 		temp2 = mk_f_struct(i, i, buffer);
 
-		push_void(&vec1, &temp);
-		push_void(&vec2, &temp2);
+		cvec_push_void(&vec1, &temp);
+		cvec_push_void(&vec2, &temp2);
 	}
 
 	for (i=0; i<sizeof(to_replace)/sizeof(int); ++i) {
@@ -1082,8 +1082,8 @@ void replace_void_test()
 		temp = mk_t_struct(-loc, -loc, buffer2);
 		temp2 = mk_f_struct(-loc, -loc, buffer2);
 
-		replace_void(&vec1, loc, &temp, &ret_t_struct);
-		replace_void(&vec2, loc, &temp2, &ret_f_struct);
+		cvec_replace_void(&vec1, loc, &temp, &ret_t_struct);
+		cvec_replace_void(&vec2, loc, &temp2, &ret_f_struct);
 
 		CU_ASSERT_EQUAL(-loc, GET_T(vec1, loc)->d);
 		CU_ASSERT_EQUAL(-loc, GET_T(vec1, loc)->i);
@@ -1102,26 +1102,26 @@ void replace_void_test()
 		CU_ASSERT_STRING_EQUAL(buffer, ret_f_struct.word);
 	}
 
-	free_vec_void(&vec1);
-	free_vec_void(&vec2);
+	cvec_free_void(&vec1);
+	cvec_free_void(&vec2);
 }
 
 void reserve_void_test()
 {
-	vector_void* vect = vec_void_heap(0, 19, sizeof(t_struct), NULL, NULL);
-	vector_void* vec2 = vec_void_heap(0, 21, sizeof(f_struct), NULL, NULL);
+	vector_void* vect = cvec_void_heap(0, 19, sizeof(t_struct), NULL, NULL);
+	vector_void* vec2 = cvec_void_heap(0, 21, sizeof(f_struct), NULL, NULL);
 
 	CU_ASSERT_EQUAL(vect->capacity, 19);
 	CU_ASSERT_EQUAL(vec2->capacity, 21);
 
-	reserve_void(vect, 20);
-	reserve_void(vec2, 20);
+	cvec_reserve_void(vect, 20);
+	cvec_reserve_void(vec2, 20);
 
 	CU_ASSERT(vect->capacity >= 20);
 	CU_ASSERT(vec2->capacity >= 20);
 
-	free_vec_void_heap(vect);
-	free_vec_void_heap(vec2);
+	cvec_free_void_heap(vect);
+	cvec_free_void_heap(vec2);
 }
 
 
@@ -1133,8 +1133,8 @@ void set_capacity_void_test()
 	f_struct temp2;
 	vector_void vec1, vec2;
 
-	vec_void(&vec1, 0, 0, sizeof(t_struct), NULL, NULL);
-	vec_void(&vec2, 0, 0, sizeof(f_struct), free_f_struct, NULL);
+	cvec_void(&vec1, 0, 0, sizeof(t_struct), NULL, NULL);
+	cvec_void(&vec2, 0, 0, sizeof(f_struct), free_f_struct, NULL);
 
 	CU_ASSERT_EQUAL(vec1.size, 0);
 	CU_ASSERT_EQUAL(vec1.capacity, VEC_VOID_START_SZ);
@@ -1146,8 +1146,8 @@ void set_capacity_void_test()
 		temp = mk_t_struct(i, i, buffer);
 		temp2 = mk_f_struct(i, i, buffer);
 
-		push_void(&vec1, &temp);
-		push_void(&vec2, &temp2);
+		cvec_push_void(&vec1, &temp);
+		cvec_push_void(&vec2, &temp2);
 	}
 
 	CU_ASSERT(vec1.capacity >= 1000);
@@ -1156,8 +1156,8 @@ void set_capacity_void_test()
 	CU_ASSERT(vec2.capacity >= 1000);
 	CU_ASSERT(vec2.size == 1000);
 
-	set_capacity_void(&vec1, 500);
-	set_capacity_void(&vec2, 500);
+	cvec_set_cap_void(&vec1, 500);
+	cvec_set_cap_void(&vec2, 500);
 
 
 	CU_ASSERT(vec1.capacity == 500);
@@ -1178,8 +1178,8 @@ void set_capacity_void_test()
 		CU_ASSERT_STRING_EQUAL(GET_F(vec2, i)->word, buffer);
 	}
 
-	free_vec_void(&vec1);
-	free_vec_void(&vec2);
+	cvec_free_void(&vec1);
+	cvec_free_void(&vec2);
 }
 
 
@@ -1192,8 +1192,8 @@ void set_val_void_test()
 	t_struct temp;
 	f_struct temp2;
 
-	vec_void(&vec1, 20, 25, sizeof(t_struct), NULL, NULL);
-	vec_void(&vec2, 20, 0, sizeof(f_struct), free_f_struct, init_f_struct);
+	cvec_void(&vec1, 20, 25, sizeof(t_struct), NULL, NULL);
+	cvec_void(&vec2, 20, 0, sizeof(f_struct), free_f_struct, init_f_struct);
 
 	CU_ASSERT_EQUAL(vec1.size, 20);
 	CU_ASSERT_EQUAL(vec2.size, 20);
@@ -1207,8 +1207,8 @@ void set_val_void_test()
 	temp = mk_t_struct(42.5, 42, "hello");
 	temp2 = mk_f_struct(42.5, 42, "hello");
 
-	set_val_sz_void(&vec1, &temp);
-	set_val_sz_void(&vec2, &temp2);
+	cvec_set_val_sz_void(&vec1, &temp);
+	cvec_set_val_sz_void(&vec2, &temp2);
 
 	free_f_struct(&temp2);
 
@@ -1225,8 +1225,8 @@ void set_val_void_test()
 	temp = mk_t_struct(25.5, 25, "goodbye");
 	temp2 = mk_f_struct(25.5, 25, "goodbye");
 
-	set_val_cap_void(&vec1, &temp);
-	set_val_cap_void(&vec2, &temp2);
+	cvec_set_val_cap_void(&vec1, &temp);
+	cvec_set_val_cap_void(&vec2, &temp2);
 
 	free_f_struct(&temp2);
 
@@ -1251,8 +1251,8 @@ void set_val_void_test()
 		CU_ASSERT_STRING_EQUAL(GET_F(vec2, i)->word, "goodbye");
 	}
 
-	free_vec_void(&vec1);
-	free_vec_void(&vec2);
+	cvec_free_void(&vec1);
+	cvec_free_void(&vec2);
 }
 
 
@@ -1267,33 +1267,33 @@ void vector_of_vectors_test()
 	vector_str tmp_vecs;
 	char buffer[50];
 
-	vec_void(&vec1, 0, 0, sizeof(vector_i), free_vec_i, vec_i_copy);
-	vec_void(&vec2, 0, 0, sizeof(vector_str), free_vec_str, vec_str_copy);
+	cvec_void(&vec1, 0, 0, sizeof(vector_i), cvec_free_i, cvec_i_copy);
+	cvec_void(&vec2, 0, 0, sizeof(vector_str), cvec_free_str, cvec_str_copy);
 
-	vec_str(&tmp_vecs, 0, 0);
+	cvec_str(&tmp_vecs, 0, 0);
 
 	CU_ASSERT_EQUAL(VEC_STR_START_SZ, tmp_vecs.capacity);
 	CU_ASSERT_EQUAL(0, tmp_vecs.size);
 
 	for (i=0; i<50; i++) {
 		sprintf(buffer, "hello %d", i);
-		push_str(&tmp_vecs, buffer);
+		cvec_push_str(&tmp_vecs, buffer);
 	}
 
 	CU_ASSERT_EQUAL(vec1.size, 0);
 	CU_ASSERT_EQUAL(vec1.capacity, VEC_VOID_START_SZ);
 
-	vec_i(&tmp_vec_i, 0, 0);
+	cvec_i(&tmp_vec_i, 0, 0);
 
 	for (i=0; i<20; ++i)
-		push_i(&tmp_vec_i, rand());
+		cvec_push_i(&tmp_vec_i, rand());
 
 	for (i=0; i<20; ++i) {
-		push_void(&vec1, &tmp_vec_i);
+		cvec_push_void(&vec1, &tmp_vec_i);
 		for (j=0; j<500; ++j) {
-			push_i((vector_i*)(&vec1.a[i*vec1.elem_size]), j);
+			cvec_push_i((vector_i*)(&vec1.a[i*vec1.elem_size]), j);
 		}
-		tmp_vec_i2 = vec_void_get(&vec1, i);
+		tmp_vec_i2 = cvec_get_void(&vec1, i);
 		CU_ASSERT_EQUAL(tmp_vec_i2->size, 520);
 	}
 
@@ -1301,23 +1301,23 @@ void vector_of_vectors_test()
 
 	for (i=0; i<20; ++i) {
 		for (j=0; j<500; ++j) {
-			tmp_int = pop_i(GET_ELEMENT(vec1, (vec1.size-1), vector_i)); /*&vec1.a[(vec1.size-1)*vec1.elem_size]);    GET_ELEMENT(vec1, i, vector_i));*/
+			tmp_int = cvec_pop_i(GET_ELEMENT(vec1, (vec1.size-1), vector_i)); /*&vec1.a[(vec1.size-1)*vec1.elem_size]);    GET_ELEMENT(vec1, i, vector_i));*/
 			CU_ASSERT_EQUAL(tmp_int, 499-j);
 		}
-		tmp_vec_i2 = vec_void_get(&vec1, vec1.size-1);
+		tmp_vec_i2 = cvec_get_void(&vec1, vec1.size-1);
 		CU_ASSERT_EQUAL(tmp_vec_i2->size, 20);
 
 		for (j=0; j<20; j++) {
 			CU_ASSERT_EQUAL(tmp_vec_i.a[i], tmp_vec_i2->a[i]);
 		}
 
-		pop_void(&vec1, NULL);
+		cvec_pop_void(&vec1, NULL);
 	}
 
-	free_vec_void(&vec1);
-	free_vec_void(&vec2);
-	free_vec_i(&tmp_vec_i);
-	free_vec_str(&tmp_vecs);
+	cvec_free_void(&vec1);
+	cvec_free_void(&vec2);
+	cvec_free_i(&tmp_vec_i);
+	cvec_free_str(&tmp_vecs);
 }
 
 

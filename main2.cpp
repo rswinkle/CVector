@@ -17,10 +17,10 @@ int main(int argc, char** argv)
 	vector_void vecvoid;
 
 
-	vec_i(&veci, 0, 10);
-	vec_d(&vecd, 0, 10);
-	vec_str(&vecstr, 0, 10);
-	vec_void(&vecvoid, 0, 10, sizeof(long double), NULL, NULL);
+	cvec_i(&veci, 0, 10);
+	cvec_d(&vecd, 0, 10);
+	cvec_str(&vecstr, 0, 10);
+	cvec_void(&vecvoid, 0, 10, sizeof(long double), NULL, NULL);
 
 
 
@@ -28,10 +28,10 @@ int main(int argc, char** argv)
 	//functionality testing is done in vector_tests.h
 	//and vector_tests2.h
 
-	free_vec_i(&veci);
-	free_vec_d(&vecd);
-	free_vec_str(&vecstr);
-	free_vec_void(&vecvoid);
+	cvec_free_i(&veci);
+	cvec_free_d(&vecd);
+	cvec_free_str(&vecstr);
+	cvec_free_void(&vecvoid);
 
 
 
