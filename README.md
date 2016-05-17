@@ -3,7 +3,7 @@ CVECTOR
 [![Build Status](https://travis-ci.org/rswinkle/CVector.svg?branch=master)](https://travis-ci.org/rswinkle/CVector)
 [![Contact me on Codementor](https://cdn.codementor.io/badges/contact_me_github.svg)](https://www.codementor.io/rswinkle)
 
-[http://www.robertwinkler.com/projects/cvector.html](http://www.robertwinkler.com/projects/cvector.html)
+[http://www.robertwinkler.com/CVector/](http://www.robertwinkler.com/CVector/)
 
 This is a relatively simple ANSI compliant C vector library with specific structures and
 functions for int's, double's and string's and support for all other types
@@ -53,7 +53,7 @@ how to add it to the testing.
 
 Building
 ========
-I use premake so the command on linux is premake5 gmake which
+I use [premake](http://premake.github.io/) so the command on linux is premake5 gmake which
 will generate a build directory.  cd into that and run make
 or make config=release.  I have not tried it on windows though
 it should work (well I'm not sure about CUnit ...).
@@ -102,7 +102,7 @@ behave, look at vector_tests.c
 
 Documentation
 =============
-The Doxygen generated html docs are [online here](http://www.robertwinkler.com/projects/cvector/index.html)
+The Doxygen generated html docs are [online here](http://www.robertwinkler.com/CVector/docs/)
 
 
 LICENSE
