@@ -15,15 +15,15 @@ will call destructors and copy constructors.
 
 Other modifiable parameters are at the top of vector.c
 
-	size_t VEC_I_START_SZ = 50;
-	size_t VEC_D_START_SZ = 50;
-	size_t VEC_VOID_START_SZ = 20;
-	size_t VEC_STR_START_SZ = 20;
+	size_t CVEC_I_START_SZ = 50;
+	size_t CVEC_D_START_SZ = 50;
+	size_t CVEC_STR_START_SZ = 20;
+	size_t CVEC_VOID_START_SZ = 20;
 
-	#define VEC_I_ALLOCATOR(x) ((x) * 2)
-	#define VEC_D_ALLOCATOR(x) ((x) * 2)
-	#define VEC_STR_ALLOCATOR(x) ((x) * 2)
-	#define VEC_VOID_ALLOCATOR(x) ((x) * 2)
+	#define CVEC_I_ALLOCATOR(x) ((x) * 2)
+	#define CVEC_D_ALLOCATOR(x) ((x) * 2)
+	#define CVEC_STR_ALLOCATOR(x) ((x) * 2)
+	#define CVEC_VOID_ALLOCATOR(x) ((x) * 2)
 
 The allocator macros are used in all functions that increase the size by 1.
 In others (constructors, insert_array, reserve) VEC_X_START_SZ is the amount
@@ -53,7 +53,7 @@ how to add it to the testing.
 
 Building
 ========
-I use premake so the command on linux is premake4 gmake which
+I use premake so the command on linux is premake5 gmake which
 will generate a build directory.  cd into that and run make
 or make config=release.  I have not tried it on windows though
 it should work (well I'm not sure about CUnit ...).
@@ -64,16 +64,16 @@ There is no output of any kind, no errors or warnings.
 It has been relatively well tested using Cunit tests which all pass.
 I've also run it under valgrind and there are no memory leaks.
 
-	valgrind --leak-check=yes ./vector
-	
-	==17650== 
-	==17650== HEAP SUMMARY:
-	==17650==     in use at exit: 0 bytes in 0 blocks
-	==17650==   total heap usage: 5,146 allocs, 5,146 frees, 936,924 bytes allocated
-	==17650== 
-	==17650== All heap blocks were freed -- no leaks are possible
-	==17650== 
-	==17650== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+	valgrind --leak-check=full -v ./vector
+	==35463== 
+	==35463== HEAP SUMMARY:
+	==35463==     in use at exit: 0 bytes in 0 blocks
+	==35463==   total heap usage: 6,285 allocs, 6,285 frees, 996,013 bytes allocated
+	==35463== 
+	==35463== All heap blocks were freed -- no leaks are possible
+	==35463== 
+	==35463== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+	==35463== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
 
 
@@ -102,7 +102,7 @@ behave, look at vector_tests.c
 
 Documentation
 =============
-The Doxygen generated html docs are in doc.tar.gz and [online here](http://www.robertwinkler.com/projects/cvector/index.html)
+The Doxygen generated html docs are [online here](http://www.robertwinkler.com/projects/cvector/index.html)
 
 
 LICENSE

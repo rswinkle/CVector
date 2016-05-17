@@ -17,7 +17,7 @@ typedef struct vector_d
 	size_t capacity;   /**< Allocated size of array; always >= size. */
 } vector_d;
 
-extern size_t VEC_D_START_SZ;
+extern size_t CVEC_D_START_SZ;
 
 
 int cvec_d(vector_d* vec, size_t size, size_t capacity);

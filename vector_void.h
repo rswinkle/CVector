@@ -22,7 +22,7 @@ typedef struct vector_void
 	void (*elem_free)(void*);
 } vector_void;
 
-extern size_t VEC_VOID_START_SZ;
+extern size_t CVEC_VOID_START_SZ;
 
 #define GET_VOID(VEC, TYPE, I) ((TYPE*)&(VEC)->a[(I)*(VEC)->elem_size])
 

@@ -4,9 +4,9 @@
 
 
 
-size_t VEC_I_START_SZ = 50;
+size_t CVEC_I_START_SZ = 50;
 
-#define VEC_I_ALLOCATOR(x) ((x) * 2)
+#define CVEC_I_ALLOCATOR(x) ((x) * 2)
 
 
 
@@ -14,7 +14,7 @@ size_t VEC_I_START_SZ = 50;
 /**
  * Creates a new vector_i on the heap.
  * Vector size set to (size > 0) ? size : 0;
- * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ
+ * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_I_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
  */
 vector_i* cvec_i_heap(size_t size, size_t capacity)
@@ -26,7 +26,7 @@ vector_i* cvec_i_heap(size_t size, size_t capacity)
 	}
 
 	vec->size = size;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_I_START_SZ;
 
 	if (!(vec->a = (int*)malloc(vec->capacity*sizeof(int)))) {
 		assert(vec->a != NULL);
@@ -38,7 +38,7 @@ vector_i* cvec_i_heap(size_t size, size_t capacity)
 }
 
 /** Create (on the heap) and initialize vector_i with num elements of vals.
- *  Capacity is set to num + VEC_I_START_SZ.
+ *  Capacity is set to num + CVEC_I_START_SZ.
  */
 vector_i* cvec_init_i_heap(int* vals, size_t num)
 {
@@ -49,7 +49,7 @@ vector_i* cvec_init_i_heap(int* vals, size_t num)
 		return NULL;
 	}
 
-	vec->capacity = num + VEC_I_START_SZ;
+	vec->capacity = num + CVEC_I_START_SZ;
 	vec->size = num;
 	if (!(vec->a = (int*)malloc(vec->capacity*sizeof(int)))) {
 		assert(vec->a != NULL);
@@ -69,7 +69,7 @@ vector_i* cvec_init_i_heap(int* vals, size_t num)
 int cvec_i(vector_i* vec, size_t size, size_t capacity)
 {
 	vec->size = size;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_I_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_I_START_SZ;
 
 	if (!(vec->a = (int*)malloc(vec->capacity*sizeof(int)))) {
 		assert(vec->a != NULL);
@@ -86,7 +86,7 @@ int cvec_i(vector_i* vec, size_t size, size_t capacity)
  */
 int cvec_init_i(vector_i* vec, int* vals, size_t num)
 {
-	vec->capacity = num + VEC_I_START_SZ;
+	vec->capacity = num + CVEC_I_START_SZ;
 	vec->size = num;
 	if (!(vec->a = (int*)malloc(vec->capacity*sizeof(int)))) {
 		assert(vec->a != NULL);
@@ -138,7 +138,7 @@ int cvec_push_i(vector_i* vec, int a)
 	int* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VEC_I_ALLOCATOR(vec->capacity);
+		tmp_sz = CVEC_I_ALLOCATOR(vec->capacity);
 		if (!(tmp = (int*)realloc(vec->a, sizeof(int)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -174,7 +174,7 @@ int cvec_extend_i(vector_i* vec, size_t num)
 	int* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VEC_I_START_SZ;
+		tmp_sz = vec->capacity + num + CVEC_I_START_SZ;
 		if (!(tmp = (int*)realloc(vec->a, sizeof(int)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -199,7 +199,7 @@ int cvec_insert_i(vector_i* vec, size_t i, int a)
 	int* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VEC_I_ALLOCATOR(vec->capacity);
+		tmp_sz = CVEC_I_ALLOCATOR(vec->capacity);
 		if (!(tmp = (int*)realloc(vec->a, sizeof(int)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -226,7 +226,7 @@ int cvec_insert_array_i(vector_i* vec, size_t i, int* a, size_t num)
 	int* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VEC_I_START_SZ;
+		tmp_sz = vec->capacity + num + CVEC_I_START_SZ;
 		if (!(tmp = (int*)realloc(vec->a, sizeof(int)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -269,12 +269,12 @@ int cvec_reserve_i(vector_i* vec, size_t size)
 {
 	int* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = (int*)realloc(vec->a, sizeof(int)*(size+VEC_I_START_SZ)))) {
+		if (!(tmp = (int*)realloc(vec->a, sizeof(int)*(size+CVEC_I_START_SZ)))) {
 			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
-		vec->capacity = size + VEC_I_START_SZ;
+		vec->capacity = size + CVEC_I_START_SZ;
 	}
 	return 1;
 }

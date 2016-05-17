@@ -4,9 +4,9 @@
 
 
 
-size_t VEC_STR_START_SZ = 20;
+size_t CVEC_STR_START_SZ = 20;
 
-#define VEC_STR_ALLOCATOR(x) ((x) * 2)
+#define CVEC_STR_ALLOCATOR(x) ((x) * 2)
 
 /** Useful utility function since strdup isn't in standard C.*/
 char* mystrdup(const char* str)
@@ -26,7 +26,7 @@ char* mystrdup(const char* str)
 /**
  * Create a new vector_str on the heap.
  * Vector size set to (size > 0) ? size : 0;
- * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ
+ * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_STR_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
  * Note: vector_str does not copy pointers passed in but duplicates the strings
  * they point to (using mystrdup()) so you don't have to worry about freeing
@@ -42,7 +42,7 @@ vector_str* cvec_str_heap(size_t size, size_t capacity)
 	}
 
 	vec->size = size;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_STR_START_SZ;
 
 	/* calloc here because if we free before poppirg/erasing and since nothing is
 	 * allocated these need to be NULL to not cause problems */
@@ -68,7 +68,7 @@ vector_str* cvec_init_str_heap(char** vals, size_t num)
 		return NULL;
 	}
 
-	vec->capacity = num + VEC_STR_START_SZ;
+	vec->capacity = num + CVEC_STR_START_SZ;
 	vec->size = num;
 	if (!(vec->a = (char**)malloc(vec->capacity*sizeof(char*)))) {
 		assert(vec->a != NULL);
@@ -91,7 +91,7 @@ vector_str* cvec_init_str_heap(char** vals, size_t num)
 int cvec_str(vector_str* vec, size_t size, size_t capacity)
 {
 	vec->size = size;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_STR_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_STR_START_SZ;
 
 	/* (char**)calloc here because if we free before popping/erasing and since nothing is
 	 * allocated these need to be NULL to not cause problems */
@@ -111,7 +111,7 @@ int cvec_init_str(vector_str* vec, char** vals, size_t num)
 {
 	size_t i;
 	
-	vec->capacity = num + VEC_STR_START_SZ;
+	vec->capacity = num + CVEC_STR_START_SZ;
 	vec->size = num;
 	if (!(vec->a = (char**)malloc(vec->capacity*sizeof(char*)))) {
 		assert(vec->a != NULL);
@@ -167,7 +167,7 @@ int cvec_push_str(vector_str* vec, char* a)
 	char** tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VEC_STR_ALLOCATOR(vec->capacity);
+		tmp_sz = CVEC_STR_ALLOCATOR(vec->capacity);
 		if (!(tmp = (char**)realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -210,7 +210,7 @@ int cvec_extend_str(vector_str* vec, size_t num)
 	char** tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VEC_STR_START_SZ;
+		tmp_sz = vec->capacity + num + CVEC_STR_START_SZ;
 		if (!(tmp = (char**)realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -236,7 +236,7 @@ int cvec_insert_str(vector_str* vec, size_t i, char* a)
 	char** tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VEC_STR_ALLOCATOR(vec->capacity);
+		tmp_sz = CVEC_STR_ALLOCATOR(vec->capacity);
 		if (!(tmp = (char**)realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -262,7 +262,7 @@ int cvec_insert_array_str(vector_str* vec, size_t i, char** a, size_t num)
 	char** tmp;
 	size_t tmp_sz, j;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VEC_STR_START_SZ;
+		tmp_sz = vec->capacity + num + CVEC_STR_START_SZ;
 		if (!(tmp = (char**)realloc(vec->a, sizeof(char*)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -319,12 +319,12 @@ int cvec_reserve_str(vector_str* vec, size_t size)
 {
 	char** tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = (char**)realloc(vec->a, sizeof(char*)*(size+VEC_STR_START_SZ)))) {
+		if (!(tmp = (char**)realloc(vec->a, sizeof(char*)*(size+CVEC_STR_START_SZ)))) {
 			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
-		vec->capacity = size + VEC_STR_START_SZ;
+		vec->capacity = size + CVEC_STR_START_SZ;
 	}
 	return 1;
 }

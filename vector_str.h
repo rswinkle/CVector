@@ -18,7 +18,7 @@ typedef struct vector_str
 } vector_str;
 
 
-extern size_t VEC_STR_START_SZ;
+extern size_t CVEC_STR_START_SZ;
 
 char* mystrdup(const char* str);
 

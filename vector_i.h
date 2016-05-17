@@ -18,7 +18,7 @@ typedef struct vector_i
 } vector_i;
 
 
-extern size_t VEC_I_START_SZ;
+extern size_t CVEC_I_START_SZ;
 
 
 int cvec_i(vector_i* vec, size_t size, size_t capacity);

@@ -4,10 +4,10 @@
 
 
 
-size_t VEC_D_START_SZ = 50;
+size_t CVEC_D_START_SZ = 50;
 
 
-#define VEC_D_ALLOCATOR(x) ((x) * 2)
+#define CVEC_D_ALLOCATOR(x) ((x) * 2)
 
 
 
@@ -15,7 +15,7 @@ size_t VEC_D_START_SZ = 50;
 /**
  * Creates a new vector_d on the heap.
  * Vector size set to (size > 0) ? size : 0;
- * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ
+ * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_D_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
  */
 vector_d* cvec_d_heap(size_t size, size_t capacity)
@@ -28,7 +28,7 @@ vector_d* cvec_d_heap(size_t size, size_t capacity)
 	}
 
 	vec->size = size;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_D_START_SZ;
 
 	if (!(vec->a = (double*)malloc(vec->capacity*sizeof(double)))) {
 		assert(vec->a != NULL);
@@ -41,7 +41,7 @@ vector_d* cvec_d_heap(size_t size, size_t capacity)
 
 
 /** Create (on the heap) and initialize vector_d with num elements of vals.
- *  Capacity is set to num + VEC_D_START_SZ.
+ *  Capacity is set to num + CVEC_D_START_SZ.
  */
 vector_d* cvec_init_d_heap(double* vals, size_t num)
 {
@@ -52,7 +52,7 @@ vector_d* cvec_init_d_heap(double* vals, size_t num)
 		return NULL;
 	}
 
-	vec->capacity = num + VEC_D_START_SZ;
+	vec->capacity = num + CVEC_D_START_SZ;
 	vec->size = num;
 	if (!(vec->a = (double*)malloc(vec->capacity*sizeof(double)))) {
 		assert(vec->a != NULL);
@@ -73,7 +73,7 @@ vector_d* cvec_init_d_heap(double* vals, size_t num)
 int cvec_d(vector_d* vec, size_t size, size_t capacity)
 {
 	vec->size = size;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_D_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_D_START_SZ;
 
 	if (!(vec->a = (double*)malloc(vec->capacity*sizeof(double)))) {
 		assert(vec->a != NULL);
@@ -89,7 +89,7 @@ int cvec_d(vector_d* vec, size_t size, size_t capacity)
  */
 int cvec_init_d(vector_d* vec, double* vals, size_t num)
 {
-	vec->capacity = num + VEC_D_START_SZ;
+	vec->capacity = num + CVEC_D_START_SZ;
 	vec->size = num;
 	if (!(vec->a = (double*)malloc(vec->capacity*sizeof(double)))) {
 		assert(vec->a != NULL);
@@ -141,7 +141,7 @@ int cvec_push_d(vector_d* vec, double a)
 	double* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VEC_D_ALLOCATOR(vec->capacity);
+		tmp_sz = CVEC_D_ALLOCATOR(vec->capacity);
 		if (!(tmp = (double*)realloc(vec->a, sizeof(double)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -177,7 +177,7 @@ int cvec_extend_d(vector_d* vec, size_t num)
 	double* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VEC_D_START_SZ;
+		tmp_sz = vec->capacity + num + CVEC_D_START_SZ;
 		if (!(tmp = (double*)realloc(vec->a, sizeof(double)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -202,7 +202,7 @@ int cvec_insert_d(vector_d* vec, size_t i, double a)
 	double* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VEC_D_ALLOCATOR(vec->capacity);
+		tmp_sz = CVEC_D_ALLOCATOR(vec->capacity);
 		if (!(tmp = (double*)realloc(vec->a, sizeof(double)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -228,7 +228,7 @@ int cvec_insert_array_d(vector_d* vec, size_t i, double* a, size_t num)
 	double* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VEC_D_START_SZ;
+		tmp_sz = vec->capacity + num + CVEC_D_START_SZ;
 		if (!(tmp = (double*)realloc(vec->a, sizeof(double)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -270,12 +270,12 @@ int cvec_reserve_d(vector_d* vec, size_t size)
 {
 	double* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = (double*)realloc(vec->a, sizeof(double)*(size+VEC_D_START_SZ)))) {
+		if (!(tmp = (double*)realloc(vec->a, sizeof(double)*(size+CVEC_D_START_SZ)))) {
 			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
-		vec->capacity = size + VEC_D_START_SZ;
+		vec->capacity = size + CVEC_D_START_SZ;
 	}
 	return 1;
 }

@@ -3,10 +3,10 @@
 #include <assert.h>
 
 
-size_t VEC_VOID_START_SZ = 20;
+size_t CVEC_VOID_START_SZ = 20;
 
 
-#define VEC_VOID_ALLOCATOR(x) ((x) * 2)
+#define CVEC_VOID_ALLOCATOR(x) ((x) * 2)
 
 
 
@@ -16,7 +16,7 @@ size_t VEC_VOID_START_SZ = 20;
 /**
  * Creates a new vector on the heap.
  * Vector size set to (size > 0) ? size : 0;
- * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_VOID_START_SZ
+ * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_VOID_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
  * elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  * You can pass in a function, elem_free, to be called on every element before it is removed
@@ -46,7 +46,7 @@ vector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*
 	}
 
 	vec->size = size;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_VOID_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_VOID_START_SZ;
 
 	vec->elem_size = elem_sz;
 	
@@ -81,7 +81,7 @@ vector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*e
 
 	vec->elem_size = elem_sz;
 
-	vec->capacity = num + VEC_VOID_START_SZ;
+	vec->capacity = num + CVEC_VOID_START_SZ;
 	vec->size = num;
 	if (!(vec->a = (byte*)malloc(vec->capacity*elem_sz))) {
 		assert(vec->a != NULL);
@@ -109,7 +109,7 @@ vector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*e
 int cvec_void(vector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	vec->size = size;
-	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + VEC_VOID_START_SZ;
+	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_VOID_START_SZ;
 
 	vec->elem_size = elem_sz;
 	
@@ -134,7 +134,7 @@ int cvec_init_void(vector_void* vec, void* vals, size_t num, size_t elem_sz, voi
 	
 	vec->elem_size = elem_sz;
 
-	vec->capacity = num + VEC_VOID_START_SZ;
+	vec->capacity = num + CVEC_VOID_START_SZ;
 	vec->size = num;
 	if (!(vec->a = (byte*)malloc(vec->capacity*elem_sz))) {
 		assert(vec->a != NULL);
@@ -204,7 +204,7 @@ int cvec_push_void(vector_void* vec, void* a)
 	byte* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VEC_VOID_ALLOCATOR(vec->capacity);
+		tmp_sz = CVEC_VOID_ALLOCATOR(vec->capacity);
 		if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -255,7 +255,7 @@ int cvec_extend_void(vector_void* vec, size_t num)
 	byte* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VEC_VOID_START_SZ;
+		tmp_sz = vec->capacity + num + CVEC_VOID_START_SZ;
 		if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -290,7 +290,7 @@ int cvec_insert_void(vector_void* vec, size_t i, void* a)
 	byte* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
-		tmp_sz = VEC_VOID_ALLOCATOR(vec->capacity);
+		tmp_sz = CVEC_VOID_ALLOCATOR(vec->capacity);
 		if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -323,7 +323,7 @@ int cvec_insert_array_void(vector_void* vec, size_t i, void* a, size_t num)
 	byte* tmp;
 	size_t tmp_sz, j;
 	if (vec->capacity < vec->size + num) {
-		tmp_sz = vec->capacity + num + VEC_VOID_START_SZ;
+		tmp_sz = vec->capacity + num + CVEC_VOID_START_SZ;
 		if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
@@ -378,12 +378,12 @@ int cvec_reserve_void(vector_void* vec, size_t size)
 {
 	byte* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*(size+VEC_VOID_START_SZ)))) {
+		if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*(size+CVEC_VOID_START_SZ)))) {
 			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
-		vec->capacity = size + VEC_VOID_START_SZ;
+		vec->capacity = size + CVEC_VOID_START_SZ;
 	}
 	return 1;
 }
@@ -531,15 +531,15 @@ will call destructors.
 
 Other modifiable parameters are at the top of vector_*.c
 <pre>
-size_t VEC_I_START_SZ = 50;
-size_t VEC_D_START_SZ = 50;
-size_t VEC_VOID_START_SZ = 20;
-size_t VEC_STR_START_SZ = 20;
+size_t CVEC_I_START_SZ = 50;
+size_t CVEC_D_START_SZ = 50;
+size_t CVEC_STR_START_SZ = 20;
+size_t CVEC_VOID_START_SZ = 20;
 
-#define VEC_I_ALLOCATOR(x) ((x) * 2)
-#define VEC_D_ALLOCATOR(x) ((x) * 2)
-#define VEC_STR_ALLOCATOR(x) ((x) * 2)
-#define VEC_VOID_ALLOCATOR(x) ((x) * 2)
+#define CVEC_I_ALLOCATOR(x) ((x) * 2)
+#define CVEC_D_ALLOCATOR(x) ((x) * 2)
+#define CVEC_STR_ALLOCATOR(x) ((x) * 2)
+#define CVEC_VOID_ALLOCATOR(x) ((x) * 2)
 </pre>
 The allocator macros are used in all functions that increase the size by 1.
 In others (constructors, insert_array, reserve) VEC_X_START_SZ is the amount
@@ -595,9 +595,8 @@ just makes sense.
 
 
 \section Building
-I use premake so the command on linux is premake4 gmake which
-will generate a build directory.  cd into that and run make
-or make config=release.  I have not tried it on windows though
+I use premake to generate the make files in the build directory.  The command is premake5 gmake.
+cd into build and run make or make config=release.  I have not tried it on windows though
 it should work (well I'm not sure about CUnit ...).
 
 There is no output of any kind, no errors or warnings.
@@ -609,14 +608,15 @@ I've also run it under valgrind and there are no memory leaks.
 <pre>
 valgrind --leak-check=full -v ./vector
 
-==17650== 
-==17650== HEAP SUMMARY:
-==17650==     in use at exit: 0 bytes in 0 blocks
-==17650==   total heap usage: 5,146 allocs, 5,146 frees, 936,924 bytes allocated
-==17650== 
-==17650== All heap blocks were freed -- no leaks are possible
-==17650== 
-==17650== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==35463== 
+==35463== HEAP SUMMARY:
+==35463==     in use at exit: 0 bytes in 0 blocks
+==35463==   total heap usage: 6,285 allocs, 6,285 frees, 996,013 bytes allocated
+==35463== 
+==35463== All heap blocks were freed -- no leaks are possible
+==35463== 
+==35463== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==35463== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 </pre>
 
 You can probably get Cunit from your package manager but
