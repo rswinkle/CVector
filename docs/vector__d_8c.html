@@ -97,8 +97,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a024a194564bd2419ca1ac75e3cdec3e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__d_8c.html#a024a194564bd2419ca1ac75e3cdec3e8">VEC_D_ALLOCATOR</a>(x)&#160;&#160;&#160;((x) * 2)</td></tr>
-<tr class="separator:a024a194564bd2419ca1ac75e3cdec3e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8fb90dc7cfcf6456fc114b469454711"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__d_8c.html#ac8fb90dc7cfcf6456fc114b469454711">CVEC_D_ALLOCATOR</a>(x)&#160;&#160;&#160;((x) * 2)</td></tr>
+<tr class="separator:ac8fb90dc7cfcf6456fc114b469454711"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -165,16 +165,16 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a57df2435a35a69bca888700984b749d6"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__d_8c.html#a57df2435a35a69bca888700984b749d6">VEC_D_START_SZ</a> = 50</td></tr>
-<tr class="separator:a57df2435a35a69bca888700984b749d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba653acae98447e4e5acf28f034f092"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__d_8c.html#a4ba653acae98447e4e5acf28f034f092">CVEC_D_START_SZ</a> = 50</td></tr>
+<tr class="separator:a4ba653acae98447e4e5acf28f034f092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a024a194564bd2419ca1ac75e3cdec3e8"></a>
+<a class="anchor" id="ac8fb90dc7cfcf6456fc114b469454711"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define VEC_D_ALLOCATOR</td>
+          <td class="memname">#define CVEC_D_ALLOCATOR</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">x</td><td>)</td>
@@ -321,7 +321,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates a new <a class="el" href="structvector__d.html" title="Data structure for double vector. ">vector_d</a> on the heap. </p>
-<p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + VEC_D_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. </p>
+<p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + CVEC_D_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. </p>
 
 <p>Definition at line <a class="el" href="vector__d_8c_source.html#l00021">21</a> of file <a class="el" href="vector__d_8c_source.html">vector_d.c</a>.</p>
 
@@ -497,7 +497,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Create (on the heap) and initialize <a class="el" href="structvector__d.html" title="Data structure for double vector. ">vector_d</a> with num elements of vals. </p>
-<p>Capacity is set to num + VEC_D_START_SZ. </p>
+<p>Capacity is set to num + CVEC_D_START_SZ. </p>
 
 <p>Definition at line <a class="el" href="vector__d_8c_source.html#l00046">46</a> of file <a class="el" href="vector__d_8c_source.html">vector_d.c</a>.</p>
 
@@ -792,12 +792,12 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a57df2435a35a69bca888700984b749d6"></a>
+<a class="anchor" id="a4ba653acae98447e4e5acf28f034f092"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t VEC_D_START_SZ = 50</td>
+          <td class="memname">size_t CVEC_D_START_SZ = 50</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -809,7 +809,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 17 2016 11:13:08 for CVector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 17 2016 14:12:42 for CVector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

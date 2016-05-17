@@ -167,8 +167,8 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a57df2435a35a69bca888700984b749d6"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__d_8h.html#a57df2435a35a69bca888700984b749d6">VEC_D_START_SZ</a></td></tr>
-<tr class="separator:a57df2435a35a69bca888700984b749d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba653acae98447e4e5acf28f034f092"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__d_8h.html#a4ba653acae98447e4e5acf28f034f092">CVEC_D_START_SZ</a></td></tr>
+<tr class="separator:a4ba653acae98447e4e5acf28f034f092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="ad99c267c28dd569dc4fda42a5322f5cc"></a>
@@ -304,7 +304,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates a new <a class="el" href="structvector__d.html" title="Data structure for double vector. ">vector_d</a> on the heap. </p>
-<p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + VEC_D_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. </p>
+<p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + CVEC_D_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. </p>
 
 <p>Definition at line <a class="el" href="vector__d_8c_source.html#l00021">21</a> of file <a class="el" href="vector__d_8c_source.html">vector_d.c</a>.</p>
 
@@ -480,7 +480,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Create (on the heap) and initialize <a class="el" href="structvector__d.html" title="Data structure for double vector. ">vector_d</a> with num elements of vals. </p>
-<p>Capacity is set to num + VEC_D_START_SZ. </p>
+<p>Capacity is set to num + CVEC_D_START_SZ. </p>
 
 <p>Definition at line <a class="el" href="vector__d_8c_source.html#l00046">46</a> of file <a class="el" href="vector__d_8c_source.html">vector_d.c</a>.</p>
 
@@ -775,12 +775,12 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a57df2435a35a69bca888700984b749d6"></a>
+<a class="anchor" id="a4ba653acae98447e4e5acf28f034f092"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t VEC_D_START_SZ</td>
+          <td class="memname">size_t CVEC_D_START_SZ</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -792,7 +792,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 17 2016 11:13:08 for CVector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 17 2016 14:12:42 for CVector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

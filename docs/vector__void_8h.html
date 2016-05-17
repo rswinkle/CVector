@@ -182,8 +182,8 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:adaf6c119232f4ba4ce2acb0a8e1dd01e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__void_8h.html#adaf6c119232f4ba4ce2acb0a8e1dd01e">VEC_VOID_START_SZ</a></td></tr>
-<tr class="separator:adaf6c119232f4ba4ce2acb0a8e1dd01e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e9cf03ca9fb02ad5f9e4814188739d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__void_8h.html#ab3e9cf03ca9fb02ad5f9e4814188739d">CVEC_VOID_START_SZ</a></td></tr>
+<tr class="separator:ab3e9cf03ca9fb02ad5f9e4814188739d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="ae33134515b733eb93542bc5f50c7fe86"></a>
@@ -955,7 +955,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates a new vector on the heap. </p>
-<p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + VEC_VOID_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ). You can pass in a function, elem_free, to be called on every element before it is removed from the vector to free any dynamically allocated memory. For example if you passed in sizeof(char*) for elem_sz, and wrappers around the standard free(void*) function for elem_free and strdup (or mystrdup in this project) for elem_init you could make vector work exactly like vector_s. Pass in NULL, to not use the function parameters.</p>
+<p>Vector size set to (size &gt; 0) ? size : 0; Capacity to (capacity &gt; vec-&gt;size || (vec-&gt;size &amp;&amp; capacity == vec-&gt;size)) ? capacity : vec-&gt;size + CVEC_VOID_START_SZ in other words capacity has to be at least 1 and &gt;= to vec-&gt;size of course. elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ). You can pass in a function, elem_free, to be called on every element before it is removed from the vector to free any dynamically allocated memory. For example if you passed in sizeof(char*) for elem_sz, and wrappers around the standard free(void*) function for elem_free and strdup (or mystrdup in this project) for elem_init you could make vector work exactly like vector_s. Pass in NULL, to not use the function parameters.</p>
 <p>All functions call elem_free before overwriting/popping/erasing elements if elem_free is provided.</p>
 <p>elem_init is only used in set_val_sz and set_val_cap because in those cases you are setting many elements to a single "value" and using the elem_init functionality you can provide what amounts to a copy constructor which duplicates dynamically allocated memory instead of just copying the pointer ie just like strdup or mystrdup does with a string. This allows the free function to work correctly when called on all those elements. If you didn't provide an elem_init function but did provide a free function, then after calling one of the set_val functions, eventually the free function would be called on all those elements and you'd get a double free or corruption error.</p>
 <p>See the other functions and the tests for more behavioral/usage details. </p>
@@ -965,12 +965,12 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="adaf6c119232f4ba4ce2acb0a8e1dd01e"></a>
+<a class="anchor" id="ab3e9cf03ca9fb02ad5f9e4814188739d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t VEC_VOID_START_SZ</td>
+          <td class="memname">size_t CVEC_VOID_START_SZ</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -982,7 +982,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 17 2016 11:13:08 for CVector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 17 2016 14:12:42 for CVector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

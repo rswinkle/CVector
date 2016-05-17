@@ -84,13 +84,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Intro</h1>
 <p>This is a relatively simple ANSI compliant C vector library with specific structures and functions for int's, double's and string's and support for all other types using a generic structure where the type is passed in as void* and stored in a byte array (to avoid dereferencing void* warnings and frequent casting) . The generic vector is very flexible and allows you to provide free and init functions if you like that it will call at appropriate times similar to the way C++ containers will call destructors.</p>
 <p>Other modifiable parameters are at the top of vector_*.c </p><pre>
-size_t VEC_I_START_SZ = 50;
-size_t VEC_D_START_SZ = 50;
-size_t VEC_VOID_START_SZ = 20;
-size_t VEC_STR_START_SZ = 20;</pre><pre>#define <a class="el" href="vector__i_8c.html#a6d9a8fd1aaa4a8df09d79da016a5c5aa">VEC_I_ALLOCATOR(x)</a> ((x) * 2)
-#define <a class="el" href="vector__d_8c.html#a024a194564bd2419ca1ac75e3cdec3e8">VEC_D_ALLOCATOR(x)</a> ((x) * 2)
-#define <a class="el" href="vector__str_8c.html#ac6b46abc3594994ede1811c5268fa72f">VEC_STR_ALLOCATOR(x)</a> ((x) * 2)
-#define <a class="el" href="vector__void_8c.html#a6f86fe931c02dfbb3d901d2f5e5ec969">VEC_VOID_ALLOCATOR(x)</a> ((x) * 2)
+size_t CVEC_I_START_SZ = 50;
+size_t CVEC_D_START_SZ = 50;
+size_t CVEC_STR_START_SZ = 20;
+size_t CVEC_VOID_START_SZ = 20;</pre><pre>#define <a class="el" href="vector__i_8c.html#a1c3b4d9cc9c546a4cc52ad391f4d8e6e">CVEC_I_ALLOCATOR(x)</a> ((x) * 2)
+#define <a class="el" href="vector__d_8c.html#ac8fb90dc7cfcf6456fc114b469454711">CVEC_D_ALLOCATOR(x)</a> ((x) * 2)
+#define <a class="el" href="vector__str_8c.html#ad52d33ab8f1a1f6293838122272fef45">CVEC_STR_ALLOCATOR(x)</a> ((x) * 2)
+#define <a class="el" href="vector__void_8c.html#a216578f1df3db043455ff44621713ba7">CVEC_VOID_ALLOCATOR(x)</a> ((x) * 2)
 </pre><p> The allocator macros are used in all functions that increase the size by 1. In others (constructors, insert_array, reserve) VEC_X_START_SZ is the amount extra allocated.</p>
 <p>There are also 2 templates, one for basic types and one for types that contain dynamically allocated memory and you might want a free and/or init function. In other words the first template is based off <a class="el" href="structvector__i.html" title="Data structure for int vector. ">vector_i</a> and the second is based off of <a class="el" href="structvector__void.html" title="Data structure for generic type (cast to void) vectors. ">vector_void</a>, so look at the corresponding documentation for behavior. There are actually 2 varieties of each template, one all-in-one header variety that works like <a class="el" href="cvector_8h.html">cvector.h</a>, and the other generates a matching c/h pair.</p>
 <p>They are located in <a class="el" href="vector__template_8h.html">vector_template.h</a>, <a class="el" href="vector__template2_8h.html">vector_template2.h</a>, <a class="el" href="vector__template3_8c.html">vector_template3.c</a>/h and <a class="el" href="vector__template4_8c.html">vector_template4.c</a>/h.</p>
@@ -135,7 +135,7 @@ LICENSE</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 17 2016 11:13:08 for CVector by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 17 2016 14:12:42 for CVector by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
