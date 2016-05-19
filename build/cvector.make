@@ -65,8 +65,8 @@ all: $(TARGETDIR) $(OBJDIR) prebuild prelink $(TARGET)
 endif
 
 OBJECTS := \
+	$(OBJDIR)/cvector_tests.o \
 	$(OBJDIR)/main.o \
-	$(OBJDIR)/vector_tests.o \
 
 RESOURCES := \
 
@@ -124,10 +124,10 @@ $(GCH): $(PCH)
 	$(SILENT) $(CC) -x c-header $(ALL_CFLAGS) -o "$@" -MF "$(@:%.gch=%.d)" -c "$<"
 endif
 
-$(OBJDIR)/main.o: ../main.c
+$(OBJDIR)/cvector_tests.o: ../cvector_tests.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/vector_tests.o: ../vector_tests.c
+$(OBJDIR)/main.o: ../main.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(ALL_CFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 

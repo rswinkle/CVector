@@ -8,10 +8,14 @@ solution "CVector"
 		location "build"
 		kind "ConsoleApp"
 		language "C"
-		files { "*.h", "*.c" }
-		excludes
+		files
 		{
-			"vector_template*", "cvector.h", "vector_tests2.c"
+			"main.c",
+			"cvector_tests.c",
+			"cvector_i.c",
+			"cvector_d.c",
+			"cvector_str.c",
+			"cvector_void.c"
 		}
 --      libdirs { }
 		links { "cunit" }
@@ -37,7 +41,7 @@ solution "CVector"
 		files
 		{
 			  "main.c",
-			  "vector_tests.c",
+			  "cvector_tests.c",
 			  "cvector.h",
 			  "vector_short.h",
 			  "vector_f_struct.h"
@@ -68,10 +72,10 @@ solution "CVector"
 		files
 		{
 			"main.cpp",
-			"vector_i.c",
-			"vector_d.c",
-			"vector_str.c",
-			"vector_void.c",
+			"cvector_i.c",
+			"cvector_d.c",
+			"cvector_str.c",
+			"cvector_void.c",
 			"vector_f_struct.h",
 			"vector_short.h"
 		}

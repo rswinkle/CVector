@@ -11,10 +11,10 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-	vector_i veci;
-	vector_d vecd;
-	vector_str vecstr;
-	vector_void vecvoid;
+	cvector_i veci;
+	cvector_d vecd;
+	cvector_str vecstr;
+	cvector_void vecvoid;
 
 
 	cvec_i(&veci, 0, 10);

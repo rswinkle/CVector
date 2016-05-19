@@ -26,10 +26,10 @@ def get_header(filename):
 	return header_text[start:end]
 
 
-cvector_str += get_header("vector_i.h")
-cvector_str += get_header("vector_d.h")
-cvector_str += get_header("vector_str.h")
-cvector_str += get_header("vector_void.h")
+cvector_str += get_header("cvector_i.h")
+cvector_str += get_header("cvector_d.h")
+cvector_str += get_header("cvector_str.h")
+cvector_str += get_header("cvector_void.h")
 
 
 cvector_str += """
@@ -49,10 +49,10 @@ def get_c_file(filename):
 	c_text = open(filename).read()
 	return c_text[c_text.find("size_t"):]
 
-cvector_str += get_c_file("vector_i.c")
-cvector_str += get_c_file("vector_d.c")
-cvector_str += get_c_file("vector_str.c")
-cvector_str += get_c_file("vector_void.c")
+cvector_str += get_c_file("cvector_i.c")
+cvector_str += get_c_file("cvector_d.c")
+cvector_str += get_c_file("cvector_str.c")
+cvector_str += get_c_file("cvector_void.c")
 
 cvector_str += """
 #endif

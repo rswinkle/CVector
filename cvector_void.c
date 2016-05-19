@@ -1,4 +1,4 @@
-#include "vector_void.h"
+#include "cvector_void.h"
 
 #include <assert.h>
 
@@ -37,10 +37,10 @@ size_t CVEC_VOID_START_SZ = 20;
  *
  * See the other functions and the tests for more behavioral/usage details.
  */
-vector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
-	vector_void* vec;
-	if (!(vec = (vector_void*)malloc(sizeof(vector_void)))) {
+	cvector_void* vec;
+	if (!(vec = (cvector_void*)malloc(sizeof(cvector_void)))) {
 		assert(vec != NULL);
 		return NULL;
 	}
@@ -69,12 +69,12 @@ vector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*
  *  elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  *  See cvec_void_heap() for more information about the elem_free and elem_init parameters.
  */
-vector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
-	vector_void* vec;
+	cvector_void* vec;
 	size_t i;
 	
-	if (!(vec = (vector_void*)malloc(sizeof(vector_void)))) {
+	if (!(vec = (cvector_void*)malloc(sizeof(cvector_void)))) {
 		assert(vec != NULL);
 		return NULL;
 	}
@@ -106,7 +106,7 @@ vector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*e
 /** Same as cvec_void_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_void in that case
  */
-int cvec_void(vector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+int cvec_void(cvector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_VOID_START_SZ;
@@ -128,7 +128,7 @@ int cvec_void(vector_void* vec, size_t size, size_t capacity, size_t elem_sz, vo
 /** Same as init_vec_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_void in this case
  */
-int cvec_init_void(vector_void* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	size_t i;
 	
@@ -168,8 +168,8 @@ int cvec_init_void(vector_void* vec, void* vals, size_t num, size_t elem_sz, voi
 void cvec_void_copy(void* dest, void* src)
 {
 	size_t i;
-	vector_void* vec1 = (vector_void*)dest;
-	vector_void* vec2 = (vector_void*)src;
+	cvector_void* vec1 = (cvector_void*)dest;
+	cvector_void* vec2 = (cvector_void*)src;
 	
 	vec1->size = 0;
 	vec1->capacity = 0;
@@ -199,7 +199,7 @@ void cvec_void_copy(void* dest, void* src)
 /** Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
  */
-int cvec_push_void(vector_void* vec, void* a)
+int cvec_push_void(cvector_void* vec, void* a)
 {
 	byte* tmp;
 	size_t tmp_sz;
@@ -228,7 +228,7 @@ int cvec_push_void(vector_void* vec, void* a)
  * that ret is not NULL and is large accept the element and just memmove's it in.
  * Similar to pop_backs it is users responsibility.
  */
-void cvec_pop_void(vector_void* vec, void* ret)
+void cvec_pop_void(cvector_void* vec, void* ret)
 {
 	vec->size--;
 	if (ret) {
@@ -240,7 +240,7 @@ void cvec_pop_void(vector_void* vec, void* ret)
 }
 
 /** Return pointer to last element */
-void* cvec_back_void(vector_void* vec)
+void* cvec_back_void(cvector_void* vec)
 {
 	return &vec->a[(vec->size-1)*vec->elem_size];
 }
@@ -250,7 +250,7 @@ void* cvec_back_void(vector_void* vec)
 
 /** Increase the size of the array num items.  Items
  *  are not initialized to anything! */
-int cvec_extend_void(vector_void* vec, size_t num)
+int cvec_extend_void(cvector_void* vec, size_t num)
 {
 	byte* tmp;
 	size_t tmp_sz;
@@ -274,7 +274,7 @@ int cvec_extend_void(vector_void* vec, size_t num)
   * is a macro like this one
   * #define GET_ELEMENT(X,Y,TYPE) ((TYPE*)&X.a[Y*X.elem_size])
 */
-void* cvec_get_void(vector_void* vec, size_t i)
+void* cvec_get_void(cvector_void* vec, size_t i)
 {
 	return &vec->a[i*vec->elem_size];
 }
@@ -285,7 +285,7 @@ void* cvec_get_void(vector_void* vec, size_t i)
  * Insert a at index i (0 based).
  * Everything from that index and right is shifted one to the right.
  */
-int cvec_insert_void(vector_void* vec, size_t i, void* a)
+int cvec_insert_void(cvector_void* vec, size_t i, void* a)
 {
 	byte* tmp;
 	size_t tmp_sz;
@@ -318,7 +318,7 @@ int cvec_insert_void(vector_void* vec, size_t i, void* a)
  * so don't try to insert part of the vector array into itself
  * (that would require memmove)
  */
-int cvec_insert_array_void(vector_void* vec, size_t i, void* a, size_t num)
+int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 {
 	byte* tmp;
 	size_t tmp_sz, j;
@@ -347,7 +347,7 @@ int cvec_insert_array_void(vector_void* vec, size_t i, void* a, size_t num)
 /**
  * Replace value at i with a, return old value in ret if non-NULL.
  */
-void cvec_replace_void(vector_void* vec, size_t i, void* a, void* ret)
+void cvec_replace_void(cvector_void* vec, size_t i, void* a, void* ret)
 {
 	if (ret)
 		memmove(ret, &vec->a[i*vec->elem_size], vec->elem_size);
@@ -359,7 +359,7 @@ void cvec_replace_void(vector_void* vec, size_t i, void* a, void* ret)
  * Example cvec_erase_void(myvec, 1, 3) would free (if an elem_free function was provided) and remove elements at 1, 2, and 3 and the element
  * that was at index 4 would now be at 1 etc.
  */
-void cvec_erase_void(vector_void* vec, size_t start, size_t end)
+void cvec_erase_void(cvector_void* vec, size_t start, size_t end)
 {
 	size_t i;
 	size_t d = end - start + 1;
@@ -374,7 +374,7 @@ void cvec_erase_void(vector_void* vec, size_t start, size_t end)
 
 
 /** Makes sure capacity >= size (the parameter not the member). */
-int cvec_reserve_void(vector_void* vec, size_t size)
+int cvec_reserve_void(cvector_void* vec, size_t size)
 {
 	byte* tmp;
 	if (vec->capacity < size) {
@@ -393,7 +393,7 @@ int cvec_reserve_void(vector_void* vec, size_t size)
  * You will lose data if you shrink the capacity below the current size.
  * If you do, the size will be set to capacity of course.
 */
-int cvec_set_cap_void(vector_void* vec, size_t size)
+int cvec_set_cap_void(cvector_void* vec, size_t size)
 {
 	size_t i;
 	byte* tmp;
@@ -419,7 +419,7 @@ int cvec_set_cap_void(vector_void* vec, size_t size)
 
 
 /** Set all size elements to val. */
-void cvec_set_val_sz_void(vector_void* vec, void* val)
+void cvec_set_val_sz_void(cvector_void* vec, void* val)
 {
 	size_t i;
 
@@ -446,7 +446,7 @@ void cvec_set_val_sz_void(vector_void* vec, void* val)
  * that the free function needs to be called on those elements.
  * TODO Remove this function?  Same reason as set_val_caps.
  */
-void cvec_set_val_cap_void(vector_void* vec, void* val)
+void cvec_set_val_cap_void(cvector_void* vec, void* val)
 {
 	size_t i;
 	if (vec->elem_free) {
@@ -470,7 +470,7 @@ void cvec_set_val_cap_void(vector_void* vec, void* val)
 
 /** Sets size to 0 (does not change contents unless elem_free is set
  *  then it will free all size elements as in vector_s). */
-void cvec_clear_void(vector_void* vec)
+void cvec_clear_void(cvector_void* vec)
 {
 	size_t i;
 	if (vec->elem_free) {
@@ -487,7 +487,7 @@ void cvec_clear_void(vector_void* vec)
 void cvec_free_void_heap(void* vec)
 {
 	size_t i;
-	vector_void* tmp = (vector_void*)vec;
+	cvector_void* tmp = (cvector_void*)vec;
 	if (tmp->elem_free) {
 		for (i=0; i<tmp->size; i++) {
 			tmp->elem_free(&tmp->a[i*tmp->elem_size]);
@@ -502,7 +502,7 @@ void cvec_free_void_heap(void* vec)
 void cvec_free_void(void* vec)
 {
 	size_t i;
-	vector_void* tmp = (vector_void*)vec;
+	cvector_void* tmp = (cvector_void*)vec;
 	if (tmp->elem_free) {
 		for (i=0; i<tmp->size; i++) {
 			tmp->elem_free(&tmp->a[i*tmp->elem_size]);
@@ -542,14 +542,14 @@ size_t CVEC_VOID_START_SZ = 20;
 #define CVEC_VOID_ALLOCATOR(x) ((x) * 2)
 </pre>
 The allocator macros are used in all functions that increase the size by 1.
-In others (constructors, insert_array, reserve) VEC_X_START_SZ is the amount
+In others (constructors, insert_array, reserve) CVEC_X_START_SZ is the amount
 extra allocated.
 
 
 There are also 2 templates, one for basic types and one for types that contain
 dynamically allocated memory and you might want a free and/or init function.
-In other words the first template is based off vector_i and the second is based
-off of vector_void, so look at the corresponding documentation for behavior.
+In other words the first template is based off cvector_i and the second is based
+off of cvector_void, so look at the corresponding documentation for behavior.
 There are actually 2 varieties of each template, one all-in-one header variety that works
 like cvector.h, and the other generates a matching c/h pair.
 

@@ -6,7 +6,7 @@
 #define VECTOR_f_struct_IMPLEMENTATION
 #include "vector_f_struct.h"
 
-#include "vector_all.h"
+#include "cvector_all.h"
 
 #include <iostream>
 
@@ -34,10 +34,10 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-	vector_i veci;
-	vector_d vecd;
-	vector_str vecstr;
-	vector_void vecvoid;
+	cvector_i veci;
+	cvector_d vecd;
+	cvector_str vecstr;
+	cvector_void vecvoid;
 
 	vector_short vshort;
 	vector_f_struct vf_struct;

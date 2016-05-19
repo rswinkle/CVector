@@ -53,7 +53,7 @@ extern void template_test2();
 
 
 
-CU_TestInfo vector_i_tests[] = {
+CU_TestInfo cvector_i_tests[] = {
 	{ "push_i_test",           push_i_test },
 	{ "erase_i_test",          erase_i_test },
 	{ "insert_i_test",         insert_i_test },
@@ -66,7 +66,7 @@ CU_TestInfo vector_i_tests[] = {
 	CU_TEST_INFO_NULL
 };
 
-CU_TestInfo vector_d_tests[] = {
+CU_TestInfo cvector_d_tests[] = {
 	{ "push_d_test",           push_d_test },
 	{ "erase_d_test",          erase_d_test },
 	{ "insert_d_test",         insert_d_test },
@@ -79,7 +79,7 @@ CU_TestInfo vector_d_tests[] = {
 	CU_TEST_INFO_NULL
 };
 
-CU_TestInfo vector_s_tests[] = {
+CU_TestInfo cvector_s_tests[] = {
 	{ "push_str_test",           push_str_test },
 	{ "erase_str_test",          erase_str_test },
 	{ "insert_str_test",         insert_str_test },
@@ -93,7 +93,7 @@ CU_TestInfo vector_s_tests[] = {
 };
 
 
-CU_TestInfo vector_tests[] = {
+CU_TestInfo cvector_void_tests[] = {
 	{ "push_test",                 push_void_test },
 	{ "erase_test",                erase_void_test },
 	{ "insert_test",               insert_void_test },
@@ -117,17 +117,17 @@ CU_TestInfo template_tests[] = {
 
 CU_SuiteInfo vector_suites[] = {
 #ifndef OLD_CUNIT
-	{ "vector_i",   NULL, NULL, NULL, NULL, vector_i_tests },
-	{ "vector_d",   NULL, NULL, NULL, NULL, vector_d_tests },
-	{ "vector_str", NULL, NULL, NULL, NULL, vector_s_tests },
-	{ "vector",     NULL, NULL, NULL, NULL, vector_tests   },
-	{ "template",   NULL, NULL, NULL, NULL, template_tests },
+	{ "cvector_i",     NULL, NULL, NULL, NULL, cvector_i_tests },
+	{ "cvector_d",     NULL, NULL, NULL, NULL, cvector_d_tests },
+	{ "cvector_str",   NULL, NULL, NULL, NULL, cvector_s_tests },
+	{ "cvector_void",  NULL, NULL, NULL, NULL, cvector_void_tests },
+	{ "template",      NULL, NULL, NULL, NULL, template_tests },
 #else
-	{ "vector_i",   NULL, NULL, vector_i_tests },
-	{ "vector_d",   NULL, NULL, vector_d_tests },
-	{ "vector_str", NULL, NULL, vector_s_tests },
-	{ "vector",     NULL, NULL, vector_tests   },
-	{ "template",   NULL, NULL, template_tests },
+	{ "cvector_i",     NULL, NULL, vector_i_tests },
+	{ "cvector_d",     NULL, NULL, vector_d_tests },
+	{ "cvector_str",   NULL, NULL, vector_s_tests },
+	{ "cvector_void",  NULL, NULL, vector_void_tests },
+	{ "template",      NULL, NULL, template_tests },
 #endif
 	CU_SUITE_INFO_NULL
 };
