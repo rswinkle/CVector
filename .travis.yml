@@ -5,5 +5,8 @@ compiler:
 
 install: sudo apt-get install libcunit1-dev
 
-script: cd build/ && make CFLAGS=-DOLD_CUNIT verbose=1
+script:
+    - cd build/
+    - make CFLAGS=-DOLD_CUNIT verbose=1
+    - grep FAILED CUnitAutomated-Results.xml | xargs -I {} [ "{}" = "<FAILED> 0 </FAILED> " ]
 
