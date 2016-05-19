@@ -27,7 +27,7 @@ void push_i_test()
 	vector_i vec;
 	cvec_i(&vec, 0, 0);
 
-	CU_ASSERT_EQUAL(CVEC_I_START_SZ+1, vec.capacity);
+	CU_ASSERT_EQUAL(CVEC_I_START_SZ, vec.capacity);
 	CU_ASSERT_EQUAL(0, vec.size);
 
 	for (i=0; i<100; i++)
