@@ -9,10 +9,10 @@
 #ifdef DO_TEMPLATE_TEST
 /*replace with or add your own generated file and edit the template test*/
 
-#define VECTOR_short_IMPLEMENTATION
-#define VECTOR_f_struct_IMPLEMENTATION
-#include "vector_short.h"
-#include "vector_f_struct.h"
+#define CVECTOR_short_IMPLEMENTATION
+#define CVECTOR_f_struct_IMPLEMENTATION
+#include "cvector_short.h"
+#include "cvector_f_struct.h"
 #endif
 
 #include "test_types.h"
@@ -1328,22 +1328,22 @@ void template_test()
 {
 #ifdef DO_TEMPLATE_TEST
 	int i;
-	vector_short vec;
+	cvector_short vec;
 
-	vec_short(&vec, 0, 0);
+	cvec_short(&vec, 0, 0);
 
-	CU_ASSERT_EQUAL(VEC_short_SZ, vec.capacity);
+	CU_ASSERT_EQUAL(CVEC_short_SZ, vec.capacity);
 	CU_ASSERT_EQUAL(0, vec.size);
 
 	for (i=0; i<100; i++)
-		push_short(&vec, i);
+		cvec_push_short(&vec, i);
 
 	CU_ASSERT_EQUAL(100, vec.size);
 
 	for (i=0; i<vec.size; i++)
 		CU_ASSERT_EQUAL(i, vec.a[i]);
 
-	free_vec_short(&vec);
+	cvec_free_short(&vec);
 #endif
 }
 
@@ -1353,19 +1353,19 @@ void template_test2()
 	int i;
 	char buffer[50];
 	f_struct temp;
-	vector_f_struct vec;
+	cvector_f_struct vec;
 
-	vec_f_struct(&vec, 20, 0, free_f_struct, init_f_struct);
+	cvec_f_struct(&vec, 20, 0, free_f_struct, init_f_struct);
 
 	CU_ASSERT_EQUAL(vec.size, 20);
-	CU_ASSERT_EQUAL(vec.capacity, 20+VEC_f_struct_SZ);
+	CU_ASSERT_EQUAL(vec.capacity, 20+CVEC_f_struct_SZ);
 
 	for (i=0; i<vec.size; ++i)
 		vec.a[i].word = mystrdup("hello");
 
 	temp = mk_f_struct(42.5, 42, "hello");
 
-	set_val_sz_f_struct(&vec, &temp);
+	cvec_set_val_sz_f_struct(&vec, &temp);
 
 	free_f_struct(&temp);
 
@@ -1377,14 +1377,14 @@ void template_test2()
 
 	temp = mk_f_struct(25.5, 25, "goodbye");
 
-	set_val_cap_f_struct(&vec, &temp);
+	cvec_set_val_cap_f_struct(&vec, &temp);
 
 	free_f_struct(&temp);
 
 	/*difference here between having a free function and not
 	if yes then size is set to capacity by set_val_cap. */
 	CU_ASSERT_EQUAL(vec.size, vec.capacity);
-	CU_ASSERT_EQUAL(vec.capacity, 20+VEC_f_struct_SZ);
+	CU_ASSERT_EQUAL(vec.capacity, 20+CVEC_f_struct_SZ);
 
 
 	for (i=0; i<vec.capacity; i++) {
@@ -1393,16 +1393,16 @@ void template_test2()
 		CU_ASSERT_STRING_EQUAL(vec.a[i].word, "goodbye");
 	}
 
-	free_vec_f_struct(&vec);
+	cvec_free_f_struct(&vec);
 
-	vec_f_struct(&vec, 0, 0, free_f_struct, NULL);
-	CU_ASSERT_EQUAL(vec.capacity, VEC_f_struct_SZ);
+	cvec_f_struct(&vec, 0, 0, free_f_struct, NULL);
+	CU_ASSERT_EQUAL(vec.capacity, CVEC_f_struct_SZ);
 
 	for (i=0; i<100; i++) {
 		sprintf(buffer, "%d", i);
 		temp = mk_f_struct(i, i, buffer);
 
-		push_f_struct(&vec, &temp);
+		cvec_push_f_struct(&vec, &temp);
 	}
 
 	CU_ASSERT_EQUAL(100, vec.size);
@@ -1416,7 +1416,7 @@ void template_test2()
 
 	for (i=vec.size-1; i >= 10; i--) {
 		sprintf(buffer, "%d", i);
-		pop_f_struct(&vec, &temp);
+		cvec_pop_f_struct(&vec, &temp);
 
 		CU_ASSERT_EQUAL(temp.d, i );
 		CU_ASSERT_EQUAL(temp.i, i );
@@ -1426,7 +1426,7 @@ void template_test2()
 
 	CU_ASSERT_EQUAL(10, vec.size);
 
-	free_vec_f_struct(&vec);
+	cvec_free_f_struct(&vec);
 
 #endif
 }

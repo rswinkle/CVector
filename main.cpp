@@ -1,10 +1,10 @@
 
 
-#define VECTOR_short_IMPLEMENTATION
-#include "vector_short.h"
+#define CVECTOR_short_IMPLEMENTATION
+#include "cvector_short.h"
 
-#define VECTOR_f_struct_IMPLEMENTATION
-#include "vector_f_struct.h"
+#define CVECTOR_f_struct_IMPLEMENTATION
+#include "cvector_f_struct.h"
 
 #include "cvector_all.h"
 
@@ -39,8 +39,8 @@ int main(int argc, char** argv)
 	cvector_str vecstr;
 	cvector_void vecvoid;
 
-	vector_short vshort;
-	vector_f_struct vf_struct;
+	cvector_short vshort;
+	cvector_f_struct vf_struct;
 
 	cvec_i(&veci, 0, 10);
 	cvec_d(&vecd, 0, 10);
@@ -48,8 +48,8 @@ int main(int argc, char** argv)
 	cvec_void(&vecvoid, 0, 10, sizeof(long double), NULL, NULL);
 
 
-	vec_short(&vshort, 0, 10);
-	vec_f_struct(&vf_struct, 0, 10, free_f_struct, init_f_struct);
+	cvec_short(&vshort, 0, 10);
+	cvec_f_struct(&vf_struct, 0, 10, free_f_struct, init_f_struct);
 
 
 
@@ -62,8 +62,8 @@ int main(int argc, char** argv)
 	cvec_free_str(&vecstr);
 	cvec_free_void(&vecvoid);
 
-	free_vec_short(&vshort);
-	free_vec_f_struct(&vf_struct);
+	cvec_free_short(&vshort);
+	cvec_free_f_struct(&vf_struct);
 
 
 	return 0;

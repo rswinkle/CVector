@@ -43,8 +43,8 @@ solution "CVector"
 			  "main.c",
 			  "cvector_tests.c",
 			  "cvector.h",
-			  "vector_short.h",
-			  "vector_f_struct.h"
+			  "cvector_short.h",
+			  "cvector_f_struct.h"
 		}
 		--excludes { "vector_template.*", "vector_tests.c" }
 		--libdirs { }
@@ -76,8 +76,8 @@ solution "CVector"
 			"cvector_d.c",
 			"cvector_str.c",
 			"cvector_void.c",
-			"vector_f_struct.h",
-			"vector_short.h"
+			"cvector_f_struct.h",
+			"cvector_short.h"
 		}
 		--excludes { }
 		--libdirs { }
