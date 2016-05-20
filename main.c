@@ -123,10 +123,10 @@ CU_SuiteInfo vector_suites[] = {
 	{ "cvector_void",  NULL, NULL, NULL, NULL, cvector_void_tests },
 	{ "template",      NULL, NULL, NULL, NULL, template_tests },
 #else
-	{ "cvector_i",     NULL, NULL, vector_i_tests },
-	{ "cvector_d",     NULL, NULL, vector_d_tests },
-	{ "cvector_str",   NULL, NULL, vector_s_tests },
-	{ "cvector_void",  NULL, NULL, vector_void_tests },
+	{ "cvector_i",     NULL, NULL, cvector_i_tests },
+	{ "cvector_d",     NULL, NULL, cvector_d_tests },
+	{ "cvector_str",   NULL, NULL, cvector_s_tests },
+	{ "cvector_void",  NULL, NULL, cvector_void_tests },
 	{ "template",      NULL, NULL, template_tests },
 #endif
 	CU_SUITE_INFO_NULL
