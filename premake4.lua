@@ -15,7 +15,9 @@ solution "CVector"
 			"cvector_i.c",
 			"cvector_d.c",
 			"cvector_str.c",
-			"cvector_void.c"
+			"cvector_void.c",
+			"cvector_short.h",
+			"cvector_f_struct.h"
 		}
 --      libdirs { }
 		links { "cunit" }
