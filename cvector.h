@@ -153,7 +153,7 @@ typedef struct cvector_void
 
 extern size_t CVEC_VOID_START_SZ;
 
-#define GET_VOID(VEC, TYPE, I) ((TYPE*)&(VEC)->a[(I)*(VEC)->elem_size])
+#define CVEC_GET_VOID(VEC, TYPE, I) ((TYPE*)&(VEC)->a[(I)*(VEC)->elem_size])
 
 int cvec_void(cvector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
 int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
@@ -1819,7 +1819,7 @@ The generic vector is very flexible and allows you to provide free and init func
 if you like that it will call at appropriate times similar to the way C++ containers
 will call destructors.
 
-Other modifiable parameters are at the top of vector_*.c
+Other modifiable parameters are at the top of the respective cvector.c's
 <pre>
 size_t CVEC_I_START_SZ = 50;
 size_t CVEC_D_START_SZ = 50;
@@ -1840,11 +1840,8 @@ There are also 2 templates, one for basic types and one for types that contain
 dynamically allocated memory and you might want a free and/or init function.
 In other words the first template is based off cvector_i and the second is based
 off of cvector_void, so look at the corresponding documentation for behavior.
-There are actually 2 varieties of each template, one all-in-one header variety that works
-like cvector.h, and the other generates a matching c/h pair.
 
-They are located in vector_template.h, vector_template2.h, vector_template3.c/h and
-vector_template4.c/h.
+They are located in cvector_template.h, cvector_template2.h.
 
 To generate your own vector files for a type just run:
 <pre>
@@ -1854,7 +1851,7 @@ python3 generate_code.py yourtype
 which will generate the results for all templates so just delete the ones
 you don't want.
 
-vector_short and vector_f_struct are examples of the process and
+cvector_short and cvector_f_struct are examples of the process and
 how to add it to the testing.
 
 
@@ -1922,7 +1919,7 @@ I'm using version 2.1-3.
 To actually use the library just copy the appropriate c/h file pair(s) to your project
 or just use cvector.h.
 To get a good idea of how to use the library and see it in action and how it should
-behave, look at vector_tests.c
+behave, look at cvector_tests.c
 
 \section LICENSE
 CVector is licensed under the MIT License.

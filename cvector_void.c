@@ -629,7 +629,7 @@ I'm using version 2.1-3.
 To actually use the library just copy the appropriate c/h file pair(s) to your project
 or just use cvector.h.
 To get a good idea of how to use the library and see it in action and how it should
-behave, look at vector_tests.c
+behave, look at cvector_tests.c
 
 \section LICENSE
 CVector is licensed under the MIT License.
