@@ -9,13 +9,32 @@
 #ifdef DO_TEMPLATE_TEST
 /*replace with or add your own generated file and edit the template test*/
 
+/*
 #define CVECTOR_short_IMPLEMENTATION
 #define CVECTOR_f_struct_IMPLEMENTATION
 #include "cvector_short.h"
 #include "cvector_f_struct.h"
+*/
+
 #endif
 
 #include "test_types.h"
+
+#define DO_MACRO_TEST 1
+#ifdef DO_MACRO_TEST
+
+#include "cvector_macro.c"
+
+#define RESIZE(a) ((a)*2)
+
+CVEC_NEW_DECLS(short)
+CVEC_NEW_DECLS2(f_struct)
+
+#include <assert.h>
+CVEC_NEW_DEFS(short, RESIZE)
+CVEC_NEW_DEFS2(f_struct, RESIZE)
+
+#endif
 
 #include <CUnit/Automated.h>
 
