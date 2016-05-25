@@ -1,9 +1,15 @@
+sudo: false
 language: c
 compiler:
   - gcc
   - clang
 
-install: sudo apt-get install libcunit1-dev
+addons:
+  apt:
+    sources:
+    packages:
+      - libcunit1-dev
+
 
 script:
     - cd build/
