@@ -18,7 +18,7 @@ char* mystrdup(const char* str)
 		return NULL;
 	}
 	
-	return (char*)memcpy(temp, str, len);  /* memcpy returns to, and (char**)calloc already nulled last char */
+	return (char*)memmove(temp, str, len);  /* memmove returns to, and (char**)calloc already nulled last char */
 }
 
 

@@ -94,7 +94,7 @@ cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*
 			elem_init(&vec->a[i*elem_sz], &((byte*)vals)[i*elem_sz]);
 		}
 	} else {
-		memcpy(vec->a, vals, elem_sz*num);
+		memmove(vec->a, vals, elem_sz*num);
 	}
 	
 	vec->elem_free = elem_free;
@@ -147,7 +147,7 @@ int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, vo
 			elem_init(&vec->a[i*elem_sz], &((byte*)vals)[i*elem_sz]);
 		}
 	} else {
-		memcpy(vec->a, vals, elem_sz*num);
+		memmove(vec->a, vals, elem_sz*num);
 	}
 
 	vec->elem_free = elem_free;
@@ -191,7 +191,7 @@ void cvec_void_copy(void* dest, void* src)
 			vec1->elem_init(&vec1->a[i*vec1->elem_size], &vec2->a[i*vec1->elem_size]);
 		}
 	} else {
-		memcpy(vec1->a, vec2->a, vec1->size*vec1->elem_size);
+		memmove(vec1->a, vec2->a, vec1->size*vec1->elem_size);
 	}
 }
 
@@ -314,7 +314,7 @@ int cvec_insert_void(cvector_void* vec, size_t i, void* a)
 /**
  * Insert the first num elements of array a at index i.
  * Note that it is the user's responsibility to pass in val_id
- * arguments.  Also memcpy is used (when there is no elem_init function)
+ * arguments.  Also memmove is used (when there is no elem_init function)
  * so don't try to insert part of the vector array into itself
  * (that would require memmove)
  */
@@ -338,7 +338,7 @@ int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 			vec->elem_init(&vec->a[(j+i)*vec->elem_size], &((byte*)a)[j*vec->elem_size]);
 		}
 	} else {
-		memcpy(&vec->a[i*vec->elem_size], a, num*vec->elem_size);
+		memmove(&vec->a[i*vec->elem_size], a, num*vec->elem_size);
 	}
 	vec->size += num;
 	return 1;

@@ -101,7 +101,7 @@ cvector_short* cvec_init_short_heap(short* vals, size_t num)
 		return NULL;
 	}
 
-	memcpy(vec->a, vals, sizeof(short)*num);
+	memmove(vec->a, vals, sizeof(short)*num);
 
 	return vec;
 }
@@ -130,7 +130,7 @@ int cvec_init_short(cvector_short* vec, short* vals, size_t num)
 		return 0;
 	}
 
-	memcpy(vec->a, vals, sizeof(short)*num);
+	memmove(vec->a, vals, sizeof(short)*num);
 
 	return 1;
 }
@@ -149,7 +149,7 @@ void cvec_short_copy(void* dest, void* src)
 		return;
 	}
 	
-	memcpy(vec1->a, vec2->a, vec2->size*sizeof(short));
+	memmove(vec1->a, vec2->a, vec2->size*sizeof(short));
 	vec1->size = vec2->size;
 	vec1->capacity = vec2->capacity;
 }
@@ -240,7 +240,7 @@ int cvec_insert_array_short(cvector_short* vec, size_t i, short* a, size_t num)
 	}
 
 	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(short));
-	memcpy(&vec->a[i], a, num*sizeof(short));
+	memmove(&vec->a[i], a, num*sizeof(short));
 	vec->size += num;
 	return 1;
 }

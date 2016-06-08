@@ -60,7 +60,7 @@ cvector_d* cvec_init_d_heap(double* vals, size_t num)
 		return NULL;
 	}
 
-	memcpy(vec->a, vals, sizeof(double)*num);
+	memmove(vec->a, vals, sizeof(double)*num);
 
 	return vec;
 }
@@ -97,7 +97,7 @@ int cvec_init_d(cvector_d* vec, double* vals, size_t num)
 		return 0;
 	}
 
-	memcpy(vec->a, vals, sizeof(double)*num);
+	memmove(vec->a, vals, sizeof(double)*num);
 
 	return 1;
 }
@@ -122,7 +122,7 @@ void cvec_d_copy(void* dest, void* src)
 		return;
 	}
 	
-	memcpy(vec1->a, vec2->a, vec2->size*sizeof(double));
+	memmove(vec1->a, vec2->a, vec2->size*sizeof(double));
 	vec1->size = vec2->size;
 	vec1->capacity = vec2->capacity;
 }
@@ -220,7 +220,7 @@ int cvec_insert_d(cvector_d* vec, size_t i, double a)
 /**
  * Insert the first num elements of array a at index i.
  * Note that it is the user's responsibility to pass in valid
- * arguments.  Also memcpy is used so don't try to insert
+ * arguments.  Also memmove is used so don't try to insert
  * part of the vector array into itself (that would require memmove)
  */
 int cvec_insert_array_d(cvector_d* vec, size_t i, double* a, size_t num)
@@ -238,7 +238,7 @@ int cvec_insert_array_d(cvector_d* vec, size_t i, double* a, size_t num)
 	}
 
 	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(double));
-	memcpy(&vec->a[i], a, num*sizeof(double));
+	memmove(&vec->a[i], a, num*sizeof(double));
 	vec->size += num;
 	return 1;
 }
