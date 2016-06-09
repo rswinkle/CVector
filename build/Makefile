@@ -11,40 +11,24 @@ ifndef verbose
 endif
 
 ifeq ($(config),debug)
-  vector_config = debug
   cvector_config = debug
-  vectorcpp_config = debug
   cvectorcpp_config = debug
 endif
 ifeq ($(config),release)
-  vector_config = release
   cvector_config = release
-  vectorcpp_config = release
   cvectorcpp_config = release
 endif
 
-PROJECTS := vector cvector vectorcpp cvectorcpp
+PROJECTS := cvector cvectorcpp
 
 .PHONY: all clean help $(PROJECTS) 
 
 all: $(PROJECTS)
 
-vector:
-ifneq (,$(vector_config))
-	@echo "==== Building vector ($(vector_config)) ===="
-	@${MAKE} --no-print-directory -C . -f vector.make config=$(vector_config)
-endif
-
 cvector:
 ifneq (,$(cvector_config))
 	@echo "==== Building cvector ($(cvector_config)) ===="
 	@${MAKE} --no-print-directory -C . -f cvector.make config=$(cvector_config)
-endif
-
-vectorcpp:
-ifneq (,$(vectorcpp_config))
-	@echo "==== Building vectorcpp ($(vectorcpp_config)) ===="
-	@${MAKE} --no-print-directory -C . -f vectorcpp.make config=$(vectorcpp_config)
 endif
 
 cvectorcpp:
@@ -54,9 +38,7 @@ ifneq (,$(cvectorcpp_config))
 endif
 
 clean:
-	@${MAKE} --no-print-directory -C . -f vector.make clean
 	@${MAKE} --no-print-directory -C . -f cvector.make clean
-	@${MAKE} --no-print-directory -C . -f vectorcpp.make clean
 	@${MAKE} --no-print-directory -C . -f cvectorcpp.make clean
 
 help:
@@ -69,9 +51,7 @@ help:
 	@echo "TARGETS:"
 	@echo "   all (default)"
 	@echo "   clean"
-	@echo "   vector"
 	@echo "   cvector"
-	@echo "   vectorcpp"
 	@echo "   cvectorcpp"
 	@echo ""
 	@echo "For more information, see http://industriousone.com/premake/quick-start"

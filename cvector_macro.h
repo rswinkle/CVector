@@ -1,14 +1,16 @@
+#ifndef CVECTOR_MACRO_H
+#define CVECTOR_MACRO_H
+
+/* size_t, malloc/realloc/free */
+#include <stdlib.h>
+/* memmove */
+#include <string.h>
+/* assert */
+#include <assert.h>
 
 /*
- * User has to include necessary headers and optionally wrap
- * with extern "C"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+ User can optionally wrap CVEC_NEW_DECLS(2) with extern "C"
+ since it's not part of the macro
 */
 
 #define CVEC_NEW_DECLS(TYPE)                                                   \
@@ -48,11 +50,7 @@ extern "C" {
   void cvec_free_##TYPE##_heap(void *vec);                                     \
   void cvec_free_##TYPE(void *vec);
 
-/*
-#ifdef __cplusplus
-}
-#endif
-*/
+
 
 #define CVEC_NEW_DEFS(TYPE, RESIZE_MACRO)                                      \
   size_t CVEC_##TYPE##_SZ = 50;                                                \
@@ -746,3 +744,4 @@ extern "C" {
     tmp->capacity = 0;                                                         \
   }
 
+#endif

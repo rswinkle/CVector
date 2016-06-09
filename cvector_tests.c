@@ -1,9 +1,5 @@
-#ifdef TESTING_CVECTOR_H
-	#define CVECTOR_IMPLEMENTATION
-	#include "cvector.h"
-#else
-	#include "cvector_all.h"
-#endif
+#define CVECTOR_IMPLEMENTATION
+#include "cvector.h"
 
 #define DO_TEMPLATE_TEST 1
 #ifdef DO_TEMPLATE_TEST
@@ -23,14 +19,13 @@
 #define DO_MACRO_TEST 1
 #ifdef DO_MACRO_TEST
 
-#include "cvector_macro.c"
+/* #include "cvector_macro.h" */
 
 #define RESIZE(a) ((a)*2)
 
 CVEC_NEW_DECLS(short)
 CVEC_NEW_DECLS2(f_struct)
 
-#include <assert.h>
 CVEC_NEW_DEFS(short, RESIZE)
 CVEC_NEW_DEFS2(f_struct, RESIZE)
 

@@ -31,11 +31,17 @@ cvector_str += get_header("cvector_d.h")
 cvector_str += get_header("cvector_str.h")
 cvector_str += get_header("cvector_void.h")
 
-
 cvector_str += """
 #ifdef __cplusplus
 }
 #endif
+
+
+"""
+
+cvector_str += open("cvector_macro.h").read()
+
+cvector_str += """
 
 /* header ends */
 #endif
