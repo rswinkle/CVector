@@ -371,8 +371,8 @@ void cvec_set_val_sz_str(cvector_str* vec, char* val)
 
 /** Fills entire allocated array (capacity) with val.  Size is set
  * to capacity in this case because strings are individually dynamically allocated.
- * This is different from vector_i, vector_d and vector (without a free function) where the size stays the same.
-   TODO  Remove this function?  even more unnecessary than for vector_i and vector_d and different behavior*/
+ * This is different from cvector_i, cvector_d and cvector_void (without a free function) where the size stays the same.
+   TODO  Remove this function?  even more unnecessary than for cvector_i and cvector_d and different behavior*/
 void cvec_set_val_cap_str(cvector_str* vec, char* val)
 {
 	size_t i;
