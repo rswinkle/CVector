@@ -32,6 +32,7 @@ CVEC_NEW_DEFS2(f_struct, RESIZE)
 #endif
 
 #include <CUnit/Automated.h>
+#include <stdio.h>
 
 
 /* cvector_i tests */
