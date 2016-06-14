@@ -121,7 +121,7 @@ cvector_TYPE* cvec_init_TYPE_heap(TYPE* vals, size_t num, void(*elem_free)(void*
 			elem_init(&vec->a[i], &vals[i]);
 		}
 	} else {
-		memcpy(vec->a, vals, sizeof(TYPE)*num);
+		memmove(vec->a, vals, sizeof(TYPE)*num);
 	}
 	
 	vec->elem_free = elem_free;
@@ -164,7 +164,7 @@ int cvec_init_TYPE(cvector_TYPE* vec, TYPE* vals, size_t num, void(*elem_free)(v
 			elem_init(&vec->a[i], &vals[i]);
 		}
 	} else {
-		memcpy(vec->a, vals, sizeof(TYPE)*num);
+		memmove(vec->a, vals, sizeof(TYPE)*num);
 	}
 
 	vec->elem_free = elem_free;
@@ -199,35 +199,27 @@ void cvec_TYPE_copy(void* dest, void* src)
 			vec1->elem_init(&vec1->a[i], &vec2->a[i]);
 		}
 	} else {
-		memcpy(vec1->a, vec2->a, vec1->size*sizeof(TYPE));
+		memmove(vec1->a, vec2->a, vec1->size*sizeof(TYPE));
 	}
 }
 
 int cvec_push_TYPE(cvector_TYPE* vec, TYPE* a)
 {
-	TYPE* tmp;
+	byte* tmp;
 	size_t tmp_sz;
-	if (vec->capacity > vec->size) {
-		if (vec->elem_init) {
-			vec->elem_init(&vec->a[vec->size], a);
-		} else {
-			memcpy(&vec->a[vec->size], a, sizeof(TYPE));
-		}
-	} else {
+	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_TYPE_ALLOCATOR(vec->capacity);
 		if (!(tmp = (TYPE*)realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
 			assert(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
-		
-		if (vec->elem_init) {
-			vec->elem_init(&vec->a[vec->size], a);
-		} else {
-			memcpy(&vec->a[vec->size], a, sizeof(TYPE));
-		}
-		
 		vec->capacity = tmp_sz;
+	}
+	if (vec->elem_init) {
+		vec->elem_init(&vec->a[vec->size], a);
+	} else {
+		memmove(&vec->a[vec->size], a, sizeof(TYPE));
 	}
 	
 	vec->size++;
@@ -237,7 +229,7 @@ int cvec_push_TYPE(cvector_TYPE* vec, TYPE* a)
 void cvec_pop_TYPE(cvector_TYPE* vec, TYPE* ret)
 {
 	if (ret) {
-		memcpy(ret, &vec->a[--vec->size], sizeof(TYPE));
+		memmove(ret, &vec->a[--vec->size], sizeof(TYPE));
 	} else {
 		vec->size--;
 	}
@@ -275,15 +267,7 @@ int cvec_insert_TYPE(cvector_TYPE* vec, size_t i, TYPE* a)
 {
 	TYPE* tmp;
 	size_t tmp_sz;
-	if (vec->capacity > vec->size) {
-		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(TYPE));
-
-		if (vec->elem_init) {
-			vec->elem_init(&vec->a[i], a);
-		} else {
-			memcpy(&vec->a[i], a, sizeof(TYPE));
-		}
-	} else {
+	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_TYPE_ALLOCATOR(vec->capacity);
 		if (!(tmp = (TYPE*)realloc(vec->a, sizeof(TYPE)*tmp_sz))) {
 			assert(tmp != NULL);
@@ -291,15 +275,14 @@ int cvec_insert_TYPE(cvector_TYPE* vec, size_t i, TYPE* a)
 		}
 		
 		vec->a = tmp;
-		memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(TYPE));
-		
-		if (vec->elem_init) {
-			vec->elem_init(&vec->a[i], a);
-		} else {
-			memcpy(&vec->a[i], a, sizeof(TYPE));
-		}
-		
 		vec->capacity = tmp_sz;
+	}
+	memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(TYPE));
+
+	if (vec->elem_init) {
+		vec->elem_init(&vec->a[i], a);
+	} else {
+		memmove(&vec->a[i], a, sizeof(TYPE));
 	}
 
 	vec->size++;
@@ -326,7 +309,7 @@ int cvec_insert_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num)
 			vec->elem_init(&vec->a[j+i], &a[j]);
 		}
 	} else {
-		memcpy(&vec->a[i], a, num*sizeof(TYPE));
+		memmove(&vec->a[i], a, num*sizeof(TYPE));
 	}
 	vec->size += num;
 	return 1;
@@ -405,7 +388,7 @@ void cvec_set_val_sz_TYPE(cvector_TYPE* vec, TYPE* val)
 		}
 	} else {
 		for (i=0; i<vec->size; i++) {
-			memcpy(&vec->a[i], val, sizeof(TYPE));
+			memmove(&vec->a[i], val, sizeof(TYPE));
 		}
 	}
 }
@@ -426,7 +409,7 @@ void cvec_set_val_cap_TYPE(cvector_TYPE* vec, TYPE* val)
 		}
 	} else {
 		for (i=0; i<vec->capacity; i++) {
-			memcpy(&vec->a[i], val, sizeof(TYPE));
+			memmove(&vec->a[i], val, sizeof(TYPE));
 		}
 	}
 }

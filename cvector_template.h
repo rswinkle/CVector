@@ -101,7 +101,7 @@ cvector_TYPE* cvec_init_TYPE_heap(TYPE* vals, size_t num)
 		return NULL;
 	}
 
-	memcpy(vec->a, vals, sizeof(TYPE)*num);
+	memmove(vec->a, vals, sizeof(TYPE)*num);
 
 	return vec;
 }
@@ -130,7 +130,7 @@ int cvec_init_TYPE(cvector_TYPE* vec, TYPE* vals, size_t num)
 		return 0;
 	}
 
-	memcpy(vec->a, vals, sizeof(TYPE)*num);
+	memmove(vec->a, vals, sizeof(TYPE)*num);
 
 	return 1;
 }
@@ -149,7 +149,7 @@ void cvec_TYPE_copy(void* dest, void* src)
 		return;
 	}
 	
-	memcpy(vec1->a, vec2->a, vec2->size*sizeof(TYPE));
+	memmove(vec1->a, vec2->a, vec2->size*sizeof(TYPE));
 	vec1->size = vec2->size;
 	vec1->capacity = vec2->capacity;
 }
@@ -240,7 +240,7 @@ int cvec_insert_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num)
 	}
 
 	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(TYPE));
-	memcpy(&vec->a[i], a, num*sizeof(TYPE));
+	memmove(&vec->a[i], a, num*sizeof(TYPE));
 	vec->size += num;
 	return 1;
 }
