@@ -1,13 +1,29 @@
 #include "cvector_void.h"
 
-#include <assert.h>
-
 
 size_t CVEC_VOID_START_SZ = 20;
 
 
 #define CVEC_VOID_ALLOCATOR(x) ((x+1) * 2)
 
+#if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
+/* ok */
+#elif !defined(CVEC_MALLOC) && !defined(CVEC_FREE) && !defined(CVEC_REALLOC)
+/* ok */
+#else
+#error "Must define all or none of CVEC_MALLOC, CVEC_FREE, and CVEC_REALLOC."
+#endif
+
+#ifndef CVEC_MALLOC
+#define CVEC_MALLOC(sz)      malloc(sz)
+#define CVEC_REALLOC(p, sz)  realloc(p, sz)
+#define CVEC_FREE(p)         free(p)
+#endif
+
+#ifndef CVEC_ASSERT
+#include <assert.h>
+#define CVEC_ASSERT(x)       assert(x)
+#endif
 
 
 
@@ -40,8 +56,8 @@ size_t CVEC_VOID_START_SZ = 20;
 cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
 {
 	cvector_void* vec;
-	if (!(vec = (cvector_void*)malloc(sizeof(cvector_void)))) {
-		assert(vec != NULL);
+	if (!(vec = (cvector_void*)CVEC_MALLOC(sizeof(cvector_void)))) {
+		CVEC_ASSERT(vec != NULL);
 		return NULL;
 	}
 
@@ -50,12 +66,13 @@ cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(
 
 	vec->elem_size = elem_sz;
 	
-	/*not calloc here and init_vec as in vector_s because elem_free cannot be calling free directly*/
-	if (!(vec->a = (byte*)malloc(vec->capacity*elem_sz))) {
-		assert(vec->a != NULL);
-		free(vec);
+	if (!(vec->a = (byte*)CVEC_MALLOC(vec->capacity*elem_sz))) {
+		CVEC_ASSERT(vec->a != NULL);
+		CVEC_FREE(vec);
 		return NULL;
 	}
+	/* not clearing to 0 here as in vector_str because elem_free cannot be calling CVEC_FREE directly
+	 * since it takes the address of the element not the element itself */
 
 	vec->elem_free = elem_free;
 	vec->elem_init = elem_init;
@@ -74,8 +91,8 @@ cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*
 	cvector_void* vec;
 	size_t i;
 	
-	if (!(vec = (cvector_void*)malloc(sizeof(cvector_void)))) {
-		assert(vec != NULL);
+	if (!(vec = (cvector_void*)CVEC_MALLOC(sizeof(cvector_void)))) {
+		CVEC_ASSERT(vec != NULL);
 		return NULL;
 	}
 
@@ -83,9 +100,9 @@ cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*
 
 	vec->capacity = num + CVEC_VOID_START_SZ;
 	vec->size = num;
-	if (!(vec->a = (byte*)malloc(vec->capacity*elem_sz))) {
-		assert(vec->a != NULL);
-		free(vec);
+	if (!(vec->a = (byte*)CVEC_MALLOC(vec->capacity*elem_sz))) {
+		CVEC_ASSERT(vec->a != NULL);
+		CVEC_FREE(vec);
 		return NULL;
 	}
 
@@ -113,8 +130,8 @@ int cvec_void(cvector_void* vec, size_t size, size_t capacity, size_t elem_sz, v
 
 	vec->elem_size = elem_sz;
 	
-	if (!(vec->a = (byte*)malloc(vec->capacity*elem_sz))) {
-		assert(vec->a != NULL);
+	if (!(vec->a = (byte*)CVEC_MALLOC(vec->capacity*elem_sz))) {
+		CVEC_ASSERT(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
 	}
@@ -136,8 +153,8 @@ int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, vo
 
 	vec->capacity = num + CVEC_VOID_START_SZ;
 	vec->size = num;
-	if (!(vec->a = (byte*)malloc(vec->capacity*elem_sz))) {
-		assert(vec->a != NULL);
+	if (!(vec->a = (byte*)CVEC_MALLOC(vec->capacity*elem_sz))) {
+		CVEC_ASSERT(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
 	}
@@ -175,8 +192,8 @@ void cvec_void_copy(void* dest, void* src)
 	vec1->capacity = 0;
 	
 	/*not much else we can do here*/
-	if (!(vec1->a = (byte*)malloc(vec2->capacity*vec2->elem_size))) {
-		assert(vec1->a != NULL);
+	if (!(vec1->a = (byte*)CVEC_MALLOC(vec2->capacity*vec2->elem_size))) {
+		CVEC_ASSERT(vec1->a != NULL);
 		return;
 	}
 
@@ -205,8 +222,8 @@ int cvec_push_void(cvector_void* vec, void* a)
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_VOID_ALLOCATOR(vec->capacity);
-		if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*tmp_sz))) {
-			assert(tmp != NULL);
+		if (!(tmp = (byte*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -256,8 +273,8 @@ int cvec_extend_void(cvector_void* vec, size_t num)
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_VOID_START_SZ;
-		if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*tmp_sz))) {
-			assert(tmp != NULL);
+		if (!(tmp = (byte*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -291,8 +308,8 @@ int cvec_insert_void(cvector_void* vec, size_t i, void* a)
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_VOID_ALLOCATOR(vec->capacity);
-		if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*tmp_sz))) {
-			assert(tmp != NULL);
+		if (!(tmp = (byte*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
 			return 0;
 		}
 		
@@ -324,8 +341,8 @@ int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 	size_t tmp_sz, j;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_VOID_START_SZ;
-		if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*tmp_sz))) {
-			assert(tmp != NULL);
+		if (!(tmp = (byte*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -356,7 +373,7 @@ void cvec_replace_void(cvector_void* vec, size_t i, void* a, void* ret)
 
 /**
  * Erases elements from start to end inclusive.
- * Example cvec_erase_void(myvec, 1, 3) would free (if an elem_free function was provided) and remove elements at 1, 2, and 3 and the element
+ * Example cvec_erase_void(myvec, 1, 3) would CVEC_FREE (if an elem_free function was provided) and remove elements at 1, 2, and 3 and the element
  * that was at index 4 would now be at 1 etc.
  */
 void cvec_erase_void(cvector_void* vec, size_t start, size_t end)
@@ -378,8 +395,8 @@ int cvec_reserve_void(cvector_void* vec, size_t size)
 {
 	byte* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*(size+CVEC_VOID_START_SZ)))) {
-			assert(tmp != NULL);
+		if (!(tmp = (byte*)CVEC_REALLOC(vec->a, vec->elem_size*(size+CVEC_VOID_START_SZ)))) {
+			CVEC_ASSERT(tmp != NULL);
 			return 0;
 		}
 		vec->a = tmp;
@@ -408,8 +425,8 @@ int cvec_set_cap_void(cvector_void* vec, size_t size)
 
 	vec->capacity = size;
 
-	if (!(tmp = (byte*)realloc(vec->a, vec->elem_size*size))) {
-		assert(tmp != NULL);
+	if (!(tmp = (byte*)CVEC_REALLOC(vec->a, vec->elem_size*size))) {
+		CVEC_ASSERT(tmp != NULL);
 		return 0;
 	}
 	vec-> a = tmp;
@@ -441,9 +458,9 @@ void cvec_set_val_sz_void(cvector_void* vec, void* val)
 }
 
 
-/** Fills entire allocated array (capacity) with val.  If you set a free function
+/** Fills entire allocated array (capacity) with val.  If you set a CVEC_FREE function
  * then size is set to capacity like vector_s for the same reason, ie I need to know
- * that the free function needs to be called on those elements.
+ * that the CVEC_FREE function needs to be called on those elements.
  * TODO Remove this function?  Same reason as set_val_caps.
  */
 void cvec_set_val_cap_void(cvector_void* vec, void* val)
@@ -469,7 +486,7 @@ void cvec_set_val_cap_void(cvector_void* vec, void* val)
 
 
 /** Sets size to 0 (does not change contents unless elem_free is set
- *  then it will free all size elements as in vector_s). */
+ *  then it will CVEC_FREE all size elements as in vector_s). */
 void cvec_clear_void(cvector_void* vec)
 {
 	size_t i;
@@ -482,7 +499,7 @@ void cvec_clear_void(cvector_void* vec)
 }
 
 
-/** Frees everything so don't use vec after calling this. If you set a free function
+/** Frees everything so don't use vec after calling this. If you set a CVEC_FREE function
  * it will be called on all size elements of course. */
 void cvec_free_void_heap(void* vec)
 {
@@ -493,8 +510,8 @@ void cvec_free_void_heap(void* vec)
 			tmp->elem_free(&tmp->a[i*tmp->elem_size]);
 		}
 	}
-	free(tmp->a);
-	free(tmp);
+	CVEC_FREE(tmp->a);
+	CVEC_FREE(tmp);
 }
 
 
@@ -509,7 +526,7 @@ void cvec_free_void(void* vec)
 		}
 	}
 
-	free(tmp->a);
+	CVEC_FREE(tmp->a);
 
 	tmp->size = 0;
 	tmp->capacity = 0;
@@ -525,7 +542,7 @@ This is a relatively simple ANSI compliant C vector library with specific struct
 functions for int's, double's and string's and support for all other types
 using a generic structure where the type is passed in as void* and stored in a byte array
 (to avoid dereferencing void* warnings and frequent casting) .
-The generic vector is very flexible and allows you to provide free and init functions
+The generic vector is very flexible and allows you to provide CVEC_FREE and init functions
 if you like that it will call at appropriate times similar to the way C++ containers
 will call destructors.
 
@@ -547,13 +564,13 @@ extra allocated.
 
 Note that the (x+1) portion allows you to use the non-void vectors
 without calling any of the init functions first *if* you zero them out.  This
-means size, capacity, and a are 0/NULL which is valid because realloc, acts like
+means size, capacity, and a are 0/NULL which is valid because realloc acts like
 malloc when given a NULL pointer.  With cvector_void you still have to set
 elem_size, and optionally elem_free/elem_init. See the zero_init_x_test()'s
 in cvector_tests.c for example of that use.
 
 There are also 2 templates, one for basic types and one for types that contain
-dynamically allocated memory and you might want a free and/or init function.
+dynamically allocated memory and you might want a CVEC_FREE and/or init function.
 In other words the first template is based off cvector_i and the second is based
 off of cvector_void, so look at the corresponding documentation for behavior.
 
