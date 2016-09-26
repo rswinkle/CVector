@@ -7,7 +7,7 @@
 size_t CVEC_D_START_SZ = 50;
 
 
-#define CVEC_D_ALLOCATOR(x) ((x) * 2)
+#define CVEC_D_ALLOCATOR(x) ((x+1) * 2)
 
 
 

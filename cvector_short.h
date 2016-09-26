@@ -60,7 +60,7 @@ void cvec_free_short(void* vec);
 
 #include <assert.h>
 
-#define CVEC_short_ALLOCATOR(x) ((x) * 2)
+#define CVEC_short_ALLOCATOR(x) ((x+1) * 2)
 
 size_t CVEC_short_SZ = 50;
 

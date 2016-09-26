@@ -6,7 +6,7 @@
 size_t CVEC_VOID_START_SZ = 20;
 
 
-#define CVEC_VOID_ALLOCATOR(x) ((x) * 2)
+#define CVEC_VOID_ALLOCATOR(x) ((x+1) * 2)
 
 
 
@@ -536,14 +536,21 @@ size_t CVEC_D_START_SZ = 50;
 size_t CVEC_STR_START_SZ = 20;
 size_t CVEC_VOID_START_SZ = 20;
 
-#define CVEC_I_ALLOCATOR(x) ((x) * 2)
-#define CVEC_D_ALLOCATOR(x) ((x) * 2)
-#define CVEC_STR_ALLOCATOR(x) ((x) * 2)
-#define CVEC_VOID_ALLOCATOR(x) ((x) * 2)
+#define CVEC_I_ALLOCATOR(x) ((x+1) * 2)
+#define CVEC_D_ALLOCATOR(x) ((x+1) * 2)
+#define CVEC_STR_ALLOCATOR(x) ((x+1) * 2)
+#define CVEC_VOID_ALLOCATOR(x) ((x+1) * 2)
 </pre>
 The allocator macros are used in all functions that increase the size by 1.
 In others (constructors, insert_array, reserve) CVEC_X_START_SZ is the amount
 extra allocated.
+
+Note that the (x+1) portion allows you to use the non-void vectors
+without calling any of the init functions first *if* you zero them out.  This
+means size, capacity, and a are 0/NULL which is valid because realloc, acts like
+malloc when given a NULL pointer.  With cvector_void you still have to set
+elem_size, and optionally elem_free/elem_init. See the zero_init_x_test()'s
+in cvector_tests.c for example of that use.
 
 There are also 2 templates, one for basic types and one for types that contain
 dynamically allocated memory and you might want a free and/or init function.
@@ -620,21 +627,21 @@ it should work (well I'm not sure about CUnit ...).
 There is no output of any kind, no errors or warnings.
 
 
-It has been relatively well tested using Cunit tests which all pass.
+It has been relatively well tested using CUnit tests which all pass.
 I've also run it under valgrind and there are no memory leaks.
 
 <pre>
-valgrind --leak-check=full -v ./vector
+valgrind --leak-check=full -v ./cvector
 
-==35463== 
-==35463== HEAP SUMMARY:
-==35463==     in use at exit: 0 bytes in 0 blocks
-==35463==   total heap usage: 6,285 allocs, 6,285 frees, 996,013 bytes allocated
-==35463== 
-==35463== All heap blocks were freed -- no leaks are possible
-==35463== 
-==35463== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==35463== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4682== 
+==4682== HEAP SUMMARY:
+==4682==     in use at exit: 0 bytes in 0 blocks
+==4682==   total heap usage: 6,466 allocs, 6,466 frees, 936,809 bytes allocated
+==4682== 
+==4682== All heap blocks were freed -- no leaks are possible
+==4682== 
+==4682== For counts of detected and suppressed errors, rerun with: -v
+==4682== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 </pre>
 
 You can probably get Cunit from your package manager but

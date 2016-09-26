@@ -21,7 +21,7 @@
 
 /* #include "cvector_macro.h" */
 
-#define RESIZE(a) ((a)*2)
+#define RESIZE(a) ((a+1)*2)
 
 CVEC_NEW_DECLS(short)
 CVEC_NEW_DECLS2(f_struct)
@@ -84,6 +84,29 @@ void erase_i_test()
 	cvec_free_i(&vec);
 }
 
+/* zeroing is valid initialization */
+void zero_init_i_test()
+{
+	int i;
+	cvector_i vec = { 0 };
+
+	CU_ASSERT(vec.capacity == 0)
+	CU_ASSERT(vec.size == 0)
+	CU_ASSERT(vec.a == NULL)
+
+	for (i=0; i<100; i++)
+		cvec_push_i(&vec, i);
+
+	CU_ASSERT_EQUAL(100, vec.size);
+
+	/* based on (x+1)*2 allocator macros */
+	CU_ASSERT_EQUAL(126, vec.capacity);
+
+	for (i=0; i<vec.size; i++)
+		CU_ASSERT_EQUAL(i, vec.a[i]);
+
+	cvec_free_i(&vec);
+}
 
 
 void insert_i_test()
@@ -113,7 +136,7 @@ void insert_i_test()
 void insert_array_i_test()
 {
 	int i;
-	int array[] = { 0, 1, 0, 1, 0, 1 };
+	int array[] = { 0, 1, 0, 1, 0, 1, 0, 1 };
 	cvector_i vec;
 	cvec_i(&vec, 0, 0);
 
@@ -121,20 +144,21 @@ void insert_array_i_test()
 		cvec_push_i(&vec, i);
 
 	CU_ASSERT_EQUAL(vec.size, CVEC_I_START_SZ*2-5);
-	CU_ASSERT_EQUAL(vec.capacity, CVEC_I_START_SZ*2);
+	CU_ASSERT_EQUAL(vec.capacity, (CVEC_I_START_SZ+1)*2);
 
-	cvec_insert_array_i(&vec, 30, array, 6);
+	cvec_insert_array_i(&vec, 30, array, 8);
 
-	CU_ASSERT_EQUAL(vec.size, CVEC_I_START_SZ*2+1);
-	CU_ASSERT_EQUAL(vec.capacity, 3*CVEC_I_START_SZ+6);
+	CU_ASSERT_EQUAL(vec.size, CVEC_I_START_SZ*2-5 + 8);
+
+	CU_ASSERT_EQUAL(vec.capacity, (CVEC_I_START_SZ+1)*2 + 8 + CVEC_I_START_SZ);
 
 	for (i=0; i<vec.size; ++i) {
 		if (i < 30) {
 			CU_ASSERT_EQUAL(vec.a[i], i);
-		} else if (i < 36) {
+		} else if (i < 38) {
 			CU_ASSERT_EQUAL(vec.a[i], (i%2));
 		} else {
-			CU_ASSERT_EQUAL(vec.a[i], i-6);
+			CU_ASSERT_EQUAL(vec.a[i], i-8);
 		}
 	}
 
@@ -311,7 +335,29 @@ void erase_d_test()
 	cvec_free_d(&vec);
 }
 
+/* zeroing is valid initialization */
+void zero_init_d_test()
+{
+	int i;
+	cvector_d vec = { 0 };
+	
+	CU_ASSERT(vec.capacity == 0)
+	CU_ASSERT(vec.size == 0)
+	CU_ASSERT(vec.a == NULL)
 
+	for (i=0; i<100; i++)
+		cvec_push_d(&vec, i+0.5);
+
+	CU_ASSERT_EQUAL(100, vec.size);
+
+	/* based on (x+1)*2 allocator macros */
+	CU_ASSERT_EQUAL(126, vec.capacity);
+
+	for (i=0; i<vec.size; i++)
+		CU_ASSERT_EQUAL(i+0.5, vec.a[i]);
+
+	cvec_free_d(&vec);
+}
 
 void insert_d_test()
 {
@@ -350,12 +396,10 @@ void insert_array_d_test()
 		cvec_push_d(&vec, i);
 
 	CU_ASSERT_EQUAL(vec.size, CVEC_D_START_SZ*2-5);
-	CU_ASSERT_EQUAL(vec.capacity, CVEC_D_START_SZ*2);
 
 	cvec_insert_array_d(&vec, 30, array, 6);
 
 	CU_ASSERT_EQUAL(vec.size, CVEC_D_START_SZ*2+1);
-	CU_ASSERT_EQUAL(vec.capacity, 3*CVEC_D_START_SZ+6);
 
 	for (i=0; i<vec.size; ++i) {
 		if (i < 30) {
@@ -538,6 +582,34 @@ void erase_str_test()
 
 }
 
+/* zeroing is valid initialization */
+void zero_init_str_test()
+{
+	int i;
+	char buffer[50];
+	cvector_str vec = { 0 };
+	
+	CU_ASSERT(vec.capacity == 0)
+	CU_ASSERT(vec.size == 0)
+	CU_ASSERT(vec.a == NULL)
+
+	for (i=0; i<50; i++) {
+		sprintf(buffer, "hello %d", i);
+		cvec_push_str(&vec, buffer);
+	}
+
+	CU_ASSERT_EQUAL(50, vec.size);
+
+	/* based on (x+1)*2 allocator macros */
+	CU_ASSERT_EQUAL(62, vec.capacity);
+
+	for (i=0; i<vec.size; i++) {
+		sprintf(buffer, "hello %d", i);
+		CU_ASSERT_STRING_EQUAL(vec.a[i], buffer);
+	}
+
+	cvec_free_str(&vec);
+}
 
 
 void insert_str_test()
@@ -994,6 +1066,53 @@ void insert_array_void_test()
 }
 
 
+/* zeroing size, capacity, and a is valid initialization,
+ * you still need to set elem_size and optionally elem_init/elem_free */
+void zero_init_void_test()
+{
+	char buffer[50];
+	int i;
+	t_struct temp;
+	f_struct temp2;
+
+	cvector_void vec1 = { 0, 0, 0, sizeof(t_struct) };
+	cvector_void vec2 = { 0, 0, 0, sizeof(f_struct), free_f_struct };
+
+	CU_ASSERT(vec1.capacity == 0)
+	CU_ASSERT(vec1.size == 0)
+	CU_ASSERT(vec1.a == NULL)
+	CU_ASSERT(vec2.capacity == 0)
+	CU_ASSERT(vec2.size == 0)
+	CU_ASSERT(vec2.a == NULL)
+
+	for (i=0; i<100; i++) {
+		sprintf(buffer, "%d", i);
+		temp = mk_t_struct(i, i, buffer);
+		temp2 = mk_f_struct(i, i, buffer);
+
+		cvec_push_void(&vec1, &temp);
+		cvec_push_void(&vec2, &temp2);
+	}
+
+	/* based on (x+1)*2 allocator macros */
+	CU_ASSERT_EQUAL(126, vec1.capacity);
+	CU_ASSERT_EQUAL(126, vec2.capacity);
+
+	for (i=0; i<vec1.size; i++) {
+
+		sprintf(buffer, "%d", i);
+		CU_ASSERT_EQUAL(i, GET_T(vec1, i)->d);
+		CU_ASSERT_EQUAL(i, GET_T(vec1, i)->i);
+		CU_ASSERT_STRING_EQUAL(buffer, GET_T(vec1, i)->word);
+
+		CU_ASSERT_EQUAL(i, GET_F(vec2, i)->d);
+		CU_ASSERT_EQUAL(i, GET_F(vec2, i)->i);
+		CU_ASSERT_STRING_EQUAL(buffer, GET_F(vec2, i)->word);
+	}
+
+	cvec_free_void(&vec1);
+	cvec_free_void(&vec2);
+}
 
 
 

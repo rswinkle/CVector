@@ -67,7 +67,7 @@ void cvec_free_f_struct(void* vec);
 size_t CVEC_f_struct_SZ = 20;
 
 
-#define CVEC_f_struct_ALLOCATOR(x) ((x) * 2)
+#define CVEC_f_struct_ALLOCATOR(x) ((x+1) * 2)
 
 
 

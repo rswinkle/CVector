@@ -17,8 +17,8 @@ typedef struct cvector_void
 	size_t size;             /**< Current size (amount you should use when manipulating array directly). */
 	size_t capacity;         /**< Allocated size of array; always >= size. */
 	size_t elem_size;        /**< Size in bytes of type stored (sizeof(T) where T is type). */
-	void (*elem_init)(void*, void*);
 	void (*elem_free)(void*);
+	void (*elem_init)(void*, void*);
 } cvector_void;
 
 extern size_t CVEC_VOID_START_SZ;

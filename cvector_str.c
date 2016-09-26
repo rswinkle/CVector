@@ -6,7 +6,7 @@
 
 size_t CVEC_STR_START_SZ = 20;
 
-#define CVEC_STR_ALLOCATOR(x) ((x) * 2)
+#define CVEC_STR_ALLOCATOR(x) ((x+1) * 2)
 
 /** Useful utility function since strdup isn't in standard C.*/
 char* mystrdup(const char* str)

@@ -25,7 +25,7 @@ int main(int argc, char** argv)
 
 
 	//THIS IS REALLY JUST A C++ compilation test
-	//functionality testing is done in cvector_tests.h
+	//functionality testing is done in main.c and cvector_tests.c
 
 	cvec_free_i(&veci);
 	cvec_free_d(&vecd);
