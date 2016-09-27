@@ -21,6 +21,11 @@ size_t CVEC_STR_START_SZ = 20;
 #define CVEC_FREE(p)         free(p)
 #endif
 
+#ifndef CVEC_MEMMOVE
+#include <string.h>
+#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
+#endif
+
 #ifndef CVEC_ASSERT
 #include <assert.h>
 #define CVEC_ASSERT(x)       assert(x)
@@ -39,7 +44,7 @@ char* mystrdup(const char* str)
 	}
 	temp[len] = 0;
 	
-	return (char*)memmove(temp, str, len);  /* memmove returns to */
+	return (char*)CVEC_MEMMOVE(temp, str, len);  /* CVEC_MEMMOVE returns to */
 }
 
 
@@ -270,7 +275,7 @@ int cvec_insert_str(cvector_str* vec, size_t i, char* a)
 		vec->capacity = tmp_sz;
 	}
 
-	memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(char*));
+	CVEC_MEMMOVE(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(char*));
 	vec->a[i] = mystrdup(a);
 	vec->size++;
 	return 1;
@@ -296,7 +301,7 @@ int cvec_insert_array_str(cvector_str* vec, size_t i, char** a, size_t num)
 		vec->capacity = tmp_sz;
 	}
 
-	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(char*));
+	CVEC_MEMMOVE(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(char*));
 	for (j=0; j<num; ++j) {
 		vec->a[j+i] = mystrdup(a[j]);
 	}
@@ -331,7 +336,7 @@ void cvec_erase_str(cvector_str* vec, size_t start, size_t end)
 		CVEC_FREE(vec->a[i]);
 	}
 	
-	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(char*));
+	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(char*));
 	vec->size -= d;
 }
 

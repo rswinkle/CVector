@@ -952,6 +952,11 @@ size_t CVEC_I_START_SZ = 50;
 #define CVEC_FREE(p)         free(p)
 #endif
 
+#ifndef CVEC_MEMMOVE
+#include <string.h>
+#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
+#endif
+
 #ifndef CVEC_ASSERT
 #include <assert.h>
 #define CVEC_ASSERT(x)       assert(x)
@@ -1005,7 +1010,7 @@ cvector_i* cvec_init_i_heap(int* vals, size_t num)
 		return NULL;
 	}
 
-	memmove(vec->a, vals, sizeof(int)*num);
+	CVEC_MEMMOVE(vec->a, vals, sizeof(int)*num);
 
 	return vec;
 }
@@ -1042,7 +1047,7 @@ int cvec_init_i(cvector_i* vec, int* vals, size_t num)
 		return 0;
 	}
 
-	memmove(vec->a, vals, sizeof(int)*num);
+	CVEC_MEMMOVE(vec->a, vals, sizeof(int)*num);
 
 	return 1;
 }
@@ -1068,7 +1073,7 @@ void cvec_i_copy(void* dest, void* src)
 		return;
 	}
 	
-	memmove(vec1->a, vec2->a, vec2->size*sizeof(int));
+	CVEC_MEMMOVE(vec1->a, vec2->a, vec2->size*sizeof(int));
 	vec1->size = vec2->size;
 	vec1->capacity = vec2->capacity;
 }
@@ -1156,7 +1161,7 @@ int cvec_insert_i(cvector_i* vec, size_t i, int a)
 		vec->capacity = tmp_sz;
 	}
 
-	memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(int));
+	CVEC_MEMMOVE(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(int));
 	vec->a[i] = a;
 	vec->size++;
 	return 1;
@@ -1166,8 +1171,8 @@ int cvec_insert_i(cvector_i* vec, size_t i, int a)
 /**
  * Insert the first num elements of array a at index i.
  * Note that it is the user's responsibility to pass in valid
- * arguments.  Also memmove is used so don't try to insert
- * part of the vector array into itself (that would require memmove)
+ * arguments.  Also CVEC_MEMMOVE is used so don't try to insert
+ * part of the vector array into itself (that would require CVEC_MEMMOVE)
  */
 int cvec_insert_array_i(cvector_i* vec, size_t i, int* a, size_t num)
 {
@@ -1183,8 +1188,8 @@ int cvec_insert_array_i(cvector_i* vec, size_t i, int* a, size_t num)
 		vec->capacity = tmp_sz;
 	}
 
-	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(int));
-	memmove(&vec->a[i], a, num*sizeof(int));
+	CVEC_MEMMOVE(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(int));
+	CVEC_MEMMOVE(&vec->a[i], a, num*sizeof(int));
 	vec->size += num;
 	return 1;
 }
@@ -1207,7 +1212,7 @@ int cvec_replace_i(cvector_i* vec, size_t i, int a)
 void cvec_erase_i(cvector_i* vec, size_t start, size_t end)
 {
 	size_t d = end - start + 1;
-	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(int));
+	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(int));
 	vec->size -= d;
 }
 
@@ -1310,6 +1315,11 @@ size_t CVEC_D_START_SZ = 50;
 #define CVEC_FREE(p)         free(p)
 #endif
 
+#ifndef CVEC_MEMMOVE
+#include <string.h>
+#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
+#endif
+
 #ifndef CVEC_ASSERT
 #include <assert.h>
 #define CVEC_ASSERT(x)       assert(x)
@@ -1365,7 +1375,7 @@ cvector_d* cvec_init_d_heap(double* vals, size_t num)
 		return NULL;
 	}
 
-	memmove(vec->a, vals, sizeof(double)*num);
+	CVEC_MEMMOVE(vec->a, vals, sizeof(double)*num);
 
 	return vec;
 }
@@ -1402,7 +1412,7 @@ int cvec_init_d(cvector_d* vec, double* vals, size_t num)
 		return 0;
 	}
 
-	memmove(vec->a, vals, sizeof(double)*num);
+	CVEC_MEMMOVE(vec->a, vals, sizeof(double)*num);
 
 	return 1;
 }
@@ -1427,7 +1437,7 @@ void cvec_d_copy(void* dest, void* src)
 		return;
 	}
 	
-	memmove(vec1->a, vec2->a, vec2->size*sizeof(double));
+	CVEC_MEMMOVE(vec1->a, vec2->a, vec2->size*sizeof(double));
 	vec1->size = vec2->size;
 	vec1->capacity = vec2->capacity;
 }
@@ -1516,7 +1526,7 @@ int cvec_insert_d(cvector_d* vec, size_t i, double a)
 		vec->capacity = tmp_sz;
 	}
 	
-	memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(double));
+	CVEC_MEMMOVE(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(double));
 	vec->a[i] = a;
 	vec->size++;
 	return 1;
@@ -1525,8 +1535,8 @@ int cvec_insert_d(cvector_d* vec, size_t i, double a)
 /**
  * Insert the first num elements of array a at index i.
  * Note that it is the user's responsibility to pass in valid
- * arguments.  Also memmove is used so don't try to insert
- * part of the vector array into itself (that would require memmove)
+ * arguments.  Also CVEC_MEMMOVE is used so don't try to insert
+ * part of the vector array into itself (that would require CVEC_MEMMOVE)
  */
 int cvec_insert_array_d(cvector_d* vec, size_t i, double* a, size_t num)
 {
@@ -1542,8 +1552,8 @@ int cvec_insert_array_d(cvector_d* vec, size_t i, double* a, size_t num)
 		vec->capacity = tmp_sz;
 	}
 
-	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(double));
-	memmove(&vec->a[i], a, num*sizeof(double));
+	CVEC_MEMMOVE(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(double));
+	CVEC_MEMMOVE(&vec->a[i], a, num*sizeof(double));
 	vec->size += num;
 	return 1;
 }
@@ -1565,7 +1575,7 @@ double cvec_replace_d(cvector_d* vec, size_t i, double a)
 void cvec_erase_d(cvector_d* vec, size_t start, size_t end)
 {
 	size_t d = end - start + 1;
-	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(double));
+	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(double));
 	vec->size -= d;
 }
 
@@ -1664,6 +1674,11 @@ size_t CVEC_STR_START_SZ = 20;
 #define CVEC_FREE(p)         free(p)
 #endif
 
+#ifndef CVEC_MEMMOVE
+#include <string.h>
+#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
+#endif
+
 #ifndef CVEC_ASSERT
 #include <assert.h>
 #define CVEC_ASSERT(x)       assert(x)
@@ -1682,7 +1697,7 @@ char* mystrdup(const char* str)
 	}
 	temp[len] = 0;
 	
-	return (char*)memmove(temp, str, len);  /* memmove returns to */
+	return (char*)CVEC_MEMMOVE(temp, str, len);  /* CVEC_MEMMOVE returns to */
 }
 
 
@@ -1913,7 +1928,7 @@ int cvec_insert_str(cvector_str* vec, size_t i, char* a)
 		vec->capacity = tmp_sz;
 	}
 
-	memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(char*));
+	CVEC_MEMMOVE(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(char*));
 	vec->a[i] = mystrdup(a);
 	vec->size++;
 	return 1;
@@ -1939,7 +1954,7 @@ int cvec_insert_array_str(cvector_str* vec, size_t i, char** a, size_t num)
 		vec->capacity = tmp_sz;
 	}
 
-	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(char*));
+	CVEC_MEMMOVE(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(char*));
 	for (j=0; j<num; ++j) {
 		vec->a[j+i] = mystrdup(a[j]);
 	}
@@ -1974,7 +1989,7 @@ void cvec_erase_str(cvector_str* vec, size_t start, size_t end)
 		CVEC_FREE(vec->a[i]);
 	}
 	
-	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(char*));
+	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(char*));
 	vec->size -= d;
 }
 
@@ -2113,6 +2128,11 @@ size_t CVEC_VOID_START_SZ = 20;
 #define CVEC_FREE(p)         free(p)
 #endif
 
+#ifndef CVEC_MEMMOVE
+#include <string.h>
+#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
+#endif
+
 #ifndef CVEC_ASSERT
 #include <assert.h>
 #define CVEC_ASSERT(x)       assert(x)
@@ -2204,7 +2224,7 @@ cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*
 			elem_init(&vec->a[i*elem_sz], &((byte*)vals)[i*elem_sz]);
 		}
 	} else {
-		memmove(vec->a, vals, elem_sz*num);
+		CVEC_MEMMOVE(vec->a, vals, elem_sz*num);
 	}
 	
 	vec->elem_free = elem_free;
@@ -2257,7 +2277,7 @@ int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, vo
 			elem_init(&vec->a[i*elem_sz], &((byte*)vals)[i*elem_sz]);
 		}
 	} else {
-		memmove(vec->a, vals, elem_sz*num);
+		CVEC_MEMMOVE(vec->a, vals, elem_sz*num);
 	}
 
 	vec->elem_free = elem_free;
@@ -2301,7 +2321,7 @@ void cvec_void_copy(void* dest, void* src)
 			vec1->elem_init(&vec1->a[i*vec1->elem_size], &vec2->a[i*vec1->elem_size]);
 		}
 	} else {
-		memmove(vec1->a, vec2->a, vec1->size*vec1->elem_size);
+		CVEC_MEMMOVE(vec1->a, vec2->a, vec1->size*vec1->elem_size);
 	}
 }
 
@@ -2325,7 +2345,7 @@ int cvec_push_void(cvector_void* vec, void* a)
 	if (vec->elem_init) {
 		vec->elem_init(&vec->a[vec->size*vec->elem_size], a);
 	} else {
-		memmove(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
+		CVEC_MEMMOVE(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
 	}
 	
 	vec->size++;
@@ -2335,14 +2355,14 @@ int cvec_push_void(cvector_void* vec, void* a)
 
 /** Remove the last element (size decreased 1).
  * Copy the element into ret.  This function assumes
- * that ret is not NULL and is large accept the element and just memmove's it in.
+ * that ret is not NULL and is large accept the element and just CVEC_MEMMOVE's it in.
  * Similar to pop_backs it is users responsibility.
  */
 void cvec_pop_void(cvector_void* vec, void* ret)
 {
 	vec->size--;
 	if (ret) {
-		memmove(ret, &vec->a[vec->size*vec->elem_size], vec->elem_size);
+		CVEC_MEMMOVE(ret, &vec->a[vec->size*vec->elem_size], vec->elem_size);
 	}
 	if (vec->elem_free) {
 		vec->elem_free(&vec->a[vec->size*vec->elem_size]);
@@ -2409,12 +2429,12 @@ int cvec_insert_void(cvector_void* vec, size_t i, void* a)
 		vec->a = tmp;
 		vec->capacity = tmp_sz;
 	}
-	memmove(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
+	CVEC_MEMMOVE(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
 
 	if (vec->elem_init) {
 		vec->elem_init(&vec->a[i*vec->elem_size], a);
 	} else {
-		memmove(&vec->a[i*vec->elem_size], a, vec->elem_size);
+		CVEC_MEMMOVE(&vec->a[i*vec->elem_size], a, vec->elem_size);
 	}
 
 	vec->size++;
@@ -2424,9 +2444,9 @@ int cvec_insert_void(cvector_void* vec, size_t i, void* a)
 /**
  * Insert the first num elements of array a at index i.
  * Note that it is the user's responsibility to pass in val_id
- * arguments.  Also memmove is used (when there is no elem_init function)
+ * arguments.  Also CVEC_MEMMOVE is used (when there is no elem_init function)
  * so don't try to insert part of the vector array into itself
- * (that would require memmove)
+ * (that would require CVEC_MEMMOVE)
  */
 int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 {
@@ -2442,13 +2462,13 @@ int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 		vec->capacity = tmp_sz;
 	}
 
-	memmove(&vec->a[(i+num)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
+	CVEC_MEMMOVE(&vec->a[(i+num)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
 	if (vec->elem_init) {
 		for (j=0; j<num; ++j) {
 			vec->elem_init(&vec->a[(j+i)*vec->elem_size], &((byte*)a)[j*vec->elem_size]);
 		}
 	} else {
-		memmove(&vec->a[i*vec->elem_size], a, num*vec->elem_size);
+		CVEC_MEMMOVE(&vec->a[i*vec->elem_size], a, num*vec->elem_size);
 	}
 	vec->size += num;
 	return 1;
@@ -2460,8 +2480,8 @@ int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 void cvec_replace_void(cvector_void* vec, size_t i, void* a, void* ret)
 {
 	if (ret)
-		memmove(ret, &vec->a[i*vec->elem_size], vec->elem_size);
-	memmove(&vec->a[i*vec->elem_size], a, vec->elem_size);
+		CVEC_MEMMOVE(ret, &vec->a[i*vec->elem_size], vec->elem_size);
+	CVEC_MEMMOVE(&vec->a[i*vec->elem_size], a, vec->elem_size);
 }
 
 /**
@@ -2478,7 +2498,7 @@ void cvec_erase_void(cvector_void* vec, size_t start, size_t end)
 			vec->elem_free(&vec->a[i*vec->elem_size]);
 		}
 	}
-	memmove(&vec->a[start*vec->elem_size], &vec->a[(end+1)*vec->elem_size], (vec->size-1-end)*vec->elem_size);
+	CVEC_MEMMOVE(&vec->a[start*vec->elem_size], &vec->a[(end+1)*vec->elem_size], (vec->size-1-end)*vec->elem_size);
 	vec->size -= d;
 }
 
@@ -2545,7 +2565,7 @@ void cvec_set_val_sz_void(cvector_void* vec, void* val)
 		}
 	} else {
 		for (i=0; i<vec->size; i++) {
-			memmove(&vec->a[i*vec->elem_size], val, vec->elem_size);
+			CVEC_MEMMOVE(&vec->a[i*vec->elem_size], val, vec->elem_size);
 		}
 	}
 }
@@ -2572,7 +2592,7 @@ void cvec_set_val_cap_void(cvector_void* vec, void* val)
 		}
 	} else {
 		for (i=0; i<vec->capacity; i++) {
-			memmove(&vec->a[i*vec->elem_size], val, vec->elem_size);
+			CVEC_MEMMOVE(&vec->a[i*vec->elem_size], val, vec->elem_size);
 		}
 	}
 }
@@ -2721,7 +2741,7 @@ to the function so it's smaller/faster, I think the <= use case is more likely, 
 and more normal to know when your vector is empty than to remember to check for NULL after the fact.
 
 The insert functions (insert_i and insert_array_i for example) do allow you to insert at the end.
-The memmove inside the functions will simply move 0 bytes if you pass the current size as the index.
+The CVEC_MEMMOVE inside the functions will simply move 0 bytes if you pass the current size as the index.
 C99 and C11 guarrantee this behavior in the standard (and thus C++ does as well).  Though I wrote
 this library to be compliant with C89, which does not guarrantee this behavior, I think
 it's safe to assume they'd use the same implementation since it doesn't contradict C89 and it

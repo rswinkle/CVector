@@ -20,6 +20,11 @@ size_t CVEC_I_START_SZ = 50;
 #define CVEC_FREE(p)         free(p)
 #endif
 
+#ifndef CVEC_MEMMOVE
+#include <string.h>
+#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
+#endif
+
 #ifndef CVEC_ASSERT
 #include <assert.h>
 #define CVEC_ASSERT(x)       assert(x)
@@ -73,7 +78,7 @@ cvector_i* cvec_init_i_heap(int* vals, size_t num)
 		return NULL;
 	}
 
-	memmove(vec->a, vals, sizeof(int)*num);
+	CVEC_MEMMOVE(vec->a, vals, sizeof(int)*num);
 
 	return vec;
 }
@@ -110,7 +115,7 @@ int cvec_init_i(cvector_i* vec, int* vals, size_t num)
 		return 0;
 	}
 
-	memmove(vec->a, vals, sizeof(int)*num);
+	CVEC_MEMMOVE(vec->a, vals, sizeof(int)*num);
 
 	return 1;
 }
@@ -136,7 +141,7 @@ void cvec_i_copy(void* dest, void* src)
 		return;
 	}
 	
-	memmove(vec1->a, vec2->a, vec2->size*sizeof(int));
+	CVEC_MEMMOVE(vec1->a, vec2->a, vec2->size*sizeof(int));
 	vec1->size = vec2->size;
 	vec1->capacity = vec2->capacity;
 }
@@ -224,7 +229,7 @@ int cvec_insert_i(cvector_i* vec, size_t i, int a)
 		vec->capacity = tmp_sz;
 	}
 
-	memmove(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(int));
+	CVEC_MEMMOVE(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(int));
 	vec->a[i] = a;
 	vec->size++;
 	return 1;
@@ -234,8 +239,8 @@ int cvec_insert_i(cvector_i* vec, size_t i, int a)
 /**
  * Insert the first num elements of array a at index i.
  * Note that it is the user's responsibility to pass in valid
- * arguments.  Also memmove is used so don't try to insert
- * part of the vector array into itself (that would require memmove)
+ * arguments.  Also CVEC_MEMMOVE is used so don't try to insert
+ * part of the vector array into itself (that would require CVEC_MEMMOVE)
  */
 int cvec_insert_array_i(cvector_i* vec, size_t i, int* a, size_t num)
 {
@@ -251,8 +256,8 @@ int cvec_insert_array_i(cvector_i* vec, size_t i, int* a, size_t num)
 		vec->capacity = tmp_sz;
 	}
 
-	memmove(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(int));
-	memmove(&vec->a[i], a, num*sizeof(int));
+	CVEC_MEMMOVE(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(int));
+	CVEC_MEMMOVE(&vec->a[i], a, num*sizeof(int));
 	vec->size += num;
 	return 1;
 }
@@ -275,7 +280,7 @@ int cvec_replace_i(cvector_i* vec, size_t i, int a)
 void cvec_erase_i(cvector_i* vec, size_t start, size_t end)
 {
 	size_t d = end - start + 1;
-	memmove(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(int));
+	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(int));
 	vec->size -= d;
 }
 
