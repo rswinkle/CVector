@@ -2,8 +2,6 @@
 #define CVECTOR_TYPE_H
 
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -58,11 +56,34 @@ void cvec_free_TYPE(void* vec);
 
 #ifdef CVECTOR_TYPE_IMPLEMENTATION
 
-#include <assert.h>
-
-#define CVEC_TYPE_ALLOCATOR(x) ((x) * 2)
-
 size_t CVEC_TYPE_SZ = 50;
+
+#define CVEC_TYPE_ALLOCATOR(x) ((x+1) * 2)
+
+
+#if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
+/* ok */
+#elif !defined(CVEC_MALLOC) && !defined(CVEC_FREE) && !defined(CVEC_REALLOC)
+/* ok */
+#else
+#error "Must define all or none of CVEC_MALLOC, CVEC_FREE, and CVEC_REALLOC."
+#endif
+
+#ifndef CVEC_MALLOC
+#define CVEC_MALLOC(sz)      malloc(sz)
+#define CVEC_REALLOC(p, sz)  realloc(p, sz)
+#define CVEC_FREE(p)         free(p)
+#endif
+
+#ifndef CVEC_MEMMOVE
+#include <string.h>
+#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
+#endif
+
+#ifndef CVEC_ASSERT
+#include <assert.h>
+#define CVEC_ASSERT(x)       assert(x)
+#endif
 
 cvector_TYPE* cvec_TYPE_heap(size_t size, size_t capacity)
 {

@@ -1,23 +1,21 @@
 #define CVECTOR_IMPLEMENTATION
 #include "cvector.h"
 
-#define DO_TEMPLATE_TEST 1
-#ifdef DO_TEMPLATE_TEST
+#define DO_TEMPLATE_TEST 0
+#if DO_TEMPLATE_TEST
 /*replace with or add your own generated file and edit the template test*/
 
-/*
 #define CVECTOR_short_IMPLEMENTATION
 #define CVECTOR_f_struct_IMPLEMENTATION
 #include "cvector_short.h"
 #include "cvector_f_struct.h"
-*/
 
 #endif
 
 #include "test_types.h"
 
 #define DO_MACRO_TEST 1
-#ifdef DO_MACRO_TEST
+#if DO_MACRO_TEST
 
 /* #include "cvector_macro.h" */
 

@@ -2,8 +2,6 @@
 #define CVECTOR_short_H
 
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -58,11 +56,34 @@ void cvec_free_short(void* vec);
 
 #ifdef CVECTOR_short_IMPLEMENTATION
 
-#include <assert.h>
+size_t CVEC_short_SZ = 50;
 
 #define CVEC_short_ALLOCATOR(x) ((x+1) * 2)
 
-size_t CVEC_short_SZ = 50;
+
+#if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
+/* ok */
+#elif !defined(CVEC_MALLOC) && !defined(CVEC_FREE) && !defined(CVEC_REALLOC)
+/* ok */
+#else
+#error "Must define all or none of CVEC_MALLOC, CVEC_FREE, and CVEC_REALLOC."
+#endif
+
+#ifndef CVEC_MALLOC
+#define CVEC_MALLOC(sz)      malloc(sz)
+#define CVEC_REALLOC(p, sz)  realloc(p, sz)
+#define CVEC_FREE(p)         free(p)
+#endif
+
+#ifndef CVEC_MEMMOVE
+#include <string.h>
+#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
+#endif
+
+#ifndef CVEC_ASSERT
+#include <assert.h>
+#define CVEC_ASSERT(x)       assert(x)
+#endif
 
 cvector_short* cvec_short_heap(size_t size, size_t capacity)
 {

@@ -312,8 +312,8 @@
 		TYPE* a;                                                                                 \
 		size_t size;                                                                             \
 		size_t capacity;                                                                         \
-		void (*elem_init)(void*, void*);                                                         \
 		void (*elem_free)(void*);                                                                \
+		void (*elem_init)(void*, void*);                                                         \
 	} cvector_##TYPE;                                                                            \
                                                                                                  \
 	extern size_t CVEC_##TYPE##_SZ;                                                              \
