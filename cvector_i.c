@@ -2,9 +2,6 @@
 
 
 
-size_t CVEC_I_START_SZ = 50;
-
-#define CVEC_I_ALLOCATOR(x) ((x+1) * 2)
 
 #if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
 /* ok */
@@ -30,6 +27,9 @@ size_t CVEC_I_START_SZ = 50;
 #define CVEC_ASSERT(x)       assert(x)
 #endif
 
+size_t CVEC_I_START_SZ = 50;
+
+#define CVEC_I_ALLOCATOR(x) ((x+1) * 2)
 
 
 /**

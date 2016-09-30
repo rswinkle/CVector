@@ -3,9 +3,6 @@
 
 
 
-size_t CVEC_STR_START_SZ = 20;
-
-#define CVEC_STR_ALLOCATOR(x) ((x+1) * 2)
 
 #if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
 /* ok */
@@ -31,6 +28,9 @@ size_t CVEC_STR_START_SZ = 20;
 #define CVEC_ASSERT(x)       assert(x)
 #endif
 
+size_t CVEC_STR_START_SZ = 20;
+
+#define CVEC_STR_ALLOCATOR(x) ((x+1) * 2)
 
 
 /** Useful utility function since strdup isn't in standard C.*/

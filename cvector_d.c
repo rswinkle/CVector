@@ -1,10 +1,6 @@
 #include "cvector_d.h"
 
 
-size_t CVEC_D_START_SZ = 50;
-
-
-#define CVEC_D_ALLOCATOR(x) ((x+1) * 2)
 
 #if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
 /* ok */
@@ -30,6 +26,10 @@ size_t CVEC_D_START_SZ = 50;
 #define CVEC_ASSERT(x)       assert(x)
 #endif
 
+size_t CVEC_D_START_SZ = 50;
+
+
+#define CVEC_D_ALLOCATOR(x) ((x+1) * 2)
 
 
 /**

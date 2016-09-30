@@ -1,10 +1,6 @@
 #include "cvector_void.h"
 
 
-size_t CVEC_VOID_START_SZ = 20;
-
-
-#define CVEC_VOID_ALLOCATOR(x) ((x+1) * 2)
 
 #if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
 /* ok */
@@ -30,6 +26,10 @@ size_t CVEC_VOID_START_SZ = 20;
 #define CVEC_ASSERT(x)       assert(x)
 #endif
 
+size_t CVEC_VOID_START_SZ = 20;
+
+
+#define CVEC_VOID_ALLOCATOR(x) ((x+1) * 2)
 
 
 /*  general vector */

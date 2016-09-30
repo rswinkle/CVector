@@ -188,21 +188,6 @@ void cvec_free_void(void* vec);
 #endif
 
 
-#ifndef CVECTOR_MACRO_H
-#define CVECTOR_MACRO_H
-
-/* size_t, malloc/realloc/free */
-#include <stdlib.h>
-/* memmove */
-#include <string.h>
-/* assert */
-#include <assert.h>
-
-/*
- User can optionally wrap CVEC_NEW_DECLS(2) with extern "C"
- since it's not part of the macro
-*/
-
 #define CVEC_NEW_DECLS(TYPE)                                                          \
 	typedef struct cvector_##TYPE {                                                   \
 		TYPE* a;                                                                      \
@@ -925,7 +910,6 @@ void cvec_free_void(void* vec);
 		tmp->capacity = 0;                                                                       \
 	}
 
-#endif
 
 
 /* header ends */
@@ -933,10 +917,6 @@ void cvec_free_void(void* vec);
 
 
 #ifdef CVECTOR_IMPLEMENTATION
-
-size_t CVEC_I_START_SZ = 50;
-
-#define CVEC_I_ALLOCATOR(x) ((x+1) * 2)
 
 #if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
 /* ok */
@@ -962,6 +942,9 @@ size_t CVEC_I_START_SZ = 50;
 #define CVEC_ASSERT(x)       assert(x)
 #endif
 
+size_t CVEC_I_START_SZ = 50;
+
+#define CVEC_I_ALLOCATOR(x) ((x+1) * 2)
 
 
 /**
@@ -1301,31 +1284,6 @@ size_t CVEC_D_START_SZ = 50;
 
 #define CVEC_D_ALLOCATOR(x) ((x+1) * 2)
 
-#if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
-/* ok */
-#elif !defined(CVEC_MALLOC) && !defined(CVEC_FREE) && !defined(CVEC_REALLOC)
-/* ok */
-#else
-#error "Must define all or none of CVEC_MALLOC, CVEC_FREE, and CVEC_REALLOC."
-#endif
-
-#ifndef CVEC_MALLOC
-#define CVEC_MALLOC(sz)      malloc(sz)
-#define CVEC_REALLOC(p, sz)  realloc(p, sz)
-#define CVEC_FREE(p)         free(p)
-#endif
-
-#ifndef CVEC_MEMMOVE
-#include <string.h>
-#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
-#endif
-
-#ifndef CVEC_ASSERT
-#include <assert.h>
-#define CVEC_ASSERT(x)       assert(x)
-#endif
-
-
 
 /**
  * Creates a new cvector_d on the heap.
@@ -1659,31 +1617,6 @@ void cvec_free_d(void* vec)
 size_t CVEC_STR_START_SZ = 20;
 
 #define CVEC_STR_ALLOCATOR(x) ((x+1) * 2)
-
-#if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
-/* ok */
-#elif !defined(CVEC_MALLOC) && !defined(CVEC_FREE) && !defined(CVEC_REALLOC)
-/* ok */
-#else
-#error "Must define all or none of CVEC_MALLOC, CVEC_FREE, and CVEC_REALLOC."
-#endif
-
-#ifndef CVEC_MALLOC
-#define CVEC_MALLOC(sz)      malloc(sz)
-#define CVEC_REALLOC(p, sz)  realloc(p, sz)
-#define CVEC_FREE(p)         free(p)
-#endif
-
-#ifndef CVEC_MEMMOVE
-#include <string.h>
-#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
-#endif
-
-#ifndef CVEC_ASSERT
-#include <assert.h>
-#define CVEC_ASSERT(x)       assert(x)
-#endif
-
 
 
 /** Useful utility function since strdup isn't in standard C.*/
@@ -2113,31 +2046,6 @@ size_t CVEC_VOID_START_SZ = 20;
 
 
 #define CVEC_VOID_ALLOCATOR(x) ((x+1) * 2)
-
-#if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
-/* ok */
-#elif !defined(CVEC_MALLOC) && !defined(CVEC_FREE) && !defined(CVEC_REALLOC)
-/* ok */
-#else
-#error "Must define all or none of CVEC_MALLOC, CVEC_FREE, and CVEC_REALLOC."
-#endif
-
-#ifndef CVEC_MALLOC
-#define CVEC_MALLOC(sz)      malloc(sz)
-#define CVEC_REALLOC(p, sz)  realloc(p, sz)
-#define CVEC_FREE(p)         free(p)
-#endif
-
-#ifndef CVEC_MEMMOVE
-#include <string.h>
-#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
-#endif
-
-#ifndef CVEC_ASSERT
-#include <assert.h>
-#define CVEC_ASSERT(x)       assert(x)
-#endif
-
 
 
 /*  general vector */

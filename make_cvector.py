@@ -38,7 +38,8 @@ cvector_str += """
 
 """
 
-cvector_str += open("cvector_macro.h").read()
+c_text = open("cvector_macro.h").read()
+cvector_str += c_text[c_text.find("#define CVEC_NEW_DECLS(TYPE)"):c_text.rfind("#endif")]
 
 cvector_str += """
 
@@ -47,6 +48,30 @@ cvector_str += """
 
 
 #ifdef CVECTOR_IMPLEMENTATION
+
+#if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
+/* ok */
+#elif !defined(CVEC_MALLOC) && !defined(CVEC_FREE) && !defined(CVEC_REALLOC)
+/* ok */
+#else
+#error "Must define all or none of CVEC_MALLOC, CVEC_FREE, and CVEC_REALLOC."
+#endif
+
+#ifndef CVEC_MALLOC
+#define CVEC_MALLOC(sz)      malloc(sz)
+#define CVEC_REALLOC(p, sz)  realloc(p, sz)
+#define CVEC_FREE(p)         free(p)
+#endif
+
+#ifndef CVEC_MEMMOVE
+#include <string.h>
+#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
+#endif
+
+#ifndef CVEC_ASSERT
+#include <assert.h>
+#define CVEC_ASSERT(x)       assert(x)
+#endif
 
 """
 
