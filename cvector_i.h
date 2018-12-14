@@ -1,5 +1,5 @@
-#ifndef VECTORI_H
-#define VECTORI_H
+#ifndef CVECTORI_H
+#define CVECTORI_H
 
 #include <stdlib.h>
 
@@ -15,9 +15,7 @@ typedef struct cvector_i
 	size_t capacity;   /**< Allocated size of array; always >= size. */
 } cvector_i;
 
-
 extern size_t CVEC_I_START_SZ;
-
 
 int cvec_i(cvector_i* vec, size_t size, size_t capacity);
 int cvec_init_i(cvector_i* vec, int* vals, size_t num);
@@ -44,7 +42,6 @@ int* cvec_back_i(cvector_i* vec);
 void cvec_clear_i(cvector_i* vec);
 void cvec_free_i_heap(void* vec);
 void cvec_free_i(void* vec);
-
 
 #ifdef __cplusplus
 }

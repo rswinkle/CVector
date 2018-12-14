@@ -32,7 +32,6 @@ size_t CVEC_STR_START_SZ = 20;
 
 #define CVEC_STR_ALLOCATOR(x) ((x+1) * 2)
 
-
 /** Useful utility function since strdup isn't in standard C.*/
 char* mystrdup(const char* str)
 {
@@ -46,8 +45,6 @@ char* mystrdup(const char* str)
 	
 	return (char*)CVEC_MEMMOVE(temp, str, len);  /* CVEC_MEMMOVE returns to */
 }
-
-
 
 /**
  * Create a new cvector_str on the heap.
@@ -84,7 +81,6 @@ cvector_str* cvec_str_heap(size_t size, size_t capacity)
 	return vec;
 }
 
-
 /** Create (on the heap) and initialize cvector_str with num elements of vals.
  */
 cvector_str* cvec_init_str_heap(char** vals, size_t num)
@@ -111,7 +107,6 @@ cvector_str* cvec_init_str_heap(char** vals, size_t num)
 	
 	return vec;
 }
-
 
 /** Same as cvec_str_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_str in this case
@@ -186,8 +181,6 @@ void cvec_str_copy(void* dest, void* src)
 	vec1->capacity = vec2->capacity;
 }
 
-
-
 /**
  * Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
@@ -227,11 +220,6 @@ char** cvec_back_str(cvector_str* vec)
 	return &vec->a[vec->size-1];
 }
 
-
-
-
-
-
 /** Increase the size of the array num items.  Items
  *  are memset to NULL since they will be freed when
     popped or the vector is freed.*/
@@ -253,9 +241,6 @@ int cvec_extend_str(cvector_str* vec, size_t num)
 	vec->size += num;
 	return 1;
 }
-
-
-
 
 /**
  * Insert a at index i (0 based).
@@ -280,7 +265,6 @@ int cvec_insert_str(cvector_str* vec, size_t i, char* a)
 	vec->size++;
 	return 1;
 }
-
 
 /**
  * Insert the first num elements of array a at index i.
@@ -322,7 +306,6 @@ void cvec_replace_str(cvector_str* vec, size_t i, char* a, char* ret)
 	vec->a[i] = mystrdup(a);
 }
 
-
 /**
  * Erases strings from start to end inclusive.
  * Example erases(myvec, 1, 3) would CVEC_FREE and remove strings at 1, 2, and 3 and the string
@@ -339,10 +322,6 @@ void cvec_erase_str(cvector_str* vec, size_t start, size_t end)
 	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(char*));
 	vec->size -= d;
 }
-
-
-
-
 
 /** Makes sure the vector capacity is >= size (parameter not member). */
 int cvec_reserve_str(cvector_str* vec, size_t size)
@@ -384,8 +363,6 @@ int cvec_set_cap_str(cvector_str* vec, size_t size)
 	return 1;
 }
 
-
-
 /** Sets all size elements to val. */
 void cvec_set_val_sz_str(cvector_str* vec, char* val)
 {
@@ -397,7 +374,6 @@ void cvec_set_val_sz_str(cvector_str* vec, char* val)
 		vec->a[i] = mystrdup(val);
 	}
 }
-
 
 /** Fills entire allocated array (capacity) with val.  Size is set
  * to capacity in this case because strings are individually dynamically allocated.
@@ -416,7 +392,6 @@ void cvec_set_val_cap_str(cvector_str* vec, char* val)
 	vec->size = vec->capacity;
 }
 
-
 /** Clears the contents of vector (frees all strings) and sets size to 0. */
 void cvec_clear_str(cvector_str* vec)
 {
@@ -427,7 +402,6 @@ void cvec_clear_str(cvector_str* vec)
 	
 	vec->size = 0;
 }
-
 
 /** Frees contents (individual strings and array) and frees vector so don't use after calling this. */
 void cvec_free_str_heap(void* vec)
@@ -441,7 +415,6 @@ void cvec_free_str_heap(void* vec)
 	CVEC_FREE(tmp->a);
 	CVEC_FREE(tmp);
 }
-
 
 /** Frees the internal array and sets size and capacity to 0 */
 void cvec_free_str(void* vec)

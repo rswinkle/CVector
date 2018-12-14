@@ -1,5 +1,5 @@
-#ifndef VECTORD_H
-#define VECTORD_H
+#ifndef CVECTORD_H
+#define CVECTORD_H
 
 #include <stdlib.h>
 
@@ -17,7 +17,6 @@ typedef struct cvector_d
 
 extern size_t CVEC_D_START_SZ;
 
-
 int cvec_d(cvector_d* vec, size_t size, size_t capacity);
 int cvec_init_d(cvector_d* vec, double* vals, size_t num);
 
@@ -25,7 +24,6 @@ cvector_d* cvec_d_heap(size_t size, size_t capacity);
 cvector_d* cvec_init_d_heap(double* vals, size_t num);
 
 void cvec_d_copy(void* dest, void* src);
-
 
 int cvec_push_d(cvector_d* vec, double a);
 double cvec_pop_d(cvector_d* vec);

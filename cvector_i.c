@@ -31,7 +31,6 @@ size_t CVEC_I_START_SZ = 50;
 
 #define CVEC_I_ALLOCATOR(x) ((x+1) * 2)
 
-
 /**
  * Creates a new cvector_i on the heap.
  * Vector size set to (size > 0) ? size : 0;
@@ -101,7 +100,6 @@ int cvec_i(cvector_i* vec, size_t size, size_t capacity)
 	return 1;
 }
 
-
 /** Same as cvec_init_i_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.
  */
@@ -119,7 +117,6 @@ int cvec_init_i(cvector_i* vec, int* vals, size_t num)
 
 	return 1;
 }
-
 
 /** Makes dest an identical copy of src.  The parameters
  *  are void so it can be used as the constructor when making
@@ -146,10 +143,6 @@ void cvec_i_copy(void* dest, void* src)
 	vec1->capacity = vec2->capacity;
 }
 
-
-
-
-
 /**
  * Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
@@ -172,8 +165,6 @@ int cvec_push_i(cvector_i* vec, int a)
 	return 1;
 }
 
-
-
 /** Remove and return the last element (size decreased 1).*/
 int cvec_pop_i(cvector_i* vec)
 {
@@ -185,8 +176,6 @@ int* cvec_back_i(cvector_i* vec)
 {
 	return &vec->a[vec->size-1];
 }
-
-
 
 /** Increase the size of the array num items.  Items
  *  are not initialized to anything */
@@ -207,9 +196,6 @@ int cvec_extend_i(cvector_i* vec, size_t num)
 	vec->size += num;
 	return 1;
 }
-
-
-
 
 /**
  * Insert a at index i (0 based).
@@ -234,7 +220,6 @@ int cvec_insert_i(cvector_i* vec, size_t i, int a)
 	vec->size++;
 	return 1;
 }
-
 
 /**
  * Insert the first num elements of array a at index i.
@@ -262,7 +247,6 @@ int cvec_insert_array_i(cvector_i* vec, size_t i, int* a, size_t num)
 	return 1;
 }
 
-
 /** Replace value at index i with a, return original value. */
 int cvec_replace_i(cvector_i* vec, size_t i, int a)
 {
@@ -270,7 +254,6 @@ int cvec_replace_i(cvector_i* vec, size_t i, int a)
 	vec->a[i] = a;
 	return tmp;
 }
-
 
 /**
  * Erases elements from start to end inclusive.
@@ -283,7 +266,6 @@ void cvec_erase_i(cvector_i* vec, size_t start, size_t end)
 	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(int));
 	vec->size -= d;
 }
-
 
 /** Make sure capacity is at least size(parameter not member). */
 int cvec_reserve_i(cvector_i* vec, size_t size)
@@ -299,8 +281,6 @@ int cvec_reserve_i(cvector_i* vec, size_t size)
 	}
 	return 1;
 }
-
-
 
 /** Set capacity to size.
  * You will lose data if you shrink the capacity below the current size.
@@ -322,8 +302,6 @@ int cvec_set_cap_i(cvector_i* vec, size_t size)
 	return 1;
 }
 
-
-
 /** Set all size elements to val. */
 void cvec_set_val_sz_i(cvector_i* vec, int val)
 {
@@ -333,7 +311,6 @@ void cvec_set_val_sz_i(cvector_i* vec, int val)
 	}
 }
 
-
 /** Fills entire allocated array (capacity) with val. */
 void cvec_set_val_cap_i(cvector_i* vec, int val)
 {
@@ -342,7 +319,6 @@ void cvec_set_val_cap_i(cvector_i* vec, int val)
 		vec->a[i] = val;
 	}
 }
-
 
 /** Sets size to 0 (does not clear contents).*/
 void cvec_clear_i(cvector_i* vec) { vec->size = 0; }

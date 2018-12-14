@@ -1,6 +1,23 @@
 import sys, os, glob, re
 
 cvector_str = """
+
+#if defined(CVEC_ONLY_INT) || defined(CVEC_ONLY_DOUBLE) || defined(CVEC_ONLY_STR) \
+    || defined(CVEC_ONLY_VOID)
+   #ifndef CVEC_ONLY_INT
+   #define CVEC_NO_INT
+   #endif
+   #ifndef CVEC_ONLY_DOUBLE
+   #define CVEC_NO_DOUBLE
+   #endif
+   #ifndef CVEC_ONLY_STR
+   #define CVEC_NO_STR
+   #endif
+   #ifndef CVEC_ONLY_VOID
+   #define CVEC_NO_VOID
+   #endif
+#endif
+
 /* header starts */
 
 #ifndef CVECTOR_H
@@ -15,6 +32,7 @@ cvector_str += """
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 """
 
 
@@ -25,10 +43,22 @@ def get_header(filename):
 	return header_text[start:end]
 
 
+cvector_str += "#ifndef CVEC_NO_INT\n\n"
 cvector_str += get_header("cvector_i.h")
+cvector_str += "#endif\n\n"
+
+cvector_str += "#ifndef CVEC_NO_DOUBLE\n\n"
 cvector_str += get_header("cvector_d.h")
+cvector_str += "#endif\n\n"
+
+cvector_str += "#ifndef CVEC_NO_STR\n\n"
 cvector_str += get_header("cvector_str.h")
+cvector_str += "#endif\n\n"
+
+cvector_str += "#ifndef CVEC_NO_VOID\n\n"
 cvector_str += get_header("cvector_void.h")
+cvector_str += "#endif\n\n"
+
 
 cvector_str += """
 #ifdef __cplusplus
@@ -79,10 +109,21 @@ def get_c_file(filename):
 	c_text = open(filename).read()
 	return c_text[c_text.find("size_t"):]
 
+cvector_str += "#ifndef CVEC_NO_INT\n\n"
 cvector_str += get_c_file("cvector_i.c")
+cvector_str += "#endif\n\n"
+
+cvector_str += "#ifndef CVEC_NO_DOUBLE\n\n"
 cvector_str += get_c_file("cvector_d.c")
+cvector_str += "#endif\n\n"
+
+cvector_str += "#ifndef CVEC_NO_STR\n\n"
 cvector_str += get_c_file("cvector_str.c")
+cvector_str += "#endif\n\n"
+
+cvector_str += "#ifndef CVEC_NO_VOID\n\n"
 cvector_str += get_c_file("cvector_void.c")
+cvector_str += "#endif\n\n"
 
 cvector_str += """
 #endif

@@ -1,4 +1,20 @@
 
+
+#if defined(CVEC_ONLY_INT) || defined(CVEC_ONLY_DOUBLE) || defined(CVEC_ONLY_STR)     || defined(CVEC_ONLY_VOID)
+   #ifndef CVEC_ONLY_INT
+   #define CVEC_NO_INT
+   #endif
+   #ifndef CVEC_ONLY_DOUBLE
+   #define CVEC_NO_DOUBLE
+   #endif
+   #ifndef CVEC_ONLY_STR
+   #define CVEC_NO_STR
+   #endif
+   #ifndef CVEC_ONLY_VOID
+   #define CVEC_NO_VOID
+   #endif
+#endif
+
 /* header starts */
 
 #ifndef CVECTOR_H
@@ -12,6 +28,9 @@
 extern "C" {
 #endif
 
+#ifndef CVEC_NO_INT
+
+
 
 /** Data structure for int vector. */
 typedef struct cvector_i
@@ -21,9 +40,7 @@ typedef struct cvector_i
 	size_t capacity;   /**< Allocated size of array; always >= size. */
 } cvector_i;
 
-
 extern size_t CVEC_I_START_SZ;
-
 
 int cvec_i(cvector_i* vec, size_t size, size_t capacity);
 int cvec_init_i(cvector_i* vec, int* vals, size_t num);
@@ -51,6 +68,9 @@ void cvec_clear_i(cvector_i* vec);
 void cvec_free_i_heap(void* vec);
 void cvec_free_i(void* vec);
 
+#endif
+
+#ifndef CVEC_NO_DOUBLE
 
 
 
@@ -64,7 +84,6 @@ typedef struct cvector_d
 
 extern size_t CVEC_D_START_SZ;
 
-
 int cvec_d(cvector_d* vec, size_t size, size_t capacity);
 int cvec_init_d(cvector_d* vec, double* vals, size_t num);
 
@@ -72,7 +91,6 @@ cvector_d* cvec_d_heap(size_t size, size_t capacity);
 cvector_d* cvec_init_d_heap(double* vals, size_t num);
 
 void cvec_d_copy(void* dest, void* src);
-
 
 int cvec_push_d(cvector_d* vec, double a);
 double cvec_pop_d(cvector_d* vec);
@@ -93,6 +111,10 @@ void cvec_clear_d(cvector_d* vec);
 void cvec_free_d_heap(void* vec);
 void cvec_free_d(void* vec);
 
+#endif
+
+#ifndef CVEC_NO_STR
+
 
 
 /** Data structure for string vector. */
@@ -102,7 +124,6 @@ typedef struct cvector_str
 	size_t size;       /**< Current size (amount you use when manipulating array directly). */
 	size_t capacity;   /**< Allocated size of array; always >= size. */
 } cvector_str;
-
 
 extern size_t CVEC_STR_START_SZ;
 
@@ -134,6 +155,10 @@ char** cvec_back_str(cvector_str* vec);
 void cvec_clear_str(cvector_str* vec);
 void cvec_free_str_heap(void* vec);
 void cvec_free_str(void* vec);
+
+#endif
+
+#ifndef CVEC_NO_VOID
 
 
 
@@ -181,6 +206,8 @@ void* cvec_back_void(cvector_void* vec);
 void cvec_clear_void(cvector_void* vec);
 void cvec_free_void_heap(void* vec);
 void cvec_free_void(void* vec);
+
+#endif
 
 
 #ifdef __cplusplus
@@ -942,10 +969,11 @@ void cvec_free_void(void* vec);
 #define CVEC_ASSERT(x)       assert(x)
 #endif
 
+#ifndef CVEC_NO_INT
+
 size_t CVEC_I_START_SZ = 50;
 
 #define CVEC_I_ALLOCATOR(x) ((x+1) * 2)
-
 
 /**
  * Creates a new cvector_i on the heap.
@@ -1016,7 +1044,6 @@ int cvec_i(cvector_i* vec, size_t size, size_t capacity)
 	return 1;
 }
 
-
 /** Same as cvec_init_i_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.
  */
@@ -1034,7 +1061,6 @@ int cvec_init_i(cvector_i* vec, int* vals, size_t num)
 
 	return 1;
 }
-
 
 /** Makes dest an identical copy of src.  The parameters
  *  are void so it can be used as the constructor when making
@@ -1061,10 +1087,6 @@ void cvec_i_copy(void* dest, void* src)
 	vec1->capacity = vec2->capacity;
 }
 
-
-
-
-
 /**
  * Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
@@ -1087,8 +1109,6 @@ int cvec_push_i(cvector_i* vec, int a)
 	return 1;
 }
 
-
-
 /** Remove and return the last element (size decreased 1).*/
 int cvec_pop_i(cvector_i* vec)
 {
@@ -1100,8 +1120,6 @@ int* cvec_back_i(cvector_i* vec)
 {
 	return &vec->a[vec->size-1];
 }
-
-
 
 /** Increase the size of the array num items.  Items
  *  are not initialized to anything */
@@ -1122,9 +1140,6 @@ int cvec_extend_i(cvector_i* vec, size_t num)
 	vec->size += num;
 	return 1;
 }
-
-
-
 
 /**
  * Insert a at index i (0 based).
@@ -1149,7 +1164,6 @@ int cvec_insert_i(cvector_i* vec, size_t i, int a)
 	vec->size++;
 	return 1;
 }
-
 
 /**
  * Insert the first num elements of array a at index i.
@@ -1177,7 +1191,6 @@ int cvec_insert_array_i(cvector_i* vec, size_t i, int* a, size_t num)
 	return 1;
 }
 
-
 /** Replace value at index i with a, return original value. */
 int cvec_replace_i(cvector_i* vec, size_t i, int a)
 {
@@ -1185,7 +1198,6 @@ int cvec_replace_i(cvector_i* vec, size_t i, int a)
 	vec->a[i] = a;
 	return tmp;
 }
-
 
 /**
  * Erases elements from start to end inclusive.
@@ -1198,7 +1210,6 @@ void cvec_erase_i(cvector_i* vec, size_t start, size_t end)
 	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(int));
 	vec->size -= d;
 }
-
 
 /** Make sure capacity is at least size(parameter not member). */
 int cvec_reserve_i(cvector_i* vec, size_t size)
@@ -1214,8 +1225,6 @@ int cvec_reserve_i(cvector_i* vec, size_t size)
 	}
 	return 1;
 }
-
-
 
 /** Set capacity to size.
  * You will lose data if you shrink the capacity below the current size.
@@ -1237,8 +1246,6 @@ int cvec_set_cap_i(cvector_i* vec, size_t size)
 	return 1;
 }
 
-
-
 /** Set all size elements to val. */
 void cvec_set_val_sz_i(cvector_i* vec, int val)
 {
@@ -1248,7 +1255,6 @@ void cvec_set_val_sz_i(cvector_i* vec, int val)
 	}
 }
 
-
 /** Fills entire allocated array (capacity) with val. */
 void cvec_set_val_cap_i(cvector_i* vec, int val)
 {
@@ -1257,7 +1263,6 @@ void cvec_set_val_cap_i(cvector_i* vec, int val)
 		vec->a[i] = val;
 	}
 }
-
 
 /** Sets size to 0 (does not clear contents).*/
 void cvec_clear_i(cvector_i* vec) { vec->size = 0; }
@@ -1279,11 +1284,13 @@ void cvec_free_i(void* vec)
 	tmp->capacity = 0;
 }
 
+#endif
+
+#ifndef CVEC_NO_DOUBLE
+
 size_t CVEC_D_START_SZ = 50;
 
-
 #define CVEC_D_ALLOCATOR(x) ((x+1) * 2)
-
 
 /**
  * Creates a new cvector_d on the heap.
@@ -1312,7 +1319,6 @@ cvector_d* cvec_d_heap(size_t size, size_t capacity)
 	return vec;
 }
 
-
 /** Create (on the heap) and initialize cvector_d with num elements of vals.
  *  Capacity is set to num + CVEC_D_START_SZ.
  */
@@ -1337,7 +1343,6 @@ cvector_d* cvec_init_d_heap(double* vals, size_t num)
 
 	return vec;
 }
-
 
 /** Same as cvec_d_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_d in this case.
@@ -1400,12 +1405,6 @@ void cvec_d_copy(void* dest, void* src)
 	vec1->capacity = vec2->capacity;
 }
 
-
-
-
-
-
-
 /** Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
  */
@@ -1426,22 +1425,17 @@ int cvec_push_d(cvector_d* vec, double a)
 	return 1;
 }
 
-
 /** Remove and return the last element (size decreased 1).*/
 double cvec_pop_d(cvector_d* vec)
 {
 	return vec->a[--vec->size];
 }
 
-
 /** Return pointer to last element */
 double* cvec_back_d(cvector_d* vec)
 {
 	return &vec->a[vec->size-1];
 }
-
-
-
 
 /** Increase the size of the array num items.  Items
  *  are not initialized to anything */
@@ -1462,9 +1456,6 @@ int cvec_extend_d(cvector_d* vec, size_t num)
 	vec->size += num;
 	return 1;
 }
-
-
-
 
 /**
  * Insert a at index i (0 based).
@@ -1516,7 +1507,6 @@ int cvec_insert_array_d(cvector_d* vec, size_t i, double* a, size_t num)
 	return 1;
 }
 
-
 /** Replace value at index i with a, return original value. */
 double cvec_replace_d(cvector_d* vec, size_t i, double a)
 {
@@ -1537,7 +1527,6 @@ void cvec_erase_d(cvector_d* vec, size_t start, size_t end)
 	vec->size -= d;
 }
 
-
 /** Make sure capacity is at least size(parameter not member). */
 int cvec_reserve_d(cvector_d* vec, size_t size)
 {
@@ -1552,7 +1541,6 @@ int cvec_reserve_d(cvector_d* vec, size_t size)
 	}
 	return 1;
 }
-
 
 /** Set capacity to size.
  * You will lose data if you shrink the capacity below the current size.
@@ -1573,7 +1561,6 @@ int cvec_set_cap_d(cvector_d* vec, size_t size)
 	return 1;
 }
 
-
 /** Set all size elements to val. */
 void cvec_set_val_sz_d(cvector_d* vec, double val)
 {
@@ -1582,7 +1569,6 @@ void cvec_set_val_sz_d(cvector_d* vec, double val)
 		vec->a[i] = val;
 	}
 }
-
 
 /** Fills entire allocated array (capacity) with val. */
 void cvec_set_val_cap_d(cvector_d* vec, double val)
@@ -1593,11 +1579,8 @@ void cvec_set_val_cap_d(cvector_d* vec, double val)
 	}
 }
 
-
-
 /** Sets size to 0 (does not clear contents).*/
 void cvec_clear_d(cvector_d* vec) { vec->size = 0; }
-
 
 /** Frees everything so don't use vec after calling this. */
 void cvec_free_d_heap(void* vec)
@@ -1614,10 +1597,13 @@ void cvec_free_d(void* vec)
 	CVEC_FREE(tmp->a); tmp->size = 0;
 	tmp->capacity = 0;
 }
+#endif
+
+#ifndef CVEC_NO_STR
+
 size_t CVEC_STR_START_SZ = 20;
 
 #define CVEC_STR_ALLOCATOR(x) ((x+1) * 2)
-
 
 /** Useful utility function since strdup isn't in standard C.*/
 char* mystrdup(const char* str)
@@ -1632,8 +1618,6 @@ char* mystrdup(const char* str)
 	
 	return (char*)CVEC_MEMMOVE(temp, str, len);  /* CVEC_MEMMOVE returns to */
 }
-
-
 
 /**
  * Create a new cvector_str on the heap.
@@ -1670,7 +1654,6 @@ cvector_str* cvec_str_heap(size_t size, size_t capacity)
 	return vec;
 }
 
-
 /** Create (on the heap) and initialize cvector_str with num elements of vals.
  */
 cvector_str* cvec_init_str_heap(char** vals, size_t num)
@@ -1697,7 +1680,6 @@ cvector_str* cvec_init_str_heap(char** vals, size_t num)
 	
 	return vec;
 }
-
 
 /** Same as cvec_str_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_str in this case
@@ -1772,8 +1754,6 @@ void cvec_str_copy(void* dest, void* src)
 	vec1->capacity = vec2->capacity;
 }
 
-
-
 /**
  * Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
@@ -1813,11 +1793,6 @@ char** cvec_back_str(cvector_str* vec)
 	return &vec->a[vec->size-1];
 }
 
-
-
-
-
-
 /** Increase the size of the array num items.  Items
  *  are memset to NULL since they will be freed when
     popped or the vector is freed.*/
@@ -1839,9 +1814,6 @@ int cvec_extend_str(cvector_str* vec, size_t num)
 	vec->size += num;
 	return 1;
 }
-
-
-
 
 /**
  * Insert a at index i (0 based).
@@ -1866,7 +1838,6 @@ int cvec_insert_str(cvector_str* vec, size_t i, char* a)
 	vec->size++;
 	return 1;
 }
-
 
 /**
  * Insert the first num elements of array a at index i.
@@ -1908,7 +1879,6 @@ void cvec_replace_str(cvector_str* vec, size_t i, char* a, char* ret)
 	vec->a[i] = mystrdup(a);
 }
 
-
 /**
  * Erases strings from start to end inclusive.
  * Example erases(myvec, 1, 3) would CVEC_FREE and remove strings at 1, 2, and 3 and the string
@@ -1925,10 +1895,6 @@ void cvec_erase_str(cvector_str* vec, size_t start, size_t end)
 	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(char*));
 	vec->size -= d;
 }
-
-
-
-
 
 /** Makes sure the vector capacity is >= size (parameter not member). */
 int cvec_reserve_str(cvector_str* vec, size_t size)
@@ -1970,8 +1936,6 @@ int cvec_set_cap_str(cvector_str* vec, size_t size)
 	return 1;
 }
 
-
-
 /** Sets all size elements to val. */
 void cvec_set_val_sz_str(cvector_str* vec, char* val)
 {
@@ -1983,7 +1947,6 @@ void cvec_set_val_sz_str(cvector_str* vec, char* val)
 		vec->a[i] = mystrdup(val);
 	}
 }
-
 
 /** Fills entire allocated array (capacity) with val.  Size is set
  * to capacity in this case because strings are individually dynamically allocated.
@@ -2002,7 +1965,6 @@ void cvec_set_val_cap_str(cvector_str* vec, char* val)
 	vec->size = vec->capacity;
 }
 
-
 /** Clears the contents of vector (frees all strings) and sets size to 0. */
 void cvec_clear_str(cvector_str* vec)
 {
@@ -2013,7 +1975,6 @@ void cvec_clear_str(cvector_str* vec)
 	
 	vec->size = 0;
 }
-
 
 /** Frees contents (individual strings and array) and frees vector so don't use after calling this. */
 void cvec_free_str_heap(void* vec)
@@ -2028,7 +1989,6 @@ void cvec_free_str_heap(void* vec)
 	CVEC_FREE(tmp);
 }
 
-
 /** Frees the internal array and sets size and capacity to 0 */
 void cvec_free_str(void* vec)
 {
@@ -2042,13 +2002,13 @@ void cvec_free_str(void* vec)
 	tmp->size = 0;
 	tmp->capacity = 0;
 }
+#endif
+
+#ifndef CVEC_NO_VOID
+
 size_t CVEC_VOID_START_SZ = 20;
 
-
 #define CVEC_VOID_ALLOCATOR(x) ((x+1) * 2)
-
-
-/*  general vector */
 
 /**
  * Creates a new vector on the heap.
@@ -2100,8 +2060,6 @@ cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(
 
 	return vec;
 }
-
-
 
 /** Create (on the heap) and initialize vector with num elements of vals.
  *  elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
@@ -2194,7 +2152,6 @@ int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, vo
 	return 1;
 }
 
-
 /** Makes dest an identical copy of src.  The parameters
  *  are void so it can be used as the constructor when making
  *  a vector of generic vector's. (I would recommend against doing that, and using
@@ -2233,7 +2190,6 @@ void cvec_void_copy(void* dest, void* src)
 	}
 }
 
-
 /** Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
  */
@@ -2260,7 +2216,6 @@ int cvec_push_void(cvector_void* vec, void* a)
 	return 1;
 }
 
-
 /** Remove the last element (size decreased 1).
  * Copy the element into ret.  This function assumes
  * that ret is not NULL and is large accept the element and just CVEC_MEMMOVE's it in.
@@ -2283,9 +2238,6 @@ void* cvec_back_void(cvector_void* vec)
 	return &vec->a[(vec->size-1)*vec->elem_size];
 }
 
-
-
-
 /** Increase the size of the array num items.  Items
  *  are not initialized to anything! */
 int cvec_extend_void(cvector_void* vec, size_t num)
@@ -2306,7 +2258,6 @@ int cvec_extend_void(cvector_void* vec, size_t num)
 	return 1;
 }
 
-
 /** Return a void pointer to the ith element.
   * Another way to get elements from vector that is used in vector_tests.c
   * is a macro like this one
@@ -2316,8 +2267,6 @@ void* cvec_get_void(cvector_void* vec, size_t i)
 {
 	return &vec->a[i*vec->elem_size];
 }
-
-
 
 /**
  * Insert a at index i (0 based).
@@ -2410,7 +2359,6 @@ void cvec_erase_void(cvector_void* vec, size_t start, size_t end)
 	vec->size -= d;
 }
 
-
 /** Makes sure capacity >= size (the parameter not the member). */
 int cvec_reserve_void(cvector_void* vec, size_t size)
 {
@@ -2425,7 +2373,6 @@ int cvec_reserve_void(cvector_void* vec, size_t size)
 	}
 	return 1;
 }
-
 
 /** Set capacity to size.
  * You will lose data if you shrink the capacity below the current size.
@@ -2454,8 +2401,6 @@ int cvec_set_cap_void(cvector_void* vec, size_t size)
 	return 1;
 }
 
-
-
 /** Set all size elements to val. */
 void cvec_set_val_sz_void(cvector_void* vec, void* val)
 {
@@ -2477,7 +2422,6 @@ void cvec_set_val_sz_void(cvector_void* vec, void* val)
 		}
 	}
 }
-
 
 /** Fills entire allocated array (capacity) with val.  If you set a CVEC_FREE function
  * then size is set to capacity like vector_s for the same reason, ie I need to know
@@ -2505,7 +2449,6 @@ void cvec_set_val_cap_void(cvector_void* vec, void* val)
 	}
 }
 
-
 /** Sets size to 0 (does not change contents unless elem_free is set
  *  then it will CVEC_FREE all size elements as in vector_s). */
 void cvec_clear_void(cvector_void* vec)
@@ -2518,7 +2461,6 @@ void cvec_clear_void(cvector_void* vec)
 	}
 	vec->size = 0;
 }
-
 
 /** Frees everything so don't use vec after calling this. If you set a CVEC_FREE function
  * it will be called on all size elements of course. */
@@ -2534,7 +2476,6 @@ void cvec_free_void_heap(void* vec)
 	CVEC_FREE(tmp->a);
 	CVEC_FREE(tmp);
 }
-
 
 /** Frees the internal array and sets size and capacity to 0 */
 void cvec_free_void(void* vec)
@@ -2552,8 +2493,6 @@ void cvec_free_void(void* vec)
 	tmp->size = 0;
 	tmp->capacity = 0;
 }
-
-
 
 /*! \mainpage CVector notes
  *
@@ -2719,9 +2658,7 @@ IN THE SOFTWARE.
  */
 
 
-
-
-
+#endif
 
 
 #endif

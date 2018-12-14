@@ -28,9 +28,7 @@
 
 size_t CVEC_D_START_SZ = 50;
 
-
 #define CVEC_D_ALLOCATOR(x) ((x+1) * 2)
-
 
 /**
  * Creates a new cvector_d on the heap.
@@ -59,7 +57,6 @@ cvector_d* cvec_d_heap(size_t size, size_t capacity)
 	return vec;
 }
 
-
 /** Create (on the heap) and initialize cvector_d with num elements of vals.
  *  Capacity is set to num + CVEC_D_START_SZ.
  */
@@ -84,7 +81,6 @@ cvector_d* cvec_init_d_heap(double* vals, size_t num)
 
 	return vec;
 }
-
 
 /** Same as cvec_d_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_d in this case.
@@ -147,12 +143,6 @@ void cvec_d_copy(void* dest, void* src)
 	vec1->capacity = vec2->capacity;
 }
 
-
-
-
-
-
-
 /** Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
  */
@@ -173,22 +163,17 @@ int cvec_push_d(cvector_d* vec, double a)
 	return 1;
 }
 
-
 /** Remove and return the last element (size decreased 1).*/
 double cvec_pop_d(cvector_d* vec)
 {
 	return vec->a[--vec->size];
 }
 
-
 /** Return pointer to last element */
 double* cvec_back_d(cvector_d* vec)
 {
 	return &vec->a[vec->size-1];
 }
-
-
-
 
 /** Increase the size of the array num items.  Items
  *  are not initialized to anything */
@@ -209,9 +194,6 @@ int cvec_extend_d(cvector_d* vec, size_t num)
 	vec->size += num;
 	return 1;
 }
-
-
-
 
 /**
  * Insert a at index i (0 based).
@@ -263,7 +245,6 @@ int cvec_insert_array_d(cvector_d* vec, size_t i, double* a, size_t num)
 	return 1;
 }
 
-
 /** Replace value at index i with a, return original value. */
 double cvec_replace_d(cvector_d* vec, size_t i, double a)
 {
@@ -284,7 +265,6 @@ void cvec_erase_d(cvector_d* vec, size_t start, size_t end)
 	vec->size -= d;
 }
 
-
 /** Make sure capacity is at least size(parameter not member). */
 int cvec_reserve_d(cvector_d* vec, size_t size)
 {
@@ -299,7 +279,6 @@ int cvec_reserve_d(cvector_d* vec, size_t size)
 	}
 	return 1;
 }
-
 
 /** Set capacity to size.
  * You will lose data if you shrink the capacity below the current size.
@@ -320,7 +299,6 @@ int cvec_set_cap_d(cvector_d* vec, size_t size)
 	return 1;
 }
 
-
 /** Set all size elements to val. */
 void cvec_set_val_sz_d(cvector_d* vec, double val)
 {
@@ -329,7 +307,6 @@ void cvec_set_val_sz_d(cvector_d* vec, double val)
 		vec->a[i] = val;
 	}
 }
-
 
 /** Fills entire allocated array (capacity) with val. */
 void cvec_set_val_cap_d(cvector_d* vec, double val)
@@ -340,11 +317,8 @@ void cvec_set_val_cap_d(cvector_d* vec, double val)
 	}
 }
 
-
-
 /** Sets size to 0 (does not clear contents).*/
 void cvec_clear_d(cvector_d* vec) { vec->size = 0; }
-
 
 /** Frees everything so don't use vec after calling this. */
 void cvec_free_d_heap(void* vec)

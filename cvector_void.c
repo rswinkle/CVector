@@ -28,11 +28,7 @@
 
 size_t CVEC_VOID_START_SZ = 20;
 
-
 #define CVEC_VOID_ALLOCATOR(x) ((x+1) * 2)
-
-
-/*  general vector */
 
 /**
  * Creates a new vector on the heap.
@@ -84,8 +80,6 @@ cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(
 
 	return vec;
 }
-
-
 
 /** Create (on the heap) and initialize vector with num elements of vals.
  *  elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
@@ -178,7 +172,6 @@ int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, vo
 	return 1;
 }
 
-
 /** Makes dest an identical copy of src.  The parameters
  *  are void so it can be used as the constructor when making
  *  a vector of generic vector's. (I would recommend against doing that, and using
@@ -217,7 +210,6 @@ void cvec_void_copy(void* dest, void* src)
 	}
 }
 
-
 /** Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
  */
@@ -244,7 +236,6 @@ int cvec_push_void(cvector_void* vec, void* a)
 	return 1;
 }
 
-
 /** Remove the last element (size decreased 1).
  * Copy the element into ret.  This function assumes
  * that ret is not NULL and is large accept the element and just CVEC_MEMMOVE's it in.
@@ -267,9 +258,6 @@ void* cvec_back_void(cvector_void* vec)
 	return &vec->a[(vec->size-1)*vec->elem_size];
 }
 
-
-
-
 /** Increase the size of the array num items.  Items
  *  are not initialized to anything! */
 int cvec_extend_void(cvector_void* vec, size_t num)
@@ -290,7 +278,6 @@ int cvec_extend_void(cvector_void* vec, size_t num)
 	return 1;
 }
 
-
 /** Return a void pointer to the ith element.
   * Another way to get elements from vector that is used in vector_tests.c
   * is a macro like this one
@@ -300,8 +287,6 @@ void* cvec_get_void(cvector_void* vec, size_t i)
 {
 	return &vec->a[i*vec->elem_size];
 }
-
-
 
 /**
  * Insert a at index i (0 based).
@@ -394,7 +379,6 @@ void cvec_erase_void(cvector_void* vec, size_t start, size_t end)
 	vec->size -= d;
 }
 
-
 /** Makes sure capacity >= size (the parameter not the member). */
 int cvec_reserve_void(cvector_void* vec, size_t size)
 {
@@ -409,7 +393,6 @@ int cvec_reserve_void(cvector_void* vec, size_t size)
 	}
 	return 1;
 }
-
 
 /** Set capacity to size.
  * You will lose data if you shrink the capacity below the current size.
@@ -438,8 +421,6 @@ int cvec_set_cap_void(cvector_void* vec, size_t size)
 	return 1;
 }
 
-
-
 /** Set all size elements to val. */
 void cvec_set_val_sz_void(cvector_void* vec, void* val)
 {
@@ -461,7 +442,6 @@ void cvec_set_val_sz_void(cvector_void* vec, void* val)
 		}
 	}
 }
-
 
 /** Fills entire allocated array (capacity) with val.  If you set a CVEC_FREE function
  * then size is set to capacity like vector_s for the same reason, ie I need to know
@@ -489,7 +469,6 @@ void cvec_set_val_cap_void(cvector_void* vec, void* val)
 	}
 }
 
-
 /** Sets size to 0 (does not change contents unless elem_free is set
  *  then it will CVEC_FREE all size elements as in vector_s). */
 void cvec_clear_void(cvector_void* vec)
@@ -502,7 +481,6 @@ void cvec_clear_void(cvector_void* vec)
 	}
 	vec->size = 0;
 }
-
 
 /** Frees everything so don't use vec after calling this. If you set a CVEC_FREE function
  * it will be called on all size elements of course. */
@@ -518,7 +496,6 @@ void cvec_free_void_heap(void* vec)
 	CVEC_FREE(tmp->a);
 	CVEC_FREE(tmp);
 }
-
 
 /** Frees the internal array and sets size and capacity to 0 */
 void cvec_free_void(void* vec)
@@ -536,8 +513,6 @@ void cvec_free_void(void* vec)
 	tmp->size = 0;
 	tmp->capacity = 0;
 }
-
-
 
 /*! \mainpage CVector notes
  *
@@ -701,9 +676,5 @@ IN THE SOFTWARE.
  *
  *
  */
-
-
-
-
 
 

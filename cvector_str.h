@@ -1,5 +1,5 @@
-#ifndef VECTORSTR_H
-#define VECTORSTR_H
+#ifndef CVECTORSTR_H
+#define CVECTORSTR_H
 
 #include <stdlib.h>
 
@@ -14,7 +14,6 @@ typedef struct cvector_str
 	size_t size;       /**< Current size (amount you use when manipulating array directly). */
 	size_t capacity;   /**< Allocated size of array; always >= size. */
 } cvector_str;
-
 
 extern size_t CVEC_STR_START_SZ;
 
