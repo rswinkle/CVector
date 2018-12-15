@@ -1,7 +1,6 @@
 CVECTOR
 =======
 [![Build Status](https://travis-ci.org/rswinkle/CVector.svg?branch=master)](https://travis-ci.org/rswinkle/CVector)
-[![Contact me on Codementor](https://cdn.codementor.io/badges/contact_me_github.svg)](https://www.codementor.io/rswinkle)
 
 [http://www.robertwinkler.com/CVector/](http://www.robertwinkler.com/CVector/)
 
@@ -77,7 +76,6 @@ cvector_short and cvector_f_struct are examples of the generated files.  While I
 now test the macros instead of the files, it's the same code, and you can still
 see how I used to test them.
 
-
 Building
 ========
 I use [premake](http://premake.github.io/) so the command on linux is premake5 gmake which
@@ -86,7 +84,6 @@ or make config=release.  I have not tried it on windows though
 it should work (well I'm not sure about CUnit ...).
 
 There is no output of any kind, no errors or warnings.
-
 
 It has been relatively well tested using CUnit tests which all pass.
 I've also run it under valgrind and there are no memory leaks.
@@ -103,13 +100,10 @@ I've also run it under valgrind and there are no memory leaks.
 	==4682== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
 
-
-
 I plan to continue to improve/modify it but probably only in minor ways and
 only if I think something should be changed.  This library is mostly
 for my own use but I thought I would share it and use it as a platform
 to learn CUnit and Doxygen.
-
 
 You can probably get Cunit from your package manager but
 if you want to get the most up to date version of CUnit go here:
@@ -119,24 +113,21 @@ http://sourceforge.net/projects/cunit/
 
 I'm using version 2.1-3.
 
-
 Usage
 =====
 To actually use the library just copy the appropriate c/h file pair(s) to your project
-or just use cvector.h.
-To get a good idea of how to use the library and see it in action and how it should
-behave, look at cvector_tests.c
+or just use cvector.h.  To get a good idea of how to use the library and see it in
+action and how it should behave, look at cvector_tests.c
 
 Documentation
 =============
 The Doxygen generated html docs are [online here](http://www.robertwinkler.com/CVector/docs/)
 
-
 LICENSE
 =======
 CVector is licensed under the MIT License.
 
-Copyright (c) 2011-2016 Robert Winkler
+Copyright (c) 2011-2018 Robert Winkler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation

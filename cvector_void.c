@@ -589,7 +589,6 @@ cvector_short and cvector_f_struct are examples of the generated files.  While I
 now test the macros instead of the files, it's the same code, and you can still
 see how I used to test them.
 
-
 \section des_notes Design Notes
 Memory allocations are checked and asserted.  If not in debug mode (ie NDEBUG is defined)
 0 is returned on allocation failure.
@@ -614,15 +613,12 @@ this library to be compliant with C89, which does not guarrantee this behavior, 
 it's safe to assume they'd use the same implementation since it doesn't contradict C89 and it
 just makes sense.
 
-
-
 \section Building
 I use premake to generate the make files in the build directory.  The command is premake5 gmake.
 cd into build and run make or make config=release.  I have not tried it on windows though
 it should work (well I'm not sure about CUnit ...).
 
 There is no output of any kind, no errors or warnings.
-
 
 It has been relatively well tested using CUnit tests which all pass.
 I've also run it under valgrind and there are no memory leaks.
@@ -649,17 +645,15 @@ http://sourceforge.net/projects/cunit/
 
 I'm using version 2.1-3.
 
-
 \section Usage
 To actually use the library just copy the appropriate c/h file pair(s) to your project
-or just use cvector.h.
-To get a good idea of how to use the library and see it in action and how it should
-behave, look at cvector_tests.c
+or just use cvector.h.  To get a good idea of how to use the library and see it in
+action and how it should behave, look at cvector_tests.c
 
 \section LICENSE
 CVector is licensed under the MIT License.
 
-Copyright (c) 2011-2016 Robert Winkler
+Copyright (c) 2011-2018 Robert Winkler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation
