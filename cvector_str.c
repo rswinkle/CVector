@@ -209,8 +209,9 @@ int cvec_push_str(cvector_str* vec, char* a)
  *  (ie ret has adequate space.) */
 void cvec_pop_str(cvector_str* vec, char* ret)
 {
+	vec->size--;
 	if (ret)
-		strcpy(ret, vec->a[--vec->size]);
+		strcpy(ret, vec->a[vec->size]);
 	CVEC_FREE(vec->a[vec->size]);
 }
 

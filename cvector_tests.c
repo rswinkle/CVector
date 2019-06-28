@@ -692,6 +692,11 @@ void pop_str_test()
 
 	CU_ASSERT_EQUAL(vec1.capacity, 10);
 
+	cvec_push_str(&vec1, "whatever");
+	CU_ASSERT_EQUAL(vec1.size, 1);
+	cvec_pop_str(&vec1, NULL);
+	CU_ASSERT_EQUAL(vec1.size, 0);
+
 	for (i=0; i<1000; i++) {
 		sprintf(buffer, "hello %d", i);
 		cvec_push_str(&vec1, buffer);
@@ -1133,6 +1138,21 @@ void pop_void_test()
 
 	for (i=0; i<vec2.size; ++i)
 		GET_F(vec2, i)->word = mystrdup("hello");
+
+
+	strcpy(buffer, "test_pop_null");
+	temp = mk_t_struct(i, i, buffer);
+	temp2 = mk_f_struct(i, i, buffer);
+
+	cvec_push_void(&vec1, &temp);
+	cvec_push_void(&vec2, &temp2);
+	CU_ASSERT_EQUAL(vec1.size, 11);
+	CU_ASSERT_EQUAL(vec2.size, 11);
+	cvec_pop_void(&vec1, NULL);
+	cvec_pop_void(&vec2, NULL);
+	CU_ASSERT_EQUAL(vec1.size, 10);
+	CU_ASSERT_EQUAL(vec2.size, 10);
+
 
 	for (i=0; i<1000; i++) {
 		sprintf(buffer, "hello %d", i);

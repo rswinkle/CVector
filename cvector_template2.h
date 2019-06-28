@@ -243,10 +243,9 @@ int cvec_push_TYPE(cvector_TYPE* vec, TYPE* a)
 
 void cvec_pop_TYPE(cvector_TYPE* vec, TYPE* ret)
 {
+	vec->size--;
 	if (ret) {
-		CVEC_MEMMOVE(ret, &vec->a[--vec->size], sizeof(TYPE));
-	} else {
-		vec->size--;
+		CVEC_MEMMOVE(ret, &vec->a[vec->size], sizeof(TYPE));
 	}
 
 	if (vec->elem_free) {

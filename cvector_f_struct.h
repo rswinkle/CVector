@@ -1,8 +1,6 @@
 #ifndef CVECTOR_f_struct_H
 #define CVECTOR_f_struct_H
 
-#include "test_types.h"
-
 #include <stdlib.h>
 
 
@@ -245,10 +243,9 @@ int cvec_push_f_struct(cvector_f_struct* vec, f_struct* a)
 
 void cvec_pop_f_struct(cvector_f_struct* vec, f_struct* ret)
 {
+	vec->size--;
 	if (ret) {
-		CVEC_MEMMOVE(ret, &vec->a[--vec->size], sizeof(f_struct));
-	} else {
-		vec->size--;
+		CVEC_MEMMOVE(ret, &vec->a[vec->size], sizeof(f_struct));
 	}
 
 	if (vec->elem_free) {
