@@ -35,11 +35,13 @@ size_t CVEC_STR_START_SZ = 20;
 /** Useful utility function since strdup isn't in standard C.*/
 char* mystrdup(const char* str)
 {
+	size_t len;
+	char* temp;
 	if (!str)
 		return NULL;
 
-	size_t len = strlen(str);
-	char* temp = (char*)CVEC_MALLOC(len+1);
+	len = strlen(str);
+	temp = (char*)CVEC_MALLOC(len+1);
 	if (!temp) {
 		CVEC_ASSERT(temp != NULL);
 		return NULL;
@@ -412,6 +414,7 @@ void cvec_free_str_heap(void* vec)
 {
 	size_t i;
 	cvector_str* tmp = (cvector_str*)vec;
+	if (!tmp) return;
 	for (i=0; i<tmp->size; i++) {
 		CVEC_FREE(tmp->a[i]);
 	}

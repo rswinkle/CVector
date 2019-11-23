@@ -1271,6 +1271,7 @@ void cvec_clear_i(cvector_i* vec) { vec->size = 0; }
 void cvec_free_i_heap(void* vec)
 {
 	cvector_i* tmp = (cvector_i*)vec;
+	if (!tmp) return;
 	CVEC_FREE(tmp->a);
 	CVEC_FREE(tmp);
 }
@@ -1586,6 +1587,7 @@ void cvec_clear_d(cvector_d* vec) { vec->size = 0; }
 void cvec_free_d_heap(void* vec)
 {
 	cvector_d* tmp = (cvector_d*)vec;
+	if (!tmp) return;
 	CVEC_FREE(tmp->a);
 	CVEC_FREE(tmp);
 }
@@ -1608,11 +1610,13 @@ size_t CVEC_STR_START_SZ = 20;
 /** Useful utility function since strdup isn't in standard C.*/
 char* mystrdup(const char* str)
 {
+	size_t len;
+	char* temp;
 	if (!str)
 		return NULL;
 
-	size_t len = strlen(str);
-	char* temp = (char*)CVEC_MALLOC(len+1);
+	len = strlen(str);
+	temp = (char*)CVEC_MALLOC(len+1);
 	if (!temp) {
 		CVEC_ASSERT(temp != NULL);
 		return NULL;
@@ -1985,6 +1989,7 @@ void cvec_free_str_heap(void* vec)
 {
 	size_t i;
 	cvector_str* tmp = (cvector_str*)vec;
+	if (!tmp) return;
 	for (i=0; i<tmp->size; i++) {
 		CVEC_FREE(tmp->a[i]);
 	}
@@ -2472,6 +2477,7 @@ void cvec_free_void_heap(void* vec)
 {
 	size_t i;
 	cvector_void* tmp = (cvector_void*)vec;
+	if (!tmp) return;
 	if (tmp->elem_free) {
 		for (i=0; i<tmp->size; i++) {
 			tmp->elem_free(&tmp->a[i*tmp->elem_size]);

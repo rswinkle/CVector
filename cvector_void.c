@@ -488,6 +488,7 @@ void cvec_free_void_heap(void* vec)
 {
 	size_t i;
 	cvector_void* tmp = (cvector_void*)vec;
+	if (!tmp) return;
 	if (tmp->elem_free) {
 		for (i=0; i<tmp->size; i++) {
 			tmp->elem_free(&tmp->a[i*tmp->elem_size]);

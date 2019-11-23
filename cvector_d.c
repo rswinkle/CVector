@@ -324,6 +324,7 @@ void cvec_clear_d(cvector_d* vec) { vec->size = 0; }
 void cvec_free_d_heap(void* vec)
 {
 	cvector_d* tmp = (cvector_d*)vec;
+	if (!tmp) return;
 	CVEC_FREE(tmp->a);
 	CVEC_FREE(tmp);
 }
