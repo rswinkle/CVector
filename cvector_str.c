@@ -35,6 +35,9 @@ size_t CVEC_STR_START_SZ = 20;
 /** Useful utility function since strdup isn't in standard C.*/
 char* mystrdup(const char* str)
 {
+	if (!str)
+		return NULL;
+
 	size_t len = strlen(str);
 	char* temp = (char*)CVEC_MALLOC(len+1);
 	if (!temp) {
