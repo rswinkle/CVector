@@ -332,6 +332,7 @@ void cvec_clear_TYPE(cvector_TYPE* vec) { vec->size = 0; }
 void cvec_free_TYPE_heap(void* vec)
 {
 	cvector_TYPE* tmp = (cvector_TYPE*)vec;
+	if (!tmp) return;
 	free(tmp->a);
 	free(tmp);
 }

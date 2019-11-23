@@ -497,6 +497,7 @@ void cvec_free_void(void* vec);
   void cvec_free_##TYPE##_heap(void* vec)                                              \
   {                                                                                    \
     cvector_##TYPE* tmp = (cvector_##TYPE*)vec;                                        \
+    if (!tmp) return;                                                                  \
     free(tmp->a);                                                                      \
     free(tmp);                                                                         \
   }                                                                                    \
@@ -912,6 +913,7 @@ void cvec_free_void(void* vec);
   {                                                                                              \
     size_t i;                                                                                    \
     cvector_##TYPE* tmp = (cvector_##TYPE*)vec;                                                  \
+    if (!tmp) return;                                                                  \
     if (tmp->elem_free) {                                                                        \
       for (i = 0; i < tmp->size; i++) {                                                          \
         tmp->elem_free(&tmp->a[i]);                                                              \
@@ -1267,7 +1269,8 @@ void cvec_set_val_cap_i(cvector_i* vec, int val)
 /** Sets size to 0 (does not clear contents).*/
 void cvec_clear_i(cvector_i* vec) { vec->size = 0; }
 
-/** Frees everything so don't use vec after calling this. */
+/** Frees everything so don't use vec after calling this.
+ *  Passing NULL is a NO-OP, matching the behavior of free(). */
 void cvec_free_i_heap(void* vec)
 {
 	cvector_i* tmp = (cvector_i*)vec;
@@ -1583,7 +1586,8 @@ void cvec_set_val_cap_d(cvector_d* vec, double val)
 /** Sets size to 0 (does not clear contents).*/
 void cvec_clear_d(cvector_d* vec) { vec->size = 0; }
 
-/** Frees everything so don't use vec after calling this. */
+/** Frees everything so don't use vec after calling this.
+ *  Passing NULL is a NO-OP, matching the behavior of free(). */
 void cvec_free_d_heap(void* vec)
 {
 	cvector_d* tmp = (cvector_d*)vec;
@@ -1984,7 +1988,8 @@ void cvec_clear_str(cvector_str* vec)
 	vec->size = 0;
 }
 
-/** Frees contents (individual strings and array) and frees vector so don't use after calling this. */
+/** Frees contents (individual strings and array) and frees vector so don't use
+ *  after calling this. Passing NULL is a NO-OP, matching the behavior of free(). */
 void cvec_free_str_heap(void* vec)
 {
 	size_t i;
@@ -2472,7 +2477,8 @@ void cvec_clear_void(cvector_void* vec)
 }
 
 /** Frees everything so don't use vec after calling this. If you set a CVEC_FREE function
- * it will be called on all size elements of course. */
+ * it will be called on all size elements of course. Passing NULL is a NO-OP, matching the behavior
+ * of free(). */
 void cvec_free_void_heap(void* vec)
 {
 	size_t i;

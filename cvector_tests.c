@@ -1,8 +1,16 @@
 #define CVECTOR_IMPLEMENTATION
 #include "cvector.h"
 
-#define DO_TEMPLATE_TEST 0
-#if DO_TEMPLATE_TEST
+#include "test_types.h"
+
+/*
+ * uncomment this define to test the templates generated with
+ * generate_code.py from cvector_template*.h instead of
+ * the equivalent macros in cvector.h
+ *
+ * #define DO_TEMPLATE_TEST
+ */
+#ifdef DO_TEMPLATE_TEST
 /*replace with or add your own generated file and edit the template test*/
 
 #define CVECTOR_short_IMPLEMENTATION
@@ -10,12 +18,7 @@
 #include "cvector_short.h"
 #include "cvector_f_struct.h"
 
-#endif
-
-#include "test_types.h"
-
-#define DO_MACRO_TEST 1
-#if DO_MACRO_TEST
+#else
 
 /* #include "cvector_macro.h" */
 

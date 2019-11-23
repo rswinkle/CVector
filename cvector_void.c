@@ -483,7 +483,8 @@ void cvec_clear_void(cvector_void* vec)
 }
 
 /** Frees everything so don't use vec after calling this. If you set a CVEC_FREE function
- * it will be called on all size elements of course. */
+ * it will be called on all size elements of course. Passing NULL is a NO-OP, matching the behavior
+ * of free(). */
 void cvec_free_void_heap(void* vec)
 {
 	size_t i;

@@ -313,6 +313,7 @@
   void cvec_free_##TYPE##_heap(void* vec)                                              \
   {                                                                                    \
     cvector_##TYPE* tmp = (cvector_##TYPE*)vec;                                        \
+    if (!tmp) return;                                                                  \
     free(tmp->a);                                                                      \
     free(tmp);                                                                         \
   }                                                                                    \
@@ -728,6 +729,7 @@
   {                                                                                              \
     size_t i;                                                                                    \
     cvector_##TYPE* tmp = (cvector_##TYPE*)vec;                                                  \
+    if (!tmp) return;                                                                  \
     if (tmp->elem_free) {                                                                        \
       for (i = 0; i < tmp->size; i++) {                                                          \
         tmp->elem_free(&tmp->a[i]);                                                              \

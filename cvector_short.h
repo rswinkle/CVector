@@ -332,6 +332,7 @@ void cvec_clear_short(cvector_short* vec) { vec->size = 0; }
 void cvec_free_short_heap(void* vec)
 {
 	cvector_short* tmp = (cvector_short*)vec;
+	if (!tmp) return;
 	free(tmp->a);
 	free(tmp);
 }

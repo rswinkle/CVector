@@ -443,6 +443,7 @@ void cvec_free_TYPE_heap(void* vec)
 {
 	size_t i;
 	cvector_TYPE* tmp = (cvector_TYPE*)vec;
+	if (!tmp) return;
 	if (tmp->elem_free) {
 		for (i=0; i<tmp->size; i++) {
 			tmp->elem_free(&tmp->a[i]);

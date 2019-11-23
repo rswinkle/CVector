@@ -443,6 +443,7 @@ void cvec_free_f_struct_heap(void* vec)
 {
 	size_t i;
 	cvector_f_struct* tmp = (cvector_f_struct*)vec;
+	if (!tmp) return;
 	if (tmp->elem_free) {
 		for (i=0; i<tmp->size; i++) {
 			tmp->elem_free(&tmp->a[i]);

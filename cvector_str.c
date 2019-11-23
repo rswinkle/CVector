@@ -409,7 +409,8 @@ void cvec_clear_str(cvector_str* vec)
 	vec->size = 0;
 }
 
-/** Frees contents (individual strings and array) and frees vector so don't use after calling this. */
+/** Frees contents (individual strings and array) and frees vector so don't use
+ *  after calling this. Passing NULL is a NO-OP, matching the behavior of free(). */
 void cvec_free_str_heap(void* vec)
 {
 	size_t i;

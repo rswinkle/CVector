@@ -320,7 +320,8 @@ void cvec_set_val_cap_d(cvector_d* vec, double val)
 /** Sets size to 0 (does not clear contents).*/
 void cvec_clear_d(cvector_d* vec) { vec->size = 0; }
 
-/** Frees everything so don't use vec after calling this. */
+/** Frees everything so don't use vec after calling this.
+ *  Passing NULL is a NO-OP, matching the behavior of free(). */
 void cvec_free_d_heap(void* vec)
 {
 	cvector_d* tmp = (cvector_d*)vec;
