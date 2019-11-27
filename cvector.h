@@ -1,6 +1,6 @@
 
 
-#if defined(CVEC_ONLY_INT) || defined(CVEC_ONLY_DOUBLE) || defined(CVEC_ONLY_STR)     || defined(CVEC_ONLY_VOID)
+#if defined(CVEC_ONLY_INT) || defined(CVEC_ONLY_DOUBLE) || defined(CVEC_ONLY_STR) || defined(CVEC_ONLY_VOID)
    #ifndef CVEC_ONLY_INT
    #define CVEC_NO_INT
    #endif
@@ -2554,7 +2554,7 @@ There are 2 ways to use/create your own cvector types.  The easiest way is to us
 the macros defined in cvector_macro.h which are also included in the all-in-one header
 cvector.h.  You can see how to use them in cvector_tests.c:
 
-	#define RESIZE(a) ((a+1)*2)
+	#define RESIZE(a) (((a)+1)*2)
 
 	CVEC_NEW_DECLS(short)
 	CVEC_NEW_DECLS2(f_struct)
