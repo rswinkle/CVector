@@ -29,6 +29,7 @@ extern void set_val_d_test();
 
 extern void push_str_test();
 extern void erase_str_test();
+extern void remove_str_test();
 extern void zero_init_str_test();
 extern void insert_str_test();
 extern void insert_array_str_test();
@@ -41,6 +42,7 @@ extern void set_val_str_test();
 
 extern void push_void_test();
 extern void erase_void_test();
+extern void remove_void_test();
 extern void zero_init_void_test();
 extern void insert_void_test();
 extern void insert_array_void_test();
@@ -88,6 +90,7 @@ CU_TestInfo cvector_d_tests[] = {
 CU_TestInfo cvector_s_tests[] = {
 	{ "push_str_test",           push_str_test },
 	{ "erase_str_test",          erase_str_test },
+	{ "remove_str_test",         remove_str_test },
 	{ "zero_init_str_test",      zero_init_str_test },
 	{ "insert_str_test",         insert_str_test },
 	{ "insert_array_str_test",   insert_array_str_test },
@@ -103,6 +106,7 @@ CU_TestInfo cvector_s_tests[] = {
 CU_TestInfo cvector_void_tests[] = {
 	{ "push_test",                 push_void_test },
 	{ "erase_test",                erase_void_test },
+	{ "remove_test",               remove_void_test },
 	{ "zero_init_test",            zero_init_void_test },
 	{ "insert_test",               insert_void_test },
 	{ "insert_array_test",         insert_array_void_test },

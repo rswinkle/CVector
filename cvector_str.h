@@ -35,6 +35,7 @@ int cvec_insert_str(cvector_str* vec, size_t i, char* a);
 int cvec_insert_array_str(cvector_str* vec, size_t i, char** a, size_t num);
 void cvec_replace_str(cvector_str* vec, size_t i, char* a, char* ret);
 void cvec_erase_str(cvector_str* vec, size_t start, size_t end);
+void cvec_remove_str(cvector_str* vec, size_t start, size_t end);
 int cvec_reserve_str(cvector_str* vec, size_t size);
 int cvec_set_cap_str(cvector_str* vec, size_t size);
 void cvec_set_val_sz_str(cvector_str* vec, char* val);

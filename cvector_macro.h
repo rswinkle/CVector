@@ -357,6 +357,7 @@
   int cvec_insert_array_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num);            \
   void cvec_replace_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, TYPE* ret);                 \
   void cvec_erase_##TYPE(cvector_##TYPE* vec, size_t start, size_t end);                       \
+  void cvec_remove_##TYPE(cvector_##TYPE* vec, size_t start, size_t end);                      \
   int cvec_reserve_##TYPE(cvector_##TYPE* vec, size_t size);                                   \
   int cvec_set_cap_##TYPE(cvector_##TYPE* vec, size_t size);                                   \
   void cvec_set_val_sz_##TYPE(cvector_##TYPE* vec, TYPE* val);                                 \
@@ -631,6 +632,13 @@
         vec->elem_free(&vec->a[i]);                                                              \
       }                                                                                          \
     }                                                                                            \
+    memmove(&vec->a[start], &vec->a[end + 1], (vec->size - 1 - end) * sizeof(TYPE));             \
+    vec->size -= d;                                                                              \
+  }                                                                                              \
+                                                                                                 \
+  void cvec_remove_##TYPE(cvector_##TYPE* vec, size_t start, size_t end)                         \
+  {                                                                                              \
+    size_t d = end - start + 1;                                                                  \
     memmove(&vec->a[start], &vec->a[end + 1], (vec->size - 1 - end) * sizeof(TYPE));             \
     vec->size -= d;                                                                              \
   }                                                                                              \

@@ -42,7 +42,7 @@ size_t CVEC_VOID_START_SZ = 20;
  * and strdup (or mystrdup in this project) for elem_init you could
  * make vector work exactly like vector_s.  Pass in NULL, to not use the function parameters.
  *
- * All functions call elem_free before overwriting/popping/erasing elements if elem_free is provided.
+ * All functions (except remove) call elem_free before overwriting/popping/erasing elements if elem_free is provided.
  *
  * elem_init is only used in set_val_sz and set_val_cap because in those cases you are setting many elements
  * to a single "value" and using the elem_init functionality you can provide what amounts to a copy constructor
@@ -375,6 +375,14 @@ void cvec_erase_void(cvector_void* vec, size_t start, size_t end)
 			vec->elem_free(&vec->a[i*vec->elem_size]);
 		}
 	}
+	CVEC_MEMMOVE(&vec->a[start*vec->elem_size], &vec->a[(end+1)*vec->elem_size], (vec->size-1-end)*vec->elem_size);
+	vec->size -= d;
+}
+
+/** Same as erase except it *does not* call elem_free */
+void cvec_remove_void(cvector_void* vec, size_t start, size_t end)
+{
+	size_t d = end - start + 1;
 	CVEC_MEMMOVE(&vec->a[start*vec->elem_size], &vec->a[(end+1)*vec->elem_size], (vec->size-1-end)*vec->elem_size);
 	vec->size -= d;
 }

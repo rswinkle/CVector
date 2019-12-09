@@ -36,6 +36,7 @@ int cvec_insert_f_struct(cvector_f_struct* vec, size_t i, f_struct* a);
 int cvec_insert_array_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, size_t num);
 void cvec_replace_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, f_struct* ret);
 void cvec_erase_f_struct(cvector_f_struct* vec, size_t start, size_t end);
+void cvec_remove_f_struct(cvector_f_struct* vec, size_t start, size_t end);
 int cvec_reserve_f_struct(cvector_f_struct* vec, size_t size);
 int cvec_set_cap_f_struct(cvector_f_struct* vec, size_t size);
 void cvec_set_val_sz_f_struct(cvector_f_struct* vec, f_struct* val);
@@ -345,6 +346,13 @@ void cvec_erase_f_struct(cvector_f_struct* vec, size_t start, size_t end)
 			vec->elem_free(&vec->a[i]);
 		}
 	}
+	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(f_struct));
+	vec->size -= d;
+}
+
+void cvec_remove_f_struct(cvector_f_struct* vec, size_t start, size_t end)
+{
+	size_t d = end - start + 1;
 	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(f_struct));
 	vec->size -= d;
 }

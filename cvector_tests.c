@@ -583,6 +583,44 @@ void erase_str_test()
 
 }
 
+void remove_str_test()
+{
+	int i,j;
+	char buffer[50];
+	char* strs[100];
+	cvector_str vec1;
+	cvec_str(&vec1, 0, 0);
+
+	for (i=0; i<100; i++) {
+		sprintf(buffer, "hello %d", i);
+		cvec_push_str(&vec1, buffer);
+	}
+
+	CU_ASSERT_EQUAL(100, vec1.size);
+
+	for (i=25; i<75; ++i)
+		strs[i] = vec1.a[i];
+
+	cvec_remove_str(&vec1, 25, 74);
+
+	CU_ASSERT_EQUAL(50, vec1.size);
+
+	for (i=0,j=0; i<vec1.size; i++,j++) {
+		sprintf(buffer, "hello %d", j);
+		CU_ASSERT_STRING_EQUAL(vec1.a[i], buffer);
+
+		if(i==24) j +=50;
+	}
+	for (i=25; i<75; ++i) {
+		sprintf(buffer, "hello %d", i);
+		CU_ASSERT_STRING_EQUAL(strs[i], buffer);
+		free(strs[i]);
+	}
+
+	cvec_free_str(&vec1);
+
+}
+
 /* zeroing is valid initialization */
 void zero_init_str_test()
 {
@@ -978,6 +1016,53 @@ void erase_void_test()
 	cvec_free_void_heap(vec2);
 }
 
+void remove_void_test()
+{
+	char buffer[50];
+	char* strs[100];
+	int i,j;
+
+	cvector_void* vec2 = cvec_void_heap(100, 0, sizeof(f_struct), free_f_struct, NULL);
+
+	CU_ASSERT_EQUAL(CVEC_VOID_START_SZ+100, vec2->capacity);
+	CU_ASSERT_EQUAL(100, vec2->size);
+
+	for (i=0; i<100; i++) {
+		sprintf(buffer, "%d", i);
+
+		GET_FP(vec2, i)->d = i+0.5;
+		GET_FP(vec2, i)->i = i;
+		GET_FP(vec2, i)->word = mystrdup(buffer);
+	}
+
+	CU_ASSERT_EQUAL(100, vec2->size);
+
+	for (i=25; i<75; i++)
+		strs[i] = GET_FP(vec2, i)->word;
+
+	cvec_remove_void(vec2, 25, 74);
+
+	CU_ASSERT_EQUAL(50, vec2->size);
+
+	for (i=0,j=0; i<vec2->size; i++,j++) {
+		sprintf(buffer, "%d", j);
+
+		CU_ASSERT_EQUAL(GET_FP(vec2, i)->d, j+0.5);
+		CU_ASSERT_EQUAL(GET_FP(vec2, i)->i, j);
+		CU_ASSERT_STRING_EQUAL(GET_FP(vec2, i)->word, buffer);
+
+		if(i==24) j +=50;
+	}
+
+	cvec_free_void_heap(vec2);
+
+	for (i=25; i<75; ++i) {
+		sprintf(buffer, "%d", i);
+		CU_ASSERT_STRING_EQUAL(strs[i], buffer);
+		free(strs[i]);
+	}
+
+}
 
 
 void insert_void_test()

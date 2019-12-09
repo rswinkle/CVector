@@ -59,7 +59,7 @@ char* mystrdup(const char* str)
  * Note: cvector_str does not copy pointers passed in but duplicates the strings
  * they point to (using mystrdup()) so you don't have to worry about freeing
  * or changing the contents of variables that you've pushed or inserted; it
- * won't affect the values vector.
+ * won't affect the values in the vector.
  */
 cvector_str* cvec_str_heap(size_t size, size_t capacity)
 {
@@ -134,7 +134,7 @@ int cvec_str(cvector_str* vec, size_t size, size_t capacity)
 	return 1;
 }
 
-/** Same as cvec_init_str() except the vector passed in was declared on the stack so
+/** Same as cvec_init_str_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_str in this case
  */
 int cvec_init_str(cvector_str* vec, char** vals, size_t num)
@@ -325,6 +325,14 @@ void cvec_erase_str(cvector_str* vec, size_t start, size_t end)
 		CVEC_FREE(vec->a[i]);
 	}
 	
+	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(char*));
+	vec->size -= d;
+}
+
+/** Same as erase except it *does not* call CVEC_FREE. */
+void cvec_remove_str(cvector_str* vec, size_t start, size_t end)
+{
+	size_t d = end - start + 1;
 	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(char*));
 	vec->size -= d;
 }

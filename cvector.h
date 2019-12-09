@@ -145,6 +145,7 @@ int cvec_insert_str(cvector_str* vec, size_t i, char* a);
 int cvec_insert_array_str(cvector_str* vec, size_t i, char** a, size_t num);
 void cvec_replace_str(cvector_str* vec, size_t i, char* a, char* ret);
 void cvec_erase_str(cvector_str* vec, size_t start, size_t end);
+void cvec_remove_str(cvector_str* vec, size_t start, size_t end);
 int cvec_reserve_str(cvector_str* vec, size_t size);
 int cvec_set_cap_str(cvector_str* vec, size_t size);
 void cvec_set_val_sz_str(cvector_str* vec, char* val);
@@ -196,6 +197,7 @@ int cvec_insert_void(cvector_void* vec, size_t i, void* a);
 int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num);
 void cvec_replace_void(cvector_void* vec, size_t i, void* a, void* ret);
 void cvec_erase_void(cvector_void* vec, size_t start, size_t end);
+void cvec_remove_void(cvector_void* vec, size_t start, size_t end);
 int cvec_reserve_void(cvector_void* vec, size_t size);
 int cvec_set_cap_void(cvector_void* vec, size_t size);
 void cvec_set_val_sz_void(cvector_void* vec, void* val);
@@ -541,6 +543,7 @@ void cvec_free_void(void* vec);
   int cvec_insert_array_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num);            \
   void cvec_replace_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, TYPE* ret);                 \
   void cvec_erase_##TYPE(cvector_##TYPE* vec, size_t start, size_t end);                       \
+  void cvec_remove_##TYPE(cvector_##TYPE* vec, size_t start, size_t end);                      \
   int cvec_reserve_##TYPE(cvector_##TYPE* vec, size_t size);                                   \
   int cvec_set_cap_##TYPE(cvector_##TYPE* vec, size_t size);                                   \
   void cvec_set_val_sz_##TYPE(cvector_##TYPE* vec, TYPE* val);                                 \
@@ -815,6 +818,13 @@ void cvec_free_void(void* vec);
         vec->elem_free(&vec->a[i]);                                                              \
       }                                                                                          \
     }                                                                                            \
+    memmove(&vec->a[start], &vec->a[end + 1], (vec->size - 1 - end) * sizeof(TYPE));             \
+    vec->size -= d;                                                                              \
+  }                                                                                              \
+                                                                                                 \
+  void cvec_remove_##TYPE(cvector_##TYPE* vec, size_t start, size_t end)                         \
+  {                                                                                              \
+    size_t d = end - start + 1;                                                                  \
     memmove(&vec->a[start], &vec->a[end + 1], (vec->size - 1 - end) * sizeof(TYPE));             \
     vec->size -= d;                                                                              \
   }                                                                                              \
@@ -1638,7 +1648,7 @@ char* mystrdup(const char* str)
  * Note: cvector_str does not copy pointers passed in but duplicates the strings
  * they point to (using mystrdup()) so you don't have to worry about freeing
  * or changing the contents of variables that you've pushed or inserted; it
- * won't affect the values vector.
+ * won't affect the values in the vector.
  */
 cvector_str* cvec_str_heap(size_t size, size_t capacity)
 {
@@ -1713,7 +1723,7 @@ int cvec_str(cvector_str* vec, size_t size, size_t capacity)
 	return 1;
 }
 
-/** Same as cvec_init_str() except the vector passed in was declared on the stack so
+/** Same as cvec_init_str_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_str in this case
  */
 int cvec_init_str(cvector_str* vec, char** vals, size_t num)
@@ -1908,6 +1918,14 @@ void cvec_erase_str(cvector_str* vec, size_t start, size_t end)
 	vec->size -= d;
 }
 
+/** Same as erase except it *does not* call CVEC_FREE. */
+void cvec_remove_str(cvector_str* vec, size_t start, size_t end)
+{
+	size_t d = end - start + 1;
+	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(char*));
+	vec->size -= d;
+}
+
 /** Makes sure the vector capacity is >= size (parameter not member). */
 int cvec_reserve_str(cvector_str* vec, size_t size)
 {
@@ -2036,7 +2054,7 @@ size_t CVEC_VOID_START_SZ = 20;
  * and strdup (or mystrdup in this project) for elem_init you could
  * make vector work exactly like vector_s.  Pass in NULL, to not use the function parameters.
  *
- * All functions call elem_free before overwriting/popping/erasing elements if elem_free is provided.
+ * All functions (except remove) call elem_free before overwriting/popping/erasing elements if elem_free is provided.
  *
  * elem_init is only used in set_val_sz and set_val_cap because in those cases you are setting many elements
  * to a single "value" and using the elem_init functionality you can provide what amounts to a copy constructor
@@ -2369,6 +2387,14 @@ void cvec_erase_void(cvector_void* vec, size_t start, size_t end)
 			vec->elem_free(&vec->a[i*vec->elem_size]);
 		}
 	}
+	CVEC_MEMMOVE(&vec->a[start*vec->elem_size], &vec->a[(end+1)*vec->elem_size], (vec->size-1-end)*vec->elem_size);
+	vec->size -= d;
+}
+
+/** Same as erase except it *does not* call elem_free */
+void cvec_remove_void(cvector_void* vec, size_t start, size_t end)
+{
+	size_t d = end - start + 1;
 	CVEC_MEMMOVE(&vec->a[start*vec->elem_size], &vec->a[(end+1)*vec->elem_size], (vec->size-1-end)*vec->elem_size);
 	vec->size -= d;
 }
