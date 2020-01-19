@@ -20,19 +20,19 @@ ifndef AR
 endif
 
 ifeq ($(config),debug)
-  OBJDIR     = obj/Debug/cvectorcpp
+  OBJDIR     = obj/Debug/cvec_strdup
   TARGETDIR  = .
-  TARGET     = $(TARGETDIR)/cvectorcpp
+  TARGET     = $(TARGETDIR)/cvec_strdup
   DEFINES   += -DDEBUG
   INCLUDES  += 
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
-  CFLAGS    += $(CPPFLAGS) $(ARCH) -g -ansi -pedantic-errors -fno-strict-aliasing -Wunused-variable -Wreturn-type -x c++
+  CFLAGS    += $(CPPFLAGS) $(ARCH) -g -pedantic-errors -fno-strict-aliasing -Wunused-variable -Wreturn-type
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += 
   LIBS      += -lcunit
   RESFLAGS  += $(DEFINES) $(INCLUDES) 
   LDDEPS    += 
-  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(ARCH) $(LIBS)
+  LINKCMD    = $(CC) -o $(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(ARCH) $(LIBS)
   define PREBUILDCMDS
   endef
   define PRELINKCMDS
@@ -42,19 +42,19 @@ ifeq ($(config),debug)
 endif
 
 ifeq ($(config),release)
-  OBJDIR     = obj/Release/cvectorcpp
+  OBJDIR     = obj/Release/cvec_strdup
   TARGETDIR  = .
-  TARGET     = $(TARGETDIR)/cvectorcpp
+  TARGET     = $(TARGETDIR)/cvec_strdup
   DEFINES   += -DNDEBUG
   INCLUDES  += 
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
-  CFLAGS    += $(CPPFLAGS) $(ARCH) -O2 -ansi -pedantic-errors -fno-strict-aliasing -Wunused-variable -Wreturn-type -x c++
+  CFLAGS    += $(CPPFLAGS) $(ARCH) -O2 -pedantic-errors -fno-strict-aliasing -Wunused-variable -Wreturn-type
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += -s
   LIBS      += -lcunit
   RESFLAGS  += $(DEFINES) $(INCLUDES) 
   LDDEPS    += 
-  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(ARCH) $(LIBS)
+  LINKCMD    = $(CC) -o $(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(ARCH) $(LIBS)
   define PREBUILDCMDS
   endef
   define PRELINKCMDS
@@ -64,7 +64,8 @@ ifeq ($(config),release)
 endif
 
 OBJECTS := \
-	$(OBJDIR)/main2.o \
+	$(OBJDIR)/main.o \
+	$(OBJDIR)/cvector_tests.o \
 
 RESOURCES := \
 
@@ -82,7 +83,7 @@ all: $(TARGETDIR) $(OBJDIR) prebuild prelink $(TARGET)
 	@:
 
 $(TARGET): $(GCH) $(OBJECTS) $(LDDEPS) $(RESOURCES)
-	@echo Linking cvectorcpp
+	@echo Linking cvec_strdup
 	$(SILENT) $(LINKCMD)
 	$(POSTBUILDCMDS)
 
@@ -103,7 +104,7 @@ else
 endif
 
 clean:
-	@echo Cleaning cvectorcpp
+	@echo Cleaning cvec_strdup
 ifeq (posix,$(SHELLTYPE))
 	$(SILENT) rm -f  $(TARGET)
 	$(SILENT) rm -rf $(OBJDIR)
@@ -122,11 +123,14 @@ ifneq (,$(PCH))
 $(GCH): $(PCH)
 	@echo $(notdir $<)
 	-$(SILENT) cp $< $(OBJDIR)
-	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
 endif
 
-$(OBJDIR)/main2.o: ../main2.cpp
+$(OBJDIR)/main.o: ../main.c
 	@echo $(notdir $<)
-	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/cvector_tests.o: ../cvector_tests.c
+	@echo $(notdir $<)
+	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
 
 -include $(OBJECTS:%.o=%.d)

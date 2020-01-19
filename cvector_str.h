@@ -17,7 +17,10 @@ typedef struct cvector_str
 
 extern size_t CVEC_STR_START_SZ;
 
-char* mystrdup(const char* str);
+#ifndef CVEC_STRDUP
+#define CVEC_STRDUP cvec_strdup
+char* cvec_strdup(const char* str);
+#endif
 
 int cvec_str(cvector_str* vec, size_t size, size_t capacity);
 int cvec_init_str(cvector_str* vec, char** vals, size_t num);

@@ -32,8 +32,9 @@ size_t CVEC_STR_START_SZ = 20;
 
 #define CVEC_STR_ALLOCATOR(x) ((x+1) * 2)
 
+#if CVEC_STRDUP == cvec_strdup
 /** Useful utility function since strdup isn't in standard C.*/
-char* mystrdup(const char* str)
+char* cvec_strdup(const char* str)
 {
 	size_t len;
 	char* temp;
@@ -50,6 +51,7 @@ char* mystrdup(const char* str)
 	
 	return (char*)CVEC_MEMMOVE(temp, str, len);  /* CVEC_MEMMOVE returns to */
 }
+#endif
 
 /**
  * Create a new cvector_str on the heap.
@@ -57,7 +59,7 @@ char* mystrdup(const char* str)
  * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_STR_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
  * Note: cvector_str does not copy pointers passed in but duplicates the strings
- * they point to (using mystrdup()) so you don't have to worry about freeing
+ * they point to (using CVEC_STRDUP()) so you don't have to worry about freeing
  * or changing the contents of variables that you've pushed or inserted; it
  * won't affect the values in the vector.
  */
@@ -107,7 +109,7 @@ cvector_str* cvec_init_str_heap(char** vals, size_t num)
 	}
 
 	for(i=0; i<num; i++) {
-		vec->a[i] = mystrdup(vals[i]);
+		vec->a[i] = CVEC_STRDUP(vals[i]);
 	}
 	
 	return vec;
@@ -150,7 +152,7 @@ int cvec_init_str(cvector_str* vec, char** vals, size_t num)
 	}
 
 	for(i=0; i<num; i++) {
-		vec->a[i] = mystrdup(vals[i]);
+		vec->a[i] = CVEC_STRDUP(vals[i]);
 	}
 	
 	return 1;
@@ -179,7 +181,7 @@ void cvec_str_copy(void* dest, void* src)
 	}
 	
 	for (i=0; i<vec2->size; ++i) {
-		vec1->a[i] = mystrdup(vec2->a[i]);
+		vec1->a[i] = CVEC_STRDUP(vec2->a[i]);
 	}
 	
 	vec1->size = vec2->size;
@@ -204,7 +206,7 @@ int cvec_push_str(cvector_str* vec, char* a)
 		vec->capacity = tmp_sz;
 	}
 	
-	vec->a[vec->size++] = mystrdup(a);
+	vec->a[vec->size++] = CVEC_STRDUP(a);
 	return 1;
 }
 
@@ -267,7 +269,7 @@ int cvec_insert_str(cvector_str* vec, size_t i, char* a)
 	}
 
 	CVEC_MEMMOVE(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(char*));
-	vec->a[i] = mystrdup(a);
+	vec->a[i] = CVEC_STRDUP(a);
 	vec->size++;
 	return 1;
 }
@@ -293,7 +295,7 @@ int cvec_insert_array_str(cvector_str* vec, size_t i, char** a, size_t num)
 
 	CVEC_MEMMOVE(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(char*));
 	for (j=0; j<num; ++j) {
-		vec->a[j+i] = mystrdup(a[j]);
+		vec->a[j+i] = CVEC_STRDUP(a[j]);
 	}
 	
 	vec->size += num;
@@ -309,7 +311,7 @@ void cvec_replace_str(cvector_str* vec, size_t i, char* a, char* ret)
 	if (ret)
 		strcpy(ret, vec->a[i]);
 	CVEC_FREE(vec->a[i]);
-	vec->a[i] = mystrdup(a);
+	vec->a[i] = CVEC_STRDUP(a);
 }
 
 /**
@@ -385,7 +387,7 @@ void cvec_set_val_sz_str(cvector_str* vec, char* val)
 		CVEC_FREE(vec->a[i]);
 
 		/* not worth checking/(char**)reallocing to me */
-		vec->a[i] = mystrdup(val);
+		vec->a[i] = CVEC_STRDUP(val);
 	}
 }
 
@@ -401,7 +403,7 @@ void cvec_set_val_cap_str(cvector_str* vec, char* val)
 			CVEC_FREE(vec->a[i]);
 		}
 		
-		vec->a[i] = mystrdup(val);
+		vec->a[i] = CVEC_STRDUP(val);
 	}
 	vec->size = vec->capacity;
 }

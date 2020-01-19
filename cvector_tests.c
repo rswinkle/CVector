@@ -1,4 +1,7 @@
 #define CVECTOR_IMPLEMENTATION
+#ifdef USE_POSIX_STRDUP
+#define CVEC_STRDUP strdup
+#endif
 #include "cvector.h"
 
 #include "test_types.h"
@@ -883,7 +886,7 @@ f_struct mk_f_struct(double d, int i, char* word)
 	f_struct a;
 	a.d = d;
 	a.i = i;
-	a.word = mystrdup(word);
+	a.word = CVEC_STRDUP(word);
 	return a;
 }
 
@@ -910,7 +913,7 @@ void init_f_struct(void* dest, void* src)
 	f_struct* s = (f_struct*)src;
 	d->i = s->i;
 	d->d = s->d;
-	d->word = mystrdup(s->word);
+	d->word = CVEC_STRDUP(s->word);
 }
 
 
@@ -987,7 +990,7 @@ void erase_void_test()
 
 		GET_FP(vec2, i)->d = i+0.5;
 		GET_FP(vec2, i)->i = i;
-		GET_FP(vec2, i)->word = mystrdup(buffer);
+		GET_FP(vec2, i)->word = CVEC_STRDUP(buffer);
 	}
 
 	CU_ASSERT_EQUAL(100, vec1->size);
@@ -1032,7 +1035,7 @@ void remove_void_test()
 
 		GET_FP(vec2, i)->d = i+0.5;
 		GET_FP(vec2, i)->i = i;
-		GET_FP(vec2, i)->word = mystrdup(buffer);
+		GET_FP(vec2, i)->word = CVEC_STRDUP(buffer);
 	}
 
 	CU_ASSERT_EQUAL(100, vec2->size);
@@ -1085,7 +1088,7 @@ void insert_void_test()
 
 		array2[i].d = i+0.5;
 		array2[i].i = i;
-		array2[i].word = mystrdup(buffer);
+		array2[i].word = CVEC_STRDUP(buffer);
 	}
 
 
@@ -1225,7 +1228,7 @@ void pop_void_test()
 	CU_ASSERT_EQUAL(vec2.capacity, 10+CVEC_VOID_START_SZ);
 
 	for (i=0; i<vec2.size; ++i)
-		GET_F(vec2, i)->word = mystrdup("hello");
+		GET_F(vec2, i)->word = CVEC_STRDUP("hello");
 
 
 	strcpy(buffer, "test_pop_null");
@@ -1444,7 +1447,7 @@ void set_val_void_test()
 	CU_ASSERT_EQUAL(vec2.capacity, 20+CVEC_VOID_START_SZ);
 
 	for (i=0; i<vec2.size; ++i)
-		GET_F(vec2, i)->word = mystrdup("hello");
+		GET_F(vec2, i)->word = CVEC_STRDUP("hello");
 
 	temp = mk_t_struct(42.5, 42, "hello");
 	temp2 = mk_f_struct(42.5, 42, "hello");
@@ -1601,7 +1604,7 @@ void template_test2()
 	CU_ASSERT_EQUAL(vec.capacity, 20+CVEC_f_struct_SZ);
 
 	for (i=0; i<vec.size; ++i)
-		vec.a[i].word = mystrdup("hello");
+		vec.a[i].word = CVEC_STRDUP("hello");
 
 	temp = mk_f_struct(42.5, 42, "hello");
 
