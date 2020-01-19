@@ -530,11 +530,13 @@ void cvec_free_void(void* vec)
 \section Intro
 This is a relatively simple ANSI compliant C vector library with specific structures and
 functions for int's, double's and string's and support for all other types
-using a generic structure where the type is passed in as void* and stored in a byte array
-(to avoid dereferencing void* warnings and frequent casting) .
-The generic vector is very flexible and allows you to provide CVEC_FREE and init functions
+using either a generic structure where the type is passed in as void* and stored in a byte array
+(to avoid dereferencing void* warnings and frequent casting) or generated type-specific
+vectors using a macro or template system (see below).
+
+The generic vector is very flexible and allows you to provide free and init functions
 if you like that it will call at appropriate times similar to the way C++ containers
-will call destructors.
+will call destructors/constructors.
 
 Other modifiable parameters are at the top of the respective cvector.c's
 <pre>
@@ -560,7 +562,7 @@ elem_size, and optionally elem_free/elem_init. See the zero_init_x_test()'s
 in cvector_tests.c for example of that use.
 
 There are also 2 templates, one for basic types and one for types that contain
-dynamically allocated memory and you might want a CVEC_FREE and/or init function.
+dynamically allocated memory and you might want a free and/or init function.
 In other words the first template is based off cvector_i and the second is based
 off of cvector_void, so look at the corresponding documentation for behavior.
 
