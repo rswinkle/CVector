@@ -7,12 +7,12 @@
 extern "C" {
 #endif
 
-typedef unsigned char byte;
+typedef unsigned char cvec_u8;
 
 /** Data structure for generic type (cast to void) vectors */
 typedef struct cvector_void
 {
-	byte* a;                 /**< Array. */
+	cvec_u8* a;                 /**< Array. */
 	size_t size;             /**< Current size (amount you should use when manipulating array directly). */
 	size_t capacity;         /**< Allocated size of array; always >= size. */
 	size_t elem_size;        /**< Size in bytes of type stored (sizeof(T) where T is type). */

@@ -67,7 +67,7 @@ cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(
 
 	vec->elem_size = elem_sz;
 	
-	if (!(vec->a = (byte*)CVEC_MALLOC(vec->capacity*elem_sz))) {
+	if (!(vec->a = (cvec_u8*)CVEC_MALLOC(vec->capacity*elem_sz))) {
 		CVEC_ASSERT(vec->a != NULL);
 		CVEC_FREE(vec);
 		return NULL;
@@ -99,7 +99,7 @@ cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*
 
 	vec->capacity = num + CVEC_VOID_START_SZ;
 	vec->size = num;
-	if (!(vec->a = (byte*)CVEC_MALLOC(vec->capacity*elem_sz))) {
+	if (!(vec->a = (cvec_u8*)CVEC_MALLOC(vec->capacity*elem_sz))) {
 		CVEC_ASSERT(vec->a != NULL);
 		CVEC_FREE(vec);
 		return NULL;
@@ -107,7 +107,7 @@ cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*
 
 	if (elem_init) {
 		for (i=0; i<num; ++i) {
-			elem_init(&vec->a[i*elem_sz], &((byte*)vals)[i*elem_sz]);
+			elem_init(&vec->a[i*elem_sz], &((cvec_u8*)vals)[i*elem_sz]);
 		}
 	} else {
 		CVEC_MEMMOVE(vec->a, vals, elem_sz*num);
@@ -129,7 +129,7 @@ int cvec_void(cvector_void* vec, size_t size, size_t capacity, size_t elem_sz, v
 
 	vec->elem_size = elem_sz;
 	
-	if (!(vec->a = (byte*)CVEC_MALLOC(vec->capacity*elem_sz))) {
+	if (!(vec->a = (cvec_u8*)CVEC_MALLOC(vec->capacity*elem_sz))) {
 		CVEC_ASSERT(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
@@ -152,7 +152,7 @@ int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, vo
 
 	vec->capacity = num + CVEC_VOID_START_SZ;
 	vec->size = num;
-	if (!(vec->a = (byte*)CVEC_MALLOC(vec->capacity*elem_sz))) {
+	if (!(vec->a = (cvec_u8*)CVEC_MALLOC(vec->capacity*elem_sz))) {
 		CVEC_ASSERT(vec->a != NULL);
 		vec->size = vec->capacity = 0;
 		return 0;
@@ -160,7 +160,7 @@ int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, vo
 
 	if (elem_init) {
 		for (i=0; i<num; ++i) {
-			elem_init(&vec->a[i*elem_sz], &((byte*)vals)[i*elem_sz]);
+			elem_init(&vec->a[i*elem_sz], &((cvec_u8*)vals)[i*elem_sz]);
 		}
 	} else {
 		CVEC_MEMMOVE(vec->a, vals, elem_sz*num);
@@ -190,7 +190,7 @@ void cvec_void_copy(void* dest, void* src)
 	vec1->capacity = 0;
 	
 	/*not much else we can do here*/
-	if (!(vec1->a = (byte*)CVEC_MALLOC(vec2->capacity*vec2->elem_size))) {
+	if (!(vec1->a = (cvec_u8*)CVEC_MALLOC(vec2->capacity*vec2->elem_size))) {
 		CVEC_ASSERT(vec1->a != NULL);
 		return;
 	}
@@ -215,11 +215,11 @@ void cvec_void_copy(void* dest, void* src)
  */
 int cvec_push_void(cvector_void* vec, void* a)
 {
-	byte* tmp;
+	cvec_u8* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_VOID_ALLOCATOR(vec->capacity);
-		if (!(tmp = (byte*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
+		if (!(tmp = (cvec_u8*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
 			CVEC_ASSERT(tmp != NULL);
 			return 0;
 		}
@@ -262,11 +262,11 @@ void* cvec_back_void(cvector_void* vec)
  *  are not initialized to anything! */
 int cvec_extend_void(cvector_void* vec, size_t num)
 {
-	byte* tmp;
+	cvec_u8* tmp;
 	size_t tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_VOID_START_SZ;
-		if (!(tmp = (byte*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
+		if (!(tmp = (cvec_u8*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
 			CVEC_ASSERT(tmp != NULL);
 			return 0;
 		}
@@ -294,11 +294,11 @@ void* cvec_get_void(cvector_void* vec, size_t i)
  */
 int cvec_insert_void(cvector_void* vec, size_t i, void* a)
 {
-	byte* tmp;
+	cvec_u8* tmp;
 	size_t tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_VOID_ALLOCATOR(vec->capacity);
-		if (!(tmp = (byte*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
+		if (!(tmp = (cvec_u8*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
 			CVEC_ASSERT(tmp != NULL);
 			return 0;
 		}
@@ -327,11 +327,11 @@ int cvec_insert_void(cvector_void* vec, size_t i, void* a)
  */
 int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 {
-	byte* tmp;
+	cvec_u8* tmp;
 	size_t tmp_sz, j;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_VOID_START_SZ;
-		if (!(tmp = (byte*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
+		if (!(tmp = (cvec_u8*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
 			CVEC_ASSERT(tmp != NULL);
 			return 0;
 		}
@@ -342,7 +342,7 @@ int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 	CVEC_MEMMOVE(&vec->a[(i+num)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
 	if (vec->elem_init) {
 		for (j=0; j<num; ++j) {
-			vec->elem_init(&vec->a[(j+i)*vec->elem_size], &((byte*)a)[j*vec->elem_size]);
+			vec->elem_init(&vec->a[(j+i)*vec->elem_size], &((cvec_u8*)a)[j*vec->elem_size]);
 		}
 	} else {
 		CVEC_MEMMOVE(&vec->a[i*vec->elem_size], a, num*vec->elem_size);
@@ -390,9 +390,9 @@ void cvec_remove_void(cvector_void* vec, size_t start, size_t end)
 /** Makes sure capacity >= size (the parameter not the member). */
 int cvec_reserve_void(cvector_void* vec, size_t size)
 {
-	byte* tmp;
+	cvec_u8* tmp;
 	if (vec->capacity < size) {
-		if (!(tmp = (byte*)CVEC_REALLOC(vec->a, vec->elem_size*(size+CVEC_VOID_START_SZ)))) {
+		if (!(tmp = (cvec_u8*)CVEC_REALLOC(vec->a, vec->elem_size*(size+CVEC_VOID_START_SZ)))) {
 			CVEC_ASSERT(tmp != NULL);
 			return 0;
 		}
@@ -409,7 +409,7 @@ int cvec_reserve_void(cvector_void* vec, size_t size)
 int cvec_set_cap_void(cvector_void* vec, size_t size)
 {
 	size_t i;
-	byte* tmp;
+	cvec_u8* tmp;
 	if (size < vec->size) {
 		if (vec->elem_free) {
 			for (i=vec->size-1; i>=size; i--) {
@@ -421,7 +421,7 @@ int cvec_set_cap_void(cvector_void* vec, size_t size)
 
 	vec->capacity = size;
 
-	if (!(tmp = (byte*)CVEC_REALLOC(vec->a, vec->elem_size*size))) {
+	if (!(tmp = (cvec_u8*)CVEC_REALLOC(vec->a, vec->elem_size*size))) {
 		CVEC_ASSERT(tmp != NULL);
 		return 0;
 	}
@@ -530,7 +530,7 @@ void cvec_free_void(void* vec)
 \section Intro
 This is a relatively simple ANSI compliant C vector library with specific structures and
 functions for int's, double's and string's and support for all other types
-using either a generic structure where the type is passed in as void* and stored in a byte array
+using either a generic structure where the type is passed in as void* and stored in a cvec_u8 array
 (to avoid dereferencing void* warnings and frequent casting) or generated type-specific
 vectors using a macro or template system (see below).
 
