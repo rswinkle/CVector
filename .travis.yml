@@ -13,6 +13,6 @@ addons:
 
 script:
     - cd build/
-    - make CFLAGS=-DOLD_CUNIT verbose=1 && ./cvector
+    - make verbose=1 && ./cvector
     - grep FAILED CUnitAutomated-Results.xml | xargs -I {} [ "{}" = "<FAILED> 0 </FAILED> " ]
 
