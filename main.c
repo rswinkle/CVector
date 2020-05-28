@@ -9,6 +9,7 @@ extern void erase_i_test();
 extern void zero_init_i_test();
 extern void insert_i_test();
 extern void insert_array_i_test();
+extern void copy_i_test();
 extern void pop_i_test();
 extern void replace_i_test();
 extern void reserve_i_test();
@@ -65,6 +66,7 @@ CU_TestInfo cvector_i_tests[] = {
 	{ "zero_init_i_test",      zero_init_i_test },
 	{ "insert_i_test",         insert_i_test },
 	{ "insert_array_i_test",   insert_array_i_test },
+	{ "copy_i_test",           copy_i_test },
 	{ "pop_i_test",            pop_i_test },
 	{ "replace_i_test",        replace_i_test },
 	{ "reserve_i_test",        reserve_i_test },

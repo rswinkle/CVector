@@ -54,7 +54,7 @@ size_t CVEC_VOID_START_SZ = 20;
  *
  * See the other functions and the tests for more behavioral/usage details.
  */
-cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	cvector_void* vec;
 	if (!(vec = (cvector_void*)CVEC_MALLOC(sizeof(cvector_void)))) {
@@ -85,7 +85,7 @@ cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(
  *  elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  *  See cvec_void_heap() for more information about the elem_free and elem_init parameters.
  */
-cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	cvector_void* vec;
 	size_t i;
@@ -122,7 +122,7 @@ cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*
 /** Same as cvec_void_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_void in that case
  */
-int cvec_void(cvector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+int cvec_void(cvector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_VOID_START_SZ;
@@ -144,7 +144,7 @@ int cvec_void(cvector_void* vec, size_t size, size_t capacity, size_t elem_sz, v
 /** Same as init_vec_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_void in this case
  */
-int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	size_t i;
 	
@@ -212,6 +212,9 @@ void cvec_void_copy(void* dest, void* src)
 
 /** Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
+ *
+ * TODO For all of cvector_void, now that elem_init returns int, is it worth
+ * the extra code and overhead of checking it and asserting/returning 0?
  */
 int cvec_push_void(cvector_void* vec, void* a)
 {

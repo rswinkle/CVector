@@ -169,6 +169,30 @@ void insert_array_i_test()
 	cvec_free_i(&vec);
 }
 
+void copy_i_test()
+{
+	int i;
+	cvector_i vec1 = { 0 };
+	cvector_i vec2 = { 0 };
+
+	for (i=0; i<123; i++)
+		cvec_push_i(&vec1, i);
+
+	CU_ASSERT_EQUAL(123, vec1.size);
+
+	cvec_copy_i(&vec2, &vec1);
+
+	CU_ASSERT_EQUAL(123, vec2.size);
+
+	/* This is true for now, could change.  See TODO note above implementation */
+	CU_ASSERT_EQUAL(vec1.capacity, vec2.capacity);
+
+	for (i=0; i<vec1.size; i++)
+		CU_ASSERT_EQUAL(vec1.a[i], vec2.a[i]);
+
+	cvec_free_i(&vec1);
+	cvec_free_i(&vec2);
+}
 
 
 void pop_i_test()
@@ -907,13 +931,15 @@ void free_f_struct(void* tmp)
 }
 
 
-void init_f_struct(void* dest, void* src)
+int init_f_struct(void* dest, void* src)
 {
 	f_struct* d = (f_struct*)dest;
 	f_struct* s = (f_struct*)src;
 	d->i = s->i;
 	d->d = s->d;
 	d->word = CVEC_STRDUP(s->word);
+
+	return d->word != NULL;
 }
 
 
@@ -1512,8 +1538,8 @@ void vector_of_vectors_test()
 	cvector_str tmp_vecs;
 	char buffer[50];
 
-	cvec_void(&vec1, 0, 0, sizeof(cvector_i), cvec_free_i, cvec_i_copy);
-	cvec_void(&vec2, 0, 0, sizeof(cvector_str), cvec_free_str, cvec_str_copy);
+	cvec_void(&vec1, 0, 0, sizeof(cvector_i), cvec_free_i, cvec_copyc_i);
+	cvec_void(&vec2, 0, 0, sizeof(cvector_str), cvec_free_str, cvec_copyc_i);
 
 	cvec_str(&tmp_vecs, 0, 0);
 

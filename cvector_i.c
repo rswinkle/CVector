@@ -118,29 +118,50 @@ int cvec_init_i(cvector_i* vec, int* vals, size_t num)
 	return 1;
 }
 
-/** Makes dest an identical copy of src.  The parameters
+/** Makes dest a copy of src.  The parameters
  *  are void so it can be used as the constructor when making
  *  a vector of cvector_i's.  Assumes dest (the structure)
  *  is already allocated (probably on the stack) and that
  *  capacity is 0 (ie the array doesn't need to be freed).
+ *
+ *  Really just a wrapper around copy, that initializes dest/vec1's
+ *  members to NULL/0.  If you pre-initialized dest to 0, you could
+ *  just use copy.
  */
-void cvec_i_copy(void* dest, void* src)
+int cvec_copyc_i(void* dest, void* src)
 {
 	cvector_i* vec1 = (cvector_i*)dest;
 	cvector_i* vec2 = (cvector_i*)src;
-	
+
+	vec1->a = NULL;
 	vec1->size = 0;
 	vec1->capacity = 0;
-	
-	/*not much else we can do here*/
-	if (!(vec1->a = (int*)CVEC_MALLOC(vec2->capacity*sizeof(int)))) {
-		CVEC_ASSERT(vec1->a != NULL);
-		return;
+
+	return cvec_copy_i(vec1, vec2);
+}
+
+/** Makes dest a copy of src.  Assumes vec1
+ * (the structure) is already allocated (probably on the stack) and
+ * is in a valid state (ie array is either NULL or allocated with
+ * size and capacity set appropriately).
+ *
+ * TODO Should I copy capacity, so dest is truly identical or do
+ * I only care about the actual contents, and let dest->cap = src->size
+ * maybe plus CVEC_I_START_SZ
+ */
+int cvec_copy_i(cvector_i* dest, cvector_i* src)
+{
+	int* tmp = NULL;
+	if (!(tmp = (int*)CVEC_REALLOC(dest->a, src->capacity*sizeof(int)))) {
+		CVEC_ASSERT(tmp != NULL);
+		return 0;
 	}
+	dest->a = tmp;
 	
-	CVEC_MEMMOVE(vec1->a, vec2->a, vec2->size*sizeof(int));
-	vec1->size = vec2->size;
-	vec1->capacity = vec2->capacity;
+	CVEC_MEMMOVE(dest->a, src->a, src->size*sizeof(int));
+	dest->size = src->size;
+	dest->capacity = src->capacity;
+	return 1;
 }
 
 /**

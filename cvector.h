@@ -47,7 +47,8 @@ int cvec_init_i(cvector_i* vec, int* vals, size_t num);
 
 cvector_i* cvec_i_heap(size_t size, size_t capacity);
 cvector_i* cvec_init_i_heap(int* vals, size_t num);
-void cvec_i_copy(void* dest, void* src);
+int cvec_copyc_i(void* dest, void* src);
+int cvec_copy_i(cvector_i* dest, cvector_i* src);
 
 int cvec_push_i(cvector_i* vec, int a);
 int cvec_pop_i(cvector_i* vec);
@@ -176,18 +177,18 @@ typedef struct cvector_void
 	size_t capacity;         /**< Allocated size of array; always >= size. */
 	size_t elem_size;        /**< Size in bytes of type stored (sizeof(T) where T is type). */
 	void (*elem_free)(void*);
-	void (*elem_init)(void*, void*);
+	int (*elem_init)(void*, void*);
 } cvector_void;
 
 extern size_t CVEC_VOID_START_SZ;
 
 #define CVEC_GET_VOID(VEC, TYPE, I) ((TYPE*)&(VEC)->a[(I)*(VEC)->elem_size])
 
-int cvec_void(cvector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
-int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*));
+int cvec_void(cvector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), int(*elem_init)(void*, void*));
+int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), int(*elem_init)(void*, void*));
 
-cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
-cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void (*elem_free)(void*), void(*elem_init)(void*, void*));
+cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void (*elem_free)(void*), int(*elem_init)(void*, void*));
+cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void (*elem_free)(void*), int(*elem_init)(void*, void*));
 
 void cvec_void_copy(void* dest, void* src);
 
@@ -1077,29 +1078,50 @@ int cvec_init_i(cvector_i* vec, int* vals, size_t num)
 	return 1;
 }
 
-/** Makes dest an identical copy of src.  The parameters
+/** Makes dest a copy of src.  The parameters
  *  are void so it can be used as the constructor when making
  *  a vector of cvector_i's.  Assumes dest (the structure)
  *  is already allocated (probably on the stack) and that
  *  capacity is 0 (ie the array doesn't need to be freed).
+ *
+ *  Really just a wrapper around copy, that initializes dest/vec1's
+ *  members to NULL/0.  If you pre-initialized dest to 0, you could
+ *  just use copy.
  */
-void cvec_i_copy(void* dest, void* src)
+int cvec_copyc_i(void* dest, void* src)
 {
 	cvector_i* vec1 = (cvector_i*)dest;
 	cvector_i* vec2 = (cvector_i*)src;
-	
+
+	vec1->a = NULL;
 	vec1->size = 0;
 	vec1->capacity = 0;
-	
-	/*not much else we can do here*/
-	if (!(vec1->a = (int*)CVEC_MALLOC(vec2->capacity*sizeof(int)))) {
-		CVEC_ASSERT(vec1->a != NULL);
-		return;
+
+	return cvec_copy_i(vec1, vec2);
+}
+
+/** Makes dest a copy of src.  Assumes vec1
+ * (the structure) is already allocated (probably on the stack) and
+ * is in a valid state (ie array is either NULL or allocated with
+ * size and capacity set appropriately).
+ *
+ * TODO Should I copy capacity, so dest is truly identical or do
+ * I only care about the actual contents, and let dest->cap = src->size
+ * maybe plus CVEC_I_START_SZ
+ */
+int cvec_copy_i(cvector_i* dest, cvector_i* src)
+{
+	int* tmp = NULL;
+	if (!(tmp = (int*)CVEC_REALLOC(dest->a, src->capacity*sizeof(int)))) {
+		CVEC_ASSERT(tmp != NULL);
+		return 0;
 	}
+	dest->a = tmp;
 	
-	CVEC_MEMMOVE(vec1->a, vec2->a, vec2->size*sizeof(int));
-	vec1->size = vec2->size;
-	vec1->capacity = vec2->capacity;
+	CVEC_MEMMOVE(dest->a, src->a, src->size*sizeof(int));
+	dest->size = src->size;
+	dest->capacity = src->capacity;
+	return 1;
 }
 
 /**
@@ -2071,7 +2093,7 @@ size_t CVEC_VOID_START_SZ = 20;
  *
  * See the other functions and the tests for more behavioral/usage details.
  */
-cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	cvector_void* vec;
 	if (!(vec = (cvector_void*)CVEC_MALLOC(sizeof(cvector_void)))) {
@@ -2102,7 +2124,7 @@ cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(
  *  elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  *  See cvec_void_heap() for more information about the elem_free and elem_init parameters.
  */
-cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	cvector_void* vec;
 	size_t i;
@@ -2139,7 +2161,7 @@ cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*
 /** Same as cvec_void_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_void in that case
  */
-int cvec_void(cvector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+int cvec_void(cvector_void* vec, size_t size, size_t capacity, size_t elem_sz, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_VOID_START_SZ;
@@ -2161,7 +2183,7 @@ int cvec_void(cvector_void* vec, size_t size, size_t capacity, size_t elem_sz, v
 /** Same as init_vec_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_void in this case
  */
-int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	size_t i;
 	

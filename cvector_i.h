@@ -22,7 +22,8 @@ int cvec_init_i(cvector_i* vec, int* vals, size_t num);
 
 cvector_i* cvec_i_heap(size_t size, size_t capacity);
 cvector_i* cvec_init_i_heap(int* vals, size_t num);
-void cvec_i_copy(void* dest, void* src);
+int cvec_copyc_i(void* dest, void* src);
+int cvec_copy_i(cvector_i* dest, cvector_i* src);
 
 int cvec_push_i(cvector_i* vec, int a);
 int cvec_pop_i(cvector_i* vec);
