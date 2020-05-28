@@ -21,6 +21,7 @@ extern void erase_d_test();
 extern void zero_init_d_test();
 extern void insert_d_test();
 extern void insert_array_d_test();
+extern void copy_d_test();
 extern void pop_d_test();
 extern void replace_d_test();
 extern void reserve_d_test();
@@ -81,6 +82,7 @@ CU_TestInfo cvector_d_tests[] = {
 	{ "zero_init_d_test",      zero_init_d_test },
 	{ "insert_d_test",         insert_d_test },
 	{ "insert_array_d_test",   insert_array_d_test },
+	{ "copy_d_test",           copy_d_test },
 	{ "pop_d_test",            pop_d_test },
 	{ "replace_d_test",        replace_d_test },
 	{ "reserve_d_test",        reserve_d_test },

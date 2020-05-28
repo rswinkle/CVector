@@ -22,8 +22,8 @@ int cvec_init_d(cvector_d* vec, double* vals, size_t num);
 
 cvector_d* cvec_d_heap(size_t size, size_t capacity);
 cvector_d* cvec_init_d_heap(double* vals, size_t num);
-
-void cvec_d_copy(void* dest, void* src);
+int cvec_copyc_d(void* dest, void* src);
+int cvec_copy_d(cvector_d* dest, cvector_d* src);
 
 int cvec_push_d(cvector_d* vec, double a);
 double cvec_pop_d(cvector_d* vec);

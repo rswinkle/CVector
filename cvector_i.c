@@ -140,7 +140,7 @@ int cvec_copyc_i(void* dest, void* src)
 	return cvec_copy_i(vec1, vec2);
 }
 
-/** Makes dest a copy of src.  Assumes vec1
+/** Makes dest a copy of src.  Assumes dest
  * (the structure) is already allocated (probably on the stack) and
  * is in a valid state (ie array is either NULL or allocated with
  * size and capacity set appropriately).

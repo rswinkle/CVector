@@ -90,8 +90,8 @@ int cvec_init_d(cvector_d* vec, double* vals, size_t num);
 
 cvector_d* cvec_d_heap(size_t size, size_t capacity);
 cvector_d* cvec_init_d_heap(double* vals, size_t num);
-
-void cvec_d_copy(void* dest, void* src);
+int cvec_copyc_d(void* dest, void* src);
+int cvec_copy_d(cvector_d* dest, cvector_d* src);
 
 int cvec_push_d(cvector_d* vec, double a);
 double cvec_pop_d(cvector_d* vec);
@@ -1100,7 +1100,7 @@ int cvec_copyc_i(void* dest, void* src)
 	return cvec_copy_i(vec1, vec2);
 }
 
-/** Makes dest a copy of src.  Assumes vec1
+/** Makes dest a copy of src.  Assumes dest
  * (the structure) is already allocated (probably on the stack) and
  * is in a valid state (ie array is either NULL or allocated with
  * size and capacity set appropriately).
@@ -1419,30 +1419,52 @@ int cvec_init_d(cvector_d* vec, double* vals, size_t num)
 	return 1;
 }
 
-/** Makes dest an identical copy of src.  The parameters
+/** Makes dest a copy of src.  The parameters
  *  are void so it can be used as the constructor when making
  *  a vector of cvector_d's.  Assumes dest (the structure)
  *  is already allocated (probably on the stack) and that
  *  capacity is 0 (ie the array doesn't need to be freed).
+ *
+ *  Really just a wrapper around copy, that initializes dest/vec1's
+ *  members to NULL/0.  If you pre-initialized dest to 0, you could
+ *  just use copy.
  */
-void cvec_d_copy(void* dest, void* src)
+int cvec_copyc_d(void* dest, void* src)
 {
 	cvector_d* vec1 = (cvector_d*)dest;
 	cvector_d* vec2 = (cvector_d*)src;
-	
+
+	vec1->a = NULL;
 	vec1->size = 0;
 	vec1->capacity = 0;
-	
-	/*not much else we can do here*/
-	if (!(vec1->a = (double*)CVEC_MALLOC(vec2->capacity*sizeof(double)))) {
-		CVEC_ASSERT(vec1->a != NULL);
-		return;
-	}
-	
-	CVEC_MEMMOVE(vec1->a, vec2->a, vec2->size*sizeof(double));
-	vec1->size = vec2->size;
-	vec1->capacity = vec2->capacity;
+
+	return cvec_copy_d(vec1, vec2);
 }
+
+/** Makes dest a copy of src.  Assumes dest
+ * (the structure) is already allocated (probably on the stack) and
+ * is in a valid state (ie array is either NULL or allocated with
+ * size and capacity set appropriately).
+ *
+ * TODO Should I copy capacity, so dest is truly identical or do
+ * I only care about the actual contents, and let dest->cap = src->size
+ * maybe plus CVEC_I_START_SZ
+ */
+int cvec_copy_d(cvector_d* dest, cvector_d* src)
+{
+	double* tmp = NULL;
+	if (!(tmp = (double*)CVEC_REALLOC(dest->a, src->capacity*sizeof(double)))) {
+		CVEC_ASSERT(tmp != NULL);
+		return 0;
+	}
+	dest->a = tmp;
+	
+	CVEC_MEMMOVE(dest->a, src->a, src->size*sizeof(double));
+	dest->size = src->size;
+	dest->capacity = src->capacity;
+	return 1;
+}
+
 
 /** Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
@@ -2251,6 +2273,9 @@ void cvec_void_copy(void* dest, void* src)
 
 /** Append a to end of vector (size increased 1).
  * Capacity is increased by doubling when necessary.
+ *
+ * TODO For all of cvector_void, now that elem_init returns int, is it worth
+ * the extra code and overhead of checking it and asserting/returning 0?
  */
 int cvec_push_void(cvector_void* vec, void* a)
 {

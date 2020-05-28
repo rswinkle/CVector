@@ -442,6 +442,30 @@ void insert_array_d_test()
 	cvec_free_d(&vec);
 }
 
+void copy_d_test()
+{
+	int i;
+	cvector_d vec1 = { 0 };
+	cvector_d vec2 = { 0 };
+
+	for (i=0; i<123; i++)
+		cvec_push_d(&vec1, i+0.5);
+
+	CU_ASSERT_EQUAL(123, vec1.size);
+
+	cvec_copy_d(&vec2, &vec1);
+
+	CU_ASSERT_EQUAL(123, vec2.size);
+
+	/* This is true for now, could change.  See TODO note above implementation */
+	CU_ASSERT_EQUAL(vec1.capacity, vec2.capacity);
+
+	for (i=0; i<vec1.size; i++)
+		CU_ASSERT_EQUAL(vec1.a[i], vec2.a[i]);
+
+	cvec_free_d(&vec1);
+	cvec_free_d(&vec2);
+}
 
 void pop_d_test()
 {
