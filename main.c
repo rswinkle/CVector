@@ -35,6 +35,7 @@ extern void remove_str_test();
 extern void zero_init_str_test();
 extern void insert_str_test();
 extern void insert_array_str_test();
+extern void copy_str_test();
 extern void pop_str_test();
 extern void replace_str_test();
 extern void reserve_str_test();
@@ -98,6 +99,7 @@ CU_TestInfo cvector_s_tests[] = {
 	{ "zero_init_str_test",      zero_init_str_test },
 	{ "insert_str_test",         insert_str_test },
 	{ "insert_array_str_test",   insert_array_str_test },
+	{ "copy_str_test",           copy_str_test },
 	{ "pop_str_test",            pop_str_test },
 	{ "replace_str_test",        replace_str_test },
 	{ "reserve_str_test",        reserve_str_test },

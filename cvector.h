@@ -138,8 +138,8 @@ int cvec_init_str(cvector_str* vec, char** vals, size_t num);
 
 cvector_str* cvec_str_heap(size_t size, size_t capacity);
 cvector_str* cvec_init_str_heap(char** vals, size_t num);
-
-void cvec_str_copy(void* dest, void* src);
+int cvec_copyc_str(void* dest, void* src);
+int cvec_copy_str(cvector_str* dest, cvector_str* src);
 
 int cvec_push_str(cvector_str* vec, char* a);
 void cvec_pop_str(cvector_str* vec, char* ret);
@@ -1794,34 +1794,53 @@ int cvec_init_str(cvector_str* vec, char** vals, size_t num)
 	return 1;
 }
 
-
-/** Makes dest an identical copy of src.  The parameters
+/** Makes dest a copy of src.  The parameters
  *  are void so it can be used as the constructor when making
- *  a vector of cvector_str's.  Assumes dest (the structure)
+ *  a vector of cvector_i's.  Assumes dest (the structure)
  *  is already allocated (probably on the stack) and that
  *  capacity is 0 (ie the array doesn't need to be freed).
+ *
+ *  Really just a wrapper around copy, that initializes dest/vec1's
+ *  members to NULL/0.  If you pre-initialized dest to 0, you could
+ *  just use copy.
  */
-void cvec_str_copy(void* dest, void* src)
+int cvec_copyc_str(void* dest, void* src)
 {
-	size_t i;
 	cvector_str* vec1 = (cvector_str*)dest;
 	cvector_str* vec2 = (cvector_str*)src;
-	
+
+	vec1->a = NULL;
 	vec1->size = 0;
 	vec1->capacity = 0;
-	
-	/*not much else we can do here*/
-	if (!(vec1->a = (char**)CVEC_MALLOC(vec2->capacity*sizeof(char*)))) {
-		CVEC_ASSERT(vec1->a != NULL);
-		return;
+
+	return cvec_copy_str(vec1, vec2);
+}
+
+/** Makes dest a copy of src.  Assumes dest
+ * (the structure) is already allocated (probably on the stack) and
+ * is in a valid state (ie array is either NULL or allocated with
+ * size and capacity set appropriately).
+ *
+ * TODO Should I copy capacity, so dest is truly identical or do
+ * I only care about the actual contents, and let dest->cap = src->size
+ * maybe plus CVEC_I_START_SZ
+ */
+int cvec_copy_str(cvector_str* dest, cvector_str* src)
+{
+	int i;
+	char** tmp = NULL;
+	if (!(tmp = (char**)CVEC_REALLOC(dest->a, src->capacity*sizeof(char*)))) {
+		CVEC_ASSERT(tmp != NULL);
+		return 0;
 	}
+	dest->a = tmp;
 	
-	for (i=0; i<vec2->size; ++i) {
-		vec1->a[i] = CVEC_STRDUP(vec2->a[i]);
-	}
-	
-	vec1->size = vec2->size;
-	vec1->capacity = vec2->capacity;
+	for (i=0; i<src->size; ++i)
+		dest->a[i] = CVEC_STRDUP(src->a[i]);
+
+	dest->size = src->size;
+	dest->capacity = src->capacity;
+	return 1;
 }
 
 /**

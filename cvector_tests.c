@@ -768,8 +768,34 @@ void insert_array_str_test()
 }
 
 
+void copy_str_test()
+{
+	int i;
+	cvector_str vec1 = { 0 };
+	cvector_str vec2 = { 0 };
+	char buffer[50];
 
+	for (i=0; i<123; i++) {
+		sprintf(buffer, "hello %d", i);
+		cvec_push_str(&vec1, buffer);
+	}
 
+	CU_ASSERT_EQUAL(123, vec1.size);
+
+	cvec_copy_str(&vec2, &vec1);
+
+	CU_ASSERT_EQUAL(123, vec2.size);
+
+	/* This is true for now, could change.  See TODO note above implementation */
+	CU_ASSERT_EQUAL(vec1.capacity, vec2.capacity);
+
+	for (i=0; i<vec1.size; i++) {
+		CU_ASSERT_STRING_EQUAL(vec1.a[i], vec2.a[i]);
+	}
+
+	cvec_free_str(&vec1);
+	cvec_free_str(&vec2);
+}
 
 
 

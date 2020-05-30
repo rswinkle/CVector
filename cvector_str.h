@@ -27,8 +27,8 @@ int cvec_init_str(cvector_str* vec, char** vals, size_t num);
 
 cvector_str* cvec_str_heap(size_t size, size_t capacity);
 cvector_str* cvec_init_str_heap(char** vals, size_t num);
-
-void cvec_str_copy(void* dest, void* src);
+int cvec_copyc_str(void* dest, void* src);
+int cvec_copy_str(cvector_str* dest, cvector_str* src);
 
 int cvec_push_str(cvector_str* vec, char* a);
 void cvec_pop_str(cvector_str* vec, char* ret);
