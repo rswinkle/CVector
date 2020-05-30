@@ -405,7 +405,7 @@ void cvec_set_val_sz_str(cvector_str* vec, char* val)
 	for(i=0; i<vec->size; i++) {
 		CVEC_FREE(vec->a[i]);
 
-		/* not worth checking/(char**)reallocing to me */
+		/* not worth checking to me see commit msg aa0c5cf */
 		vec->a[i] = CVEC_STRDUP(val);
 	}
 }

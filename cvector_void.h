@@ -45,8 +45,8 @@ void cvec_erase_void(cvector_void* vec, size_t start, size_t end);
 void cvec_remove_void(cvector_void* vec, size_t start, size_t end);
 int cvec_reserve_void(cvector_void* vec, size_t size);
 int cvec_set_cap_void(cvector_void* vec, size_t size);
-void cvec_set_val_sz_void(cvector_void* vec, void* val);
-void cvec_set_val_cap_void(cvector_void* vec, void* val);
+int cvec_set_val_sz_void(cvector_void* vec, void* val);
+int cvec_set_val_cap_void(cvector_void* vec, void* val);
 
 void* cvec_back_void(cvector_void* vec);
 

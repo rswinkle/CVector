@@ -40,7 +40,9 @@ size_t CVEC_VOID_START_SZ = 20;
  * from the vector to free any dynamically allocated memory.  For example if you passed
  * in sizeof(char*) for elem_sz, and wrappers around the standard free(void*) function for elem_free
  * and strdup (or mystrdup in this project) for elem_init you could
- * make vector work exactly like vector_s.  Pass in NULL, to not use the function parameters.
+ * make vector work *almost* exactly like cvector_str.  The difference is cvector_str does not
+ * check for failure of CVEC_STRDUP while cvector_VOID does check for failure of elem_init.
+ * Pass in NULL, to not use the function parameters.
  *
  * All functions (except remove) call elem_free before overwriting/popping/erasing elements if elem_free is provided.
  *
@@ -72,7 +74,7 @@ cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void(
 		CVEC_FREE(vec);
 		return NULL;
 	}
-	/* not clearing to 0 here as in vector_str because elem_free cannot be calling CVEC_FREE directly
+	/* not clearing to 0 here as in cvector_str because elem_free cannot be calling CVEC_FREE directly
 	 * since it takes the address of the element not the element itself */
 
 	vec->elem_free = elem_free;
@@ -98,6 +100,7 @@ cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*
 	vec->elem_size = elem_sz;
 
 	vec->capacity = num + CVEC_VOID_START_SZ;
+	vec->size = num;
 	if (!(vec->a = (cvec_u8*)CVEC_MALLOC(vec->capacity*elem_sz))) {
 		CVEC_ASSERT(vec->a != NULL);
 		CVEC_FREE(vec);
@@ -113,7 +116,6 @@ cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*
 		}
 	} else {
 		CVEC_MEMMOVE(vec->a, vals, elem_sz*num);
-		vec->size = num;
 	}
 	
 	vec->elem_free = elem_free;
@@ -218,7 +220,6 @@ int cvec_copy_void(cvector_void* dest, cvector_void* src)
 		return 0;
 	}
 	dest->a = tmp;
-	dest->size = 0;
 
 	if (src->elem_init) {
 		for (i=0; i<src->size; ++i) {
@@ -226,14 +227,13 @@ int cvec_copy_void(cvector_void* dest, cvector_void* src)
 				assert(0 == 1);
 				return 0;
 			}
-			dest->size++;
 		}
 	} else {
 		/* could use memcpy here since we know we just allocated dest->a */
 		CVEC_MEMMOVE(dest->a, src->a, src->size*src->elem_size);
-		dest->size = src->size;
 	}
 	
+	dest->size = src->size;
 	dest->capacity = src->capacity;
 	dest->elem_size = src->elem_size;
 	dest->elem_free = src->elem_free;
@@ -360,13 +360,10 @@ int cvec_insert_void(cvector_void* vec, size_t i, void* a)
 
 /**
  * Insert the first num elements of array a at index i.
- * Note that it is the user's responsibility to pass in valid
+ * Note that it is the user's responsibility to pass in val_id
  * arguments.  Also CVEC_MEMMOVE is used (when there is no elem_init function)
  * so don't try to insert part of the vector array into itself
  * (that would require CVEC_MEMMOVE)
- *
- * TODO If elem_init failed, for the new size to be meaningful I'd have to shift
- * stuff back over to fill in the gap
  */
 int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 {
@@ -387,7 +384,6 @@ int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 		for (j=0; j<num; ++j) {
 			if (!vec->elem_init(&vec->a[(j+i)*vec->elem_size], &((cvec_u8*)a)[j*vec->elem_size])) {
 				assert(0 == 1);
-				vec->size += i;
 				return 0;
 			}
 		}
@@ -477,7 +473,7 @@ int cvec_set_cap_void(cvector_void* vec, size_t size)
 }
 
 /** Set all size elements to val. */
-void cvec_set_val_sz_void(cvector_void* vec, void* val)
+int cvec_set_val_sz_void(cvector_void* vec, void* val)
 {
 	size_t i;
 
@@ -491,7 +487,6 @@ void cvec_set_val_sz_void(cvector_void* vec, void* val)
 		for (i=0; i<vec->size; i++) {
 			if (!vec->elem_init(&vec->a[i*vec->elem_size], val)) {
 				assert(0 == 1);
-				vec->size = i;
 				return 0;
 			}
 		}
@@ -500,15 +495,15 @@ void cvec_set_val_sz_void(cvector_void* vec, void* val)
 			CVEC_MEMMOVE(&vec->a[i*vec->elem_size], val, vec->elem_size);
 		}
 	}
+	return 1;
 }
 
 /** Fills entire allocated array (capacity) with val.  If you set a CVEC_FREE function
  * then size is set to capacity like cvector_str for the same reason, ie I need to know
  * that the CVEC_FREE function needs to be called on those elements.
  * TODO Remove this function?  Same reason as set_val_cap_str.
- *
  */
-void cvec_set_val_cap_void(cvector_void* vec, void* val)
+int cvec_set_val_cap_void(cvector_void* vec, void* val)
 {
 	size_t i;
 	if (vec->elem_free) {
@@ -522,7 +517,6 @@ void cvec_set_val_cap_void(cvector_void* vec, void* val)
 		for (i=0; i<vec->capacity; i++) {
 			if (!vec->elem_init(&vec->a[i*vec->elem_size], val)) {
 				assert(0 == 1);
-				vec->size = i;
 				return 0;
 			}
 		}
@@ -531,10 +525,11 @@ void cvec_set_val_cap_void(cvector_void* vec, void* val)
 			CVEC_MEMMOVE(&vec->a[i*vec->elem_size], val, vec->elem_size);
 		}
 	}
+	return 1;
 }
 
 /** Sets size to 0 (does not change contents unless elem_free is set
- *  then it will CVEC_FREE all size elements as in vector_s). */
+ *  then it will CVEC_FREE all size elements as in cvector_str). */
 void cvec_clear_void(cvector_void* vec)
 {
 	size_t i;
