@@ -49,6 +49,7 @@ extern void remove_void_test();
 extern void zero_init_void_test();
 extern void insert_void_test();
 extern void insert_array_void_test();
+extern void copy_void_test();
 extern void pop_void_test();
 extern void replace_void_test();
 extern void reserve_void_test();
@@ -116,6 +117,7 @@ CU_TestInfo cvector_void_tests[] = {
 	{ "zero_init_test",            zero_init_void_test },
 	{ "insert_test",               insert_void_test },
 	{ "insert_array_test",         insert_array_void_test },
+	{ "copy_test",                 copy_void_test },
 	{ "pop_test",                  pop_void_test },
 	{ "replace_void_test",         replace_void_test },
 	{ "reserve_test",              reserve_void_test },

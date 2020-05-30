@@ -964,6 +964,16 @@ f_struct mk_f_struct(double d, int i, char* word)
 	return a;
 }
 
+f_struct set_f_struct(double d, int i, char* word)
+{
+	/*could make this static since I'm just copying the values outside */
+	f_struct a;
+	a.d = d;
+	a.i = i;
+	a.word = word;
+	return a;
+}
+
 
 #define GET_T(X,Y) ((t_struct*)&X.a[Y*X.elem_size])
 #define GET_F(X,Y) ((f_struct*)&X.a[Y*X.elem_size])
@@ -1285,6 +1295,74 @@ void zero_init_void_test()
 }
 
 
+void copy_void_test()
+{
+	char buffer[50];
+	int i;
+	t_struct temp;
+	f_struct temp2;
+
+	cvector_void vec1;
+	cvector_void vec2;
+	cvector_void vec3 = { 0 };
+	cvector_void vec4 = { 0 };
+
+	cvec_void(&vec1, 0, 0, sizeof(t_struct), NULL, NULL);
+	cvec_void(&vec2, 0, 1,  sizeof(f_struct), free_f_struct, init_f_struct);
+
+	CU_ASSERT_EQUAL(CVEC_VOID_START_SZ, vec1.capacity);
+	CU_ASSERT_EQUAL(0, vec1.size);
+
+	CU_ASSERT_EQUAL(1, vec2.capacity);
+	CU_ASSERT_EQUAL(0, vec2.size);
+
+	for (i=0; i<100; i++) {
+		sprintf(buffer, "%d", i);
+		temp = mk_t_struct(i, i, buffer);
+		temp2 = set_f_struct(i, i, buffer);
+
+		cvec_push_void(&vec1, &temp);
+		cvec_push_void(&vec2, &temp2);
+	}
+
+	CU_ASSERT_EQUAL(100, vec1.size);
+	CU_ASSERT_EQUAL(100, vec2.size);
+
+	cvec_copy_void(&vec3, &vec1);
+	cvec_copy_void(&vec4, &vec2);
+
+	CU_ASSERT_EQUAL(vec3.size, vec1.size);
+	CU_ASSERT_EQUAL(vec4.size, vec2.size);
+
+	/* This is true for now, could change.  See TODO note above implementation */
+	CU_ASSERT_EQUAL(vec3.capacity, vec1.capacity);
+	CU_ASSERT_EQUAL(vec4.capacity, vec2.capacity);
+
+	CU_ASSERT_EQUAL(vec3.elem_size, vec1.elem_size);
+	CU_ASSERT_EQUAL(vec4.elem_size, vec2.elem_size);
+
+	CU_ASSERT_EQUAL(vec3.elem_free, vec1.elem_free);
+	CU_ASSERT_EQUAL(vec4.elem_free, vec2.elem_free);
+
+	CU_ASSERT_EQUAL(vec3.elem_init, vec1.elem_init);
+	CU_ASSERT_EQUAL(vec4.elem_init, vec2.elem_init);
+
+	for (i=0; i<vec1.size; i++) {
+
+		CU_ASSERT_EQUAL(GET_T(vec3, i)->d, GET_T(vec1, i)->d);
+		CU_ASSERT_EQUAL(GET_T(vec3, i)->i, GET_T(vec1, i)->i);
+		CU_ASSERT_STRING_EQUAL(GET_T(vec3, i)->word, GET_T(vec1, i)->word);
+
+		CU_ASSERT_EQUAL(GET_F(vec4, i)->d, GET_F(vec2, i)->d);
+		CU_ASSERT_EQUAL(GET_F(vec4, i)->i, GET_F(vec2, i)->i);
+		CU_ASSERT_STRING_EQUAL(GET_F(vec4, i)->word, GET_F(vec2, i)->word);
+	}
+
+	cvec_free_void(&vec1);
+	cvec_free_void(&vec2);
+	cvec_free_void(&vec3);
+	cvec_free_void(&vec4);
+}
 
 
 

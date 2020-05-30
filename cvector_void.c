@@ -172,42 +172,62 @@ int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, vo
 	return 1;
 }
 
-/** Makes dest an identical copy of src.  The parameters
+/** Makes dest a copy of src.  The parameters
  *  are void so it can be used as the constructor when making
- *  a vector of generic vector's. (I would recommend against doing that, and using
- *  generate_code.py to make your own vector type and do a vector of those
- *  instead).  Assumes dest (the structure)
+ *  a vector of cvector_void's.  Assumes dest (the structure)
  *  is already allocated (probably on the stack) and that
  *  capacity is 0 (ie the array doesn't need to be freed).
+ *
+ *  Really just a wrapper around copy, that initializes dest/vec1's
+ *  members to NULL/0.  If you pre-initialized dest to 0, you could
+ *  just use copy.
  */
-void cvec_void_copy(void* dest, void* src)
+int cvec_copyc_void(void* dest, void* src)
 {
-	size_t i;
 	cvector_void* vec1 = (cvector_void*)dest;
 	cvector_void* vec2 = (cvector_void*)src;
-	
+
+	vec1->a = NULL;
 	vec1->size = 0;
 	vec1->capacity = 0;
-	
-	/*not much else we can do here*/
-	if (!(vec1->a = (cvec_u8*)CVEC_MALLOC(vec2->capacity*vec2->elem_size))) {
-		CVEC_ASSERT(vec1->a != NULL);
-		return;
-	}
 
-	vec1->size = vec2->size;
-	vec1->capacity = vec2->capacity;
-	vec1->elem_size = vec2->elem_size;
-	vec1->elem_init = vec2->elem_init;
-	vec1->elem_free = vec2->elem_free;
-	
-	if (vec1->elem_init) {
-		for (i=0; i<vec1->size; ++i) {
-			vec1->elem_init(&vec1->a[i*vec1->elem_size], &vec2->a[i*vec1->elem_size]);
+	return cvec_copy_void(vec1, vec2);
+}
+
+/** Makes dest a copy of src.  Assumes dest
+ * (the structure) is already allocated (probably on the stack) and
+ * is in a valid state (ie array is either NULL or allocated with
+ * size and capacity set appropriately).
+ *
+ * TODO Should I copy capacity, so dest is truly identical or do
+ * I only care about the actual contents, and let dest->cap = src->size
+ * maybe plus CVEC_VOID_START_SZ
+ */
+int cvec_copy_void(cvector_void* dest, cvector_void* src)
+{
+	int i;
+	cvec_u8* tmp = NULL;
+	if (!(tmp = (cvec_u8*)CVEC_REALLOC(dest->a, src->capacity*src->elem_size))) {
+		CVEC_ASSERT(tmp != NULL);
+		return 0;
+	}
+	dest->a = tmp;
+
+	if (src->elem_init) {
+		for (i=0; i<src->size; ++i) {
+			src->elem_init(&dest->a[i*src->elem_size], &src->a[i*src->elem_size]);
 		}
 	} else {
-		CVEC_MEMMOVE(vec1->a, vec2->a, vec1->size*vec1->elem_size);
+		/* could use memcpy here since we know we just allocated dest->a */
+		CVEC_MEMMOVE(dest->a, src->a, src->size*src->elem_size);
 	}
+	
+	dest->size = src->size;
+	dest->capacity = src->capacity;
+	dest->elem_size = src->elem_size;
+	dest->elem_free = src->elem_free;
+	dest->elem_init = src->elem_init;
+	return 1;
 }
 
 /** Append a to end of vector (size increased 1).

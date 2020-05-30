@@ -147,7 +147,7 @@ int cvec_copyc_d(void* dest, void* src)
  *
  * TODO Should I copy capacity, so dest is truly identical or do
  * I only care about the actual contents, and let dest->cap = src->size
- * maybe plus CVEC_I_START_SZ
+ * maybe plus CVEC_D_START_SZ
  */
 int cvec_copy_d(cvector_d* dest, cvector_d* src)
 {

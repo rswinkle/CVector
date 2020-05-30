@@ -160,7 +160,7 @@ int cvec_init_str(cvector_str* vec, char** vals, size_t num)
 
 /** Makes dest a copy of src.  The parameters
  *  are void so it can be used as the constructor when making
- *  a vector of cvector_i's.  Assumes dest (the structure)
+ *  a vector of cvector_str's.  Assumes dest (the structure)
  *  is already allocated (probably on the stack) and that
  *  capacity is 0 (ie the array doesn't need to be freed).
  *
@@ -187,7 +187,7 @@ int cvec_copyc_str(void* dest, void* src)
  *
  * TODO Should I copy capacity, so dest is truly identical or do
  * I only care about the actual contents, and let dest->cap = src->size
- * maybe plus CVEC_I_START_SZ
+ * maybe plus CVEC_STR_START_SZ
  */
 int cvec_copy_str(cvector_str* dest, cvector_str* src)
 {
@@ -199,9 +199,9 @@ int cvec_copy_str(cvector_str* dest, cvector_str* src)
 	}
 	dest->a = tmp;
 	
-	for (i=0; i<src->size; ++i)
+	for (i=0; i<src->size; ++i) {
 		dest->a[i] = CVEC_STRDUP(src->a[i]);
-
+	}
 	dest->size = src->size;
 	dest->capacity = src->capacity;
 	return 1;

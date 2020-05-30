@@ -30,7 +30,8 @@ int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, vo
 cvector_void* cvec_void_heap(size_t size, size_t capacity, size_t elem_sz, void (*elem_free)(void*), int(*elem_init)(void*, void*));
 cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void (*elem_free)(void*), int(*elem_init)(void*, void*));
 
-void cvec_void_copy(void* dest, void* src);
+int cvec_copyc_void(void* dest, void* src);
+int cvec_copy_void(cvector_void* dest, cvector_void* src);
 
 int cvec_push_void(cvector_void* vec, void* val);
 void cvec_pop_void(cvector_void* vec, void* ret);
