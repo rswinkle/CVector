@@ -11,9 +11,9 @@
  * generate_code.py from cvector_template*.h instead of
  * the equivalent macros in cvector.h
  *
- * #define DO_TEMPLATE_TEST
+ * #define USE_TEMPLATES
  */
-#ifdef DO_TEMPLATE_TEST
+#ifdef USE_TEMPLATES
 /*replace with or add your own generated file and edit the template test*/
 
 #define CVECTOR_short_IMPLEMENTATION
@@ -1723,7 +1723,6 @@ void vector_of_vectors_test()
 
 void template_test()
 {
-#ifdef DO_TEMPLATE_TEST
 	int i;
 	cvector_short vec;
 
@@ -1741,12 +1740,10 @@ void template_test()
 		CU_ASSERT_EQUAL(i, vec.a[i]);
 
 	cvec_free_short(&vec);
-#endif
 }
 
 void template_test2()
 {
-#ifdef DO_TEMPLATE_TEST
 	int i;
 	char buffer[50];
 	f_struct temp;
@@ -1824,8 +1821,6 @@ void template_test2()
 	CU_ASSERT_EQUAL(10, vec.size);
 
 	cvec_free_f_struct(&vec);
-
-#endif
 }
 
 

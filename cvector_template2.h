@@ -20,11 +20,11 @@ typedef struct cvector_TYPE
 
 extern size_t CVEC_TYPE_SZ;
 
-int cvec_TYPE(cvector_TYPE* vec, size_t size, size_t capacity, void(*elem_free)(void*), void(*elem_init)(void*, void*));
-int cvec_init_TYPE(cvector_TYPE* vec, TYPE* vals, size_t num, void(*elem_free)(void*), void(*elem_init)(void*, void*));
+int cvec_TYPE(cvector_TYPE* vec, size_t size, size_t capacity, void(*elem_free)(void*), int(*elem_init)(void*, void*));
+int cvec_init_TYPE(cvector_TYPE* vec, TYPE* vals, size_t num, void(*elem_free)(void*), int(*elem_init)(void*, void*));
 
-cvector_TYPE* cvec_TYPE_heap(size_t size, size_t capacity, void (*elem_free)(void*), void(*elem_init)(void*, void*));
-cvector_TYPE* cvec_init_TYPE_heap(TYPE* vals, size_t num, void (*elem_free)(void*), void(*elem_init)(void*, void*));
+cvector_TYPE* cvec_TYPE_heap(size_t size, size_t capacity, void (*elem_free)(void*), int(*elem_init)(void*, void*));
+cvector_TYPE* cvec_init_TYPE_heap(TYPE* vals, size_t num, void (*elem_free)(void*), int(*elem_init)(void*, void*));
 
 int cvec_copyc_TYPE(void* dest, void* src);
 int cvec_copy_TYPE(cvector_TYPE* dest, cvector_TYPE* src);
@@ -92,7 +92,7 @@ size_t CVEC_TYPE_SZ = 20;
 
 /*  general vector */
 
-cvector_TYPE* cvec_TYPE_heap(size_t size, size_t capacity, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+cvector_TYPE* cvec_TYPE_heap(size_t size, size_t capacity, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	cvector_TYPE* vec;
 	if (!(vec = (cvector_TYPE*)CVEC_MALLOC(sizeof(cvector_TYPE)))) {
@@ -115,7 +115,7 @@ cvector_TYPE* cvec_TYPE_heap(size_t size, size_t capacity, void(*elem_free)(void
 	return vec;
 }
 
-cvector_TYPE* cvec_init_TYPE_heap(TYPE* vals, size_t num, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+cvector_TYPE* cvec_init_TYPE_heap(TYPE* vals, size_t num, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	cvector_TYPE* vec;
 	size_t i;
@@ -147,7 +147,7 @@ cvector_TYPE* cvec_init_TYPE_heap(TYPE* vals, size_t num, void(*elem_free)(void*
 	return vec;
 }
 
-int cvec_TYPE(cvector_TYPE* vec, size_t size, size_t capacity, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+int cvec_TYPE(cvector_TYPE* vec, size_t size, size_t capacity, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_TYPE_SZ;
@@ -164,7 +164,7 @@ int cvec_TYPE(cvector_TYPE* vec, size_t size, size_t capacity, void(*elem_free)(
 	return 1;
 }
 
-int cvec_init_TYPE(cvector_TYPE* vec, TYPE* vals, size_t num, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+int cvec_init_TYPE(cvector_TYPE* vec, TYPE* vals, size_t num, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	size_t i;
 	

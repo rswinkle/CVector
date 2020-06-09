@@ -20,11 +20,11 @@ typedef struct cvector_f_struct
 
 extern size_t CVEC_f_struct_SZ;
 
-int cvec_f_struct(cvector_f_struct* vec, size_t size, size_t capacity, void(*elem_free)(void*), void(*elem_init)(void*, void*));
-int cvec_init_f_struct(cvector_f_struct* vec, f_struct* vals, size_t num, void(*elem_free)(void*), void(*elem_init)(void*, void*));
+int cvec_f_struct(cvector_f_struct* vec, size_t size, size_t capacity, void(*elem_free)(void*), int(*elem_init)(void*, void*));
+int cvec_init_f_struct(cvector_f_struct* vec, f_struct* vals, size_t num, void(*elem_free)(void*), int(*elem_init)(void*, void*));
 
-cvector_f_struct* cvec_f_struct_heap(size_t size, size_t capacity, void (*elem_free)(void*), void(*elem_init)(void*, void*));
-cvector_f_struct* cvec_init_f_struct_heap(f_struct* vals, size_t num, void (*elem_free)(void*), void(*elem_init)(void*, void*));
+cvector_f_struct* cvec_f_struct_heap(size_t size, size_t capacity, void (*elem_free)(void*), int(*elem_init)(void*, void*));
+cvector_f_struct* cvec_init_f_struct_heap(f_struct* vals, size_t num, void (*elem_free)(void*), int(*elem_init)(void*, void*));
 
 int cvec_copyc_f_struct(void* dest, void* src);
 int cvec_copy_f_struct(cvector_f_struct* dest, cvector_f_struct* src);
@@ -92,7 +92,7 @@ size_t CVEC_f_struct_SZ = 20;
 
 /*  general vector */
 
-cvector_f_struct* cvec_f_struct_heap(size_t size, size_t capacity, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+cvector_f_struct* cvec_f_struct_heap(size_t size, size_t capacity, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	cvector_f_struct* vec;
 	if (!(vec = (cvector_f_struct*)CVEC_MALLOC(sizeof(cvector_f_struct)))) {
@@ -115,7 +115,7 @@ cvector_f_struct* cvec_f_struct_heap(size_t size, size_t capacity, void(*elem_fr
 	return vec;
 }
 
-cvector_f_struct* cvec_init_f_struct_heap(f_struct* vals, size_t num, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+cvector_f_struct* cvec_init_f_struct_heap(f_struct* vals, size_t num, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	cvector_f_struct* vec;
 	size_t i;
@@ -147,7 +147,7 @@ cvector_f_struct* cvec_init_f_struct_heap(f_struct* vals, size_t num, void(*elem
 	return vec;
 }
 
-int cvec_f_struct(cvector_f_struct* vec, size_t size, size_t capacity, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+int cvec_f_struct(cvector_f_struct* vec, size_t size, size_t capacity, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_f_struct_SZ;
@@ -164,7 +164,7 @@ int cvec_f_struct(cvector_f_struct* vec, size_t size, size_t capacity, void(*ele
 	return 1;
 }
 
-int cvec_init_f_struct(cvector_f_struct* vec, f_struct* vals, size_t num, void(*elem_free)(void*), void(*elem_init)(void*, void*))
+int cvec_init_f_struct(cvector_f_struct* vec, f_struct* vals, size_t num, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	size_t i;
 	
