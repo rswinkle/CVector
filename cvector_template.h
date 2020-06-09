@@ -24,8 +24,8 @@ int cvec_init_TYPE(cvector_TYPE* vec, TYPE* vals, size_t num);
 
 cvector_TYPE* cvec_TYPE_heap(size_t size, size_t capacity);
 cvector_TYPE* cvec_init_TYPE_heap(TYPE* vals, size_t num);
-
-void cvec_TYPE_copy(void* dest, void* src);
+int cvec_copyc_TYPE(void* dest, void* src);
+int cvec_copy_TYPE(cvector_TYPE* dest, cvector_TYPE* src);
 
 int cvec_push_TYPE(cvector_TYPE* vec, TYPE a);
 TYPE cvec_pop_TYPE(cvector_TYPE* vec);
@@ -156,23 +156,31 @@ int cvec_init_TYPE(cvector_TYPE* vec, TYPE* vals, size_t num)
 	return 1;
 }
 
-void cvec_TYPE_copy(void* dest, void* src)
+int cvec_copyc_TYPE(void* dest, void* src)
 {
 	cvector_TYPE* vec1 = (cvector_TYPE*)dest;
 	cvector_TYPE* vec2 = (cvector_TYPE*)src;
-	
+
+	vec1->a = NULL;
 	vec1->size = 0;
 	vec1->capacity = 0;
-	
-	/*not much else we can do here*/
-	if (!(vec1->a = (TYPE*)malloc(vec2->capacity*sizeof(TYPE)))) {
-		assert(vec1->a != NULL);
-		return;
+
+	return cvec_copy_TYPE(vec1, vec2);
+}
+
+int cvec_copy_TYPE(cvector_TYPE* dest, cvector_TYPE* src)
+{
+	TYPE* tmp = NULL;
+	if (!(tmp = (TYPE*)CVEC_REALLOC(dest->a, src->capacity*sizeof(TYPE)))) {
+		CVEC_ASSERT(tmp != NULL);
+		return 0;
 	}
-	
-	memmove(vec1->a, vec2->a, vec2->size*sizeof(TYPE));
-	vec1->size = vec2->size;
-	vec1->capacity = vec2->capacity;
+	dest->a = tmp;
+
+	CVEC_MEMMOVE(dest->a, src->a, src->size*sizeof(TYPE));
+	dest->size = src->size;
+	dest->capacity = src->capacity;
+	return 1;
 }
 
 

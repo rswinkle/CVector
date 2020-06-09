@@ -15,7 +15,7 @@ typedef struct cvector_TYPE
 	size_t size;
 	size_t capacity;
 	void (*elem_free)(void*);
-	void (*elem_init)(void*, void*);
+	int (*elem_init)(void*, void*);
 } cvector_TYPE;
 
 extern size_t CVEC_TYPE_SZ;
@@ -26,7 +26,8 @@ int cvec_init_TYPE(cvector_TYPE* vec, TYPE* vals, size_t num, void(*elem_free)(v
 cvector_TYPE* cvec_TYPE_heap(size_t size, size_t capacity, void (*elem_free)(void*), void(*elem_init)(void*, void*));
 cvector_TYPE* cvec_init_TYPE_heap(TYPE* vals, size_t num, void (*elem_free)(void*), void(*elem_init)(void*, void*));
 
-void cvec_TYPE_copy(void* dest, void* src);
+int cvec_copyc_TYPE(void* dest, void* src);
+int cvec_copy_TYPE(cvector_TYPE* dest, cvector_TYPE* src);
 
 int cvec_push_TYPE(cvector_TYPE* vec, TYPE* val);
 void cvec_pop_TYPE(cvector_TYPE* vec, TYPE* ret);
@@ -39,8 +40,8 @@ void cvec_erase_TYPE(cvector_TYPE* vec, size_t start, size_t end);
 void cvec_remove_TYPE(cvector_TYPE* vec, size_t start, size_t end);
 int cvec_reserve_TYPE(cvector_TYPE* vec, size_t size);
 int cvec_set_cap_TYPE(cvector_TYPE* vec, size_t size);
-void cvec_set_val_sz_TYPE(cvector_TYPE* vec, TYPE* val);
-void cvec_set_val_cap_TYPE(cvector_TYPE* vec, TYPE* val);
+int cvec_set_val_sz_TYPE(cvector_TYPE* vec, TYPE* val);
+int cvec_set_val_cap_TYPE(cvector_TYPE* vec, TYPE* val);
 
 TYPE* cvec_back_TYPE(cvector_TYPE* vec);
 
@@ -189,34 +190,45 @@ int cvec_init_TYPE(cvector_TYPE* vec, TYPE* vals, size_t num, void(*elem_free)(v
 	return 1;
 }
 
-
-void cvec_TYPE_copy(void* dest, void* src)
+int cvec_copyc_TYPE(void* dest, void* src)
 {
-	size_t i;
 	cvector_TYPE* vec1 = (cvector_TYPE*)dest;
 	cvector_TYPE* vec2 = (cvector_TYPE*)src;
-	
+
+	vec1->a = NULL;
 	vec1->size = 0;
 	vec1->capacity = 0;
-	
-	/*not much else we can do here*/
-	if (!(vec1->a = (TYPE*)CVEC_MALLOC(vec2->capacity*sizeof(TYPE)))) {
-		CVEC_ASSERT(vec1->a != NULL);
-		return;
-	}
 
-	vec1->size = vec2->size;
-	vec1->capacity = vec2->capacity;
-	vec1->elem_init = vec2->elem_init;
-	vec1->elem_free = vec2->elem_free;
-	
-	if (vec1->elem_init) {
-		for (i=0; i<vec1->size; ++i) {
-			vec1->elem_init(&vec1->a[i], &vec2->a[i]);
+	return cvec_copy_TYPE(vec1, vec2);
+}
+
+int cvec_copy_TYPE(cvector_TYPE* dest, cvector_TYPE* src)
+{
+	int i;
+	TYPE* tmp = NULL;
+	if (!(tmp = (TYPE*)CVEC_REALLOC(dest->a, src->capacity*sizeof(TYPE)))) {
+		CVEC_ASSERT(tmp != NULL);
+		return 0;
+	}
+	dest->a = tmp;
+
+	if (src->elem_init) {
+		for (i=0; i<src->size; ++i) {
+			if (!src->elem_init(&dest->a[i], &src->a[i])) {
+				assert(0 == 1);
+				return 0;
+			}
 		}
 	} else {
-		CVEC_MEMMOVE(vec1->a, vec2->a, vec1->size*sizeof(TYPE));
+		/* could use memcpy here since we know we just allocated dest->a */
+		CVEC_MEMMOVE(dest->a, src->a, src->size*sizeof(TYPE));
 	}
+
+	dest->size = src->size;
+	dest->capacity = src->capacity;
+	dest->elem_free = src->elem_free;
+	dest->elem_init = src->elem_init;
+	return 1;
 }
 
 int cvec_push_TYPE(cvector_TYPE* vec, TYPE* a)
@@ -394,7 +406,7 @@ int cvec_set_cap_TYPE(cvector_TYPE* vec, size_t size)
 	return 1;
 }
 
-void cvec_set_val_sz_TYPE(cvector_TYPE* vec, TYPE* val)
+int cvec_set_val_sz_TYPE(cvector_TYPE* vec, TYPE* val)
 {
 	size_t i;
 
@@ -406,16 +418,20 @@ void cvec_set_val_sz_TYPE(cvector_TYPE* vec, TYPE* val)
 	
 	if (vec->elem_init) {
 		for (i=0; i<vec->size; i++) {
-			vec->elem_init(&vec->a[i], val);
+			if (!vec->elem_init(&vec->a[i], val)) {
+				assert(0 == 1);
+				return 0;
+			}
 		}
 	} else {
 		for (i=0; i<vec->size; i++) {
 			CVEC_MEMMOVE(&vec->a[i], val, sizeof(TYPE));
 		}
 	}
+	return 1;
 }
 
-void cvec_set_val_cap_TYPE(cvector_TYPE* vec, TYPE* val)
+int cvec_set_val_cap_TYPE(cvector_TYPE* vec, TYPE* val)
 {
 	size_t i;
 	if (vec->elem_free) {
@@ -427,13 +443,17 @@ void cvec_set_val_cap_TYPE(cvector_TYPE* vec, TYPE* val)
 
 	if (vec->elem_init) {
 		for (i=0; i<vec->capacity; i++) {
-			vec->elem_init(&vec->a[i], val);
+			if (!vec->elem_init(&vec->a[i], val)) {
+				assert(0 == 1);
+				return 0;
+			}
 		}
 	} else {
 		for (i=0; i<vec->capacity; i++) {
 			CVEC_MEMMOVE(&vec->a[i], val, sizeof(TYPE));
 		}
 	}
+	return 1;
 }
 
 void cvec_clear_TYPE(cvector_TYPE* vec)

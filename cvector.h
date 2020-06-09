@@ -237,7 +237,8 @@ void cvec_free_void(void* vec);
   cvector_##TYPE* cvec_##TYPE##_heap(size_t size, size_t capacity);                 \
   cvector_##TYPE* cvec_init_##TYPE##_heap(TYPE* vals, size_t num);                  \
                                                                                     \
-  void cvec_##TYPE##_copy(void* dest, void* src);                                   \
+  int cvec_copyc_##TYPE(void* dest, void* src);                                     \
+  int cvec_copy_##TYPE(cvector_##TYPE* dest, cvector_##TYPE* src);                  \
                                                                                     \
   int cvec_push_##TYPE(cvector_##TYPE* vec, TYPE a);                                \
   TYPE cvec_pop_##TYPE(cvector_##TYPE* vec);                                        \
@@ -336,23 +337,31 @@ void cvec_free_void(void* vec);
     return 1;                                                                          \
   }                                                                                    \
                                                                                        \
-  void cvec_##TYPE##_copy(void* dest, void* src)                                       \
+  int cvec_copyc_##TYPE(void* dest, void* src)                                         \
   {                                                                                    \
     cvector_##TYPE* vec1 = (cvector_##TYPE*)dest;                                      \
     cvector_##TYPE* vec2 = (cvector_##TYPE*)src;                                       \
                                                                                        \
-    vec1->size     = 0;                                                                \
+    vec1->a = NULL;                                                                    \
+    vec1->size = 0;                                                                    \
     vec1->capacity = 0;                                                                \
                                                                                        \
-    /*not much else we can do here*/                                                   \
-    if (!(vec1->a = (TYPE*)malloc(vec2->capacity * sizeof(TYPE)))) {                   \
-      assert(vec1->a != NULL);                                                         \
-      return;                                                                          \
-    }                                                                                  \
+    return cvec_copy_##TYPE(vec1, vec2);                                               \
+  }                                                                                    \
                                                                                        \
-    memmove(vec1->a, vec2->a, vec2->size * sizeof(TYPE));                              \
-    vec1->size     = vec2->size;                                                       \
-    vec1->capacity = vec2->capacity;                                                   \
+  int cvec_copy_##TYPE(cvector_##TYPE* dest, cvector_##TYPE* src)                      \
+  {                                                                                    \
+    TYPE* tmp = NULL;                                                                  \
+    if (!(tmp = (TYPE*)CVEC_REALLOC(dest->a, src->capacity*sizeof(TYPE)))) {           \
+      CVEC_ASSERT(tmp != NULL);                                                        \
+      return 0;                                                                        \
+    }                                                                                  \
+    dest->a = tmp;                                                                     \
+                                                                                       \
+    CVEC_MEMMOVE(dest->a, src->a, src->size*sizeof(TYPE));                             \
+    dest->size = src->size;                                                            \
+    dest->capacity = src->capacity;                                                    \
+    return 1;                                                                          \
   }                                                                                    \
                                                                                        \
   int cvec_push_##TYPE(cvector_##TYPE* vec, TYPE a)                                    \
@@ -523,22 +532,23 @@ void cvec_free_void(void* vec);
     size_t size;                                                                               \
     size_t capacity;                                                                           \
     void (*elem_free)(void*);                                                                  \
-    void (*elem_init)(void*, void*);                                                           \
+    int (*elem_init)(void*, void*);                                                            \
   } cvector_##TYPE;                                                                            \
                                                                                                \
   extern size_t CVEC_##TYPE##_SZ;                                                              \
                                                                                                \
   int cvec_##TYPE(cvector_##TYPE* vec, size_t size, size_t capacity, void (*elem_free)(void*), \
-                  void (*elem_init)(void*, void*));                                            \
+                  int (*elem_init)(void*, void*));                                             \
   int cvec_init_##TYPE(cvector_##TYPE* vec, TYPE* vals, size_t num, void (*elem_free)(void*),  \
-                       void (*elem_init)(void*, void*));                                       \
+                       int (*elem_init)(void*, void*));                                        \
                                                                                                \
   cvector_##TYPE* cvec_##TYPE##_heap(size_t size, size_t capacity, void (*elem_free)(void*),   \
-                                     void (*elem_init)(void*, void*));                         \
+                                     int (*elem_init)(void*, void*));                          \
   cvector_##TYPE* cvec_init_##TYPE##_heap(TYPE* vals, size_t num, void (*elem_free)(void*),    \
-                                          void (*elem_init)(void*, void*));                    \
+                                          int (*elem_init)(void*, void*));                     \
                                                                                                \
-  void cvec_##TYPE##_copy(void* dest, void* src);                                              \
+  int cvec_copyc_##TYPE(void* dest, void* src);                                                \
+  int cvec_copy_##TYPE(cvector_##TYPE* dest, cvector_##TYPE* src);                             \
                                                                                                \
   int cvec_push_##TYPE(cvector_##TYPE* vec, TYPE* val);                                        \
   void cvec_pop_##TYPE(cvector_##TYPE* vec, TYPE* ret);                                        \
@@ -551,8 +561,8 @@ void cvec_free_void(void* vec);
   void cvec_remove_##TYPE(cvector_##TYPE* vec, size_t start, size_t end);                      \
   int cvec_reserve_##TYPE(cvector_##TYPE* vec, size_t size);                                   \
   int cvec_set_cap_##TYPE(cvector_##TYPE* vec, size_t size);                                   \
-  void cvec_set_val_sz_##TYPE(cvector_##TYPE* vec, TYPE* val);                                 \
-  void cvec_set_val_cap_##TYPE(cvector_##TYPE* vec, TYPE* val);                                \
+  int cvec_set_val_sz_##TYPE(cvector_##TYPE* vec, TYPE* val);                                  \
+  int cvec_set_val_cap_##TYPE(cvector_##TYPE* vec, TYPE* val);                                 \
                                                                                                \
   TYPE* cvec_back_##TYPE(cvector_##TYPE* vec);                                                 \
                                                                                                \
@@ -564,7 +574,7 @@ void cvec_free_void(void* vec);
   size_t CVEC_##TYPE##_SZ = 20;                                                                  \
                                                                                                  \
   cvector_##TYPE* cvec_##TYPE##_heap(size_t size, size_t capacity, void (*elem_free)(void*),     \
-                                     void (*elem_init)(void*, void*))                            \
+                                     int (*elem_init)(void*, void*))                             \
   {                                                                                              \
     cvector_##TYPE* vec;                                                                         \
     if (!(vec = (cvector_##TYPE*)malloc(sizeof(cvector_##TYPE)))) {                              \
@@ -592,7 +602,7 @@ void cvec_free_void(void* vec);
   }                                                                                              \
                                                                                                  \
   cvector_##TYPE* cvec_init_##TYPE##_heap(TYPE* vals, size_t num, void (*elem_free)(void*),      \
-                                          void (*elem_init)(void*, void*))                       \
+                                          int (*elem_init)(void*, void*))                        \
   {                                                                                              \
     cvector_##TYPE* vec;                                                                         \
     size_t i;                                                                                    \
@@ -625,7 +635,7 @@ void cvec_free_void(void* vec);
   }                                                                                              \
                                                                                                  \
   int cvec_##TYPE(cvector_##TYPE* vec, size_t size, size_t capacity, void (*elem_free)(void*),   \
-                  void (*elem_init)(void*, void*))                                               \
+                  int (*elem_init)(void*, void*))                                                \
   {                                                                                              \
     vec->size     = size;                                                                        \
     vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size))               \
@@ -645,7 +655,7 @@ void cvec_free_void(void* vec);
   }                                                                                              \
                                                                                                  \
   int cvec_init_##TYPE(cvector_##TYPE* vec, TYPE* vals, size_t num, void (*elem_free)(void*),    \
-                       void (*elem_init)(void*, void*))                                          \
+                       int (*elem_init)(void*, void*))                                           \
   {                                                                                              \
     size_t i;                                                                                    \
                                                                                                  \
@@ -671,33 +681,44 @@ void cvec_free_void(void* vec);
     return 1;                                                                                    \
   }                                                                                              \
                                                                                                  \
-  void cvec_##TYPE##_copy(void* dest, void* src)                                                 \
+  int cvec_copyc_##TYPE(void* dest, void* src)                                                   \
   {                                                                                              \
-    size_t i;                                                                                    \
     cvector_##TYPE* vec1 = (cvector_##TYPE*)dest;                                                \
     cvector_##TYPE* vec2 = (cvector_##TYPE*)src;                                                 \
                                                                                                  \
-    vec1->size     = 0;                                                                          \
+    vec1->a = NULL;                                                                              \
+    vec1->size = 0;                                                                              \
     vec1->capacity = 0;                                                                          \
                                                                                                  \
-    /*not much else we can do here*/                                                             \
-    if (!(vec1->a = (TYPE*)malloc(vec2->capacity * sizeof(TYPE)))) {                             \
-      assert(vec1->a != NULL);                                                                   \
-      return;                                                                                    \
+    return cvec_copy_##TYPE(vec1, vec2);                                                         \
+  }                                                                                              \
+                                                                                                 \
+  int cvec_copy_##TYPE(cvector_##TYPE* dest, cvector_##TYPE* src)                                \
+  {                                                                                              \
+    int i;                                                                                       \
+    TYPE* tmp = NULL;                                                                            \
+    if (!(tmp = (TYPE*)CVEC_REALLOC(dest->a, src->capacity*sizeof(TYPE)))) {                     \
+      CVEC_ASSERT(tmp != NULL);                                                                  \
+      return 0;                                                                                  \
     }                                                                                            \
+    dest->a = tmp;                                                                               \
                                                                                                  \
-    vec1->size      = vec2->size;                                                                \
-    vec1->capacity  = vec2->capacity;                                                            \
-    vec1->elem_init = vec2->elem_init;                                                           \
-    vec1->elem_free = vec2->elem_free;                                                           \
-                                                                                                 \
-    if (vec1->elem_init) {                                                                       \
-      for (i = 0; i < vec1->size; ++i) {                                                         \
-        vec1->elem_init(&vec1->a[i], &vec2->a[i]);                                               \
+    if (src->elem_init) {                                                                        \
+      for (i=0; i<src->size; ++i) {                                                              \
+        if (!src->elem_init(&dest->a[i], &src->a[i])) {                                          \
+          assert(0 == 1);                                                                        \
+          return 0;                                                                              \
+        }                                                                                        \
       }                                                                                          \
     } else {                                                                                     \
-      memmove(vec1->a, vec2->a, vec1->size * sizeof(TYPE));                                      \
+      CVEC_MEMMOVE(dest->a, src->a, src->size*sizeof(TYPE));                                     \
     }                                                                                            \
+                                                                                                 \
+    dest->size = src->size;                                                                      \
+    dest->capacity = src->capacity;                                                              \
+    dest->elem_free = src->elem_free;                                                            \
+    dest->elem_init = src->elem_init;                                                            \
+    return 1;                                                                                    \
   }                                                                                              \
                                                                                                  \
   int cvec_push_##TYPE(cvector_##TYPE* vec, TYPE* a)                                             \
@@ -871,7 +892,7 @@ void cvec_free_void(void* vec);
     return 1;                                                                                    \
   }                                                                                              \
                                                                                                  \
-  void cvec_set_val_sz_##TYPE(cvector_##TYPE* vec, TYPE* val)                                    \
+  int cvec_set_val_sz_##TYPE(cvector_##TYPE* vec, TYPE* val)                                     \
   {                                                                                              \
     size_t i;                                                                                    \
                                                                                                  \
@@ -883,16 +904,20 @@ void cvec_free_void(void* vec);
                                                                                                  \
     if (vec->elem_init) {                                                                        \
       for (i = 0; i < vec->size; i++) {                                                          \
-        vec->elem_init(&vec->a[i], val);                                                         \
+        if (!vec->elem_init(&vec->a[i], val)) {                                                  \
+          assert(0 == 1);                                                                        \
+          return 0;                                                                              \
+        }                                                                                        \
       }                                                                                          \
     } else {                                                                                     \
       for (i = 0; i < vec->size; i++) {                                                          \
         memmove(&vec->a[i], val, sizeof(TYPE));                                                  \
       }                                                                                          \
     }                                                                                            \
+    return 1;                                                                                    \
   }                                                                                              \
                                                                                                  \
-  void cvec_set_val_cap_##TYPE(cvector_##TYPE* vec, TYPE* val)                                   \
+  int cvec_set_val_cap_##TYPE(cvector_##TYPE* vec, TYPE* val)                                    \
   {                                                                                              \
     size_t i;                                                                                    \
     if (vec->elem_free) {                                                                        \
@@ -904,13 +929,17 @@ void cvec_free_void(void* vec);
                                                                                                  \
     if (vec->elem_init) {                                                                        \
       for (i = 0; i < vec->capacity; i++) {                                                      \
-        vec->elem_init(&vec->a[i], val);                                                         \
+        if (!vec->elem_init(&vec->a[i], val)) {                                                  \
+          assert(0 == 1);                                                                        \
+          return 0;                                                                              \
+        }                                                                                        \
       }                                                                                          \
     } else {                                                                                     \
       for (i = 0; i < vec->capacity; i++) {                                                      \
         memmove(&vec->a[i], val, sizeof(TYPE));                                                  \
       }                                                                                          \
     }                                                                                            \
+    return 1;                                                                                    \
   }                                                                                              \
                                                                                                  \
   void cvec_clear_##TYPE(cvector_##TYPE* vec)                                                    \
@@ -2313,7 +2342,7 @@ int cvec_copy_void(cvector_void* dest, cvector_void* src)
 		/* could use memcpy here since we know we just allocated dest->a */
 		CVEC_MEMMOVE(dest->a, src->a, src->size*src->elem_size);
 	}
-	
+
 	dest->size = src->size;
 	dest->capacity = src->capacity;
 	dest->elem_size = src->elem_size;

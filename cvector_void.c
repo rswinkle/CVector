@@ -232,7 +232,7 @@ int cvec_copy_void(cvector_void* dest, cvector_void* src)
 		/* could use memcpy here since we know we just allocated dest->a */
 		CVEC_MEMMOVE(dest->a, src->a, src->size*src->elem_size);
 	}
-	
+
 	dest->size = src->size;
 	dest->capacity = src->capacity;
 	dest->elem_size = src->elem_size;

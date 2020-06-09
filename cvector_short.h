@@ -24,8 +24,8 @@ int cvec_init_short(cvector_short* vec, short* vals, size_t num);
 
 cvector_short* cvec_short_heap(size_t size, size_t capacity);
 cvector_short* cvec_init_short_heap(short* vals, size_t num);
-
-void cvec_short_copy(void* dest, void* src);
+int cvec_copyc_short(void* dest, void* src);
+int cvec_copy_short(cvector_short* dest, cvector_short* src);
 
 int cvec_push_short(cvector_short* vec, short a);
 short cvec_pop_short(cvector_short* vec);
@@ -156,23 +156,31 @@ int cvec_init_short(cvector_short* vec, short* vals, size_t num)
 	return 1;
 }
 
-void cvec_short_copy(void* dest, void* src)
+int cvec_copyc_short(void* dest, void* src)
 {
 	cvector_short* vec1 = (cvector_short*)dest;
 	cvector_short* vec2 = (cvector_short*)src;
-	
+
+	vec1->a = NULL;
 	vec1->size = 0;
 	vec1->capacity = 0;
-	
-	/*not much else we can do here*/
-	if (!(vec1->a = (short*)malloc(vec2->capacity*sizeof(short)))) {
-		assert(vec1->a != NULL);
-		return;
+
+	return cvec_copy_short(vec1, vec2);
+}
+
+int cvec_copy_short(cvector_short* dest, cvector_short* src)
+{
+	short* tmp = NULL;
+	if (!(tmp = (short*)CVEC_REALLOC(dest->a, src->capacity*sizeof(short)))) {
+		CVEC_ASSERT(tmp != NULL);
+		return 0;
 	}
-	
-	memmove(vec1->a, vec2->a, vec2->size*sizeof(short));
-	vec1->size = vec2->size;
-	vec1->capacity = vec2->capacity;
+	dest->a = tmp;
+
+	CVEC_MEMMOVE(dest->a, src->a, src->size*sizeof(short));
+	dest->size = src->size;
+	dest->capacity = src->capacity;
+	return 1;
 }
 
 
