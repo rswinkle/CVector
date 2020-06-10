@@ -40,7 +40,7 @@ void* cvec_get_void(cvector_void* vec, size_t i);
 int cvec_extend_void(cvector_void* vec, size_t num);
 int cvec_insert_void(cvector_void* vec, size_t i, void* a);
 int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num);
-void cvec_replace_void(cvector_void* vec, size_t i, void* a, void* ret);
+int cvec_replace_void(cvector_void* vec, size_t i, void* a, void* ret);
 void cvec_erase_void(cvector_void* vec, size_t start, size_t end);
 void cvec_remove_void(cvector_void* vec, size_t start, size_t end);
 int cvec_reserve_void(cvector_void* vec, size_t size);

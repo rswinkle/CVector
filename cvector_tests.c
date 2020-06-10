@@ -1446,22 +1446,26 @@ void replace_void_test()
 	char buffer2[50];
 	int i, loc, to_replace[] = { 1, 25, 50 };
 	t_struct temp, ret_t_struct;
-	f_struct temp2, ret_f_struct;
+	f_struct temp2, ret_f_struct, temp3;
 
 	cvector_void vec1;
 	cvector_void vec2;
+	cvector_void vec3;
 
 	cvec_void(&vec1, 0, 0, sizeof(t_struct), NULL, NULL);
 	cvec_void(&vec2, 0, 0,  sizeof(f_struct), free_f_struct, NULL);
+	cvec_void(&vec3, 0, 0,  sizeof(f_struct), free_f_struct, init_f_struct);
 
 
 	for (i=0; i<100; i++) {
 		sprintf(buffer, "%d", i);
 		temp = mk_t_struct(i, i, buffer);
 		temp2 = mk_f_struct(i, i, buffer);
+		temp3 = set_f_struct(i, i, buffer);
 
 		cvec_push_void(&vec1, &temp);
 		cvec_push_void(&vec2, &temp2);
+		cvec_push_void(&vec3, &temp3);
 	}
 
 	for (i=0; i<sizeof(to_replace)/sizeof(int); ++i) {
@@ -1475,9 +1479,14 @@ void replace_void_test()
 		CU_ASSERT_EQUAL(loc, GET_F(vec2, loc)->i);
 		CU_ASSERT_STRING_EQUAL(buffer, GET_F(vec2, loc)->word);
 
+		CU_ASSERT_EQUAL(loc, GET_F(vec3, loc)->d);
+		CU_ASSERT_EQUAL(loc, GET_F(vec3, loc)->i);
+		CU_ASSERT_STRING_EQUAL(buffer, GET_F(vec3, loc)->word);
+
 		sprintf(buffer2, "neg %d", -loc);
 		temp = mk_t_struct(-loc, -loc, buffer2);
 		temp2 = mk_f_struct(-loc, -loc, buffer2);
+		temp3 = set_f_struct(-loc, -loc, buffer2);
 
 		cvec_replace_void(&vec1, loc, &temp, &ret_t_struct);
 		cvec_replace_void(&vec2, loc, &temp2, &ret_f_struct);
@@ -1499,10 +1508,46 @@ void replace_void_test()
 		CU_ASSERT_STRING_EQUAL(buffer, ret_f_struct.word);
 
 		free_f_struct(&ret_f_struct);
+
+		/* Test replace with elem_init */
+		cvec_replace_void(&vec3, loc, &temp3, &ret_f_struct);
+		CU_ASSERT_EQUAL(-loc, GET_F(vec3, loc)->d);
+		CU_ASSERT_EQUAL(-loc, GET_F(vec3, loc)->i);
+		CU_ASSERT_STRING_EQUAL(buffer2, GET_F(vec3, loc)->word);
+
+		CU_ASSERT_EQUAL(loc, ret_f_struct.d);
+		CU_ASSERT_EQUAL(loc, ret_f_struct.i);
+		CU_ASSERT_STRING_EQUAL(buffer, ret_f_struct.word);
+
+		free_f_struct(&ret_f_struct);
 	}
+
+	/* Test replace with no ret val */
+	loc = 20;
+	sprintf(buffer, "%d", loc);
+	sprintf(buffer2, "neg %d", -loc);
+	temp = mk_t_struct(-loc, -loc, buffer2);
+	temp2 = mk_f_struct(-loc, -loc, buffer2);
+	temp3 = set_f_struct(-loc, -loc, buffer2);
+	cvec_replace_void(&vec1, loc, &temp, NULL);
+	cvec_replace_void(&vec2, loc, &temp2, NULL);
+	cvec_replace_void(&vec3, loc, &temp2, NULL);
+
+	CU_ASSERT_EQUAL(-loc, GET_T(vec1, loc)->d);
+	CU_ASSERT_EQUAL(-loc, GET_T(vec1, loc)->i);
+	CU_ASSERT_STRING_EQUAL(buffer2, GET_T(vec1, loc)->word);
+
+	CU_ASSERT_EQUAL(-loc, GET_F(vec2, loc)->d);
+	CU_ASSERT_EQUAL(-loc, GET_F(vec2, loc)->i);
+	CU_ASSERT_STRING_EQUAL(buffer2, GET_F(vec2, loc)->word);
+
+	CU_ASSERT_EQUAL(-loc, GET_F(vec3, loc)->d);
+	CU_ASSERT_EQUAL(-loc, GET_F(vec3, loc)->i);
+	CU_ASSERT_STRING_EQUAL(buffer2, GET_F(vec3, loc)->word);
 
 	cvec_free_void(&vec1);
 	cvec_free_void(&vec2);
+	cvec_free_void(&vec3);
 }
 
 void reserve_void_test()

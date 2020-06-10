@@ -393,15 +393,24 @@ int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 
 /**
  * Replace value at i with a, return old value in ret if non-NULL.
- *
- * TODO elem_init?  Should be using it to match cvector_str behavior
- * with strdup.
  */
-void cvec_replace_void(cvector_void* vec, size_t i, void* a, void* ret)
+int cvec_replace_void(cvector_void* vec, size_t i, void* a, void* ret)
 {
-	if (ret)
+	if (ret) {
 		CVEC_MEMMOVE(ret, &vec->a[i*vec->elem_size], vec->elem_size);
-	CVEC_MEMMOVE(&vec->a[i*vec->elem_size], a, vec->elem_size);
+	} else if (vec->elem_free) {
+		vec->elem_free(&vec->a[i*vec->elem_size]);
+	}
+
+	if (vec->elem_init) {
+		if (!vec->elem_init(&vec->a[i*vec->elem_size], a)) {
+			assert(0 == 1);
+			return 0;
+		}
+	} else {
+		CVEC_MEMMOVE(&vec->a[i*vec->elem_size], a, vec->elem_size);
+	}
+	return 1;
 }
 
 /**
