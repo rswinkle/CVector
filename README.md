@@ -8,7 +8,7 @@ This is a relatively simple ANSI compliant C vector library with specific struct
 functions for int's, double's and string's and support for all other types
 using a generic structure where the type is passed in as void\* and stored in a byte array
 (to avoid dereferencing void\* warnings and frequent casting) .
-The generic vector is very flexible and allows you to provide free and init functions 
+The generic vector is very flexible and allows you to provide free and init functions
 if you like that it will call at appropriate times similar to the way C++ containers
 will call destructors and copy constructors.
 
@@ -89,15 +89,14 @@ It has been relatively well tested using CUnit tests which all pass.
 I've also run it under valgrind and there are no memory leaks.
 
 	valgrind --leak-check=full -v ./cvector
-	==4682== 
-	==4682== HEAP SUMMARY:
-	==4682==     in use at exit: 0 bytes in 0 blocks
-	==4682==   total heap usage: 6,466 allocs, 6,466 frees, 936,809 bytes allocated
-	==4682== 
-	==4682== All heap blocks were freed -- no leaks are possible
-	==4682== 
-	==4682== For counts of detected and suppressed errors, rerun with: -v
-	==4682== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+	==42219==
+	==42219== HEAP SUMMARY:
+	==42219==     in use at exit: 0 bytes in 0 blocks
+	==42219==   total heap usage: 7,165 allocs, 7,165 frees, 989,353 bytes allocated
+	==42219==
+	==42219== All heap blocks were freed -- no leaks are possible
+	==42219==
+	==42219== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
 
 I plan to continue to improve/modify it but probably only in minor ways and
@@ -141,3 +140,4 @@ TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONIN
 THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
+

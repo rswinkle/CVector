@@ -41,18 +41,15 @@ size_t CVEC_VOID_START_SZ = 20;
  * in sizeof(char*) for elem_sz, and wrappers around the standard free(void*) function for elem_free
  * and strdup (or mystrdup in this project) for elem_init you could
  * make vector work *almost* exactly like cvector_str.  The difference is cvector_str does not
- * check for failure of CVEC_STRDUP while cvector_VOID does check for failure of elem_init.
+ * check for failure of CVEC_STRDUP while cvector_void does check for failure of elem_init.
  * Pass in NULL, to not use the function parameters.
  *
  * All functions (except remove) call elem_free before overwriting/popping/erasing elements if elem_free is provided.
  *
- * elem_init is only used in set_val_sz and set_val_cap because in those cases you are setting many elements
- * to a single "value" and using the elem_init functionality you can provide what amounts to a copy constructor
- * which duplicates dynamically allocated memory instead of just copying the pointer ie just like strdup
- * or mystrdup does with a string.  This allows the free function to work correctly when called on all those
- * elements.  If you didn't provide an elem_init function but did provide a free function, then
- * after calling one of the set_val functions, eventually the free function would be called on all those
- * elements and you'd get a double free or corruption error.
+ * TODO add varieties of push, insert etc. that *do not* call elem_init even if it's set to give
+ * the user more flexibility and performance; kind of like C++ move semantics but if the type is a raw
+ * pointer (rather than a struct with allocated pointers inside it), there's no way to set it to NULL
+ * so the programmer would have to know they no longer have ownership and not free it.
  *
  * See the other functions and the tests for more behavioral/usage details.
  */
@@ -396,6 +393,9 @@ int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 
 /**
  * Replace value at i with a, return old value in ret if non-NULL.
+ *
+ * TODO elem_init?  Should be using it to match cvector_str behavior
+ * with strdup.
  */
 void cvec_replace_void(cvector_void* vec, size_t i, void* a, void* ret)
 {
@@ -688,16 +688,14 @@ I've also run it under valgrind and there are no memory leaks.
 
 <pre>
 valgrind --leak-check=full -v ./cvector
-
-==4682== 
-==4682== HEAP SUMMARY:
-==4682==     in use at exit: 0 bytes in 0 blocks
-==4682==   total heap usage: 6,466 allocs, 6,466 frees, 936,809 bytes allocated
-==4682== 
-==4682== All heap blocks were freed -- no leaks are possible
-==4682== 
-==4682== For counts of detected and suppressed errors, rerun with: -v
-==4682== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==42219==
+==42219== HEAP SUMMARY:
+==42219==     in use at exit: 0 bytes in 0 blocks
+==42219==   total heap usage: 7,165 allocs, 7,165 frees, 989,353 bytes allocated
+==42219==
+==42219== All heap blocks were freed -- no leaks are possible
+==42219==
+==42219== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 </pre>
 
 You can probably get Cunit from your package manager but
