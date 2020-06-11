@@ -416,8 +416,8 @@ int cvec_replace_void(cvector_void* vec, size_t i, void* a, void* ret)
 
 /**
  * Erases elements from start to end inclusive.
- * Example cvec_erase_void(myvec, 1, 3) would CVEC_FREE (if an elem_free function was provided) and remove elements at 1, 2, and 3 and the element
- * that was at index 4 would now be at 1 etc.
+ * Example cvec_erase_void(myvec, 1, 3) would call elem_free (if an elem_free function was provided)
+ * and remove elements at 1, 2, and 3 and the element that was at index 4 would now be at 1 etc.
  */
 void cvec_erase_void(cvector_void* vec, size_t start, size_t end)
 {
@@ -508,9 +508,9 @@ int cvec_set_val_sz_void(cvector_void* vec, void* val)
 	return 1;
 }
 
-/** Fills entire allocated array (capacity) with val.  If you set a CVEC_FREE function
+/** Fills entire allocated array (capacity) with val.  If you set an elem_free function
  * then size is set to capacity like cvector_str for the same reason, ie I need to know
- * that the CVEC_FREE function needs to be called on those elements.
+ * that the elem_free function needs to be called on those elements.
  * TODO Remove this function?  Same reason as set_val_cap_str.
  */
 int cvec_set_val_cap_void(cvector_void* vec, void* val)
@@ -539,7 +539,7 @@ int cvec_set_val_cap_void(cvector_void* vec, void* val)
 }
 
 /** Sets size to 0 (does not change contents unless elem_free is set
- *  then it will CVEC_FREE all size elements as in cvector_str). */
+ *  then it will elem_free all size elements as in cvector_str). */
 void cvec_clear_void(cvector_void* vec)
 {
 	size_t i;
@@ -551,7 +551,7 @@ void cvec_clear_void(cvector_void* vec)
 	vec->size = 0;
 }
 
-/** Frees everything so don't use vec after calling this. If you set a CVEC_FREE function
+/** Frees everything so don't use vec after calling this. If you set an elem_free function
  * it will be called on all size elements of course. Passing NULL is a NO-OP, matching the behavior
  * of free(). */
 void cvec_free_void_heap(void* vec)
