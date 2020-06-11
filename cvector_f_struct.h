@@ -35,7 +35,7 @@ void cvec_pop_f_struct(cvector_f_struct* vec, f_struct* ret);
 int cvec_extend_f_struct(cvector_f_struct* vec, size_t num);
 int cvec_insert_f_struct(cvector_f_struct* vec, size_t i, f_struct* a);
 int cvec_insert_array_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, size_t num);
-void cvec_replace_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, f_struct* ret);
+int cvec_replace_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, f_struct* ret);
 void cvec_erase_f_struct(cvector_f_struct* vec, size_t start, size_t end);
 void cvec_remove_f_struct(cvector_f_struct* vec, size_t start, size_t end);
 int cvec_reserve_f_struct(cvector_f_struct* vec, size_t size);
@@ -342,11 +342,23 @@ int cvec_insert_array_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, siz
 	return 1;
 }
 
-void cvec_replace_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, f_struct* ret)
+int cvec_replace_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, f_struct* ret)
 {
-	if (ret)
+	if (ret) {
 		CVEC_MEMMOVE(ret, &vec->a[i], sizeof(f_struct));
-	CVEC_MEMMOVE(&vec->a[i], a, sizeof(f_struct));
+	} else if (vec->elem_free) {
+		vec->elem_free(&vec->a[i]);
+	}
+
+	if (vec->elem_init) {
+		if (!vec->elem_init(&vec->a[i], a)) {
+			assert(0 == 1);
+			return 0;
+		}
+	} else {
+		CVEC_MEMMOVE(&vec->a[i], a, sizeof(f_struct));
+	}
+	return 1;
 }
 
 void cvec_erase_f_struct(cvector_f_struct* vec, size_t start, size_t end)

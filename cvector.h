@@ -556,7 +556,7 @@ void cvec_free_void(void* vec);
   int cvec_extend_##TYPE(cvector_##TYPE* vec, size_t num);                                     \
   int cvec_insert_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a);                              \
   int cvec_insert_array_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num);            \
-  void cvec_replace_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, TYPE* ret);                 \
+  int cvec_replace_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, TYPE* ret);                  \
   void cvec_erase_##TYPE(cvector_##TYPE* vec, size_t start, size_t end);                       \
   void cvec_remove_##TYPE(cvector_##TYPE* vec, size_t start, size_t end);                      \
   int cvec_reserve_##TYPE(cvector_##TYPE* vec, size_t size);                                   \
@@ -829,10 +829,23 @@ void cvec_free_void(void* vec);
     return 1;                                                                                    \
   }                                                                                              \
                                                                                                  \
-  void cvec_replace_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, TYPE* ret)                    \
+  int cvec_replace_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, TYPE* ret)                     \
   {                                                                                              \
-    if (ret) memmove(ret, &vec->a[i], sizeof(TYPE));                                             \
-    memmove(&vec->a[i], a, sizeof(TYPE));                                                        \
+    if (ret) {                                                                                   \
+      CVEC_MEMMOVE(ret, &vec->a[i], sizeof(TYPE));                                               \
+    } else if (vec->elem_free) {                                                                 \
+      vec->elem_free(&vec->a[i]);                                                                \
+    }                                                                                            \
+                                                                                                 \
+    if (vec->elem_init) {                                                                        \
+      if (!vec->elem_init(&vec->a[i], a)) {                                                      \
+        assert(0 == 1);                                                                          \
+        return 0;                                                                                \
+      }                                                                                          \
+    } else {                                                                                     \
+      CVEC_MEMMOVE(&vec->a[i], a, sizeof(TYPE));                                                 \
+    }                                                                                            \
+    return 1;                                                                                    \
   }                                                                                              \
                                                                                                  \
   void cvec_erase_##TYPE(cvector_##TYPE* vec, size_t start, size_t end)                          \
@@ -2156,10 +2169,11 @@ size_t CVEC_VOID_START_SZ = 20;
  *
  * All functions (except remove) call elem_free before overwriting/popping/erasing elements if elem_free is provided.
  *
- * TODO add varieties of push, insert etc. that *do not* call elem_init even if it's set to give
- * the user more flexibility and performance; kind of like C++ move semantics but if the type is a raw
- * pointer (rather than a struct with allocated pointers inside it), there's no way to set it to NULL
- * so the programmer would have to know they no longer have ownership and not free it.
+ * TODO add varieties of push, pop, insert, replace etc. that *do not* call elem_init/elem_free even if
+ * they're set to give the user more flexibility and performance; kind of like C++ move semantics but if the
+ * type is a raw pointer (rather than a struct with allocated pointers inside it), there's no way to set it
+ * to NULL so the programmer would have to know they know longer own it after pushing or that they do after
+ * popping for instance.
  *
  * See the other functions and the tests for more behavioral/usage details.
  */

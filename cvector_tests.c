@@ -1529,6 +1529,7 @@ void replace_void_test()
 	temp = mk_t_struct(-loc, -loc, buffer2);
 	temp2 = mk_f_struct(-loc, -loc, buffer2);
 	temp3 = set_f_struct(-loc, -loc, buffer2);
+
 	cvec_replace_void(&vec1, loc, &temp, NULL);
 	cvec_replace_void(&vec2, loc, &temp2, NULL);
 	cvec_replace_void(&vec3, loc, &temp2, NULL);
@@ -1789,7 +1790,7 @@ void template_test()
 
 void template_test2()
 {
-	int i;
+	int i, loc;
 	char buffer[50];
 	f_struct temp;
 	cvector_f_struct vec;
@@ -1820,8 +1821,10 @@ void template_test2()
 
 	free_f_struct(&temp);
 
-	/*difference here between having a free function and not
-	if yes then size is set to capacity by set_val_cap. */
+	/*
+	 * difference here between having a free function and not 
+	 * if yes then size is set to capacity by set_val_cap.
+	*/
 	CU_ASSERT_EQUAL(vec.size, vec.capacity);
 	CU_ASSERT_EQUAL(vec.capacity, 20+CVEC_f_struct_SZ);
 
@@ -1831,6 +1834,15 @@ void template_test2()
 		CU_ASSERT_EQUAL(vec.a[i].i, 25);
 		CU_ASSERT_STRING_EQUAL(vec.a[i].word, "goodbye");
 	}
+
+	loc = 20;
+	sprintf(buffer, "neg %d", -loc);
+	temp = set_f_struct(-loc, -loc, buffer);
+	cvec_replace_f_struct(&vec, loc, &temp, NULL);
+
+	CU_ASSERT_EQUAL(-loc, vec.a[loc].d);
+	CU_ASSERT_EQUAL(-loc, vec.a[loc].i);
+	CU_ASSERT_STRING_EQUAL(buffer, vec.a[loc].word);
 
 	cvec_free_f_struct(&vec);
 

@@ -35,7 +35,7 @@ void cvec_pop_TYPE(cvector_TYPE* vec, TYPE* ret);
 int cvec_extend_TYPE(cvector_TYPE* vec, size_t num);
 int cvec_insert_TYPE(cvector_TYPE* vec, size_t i, TYPE* a);
 int cvec_insert_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num);
-void cvec_replace_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, TYPE* ret);
+int cvec_replace_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, TYPE* ret);
 void cvec_erase_TYPE(cvector_TYPE* vec, size_t start, size_t end);
 void cvec_remove_TYPE(cvector_TYPE* vec, size_t start, size_t end);
 int cvec_reserve_TYPE(cvector_TYPE* vec, size_t size);
@@ -342,11 +342,23 @@ int cvec_insert_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num)
 	return 1;
 }
 
-void cvec_replace_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, TYPE* ret)
+int cvec_replace_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, TYPE* ret)
 {
-	if (ret)
+	if (ret) {
 		CVEC_MEMMOVE(ret, &vec->a[i], sizeof(TYPE));
-	CVEC_MEMMOVE(&vec->a[i], a, sizeof(TYPE));
+	} else if (vec->elem_free) {
+		vec->elem_free(&vec->a[i]);
+	}
+
+	if (vec->elem_init) {
+		if (!vec->elem_init(&vec->a[i], a)) {
+			assert(0 == 1);
+			return 0;
+		}
+	} else {
+		CVEC_MEMMOVE(&vec->a[i], a, sizeof(TYPE));
+	}
+	return 1;
 }
 
 void cvec_erase_TYPE(cvector_TYPE* vec, size_t start, size_t end)

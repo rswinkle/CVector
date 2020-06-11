@@ -89,14 +89,14 @@ It has been relatively well tested using CUnit tests which all pass.
 I've also run it under valgrind and there are no memory leaks.
 
 	valgrind --leak-check=full -v ./cvector
-	==42219==
-	==42219== HEAP SUMMARY:
-	==42219==     in use at exit: 0 bytes in 0 blocks
-	==42219==   total heap usage: 7,165 allocs, 7,165 frees, 989,353 bytes allocated
-	==42219==
-	==42219== All heap blocks were freed -- no leaks are possible
-	==42219==
-	==42219== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+	==49086==
+	==49086== HEAP SUMMARY:
+	==49086==     in use at exit: 0 bytes in 0 blocks
+	==49086==   total heap usage: 7,275 allocs, 7,275 frees, 997,418 bytes allocated
+	==49086==
+	==49086== All heap blocks were freed -- no leaks are possible
+	==49086==
+	==49086== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
 
 I plan to continue to improve/modify it but probably only in minor ways and

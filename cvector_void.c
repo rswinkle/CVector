@@ -46,10 +46,11 @@ size_t CVEC_VOID_START_SZ = 20;
  *
  * All functions (except remove) call elem_free before overwriting/popping/erasing elements if elem_free is provided.
  *
- * TODO add varieties of push, insert etc. that *do not* call elem_init even if it's set to give
- * the user more flexibility and performance; kind of like C++ move semantics but if the type is a raw
- * pointer (rather than a struct with allocated pointers inside it), there's no way to set it to NULL
- * so the programmer would have to know they no longer have ownership and not free it.
+ * TODO add varieties of push, pop, insert, replace etc. that *do not* call elem_init/elem_free even if
+ * they're set to give the user more flexibility and performance; kind of like C++ move semantics but if the
+ * type is a raw pointer (rather than a struct with allocated pointers inside it), there's no way to set it
+ * to NULL so the programmer would have to know they know longer own it after pushing or that they do after
+ * popping for instance.  Add the same varieties to cvector_str functions too.
  *
  * See the other functions and the tests for more behavioral/usage details.
  */
@@ -697,14 +698,14 @@ I've also run it under valgrind and there are no memory leaks.
 
 <pre>
 valgrind --leak-check=full -v ./cvector
-==42219==
-==42219== HEAP SUMMARY:
-==42219==     in use at exit: 0 bytes in 0 blocks
-==42219==   total heap usage: 7,165 allocs, 7,165 frees, 989,353 bytes allocated
-==42219==
-==42219== All heap blocks were freed -- no leaks are possible
-==42219==
-==42219== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==49086==
+==49086== HEAP SUMMARY:
+==49086==     in use at exit: 0 bytes in 0 blocks
+==49086==   total heap usage: 7,275 allocs, 7,275 frees, 997,418 bytes allocated
+==49086==
+==49086== All heap blocks were freed -- no leaks are possible
+==49086==
+==49086== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 </pre>
 
 You can probably get Cunit from your package manager but
