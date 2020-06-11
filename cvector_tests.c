@@ -938,6 +938,80 @@ void set_val_str_test()
 	cvec_free_str(&vec);
 }
 
+void move_str_test()
+{
+	int i, j;
+	char* ret;
+	char buffer[50];
+	char* strs[] = {
+		"one", "two", "three",
+		"four", "five", "six",
+		"seven", "eight", "nine",
+		"ten"
+	};
+
+	cvector_str vec1;
+	cvec_str(&vec1, 0, 10);
+
+	cvec_pushm_str(&vec1, CVEC_STRDUP("whatever"));
+	CU_ASSERT_EQUAL(vec1.size, 1);
+	cvec_pop_str(&vec1, NULL);
+	CU_ASSERT_EQUAL(vec1.size, 0);
+
+	for (i=0; i<1000; i++) {
+		sprintf(buffer, "hello %d", i);
+		cvec_pushm_str(&vec1, CVEC_STRDUP(buffer));
+	}
+
+	CU_ASSERT_EQUAL(vec1.size, 1000);
+
+	for (i=999; i>=0; i--) {
+		sprintf(buffer, "hello %d", i);
+		ret = cvec_popm_str(vec1);
+		CU_ASSERT_STRING_EQUAL(buffer, ret);
+		free(ret);
+	}
+
+	CU_ASSERT_EQUAL(vec1.size, 0);
+
+	for (i=0; i<100; i++) {
+		sprintf(buffer, "hello %d", i);
+		cvec_push_str(&vec1, buffer);
+	}
+	cvec_insertm_str(&vec1, 50, CVEC_STRDUP("hello insertm"));
+	cvec_replacem_str(vec1, 25, CVEC_STRDUP("hello replacem"), ret);
+
+	CU_ASSERT_STRING_EQUAL(ret, "hello 25");
+	free(ret);
+
+	CU_ASSERT_EQUAL(vec1.size, 101);
+
+	j = 0;
+	for (i=0; i<101; i++) {
+		if (i == 25) {
+			CU_ASSERT_STRING_EQUAL(vec1.a[i], "hello replacem");
+		} else if (i == 50) {
+			CU_ASSERT_STRING_EQUAL(vec1.a[i], "hello insertm");
+			j++;
+		} else {
+			sprintf(buffer, "hello %d", i-j);
+			CU_ASSERT_STRING_EQUAL(vec1.a[i], buffer);
+		}
+	}
+
+	cvec_insertm_array_str(&vec1, 60, strs, 10);
+	CU_ASSERT_EQUAL(vec1.size, 111);
+
+	for (i=0; i<10; ++i) {
+		CU_ASSERT_STRING_EQUAL(vec1.a[60+i], strs[i]);
+	}
+	cvec_remove_str(&vec1, 60, 69);
+
+	CU_ASSERT_EQUAL(vec1.size, 101);
+
+	cvec_free_str(&vec1);
+}
+
 
 
 

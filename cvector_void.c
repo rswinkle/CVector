@@ -37,14 +37,18 @@ size_t CVEC_VOID_START_SZ = 20;
  * in other words capacity has to be at least 1 and >= to vec->size of course.
  * elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  * You can pass in a function, elem_free, to be called on every element before it is removed
- * from the vector to free any dynamically allocated memory.  For example if you passed
- * in sizeof(char*) for elem_sz, and wrappers around the standard free(void*) function for elem_free
- * and strdup (or mystrdup in this project) for elem_init you could
- * make vector work *almost* exactly like cvector_str.  The difference is cvector_str does not
- * check for failure of CVEC_STRDUP while cvector_void does check for failure of elem_init.
+ * from the vector to free any dynamically allocated memory.
+ *
+ * For example if you passed in sizeof(char*) for elem_sz, and wrappers around the standard free(void*)
+ * function for elem_free and strdup (or mystrdup in this project) for elem_init you could
+ * make vector work *almost* exactly like cvector_str.  The main difference is cvector_str does not
+ * check for failure of CVEC_STRDUP while cvector_void does check for failure of elem_init.  The other
+ * minor differences are popm and replacem are macros in cvector_str (and the latter returns the result
+ * rather than using a double pointer return parameter.
  * Pass in NULL, to not use the function parameters.
  *
- * All functions (except remove) call elem_free before overwriting/popping/erasing elements if elem_free is provided.
+ * All functions (except remove and the m suffix functions) call elem_free before overwriting/popping
+ * elements if elem_free is provided.
  *
  * TODO add varieties of push, pop, insert, replace etc. that *do not* call elem_init/elem_free even if
  * they're set to give the user more flexibility and performance; kind of like C++ move semantics but if the

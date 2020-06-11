@@ -34,6 +34,11 @@
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> copy_i_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
             <TEST_NAME> pop_i_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
@@ -89,6 +94,11 @@
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> copy_d_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
             <TEST_NAME> pop_d_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
@@ -128,404 +138,9 @@
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
+          <CUNIT_RUN_TEST_SUCCESS> 
             <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_str_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 615 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
+          </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
@@ -540,6 +155,11 @@
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
             <TEST_NAME> insert_array_str_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> copy_str_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
@@ -567,6 +187,422 @@
             <TEST_NAME> set_val_str_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 998 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_STRING_EQUAL(vec1.a[i],buffer) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 1003 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_EQUAL(vec1.size,112) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_FAILURE> 
+            <TEST_NAME> move_str_test </TEST_NAME> 
+            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
+            <LINE_NUMBER> 1010 </LINE_NUMBER> 
+            <CONDITION> CU_ASSERT_EQUAL(vec1.size,102) </CONDITION> 
+          </CUNIT_RUN_TEST_FAILURE> 
+        </CUNIT_RUN_TEST_RECORD> 
       </CUNIT_RUN_SUITE_SUCCESS> 
     </CUNIT_RUN_SUITE> 
     <CUNIT_RUN_SUITE> 
@@ -583,404 +619,9 @@
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
+          <CUNIT_RUN_TEST_SUCCESS> 
             <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
-        </CUNIT_RUN_TEST_RECORD> 
-        <CUNIT_RUN_TEST_RECORD> 
-          <CUNIT_RUN_TEST_FAILURE> 
-            <TEST_NAME> remove_test </TEST_NAME> 
-            <FILE_NAME> ../cvector_tests.c </FILE_NAME> 
-            <LINE_NUMBER> 1060 </LINE_NUMBER> 
-            <CONDITION> CU_ASSERT_STRING_EQUAL(strs[i],buffer) </CONDITION> 
-          </CUNIT_RUN_TEST_FAILURE> 
+          </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
@@ -995,6 +636,11 @@
         <CUNIT_RUN_TEST_RECORD> 
           <CUNIT_RUN_TEST_SUCCESS> 
             <TEST_NAME> insert_array_test </TEST_NAME> 
+          </CUNIT_RUN_TEST_SUCCESS> 
+        </CUNIT_RUN_TEST_RECORD> 
+        <CUNIT_RUN_TEST_RECORD> 
+          <CUNIT_RUN_TEST_SUCCESS> 
+            <TEST_NAME> copy_test </TEST_NAME> 
           </CUNIT_RUN_TEST_SUCCESS> 
         </CUNIT_RUN_TEST_RECORD> 
         <CUNIT_RUN_TEST_RECORD> 
@@ -1056,21 +702,21 @@
     </CUNIT_RUN_SUMMARY_RECORD> 
     <CUNIT_RUN_SUMMARY_RECORD> 
       <TYPE> Test Cases </TYPE> 
-      <TOTAL> 45 </TOTAL> 
-      <RUN> 45 </RUN> 
-      <SUCCEEDED> 43 </SUCCEEDED> 
-      <FAILED> 2 </FAILED> 
+      <TOTAL> 50 </TOTAL> 
+      <RUN> 50 </RUN> 
+      <SUCCEEDED> 49 </SUCCEEDED> 
+      <FAILED> 1 </FAILED> 
       <INACTIVE> 0 </INACTIVE> 
     </CUNIT_RUN_SUMMARY_RECORD> 
     <CUNIT_RUN_SUMMARY_RECORD> 
       <TYPE> Assertions </TYPE> 
-      <TOTAL> 26589 </TOTAL> 
-      <RUN> 26589 </RUN> 
-      <SUCCEEDED> 26489 </SUCCEEDED> 
-      <FAILED> 100 </FAILED> 
+      <TOTAL> 29511 </TOTAL> 
+      <RUN> 29511 </RUN> 
+      <SUCCEEDED> 29459 </SUCCEEDED> 
+      <FAILED> 52 </FAILED> 
       <INACTIVE> n/a </INACTIVE> 
     </CUNIT_RUN_SUMMARY_RECORD> 
   </CUNIT_RUN_SUMMARY> 
-  <CUNIT_FOOTER> File Generated By CUnit v2.1-3 - Mon Dec  9 03:56:03 2019
+  <CUNIT_FOOTER> File Generated By CUnit v2.1-3 - Thu Jun 11 14:54:27 2020
  </CUNIT_FOOTER> 
 </CUNIT_TEST_RUN_REPORT>

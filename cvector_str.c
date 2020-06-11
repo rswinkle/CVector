@@ -229,6 +229,25 @@ int cvec_push_str(cvector_str* vec, char* a)
 	return 1;
 }
 
+/** same as push but without calling CVEC_STRDUP(a), m suffix is for "move" */
+int cvec_pushm_str(cvector_str* vec, char* a)
+{
+	char** tmp;
+	size_t tmp_sz;
+	if (vec->capacity == vec->size) {
+		tmp_sz = CVEC_STR_ALLOCATOR(vec->capacity);
+		if (!(tmp = (char**)CVEC_REALLOC(vec->a, sizeof(char*)*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+	
+	vec->a[vec->size++] = a;
+	return 1;
+}
+
 /** Remove the last element (size decreased 1).
  *  String is freed.  If ret != NULL strcpy the last element into ret.
  *  It is the user's responsibility to make sure ret can receive it without error
@@ -294,6 +313,29 @@ int cvec_insert_str(cvector_str* vec, size_t i, char* a)
 }
 
 /**
+ * Same as insert except no CVEC_STRDUP.
+ */
+int cvec_insertm_str(cvector_str* vec, size_t i, char* a)
+{
+	char** tmp;
+	size_t tmp_sz;
+	if (vec->capacity == vec->size) {
+		tmp_sz = CVEC_STR_ALLOCATOR(vec->capacity);
+		if (!(tmp = (char**)CVEC_REALLOC(vec->a, sizeof(char*)*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	CVEC_MEMMOVE(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(char*));
+	vec->a[i] = a;
+	vec->size++;
+	return 1;
+}
+
+/**
  * Insert the first num elements of array a at index i.
  * Note that it is the user's responsibility to pass in valid
  * arguments.
@@ -317,6 +359,30 @@ int cvec_insert_array_str(cvector_str* vec, size_t i, char** a, size_t num)
 		vec->a[j+i] = CVEC_STRDUP(a[j]);
 	}
 	
+	vec->size += num;
+	return 1;
+}
+
+/**
+ * Same as insert_array except no CVEC_STRDUP.
+ */
+int cvec_insertm_array_str(cvector_str* vec, size_t i, char** a, size_t num)
+{
+	char** tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + CVEC_STR_START_SZ;
+		if (!(tmp = (char**)CVEC_REALLOC(vec->a, sizeof(char*)*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	CVEC_MEMMOVE(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(char*));
+
+	CVEC_MEMMOVE(&vec->a[i], a, num*sizeof(char*));
 	vec->size += num;
 	return 1;
 }

@@ -144,6 +144,12 @@ int cvec_copy_str(cvector_str* dest, cvector_str* src);
 int cvec_push_str(cvector_str* vec, char* a);
 void cvec_pop_str(cvector_str* vec, char* ret);
 
+int cvec_pushm_str(cvector_str* vec, char* a);
+#define cvec_popm_str(vec) (vec).a[--(vec).size]
+int cvec_insertm_str(cvector_str* vec, size_t i, char* a);
+int cvec_insertm_array_str(cvector_str* vec, size_t i, char** a, size_t num);
+#define cvec_replacem_str(vec, i, s, ret) (ret = (vec).a[i], (vec).a[i] = s)
+
 int cvec_extend_str(cvector_str* vec, size_t num);
 int cvec_insert_str(cvector_str* vec, size_t i, char* a);
 int cvec_insert_array_str(cvector_str* vec, size_t i, char** a, size_t num);
@@ -1908,6 +1914,25 @@ int cvec_push_str(cvector_str* vec, char* a)
 	return 1;
 }
 
+/** same as push but without calling CVEC_STRDUP(a), m suffix is for "move" */
+int cvec_pushm_str(cvector_str* vec, char* a)
+{
+	char** tmp;
+	size_t tmp_sz;
+	if (vec->capacity == vec->size) {
+		tmp_sz = CVEC_STR_ALLOCATOR(vec->capacity);
+		if (!(tmp = (char**)CVEC_REALLOC(vec->a, sizeof(char*)*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+	
+	vec->a[vec->size++] = a;
+	return 1;
+}
+
 /** Remove the last element (size decreased 1).
  *  String is freed.  If ret != NULL strcpy the last element into ret.
  *  It is the user's responsibility to make sure ret can receive it without error
@@ -1973,6 +1998,29 @@ int cvec_insert_str(cvector_str* vec, size_t i, char* a)
 }
 
 /**
+ * Same as insert except no CVEC_STRDUP.
+ */
+int cvec_insertm_str(cvector_str* vec, size_t i, char* a)
+{
+	char** tmp;
+	size_t tmp_sz;
+	if (vec->capacity == vec->size) {
+		tmp_sz = CVEC_STR_ALLOCATOR(vec->capacity);
+		if (!(tmp = (char**)CVEC_REALLOC(vec->a, sizeof(char*)*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	CVEC_MEMMOVE(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(char*));
+	vec->a[i] = a;
+	vec->size++;
+	return 1;
+}
+
+/**
  * Insert the first num elements of array a at index i.
  * Note that it is the user's responsibility to pass in valid
  * arguments.
@@ -1996,6 +2044,30 @@ int cvec_insert_array_str(cvector_str* vec, size_t i, char** a, size_t num)
 		vec->a[j+i] = CVEC_STRDUP(a[j]);
 	}
 	
+	vec->size += num;
+	return 1;
+}
+
+/**
+ * Same as insert_array except no CVEC_STRDUP.
+ */
+int cvec_insertm_array_str(cvector_str* vec, size_t i, char** a, size_t num)
+{
+	char** tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + CVEC_STR_START_SZ;
+		if (!(tmp = (char**)CVEC_REALLOC(vec->a, sizeof(char*)*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	CVEC_MEMMOVE(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(char*));
+
+	CVEC_MEMMOVE(&vec->a[i], a, num*sizeof(char*));
 	vec->size += num;
 	return 1;
 }
@@ -2160,20 +2232,24 @@ size_t CVEC_VOID_START_SZ = 20;
  * in other words capacity has to be at least 1 and >= to vec->size of course.
  * elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
  * You can pass in a function, elem_free, to be called on every element before it is removed
- * from the vector to free any dynamically allocated memory.  For example if you passed
- * in sizeof(char*) for elem_sz, and wrappers around the standard free(void*) function for elem_free
- * and strdup (or mystrdup in this project) for elem_init you could
- * make vector work *almost* exactly like cvector_str.  The difference is cvector_str does not
- * check for failure of CVEC_STRDUP while cvector_void does check for failure of elem_init.
+ * from the vector to free any dynamically allocated memory.
+ *
+ * For example if you passed in sizeof(char*) for elem_sz, and wrappers around the standard free(void*)
+ * function for elem_free and strdup (or mystrdup in this project) for elem_init you could
+ * make vector work *almost* exactly like cvector_str.  The main difference is cvector_str does not
+ * check for failure of CVEC_STRDUP while cvector_void does check for failure of elem_init.  The other
+ * minor differences are popm and replacem are macros in cvector_str (and the latter returns the result
+ * rather than using a double pointer return parameter.
  * Pass in NULL, to not use the function parameters.
  *
- * All functions (except remove) call elem_free before overwriting/popping/erasing elements if elem_free is provided.
+ * All functions (except remove and the m suffix functions) call elem_free before overwriting/popping
+ * elements if elem_free is provided.
  *
  * TODO add varieties of push, pop, insert, replace etc. that *do not* call elem_init/elem_free even if
  * they're set to give the user more flexibility and performance; kind of like C++ move semantics but if the
  * type is a raw pointer (rather than a struct with allocated pointers inside it), there's no way to set it
  * to NULL so the programmer would have to know they know longer own it after pushing or that they do after
- * popping for instance.
+ * popping for instance.  Add the same varieties to cvector_str functions too.
  *
  * See the other functions and the tests for more behavioral/usage details.
  */
@@ -2539,8 +2615,8 @@ int cvec_replace_void(cvector_void* vec, size_t i, void* a, void* ret)
 
 /**
  * Erases elements from start to end inclusive.
- * Example cvec_erase_void(myvec, 1, 3) would CVEC_FREE (if an elem_free function was provided) and remove elements at 1, 2, and 3 and the element
- * that was at index 4 would now be at 1 etc.
+ * Example cvec_erase_void(myvec, 1, 3) would call elem_free (if an elem_free function was provided)
+ * and remove elements at 1, 2, and 3 and the element that was at index 4 would now be at 1 etc.
  */
 void cvec_erase_void(cvector_void* vec, size_t start, size_t end)
 {
@@ -2631,9 +2707,9 @@ int cvec_set_val_sz_void(cvector_void* vec, void* val)
 	return 1;
 }
 
-/** Fills entire allocated array (capacity) with val.  If you set a CVEC_FREE function
+/** Fills entire allocated array (capacity) with val.  If you set an elem_free function
  * then size is set to capacity like cvector_str for the same reason, ie I need to know
- * that the CVEC_FREE function needs to be called on those elements.
+ * that the elem_free function needs to be called on those elements.
  * TODO Remove this function?  Same reason as set_val_cap_str.
  */
 int cvec_set_val_cap_void(cvector_void* vec, void* val)
@@ -2662,7 +2738,7 @@ int cvec_set_val_cap_void(cvector_void* vec, void* val)
 }
 
 /** Sets size to 0 (does not change contents unless elem_free is set
- *  then it will CVEC_FREE all size elements as in cvector_str). */
+ *  then it will elem_free all size elements as in cvector_str). */
 void cvec_clear_void(cvector_void* vec)
 {
 	size_t i;
@@ -2674,7 +2750,7 @@ void cvec_clear_void(cvector_void* vec)
 	vec->size = 0;
 }
 
-/** Frees everything so don't use vec after calling this. If you set a CVEC_FREE function
+/** Frees everything so don't use vec after calling this. If you set an elem_free function
  * it will be called on all size elements of course. Passing NULL is a NO-OP, matching the behavior
  * of free(). */
 void cvec_free_void_heap(void* vec)
@@ -2821,14 +2897,14 @@ I've also run it under valgrind and there are no memory leaks.
 
 <pre>
 valgrind --leak-check=full -v ./cvector
-==42219==
-==42219== HEAP SUMMARY:
-==42219==     in use at exit: 0 bytes in 0 blocks
-==42219==   total heap usage: 7,165 allocs, 7,165 frees, 989,353 bytes allocated
-==42219==
-==42219== All heap blocks were freed -- no leaks are possible
-==42219==
-==42219== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==49086==
+==49086== HEAP SUMMARY:
+==49086==     in use at exit: 0 bytes in 0 blocks
+==49086==   total heap usage: 7,275 allocs, 7,275 frees, 997,418 bytes allocated
+==49086==
+==49086== All heap blocks were freed -- no leaks are possible
+==49086==
+==49086== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 </pre>
 
 You can probably get Cunit from your package manager but

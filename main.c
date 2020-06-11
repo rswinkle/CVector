@@ -41,6 +41,7 @@ extern void replace_str_test();
 extern void reserve_str_test();
 extern void set_capacity_str_test();
 extern void set_val_str_test();
+extern void move_str_test();
 
 
 extern void push_void_test();
@@ -106,6 +107,7 @@ CU_TestInfo cvector_s_tests[] = {
 	{ "reserve_str_test",        reserve_str_test },
 	{ "set_capacity_str_test",   set_capacity_str_test },
 	{ "set_val_str_test",        set_val_str_test },
+	{ "move_str_test",           move_str_test },
 	CU_TEST_INFO_NULL
 };
 
