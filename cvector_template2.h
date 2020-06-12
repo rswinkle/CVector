@@ -221,7 +221,7 @@ int cvec_copy_TYPE(cvector_TYPE* dest, cvector_TYPE* src)
 	if (src->elem_init) {
 		for (i=0; i<src->size; ++i) {
 			if (!src->elem_init(&dest->a[i], &src->a[i])) {
-				assert(0 == 1);
+				CVEC_ASSERT(0 == 1);
 				return 0;
 			}
 		}
@@ -428,7 +428,7 @@ int cvec_replace_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, TYPE* ret)
 
 	if (vec->elem_init) {
 		if (!vec->elem_init(&vec->a[i], a)) {
-			assert(0 == 1);
+			CVEC_ASSERT(0 == 1);
 			return 0;
 		}
 	} else {
@@ -516,7 +516,7 @@ int cvec_set_val_sz_TYPE(cvector_TYPE* vec, TYPE* val)
 	if (vec->elem_init) {
 		for (i=0; i<vec->size; i++) {
 			if (!vec->elem_init(&vec->a[i], val)) {
-				assert(0 == 1);
+				CVEC_ASSERT(0 == 1);
 				return 0;
 			}
 		}
@@ -541,7 +541,7 @@ int cvec_set_val_cap_TYPE(cvector_TYPE* vec, TYPE* val)
 	if (vec->elem_init) {
 		for (i=0; i<vec->capacity; i++) {
 			if (!vec->elem_init(&vec->a[i], val)) {
-				assert(0 == 1);
+				CVEC_ASSERT(0 == 1);
 				return 0;
 			}
 		}

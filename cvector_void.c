@@ -112,7 +112,7 @@ cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*
 	if (elem_init) {
 		for (i=0; i<num; ++i) {
 			if (!elem_init(&vec->a[i*elem_sz], &((cvec_u8*)vals)[i*elem_sz])) {
-				assert(0 == 1);
+				CVEC_ASSERT(0 == 1);
 				return 0;
 			}
 		}
@@ -168,7 +168,7 @@ int cvec_init_void(cvector_void* vec, void* vals, size_t num, size_t elem_sz, vo
 	if (elem_init) {
 		for (i=0; i<num; ++i) {
 			if (!elem_init(&vec->a[i*elem_sz], &((cvec_u8*)vals)[i*elem_sz])) {
-				assert(0 == 1);
+				CVEC_ASSERT(0 == 1);
 				return 0;
 			}
 		}
@@ -226,7 +226,7 @@ int cvec_copy_void(cvector_void* dest, cvector_void* src)
 	if (src->elem_init) {
 		for (i=0; i<src->size; ++i) {
 			if (!src->elem_init(&dest->a[i*src->elem_size], &src->a[i*src->elem_size])) {
-				assert(0 == 1);
+				CVEC_ASSERT(0 == 1);
 				return 0;
 			}
 		}
@@ -264,7 +264,7 @@ int cvec_push_void(cvector_void* vec, void* a)
 	}
 	if (vec->elem_init) {
 		if (!vec->elem_init(&vec->a[vec->size*vec->elem_size], a)) {
-			assert(0 == 1);
+			CVEC_ASSERT(0 == 1);
 			return 0;
 		}
 	} else {
@@ -379,7 +379,7 @@ int cvec_insert_void(cvector_void* vec, size_t i, void* a)
 
 	if (vec->elem_init) {
 		if (!vec->elem_init(&vec->a[i*vec->elem_size], a)) {
-			assert(0 == 1);
+			CVEC_ASSERT(0 == 1);
 			return 0;
 		}
 	} else {
@@ -438,7 +438,7 @@ int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 	if (vec->elem_init) {
 		for (j=0; j<num; ++j) {
 			if (!vec->elem_init(&vec->a[(j+i)*vec->elem_size], &((cvec_u8*)a)[j*vec->elem_size])) {
-				assert(0 == 1);
+				CVEC_ASSERT(0 == 1);
 				return 0;
 			}
 		}
@@ -484,7 +484,7 @@ int cvec_replace_void(cvector_void* vec, size_t i, void* a, void* ret)
 
 	if (vec->elem_init) {
 		if (!vec->elem_init(&vec->a[i*vec->elem_size], a)) {
-			assert(0 == 1);
+			CVEC_ASSERT(0 == 1);
 			return 0;
 		}
 	} else {
@@ -589,7 +589,7 @@ int cvec_set_val_sz_void(cvector_void* vec, void* val)
 	if (vec->elem_init) {
 		for (i=0; i<vec->size; i++) {
 			if (!vec->elem_init(&vec->a[i*vec->elem_size], val)) {
-				assert(0 == 1);
+				CVEC_ASSERT(0 == 1);
 				return 0;
 			}
 		}
@@ -619,7 +619,7 @@ int cvec_set_val_cap_void(cvector_void* vec, void* val)
 	if (vec->elem_init) {
 		for (i=0; i<vec->capacity; i++) {
 			if (!vec->elem_init(&vec->a[i*vec->elem_size], val)) {
-				assert(0 == 1);
+				CVEC_ASSERT(0 == 1);
 				return 0;
 			}
 		}

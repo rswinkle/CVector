@@ -1941,6 +1941,9 @@ void vector_of_vectors_test()
 }
 
 
+/*
+ * TODO test 'move' functions for macro and template2
+ */
 
 void template_test()
 {
