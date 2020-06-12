@@ -1701,9 +1701,6 @@ void set_capacity_void_test()
 	cvec_free_void(&vec2);
 }
 
-
-
-
 void set_val_void_test()
 {
 	int i;
@@ -1774,9 +1771,113 @@ void set_val_void_test()
 	cvec_free_void(&vec2);
 }
 
+void free_str(void* s)
+{
+	free(*((char**)s));
+}
+
+/** If we weren't testing the move functions
+ * we could have src be just a char* to more closely
+ * emulate cvector_str but meh. */
+int init_str(void* dest, void* src)
+{
+	char** d = (char**)dest;
+	char** s = (char**)src;
+
+	*d = CVEC_STRDUP(*s);
+	return *d != 0;
+}
+
+/*
+ * TODO
+ * Should I add another version that dereferences so you actually get type instead
+ * of type* back?  Also should I add this to cvector_void.h or change
+ * CVEC_GET_VOID's parameter order?
+ */
+#define GET_ELEMENT(VEC,I,TYPE) ((TYPE*)&(VEC).a[(I)*(VEC).elem_size])
+
+/* direct mapping of move_str_test to show how and highlight
+ * differences */
+void move_void_test()
+{
+	int i, j;
+	char* ret, *val;
+	char buffer[50];
+	char* strs[] = {
+		"one", "two", "three",
+		"four", "five", "six",
+		"seven", "eight", "nine",
+		"ten"
+	};
+
+	cvector_void vec1;
+	cvec_void(&vec1, 0, 10, sizeof(char*), free_str, init_str);
+
+	val = CVEC_STRDUP("whatever");
+	cvec_pushm_void(&vec1, &val);
+	CU_ASSERT_EQUAL(vec1.size, 1);
+	cvec_pop_void(&vec1, NULL);
+	CU_ASSERT_EQUAL(vec1.size, 0);
+
+	for (i=0; i<1000; i++) {
+		sprintf(buffer, "hello %d", i);
+		val = CVEC_STRDUP(buffer);
+		cvec_pushm_void(&vec1, &val);
+	}
+
+	CU_ASSERT_EQUAL(vec1.size, 1000);
+
+	for (i=999; i>=0; i--) {
+		sprintf(buffer, "hello %d", i);
+		cvec_popm_void(&vec1, &ret);
+		CU_ASSERT_STRING_EQUAL(buffer, ret);
+		free(ret);
+	}
+
+	CU_ASSERT_EQUAL(vec1.size, 0);
+
+	for (i=0; i<100; i++) {
+		sprintf(buffer, "hello %d", i);
+		val = buffer;
+		cvec_push_void(&vec1, &val);
+	}
+	val = CVEC_STRDUP("hello insertm");
+	cvec_insertm_void(&vec1, 50, &val);
+	val = CVEC_STRDUP("hello replacem");
+	cvec_replacem_void(&vec1, 25, &val, &ret);
+
+	CU_ASSERT_STRING_EQUAL(ret, "hello 25");
+	free(ret);
+
+	CU_ASSERT_EQUAL(vec1.size, 101);
+
+	j = 0;
+	for (i=0; i<101; i++) {
+		if (i == 25) {
+			CU_ASSERT_STRING_EQUAL(*GET_ELEMENT(vec1, i, char*), "hello replacem");
+		} else if (i == 50) {
+			CU_ASSERT_STRING_EQUAL(*GET_ELEMENT(vec1, i, char*), "hello insertm");
+			j++;
+		} else {
+			sprintf(buffer, "hello %d", i-j);
+			CU_ASSERT_STRING_EQUAL(*GET_ELEMENT(vec1, i, char*), buffer);
+		}
+	}
+
+	cvec_insertm_array_void(&vec1, 60, strs, 10);
+	CU_ASSERT_EQUAL(vec1.size, 111);
+
+	for (i=0; i<10; ++i) {
+		CU_ASSERT_STRING_EQUAL(*GET_ELEMENT(vec1, 60+i, char*), strs[i]);
+	}
+	cvec_remove_void(&vec1, 60, 69);
+
+	CU_ASSERT_EQUAL(vec1.size, 101);
+
+	cvec_free_void(&vec1);
+}
 
 
-#define GET_ELEMENT(X,Y,TYPE) ((TYPE*)&X.a[Y*X.elem_size])
 
 void vector_of_vectors_test()
 {

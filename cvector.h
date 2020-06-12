@@ -2237,25 +2237,25 @@ size_t CVEC_VOID_START_SZ = 20;
  * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_VOID_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
  * elem_sz is the size of the type you want to store ( ie sizeof(T) where T is your type ).
- * You can pass in a function, elem_free, to be called on every element before it is removed
- * from the vector to free any dynamically allocated memory.
+ * You can pass in an optional function, elem_free, to be called on every element before it is erased
+ * from the vector to free any dynamically allocated memory.  Likewise you can pass in elem_init to be
+ * as a sort of copy constructor for any insertions if you needed some kind of deep copy/allocations.
  *
  * For example if you passed in sizeof(char*) for elem_sz, and wrappers around the standard free(void*)
- * function for elem_free and strdup (or mystrdup in this project) for elem_init you could
+ * function for elem_free and CVEC_STRDUP for elem_init you could
  * make vector work *almost* exactly like cvector_str.  The main difference is cvector_str does not
  * check for failure of CVEC_STRDUP while cvector_void does check for failure of elem_init.  The other
  * minor differences are popm and replacem are macros in cvector_str (and the latter returns the result
- * rather than using a double pointer return parameter.
+ * rather than using a double pointer return parameter) and depending on how you defined elem_init
+ * and whether you're using the 'move' functions, you have to pass in char**'s instead of char*'s
+ * because cvector_void has to use memmove rather than straight assignment.
+ *
  * Pass in NULL, to not use the function parameters.
  *
- * All functions (except remove and the m suffix functions) call elem_free before overwriting/popping
- * elements if elem_free is provided.
- *
- * TODO add varieties of push, pop, insert, replace etc. that *do not* call elem_init/elem_free even if
- * they're set to give the user more flexibility and performance; kind of like C++ move semantics but if the
- * type is a raw pointer (rather than a struct with allocated pointers inside it), there's no way to set it
- * to NULL so the programmer would have to know they know longer own it after pushing or that they do after
- * popping for instance.  Add the same varieties to cvector_str functions too.
+ * The function remove and the 'move' functions (with the m suffix) do not call elem_init or elem_free
+ * even if they are set.  This gives you some flexibility and performance when you already have things
+ * allocated or want to keep things after removing them from the vector but only some of the time (otherwise
+ * you wouldn't have defined elem_free/elem_init in the first place).
  *
  * See the other functions and the tests for more behavioral/usage details.
  */
@@ -2551,7 +2551,7 @@ int cvec_extend_void(cvector_void* vec, size_t num)
 /** Return a void pointer to the ith element.
   * Another way to get elements from vector that is used in vector_tests.c
   * is a macro like this one
-  * #define GET_ELEMENT(X,Y,TYPE) ((TYPE*)&X.a[Y*X.elem_size])
+  * #define GET_ELEMENT(VEC,I,TYPE) ((TYPE*)&VEC.a[(I)*VEC.elem_size])
 */
 void* cvec_get_void(cvector_void* vec, size_t i)
 {
@@ -2992,14 +2992,15 @@ I've also run it under valgrind and there are no memory leaks.
 
 <pre>
 valgrind --leak-check=full -v ./cvector
-==49086==
-==49086== HEAP SUMMARY:
-==49086==     in use at exit: 0 bytes in 0 blocks
-==49086==   total heap usage: 7,275 allocs, 7,275 frees, 997,418 bytes allocated
-==49086==
-==49086== All heap blocks were freed -- no leaks are possible
-==49086==
-==49086== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==8600==
+==8600== HEAP SUMMARY:
+==8600==     in use at exit: 0 bytes in 0 blocks
+==8600==   total heap usage: 9,501 allocs, 9,501 frees, 1,067,878 bytes allocated
+==8600==
+==8600== All heap blocks were freed -- no leaks are possible
+==8600==
+==8600== For lists of detected and suppressed errors, rerun with: -s
+==8600== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 </pre>
 
 You can probably get Cunit from your package manager but

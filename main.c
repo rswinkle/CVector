@@ -56,6 +56,7 @@ extern void replace_void_test();
 extern void reserve_void_test();
 extern void set_capacity_void_test();
 extern void set_val_void_test();
+extern void move_void_test();
 extern void vector_of_vectors_test();
 
 extern void template_test();
@@ -125,6 +126,7 @@ CU_TestInfo cvector_void_tests[] = {
 	{ "reserve_test",              reserve_void_test },
 	{ "set_capacity_test",         set_capacity_void_test },
 	{ "set_val_test",              set_val_void_test },
+	{ "move_test",                 move_void_test },
 	{ "vector_of_vectors_test",    vector_of_vectors_test },
 	CU_TEST_INFO_NULL
 };
