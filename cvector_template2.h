@@ -32,6 +32,12 @@ int cvec_copy_TYPE(cvector_TYPE* dest, cvector_TYPE* src);
 int cvec_push_TYPE(cvector_TYPE* vec, TYPE* val);
 void cvec_pop_TYPE(cvector_TYPE* vec, TYPE* ret);
 
+int cvec_pushm_TYPE(cvector_TYPE* vec, TYPE* a);
+void cvec_popm_TYPE(cvector_TYPE* vec, TYPE* ret);
+int cvec_insertm_TYPE(cvector_TYPE* vec, size_t i, TYPE* a);
+int cvec_insertm_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num);
+void cvec_replacem_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, TYPE* ret);
+
 int cvec_extend_TYPE(cvector_TYPE* vec, size_t num);
 int cvec_insert_TYPE(cvector_TYPE* vec, size_t i, TYPE* a);
 int cvec_insert_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num);
@@ -254,6 +260,25 @@ int cvec_push_TYPE(cvector_TYPE* vec, TYPE* a)
 	return 1;
 }
 
+int cvec_pushm_TYPE(cvector_TYPE* vec, TYPE* a)
+{
+	TYPE* tmp;
+	size_t tmp_sz;
+	if (vec->capacity == vec->size) {
+		tmp_sz = CVEC_TYPE_ALLOCATOR(vec->capacity);
+		if (!(tmp = (TYPE*)CVEC_REALLOC(vec->a, sizeof(TYPE)*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+	CVEC_MEMMOVE(&vec->a[vec->size], a, sizeof(TYPE));
+	
+	vec->size++;
+	return 1;
+}
+
 void cvec_pop_TYPE(cvector_TYPE* vec, TYPE* ret)
 {
 	vec->size--;
@@ -263,6 +288,14 @@ void cvec_pop_TYPE(cvector_TYPE* vec, TYPE* ret)
 
 	if (vec->elem_free) {
 		vec->elem_free(&vec->a[vec->size]);
+	}
+}
+
+void cvec_popm_TYPE(cvector_TYPE* vec, TYPE* ret)
+{
+	vec->size--;
+	if (ret) {
+		CVEC_MEMMOVE(ret, &vec->a[vec->size], sizeof(TYPE));
 	}
 }
 
@@ -316,6 +349,28 @@ int cvec_insert_TYPE(cvector_TYPE* vec, size_t i, TYPE* a)
 	return 1;
 }
 
+int cvec_insertm_TYPE(cvector_TYPE* vec, size_t i, TYPE* a)
+{
+	TYPE* tmp;
+	size_t tmp_sz;
+	if (vec->capacity == vec->size) {
+		tmp_sz = CVEC_TYPE_ALLOCATOR(vec->capacity);
+		if (!(tmp = (TYPE*)CVEC_REALLOC(vec->a, sizeof(TYPE)*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
+			return 0;
+		}
+		
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+	CVEC_MEMMOVE(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(TYPE));
+
+	CVEC_MEMMOVE(&vec->a[i], a, sizeof(TYPE));
+
+	vec->size++;
+	return 1;
+}
+
 int cvec_insert_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num)
 {
 	TYPE* tmp;
@@ -342,6 +397,27 @@ int cvec_insert_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num)
 	return 1;
 }
 
+int cvec_insertm_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num)
+{
+	TYPE* tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + CVEC_VOID_START_SZ;
+		if (!(tmp = (TYPE*)CVEC_REALLOC(vec->a, sizeof(TYPE)*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	CVEC_MEMMOVE(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(TYPE));
+
+	CVEC_MEMMOVE(&vec->a[i], a, num*sizeof(TYPE));
+	vec->size += num;
+	return 1;
+}
+
 int cvec_replace_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, TYPE* ret)
 {
 	if (ret) {
@@ -359,6 +435,15 @@ int cvec_replace_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, TYPE* ret)
 		CVEC_MEMMOVE(&vec->a[i], a, sizeof(TYPE));
 	}
 	return 1;
+}
+
+void cvec_replacem_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, TYPE* ret)
+{
+	if (ret) {
+		CVEC_MEMMOVE(ret, &vec->a[i], sizeof(TYPE));
+	}
+
+	CVEC_MEMMOVE(&vec->a[i], a, sizeof(TYPE));
 }
 
 void cvec_erase_TYPE(cvector_TYPE* vec, size_t start, size_t end)

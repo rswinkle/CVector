@@ -362,6 +362,12 @@
   int cvec_push_##TYPE(cvector_##TYPE* vec, TYPE* val);                                        \
   void cvec_pop_##TYPE(cvector_##TYPE* vec, TYPE* ret);                                        \
                                                                                                \
+  int cvec_pushm_##TYPE(cvector_##TYPE* vec, TYPE* a);                                         \
+  void cvec_popm_##TYPE(cvector_##TYPE* vec, TYPE* ret);                                       \
+  int cvec_insertm_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a);                             \
+  int cvec_insertm_array_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num);           \
+  void cvec_replacem_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, TYPE* ret);                \
+                                                                                               \
   int cvec_extend_##TYPE(cvector_##TYPE* vec, size_t num);                                     \
   int cvec_insert_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a);                              \
   int cvec_insert_array_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num);            \
@@ -553,6 +559,25 @@
     return 1;                                                                                    \
   }                                                                                              \
                                                                                                  \
+  int cvec_pushm_##TYPE(cvector_##TYPE* vec, TYPE* a)                                            \
+  {                                                                                              \
+    TYPE* tmp;                                                                                   \
+    size_t tmp_sz;                                                                               \
+    if (vec->capacity == vec->size) {                                                            \
+      tmp_sz = RESIZE_MACRO(vec->capacity);                                                      \
+      if (!(tmp = (TYPE*)realloc(vec->a, sizeof(TYPE) * tmp_sz))) {                              \
+        assert(tmp != NULL);                                                                     \
+        return 0;                                                                                \
+      }                                                                                          \
+      vec->a        = tmp;                                                                       \
+      vec->capacity = tmp_sz;                                                                    \
+    }                                                                                            \
+    memmove(&vec->a[vec->size], a, sizeof(TYPE));                                                \
+                                                                                                 \
+    vec->size++;                                                                                 \
+    return 1;                                                                                    \
+  }                                                                                              \
+                                                                                                 \
   void cvec_pop_##TYPE(cvector_##TYPE* vec, TYPE* ret)                                           \
   {                                                                                              \
     if (ret) {                                                                                   \
@@ -563,6 +588,14 @@
                                                                                                  \
     if (vec->elem_free) {                                                                        \
       vec->elem_free(&vec->a[vec->size]);                                                        \
+    }                                                                                            \
+  }                                                                                              \
+                                                                                                 \
+  void cvec_popm_##TYPE(cvector_##TYPE* vec, TYPE* ret)                                          \
+  {                                                                                              \
+    vec->size--;                                                                                 \
+    if (ret) {                                                                                   \
+      memmove(ret, &vec->a[--vec->size], sizeof(TYPE));                                          \
     }                                                                                            \
   }                                                                                              \
                                                                                                  \
@@ -612,6 +645,28 @@
     return 1;                                                                                    \
   }                                                                                              \
                                                                                                  \
+  int cvec_insertm_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a)                                \
+  {                                                                                              \
+    TYPE* tmp;                                                                                   \
+    size_t tmp_sz;                                                                               \
+    if (vec->capacity == vec->size) {                                                            \
+      tmp_sz = RESIZE_MACRO(vec->capacity);                                                      \
+      if (!(tmp = (TYPE*)realloc(vec->a, sizeof(TYPE) * tmp_sz))) {                              \
+        assert(tmp != NULL);                                                                     \
+        return 0;                                                                                \
+      }                                                                                          \
+                                                                                                 \
+      vec->a        = tmp;                                                                       \
+      vec->capacity = tmp_sz;                                                                    \
+    }                                                                                            \
+    memmove(&vec->a[i + 1], &vec->a[i], (vec->size - i) * sizeof(TYPE));                         \
+                                                                                                 \
+    memmove(&vec->a[i], a, sizeof(TYPE));                                                        \
+                                                                                                 \
+    vec->size++;                                                                                 \
+    return 1;                                                                                    \
+  }                                                                                              \
+                                                                                                 \
   int cvec_insert_array_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num)               \
   {                                                                                              \
     TYPE* tmp;                                                                                   \
@@ -638,6 +693,27 @@
     return 1;                                                                                    \
   }                                                                                              \
                                                                                                  \
+  int cvec_insertm_array_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num)              \
+  {                                                                                              \
+    TYPE* tmp;                                                                                   \
+    size_t tmp_sz, j;                                                                            \
+    if (vec->capacity < vec->size + num) {                                                       \
+      tmp_sz = vec->capacity + num + CVEC_##TYPE##_SZ;                                           \
+      if (!(tmp = (TYPE*)realloc(vec->a, sizeof(TYPE) * tmp_sz))) {                              \
+        assert(tmp != NULL);                                                                     \
+        return 0;                                                                                \
+      }                                                                                          \
+      vec->a        = tmp;                                                                       \
+      vec->capacity = tmp_sz;                                                                    \
+    }                                                                                            \
+                                                                                                 \
+    memmove(&vec->a[i + num], &vec->a[i], (vec->size - i) * sizeof(TYPE));                       \
+                                                                                                 \
+    memmove(&vec->a[i], a, num * sizeof(TYPE));                                                  \
+    vec->size += num;                                                                            \
+    return 1;                                                                                    \
+  }                                                                                              \
+                                                                                                 \
   int cvec_replace_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, TYPE* ret)                     \
   {                                                                                              \
     if (ret) {                                                                                   \
@@ -655,6 +731,15 @@
       CVEC_MEMMOVE(&vec->a[i], a, sizeof(TYPE));                                                 \
     }                                                                                            \
     return 1;                                                                                    \
+  }                                                                                              \
+                                                                                                 \
+  void cvec_replacem_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, TYPE* ret)                   \
+  {                                                                                              \
+    if (ret) {                                                                                   \
+      CVEC_MEMMOVE(ret, &vec->a[i], sizeof(TYPE));                                               \
+    }                                                                                            \
+                                                                                                 \
+    CVEC_MEMMOVE(&vec->a[i], a, sizeof(TYPE));                                                   \
   }                                                                                              \
                                                                                                  \
   void cvec_erase_##TYPE(cvector_##TYPE* vec, size_t start, size_t end)                          \
