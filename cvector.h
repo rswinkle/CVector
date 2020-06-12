@@ -199,9 +199,15 @@ cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void (
 int cvec_copyc_void(void* dest, void* src);
 int cvec_copy_void(cvector_void* dest, cvector_void* src);
 
-int cvec_push_void(cvector_void* vec, void* val);
+int cvec_push_void(cvector_void* vec, void* a);
 void cvec_pop_void(cvector_void* vec, void* ret);
 void* cvec_get_void(cvector_void* vec, size_t i);
+
+int cvec_pushm_void(cvector_void* vec, void* a);
+void cvec_popm_void(cvector_void* vec, void* ret);
+int cvec_insertm_void(cvector_void* vec, size_t i, void* a);
+int cvec_insertm_array_void(cvector_void* vec, size_t i, void* a, size_t num);
+void cvec_replacem_void(cvector_void* vec, size_t i, void* a, void* ret);
 
 int cvec_extend_void(cvector_void* vec, size_t num);
 int cvec_insert_void(cvector_void* vec, size_t i, void* a);
@@ -2470,6 +2476,27 @@ int cvec_push_void(cvector_void* vec, void* a)
 	return 1;
 }
 
+/** Same as push except no elem_init even if it's set */
+int cvec_pushm_void(cvector_void* vec, void* a)
+{
+	cvec_u8* tmp;
+	size_t tmp_sz;
+	if (vec->capacity == vec->size) {
+		tmp_sz = CVEC_VOID_ALLOCATOR(vec->capacity);
+		if (!(tmp = (cvec_u8*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+	CVEC_MEMMOVE(&vec->a[vec->size*vec->elem_size], a, vec->elem_size);
+	
+	vec->size++;
+	return 1;
+}
+
+
 /** Remove the last element (size decreased 1).
  * Copy the element into ret.  This function assumes
  * that ret is not NULL and is large accept the element and just CVEC_MEMMOVE's it in.
@@ -2483,6 +2510,15 @@ void cvec_pop_void(cvector_void* vec, void* ret)
 	}
 	if (vec->elem_free) {
 		vec->elem_free(&vec->a[vec->size*vec->elem_size]);
+	}
+}
+
+/** Same as pop except no elem_free even if it's set. */
+void cvec_popm_void(cvector_void* vec, void* ret)
+{
+	vec->size--;
+	if (ret) {
+		CVEC_MEMMOVE(ret, &vec->a[vec->size*vec->elem_size], vec->elem_size);
 	}
 }
 
@@ -2555,6 +2591,29 @@ int cvec_insert_void(cvector_void* vec, size_t i, void* a)
 	return 1;
 }
 
+/** Same as insert but no elem_init even if defined. */
+int cvec_insertm_void(cvector_void* vec, size_t i, void* a)
+{
+	cvec_u8* tmp;
+	size_t tmp_sz;
+	if (vec->capacity == vec->size) {
+		tmp_sz = CVEC_VOID_ALLOCATOR(vec->capacity);
+		if (!(tmp = (cvec_u8*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
+			return 0;
+		}
+		
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+	CVEC_MEMMOVE(&vec->a[(i+1)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
+
+	CVEC_MEMMOVE(&vec->a[i*vec->elem_size], a, vec->elem_size);
+
+	vec->size++;
+	return 1;
+}
+
 /**
  * Insert the first num elements of array a at index i.
  * Note that it is the user's responsibility to pass in val_id
@@ -2591,6 +2650,28 @@ int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 	return 1;
 }
 
+/** Same as insert_array but no elem_init even if defined. */
+int cvec_insertm_array_void(cvector_void* vec, size_t i, void* a, size_t num)
+{
+	cvec_u8* tmp;
+	size_t tmp_sz;
+	if (vec->capacity < vec->size + num) {
+		tmp_sz = vec->capacity + num + CVEC_VOID_START_SZ;
+		if (!(tmp = (cvec_u8*)CVEC_REALLOC(vec->a, vec->elem_size*tmp_sz))) {
+			CVEC_ASSERT(tmp != NULL);
+			return 0;
+		}
+		vec->a = tmp;
+		vec->capacity = tmp_sz;
+	}
+
+	CVEC_MEMMOVE(&vec->a[(i+num)*vec->elem_size], &vec->a[i*vec->elem_size], (vec->size-i)*vec->elem_size);
+
+	CVEC_MEMMOVE(&vec->a[i*vec->elem_size], a, num*vec->elem_size);
+	vec->size += num;
+	return 1;
+}
+
 /**
  * Replace value at i with a, return old value in ret if non-NULL.
  */
@@ -2611,6 +2692,20 @@ int cvec_replace_void(cvector_void* vec, size_t i, void* a, void* ret)
 		CVEC_MEMMOVE(&vec->a[i*vec->elem_size], a, vec->elem_size);
 	}
 	return 1;
+}
+
+/**
+ * Same as replace but no elem_free or elem_init even if they're defined.
+ * Because it doesn't call elem_init, there's no chance of failure so there's
+ * no return value.
+ */
+void cvec_replacem_void(cvector_void* vec, size_t i, void* a, void* ret)
+{
+	if (ret) {
+		CVEC_MEMMOVE(ret, &vec->a[i*vec->elem_size], vec->elem_size);
+	}
+
+	CVEC_MEMMOVE(&vec->a[i*vec->elem_size], a, vec->elem_size);
 }
 
 /**
