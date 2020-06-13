@@ -999,7 +999,7 @@ void move_str_test()
 		}
 	}
 
-	cvec_insertm_array_str(&vec1, 60, strs, 10);
+	cvec_insert_arraym_str(&vec1, 60, strs, 10);
 	CU_ASSERT_EQUAL(vec1.size, 111);
 
 	for (i=0; i<10; ++i) {
@@ -1864,7 +1864,7 @@ void move_void_test()
 		}
 	}
 
-	cvec_insertm_array_void(&vec1, 60, strs, 10);
+	cvec_insert_arraym_void(&vec1, 60, strs, 10);
 	CU_ASSERT_EQUAL(vec1.size, 111);
 
 	for (i=0; i<10; ++i) {

@@ -35,7 +35,7 @@ void cvec_pop_TYPE(cvector_TYPE* vec, TYPE* ret);
 int cvec_pushm_TYPE(cvector_TYPE* vec, TYPE* a);
 void cvec_popm_TYPE(cvector_TYPE* vec, TYPE* ret);
 int cvec_insertm_TYPE(cvector_TYPE* vec, size_t i, TYPE* a);
-int cvec_insertm_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num);
+int cvec_insert_arraym_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num);
 void cvec_replacem_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, TYPE* ret);
 
 int cvec_extend_TYPE(cvector_TYPE* vec, size_t num);
@@ -397,7 +397,7 @@ int cvec_insert_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num)
 	return 1;
 }
 
-int cvec_insertm_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num)
+int cvec_insert_arraym_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num)
 {
 	TYPE* tmp;
 	size_t tmp_sz;

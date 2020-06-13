@@ -35,7 +35,7 @@ void cvec_pop_f_struct(cvector_f_struct* vec, f_struct* ret);
 int cvec_pushm_f_struct(cvector_f_struct* vec, f_struct* a);
 void cvec_popm_f_struct(cvector_f_struct* vec, f_struct* ret);
 int cvec_insertm_f_struct(cvector_f_struct* vec, size_t i, f_struct* a);
-int cvec_insertm_array_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, size_t num);
+int cvec_insert_arraym_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, size_t num);
 void cvec_replacem_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, f_struct* ret);
 
 int cvec_extend_f_struct(cvector_f_struct* vec, size_t num);
@@ -397,7 +397,7 @@ int cvec_insert_array_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, siz
 	return 1;
 }
 
-int cvec_insertm_array_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, size_t num)
+int cvec_insert_arraym_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, size_t num)
 {
 	f_struct* tmp;
 	size_t tmp_sz;

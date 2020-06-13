@@ -450,7 +450,7 @@ int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 }
 
 /** Same as insert_array but no elem_init even if defined. */
-int cvec_insertm_array_void(cvector_void* vec, size_t i, void* a, size_t num)
+int cvec_insert_arraym_void(cvector_void* vec, size_t i, void* a, size_t num)
 {
 	cvec_u8* tmp;
 	size_t tmp_sz;

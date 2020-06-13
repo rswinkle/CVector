@@ -147,7 +147,7 @@ void cvec_pop_str(cvector_str* vec, char* ret);
 int cvec_pushm_str(cvector_str* vec, char* a);
 #define cvec_popm_str(vec) (vec).a[--(vec).size]
 int cvec_insertm_str(cvector_str* vec, size_t i, char* a);
-int cvec_insertm_array_str(cvector_str* vec, size_t i, char** a, size_t num);
+int cvec_insert_arraym_str(cvector_str* vec, size_t i, char** a, size_t num);
 #define cvec_replacem_str(vec, i, s, ret) (ret = (vec).a[i], (vec).a[i] = s)
 
 int cvec_extend_str(cvector_str* vec, size_t num);
@@ -206,7 +206,7 @@ void* cvec_get_void(cvector_void* vec, size_t i);
 int cvec_pushm_void(cvector_void* vec, void* a);
 void cvec_popm_void(cvector_void* vec, void* ret);
 int cvec_insertm_void(cvector_void* vec, size_t i, void* a);
-int cvec_insertm_array_void(cvector_void* vec, size_t i, void* a, size_t num);
+int cvec_insert_arraym_void(cvector_void* vec, size_t i, void* a, size_t num);
 void cvec_replacem_void(cvector_void* vec, size_t i, void* a, void* ret);
 
 int cvec_extend_void(cvector_void* vec, size_t num);
@@ -568,7 +568,7 @@ void cvec_free_void(void* vec);
   int cvec_pushm_##TYPE(cvector_##TYPE* vec, TYPE* a);                                         \
   void cvec_popm_##TYPE(cvector_##TYPE* vec, TYPE* ret);                                       \
   int cvec_insertm_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a);                             \
-  int cvec_insertm_array_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num);           \
+  int cvec_insert_arraym_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num);           \
   void cvec_replacem_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, TYPE* ret);                \
                                                                                                \
   int cvec_extend_##TYPE(cvector_##TYPE* vec, size_t num);                                     \
@@ -896,7 +896,7 @@ void cvec_free_void(void* vec);
     return 1;                                                                                    \
   }                                                                                              \
                                                                                                  \
-  int cvec_insertm_array_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num)              \
+  int cvec_insert_arraym_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num)              \
   {                                                                                              \
     TYPE* tmp;                                                                                   \
     size_t tmp_sz;                                                                               \
@@ -2142,7 +2142,7 @@ int cvec_insert_array_str(cvector_str* vec, size_t i, char** a, size_t num)
 /**
  * Same as insert_array except no CVEC_STRDUP.
  */
-int cvec_insertm_array_str(cvector_str* vec, size_t i, char** a, size_t num)
+int cvec_insert_arraym_str(cvector_str* vec, size_t i, char** a, size_t num)
 {
 	char** tmp;
 	size_t tmp_sz;
@@ -2736,7 +2736,7 @@ int cvec_insert_array_void(cvector_void* vec, size_t i, void* a, size_t num)
 }
 
 /** Same as insert_array but no elem_init even if defined. */
-int cvec_insertm_array_void(cvector_void* vec, size_t i, void* a, size_t num)
+int cvec_insert_arraym_void(cvector_void* vec, size_t i, void* a, size_t num)
 {
 	cvec_u8* tmp;
 	size_t tmp_sz;

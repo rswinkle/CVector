@@ -366,7 +366,7 @@ int cvec_insert_array_str(cvector_str* vec, size_t i, char** a, size_t num)
 /**
  * Same as insert_array except no CVEC_STRDUP.
  */
-int cvec_insertm_array_str(cvector_str* vec, size_t i, char** a, size_t num)
+int cvec_insert_arraym_str(cvector_str* vec, size_t i, char** a, size_t num)
 {
 	char** tmp;
 	size_t tmp_sz;

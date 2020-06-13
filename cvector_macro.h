@@ -365,7 +365,7 @@
   int cvec_pushm_##TYPE(cvector_##TYPE* vec, TYPE* a);                                         \
   void cvec_popm_##TYPE(cvector_##TYPE* vec, TYPE* ret);                                       \
   int cvec_insertm_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a);                             \
-  int cvec_insertm_array_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num);           \
+  int cvec_insert_arraym_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num);           \
   void cvec_replacem_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, TYPE* ret);                \
                                                                                                \
   int cvec_extend_##TYPE(cvector_##TYPE* vec, size_t num);                                     \
@@ -693,7 +693,7 @@
     return 1;                                                                                    \
   }                                                                                              \
                                                                                                  \
-  int cvec_insertm_array_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num)              \
+  int cvec_insert_arraym_##TYPE(cvector_##TYPE* vec, size_t i, TYPE* a, size_t num)              \
   {                                                                                              \
     TYPE* tmp;                                                                                   \
     size_t tmp_sz;                                                                               \
