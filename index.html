@@ -44,7 +44,7 @@
 functions for int's, double's and string's and support for all other types
 using a generic structure where the type is passed in as void* and stored in a byte array
 (to avoid dereferencing void* warnings and frequent casting) .
-The generic vector is very flexible and allows you to provide free and init functions 
+The generic vector is very flexible and allows you to provide free and init functions
 if you like that it will call at appropriate times similar to the way C++ containers
 will call destructors and copy constructors.</p>
 <p>Other modifiable parameters are at the top of the respective cvector.c's</p>
@@ -74,7 +74,7 @@ off of cvector_void, so look at the corresponding documentation for behavior.</p
 <p>There are 2 ways to use/create your own cvector types.  The easiest way is to use
 the macros defined in cvector_macro.h which are also included in the all-in-one header
 cvector.h.  You can see how to use them in cvector_tests.c:</p>
-<pre><code>#define RESIZE(a) ((a+1)*2)
+<pre><code>#define RESIZE(a) (((a)+1)*2)
 
 CVEC_NEW_DECLS(short)
 CVEC_NEW_DECLS2(f_struct)
@@ -109,15 +109,15 @@ it should work (well I'm not sure about CUnit ...).</p>
 <p>It has been relatively well tested using CUnit tests which all pass.
 I've also run it under valgrind and there are no memory leaks.</p>
 <pre><code>valgrind --leak-check=full -v ./cvector
-==4682== 
-==4682== HEAP SUMMARY:
-==4682==     in use at exit: 0 bytes in 0 blocks
-==4682==   total heap usage: 6,466 allocs, 6,466 frees, 936,809 bytes allocated
-==4682== 
-==4682== All heap blocks were freed -- no leaks are possible
-==4682== 
-==4682== For counts of detected and suppressed errors, rerun with: -v
-==4682== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==8600==
+==8600== HEAP SUMMARY:
+==8600==     in use at exit: 0 bytes in 0 blocks
+==8600==   total heap usage: 9,501 allocs, 9,501 frees, 1,067,878 bytes allocated
+==8600==
+==8600== All heap blocks were freed -- no leaks are possible
+==8600==
+==8600== For lists of detected and suppressed errors, rerun with: -s
+==8600== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 </code></pre>
 <p>I plan to continue to improve/modify it but probably only in minor ways and
 only if I think something should be changed.  This library is mostly
@@ -136,7 +136,7 @@ action and how it should behave, look at cvector_tests.c</p>
 <p>The Doxygen generated html docs are <a href="http://www.robertwinkler.com/CVector/docs/">online here</a></p>
 <h1>LICENSE</h1>
 <p>CVector is licensed under the MIT License.</p>
-<p>Copyright (c) 2011-2019 Robert Winkler</p>
+<p>Copyright (c) 2011-2020 Robert Winkler</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation
 the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and
