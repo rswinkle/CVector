@@ -142,7 +142,7 @@ cvector_TYPE* cvec_init_TYPE_heap(TYPE* vals, size_t num, void(*elem_free)(void*
 	if (elem_init) {
 		for (i=0; i<num; ++i) {
 			if (!elem_init(&vec->a[i], &vals[i])) {
-				CVEC_ASSERT(0 == 1);
+				CVEC_ASSERT(0);
 				CVEC_FREE(vec->a);
 				CVEC_FREE(vec);
 				return NULL;
@@ -190,7 +190,7 @@ int cvec_init_TYPE(cvector_TYPE* vec, TYPE* vals, size_t num, void(*elem_free)(v
 	if (elem_init) {
 		for (i=0; i<num; ++i) {
 			if (!elem_init(&vec->a[i], &vals[i])) {
-				CVEC_ASSERT(0 == 1);
+				CVEC_ASSERT(0);
 				return 0;
 			}
 		}
@@ -229,7 +229,7 @@ int cvec_copy_TYPE(cvector_TYPE* dest, cvector_TYPE* src)
 	if (src->elem_init) {
 		for (i=0; i<src->size; ++i) {
 			if (!src->elem_init(&dest->a[i], &src->a[i])) {
-				CVEC_ASSERT(0 == 1);
+				CVEC_ASSERT(0);
 				return 0;
 			}
 		}
@@ -260,7 +260,7 @@ int cvec_push_TYPE(cvector_TYPE* vec, TYPE* a)
 	}
 	if (vec->elem_init) {
 		if (!vec->elem_init(&vec->a[vec->size], a)) {
-			CVEC_ASSERT(0 == 1);
+			CVEC_ASSERT(0);
 			return 0;
 		}
 	} else {
@@ -352,7 +352,7 @@ int cvec_insert_TYPE(cvector_TYPE* vec, size_t i, TYPE* a)
 
 	if (vec->elem_init) {
 		if (!vec->elem_init(&vec->a[i], a)) {
-			CVEC_ASSERT(0 == 1);
+			CVEC_ASSERT(0);
 			return 0;
 		}
 	} else {
@@ -403,7 +403,7 @@ int cvec_insert_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num)
 	if (vec->elem_init) {
 		for (j=0; j<num; ++j) {
 			if (!vec->elem_init(&vec->a[j+i], &a[j])) {
-				CVEC_ASSERT(0 == 1);
+				CVEC_ASSERT(0);
 				return 0;
 			}
 		}
@@ -445,7 +445,7 @@ int cvec_replace_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, TYPE* ret)
 
 	if (vec->elem_init) {
 		if (!vec->elem_init(&vec->a[i], a)) {
-			CVEC_ASSERT(0 == 1);
+			CVEC_ASSERT(0);
 			return 0;
 		}
 	} else {
@@ -533,7 +533,7 @@ int cvec_set_val_sz_TYPE(cvector_TYPE* vec, TYPE* val)
 	if (vec->elem_init) {
 		for (i=0; i<vec->size; i++) {
 			if (!vec->elem_init(&vec->a[i], val)) {
-				CVEC_ASSERT(0 == 1);
+				CVEC_ASSERT(0);
 				return 0;
 			}
 		}
@@ -558,7 +558,7 @@ int cvec_set_val_cap_TYPE(cvector_TYPE* vec, TYPE* val)
 	if (vec->elem_init) {
 		for (i=0; i<vec->capacity; i++) {
 			if (!vec->elem_init(&vec->a[i], val)) {
-				CVEC_ASSERT(0 == 1);
+				CVEC_ASSERT(0);
 				return 0;
 			}
 		}

@@ -436,7 +436,7 @@
     if (elem_init) {                                                                             \
       for (i = 0; i < num; ++i) {                                                                \
         if (!elem_init(&vec->a[i], &vals[i])) {                                                  \
-          CVEC_ASSERT(0 == 1);                                                                   \
+          CVEC_ASSERT(0);                                                                   \
           CVEC_FREE(vec->a);                                                                     \
           CVEC_FREE(vec);                                                                        \
           return NULL;                                                                           \
@@ -488,7 +488,7 @@
     if (elem_init) {                                                                             \
       for (i = 0; i < num; ++i) {                                                                \
         if (!elem_init(&vec->a[i], &vals[i])) {                                                  \
-          CVEC_ASSERT(0 == 1);                                                                   \
+          CVEC_ASSERT(0);                                                                   \
           return 0;                                                                              \
         }                                                                                        \
       }                                                                                          \
@@ -527,7 +527,7 @@
     if (src->elem_init) {                                                                        \
       for (i=0; i<src->size; ++i) {                                                              \
         if (!src->elem_init(&dest->a[i], &src->a[i])) {                                          \
-          CVEC_ASSERT(0 == 1);                                                                   \
+          CVEC_ASSERT(0);                                                                   \
           return 0;                                                                              \
         }                                                                                        \
       }                                                                                          \
@@ -557,7 +557,7 @@
     }                                                                                            \
     if (vec->elem_init) {                                                                        \
       if (!vec->elem_init(&vec->a[vec->size], a)) {                                              \
-        CVEC_ASSERT(0 == 1);                                                                     \
+        CVEC_ASSERT(0);                                                                     \
         return 0;                                                                                \
       }                                                                                          \
     } else {                                                                                     \
@@ -646,7 +646,7 @@
                                                                                                  \
     if (vec->elem_init) {                                                                        \
       if (!vec->elem_init(&vec->a[i], a)) {                                                      \
-        CVEC_ASSERT(0 == 1);                                                                     \
+        CVEC_ASSERT(0);                                                                     \
         return 0;                                                                                \
       }                                                                                          \
     } else {                                                                                     \
@@ -697,7 +697,7 @@
     if (vec->elem_init) {                                                                        \
       for (j = 0; j < num; ++j) {                                                                \
         if (!vec->elem_init(&vec->a[j + i], &a[j])) {                                            \
-          CVEC_ASSERT(0 == 1);                                                                   \
+          CVEC_ASSERT(0);                                                                   \
           return 0;                                                                              \
         }                                                                                        \
       }                                                                                          \
@@ -739,7 +739,7 @@
                                                                                                  \
     if (vec->elem_init) {                                                                        \
       if (!vec->elem_init(&vec->a[i], a)) {                                                      \
-        CVEC_ASSERT(0 == 1);                                                                     \
+        CVEC_ASSERT(0);                                                                     \
         return 0;                                                                                \
       }                                                                                          \
     } else {                                                                                     \
@@ -827,7 +827,7 @@
     if (vec->elem_init) {                                                                        \
       for (i = 0; i < vec->size; i++) {                                                          \
         if (!vec->elem_init(&vec->a[i], val)) {                                                  \
-          CVEC_ASSERT(0 == 1);                                                                   \
+          CVEC_ASSERT(0);                                                                   \
           return 0;                                                                              \
         }                                                                                        \
       }                                                                                          \
@@ -852,7 +852,7 @@
     if (vec->elem_init) {                                                                        \
       for (i = 0; i < vec->capacity; i++) {                                                      \
         if (!vec->elem_init(&vec->a[i], val)) {                                                  \
-          CVEC_ASSERT(0 == 1);                                                                   \
+          CVEC_ASSERT(0);                                                                   \
           return 0;                                                                              \
         }                                                                                        \
       }                                                                                          \
