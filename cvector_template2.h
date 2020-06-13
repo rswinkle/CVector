@@ -141,7 +141,12 @@ cvector_TYPE* cvec_init_TYPE_heap(TYPE* vals, size_t num, void(*elem_free)(void*
 
 	if (elem_init) {
 		for (i=0; i<num; ++i) {
-			elem_init(&vec->a[i], &vals[i]);
+			if (!elem_init(&vec->a[i], &vals[i])) {
+				CVEC_ASSERT(0 == 1);
+				CVEC_FREE(vec->a);
+				CVEC_FREE(vec);
+				return NULL;
+			}
 		}
 	} else {
 		CVEC_MEMMOVE(vec->a, vals, sizeof(TYPE)*num);
@@ -184,7 +189,10 @@ int cvec_init_TYPE(cvector_TYPE* vec, TYPE* vals, size_t num, void(*elem_free)(v
 
 	if (elem_init) {
 		for (i=0; i<num; ++i) {
-			elem_init(&vec->a[i], &vals[i]);
+			if (!elem_init(&vec->a[i], &vals[i])) {
+				CVEC_ASSERT(0 == 1);
+				return 0;
+			}
 		}
 	} else {
 		CVEC_MEMMOVE(vec->a, vals, sizeof(TYPE)*num);
@@ -251,7 +259,10 @@ int cvec_push_TYPE(cvector_TYPE* vec, TYPE* a)
 		vec->capacity = tmp_sz;
 	}
 	if (vec->elem_init) {
-		vec->elem_init(&vec->a[vec->size], a);
+		if (!vec->elem_init(&vec->a[vec->size], a)) {
+			CVEC_ASSERT(0 == 1);
+			return 0;
+		}
 	} else {
 		CVEC_MEMMOVE(&vec->a[vec->size], a, sizeof(TYPE));
 	}
@@ -340,7 +351,10 @@ int cvec_insert_TYPE(cvector_TYPE* vec, size_t i, TYPE* a)
 	CVEC_MEMMOVE(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(TYPE));
 
 	if (vec->elem_init) {
-		vec->elem_init(&vec->a[i], a);
+		if (!vec->elem_init(&vec->a[i], a)) {
+			CVEC_ASSERT(0 == 1);
+			return 0;
+		}
 	} else {
 		CVEC_MEMMOVE(&vec->a[i], a, sizeof(TYPE));
 	}
@@ -388,7 +402,10 @@ int cvec_insert_array_TYPE(cvector_TYPE* vec, size_t i, TYPE* a, size_t num)
 	CVEC_MEMMOVE(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(TYPE));
 	if (vec->elem_init) {
 		for (j=0; j<num; ++j) {
-			vec->elem_init(&vec->a[j+i], &a[j]);
+			if (!vec->elem_init(&vec->a[j+i], &a[j])) {
+				CVEC_ASSERT(0 == 1);
+				return 0;
+			}
 		}
 	} else {
 		CVEC_MEMMOVE(&vec->a[i], a, num*sizeof(TYPE));

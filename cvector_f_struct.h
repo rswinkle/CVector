@@ -141,7 +141,12 @@ cvector_f_struct* cvec_init_f_struct_heap(f_struct* vals, size_t num, void(*elem
 
 	if (elem_init) {
 		for (i=0; i<num; ++i) {
-			elem_init(&vec->a[i], &vals[i]);
+			if (!elem_init(&vec->a[i], &vals[i])) {
+				CVEC_ASSERT(0 == 1);
+				CVEC_FREE(vec->a);
+				CVEC_FREE(vec);
+				return NULL;
+			}
 		}
 	} else {
 		CVEC_MEMMOVE(vec->a, vals, sizeof(f_struct)*num);
@@ -184,7 +189,10 @@ int cvec_init_f_struct(cvector_f_struct* vec, f_struct* vals, size_t num, void(*
 
 	if (elem_init) {
 		for (i=0; i<num; ++i) {
-			elem_init(&vec->a[i], &vals[i]);
+			if (!elem_init(&vec->a[i], &vals[i])) {
+				CVEC_ASSERT(0 == 1);
+				return 0;
+			}
 		}
 	} else {
 		CVEC_MEMMOVE(vec->a, vals, sizeof(f_struct)*num);
@@ -251,7 +259,10 @@ int cvec_push_f_struct(cvector_f_struct* vec, f_struct* a)
 		vec->capacity = tmp_sz;
 	}
 	if (vec->elem_init) {
-		vec->elem_init(&vec->a[vec->size], a);
+		if (!vec->elem_init(&vec->a[vec->size], a)) {
+			CVEC_ASSERT(0 == 1);
+			return 0;
+		}
 	} else {
 		CVEC_MEMMOVE(&vec->a[vec->size], a, sizeof(f_struct));
 	}
@@ -340,7 +351,10 @@ int cvec_insert_f_struct(cvector_f_struct* vec, size_t i, f_struct* a)
 	CVEC_MEMMOVE(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(f_struct));
 
 	if (vec->elem_init) {
-		vec->elem_init(&vec->a[i], a);
+		if (!vec->elem_init(&vec->a[i], a)) {
+			CVEC_ASSERT(0 == 1);
+			return 0;
+		}
 	} else {
 		CVEC_MEMMOVE(&vec->a[i], a, sizeof(f_struct));
 	}
@@ -388,7 +402,10 @@ int cvec_insert_array_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, siz
 	CVEC_MEMMOVE(&vec->a[i+num], &vec->a[i], (vec->size-i)*sizeof(f_struct));
 	if (vec->elem_init) {
 		for (j=0; j<num; ++j) {
-			vec->elem_init(&vec->a[j+i], &a[j]);
+			if (!vec->elem_init(&vec->a[j+i], &a[j])) {
+				CVEC_ASSERT(0 == 1);
+				return 0;
+			}
 		}
 	} else {
 		CVEC_MEMMOVE(&vec->a[i], a, num*sizeof(f_struct));

@@ -113,7 +113,9 @@ cvector_void* cvec_init_void_heap(void* vals, size_t num, size_t elem_sz, void(*
 		for (i=0; i<num; ++i) {
 			if (!elem_init(&vec->a[i*elem_sz], &((cvec_u8*)vals)[i*elem_sz])) {
 				CVEC_ASSERT(0 == 1);
-				return 0;
+				CVEC_FREE(vec->a);
+				CVEC_FREE(vec);
+				return NULL;
 			}
 		}
 	} else {
@@ -756,8 +758,11 @@ now test the macros instead of the files, it's the same code, and you can still
 see how I used to test them.
 
 \section des_notes Design Notes
-Memory allocations are checked and asserted.  If not in debug mode (ie NDEBUG is defined)
-0 is returned on allocation failure.
+With the exception of CVEC_STRDUP calls in cvector_str, memory allocations are checked and asserted.
+I decided that the likelihood of individual string allocations failing is low enough that it wasn't
+worth the slowdown or extra code.  However, the equivalent calls to elem_init in vector_void and
+generated vector_TYPEs are checked/asserted (since they're more likely to be large enough to possibly
+fail).  If not in debug mode (ie NDEBUG is defined) 0 is returned on allocation failure.
 
 No other error checking is performed.  If you pass bad parameters, bad things will probably happen.
 This is consistent with my belief that it is the caller's responsibility to pass valid arguments
