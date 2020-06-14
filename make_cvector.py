@@ -2,6 +2,15 @@ import sys, os, glob, re
 
 cvector_str = """
 
+/* header starts */
+
+#ifndef CVECTOR_H
+#define CVECTOR_H
+
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>
+
 #if defined(CVEC_ONLY_INT) || defined(CVEC_ONLY_DOUBLE) || defined(CVEC_ONLY_STR) \
 || defined(CVEC_ONLY_VOID)
    #ifndef CVEC_ONLY_INT
@@ -18,17 +27,30 @@ cvector_str = """
    #endif
 #endif
 
-/* header starts */
+#if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
+/* ok */
+#elif !defined(CVEC_MALLOC) && !defined(CVEC_FREE) && !defined(CVEC_REALLOC)
+/* ok */
+#else
+#error "Must define all or none of CVEC_MALLOC, CVEC_FREE, and CVEC_REALLOC."
+#endif
 
-#ifndef CVECTOR_H
-#define CVECTOR_H
+#ifndef CVEC_MALLOC
+#define CVEC_MALLOC(sz)      malloc(sz)
+#define CVEC_REALLOC(p, sz)  realloc(p, sz)
+#define CVEC_FREE(p)         free(p)
+#endif
 
-#include <stdlib.h>
+#ifndef CVEC_MEMMOVE
 #include <string.h>
-#include <assert.h>
-"""
+#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
+#endif
 
-cvector_str += """
+#ifndef CVEC_ASSERT
+#include <assert.h>
+#define CVEC_ASSERT(x)       assert(x)
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -78,30 +100,6 @@ cvector_str += """
 
 
 #ifdef CVECTOR_IMPLEMENTATION
-
-#if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
-/* ok */
-#elif !defined(CVEC_MALLOC) && !defined(CVEC_FREE) && !defined(CVEC_REALLOC)
-/* ok */
-#else
-#error "Must define all or none of CVEC_MALLOC, CVEC_FREE, and CVEC_REALLOC."
-#endif
-
-#ifndef CVEC_MALLOC
-#define CVEC_MALLOC(sz)      malloc(sz)
-#define CVEC_REALLOC(p, sz)  realloc(p, sz)
-#define CVEC_FREE(p)         free(p)
-#endif
-
-#ifndef CVEC_MEMMOVE
-#include <string.h>
-#define CVEC_MEMMOVE(dst, src, sz)  memmove(dst, src, sz)
-#endif
-
-#ifndef CVEC_ASSERT
-#include <assert.h>
-#define CVEC_ASSERT(x)       assert(x)
-#endif
 
 """
 
