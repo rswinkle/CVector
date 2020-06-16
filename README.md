@@ -2,7 +2,7 @@ CVECTOR
 =======
 [![Build Status](https://travis-ci.org/rswinkle/CVector.svg?branch=master)](https://travis-ci.org/rswinkle/CVector)
 
-[http://www.robertwinkler.com/CVector/](http://www.robertwinkler.com/CVector/)
+[Download](https://github.com/rswinkle/cvector)
 
 This is a relatively simple ANSI compliant C vector library with specific structures and
 functions for int's, double's and string's and support for all other types
@@ -117,7 +117,10 @@ Usage
 =====
 To actually use the library just copy the appropriate c/h file pair(s) to your project
 or just use cvector.h.  To get a good idea of how to use the library and see it in
-action and how it should behave, look at cvector_tests.c
+action and how it should behave, you can look at cvector_tests.c but for more practical
+examples, you can look at my other projects that use cvector like [C_Interpreter](https://github.com/rswinkle/c_interpreter),
+[CPIM2](https://github.com/rswinkle/cpim2), [sdl_img](https://github.com/rswinkle/sdl_img),
+[c_bigint](https://github.com/rswinkle/c_bigint) and [spelling_game](https://github.com/rswinkle/spelling_game).
 
 Documentation
 =============
