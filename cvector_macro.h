@@ -12,7 +12,7 @@
 #ifndef CVEC_MALLOC
 #define CVEC_MALLOC(sz)      malloc(sz)
 #define CVEC_REALLOC(p, sz)  realloc(p, sz)
-#define CVEC_FREE(p)         CVEC_FREE(p)
+#define CVEC_FREE(p)         free(p)
 #endif
 
 #ifndef CVEC_MEMMOVE
