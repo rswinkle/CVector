@@ -1058,10 +1058,8 @@ f_struct set_f_struct(double d, int i, char* word)
 void free_f_struct(void* tmp)
 {
 	f_struct* f = (f_struct*)tmp;
-	if (f->word) {
-		free(f->word);
-		f->word = NULL;
-	}
+	free(f->word);
+	f->word = NULL;
 }
 
 
@@ -1942,7 +1940,7 @@ void vector_of_vectors_test()
 
 
 /*
- * TODO test 'move' functions for macro and template2
+ * TODO test all 'move' (m suffix) functions for macro and template2
  */
 
 void template_test()
@@ -2054,6 +2052,33 @@ void template_test2()
 	}
 
 	CU_ASSERT_EQUAL(10, vec.size);
+
+	/* Test popm */
+	cvec_popm_f_struct(&vec, &temp);
+	sprintf(buffer, "%d", 9);
+	CU_ASSERT_EQUAL(temp.d, 9);
+	CU_ASSERT_EQUAL(temp.i, 9);
+	CU_ASSERT_STRING_EQUAL(buffer, temp.word);
+	free_f_struct(&temp);
+
+	CU_ASSERT_EQUAL(9, vec.size);
+
+	/* Test remove */
+	for (i=4; i<7; i++) {
+		/* could just call free(vec.a[i].word) */
+		free_f_struct(&vec.a[i]);
+	}
+	cvec_remove_f_struct(&vec, 4, 6);
+
+	CU_ASSERT_EQUAL(6, vec.size);
+
+	for (i=0; i<vec.size; i++) {
+		int j = (i < 4) ? i : i+3;
+		sprintf(buffer, "%d", j);
+		CU_ASSERT_EQUAL(j, vec.a[i].d);
+		CU_ASSERT_EQUAL(j, vec.a[i].i);
+		CU_ASSERT_STRING_EQUAL(buffer, vec.a[i].word);
+	}
 
 	cvec_free_f_struct(&vec);
 }

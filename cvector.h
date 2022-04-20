@@ -864,7 +864,7 @@ void cvec_free_void(void* vec);
   {                                                                                              \
     vec->size--;                                                                                 \
     if (ret) {                                                                                   \
-      CVEC_MEMMOVE(ret, &vec->a[--vec->size], sizeof(TYPE));                                     \
+      CVEC_MEMMOVE(ret, &vec->a[vec->size], sizeof(TYPE));                                     \
     }                                                                                            \
   }                                                                                              \
                                                                                                  \
