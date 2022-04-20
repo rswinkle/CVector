@@ -127,4 +127,12 @@ cvector_str += """
 #endif
 """
 
-open("cvector.h", "w").write(cvector_str)
+cvector_h = open("cvector.h", "w")
+
+cvector_h.write("/*\n")
+cvector_h.write(open("header_docs.txt").read())
+cvector_h.write("*/\n")
+
+cvector_h.write(cvector_str)
+
+cvector_h.close()
