@@ -764,7 +764,13 @@ worth the slowdown or extra code.  However, the equivalent calls to elem_init in
 generated vector_TYPEs are checked/asserted (since they're more likely to be large enough to possibly
 fail).  If not in debug mode (ie NDEBUG is defined) 0 is returned on allocation failure.
 
-No other error checking is performed.  If you pass bad parameters, bad things will probably happen.
+For functions that take a ret parameter (ie pop and replace functions for str, void, and type 2
+template/macro generated vectors), NULL is a valid option if you don't care to get the value.
+I didn't want to force users to make a temporary variable just to catch something they weren't
+going to use.
+
+No other error checking is performed.  If you pass bad parameters (ie NULL for the vector
+pointer, or end < start for the range functions), bad things will happen.
 This is consistent with my belief that it is the caller's responsibility to pass valid arguments
 and library code shouldn't be larger/uglier/slower for everyone just to pretty print errors.  This
 is also consistent with the C standard library where, for the most part, passing invalid parameters
@@ -785,9 +791,11 @@ it's safe to assume they'd use the same implementation since it doesn't contradi
 just makes sense.
 
 \section Building
-I use premake to generate the make files in the build directory.  The command is premake5 gmake.
-cd into build and run make or make config=release.  I have not tried it on windows though
-it should work (well I'm not sure about CUnit ...).
+I use premake generated makefiles which are
+included in the build subdirectory.  However, if you modified premake4.lua
+the command to regenerate them is `premake4 gmake`.  cd into the build
+directory and run `make` or `make config=release`. I have not tried it on
+windows though it should work (well I'm not sure about CUnit ...).
 
 There is no output of any kind, no errors or warnings.
 
@@ -796,15 +804,14 @@ I've also run it under valgrind and there are no memory leaks.
 
 <pre>
 valgrind --leak-check=full -v ./cvector
-==8600==
-==8600== HEAP SUMMARY:
-==8600==     in use at exit: 0 bytes in 0 blocks
-==8600==   total heap usage: 9,501 allocs, 9,501 frees, 1,067,878 bytes allocated
-==8600==
-==8600== All heap blocks were freed -- no leaks are possible
-==8600==
-==8600== For lists of detected and suppressed errors, rerun with: -s
-==8600== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==116175==
+==116175== HEAP SUMMARY:
+==116175==     in use at exit: 0 bytes in 0 blocks
+==116175==   total heap usage: 10,612 allocs, 10,612 frees, 1,151,748 bytes allocated
+==116175==
+==116175== All heap blocks were freed -- no leaks are possible
+==116175==
+==116175== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 </pre>
 
 You can probably get Cunit from your package manager but
@@ -823,7 +830,7 @@ action and how it should behave, look at cvector_tests.c
 \section LICENSE
 CVector is licensed under the MIT License.
 
-Copyright (c) 2011-2020 Robert Winkler
+Copyright (c) 2011-2022 Robert Winkler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation

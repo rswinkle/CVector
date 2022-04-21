@@ -30,5 +30,6 @@ build/*
 *.swp
 
 # Doxygen output
+doc/*
 latex/*
 html/*

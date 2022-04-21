@@ -23,7 +23,7 @@ ifeq ($(config),debug)
   OBJDIR     = obj/Debug/cvector
   TARGETDIR  = .
   TARGET     = $(TARGETDIR)/cvector
-  DEFINES   += -DTESTING_CVECTOR_H -DDEBUG
+  DEFINES   += -DDEBUG
   INCLUDES  += 
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -g -ansi -pedantic-errors -fno-strict-aliasing -Wunused-variable -Wreturn-type
@@ -45,7 +45,7 @@ ifeq ($(config),release)
   OBJDIR     = obj/Release/cvector
   TARGETDIR  = .
   TARGET     = $(TARGETDIR)/cvector
-  DEFINES   += -DTESTING_CVECTOR_H -DNDEBUG
+  DEFINES   += -DNDEBUG
   INCLUDES  += 
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -O2 -ansi -pedantic-errors -fno-strict-aliasing -Wunused-variable -Wreturn-type

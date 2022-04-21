@@ -23,7 +23,7 @@ ifeq ($(config),debug)
   OBJDIR     = obj/Debug/cvec_strdup
   TARGETDIR  = .
   TARGET     = $(TARGETDIR)/cvec_strdup
-  DEFINES   += -DDEBUG
+  DEFINES   += -DUSE_POSIX_STRDUP -DDEBUG
   INCLUDES  += 
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -g -pedantic-errors -fno-strict-aliasing -Wunused-variable -Wreturn-type
@@ -45,7 +45,7 @@ ifeq ($(config),release)
   OBJDIR     = obj/Release/cvec_strdup
   TARGETDIR  = .
   TARGET     = $(TARGETDIR)/cvec_strdup
-  DEFINES   += -DNDEBUG
+  DEFINES   += -DUSE_POSIX_STRDUP -DNDEBUG
   INCLUDES  += 
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -O2 -pedantic-errors -fno-strict-aliasing -Wunused-variable -Wreturn-type
