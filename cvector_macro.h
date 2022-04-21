@@ -638,7 +638,7 @@ IN THE SOFTWARE.
   {                                                                                              \
     vec->size--;                                                                                 \
     if (ret) {                                                                                   \
-      CVEC_MEMMOVE(ret, &vec->a[vec->size], sizeof(TYPE));                                     \
+      CVEC_MEMMOVE(ret, &vec->a[vec->size], sizeof(TYPE));                                       \
     }                                                                                            \
   }                                                                                              \
                                                                                                  \

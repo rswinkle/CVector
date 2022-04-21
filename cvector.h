@@ -205,7 +205,7 @@ int cvec_pushm_str(cvector_str* vec, char* a);
 #define cvec_popm_str(vec) (vec).a[--(vec).size]
 int cvec_insertm_str(cvector_str* vec, size_t i, char* a);
 int cvec_insert_arraym_str(cvector_str* vec, size_t i, char** a, size_t num);
-#define cvec_replacem_str(vec, i, s, ret) (ret = (vec).a[i], (vec).a[i] = s)
+#define cvec_replacem_str(vec, i, s, ret) ((ret) = (vec).a[i], (vec).a[i] = (s))
 
 int cvec_extend_str(cvector_str* vec, size_t num);
 int cvec_insert_str(cvector_str* vec, size_t i, char* a);
@@ -864,7 +864,7 @@ void cvec_free_void(void* vec);
   {                                                                                              \
     vec->size--;                                                                                 \
     if (ret) {                                                                                   \
-      CVEC_MEMMOVE(ret, &vec->a[vec->size], sizeof(TYPE));                                     \
+      CVEC_MEMMOVE(ret, &vec->a[vec->size], sizeof(TYPE));                                       \
     }                                                                                            \
   }                                                                                              \
                                                                                                  \
@@ -2633,8 +2633,8 @@ int cvec_pushm_void(cvector_void* vec, void* a)
 
 
 /** Remove the last element (size decreased 1).
- * Copy the element into ret.  This function assumes
- * that ret is not NULL and is large accept the element and just CVEC_MEMMOVE's it in.
+ * Copy the element into ret if ret is not NULL.  This function assumes
+ * that ret is large accept the element and just CVEC_MEMMOVE's it in.
  * Similar to pop_backs it is users responsibility.
  */
 void cvec_pop_void(cvector_void* vec, void* ret)

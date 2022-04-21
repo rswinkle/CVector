@@ -1939,10 +1939,6 @@ void vector_of_vectors_test()
 }
 
 
-/*
- * TODO test all 'move' (m suffix) functions for macro and template2
- */
-
 void template_test()
 {
 	int i;
@@ -1966,10 +1962,22 @@ void template_test()
 
 void template_test2()
 {
-	int i, loc;
+	int i, j, loc;
 	char buffer[50];
-	f_struct temp;
+	f_struct temp, ret;
 	cvector_f_struct vec;
+	f_struct array[] = {
+		{0, 0, "one"},
+		{0, 0, "two"},
+		{0, 0, "three"},
+		{0, 0, "four"},
+		{0, 0, "five"},
+		{0, 0, "six"},
+		{0, 0, "seven"},
+		{0, 0, "eight"},
+		{0, 0, "nine"},
+		{0, 0, "ten"}
+	};
 
 	cvec_f_struct(&vec, 20, 0, free_f_struct, init_f_struct);
 
@@ -2079,6 +2087,83 @@ void template_test2()
 		CU_ASSERT_EQUAL(j, vec.a[i].i);
 		CU_ASSERT_STRING_EQUAL(buffer, vec.a[i].word);
 	}
+
+	cvec_free_f_struct(&vec);
+	CU_ASSERT_EQUAL(vec.size, 0);
+	CU_ASSERT_EQUAL(vec.capacity, 0);
+
+	/* test rest of m functions match move_str and move_void tests */
+	cvec_f_struct(&vec, 0, 10, free_f_struct, init_f_struct);
+	CU_ASSERT_EQUAL(vec.size, 0);
+	CU_ASSERT_EQUAL(vec.capacity, 10);
+
+	temp.word = CVEC_STRDUP("blah");
+	cvec_pushm_f_struct(&vec, &temp);
+	CU_ASSERT_EQUAL(vec.size, 1);
+	cvec_pop_f_struct(&vec, NULL);
+	CU_ASSERT_EQUAL(vec.size, 0);
+
+	for (i=0; i<1000; i++) {
+		sprintf(buffer, "hello %d", i);
+		temp.d = i;
+		temp.i = i;
+		temp.word = CVEC_STRDUP(buffer);
+		cvec_pushm_f_struct(&vec, &temp);
+	}
+	CU_ASSERT_EQUAL(vec.size, 1000);
+
+	for (i=999; i>=0; i--) {
+		sprintf(buffer, "hello %d", i);
+		cvec_popm_f_struct(&vec, &temp);
+		CU_ASSERT_EQUAL(i, temp.i);
+		CU_ASSERT_EQUAL(i, temp.d);
+		CU_ASSERT_STRING_EQUAL(buffer, temp.word);
+		free(temp.word);
+	}
+	CU_ASSERT_EQUAL(vec.size, 0);
+
+	for (i=0; i<100; i++) {
+		sprintf(buffer, "hello %d", i);
+		temp.d = i;
+		temp.i = i;
+		temp.word = buffer;
+		cvec_push_f_struct(&vec, &temp);
+	}
+
+	temp.word = CVEC_STRDUP("hello insertm");
+	cvec_insertm_f_struct(&vec, 50, &temp);
+
+	temp.word = CVEC_STRDUP("hello replacem");
+	cvec_replacem_f_struct(&vec, 25, &temp, &ret);
+
+	CU_ASSERT_STRING_EQUAL(ret.word, "hello 25");
+	free(ret.word);
+
+	CU_ASSERT_EQUAL(vec.size, 101);
+
+	j = 0;
+	for (i=0; i<101; i++) {
+		if (i == 25) {
+			CU_ASSERT_STRING_EQUAL(vec.a[i].word, "hello replacem");
+		} else if (i == 50) {
+			CU_ASSERT_STRING_EQUAL(vec.a[i].word, "hello insertm");
+			j++;
+		} else {
+			sprintf(buffer, "hello %d", i-j);
+			CU_ASSERT_STRING_EQUAL(vec.a[i].word, buffer);
+		}
+	}
+
+	cvec_insert_arraym_f_struct(&vec, 60, array, 10);
+
+	CU_ASSERT_EQUAL(vec.size, 111);
+
+	for (i=0; i<10; ++i) {
+		CU_ASSERT_STRING_EQUAL(vec.a[60+i].word, array[i].word);
+	}
+	cvec_remove_f_struct(&vec, 60, 69);
+
+	CU_ASSERT_EQUAL(vec.size, 101);
 
 	cvec_free_f_struct(&vec);
 }
