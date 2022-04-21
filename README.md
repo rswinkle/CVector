@@ -126,7 +126,7 @@ Documentation
 =============
 The Doxygen documentation is generated with the command
 
-	doxygen Doxyfile`
+	doxygen Doxyfile
 
 in the root directory.  The Doxygen generated html docs are
 [online here](http://www.robertwinkler.com/projects/cvector/)

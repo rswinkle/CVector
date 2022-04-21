@@ -2,7 +2,7 @@
 
 CVector 4.0.1 MIT Licensed vector (dynamic array) library in strict C89
 http://www.robertwinkler.com/projects/cvector.html
-http://www.robertwinkler.com/CVector/docs/
+http://www.robertwinkler.com/projects/cvector/
 
 Besides the docs and all the Doxygen comments, see cvector_tests.c for
 examples of how to use it or look at any of these other projects for
