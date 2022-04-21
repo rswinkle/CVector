@@ -37,7 +37,7 @@ int cvec_pushm_str(cvector_str* vec, char* a);
 #define cvec_popm_str(vec) (vec).a[--(vec).size]
 int cvec_insertm_str(cvector_str* vec, size_t i, char* a);
 int cvec_insert_arraym_str(cvector_str* vec, size_t i, char** a, size_t num);
-#define cvec_replacem_str(vec, i, s, ret) (ret = (vec).a[i], (vec).a[i] = s)
+#define cvec_replacem_str(vec, i, s, ret) ((ret) = (vec).a[i], (vec).a[i] = (s))
 
 int cvec_extend_str(cvector_str* vec, size_t num);
 int cvec_insert_str(cvector_str* vec, size_t i, char* a);
