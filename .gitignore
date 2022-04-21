@@ -28,3 +28,7 @@ build/*
 !build/Makefile
 !build/*.make
 *.swp
+
+# Doxygen output
+latex/*
+html/*
