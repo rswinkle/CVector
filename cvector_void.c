@@ -299,8 +299,8 @@ int cvec_pushm_void(cvector_void* vec, void* a)
 
 
 /** Remove the last element (size decreased 1).
- * Copy the element into ret.  This function assumes
- * that ret is not NULL and is large accept the element and just CVEC_MEMMOVE's it in.
+ * Copy the element into ret if ret is not NULL.  This function assumes
+ * that ret is large accept the element and just CVEC_MEMMOVE's it in.
  * Similar to pop_backs it is users responsibility.
  */
 void cvec_pop_void(cvector_void* vec, void* ret)
