@@ -28,6 +28,7 @@ build/*
 !build/Makefile
 !build/*.make
 *.swp
+tags
 
 # Doxygen output
 doc/*
