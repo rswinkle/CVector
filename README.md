@@ -14,10 +14,10 @@ will call destructors and copy constructors.
 
 Other modifiable parameters are at the top of the respective cvector.c's
 
-	size_t CVEC_I_START_SZ = 50;
-	size_t CVEC_D_START_SZ = 50;
-	size_t CVEC_STR_START_SZ = 20;
-	size_t CVEC_VOID_START_SZ = 20;
+	cvec_sz CVEC_I_START_SZ = 50;
+	cvec_sz CVEC_D_START_SZ = 50;
+	cvec_sz CVEC_STR_START_SZ = 20;
+	cvec_sz CVEC_VOID_START_SZ = 20;
 
 	#define CVEC_I_ALLOCATOR(x) ((x+1) * 2)
 	#define CVEC_D_ALLOCATOR(x) ((x+1) * 2)
@@ -35,6 +35,10 @@ malloc when given a NULL pointer.  With cvector_void you still have to set
 elem_size, and optionally elem_free/elem_init. See the zero_init_x_test()'s
 in cvector_tests.c for example of that use.
 
+The `cvec_sz` type defaults to size_t but if you define CVEC_SIZE_T before including
+the header which is then `typedef`'d to `cvec_sz`.  It has to be defined before
+every header inclusion since it is used in both the header (struct definiton)
+and the implementation.
 
 There are also 2 templates, one for basic types and one for types that contain
 dynamically allocated memory and you might want a free and/or init function.
@@ -72,9 +76,7 @@ To generate your own cvector files for a type just run:
 which will generate the results for both templates so just delete the one
 you don't want.
 
-cvector_short and cvector_f_struct are examples of the generated files.  While I
-now test the macros instead of the files, it's the same code, and you can still
-see how I used to test them.
+cvector_short and cvector_f_struct are examples of the generated files.
 
 Building
 ========
@@ -89,7 +91,7 @@ There is no output of any kind, no errors or warnings.
 It has been relatively well tested using CUnit tests which all pass.
 I've also run it under valgrind and there are no memory leaks.
 
-	valgrind --leak-check=full -v ./cvector
+	$ valgrind --leak-check=full -v ./cvector
 	==116175==
 	==116175== HEAP SUMMARY:
 	==116175==     in use at exit: 0 bytes in 0 blocks
@@ -98,6 +100,10 @@ I've also run it under valgrind and there are no memory leaks.
 	==116175== All heap blocks were freed -- no leaks are possible
 	==116175==
 	==116175== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+	$ grep FAIL CUnitAutomated-Results.xml
+	<FAILED> 0 </FAILED> 
+	<FAILED> 0 </FAILED> 
+	<FAILED> 0 </FAILED> 
 
 
 I plan to continue to improve/modify it but probably only in minor ways and

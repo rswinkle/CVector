@@ -2,6 +2,13 @@
 #include "test_types.h"
 
 /*
+ uncomment this and in cvector_all.c to test with something other than
+ the default size_t
+
+#define CVEC_SIZE_T int
+*/
+
+/*
  * recommended way is cvector.h which has everythng: all 4 base types flat
  * (not #included) + the macros for compile time code generation
  */

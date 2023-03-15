@@ -11,7 +11,7 @@ def find_nth(haystack, needle, n):
 
 def get_header(filename):
 	header_text = open(filename).read()
-	# 3rd because 1st is the CVEC_SIZE_TYPE #endif, 2nd is CVEC_SZ #endif
+	# 3rd because 1st is the CVEC_SIZE_T #endif, 2nd is CVEC_SZ #endif
 	start = find_nth(header_text, "#endif", 3) + 6 # #endif of extern "C"
 	end = header_text.find("#ifdef", start) #ifdef close of extern "C"
 	return header_text[start:end]
@@ -72,11 +72,11 @@ cvector_str = """
 #define CVEC_ASSERT(x)       assert(x)
 #endif
 
-#ifndef CVEC_SIZE_TYPE
-#define CVEC_SIZE_TYPE size_t
+#ifndef CVEC_SIZE_T
+#define CVEC_SIZE_T size_t
 #endif
 
-typedef CVEC_SIZE_TYPE cvec_sz;
+typedef CVEC_SIZE_T cvec_sz;
 
 #ifdef __cplusplus
 extern "C" {

@@ -66,10 +66,7 @@ endif
 OBJECTS := \
 	$(OBJDIR)/main.o \
 	$(OBJDIR)/cvector_tests.o \
-	$(OBJDIR)/cvector_i.o \
-	$(OBJDIR)/cvector_d.o \
-	$(OBJDIR)/cvector_str.o \
-	$(OBJDIR)/cvector_void.o \
+	$(OBJDIR)/cvector_all.o \
 
 RESOURCES := \
 
@@ -136,16 +133,7 @@ $(OBJDIR)/main.o: ../main.c
 $(OBJDIR)/cvector_tests.o: ../cvector_tests.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/cvector_i.o: ../cvector_i.c
-	@echo $(notdir $<)
-	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/cvector_d.o: ../cvector_d.c
-	@echo $(notdir $<)
-	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/cvector_str.o: ../cvector_str.c
-	@echo $(notdir $<)
-	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/cvector_void.o: ../cvector_void.c
+$(OBJDIR)/cvector_all.o: ../cvector_all.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
 

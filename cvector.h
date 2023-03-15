@@ -81,11 +81,11 @@ IN THE SOFTWARE.
 #define CVEC_ASSERT(x)       assert(x)
 #endif
 
-#ifndef CVEC_SIZE_TYPE
-#define CVEC_SIZE_TYPE size_t
+#ifndef CVEC_SIZE_T
+#define CVEC_SIZE_T size_t
 #endif
 
-typedef CVEC_SIZE_TYPE cvec_sz;
+typedef CVEC_SIZE_T cvec_sz;
 
 #ifdef __cplusplus
 extern "C" {

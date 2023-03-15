@@ -67,10 +67,7 @@ solution "CVector"
 		{
 			  "main.c",
 			  "cvector_tests.c",
-			  "cvector_i.c",
-			  "cvector_d.c",
-			  "cvector_str.c",
-			  "cvector_void.c",
+			  "cvector_all.c",
 			  "cvector_short.h",
 			  "cvector_f_struct.h"
 		}
@@ -98,10 +95,7 @@ solution "CVector"
 		{
 			  "main.c",
 			  "cvector_tests.c",
-			  "cvector_i.c",
-			  "cvector_d.c",
-			  "cvector_str.c",
-			  "cvector_void.c",
+			  "cvector_all.c",
 			  "cvector_macro.h"
 		}
 		links { "cunit" }
