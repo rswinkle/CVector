@@ -1,6 +1,6 @@
 /*
 
-CVector 4.0.1 MIT Licensed vector (dynamic array) library in strict C89
+CVector 4.1.0 MIT Licensed vector (dynamic array) library in strict C89
 http://www.robertwinkler.com/projects/cvector.html
 http://www.robertwinkler.com/projects/cvector/
 
@@ -102,7 +102,6 @@ void cvec_free_short(void* vec);
 cvec_sz CVEC_short_SZ = 50;
 
 #define CVEC_short_ALLOCATOR(x) ((x+1) * 2)
-
 
 #if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
 /* ok */

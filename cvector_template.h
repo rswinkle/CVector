@@ -69,7 +69,6 @@ cvec_sz CVEC_TYPE_SZ = 50;
 
 #define CVEC_TYPE_ALLOCATOR(x) ((x+1) * 2)
 
-
 #if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
 /* ok */
 #elif !defined(CVEC_MALLOC) && !defined(CVEC_FREE) && !defined(CVEC_REALLOC)

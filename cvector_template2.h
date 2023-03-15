@@ -67,13 +67,11 @@ void cvec_free_TYPE(void* vec);
 }
 #endif
 
-
 /* CVECTOR_TYPE_H */
 #endif
 
+
 #ifdef CVECTOR_TYPE_IMPLEMENTATION
-
-
 
 cvec_sz CVEC_TYPE_SZ = 20;
 

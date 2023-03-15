@@ -1,6 +1,6 @@
 /*
 
-CVector 4.0.1 MIT Licensed vector (dynamic array) library in strict C89
+CVector 4.1.0 MIT Licensed vector (dynamic array) library in strict C89
 http://www.robertwinkler.com/projects/cvector.html
 http://www.robertwinkler.com/projects/cvector/
 
@@ -101,13 +101,11 @@ void cvec_free_f_struct(void* vec);
 }
 #endif
 
-
 /* CVECTOR_f_struct_H */
 #endif
 
+
 #ifdef CVECTOR_f_struct_IMPLEMENTATION
-
-
 
 cvec_sz CVEC_f_struct_SZ = 20;
 
