@@ -37,6 +37,14 @@ IN THE SOFTWARE.
 
 #include <stdlib.h>
 
+#ifndef CVEC_SIZE_T
+#define CVEC_SIZE_T size_t
+#endif
+
+#ifndef CVEC_SZ
+#define CVEC_SZ
+typedef CVEC_SIZE_T cvec_sz;
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -46,19 +54,19 @@ extern "C" {
 typedef struct cvector_f_struct
 {
 	f_struct* a;
-	size_t size;
-	size_t capacity;
+	cvec_sz size;
+	cvec_sz capacity;
 	void (*elem_free)(void*);
 	int (*elem_init)(void*, void*);
 } cvector_f_struct;
 
-extern size_t CVEC_f_struct_SZ;
+extern cvec_sz CVEC_f_struct_SZ;
 
-int cvec_f_struct(cvector_f_struct* vec, size_t size, size_t capacity, void(*elem_free)(void*), int(*elem_init)(void*, void*));
-int cvec_init_f_struct(cvector_f_struct* vec, f_struct* vals, size_t num, void(*elem_free)(void*), int(*elem_init)(void*, void*));
+int cvec_f_struct(cvector_f_struct* vec, cvec_sz size, cvec_sz capacity, void(*elem_free)(void*), int(*elem_init)(void*, void*));
+int cvec_init_f_struct(cvector_f_struct* vec, f_struct* vals, cvec_sz num, void(*elem_free)(void*), int(*elem_init)(void*, void*));
 
-cvector_f_struct* cvec_f_struct_heap(size_t size, size_t capacity, void (*elem_free)(void*), int(*elem_init)(void*, void*));
-cvector_f_struct* cvec_init_f_struct_heap(f_struct* vals, size_t num, void (*elem_free)(void*), int(*elem_init)(void*, void*));
+cvector_f_struct* cvec_f_struct_heap(cvec_sz size, cvec_sz capacity, void (*elem_free)(void*), int(*elem_init)(void*, void*));
+cvector_f_struct* cvec_init_f_struct_heap(f_struct* vals, cvec_sz num, void (*elem_free)(void*), int(*elem_init)(void*, void*));
 
 int cvec_copyc_f_struct(void* dest, void* src);
 int cvec_copy_f_struct(cvector_f_struct* dest, cvector_f_struct* src);
@@ -68,18 +76,18 @@ void cvec_pop_f_struct(cvector_f_struct* vec, f_struct* ret);
 
 int cvec_pushm_f_struct(cvector_f_struct* vec, f_struct* a);
 void cvec_popm_f_struct(cvector_f_struct* vec, f_struct* ret);
-int cvec_insertm_f_struct(cvector_f_struct* vec, size_t i, f_struct* a);
-int cvec_insert_arraym_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, size_t num);
-void cvec_replacem_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, f_struct* ret);
+int cvec_insertm_f_struct(cvector_f_struct* vec, cvec_sz i, f_struct* a);
+int cvec_insert_arraym_f_struct(cvector_f_struct* vec, cvec_sz i, f_struct* a, cvec_sz num);
+void cvec_replacem_f_struct(cvector_f_struct* vec, cvec_sz i, f_struct* a, f_struct* ret);
 
-int cvec_extend_f_struct(cvector_f_struct* vec, size_t num);
-int cvec_insert_f_struct(cvector_f_struct* vec, size_t i, f_struct* a);
-int cvec_insert_array_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, size_t num);
-int cvec_replace_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, f_struct* ret);
-void cvec_erase_f_struct(cvector_f_struct* vec, size_t start, size_t end);
-void cvec_remove_f_struct(cvector_f_struct* vec, size_t start, size_t end);
-int cvec_reserve_f_struct(cvector_f_struct* vec, size_t size);
-int cvec_set_cap_f_struct(cvector_f_struct* vec, size_t size);
+int cvec_extend_f_struct(cvector_f_struct* vec, cvec_sz num);
+int cvec_insert_f_struct(cvector_f_struct* vec, cvec_sz i, f_struct* a);
+int cvec_insert_array_f_struct(cvector_f_struct* vec, cvec_sz i, f_struct* a, cvec_sz num);
+int cvec_replace_f_struct(cvector_f_struct* vec, cvec_sz i, f_struct* a, f_struct* ret);
+void cvec_erase_f_struct(cvector_f_struct* vec, cvec_sz start, cvec_sz end);
+void cvec_remove_f_struct(cvector_f_struct* vec, cvec_sz start, cvec_sz end);
+int cvec_reserve_f_struct(cvector_f_struct* vec, cvec_sz size);
+int cvec_set_cap_f_struct(cvector_f_struct* vec, cvec_sz size);
 int cvec_set_val_sz_f_struct(cvector_f_struct* vec, f_struct* val);
 int cvec_set_val_cap_f_struct(cvector_f_struct* vec, f_struct* val);
 
@@ -101,7 +109,7 @@ void cvec_free_f_struct(void* vec);
 
 
 
-size_t CVEC_f_struct_SZ = 20;
+cvec_sz CVEC_f_struct_SZ = 20;
 
 #define CVEC_f_struct_ALLOCATOR(x) ((x+1) * 2)
 
@@ -132,7 +140,7 @@ size_t CVEC_f_struct_SZ = 20;
 
 /*  general vector */
 
-cvector_f_struct* cvec_f_struct_heap(size_t size, size_t capacity, void(*elem_free)(void*), int(*elem_init)(void*, void*))
+cvector_f_struct* cvec_f_struct_heap(cvec_sz size, cvec_sz capacity, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	cvector_f_struct* vec;
 	if (!(vec = (cvector_f_struct*)CVEC_MALLOC(sizeof(cvector_f_struct)))) {
@@ -155,10 +163,10 @@ cvector_f_struct* cvec_f_struct_heap(size_t size, size_t capacity, void(*elem_fr
 	return vec;
 }
 
-cvector_f_struct* cvec_init_f_struct_heap(f_struct* vals, size_t num, void(*elem_free)(void*), int(*elem_init)(void*, void*))
+cvector_f_struct* cvec_init_f_struct_heap(f_struct* vals, cvec_sz num, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	cvector_f_struct* vec;
-	size_t i;
+	cvec_sz i;
 	
 	if (!(vec = (cvector_f_struct*)CVEC_MALLOC(sizeof(cvector_f_struct)))) {
 		CVEC_ASSERT(vec != NULL);
@@ -192,7 +200,7 @@ cvector_f_struct* cvec_init_f_struct_heap(f_struct* vals, size_t num, void(*elem
 	return vec;
 }
 
-int cvec_f_struct(cvector_f_struct* vec, size_t size, size_t capacity, void(*elem_free)(void*), int(*elem_init)(void*, void*))
+int cvec_f_struct(cvector_f_struct* vec, cvec_sz size, cvec_sz capacity, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
 	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_f_struct_SZ;
@@ -209,9 +217,9 @@ int cvec_f_struct(cvector_f_struct* vec, size_t size, size_t capacity, void(*ele
 	return 1;
 }
 
-int cvec_init_f_struct(cvector_f_struct* vec, f_struct* vals, size_t num, void(*elem_free)(void*), int(*elem_init)(void*, void*))
+int cvec_init_f_struct(cvector_f_struct* vec, f_struct* vals, cvec_sz num, void(*elem_free)(void*), int(*elem_init)(void*, void*))
 {
-	size_t i;
+	cvec_sz i;
 	
 	vec->capacity = num + CVEC_f_struct_SZ;
 	vec->size = num;
@@ -282,7 +290,7 @@ int cvec_copy_f_struct(cvector_f_struct* dest, cvector_f_struct* src)
 int cvec_push_f_struct(cvector_f_struct* vec, f_struct* a)
 {
 	f_struct* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_f_struct_ALLOCATOR(vec->capacity);
 		if (!(tmp = (f_struct*)CVEC_REALLOC(vec->a, sizeof(f_struct)*tmp_sz))) {
@@ -308,7 +316,7 @@ int cvec_push_f_struct(cvector_f_struct* vec, f_struct* a)
 int cvec_pushm_f_struct(cvector_f_struct* vec, f_struct* a)
 {
 	f_struct* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_f_struct_ALLOCATOR(vec->capacity);
 		if (!(tmp = (f_struct*)CVEC_REALLOC(vec->a, sizeof(f_struct)*tmp_sz))) {
@@ -350,10 +358,10 @@ f_struct* cvec_back_f_struct(cvector_f_struct* vec)
 	return &vec->a[vec->size-1];
 }
 
-int cvec_extend_f_struct(cvector_f_struct* vec, size_t num)
+int cvec_extend_f_struct(cvector_f_struct* vec, cvec_sz num)
 {
 	f_struct* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_f_struct_SZ;
 		if (!(tmp = (f_struct*)CVEC_REALLOC(vec->a, sizeof(f_struct)*tmp_sz))) {
@@ -368,10 +376,10 @@ int cvec_extend_f_struct(cvector_f_struct* vec, size_t num)
 	return 1;
 }
 
-int cvec_insert_f_struct(cvector_f_struct* vec, size_t i, f_struct* a)
+int cvec_insert_f_struct(cvector_f_struct* vec, cvec_sz i, f_struct* a)
 {
 	f_struct* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_f_struct_ALLOCATOR(vec->capacity);
 		if (!(tmp = (f_struct*)CVEC_REALLOC(vec->a, sizeof(f_struct)*tmp_sz))) {
@@ -397,10 +405,10 @@ int cvec_insert_f_struct(cvector_f_struct* vec, size_t i, f_struct* a)
 	return 1;
 }
 
-int cvec_insertm_f_struct(cvector_f_struct* vec, size_t i, f_struct* a)
+int cvec_insertm_f_struct(cvector_f_struct* vec, cvec_sz i, f_struct* a)
 {
 	f_struct* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_f_struct_ALLOCATOR(vec->capacity);
 		if (!(tmp = (f_struct*)CVEC_REALLOC(vec->a, sizeof(f_struct)*tmp_sz))) {
@@ -419,10 +427,10 @@ int cvec_insertm_f_struct(cvector_f_struct* vec, size_t i, f_struct* a)
 	return 1;
 }
 
-int cvec_insert_array_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, size_t num)
+int cvec_insert_array_f_struct(cvector_f_struct* vec, cvec_sz i, f_struct* a, cvec_sz num)
 {
 	f_struct* tmp;
-	size_t tmp_sz, j;
+	cvec_sz tmp_sz, j;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_f_struct_SZ;
 		if (!(tmp = (f_struct*)CVEC_REALLOC(vec->a, sizeof(f_struct)*tmp_sz))) {
@@ -448,10 +456,10 @@ int cvec_insert_array_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, siz
 	return 1;
 }
 
-int cvec_insert_arraym_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, size_t num)
+int cvec_insert_arraym_f_struct(cvector_f_struct* vec, cvec_sz i, f_struct* a, cvec_sz num)
 {
 	f_struct* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_VOID_START_SZ;
 		if (!(tmp = (f_struct*)CVEC_REALLOC(vec->a, sizeof(f_struct)*tmp_sz))) {
@@ -469,7 +477,7 @@ int cvec_insert_arraym_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, si
 	return 1;
 }
 
-int cvec_replace_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, f_struct* ret)
+int cvec_replace_f_struct(cvector_f_struct* vec, cvec_sz i, f_struct* a, f_struct* ret)
 {
 	if (ret) {
 		CVEC_MEMMOVE(ret, &vec->a[i], sizeof(f_struct));
@@ -488,7 +496,7 @@ int cvec_replace_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, f_struct
 	return 1;
 }
 
-void cvec_replacem_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, f_struct* ret)
+void cvec_replacem_f_struct(cvector_f_struct* vec, cvec_sz i, f_struct* a, f_struct* ret)
 {
 	if (ret) {
 		CVEC_MEMMOVE(ret, &vec->a[i], sizeof(f_struct));
@@ -497,10 +505,10 @@ void cvec_replacem_f_struct(cvector_f_struct* vec, size_t i, f_struct* a, f_stru
 	CVEC_MEMMOVE(&vec->a[i], a, sizeof(f_struct));
 }
 
-void cvec_erase_f_struct(cvector_f_struct* vec, size_t start, size_t end)
+void cvec_erase_f_struct(cvector_f_struct* vec, cvec_sz start, cvec_sz end)
 {
-	size_t i;
-	size_t d = end - start + 1;
+	cvec_sz i;
+	cvec_sz d = end - start + 1;
 	if (vec->elem_free) {
 		for (i=start; i<=end; i++) {
 			vec->elem_free(&vec->a[i]);
@@ -510,14 +518,14 @@ void cvec_erase_f_struct(cvector_f_struct* vec, size_t start, size_t end)
 	vec->size -= d;
 }
 
-void cvec_remove_f_struct(cvector_f_struct* vec, size_t start, size_t end)
+void cvec_remove_f_struct(cvector_f_struct* vec, cvec_sz start, cvec_sz end)
 {
-	size_t d = end - start + 1;
+	cvec_sz d = end - start + 1;
 	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(f_struct));
 	vec->size -= d;
 }
 
-int cvec_reserve_f_struct(cvector_f_struct* vec, size_t size)
+int cvec_reserve_f_struct(cvector_f_struct* vec, cvec_sz size)
 {
 	f_struct* tmp;
 	if (vec->capacity < size) {
@@ -531,9 +539,9 @@ int cvec_reserve_f_struct(cvector_f_struct* vec, size_t size)
 	return 1;
 }
 
-int cvec_set_cap_f_struct(cvector_f_struct* vec, size_t size)
+int cvec_set_cap_f_struct(cvector_f_struct* vec, cvec_sz size)
 {
-	size_t i;
+	cvec_sz i;
 	f_struct* tmp;
 	if (size < vec->size) {
 		if (vec->elem_free) {
@@ -556,7 +564,7 @@ int cvec_set_cap_f_struct(cvector_f_struct* vec, size_t size)
 
 int cvec_set_val_sz_f_struct(cvector_f_struct* vec, f_struct* val)
 {
-	size_t i;
+	cvec_sz i;
 
 	if (vec->elem_free) {
 		for(i=0; i<vec->size; i++) {
@@ -581,7 +589,7 @@ int cvec_set_val_sz_f_struct(cvector_f_struct* vec, f_struct* val)
 
 int cvec_set_val_cap_f_struct(cvector_f_struct* vec, f_struct* val)
 {
-	size_t i;
+	cvec_sz i;
 	if (vec->elem_free) {
 		for (i=0; i<vec->size; i++) {
 			vec->elem_free(&vec->a[i]);
@@ -606,7 +614,7 @@ int cvec_set_val_cap_f_struct(cvector_f_struct* vec, f_struct* val)
 
 void cvec_clear_f_struct(cvector_f_struct* vec)
 {
-	size_t i;
+	cvec_sz i;
 	if (vec->elem_free) {
 		for (i=0; i<vec->size; ++i) {
 			vec->elem_free(&vec->a[i]);
@@ -617,7 +625,7 @@ void cvec_clear_f_struct(cvector_f_struct* vec)
 
 void cvec_free_f_struct_heap(void* vec)
 {
-	size_t i;
+	cvec_sz i;
 	cvector_f_struct* tmp = (cvector_f_struct*)vec;
 	if (!tmp) return;
 	if (tmp->elem_free) {
@@ -631,7 +639,7 @@ void cvec_free_f_struct_heap(void* vec)
 
 void cvec_free_f_struct(void* vec)
 {
-	size_t i;
+	cvec_sz i;
 	cvector_f_struct* tmp = (cvector_f_struct*)vec;
 	if (tmp->elem_free) {
 		for (i=0; i<tmp->size; i++) {

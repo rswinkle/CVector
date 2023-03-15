@@ -20,13 +20,13 @@ ifndef AR
 endif
 
 ifeq ($(config),debug)
-  OBJDIR     = obj/Debug/cvec_strdup
+  OBJDIR     = obj/Debug/cvector_macro
   TARGETDIR  = .
-  TARGET     = $(TARGETDIR)/cvec_strdup
-  DEFINES   += -DUSE_CVECTOR_H -DUSE_POSIX_STRDUP -DDEBUG
+  TARGET     = $(TARGETDIR)/cvector_macro
+  DEFINES   += -DDEBUG
   INCLUDES  += 
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
-  CFLAGS    += $(CPPFLAGS) $(ARCH) -g -pedantic-errors -fno-strict-aliasing -Wunused-variable -Wreturn-type
+  CFLAGS    += $(CPPFLAGS) $(ARCH) -g -ansi -pedantic-errors -fno-strict-aliasing -Wunused-variable -Wreturn-type
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += 
   LIBS      += -lcunit
@@ -42,13 +42,13 @@ ifeq ($(config),debug)
 endif
 
 ifeq ($(config),release)
-  OBJDIR     = obj/Release/cvec_strdup
+  OBJDIR     = obj/Release/cvector_macro
   TARGETDIR  = .
-  TARGET     = $(TARGETDIR)/cvec_strdup
-  DEFINES   += -DUSE_CVECTOR_H -DUSE_POSIX_STRDUP -DNDEBUG
+  TARGET     = $(TARGETDIR)/cvector_macro
+  DEFINES   += -DNDEBUG
   INCLUDES  += 
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
-  CFLAGS    += $(CPPFLAGS) $(ARCH) -O2 -pedantic-errors -fno-strict-aliasing -Wunused-variable -Wreturn-type
+  CFLAGS    += $(CPPFLAGS) $(ARCH) -O2 -ansi -pedantic-errors -fno-strict-aliasing -Wunused-variable -Wreturn-type
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += -s
   LIBS      += -lcunit
@@ -66,6 +66,10 @@ endif
 OBJECTS := \
 	$(OBJDIR)/main.o \
 	$(OBJDIR)/cvector_tests.o \
+	$(OBJDIR)/cvector_i.o \
+	$(OBJDIR)/cvector_d.o \
+	$(OBJDIR)/cvector_str.o \
+	$(OBJDIR)/cvector_void.o \
 
 RESOURCES := \
 
@@ -83,7 +87,7 @@ all: $(TARGETDIR) $(OBJDIR) prebuild prelink $(TARGET)
 	@:
 
 $(TARGET): $(GCH) $(OBJECTS) $(LDDEPS) $(RESOURCES)
-	@echo Linking cvec_strdup
+	@echo Linking cvector_macro
 	$(SILENT) $(LINKCMD)
 	$(POSTBUILDCMDS)
 
@@ -104,7 +108,7 @@ else
 endif
 
 clean:
-	@echo Cleaning cvec_strdup
+	@echo Cleaning cvector_macro
 ifeq (posix,$(SHELLTYPE))
 	$(SILENT) rm -f  $(TARGET)
 	$(SILENT) rm -rf $(OBJDIR)
@@ -130,6 +134,18 @@ $(OBJDIR)/main.o: ../main.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/cvector_tests.o: ../cvector_tests.c
+	@echo $(notdir $<)
+	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/cvector_i.o: ../cvector_i.c
+	@echo $(notdir $<)
+	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/cvector_d.o: ../cvector_d.c
+	@echo $(notdir $<)
+	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/cvector_str.o: ../cvector_str.c
+	@echo $(notdir $<)
+	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/cvector_void.o: ../cvector_void.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(CFLAGS) -o "$@" -c "$<"
 

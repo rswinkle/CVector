@@ -2,7 +2,6 @@
 
 
 
-
 #if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
 /* ok */
 #elif !defined(CVEC_MALLOC) && !defined(CVEC_FREE) && !defined(CVEC_REALLOC)
@@ -27,7 +26,7 @@
 #define CVEC_ASSERT(x)       assert(x)
 #endif
 
-size_t CVEC_I_START_SZ = 50;
+cvec_sz CVEC_I_START_SZ = 50;
 
 #define CVEC_I_ALLOCATOR(x) ((x+1) * 2)
 
@@ -37,7 +36,7 @@ size_t CVEC_I_START_SZ = 50;
  * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_I_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
  */
-cvector_i* cvec_i_heap(size_t size, size_t capacity)
+cvector_i* cvec_i_heap(cvec_sz size, cvec_sz capacity)
 {
 	cvector_i* vec;
 	if (!(vec = (cvector_i*)CVEC_MALLOC(sizeof(cvector_i)))) {
@@ -60,7 +59,7 @@ cvector_i* cvec_i_heap(size_t size, size_t capacity)
 /** Create (on the heap) and initialize cvector_i with num elements of vals.
  *  Capacity is set to num + CVEC_I_START_SZ.
  */
-cvector_i* cvec_init_i_heap(int* vals, size_t num)
+cvector_i* cvec_init_i_heap(int* vals, cvec_sz num)
 {
 	cvector_i* vec;
 	
@@ -86,7 +85,7 @@ cvector_i* cvec_init_i_heap(int* vals, size_t num)
  *  it isn't allocated in this function.  Use the cvec_free_i in this case.
  *  This and cvec_init_i should be preferred over the heap versions.
  */
-int cvec_i(cvector_i* vec, size_t size, size_t capacity)
+int cvec_i(cvector_i* vec, cvec_sz size, cvec_sz capacity)
 {
 	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_I_START_SZ;
@@ -103,7 +102,7 @@ int cvec_i(cvector_i* vec, size_t size, size_t capacity)
 /** Same as cvec_init_i_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.
  */
-int cvec_init_i(cvector_i* vec, int* vals, size_t num)
+int cvec_init_i(cvector_i* vec, int* vals, cvec_sz num)
 {
 	vec->capacity = num + CVEC_I_START_SZ;
 	vec->size = num;
@@ -171,7 +170,7 @@ int cvec_copy_i(cvector_i* dest, cvector_i* src)
 int cvec_push_i(cvector_i* vec, int a)
 {
 	int* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_I_ALLOCATOR(vec->capacity);
 		if (!(tmp = (int*)CVEC_REALLOC(vec->a, sizeof(int)*tmp_sz))) {
@@ -200,10 +199,10 @@ int* cvec_back_i(cvector_i* vec)
 
 /** Increase the size of the array num items.  Items
  *  are not initialized to anything */
-int cvec_extend_i(cvector_i* vec, size_t num)
+int cvec_extend_i(cvector_i* vec, cvec_sz num)
 {
 	int* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_I_START_SZ;
 		if (!(tmp = (int*)CVEC_REALLOC(vec->a, sizeof(int)*tmp_sz))) {
@@ -222,10 +221,10 @@ int cvec_extend_i(cvector_i* vec, size_t num)
  * Insert a at index i (0 based).
  * Everything from that index and right is shifted one to the right.
  */
-int cvec_insert_i(cvector_i* vec, size_t i, int a)
+int cvec_insert_i(cvector_i* vec, cvec_sz i, int a)
 {
 	int* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_I_ALLOCATOR(vec->capacity);
 		if (!(tmp = (int*)CVEC_REALLOC(vec->a, sizeof(int)*tmp_sz))) {
@@ -248,10 +247,10 @@ int cvec_insert_i(cvector_i* vec, size_t i, int a)
  * arguments.  Also CVEC_MEMMOVE is used so don't try to insert
  * part of the vector array into itself (that would require CVEC_MEMMOVE)
  */
-int cvec_insert_array_i(cvector_i* vec, size_t i, int* a, size_t num)
+int cvec_insert_array_i(cvector_i* vec, cvec_sz i, int* a, cvec_sz num)
 {
 	int* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_I_START_SZ;
 		if (!(tmp = (int*)CVEC_REALLOC(vec->a, sizeof(int)*tmp_sz))) {
@@ -269,7 +268,7 @@ int cvec_insert_array_i(cvector_i* vec, size_t i, int* a, size_t num)
 }
 
 /** Replace value at index i with a, return original value. */
-int cvec_replace_i(cvector_i* vec, size_t i, int a)
+int cvec_replace_i(cvector_i* vec, cvec_sz i, int a)
 {
 	int tmp = vec->a[i];
 	vec->a[i] = a;
@@ -281,15 +280,15 @@ int cvec_replace_i(cvector_i* vec, size_t i, int a)
  * Example cvec_erase_i(myvec, 1, 3) would remove elements at 1, 2, and 3 and the element
  * that was at index 4 would now be at 1 etc.
  */
-void cvec_erase_i(cvector_i* vec, size_t start, size_t end)
+void cvec_erase_i(cvector_i* vec, cvec_sz start, cvec_sz end)
 {
-	size_t d = end - start + 1;
+	cvec_sz d = end - start + 1;
 	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(int));
 	vec->size -= d;
 }
 
 /** Make sure capacity is at least size(parameter not member). */
-int cvec_reserve_i(cvector_i* vec, size_t size)
+int cvec_reserve_i(cvector_i* vec, cvec_sz size)
 {
 	int* tmp;
 	if (vec->capacity < size) {
@@ -307,7 +306,7 @@ int cvec_reserve_i(cvector_i* vec, size_t size)
  * You will lose data if you shrink the capacity below the current size.
  * If you do, the size will be set to capacity of course.
 */
-int cvec_set_cap_i(cvector_i* vec, size_t size)
+int cvec_set_cap_i(cvector_i* vec, cvec_sz size)
 {
 	int* tmp;
 	if (size < vec->size) {
@@ -326,7 +325,7 @@ int cvec_set_cap_i(cvector_i* vec, size_t size)
 /** Set all size elements to val. */
 void cvec_set_val_sz_i(cvector_i* vec, int val)
 {
-	size_t i;
+	cvec_sz i;
 	for (i=0; i<vec->size; i++) {
 		vec->a[i] = val;
 	}
@@ -335,7 +334,7 @@ void cvec_set_val_sz_i(cvector_i* vec, int val)
 /** Fills entire allocated array (capacity) with val. */
 void cvec_set_val_cap_i(cvector_i* vec, int val)
 {
-	size_t i;
+	cvec_sz i;
 	for (i=0; i<vec->capacity; i++) {
 		vec->a[i] = val;
 	}

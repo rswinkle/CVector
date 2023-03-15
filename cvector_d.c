@@ -26,7 +26,7 @@
 #define CVEC_ASSERT(x)       assert(x)
 #endif
 
-size_t CVEC_D_START_SZ = 50;
+cvec_sz CVEC_D_START_SZ = 50;
 
 #define CVEC_D_ALLOCATOR(x) ((x+1) * 2)
 
@@ -36,7 +36,7 @@ size_t CVEC_D_START_SZ = 50;
  * Capacity to (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_D_START_SZ
  * in other words capacity has to be at least 1 and >= to vec->size of course.
  */
-cvector_d* cvec_d_heap(size_t size, size_t capacity)
+cvector_d* cvec_d_heap(cvec_sz size, cvec_sz capacity)
 {
 	cvector_d* vec;
 	
@@ -60,7 +60,7 @@ cvector_d* cvec_d_heap(size_t size, size_t capacity)
 /** Create (on the heap) and initialize cvector_d with num elements of vals.
  *  Capacity is set to num + CVEC_D_START_SZ.
  */
-cvector_d* cvec_init_d_heap(double* vals, size_t num)
+cvector_d* cvec_init_d_heap(double* vals, cvec_sz num)
 {
 	cvector_d* vec;
 	
@@ -86,7 +86,7 @@ cvector_d* cvec_init_d_heap(double* vals, size_t num)
  *  it isn't allocated in this function.  Use the cvec_free_d in this case.
  *  This and cvec_init_d should be preferred over the heap versions.
  */
-int cvec_d(cvector_d* vec, size_t size, size_t capacity)
+int cvec_d(cvector_d* vec, cvec_sz size, cvec_sz capacity)
 {
 	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_D_START_SZ;
@@ -103,7 +103,7 @@ int cvec_d(cvector_d* vec, size_t size, size_t capacity)
 /** Same as cvec_init_d_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_d in this case.
  */
-int cvec_init_d(cvector_d* vec, double* vals, size_t num)
+int cvec_init_d(cvector_d* vec, double* vals, cvec_sz num)
 {
 	vec->capacity = num + CVEC_D_START_SZ;
 	vec->size = num;
@@ -171,7 +171,7 @@ int cvec_copy_d(cvector_d* dest, cvector_d* src)
 int cvec_push_d(cvector_d* vec, double a)
 {
 	double* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_D_ALLOCATOR(vec->capacity);
 		if (!(tmp = (double*)CVEC_REALLOC(vec->a, sizeof(double)*tmp_sz))) {
@@ -199,10 +199,10 @@ double* cvec_back_d(cvector_d* vec)
 
 /** Increase the size of the array num items.  Items
  *  are not initialized to anything */
-int cvec_extend_d(cvector_d* vec, size_t num)
+int cvec_extend_d(cvector_d* vec, cvec_sz num)
 {
 	double* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_D_START_SZ;
 		if (!(tmp = (double*)CVEC_REALLOC(vec->a, sizeof(double)*tmp_sz))) {
@@ -221,10 +221,10 @@ int cvec_extend_d(cvector_d* vec, size_t num)
  * Insert a at index i (0 based).
  * Everything from that index and right is shifted one to the right.
  */
-int cvec_insert_d(cvector_d* vec, size_t i, double a)
+int cvec_insert_d(cvector_d* vec, cvec_sz i, double a)
 {
 	double* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_D_ALLOCATOR(vec->capacity);
 		if (!(tmp = (double*)CVEC_REALLOC(vec->a, sizeof(double)*tmp_sz))) {
@@ -247,10 +247,10 @@ int cvec_insert_d(cvector_d* vec, size_t i, double a)
  * arguments.  Also CVEC_MEMMOVE is used so don't try to insert
  * part of the vector array into itself (that would require CVEC_MEMMOVE)
  */
-int cvec_insert_array_d(cvector_d* vec, size_t i, double* a, size_t num)
+int cvec_insert_array_d(cvector_d* vec, cvec_sz i, double* a, cvec_sz num)
 {
 	double* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_D_START_SZ;
 		if (!(tmp = (double*)CVEC_REALLOC(vec->a, sizeof(double)*tmp_sz))) {
@@ -268,7 +268,7 @@ int cvec_insert_array_d(cvector_d* vec, size_t i, double* a, size_t num)
 }
 
 /** Replace value at index i with a, return original value. */
-double cvec_replace_d(cvector_d* vec, size_t i, double a)
+double cvec_replace_d(cvector_d* vec, cvec_sz i, double a)
 {
 	double tmp = vec->a[i];
 	vec->a[i] = a;
@@ -280,15 +280,15 @@ double cvec_replace_d(cvector_d* vec, size_t i, double a)
  * Example cvec_erase_d(myvec, 1, 3) would remove elements at 1, 2, and 3 and the element
  * that was at index 4 would now be at 1 etc.
  */
-void cvec_erase_d(cvector_d* vec, size_t start, size_t end)
+void cvec_erase_d(cvector_d* vec, cvec_sz start, cvec_sz end)
 {
-	size_t d = end - start + 1;
+	cvec_sz d = end - start + 1;
 	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(double));
 	vec->size -= d;
 }
 
 /** Make sure capacity is at least size(parameter not member). */
-int cvec_reserve_d(cvector_d* vec, size_t size)
+int cvec_reserve_d(cvector_d* vec, cvec_sz size)
 {
 	double* tmp;
 	if (vec->capacity < size) {
@@ -306,7 +306,7 @@ int cvec_reserve_d(cvector_d* vec, size_t size)
  * You will lose data if you shrink the capacity below the current size.
  * If you do, the size will be set to capacity of course.
 */
-int cvec_set_cap_d(cvector_d* vec, size_t size)
+int cvec_set_cap_d(cvector_d* vec, cvec_sz size)
 {
 	double* tmp;
 	if (size < vec->size)
@@ -324,7 +324,7 @@ int cvec_set_cap_d(cvector_d* vec, size_t size)
 /** Set all size elements to val. */
 void cvec_set_val_sz_d(cvector_d* vec, double val)
 {
-	size_t i;
+	cvec_sz i;
 	for(i=0; i<vec->size; i++) {
 		vec->a[i] = val;
 	}
@@ -333,7 +333,7 @@ void cvec_set_val_sz_d(cvector_d* vec, double val)
 /** Fills entire allocated array (capacity) with val. */
 void cvec_set_val_cap_d(cvector_d* vec, double val)
 {
-	size_t i;
+	cvec_sz i;
 	for(i=0; i<vec->capacity; i++) {
 		vec->a[i] = val;
 	}

@@ -1,5 +1,26 @@
 import sys, os, glob, re
 
+# In the middle of the night I get really lazy, even though I already had it hard coded
+# https://stackoverflow.com/questions/1883980/find-the-nth-occurrence-of-substring-in-a-string 
+def find_nth(haystack, needle, n):
+	start = haystack.find(needle)
+	while start >= 0 and n > 1:
+		start = haystack.find(needle, start+len(needle))
+		n -= 1
+	return start
+
+def get_header(filename):
+	header_text = open(filename).read()
+	# 3rd because 1st is the CVEC_SIZE_TYPE #endif, 2nd is CVEC_SZ #endif
+	start = find_nth(header_text, "#endif", 3) + 6 # #endif of extern "C"
+	end = header_text.find("#ifdef", start) #ifdef close of extern "C"
+	return header_text[start:end]
+
+def get_c_file(filename):
+	c_text = open(filename).read()
+	return c_text[c_text.find("cvec_sz"):]
+
+
 cvector_str = """
 
 /* header starts */
@@ -51,19 +72,17 @@ cvector_str = """
 #define CVEC_ASSERT(x)       assert(x)
 #endif
 
+#ifndef CVEC_SIZE_TYPE
+#define CVEC_SIZE_TYPE size_t
+#endif
+
+typedef CVEC_SIZE_TYPE cvec_sz;
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 """
-
-
-def get_header(filename):
-	header_text = open(filename).read()
-	start = header_text.find("#endif") + 6 # #endif of extern "C"
-	end = header_text.find("#ifdef", start) #ifdef close of extern "C"
-	return header_text[start:end]
-
 
 cvector_str += "#ifndef CVEC_NO_INT\n\n"
 cvector_str += get_header("cvector_i.h")
@@ -103,9 +122,6 @@ cvector_str += """
 
 """
 
-def get_c_file(filename):
-	c_text = open(filename).read()
-	return c_text[c_text.find("size_t"):]
 
 cvector_str += "#ifndef CVEC_NO_INT\n\n"
 cvector_str += get_c_file("cvector_i.c")

@@ -6,7 +6,7 @@ ifndef config
 endif
 export config
 
-PROJECTS := cvector cvec_strdup cvectorcpp
+PROJECTS := cvector cvec_strdup cvector_templates cvector_macro cvectorcpp
 
 .PHONY: all clean help $(PROJECTS)
 
@@ -20,6 +20,14 @@ cvec_strdup:
 	@echo "==== Building cvec_strdup ($(config)) ===="
 	@${MAKE} --no-print-directory -C . -f cvec_strdup.make
 
+cvector_templates: 
+	@echo "==== Building cvector_templates ($(config)) ===="
+	@${MAKE} --no-print-directory -C . -f cvector_templates.make
+
+cvector_macro: 
+	@echo "==== Building cvector_macro ($(config)) ===="
+	@${MAKE} --no-print-directory -C . -f cvector_macro.make
+
 cvectorcpp: 
 	@echo "==== Building cvectorcpp ($(config)) ===="
 	@${MAKE} --no-print-directory -C . -f cvectorcpp.make
@@ -27,6 +35,8 @@ cvectorcpp:
 clean:
 	@${MAKE} --no-print-directory -C . -f cvector.make clean
 	@${MAKE} --no-print-directory -C . -f cvec_strdup.make clean
+	@${MAKE} --no-print-directory -C . -f cvector_templates.make clean
+	@${MAKE} --no-print-directory -C . -f cvector_macro.make clean
 	@${MAKE} --no-print-directory -C . -f cvectorcpp.make clean
 
 help:
@@ -41,6 +51,8 @@ help:
 	@echo "   clean"
 	@echo "   cvector"
 	@echo "   cvec_strdup"
+	@echo "   cvector_templates"
+	@echo "   cvector_macro"
 	@echo "   cvectorcpp"
 	@echo ""
 	@echo "For more information, see http://industriousone.com/premake/quick-start"

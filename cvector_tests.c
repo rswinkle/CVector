@@ -1,21 +1,36 @@
+
+#include "test_types.h"
+
+/*
+ * recommended way is cvector.h which has everythng: all 4 base types flat
+ * (not #included) + the macros for compile time code generation
+ */
+#ifdef USE_CVECTOR_H
+
 #define CVECTOR_IMPLEMENTATION
 #ifdef USE_POSIX_STRDUP
 #define CVEC_STRDUP strdup
 #endif
 #include "cvector.h"
 
-#include "test_types.h"
+#define RESIZE(a) ((a+1)*2)
 
-/*
- * uncomment this define to test the templates generated with
- * generate_code.py from cvector_template*.h instead of
- * the equivalent macros in cvector.h
- *
- * #define USE_TEMPLATES
- */
+CVEC_NEW_DECLS(short)
+CVEC_NEW_DECLS2(f_struct)
+
+CVEC_NEW_DEFS(short, RESIZE)
+CVEC_NEW_DEFS2(f_struct, RESIZE)
+
+#else
+/* otherwise you can use individual headers (cvector_all.h just includes them) */
+
+#include "cvector_all.h"
+
 #ifdef USE_TEMPLATES
-/*replace with or add your own generated file and edit the template test*/
 
+/* plus files generated with generate_code.py and the template files */
+
+/* replace with or add your own generated file and edit the template test*/
 #define CVECTOR_short_IMPLEMENTATION
 #define CVECTOR_f_struct_IMPLEMENTATION
 #include "cvector_short.h"
@@ -23,7 +38,9 @@
 
 #else
 
-/* #include "cvector_macro.h" */
+/* or plus cvector_macro.h which has only the macros */
+
+#include "cvector_macro.h"
 
 #define RESIZE(a) ((a+1)*2)
 
@@ -34,6 +51,10 @@ CVEC_NEW_DEFS(short, RESIZE)
 CVEC_NEW_DEFS2(f_struct, RESIZE)
 
 #endif
+/* end templates vs macros */
+
+#endif
+/* end cvector.h vs cvector_all.h */
 
 #include <CUnit/Automated.h>
 #include <stdio.h>

@@ -37,6 +37,15 @@ IN THE SOFTWARE.
 
 #include <stdlib.h>
 
+#ifndef CVEC_SIZE_T
+#define CVEC_SIZE_T size_t
+#endif
+
+#ifndef CVEC_SZ
+#define CVEC_SZ
+typedef CVEC_SIZE_T cvec_sz;
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -45,32 +54,32 @@ extern "C" {
 typedef struct cvector_short
 {
 	short* a;           /**< Array. */
-	size_t size;       /**< Current size (amount you use when manipulating array directly). */
-	size_t capacity;   /**< Allocated size of array; always >= size. */
+	cvec_sz size;       /**< Current size (amount you use when manipulating array directly). */
+	cvec_sz capacity;   /**< Allocated size of array; always >= size. */
 } cvector_short;
 
 
 
-extern size_t CVEC_short_SZ;
+extern cvec_sz CVEC_short_SZ;
 
-int cvec_short(cvector_short* vec, size_t size, size_t capacity);
-int cvec_init_short(cvector_short* vec, short* vals, size_t num);
+int cvec_short(cvector_short* vec, cvec_sz size, cvec_sz capacity);
+int cvec_init_short(cvector_short* vec, short* vals, cvec_sz num);
 
-cvector_short* cvec_short_heap(size_t size, size_t capacity);
-cvector_short* cvec_init_short_heap(short* vals, size_t num);
+cvector_short* cvec_short_heap(cvec_sz size, cvec_sz capacity);
+cvector_short* cvec_init_short_heap(short* vals, cvec_sz num);
 int cvec_copyc_short(void* dest, void* src);
 int cvec_copy_short(cvector_short* dest, cvector_short* src);
 
 int cvec_push_short(cvector_short* vec, short a);
 short cvec_pop_short(cvector_short* vec);
 
-int cvec_extend_short(cvector_short* vec, size_t num);
-int cvec_insert_short(cvector_short* vec, size_t i, short a);
-int cvec_insert_array_short(cvector_short* vec, size_t i, short* a, size_t num);
-short cvec_replace_short(cvector_short* vec, size_t i, short a);
-void cvec_erase_short(cvector_short* vec, size_t start, size_t end);
-int cvec_reserve_short(cvector_short* vec, size_t size);
-int cvec_set_cap_short(cvector_short* vec, size_t size);
+int cvec_extend_short(cvector_short* vec, cvec_sz num);
+int cvec_insert_short(cvector_short* vec, cvec_sz i, short a);
+int cvec_insert_array_short(cvector_short* vec, cvec_sz i, short* a, cvec_sz num);
+short cvec_replace_short(cvector_short* vec, cvec_sz i, short a);
+void cvec_erase_short(cvector_short* vec, cvec_sz start, cvec_sz end);
+int cvec_reserve_short(cvector_short* vec, cvec_sz size);
+int cvec_set_cap_short(cvector_short* vec, cvec_sz size);
 void cvec_set_val_sz_short(cvector_short* vec, short val);
 void cvec_set_val_cap_short(cvector_short* vec, short val);
 
@@ -90,7 +99,7 @@ void cvec_free_short(void* vec);
 
 #ifdef CVECTOR_short_IMPLEMENTATION
 
-size_t CVEC_short_SZ = 50;
+cvec_sz CVEC_short_SZ = 50;
 
 #define CVEC_short_ALLOCATOR(x) ((x+1) * 2)
 
@@ -119,7 +128,7 @@ size_t CVEC_short_SZ = 50;
 #define CVEC_ASSERT(x)       assert(x)
 #endif
 
-cvector_short* cvec_short_heap(size_t size, size_t capacity)
+cvector_short* cvec_short_heap(cvec_sz size, cvec_sz capacity)
 {
 	cvector_short* vec;
 	if (!(vec = (cvector_short*)CVEC_MALLOC(sizeof(cvector_short)))) {
@@ -139,7 +148,7 @@ cvector_short* cvec_short_heap(size_t size, size_t capacity)
 	return vec;
 }
 
-cvector_short* cvec_init_short_heap(short* vals, size_t num)
+cvector_short* cvec_init_short_heap(short* vals, cvec_sz num)
 {
 	cvector_short* vec;
 	
@@ -161,7 +170,7 @@ cvector_short* cvec_init_short_heap(short* vals, size_t num)
 	return vec;
 }
 
-int cvec_short(cvector_short* vec, size_t size, size_t capacity)
+int cvec_short(cvector_short* vec, cvec_sz size, cvec_sz capacity)
 {
 	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_short_SZ;
@@ -175,7 +184,7 @@ int cvec_short(cvector_short* vec, size_t size, size_t capacity)
 	return 1;
 }
 
-int cvec_init_short(cvector_short* vec, short* vals, size_t num)
+int cvec_init_short(cvector_short* vec, short* vals, cvec_sz num)
 {
 	vec->capacity = num + CVEC_short_SZ;
 	vec->size = num;
@@ -221,7 +230,7 @@ int cvec_copy_short(cvector_short* dest, cvector_short* src)
 int cvec_push_short(cvector_short* vec, short a)
 {
 	short* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity > vec->size) {
 		vec->a[vec->size++] = a;
 	} else {
@@ -247,10 +256,10 @@ short* cvec_back_short(cvector_short* vec)
 	return &vec->a[vec->size-1];
 }
 
-int cvec_extend_short(cvector_short* vec, size_t num)
+int cvec_extend_short(cvector_short* vec, cvec_sz num)
 {
 	short* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_short_SZ;
 		if (!(tmp = (short*)CVEC_REALLOC(vec->a, sizeof(short)*tmp_sz))) {
@@ -265,10 +274,10 @@ int cvec_extend_short(cvector_short* vec, size_t num)
 	return 1;
 }
 
-int cvec_insert_short(cvector_short* vec, size_t i, short a)
+int cvec_insert_short(cvector_short* vec, cvec_sz i, short a)
 {
 	short* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity > vec->size) {
 		CVEC_MEMMOVE(&vec->a[i+1], &vec->a[i], (vec->size-i)*sizeof(short));
 		vec->a[i] = a;
@@ -288,10 +297,10 @@ int cvec_insert_short(cvector_short* vec, size_t i, short a)
 	return 1;
 }
 
-int cvec_insert_array_short(cvector_short* vec, size_t i, short* a, size_t num)
+int cvec_insert_array_short(cvector_short* vec, cvec_sz i, short* a, cvec_sz num)
 {
 	short* tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_short_SZ;
 		if (!(tmp = (short*)CVEC_REALLOC(vec->a, sizeof(short)*tmp_sz))) {
@@ -308,22 +317,22 @@ int cvec_insert_array_short(cvector_short* vec, size_t i, short* a, size_t num)
 	return 1;
 }
 
-short cvec_replace_short(cvector_short* vec, size_t i, short a)
+short cvec_replace_short(cvector_short* vec, cvec_sz i, short a)
 {
 	short tmp = vec->a[i];
 	vec->a[i] = a;
 	return tmp;
 }
 
-void cvec_erase_short(cvector_short* vec, size_t start, size_t end)
+void cvec_erase_short(cvector_short* vec, cvec_sz start, cvec_sz end)
 {
-	size_t d = end - start + 1;
+	cvec_sz d = end - start + 1;
 	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(short));
 	vec->size -= d;
 }
 
 
-int cvec_reserve_short(cvector_short* vec, size_t size)
+int cvec_reserve_short(cvector_short* vec, cvec_sz size)
 {
 	short* tmp;
 	if (vec->capacity < size) {
@@ -337,7 +346,7 @@ int cvec_reserve_short(cvector_short* vec, size_t size)
 	return 1;
 }
 
-int cvec_set_cap_short(cvector_short* vec, size_t size)
+int cvec_set_cap_short(cvector_short* vec, cvec_sz size)
 {
 	short* tmp;
 	if (size < vec->size) {
@@ -355,7 +364,7 @@ int cvec_set_cap_short(cvector_short* vec, size_t size)
 
 void cvec_set_val_sz_short(cvector_short* vec, short val)
 {
-	size_t i;
+	cvec_sz i;
 	for (i=0; i<vec->size; i++) {
 		vec->a[i] = val;
 	}
@@ -363,7 +372,7 @@ void cvec_set_val_sz_short(cvector_short* vec, short val)
 
 void cvec_set_val_cap_short(cvector_short* vec, short val)
 {
-	size_t i;
+	cvec_sz i;
 	for (i=0; i<vec->capacity; i++) {
 		vec->a[i] = val;
 	}

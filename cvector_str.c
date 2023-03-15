@@ -2,8 +2,6 @@
 
 
 
-
-
 #if defined(CVEC_MALLOC) && defined(CVEC_FREE) && defined(CVEC_REALLOC)
 /* ok */
 #elif !defined(CVEC_MALLOC) && !defined(CVEC_FREE) && !defined(CVEC_REALLOC)
@@ -28,7 +26,7 @@
 #define CVEC_ASSERT(x)       assert(x)
 #endif
 
-size_t CVEC_STR_START_SZ = 20;
+cvec_sz CVEC_STR_START_SZ = 20;
 
 #define CVEC_STR_ALLOCATOR(x) ((x+1) * 2)
 
@@ -36,7 +34,7 @@ size_t CVEC_STR_START_SZ = 20;
 /** Useful utility function since strdup isn't in standard C.*/
 char* cvec_strdup(const char* str)
 {
-	size_t len;
+	cvec_sz len;
 	char* temp;
 	if (!str)
 		return NULL;
@@ -63,7 +61,7 @@ char* cvec_strdup(const char* str)
  * or changing the contents of variables that you've pushed or inserted; it
  * won't affect the values in the vector.
  */
-cvector_str* cvec_str_heap(size_t size, size_t capacity)
+cvector_str* cvec_str_heap(cvec_sz size, cvec_sz capacity)
 {
 	cvector_str* vec;
 	if (!(vec = (cvector_str*)CVEC_MALLOC(sizeof(cvector_str)))) {
@@ -90,10 +88,10 @@ cvector_str* cvec_str_heap(size_t size, size_t capacity)
 
 /** Create (on the heap) and initialize cvector_str with num elements of vals.
  */
-cvector_str* cvec_init_str_heap(char** vals, size_t num)
+cvector_str* cvec_init_str_heap(char** vals, cvec_sz num)
 {
 	cvector_str* vec;
-	size_t i;
+	cvec_sz i;
 	
 	if (!(vec = (cvector_str*)CVEC_MALLOC(sizeof(cvector_str)))) {
 		CVEC_ASSERT(vec != NULL);
@@ -119,7 +117,7 @@ cvector_str* cvec_init_str_heap(char** vals, size_t num)
  *  it isn't allocated in this function.  Use the cvec_free_str in this case
  *  This and cvec_init_str should be preferred over the heap versions.
  */
-int cvec_str(cvector_str* vec, size_t size, size_t capacity)
+int cvec_str(cvector_str* vec, cvec_sz size, cvec_sz capacity)
 {
 	vec->size = size;
 	vec->capacity = (capacity > vec->size || (vec->size && capacity == vec->size)) ? capacity : vec->size + CVEC_STR_START_SZ;
@@ -139,9 +137,9 @@ int cvec_str(cvector_str* vec, size_t size, size_t capacity)
 /** Same as cvec_init_str_heap() except the vector passed in was declared on the stack so
  *  it isn't allocated in this function.  Use the cvec_free_str in this case
  */
-int cvec_init_str(cvector_str* vec, char** vals, size_t num)
+int cvec_init_str(cvector_str* vec, char** vals, cvec_sz num)
 {
-	size_t i;
+	cvec_sz i;
 	
 	vec->capacity = num + CVEC_STR_START_SZ;
 	vec->size = num;
@@ -214,7 +212,7 @@ int cvec_copy_str(cvector_str* dest, cvector_str* src)
 int cvec_push_str(cvector_str* vec, char* a)
 {
 	char** tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_STR_ALLOCATOR(vec->capacity);
 		if (!(tmp = (char**)CVEC_REALLOC(vec->a, sizeof(char*)*tmp_sz))) {
@@ -233,7 +231,7 @@ int cvec_push_str(cvector_str* vec, char* a)
 int cvec_pushm_str(cvector_str* vec, char* a)
 {
 	char** tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_STR_ALLOCATOR(vec->capacity);
 		if (!(tmp = (char**)CVEC_REALLOC(vec->a, sizeof(char*)*tmp_sz))) {
@@ -269,10 +267,10 @@ char** cvec_back_str(cvector_str* vec)
 /** Increase the size of the array num items.  Items
  *  are memset to NULL since they will be freed when
     popped or the vector is freed.*/
-int cvec_extend_str(cvector_str* vec, size_t num)
+int cvec_extend_str(cvector_str* vec, cvec_sz num)
 {
 	char** tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_STR_START_SZ;
 		if (!(tmp = (char**)CVEC_REALLOC(vec->a, sizeof(char*)*tmp_sz))) {
@@ -292,10 +290,10 @@ int cvec_extend_str(cvector_str* vec, size_t num)
  * Insert a at index i (0 based).
  * Everything from that index and right is shifted one to the right.
  */
-int cvec_insert_str(cvector_str* vec, size_t i, char* a)
+int cvec_insert_str(cvector_str* vec, cvec_sz i, char* a)
 {
 	char** tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_STR_ALLOCATOR(vec->capacity);
 		if (!(tmp = (char**)CVEC_REALLOC(vec->a, sizeof(char*)*tmp_sz))) {
@@ -315,10 +313,10 @@ int cvec_insert_str(cvector_str* vec, size_t i, char* a)
 /**
  * Same as insert except no CVEC_STRDUP.
  */
-int cvec_insertm_str(cvector_str* vec, size_t i, char* a)
+int cvec_insertm_str(cvector_str* vec, cvec_sz i, char* a)
 {
 	char** tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity == vec->size) {
 		tmp_sz = CVEC_STR_ALLOCATOR(vec->capacity);
 		if (!(tmp = (char**)CVEC_REALLOC(vec->a, sizeof(char*)*tmp_sz))) {
@@ -340,10 +338,10 @@ int cvec_insertm_str(cvector_str* vec, size_t i, char* a)
  * Note that it is the user's responsibility to pass in valid
  * arguments.
  */
-int cvec_insert_array_str(cvector_str* vec, size_t i, char** a, size_t num)
+int cvec_insert_array_str(cvector_str* vec, cvec_sz i, char** a, cvec_sz num)
 {
 	char** tmp;
-	size_t tmp_sz, j;
+	cvec_sz tmp_sz, j;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_STR_START_SZ;
 		if (!(tmp = (char**)CVEC_REALLOC(vec->a, sizeof(char*)*tmp_sz))) {
@@ -366,10 +364,10 @@ int cvec_insert_array_str(cvector_str* vec, size_t i, char** a, size_t num)
 /**
  * Same as insert_array except no CVEC_STRDUP.
  */
-int cvec_insert_arraym_str(cvector_str* vec, size_t i, char** a, size_t num)
+int cvec_insert_arraym_str(cvector_str* vec, cvec_sz i, char** a, cvec_sz num)
 {
 	char** tmp;
-	size_t tmp_sz;
+	cvec_sz tmp_sz;
 	if (vec->capacity < vec->size + num) {
 		tmp_sz = vec->capacity + num + CVEC_STR_START_SZ;
 		if (!(tmp = (char**)CVEC_REALLOC(vec->a, sizeof(char*)*tmp_sz))) {
@@ -391,7 +389,7 @@ int cvec_insert_arraym_str(cvector_str* vec, size_t i, char** a, size_t num)
  * Replace string at i with a. If ret != NULL, strcpy the old str to it.
  * See cvec_pop_str warning
  * */
-void cvec_replace_str(cvector_str* vec, size_t i, char* a, char* ret)
+void cvec_replace_str(cvector_str* vec, cvec_sz i, char* a, char* ret)
 {
 	if (ret)
 		strcpy(ret, vec->a[i]);
@@ -404,10 +402,10 @@ void cvec_replace_str(cvector_str* vec, size_t i, char* a, char* ret)
  * Example erases(myvec, 1, 3) would CVEC_FREE and remove strings at 1, 2, and 3 and the string
  * that was at index 4 would now be at 1 etc.
  */
-void cvec_erase_str(cvector_str* vec, size_t start, size_t end)
+void cvec_erase_str(cvector_str* vec, cvec_sz start, cvec_sz end)
 {
-	size_t i;
-	size_t d = end - start + 1;
+	cvec_sz i;
+	cvec_sz d = end - start + 1;
 	for (i=start; i<=end; i++) {
 		CVEC_FREE(vec->a[i]);
 	}
@@ -417,15 +415,15 @@ void cvec_erase_str(cvector_str* vec, size_t start, size_t end)
 }
 
 /** Same as erase except it *does not* call CVEC_FREE. */
-void cvec_remove_str(cvector_str* vec, size_t start, size_t end)
+void cvec_remove_str(cvector_str* vec, cvec_sz start, cvec_sz end)
 {
-	size_t d = end - start + 1;
+	cvec_sz d = end - start + 1;
 	CVEC_MEMMOVE(&vec->a[start], &vec->a[end+1], (vec->size-1-end)*sizeof(char*));
 	vec->size -= d;
 }
 
 /** Makes sure the vector capacity is >= size (parameter not member). */
-int cvec_reserve_str(cvector_str* vec, size_t size)
+int cvec_reserve_str(cvector_str* vec, cvec_sz size)
 {
 	char** tmp;
 	if (vec->capacity < size) {
@@ -443,9 +441,9 @@ int cvec_reserve_str(cvector_str* vec, size_t size)
  * You will lose data if you shrink the capacity below the current size.
  * If you do, the size will be set to capacity of course.
 */
-int cvec_set_cap_str(cvector_str* vec, size_t size)
+int cvec_set_cap_str(cvector_str* vec, cvec_sz size)
 {
-	size_t i;
+	cvec_sz i;
 	char** tmp;
 	if (size < vec->size) {
 		for(i=vec->size-1; i>size-1; i--) {
@@ -467,7 +465,7 @@ int cvec_set_cap_str(cvector_str* vec, size_t size)
 /** Sets all size elements to val. */
 void cvec_set_val_sz_str(cvector_str* vec, char* val)
 {
-	size_t i;
+	cvec_sz i;
 	for(i=0; i<vec->size; i++) {
 		CVEC_FREE(vec->a[i]);
 
@@ -482,7 +480,7 @@ void cvec_set_val_sz_str(cvector_str* vec, char* val)
    TODO  Remove this function?  even more unnecessary than for cvector_i and cvector_d and different behavior*/
 void cvec_set_val_cap_str(cvector_str* vec, char* val)
 {
-	size_t i;
+	cvec_sz i;
 	for (i=0; i<vec->capacity; i++) {
 		if (i<vec->size) {
 			CVEC_FREE(vec->a[i]);
@@ -508,7 +506,7 @@ void cvec_clear_str(cvector_str* vec)
  *  after calling this. Passing NULL is a NO-OP, matching the behavior of free(). */
 void cvec_free_str_heap(void* vec)
 {
-	size_t i;
+	cvec_sz i;
 	cvector_str* tmp = (cvector_str*)vec;
 	if (!tmp) return;
 	for (i=0; i<tmp->size; i++) {
@@ -522,7 +520,7 @@ void cvec_free_str_heap(void* vec)
 /** Frees the internal array and sets size and capacity to 0 */
 void cvec_free_str(void* vec)
 {
-	size_t i;
+	cvec_sz i;
 	cvector_str* tmp = (cvector_str*)vec;
 	for (i=0; i<tmp->size; i++) {
 		CVEC_FREE(tmp->a[i]);
