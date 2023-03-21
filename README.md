@@ -1,6 +1,5 @@
 CVECTOR
 =======
-[![Build Status](https://travis-ci.org/rswinkle/CVector.svg?branch=master)](https://travis-ci.org/rswinkle/CVector)
 
 [Download](https://github.com/rswinkle/cvector)
 
