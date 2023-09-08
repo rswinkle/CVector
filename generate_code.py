@@ -17,4 +17,5 @@ for f in files:
 	tmp.write(open("header_docs.txt").read())
 	tmp.write("*/\n\n")
 	tmp.write(out_string);
+	tmp.close()
 
