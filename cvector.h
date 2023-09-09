@@ -85,7 +85,10 @@ IN THE SOFTWARE.
 #define CVEC_SIZE_T size_t
 #endif
 
+#ifndef CVEC_SZ
+#define CVEC_SZ
 typedef CVEC_SIZE_T cvec_sz;
+#endif
 
 #ifdef __cplusplus
 extern "C" {
