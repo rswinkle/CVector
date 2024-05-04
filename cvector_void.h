@@ -59,6 +59,7 @@ int cvec_replace_void(cvector_void* vec, cvec_sz i, void* a, void* ret);
 void cvec_erase_void(cvector_void* vec, cvec_sz start, cvec_sz end);
 void cvec_remove_void(cvector_void* vec, cvec_sz start, cvec_sz end);
 int cvec_reserve_void(cvector_void* vec, cvec_sz size);
+#define cvec_shrink_to_fit_void(vec) cvec_set_cap_void((vec), (vec)->size)
 int cvec_set_cap_void(cvector_void* vec, cvec_sz size);
 int cvec_set_val_sz_void(cvector_void* vec, void* val);
 int cvec_set_val_cap_void(cvector_void* vec, void* val);

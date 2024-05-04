@@ -1,6 +1,6 @@
 /*
 
-CVector 4.1.1 MIT Licensed vector (dynamic array) library in strict C89
+CVector 4.2.0 MIT Licensed vector (dynamic array) library in strict C89
 http://www.robertwinkler.com/projects/cvector.html
 http://www.robertwinkler.com/projects/cvector/
 
@@ -16,7 +16,7 @@ http://portablegl.com/
 
 The MIT License (MIT)
 
-Copyright (c) 2011-2023 Robert Winkler
+Copyright (c) 2011-2024 Robert Winkler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -87,6 +87,7 @@ int cvec_replace_f_struct(cvector_f_struct* vec, cvec_sz i, f_struct* a, f_struc
 void cvec_erase_f_struct(cvector_f_struct* vec, cvec_sz start, cvec_sz end);
 void cvec_remove_f_struct(cvector_f_struct* vec, cvec_sz start, cvec_sz end);
 int cvec_reserve_f_struct(cvector_f_struct* vec, cvec_sz size);
+#define cvec_shrink_to_fit_f_struct(vec) cvec_set_cap_f_struct((vec), (vec)->size)
 int cvec_set_cap_f_struct(cvector_f_struct* vec, cvec_sz size);
 int cvec_set_val_sz_f_struct(cvector_f_struct* vec, f_struct* val);
 int cvec_set_val_cap_f_struct(cvector_f_struct* vec, f_struct* val);

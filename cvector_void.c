@@ -42,7 +42,7 @@ cvec_sz CVEC_VOID_START_SZ = 20;
  *
  * For example if you passed in sizeof(char*) for elem_sz, and wrappers around the standard free(void*)
  * function for elem_free and CVEC_STRDUP for elem_init you could
- * make vector work *almost* exactly like cvector_str.  The main difference is cvector_str does not
+ * make cvector_void work *almost* exactly like cvector_str.  The main difference is cvector_str does not
  * check for failure of CVEC_STRDUP while cvector_void does check for failure of elem_init.  The other
  * minor differences are popm and replacem are macros in cvector_str (and the latter returns the result
  * rather than using a double pointer return parameter) and depending on how you defined elem_init
@@ -840,7 +840,7 @@ action and how it should behave, look at cvector_tests.c
 \section LICENSE
 CVector is licensed under the MIT License.
 
-Copyright (c) 2011-2023 Robert Winkler
+Copyright (c) 2011-2024 Robert Winkler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation

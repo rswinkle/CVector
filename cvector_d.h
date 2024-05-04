@@ -43,6 +43,7 @@ int cvec_insert_array_d(cvector_d* vec, cvec_sz i, double* a, cvec_sz num);
 double cvec_replace_d(cvector_d* vec, cvec_sz i, double a);
 void cvec_erase_d(cvector_d* vec, cvec_sz start, cvec_sz end);
 int cvec_reserve_d(cvector_d* vec, cvec_sz size);
+#define cvec_shrink_to_fit_d(vec) cvec_set_cap_d((vec), (vec)->size)
 int cvec_set_cap_d(cvector_d* vec, cvec_sz size);
 void cvec_set_val_sz_d(cvector_d* vec, double val);
 void cvec_set_val_cap_d(cvector_d* vec, double val);

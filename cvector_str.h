@@ -55,6 +55,7 @@ void cvec_replace_str(cvector_str* vec, cvec_sz i, char* a, char* ret);
 void cvec_erase_str(cvector_str* vec, cvec_sz start, cvec_sz end);
 void cvec_remove_str(cvector_str* vec, cvec_sz start, cvec_sz end);
 int cvec_reserve_str(cvector_str* vec, cvec_sz size);
+#define cvec_shrink_to_fit_str(vec) cvec_set_cap_str((vec), (vec)->size)
 int cvec_set_cap_str(cvector_str* vec, cvec_sz size);
 void cvec_set_val_sz_str(cvector_str* vec, char* val);
 void cvec_set_val_cap_str(cvector_str* vec, char* val);

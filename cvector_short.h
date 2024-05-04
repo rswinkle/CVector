@@ -1,6 +1,6 @@
 /*
 
-CVector 4.1.1 MIT Licensed vector (dynamic array) library in strict C89
+CVector 4.2.0 MIT Licensed vector (dynamic array) library in strict C89
 http://www.robertwinkler.com/projects/cvector.html
 http://www.robertwinkler.com/projects/cvector/
 
@@ -16,7 +16,7 @@ http://portablegl.com/
 
 The MIT License (MIT)
 
-Copyright (c) 2011-2023 Robert Winkler
+Copyright (c) 2011-2024 Robert Winkler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -79,6 +79,7 @@ int cvec_insert_array_short(cvector_short* vec, cvec_sz i, short* a, cvec_sz num
 short cvec_replace_short(cvector_short* vec, cvec_sz i, short a);
 void cvec_erase_short(cvector_short* vec, cvec_sz start, cvec_sz end);
 int cvec_reserve_short(cvector_short* vec, cvec_sz size);
+#define cvec_shrink_to_fit_short(vec) cvec_set_cap_short((vec), (vec)->size)
 int cvec_set_cap_short(cvector_short* vec, cvec_sz size);
 void cvec_set_val_sz_short(cvector_short* vec, short val);
 void cvec_set_val_cap_short(cvector_short* vec, short val);

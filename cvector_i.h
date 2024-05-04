@@ -43,6 +43,7 @@ int cvec_insert_array_i(cvector_i* vec, cvec_sz i, int* a, cvec_sz num);
 int cvec_replace_i(cvector_i* vec, cvec_sz i, int a);
 void cvec_erase_i(cvector_i* vec, cvec_sz start, cvec_sz end);
 int cvec_reserve_i(cvector_i* vec, cvec_sz size);
+#define cvec_shrink_to_fit_i(vec) cvec_set_cap_i((vec), (vec)->size)
 int cvec_set_cap_i(cvector_i* vec, cvec_sz size);
 void cvec_set_val_sz_i(cvector_i* vec, int val);
 void cvec_set_val_cap_i(cvector_i* vec, int val);
