@@ -44,6 +44,7 @@ IN THE SOFTWARE.
 #endif
 
 #ifndef CVEC_MALLOC
+#include <stdlib.h>
 #define CVEC_MALLOC(sz)      malloc(sz)
 #define CVEC_REALLOC(p, sz)  realloc(p, sz)
 #define CVEC_FREE(p)         free(p)
@@ -60,6 +61,7 @@ IN THE SOFTWARE.
 #endif
 
 #ifndef CVEC_SIZE_TYPE
+#include <stdlib.h>
 #define CVEC_SIZE_TYPE size_t
 #endif
 
