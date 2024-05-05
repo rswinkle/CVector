@@ -112,6 +112,31 @@ solution "CVector"
 		configuration { "linux", "gmake" }
 			buildoptions { "-ansi", "-pedantic-errors", "-fno-strict-aliasing", "-Wunused-variable", "-Wreturn-type" }
 
+	project "cvector_nolibc"
+		location "build"
+		kind "ConsoleApp"
+		language "C"
+		files
+		{
+			  "main_nolibc.c",
+			  "cvector.h"
+		}
+		links { }
+		targetdir "build"
+
+		configuration "Debug"
+			defines { "DEBUG" }
+			flags { "Symbols" }
+
+		configuration "Release"
+			defines { "NDEBUG" }
+			flags { "Optimize" }
+
+		configuration { "linux", "gmake" }
+			buildoptions { "-std=gnu89", "-nostdlib", "-pedantic-errors", "-fno-strict-aliasing", "-Wunused-variable", "-Wreturn-type" }
+
+
+
 	project "cvectorcpp"
 		location "build"
 		kind "ConsoleApp"

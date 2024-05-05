@@ -11,6 +11,7 @@
 #endif
 
 #ifndef CVEC_MALLOC
+#include <stdlib.h>
 #define CVEC_MALLOC(sz)      malloc(sz)
 #define CVEC_REALLOC(p, sz)  realloc(p, sz)
 #define CVEC_FREE(p)         free(p)

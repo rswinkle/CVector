@@ -28,10 +28,6 @@ cvector_str = """
 #ifndef CVECTOR_H
 #define CVECTOR_H
 
-#include <stdlib.h>
-#include <string.h>
-#include <assert.h>
-
 #if defined(CVEC_ONLY_INT) || defined(CVEC_ONLY_DOUBLE) || defined(CVEC_ONLY_STR) \
 || defined(CVEC_ONLY_VOID)
    #ifndef CVEC_ONLY_INT
@@ -57,6 +53,7 @@ cvector_str = """
 #endif
 
 #ifndef CVEC_MALLOC
+#include <stdlib.h>
 #define CVEC_MALLOC(sz)      malloc(sz)
 #define CVEC_REALLOC(p, sz)  realloc(p, sz)
 #define CVEC_FREE(p)         free(p)
@@ -73,6 +70,7 @@ cvector_str = """
 #endif
 
 #ifndef CVEC_SIZE_T
+#include <stdlib.h>
 #define CVEC_SIZE_T size_t
 #endif
 

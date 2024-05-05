@@ -35,9 +35,8 @@ IN THE SOFTWARE.
 #ifndef CVECTOR_f_struct_H
 #define CVECTOR_f_struct_H
 
-#include <stdlib.h>
-
 #ifndef CVEC_SIZE_T
+#include <stdlib.h>
 #define CVEC_SIZE_T size_t
 #endif
 
@@ -121,6 +120,7 @@ cvec_sz CVEC_f_struct_SZ = 20;
 #endif
 
 #ifndef CVEC_MALLOC
+#include <stdlib.h>
 #define CVEC_MALLOC(sz)      malloc(sz)
 #define CVEC_REALLOC(p, sz)  realloc(p, sz)
 #define CVEC_FREE(p)         free(p)

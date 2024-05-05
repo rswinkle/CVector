@@ -1,9 +1,8 @@
 #ifndef CVECTORSTR_H
 #define CVECTORSTR_H
 
-#include <stdlib.h>
-
 #ifndef CVEC_SIZE_T
+#include <stdlib.h>
 #define CVEC_SIZE_T size_t
 #endif
 
