@@ -34,13 +34,13 @@ malloc when given a NULL pointer.  With cvector_void you still have to set
 elem_size, and optionally elem_free/elem_init. See the zero_init_x_test()'s
 in cvector_tests.c for example of that use.
 
-The `cvec_sz` type defaults to `size_t` but if you define CVEC_SIZE_T before including
-the header which is then `typedef`'d to `cvec_sz`.  It has to be defined before
-every header inclusion since it is used in both the header (struct definiton)
-and the implementation.  Note, if you use a signed type, passing a negative value
-is undefined behavior (ie it'll likely crash immediately).  Of course if you
-passed a negative while using the default `size_t` you'd probably crash anyway
-as it would wrap around to 2^64.
+The `cvec_sz` type defaults to `size_t` but you can define CVEC_SIZE_T to your
+preferred type before including the header which in turn is then `typedef`'d
+to `cvec_sz`.  It has to be defined before every header inclusion.  Note, if
+you use a signed type, passing a negative value is undefined behavior
+(ie it'll likely crash immediately).  Of course if you passed a negative while
+using the default `size_t` you'd probably crash anyway as it would wrap around
+to a problematically large number.
 
 There are also 2 templates, one for basic types and one for types that contain
 dynamically allocated memory and you might want a free and/or init function.
