@@ -613,7 +613,7 @@ void cvec_free_TYPE(void* vec)
 	}
 
 	CVEC_FREE(tmp->a);
-
+	tmp->a = NULL;
 	tmp->size = 0;
 	tmp->capacity = 0;
 }

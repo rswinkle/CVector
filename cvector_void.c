@@ -664,7 +664,8 @@ void cvec_free_void_heap(void* vec)
 	CVEC_FREE(tmp);
 }
 
-/** Frees the internal array and sets size and capacity to 0 */
+/** Frees the internal array and sets it, size, and capacity to NULL/0 to
+ * maintain a consistent state */
 void cvec_free_void(void* vec)
 {
 	cvec_sz i;
@@ -676,7 +677,7 @@ void cvec_free_void(void* vec)
 	}
 
 	CVEC_FREE(tmp->a);
-
+	tmp->a = NULL;
 	tmp->size = 0;
 	tmp->capacity = 0;
 }
@@ -841,7 +842,7 @@ action and how it should behave, look at cvector_tests.c
 \section LICENSE
 CVector is licensed under the MIT License.
 
-Copyright (c) 2011-2024 Robert Winkler
+Copyright (c) 2011-2025 Robert Winkler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation

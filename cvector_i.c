@@ -354,11 +354,13 @@ void cvec_free_i_heap(void* vec)
 	CVEC_FREE(tmp);
 }
 
-/** Frees the internal array and sets size and capacity to 0 */
+/** Frees the internal array and zeros out the members to maintain a
+ * consistent state */
 void cvec_free_i(void* vec)
 {
 	cvector_i* tmp = (cvector_i*)vec;
 	CVEC_FREE(tmp->a);
+	tmp->a = NULL;
 	tmp->size = 0;
 	tmp->capacity = 0;
 }

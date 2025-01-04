@@ -116,7 +116,7 @@ void erase_i_test()
 	cvec_free_i(&vec);
 }
 
-/* zeroing is valid initialization */
+/* zeroing is valid initialization and cvec_free_i returns to this state */
 void zero_init_i_test()
 {
 	int i;
@@ -138,6 +138,9 @@ void zero_init_i_test()
 		CU_ASSERT_EQUAL(i, vec.a[i]);
 
 	cvec_free_i(&vec);
+	CU_ASSERT(vec.capacity == 0)
+	CU_ASSERT(vec.size == 0)
+	CU_ASSERT(vec.a == NULL)
 }
 
 
@@ -391,7 +394,7 @@ void erase_d_test()
 	cvec_free_d(&vec);
 }
 
-/* zeroing is valid initialization */
+/* zeroing is valid initialization and cvec_free_d returns to this state */
 void zero_init_d_test()
 {
 	int i;
@@ -413,6 +416,9 @@ void zero_init_d_test()
 		CU_ASSERT_EQUAL(i+0.5, vec.a[i]);
 
 	cvec_free_d(&vec);
+	CU_ASSERT(vec.capacity == 0)
+	CU_ASSERT(vec.size == 0)
+	CU_ASSERT(vec.a == NULL)
 }
 
 void insert_d_test()
@@ -700,7 +706,7 @@ void remove_str_test()
 
 }
 
-/* zeroing is valid initialization */
+/* zeroing is valid initialization and cvec_free_s returns to this state */
 void zero_init_str_test()
 {
 	int i;
@@ -727,6 +733,9 @@ void zero_init_str_test()
 	}
 
 	cvec_free_str(&vec);
+	CU_ASSERT(vec.capacity == 0)
+	CU_ASSERT(vec.size == 0)
+	CU_ASSERT(vec.a == NULL)
 }
 
 
@@ -1392,6 +1401,12 @@ void zero_init_void_test()
 
 	cvec_free_void(&vec1);
 	cvec_free_void(&vec2);
+	CU_ASSERT(vec1.capacity == 0)
+	CU_ASSERT(vec1.size == 0)
+	CU_ASSERT(vec1.a == NULL)
+	CU_ASSERT(vec2.capacity == 0)
+	CU_ASSERT(vec2.size == 0)
+	CU_ASSERT(vec2.a == NULL)
 }
 
 
@@ -1986,6 +2001,9 @@ void template_test()
 		CU_ASSERT_EQUAL(i, vec.a[i]);
 
 	cvec_free_short(&vec);
+	CU_ASSERT(vec.capacity == 0)
+	CU_ASSERT(vec.size == 0)
+	CU_ASSERT(vec.a == NULL)
 }
 
 void template_test2()
@@ -2194,6 +2212,9 @@ void template_test2()
 	CU_ASSERT_EQUAL(vec.size, 101);
 
 	cvec_free_f_struct(&vec);
+	CU_ASSERT(vec.capacity == 0)
+	CU_ASSERT(vec.size == 0)
+	CU_ASSERT(vec.a == NULL)
 }
 
 

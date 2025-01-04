@@ -1,6 +1,6 @@
 /*
 
-CVector 4.2.0 MIT Licensed vector (dynamic array) library in strict C89
+CVector 4.2.1 MIT Licensed vector (dynamic array) library in strict C89
 http://www.robertwinkler.com/projects/cvector.html
 http://www.robertwinkler.com/projects/cvector/
 
@@ -16,7 +16,7 @@ http://portablegl.com/
 
 The MIT License (MIT)
 
-Copyright (c) 2011-2024 Robert Winkler
+Copyright (c) 2011-2025 Robert Winkler
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -376,6 +376,7 @@ typedef CVEC_SIZE_TYPE cvec_sz;
   {                                                                                         \
     cvector_##TYPE* tmp = (cvector_##TYPE*)vec;                                             \
     CVEC_FREE(tmp->a);                                                                      \
+    tmp->a        = NULL;                                                                   \
     tmp->size     = 0;                                                                      \
     tmp->capacity = 0;                                                                      \
   }
@@ -945,7 +946,7 @@ typedef CVEC_SIZE_TYPE cvec_sz;
     }                                                                                            \
                                                                                                  \
     CVEC_FREE(tmp->a);                                                                           \
-                                                                                                 \
+    tmp->a        = NULL;                                                                        \
     tmp->size     = 0;                                                                           \
     tmp->capacity = 0;                                                                           \
   }

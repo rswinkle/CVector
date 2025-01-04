@@ -358,6 +358,7 @@ void cvec_free_TYPE(void* vec)
 {
 	cvector_TYPE* tmp = (cvector_TYPE*)vec;
 	CVEC_FREE(tmp->a);
+	tmp->a = NULL;
 	tmp->size = 0;
 	tmp->capacity = 0;
 }
